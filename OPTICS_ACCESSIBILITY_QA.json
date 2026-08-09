@@ -1,0 +1,199 @@
+{
+  "passed": true,
+  "checks": 16,
+  "failures": [],
+  "results": [
+    {
+      "name": "standalone six physical focal choices",
+      "pass": true,
+      "detail": 6
+    },
+    {
+      "name": "standalone every aperture floor physical",
+      "pass": true,
+      "detail": [
+        [
+          2,
+          2
+        ],
+        [
+          1.8,
+          1.8
+        ],
+        [
+          1.8,
+          1.8
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4.5,
+          4.5
+        ],
+        [
+          5.6,
+          5.6
+        ]
+      ]
+    },
+    {
+      "name": "standalone full optical permutation matrix",
+      "pass": true,
+      "detail": {
+        "count": 585,
+        "failures": []
+      }
+    },
+    {
+      "name": "standalone four distinct pedagogical presets",
+      "pass": true,
+      "detail": [
+        [
+          0,
+          11,
+          "1.94 m → ∞",
+          "Lectura: El límite lejano llega a infinito; fondo y horizonte caen dentro de la DoF calculada. El disco estimado es menor que el CoC elegido."
+        ],
+        [
+          2,
+          1.8,
+          "2.94 m → 3.07 m",
+          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. La separación geométrica del fondo es fuerte."
+        ],
+        [
+          2,
+          2.8,
+          "6.48 m → 7.61 m",
+          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. La separación geométrica del fondo es fuerte."
+        ],
+        [
+          5,
+          8,
+          "4.91 m → 7.71 m",
+          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. Hay separación moderada del plano de fondo."
+        ]
+      ]
+    },
+    {
+      "name": "standalone sunlight toggle",
+      "pass": true,
+      "detail": [
+        "false",
+        "true"
+      ]
+    },
+    {
+      "name": "standalone sunlight class",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone no visible text below 11px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone runtime errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted six physical focal choices",
+      "pass": true,
+      "detail": 6
+    },
+    {
+      "name": "hosted every aperture floor physical",
+      "pass": true,
+      "detail": [
+        [
+          2,
+          2
+        ],
+        [
+          1.8,
+          1.8
+        ],
+        [
+          1.8,
+          1.8
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4.5,
+          4.5
+        ],
+        [
+          5.6,
+          5.6
+        ]
+      ]
+    },
+    {
+      "name": "hosted full optical permutation matrix",
+      "pass": true,
+      "detail": {
+        "count": 585,
+        "failures": []
+      }
+    },
+    {
+      "name": "hosted four distinct pedagogical presets",
+      "pass": true,
+      "detail": [
+        [
+          0,
+          11,
+          "1.94 m → ∞",
+          "Lectura: El límite lejano llega a infinito; fondo y horizonte caen dentro de la DoF calculada. El disco estimado es menor que el CoC elegido."
+        ],
+        [
+          2,
+          1.8,
+          "2.94 m → 3.07 m",
+          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. La separación geométrica del fondo es fuerte."
+        ],
+        [
+          2,
+          2.8,
+          "6.48 m → 7.61 m",
+          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. La separación geométrica del fondo es fuerte."
+        ],
+        [
+          5,
+          8,
+          "4.91 m → 7.71 m",
+          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. Hay separación moderada del plano de fondo."
+        ]
+      ]
+    },
+    {
+      "name": "hosted sunlight toggle",
+      "pass": true,
+      "detail": [
+        "false",
+        "true"
+      ]
+    },
+    {
+      "name": "hosted sunlight class",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "hosted no visible text below 11px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}

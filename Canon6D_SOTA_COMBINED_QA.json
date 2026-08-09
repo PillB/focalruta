@@ -1,0 +1,569 @@
+{
+  "passed": true,
+  "total_checks": 106,
+  "suites": {
+    "standalone_functional": {
+      "passed": true,
+      "checks": 70,
+      "failures": [],
+      "results": [
+        {
+          "name": "iphone390 overflow",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 plans",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 nav6",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 touch44",
+          "pass": true,
+          "detail": "[48, 48, 48, 48, 48, 48]"
+        },
+        {
+          "name": "36 states",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "diagrams matrix",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "iphone390 optics presets",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "iphone390 aperture floors",
+          "pass": true,
+          "detail": "[['35', 2.0, 2.0], ['50', 1.8, 1.8], ['85', 1.8, 1.8], ['80', 5.6, 5.6]]"
+        },
+        {
+          "name": "iphone390 motion6",
+          "pass": true,
+          "detail": "[['freeze', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['pan', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['ghost', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['trails', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['paint', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['zoom', '100%\\nhuella relativa', '100%\\nhuella relativa']]"
+        },
+        {
+          "name": "iphone390 motion changes",
+          "pass": true,
+          "detail": "[['freeze', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['pan', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['ghost', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['trails', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['paint', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['zoom', '100%\\nhuella relativa', '100%\\nhuella relativa']]"
+        },
+        {
+          "name": "iphone390 comp keyboard",
+          "pass": true,
+          "detail": "67%, 67%>65%, 67%"
+        },
+        {
+          "name": "iphone390 comp overlay",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 run open",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 run next",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 run done",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 run esc",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 field open",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 field focus inside",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 field esc",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone390 no errors",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "iphone430 overflow",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 plans",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 nav6",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 touch44",
+          "pass": true,
+          "detail": "[48, 48, 48, 48, 48, 48]"
+        },
+        {
+          "name": "iphone430 optics presets",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "iphone430 aperture floors",
+          "pass": true,
+          "detail": "[['35', 2.0, 2.0], ['50', 1.8, 1.8], ['85', 1.8, 1.8], ['80', 5.6, 5.6]]"
+        },
+        {
+          "name": "iphone430 motion6",
+          "pass": true,
+          "detail": "[['freeze', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['pan', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['ghost', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['trails', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['paint', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['zoom', '100%\\nhuella relativa', '100%\\nhuella relativa']]"
+        },
+        {
+          "name": "iphone430 motion changes",
+          "pass": true,
+          "detail": "[['freeze', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['pan', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['ghost', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['trails', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['paint', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['zoom', '100%\\nhuella relativa', '100%\\nhuella relativa']]"
+        },
+        {
+          "name": "iphone430 comp keyboard",
+          "pass": true,
+          "detail": "67%, 67%>65%, 67%"
+        },
+        {
+          "name": "iphone430 comp overlay",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 run open",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 run next",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 run done",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 run esc",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 field open",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 field focus inside",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 field esc",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "iphone430 no errors",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "tablet overflow",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet plans",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet optics presets",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "tablet aperture floors",
+          "pass": true,
+          "detail": "[['35', 2.0, 2.0], ['50', 1.8, 1.8], ['85', 1.8, 1.8], ['80', 5.6, 5.6]]"
+        },
+        {
+          "name": "tablet motion6",
+          "pass": true,
+          "detail": "[['freeze', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['pan', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['ghost', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['trails', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['paint', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['zoom', '100%\\nhuella relativa', '100%\\nhuella relativa']]"
+        },
+        {
+          "name": "tablet motion changes",
+          "pass": true,
+          "detail": "[['freeze', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['pan', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['ghost', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['trails', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['paint', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['zoom', '100%\\nhuella relativa', '100%\\nhuella relativa']]"
+        },
+        {
+          "name": "tablet comp keyboard",
+          "pass": true,
+          "detail": "67%, 67%>65%, 67%"
+        },
+        {
+          "name": "tablet comp overlay",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet run open",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet run next",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet run done",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet run esc",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet field open",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet field focus inside",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet field esc",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "tablet no errors",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "desktop overflow",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop plans",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop optics presets",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "desktop aperture floors",
+          "pass": true,
+          "detail": "[['35', 2.0, 2.0], ['50', 1.8, 1.8], ['85', 1.8, 1.8], ['80', 5.6, 5.6]]"
+        },
+        {
+          "name": "desktop motion6",
+          "pass": true,
+          "detail": "[['freeze', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['pan', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['ghost', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['trails', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['paint', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['zoom', '100%\\nhuella relativa', '100%\\nhuella relativa']]"
+        },
+        {
+          "name": "desktop motion changes",
+          "pass": true,
+          "detail": "[['freeze', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['pan', '1%\\nhuella relativa', '100%\\nhuella relativa'], ['ghost', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['trails', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['paint', '100%\\nhuella relativa', '100%\\nhuella relativa'], ['zoom', '100%\\nhuella relativa', '100%\\nhuella relativa']]"
+        },
+        {
+          "name": "desktop comp keyboard",
+          "pass": true,
+          "detail": "67%, 67%>65%, 67%"
+        },
+        {
+          "name": "desktop comp overlay",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop run open",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop run next",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop run done",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop run esc",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop field open",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop field focus inside",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop field esc",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "desktop no errors",
+          "pass": true,
+          "detail": "[]"
+        }
+      ]
+    },
+    "postpatch_interactions": {
+      "passed": true,
+      "checks": 9,
+      "failures": [],
+      "results": [
+        {
+          "name": "field open",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "field focus",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "field inert bg",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "field close",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "field restore bg",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "detail modal all six",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "run fallback mark",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "no errors",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "overflow",
+          "pass": true,
+          "detail": ""
+        }
+      ]
+    },
+    "hosted_architecture": {
+      "passed": true,
+      "checks": 27,
+      "failures": [],
+      "results": [
+        {
+          "name": "hosted html under 150KB",
+          "pass": true,
+          "detail": "107090"
+        },
+        {
+          "name": "standalone over 1MB",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "hosted no data images",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "hosted external CSS",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "hosted external plan data",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "hosted no inline asset map",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "hosted lazy hints",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "static relative resources exist",
+          "pass": true,
+          "detail": "[]"
+        },
+        {
+          "name": "120 dynamic diagrams hosted",
+          "pass": true,
+          "detail": "120"
+        },
+        {
+          "name": "131 all hosted WebPs",
+          "pass": true,
+          "detail": "131"
+        },
+        {
+          "name": "hosted data parity",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "SW versioned caches",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "SW nonnav never HTML fallback",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "SW granular webp runtime",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module optics-lab hosted",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module optics-lab standalone",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module motion-lab hosted",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module motion-lab standalone",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module composition-lab hosted",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module composition-lab standalone",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module session-run-dialog hosted",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module session-run-dialog standalone",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module field-card-modal hosted",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "module field-card-modal standalone",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "hosted privacy",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "standalone privacy",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "document byte reduction >98%",
+          "pass": true,
+          "detail": "0.9912538931364419"
+        }
+      ],
+      "document_reduction": 0.9912538931364419
+    }
+  },
+  "build_metrics": {
+    "hosted_html_bytes": 107090,
+    "standalone_html_bytes": 12244305,
+    "css_bytes": 125770,
+    "data_js_bytes": 103365,
+    "diagram_count": 131,
+    "diagram_webp_bytes": 8602576,
+    "hosted_html_sha256": "ac8911efece84566734ff9806941bf610fa9ad79e6bb076b48ac160f23911b62",
+    "standalone_sha256": "468450a1ee86d82bdd3b77ae5e6eac7fca65718d24d1baf1eb65fe4eb1e00181"
+  },
+  "live_deploy_status": "blocked_missing_repository_and_live_target"
+}

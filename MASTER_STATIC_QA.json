@@ -1,0 +1,237 @@
+{
+  "passed": true,
+  "checks": 46,
+  "failures": [],
+  "results": [
+    {
+      "name": "six plans",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "name": "ten shots each",
+      "pass": true,
+      "detail": "[10, 10, 10, 10, 10, 10]"
+    },
+    {
+      "name": "120 plan diagrams",
+      "pass": true,
+      "detail": "120"
+    },
+    {
+      "name": "131 total diagram PNGs",
+      "pass": true,
+      "detail": "131"
+    },
+    {
+      "name": "PNG headers",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "canonical lens names",
+      "pass": true,
+      "detail": "['Canon EF 35mm f/2 IS USM', 'Canon EF 50mm f/1.8 STM', 'Canon EF 85mm f/1.8 USM', 'Canon EF 35–80mm f/4–5.6 III']"
+    },
+    {
+      "name": "6D sensor",
+      "pass": true,
+      "detail": "Full-frame CMOS 35.8 × 23.9 mm"
+    },
+    {
+      "name": "max apertures",
+      "pass": true,
+      "detail": "[2.0, 1.8, 1.8, '4-5.6']"
+    },
+    {
+      "name": "minimum focus distances",
+      "pass": true,
+      "detail": "[0.24, 0.35, 0.85, 0.4]"
+    },
+    {
+      "name": "nadir up",
+      "pass": true,
+      "detail": "{'es': 'Nadir', 'en': 'Nadir', 'height_factor': 0.15, 'tilt': 90, 'effect': 'Cámara debajo del sujeto, eje vertical hacia arriba; dramático y abstracto'}"
+    },
+    {
+      "name": "cenital down",
+      "pass": true,
+      "detail": "{'es': 'Cenital', 'en': 'Top-down', 'height_factor': 2.5, 'tilt': -90, 'effect': 'Cámara sobre el sujeto, eje vertical hacia abajo; orden y geometría'}"
+    },
+    {
+      "name": "85 portrait baseline",
+      "pass": true,
+      "detail": "{'lens': '85mm', 'aperture': 'f/1.8', 'shutter': '1/500+', 'iso': 'Auto', 'af': 'One Shot · ojo cercano', 'geometry': 'sujeto ≈3 m · fondo ≥8 m DETRÁS'}"
+    },
+    {
+      "name": "freeze baseline",
+      "pass": true,
+      "detail": "{'lens': '85mm', 'aperture': 'f/2.8', 'shutter': '1/2000', 'iso': 'Auto', 'af': 'AI Servo · centro · ráfaga', 'geometry': 'sujeto ≈6–8 m · pre-seguir'}"
+    },
+    {
+      "name": "zoom baseline",
+      "pass": true,
+      "detail": "{'lens': '35–80mm', 'aperture': 'f/8', 'shutter': '2 s', 'iso': '100', 'af': 'pre-enfoca → MF · trípode', 'geometry': 'centro fuerte · cámara fija · 35↔80'}"
+    },
+    {
+      "name": "ghost dog safety",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "long-exposure dog safety",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "no stale 4-plan/80-diagram copy",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Field Card DOM",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "optics lab DOM",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Pose Coach DOM",
+      "pass": true,
+      "detail": "interactive buttons are generated at runtime from POSE_COACH"
+    },
+    {
+      "name": "mobile bottom nav",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "manifest + SW",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "exact address absent",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "six plan pages",
+      "pass": true,
+      "detail": "['plan_a.html', 'plan_b.html', 'plan_c.html', 'plan_d.html', 'plan_e.html', 'plan_f.html']"
+    },
+    {
+      "name": "plan_a.html self-contained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_a.html PWA link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_b.html self-contained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_b.html PWA link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_c.html self-contained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_c.html PWA link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_d.html self-contained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_d.html PWA link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_e.html self-contained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_e.html PWA link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_f.html self-contained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "plan_f.html PWA link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "field card 10 checkboxes",
+      "pass": true,
+      "detail": "10"
+    },
+    {
+      "name": "field card PWA link",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "field card real specs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "manifest standalone",
+      "pass": true,
+      "detail": "standalone"
+    },
+    {
+      "name": "SW v2",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "SW navigation fallback scoped",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Pages stages master PWA",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "download six plans",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "download Plan F diagrams",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "generators portable",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

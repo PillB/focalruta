@@ -1,0 +1,6 @@
+const VERSION='canon6d-sota-v1';
+const SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime';
+const CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./assets/icon-192.png','./assets/icon-512.png'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>![SHELL,RUNTIME].includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;if(r.mode==='navigate'){e.respondWith(fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(async()=>await caches.match(r)||await caches.match('./index.html')));return;}if(/\.(?:webp|png|svg|css|js|json)$/.test(u.pathname)){e.respondWith(caches.match(r).then(cached=>{const fresh=fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(()=>cached);return cached||fresh}));}});

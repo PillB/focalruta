@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+downloads/Canon6D_SOTA_HOSTED_PAGES.zip
+

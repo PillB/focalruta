@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "checks": 37,
+  "failures": [],
+  "results": [
+    {
+      "name": "index.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "field_card.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plans/plan_a.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plans/plan_b.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plans/plan_c.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plans/plan_d.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plans/plan_e.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plans/plan_f.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/index.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/field_card.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_a.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_b.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_c.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_d.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_e.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_f.html local links/resources",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone all 120 state images decode",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone solid-background text contrast",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone visible font floor 11px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted all 120 state images decode",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted solid-background text contrast",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted visible font floor 11px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "field images decode",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "field solid-background text contrast",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "field visible font floor 11px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "field no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_a images decode",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_a solid-background text contrast",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_a visible font floor 11px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_a no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_f images decode",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_f solid-background text contrast",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_f visible font floor 11px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_f no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Optical visualization meaningful lines >=3:1",
+      "pass": true,
+      "detail": {
+        "#93c5fd": 10.296097504218286,
+        "#4ade80": 10.654967493369321,
+        "#fbbf24": 11.122016573665384,
+        "#f8fafc": 17.745505816341648
+      }
+    }
+  ]
+}
