@@ -1162,5 +1162,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeFieldCard()});
 <!-- FIELD CARD JS END -->
 </script>
 <div class="hosted-badge no-print" style="position:fixed;right:10px;bottom:74px;z-index:55">● hosted lean</div>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>console.warn('PWA worker unavailable',error)));}
+</script>
 </body>
 </html>
