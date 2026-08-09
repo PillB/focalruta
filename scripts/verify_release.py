@@ -132,7 +132,7 @@ if browser_report.is_file():
     check(browser_qa.get("passed") is True, "current browser QA passes")
     check(browser_qa.get("checks") == 234, "current browser QA has full 234-check scope")
 
-for report_name, expected in (("OPTICS_ACCESSIBILITY_QA.json", 16), ("VISUAL_RESOURCE_QA.json", 37)):
+for report_name, expected in (("OPTICS_ACCESSIBILITY_QA.json", 22), ("VISUAL_RESOURCE_QA.json", 37)):
     report_path = ROOT / report_name
     check(report_path.is_file(), f"{report_name} exists")
     if report_path.is_file():
