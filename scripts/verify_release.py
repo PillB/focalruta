@@ -97,6 +97,7 @@ hosted = ROOT / "dist/canon6d_sota_hosted"
 if hosted.is_dir():
     hosted_index = (hosted / "index.html").read_text(encoding="utf-8")
     check("18*Math.log2(1+raw)" in hosted_index, "hosted motion calibration parity")
+    check("serviceWorker.register('./sw.js',{scope:'./'})" in hosted_index, "hosted service worker is registered")
     check((hosted / "data/plans.json").read_bytes() == (ROOT / "data/plans.json").read_bytes(), "hosted canonical data byte parity")
     check((hosted / "FocalRuta_STANDALONE.html").read_bytes() == (ROOT / "index.html").read_bytes(), "built standalone byte parity")
     check((hosted / "downloads/canon6d_photo_planner_assets.zip").is_file(), "hosted ZIP download exists")

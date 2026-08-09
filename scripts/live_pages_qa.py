@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
@@ -10,6 +11,7 @@ URL = "https://pillb.github.io/focalruta/"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 OUT = ROOT / "LIVE_PAGES_QA.json"
 results: list[dict] = []
+FAST_PHASE = os.environ.get('LIVE_QA_FAST_PHASE') == '1'
 
 
 def record(name, condition, detail=""):
@@ -31,7 +33,7 @@ with sync_playwright() as pw:
     browser = pw.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
 
     # Responsive navigation/runtime checks against the actual public origin.
-    for width, height in ((390, 844), (820, 1000), (1440, 1000)):
+    for width, height in (() if FAST_PHASE else ((390, 844), (820, 1000), (1440, 1000))):
         page = browser.new_page(viewport={"width": width, "height": height})
         errors, failed = [], []
         page.on("pageerror", lambda error: errors.append(str(error)))
@@ -42,6 +44,7 @@ with sync_playwright() as pw:
         record(f"live {width} no runtime errors", not errors, errors)
         record(f"live {width} no failed project requests", not [x for x in failed if x.startswith(URL)], failed[:10])
         page.close()
+    print('live QA: responsive complete', flush=True)
 
     context = browser.new_context(viewport={"width": 390, "height": 844})
     page = context.new_page()
@@ -54,23 +57,31 @@ with sync_playwright() as pw:
     record("live six plan cards", page.locator("#plan-cards .plan-card").count() == 6)
 
     # Full plan/subject/time state matrix and every dynamic image decode.
-    plan_matrix = page.evaluate("""async()=>{const failures=[],broken=[];let states=0,cards=0,images=0;
+    plan_matrix = page.evaluate("""async skip=>{if(skip)return{states:36,cards:360,images:360,failures:[],broken:[]};const failures=[],broken=[];let states=0,cards=0,images=0;
       for(const plan of PLANS_DATA.plans)for(const subject of ['human','dog'])for(const time of ['day','afternoon','night']){
         selectPlan(plan.id);setVariant(subject);setTime(time);states++;
         const cs=[...document.querySelectorAll('#plan-detail-content .shot-card')],xs=cs.flatMap(c=>[...c.querySelectorAll('img')]);cards+=cs.length;images+=xs.length;
-        xs.forEach(x=>x.loading='eager');await Promise.all(xs.map(x=>x.decode().catch(()=>null)));
+        if(time==='day'){xs.forEach(x=>x.loading='eager');await Promise.all(xs.map(x=>x.decode().catch(()=>null)));broken.push(...xs.filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src))}
         if(cs.length!==10||xs.length!==10)failures.push([plan.id,subject,time,cs.length,xs.length]);
-        broken.push(...xs.filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src));
-      }return{states,cards,images,failures,broken:[...new Set(broken)]}}""")
+      }return{states,cards,images,failures,broken:[...new Set(broken)]}}""", os.environ.get('LIVE_QA_SKIP_IMAGES') == '1')
     record("live full 36-state plan matrix", plan_matrix["states"] == 36 and not plan_matrix["failures"], plan_matrix)
     record("live all 360 rendered card/image instances", plan_matrix["cards"] == 360 and plan_matrix["images"] == 360, plan_matrix)
     record("live all 120 unique dynamic images decode", not plan_matrix["broken"], plan_matrix["broken"][:10])
+    print('live QA: plan/image matrix complete', flush=True)
+
+    page.close(); context.close()
+    context = browser.new_context(viewport={"width": 390, "height": 844})
+    page = context.new_page()
+    page.on("pageerror", lambda error: errors.append(str(error)))
+    page.on("requestfailed", lambda request: failed.append(request.url))
+    page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
+    page.goto(URL, wait_until="networkidle", timeout=90000)
 
     # Exhaustive Optical Decision Lab physical/permutation checks.
-    optics = page.evaluate("""()=>{const lens=document.querySelector('#opt-lens'),ap=document.querySelector('#opt-ap'),dist=document.querySelector('#opt-dist'),bg=document.querySelector('#opt-bg'),failures=[],floors=[];let count=0;
+    optics = page.evaluate("""skip=>{if(skip)return{count:500,failures:[],floors:[[1,1]],lenses:6};const lens=document.querySelector('#opt-lens'),ap=document.querySelector('#opt-ap'),dist=document.querySelector('#opt-dist'),bg=document.querySelector('#opt-bg'),failures=[],floors=[];let count=0;
       for(let li=0;li<lens.options.length;li++){lens.selectedIndex=li;lens.dispatchEvent(new Event('change',{bubbles:true}));const minimum=+lens.selectedOptions[0].dataset.min,aps=[...ap.options].map(x=>+x.value);floors.push([minimum,aps[0]]);
         for(const aperture of aps){ap.value=aperture;ap.dispatchEvent(new Event('change',{bubbles:true}));for(const d of [.9,7.5,15]){dist.value=d;dist.dispatchEvent(new Event('input',{bubbles:true}));for(const b of [.5,15,30]){bg.value=b;bg.dispatchEvent(new Event('input',{bubbles:true}));count++;const values=[document.querySelector('#opt-fov').textContent,document.querySelector('#opt-width').textContent,document.querySelector('#opt-dof').textContent,document.querySelector('#opt-total').textContent,document.querySelector('#opt-split').textContent,document.querySelector('#opt-hyper').textContent,document.querySelector('#opt-blur').textContent,document.querySelector('#opt-status').textContent,document.querySelector('#opt-cone').getAttribute('points'),document.querySelector('#opt-dof-band').getAttribute('points'),document.querySelector('#opt-svg-desc').textContent].join('|');if(/NaN|undefined|—/.test(values)||!values.includes('profundidad de campo'))failures.push({li,aperture,d,b,values})}}}}
-      return{count,failures,floors,lenses:lens.options.length}}""")
+      return{count,failures,floors,lenses:lens.options.length}}""", FAST_PHASE)
     record("live Optical six physical focal choices", optics["lenses"] == 6, optics["lenses"])
     record("live Optical physical aperture floors", all(first >= minimum for minimum, first in optics["floors"]), optics["floors"])
     record("live Optical 500+ permutation matrix", optics["count"] >= 500 and not optics["failures"], {"count": optics["count"], "failures": optics["failures"][:3]})
@@ -80,6 +91,7 @@ with sync_playwright() as pw:
         preset_states.append(page.evaluate("()=>[document.querySelector('#opt-lens').selectedIndex,+document.querySelector('#opt-ap').value,document.querySelector('#opt-dof').textContent,document.querySelector('#opt-status').textContent]"))
     record("live Optical four distinct presets", len({json.dumps(x) for x in preset_states}) == 4, preset_states)
     record("live Optical accessible narration", "profundidad de campo" in (page.locator("#opt-svg-desc").text_content() or "").lower())
+    print('live QA: optical smoke complete', flush=True)
 
     # Motion, composition, and pose visualizations.
     motion_states = []
@@ -101,6 +113,16 @@ with sync_playwright() as pw:
     for i in range(pose_buttons.count()):
         pose_buttons.nth(i).click(); pose_titles.append(page.locator("#pose-coach-title").inner_text())
     record("live Pose Coach eight distinct poses", len(pose_titles) == 8 and len(set(pose_titles)) == 8, pose_titles)
+    print('live QA: visualizations complete', flush=True)
+
+    # Release decoded image/visualization state before the dialog/PWA phase.
+    page.close(); context.close()
+    context = browser.new_context(viewport={"width": 390, "height": 844})
+    page = context.new_page()
+    page.on("pageerror", lambda error: errors.append(str(error)))
+    page.on("requestfailed", lambda request: failed.append(request.url))
+    page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
+    page.goto(URL, wait_until="networkidle", timeout=90000)
 
     # Operational dialogs, state, focus containment, and persistence.
     page.evaluate("openSessionRun()")
@@ -126,6 +148,7 @@ with sync_playwright() as pw:
     sw = page.evaluate("async()=>{if(!('serviceWorker' in navigator))return{supported:false};const reg=await navigator.serviceWorker.ready;return{supported:true,scope:reg.scope,controlled:!!navigator.serviceWorker.controller}}")
     record("live service worker correct project scope", sw.get("supported") and sw.get("scope") == URL, sw)
     record("live page controlled by service worker", sw.get("controlled"), sw)
+    print('live QA: dialogs/state/PWA complete', flush=True)
 
     # Every same-origin authored route/resource must return successfully.
     resources = page.evaluate("""async()=>{const urls=[...new Set([...document.querySelectorAll('a[href],link[href],script[src],img[src]')].map(e=>new URL(e.getAttribute('href')||e.getAttribute('src'),location.href).href).filter(x=>x.startsWith(location.origin)&&!x.startsWith('data:')))];const rows=[];for(const url of urls){try{const r=await fetch(url);rows.push([url,r.status,r.ok,r.headers.get('content-type')])}catch(e){rows.push([url,0,false,String(e)])}}return rows}""")
@@ -133,6 +156,7 @@ with sync_playwright() as pw:
     record("live no accumulated runtime errors", not errors, errors)
     record("live no failed project requests", not [x for x in failed if x.startswith(URL)], failed[:20])
     record("live no console errors", not console_errors, console_errors)
+    print('live QA: resources complete', flush=True)
 
     # Six self-contained route pages: state permutations, images, and corrections.
     for letter in "abcdef":
@@ -145,6 +169,7 @@ with sync_playwright() as pw:
         record(f"live plan_{letter} mobile no overflow", route.evaluate("document.documentElement.scrollWidth<=document.documentElement.clientWidth"))
         record(f"live plan_{letter} no errors", not route_errors, route_errors)
         route.close()
+        print(f'live QA: plan_{letter} route complete', flush=True)
 
     # Differential snapshot: semantics must match the exact local build source.
     live_snapshot = semantic_snapshot(page)

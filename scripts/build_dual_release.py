@@ -50,7 +50,8 @@ def img_hints(m):
     return tag
 html=re.sub(r'<img\b[^>]*>',img_hints,html)
 html=html.replace('Master · 6 planes · 120 diagramas · Field Card validado','Hosted/PWA · 6 planes · 120 diagramas · SOTA labs')
-html=html.replace('</body>','<div class="hosted-badge no-print" style="position:fixed;right:10px;bottom:74px;z-index:55">● hosted lean</div>\n</body>',1)
+registration='''<script>\nif('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>console.warn('PWA worker unavailable',error)));}\n</script>'''
+html=html.replace('</body>','<div class="hosted-badge no-print" style="position:fixed;right:10px;bottom:74px;z-index:55">● hosted lean</div>\n'+registration+'\n</body>',1)
 (OUT/'index.html').write_text(html,encoding='utf-8')
 
 # Standalone canonical file kept separately, unmodified behavior.
