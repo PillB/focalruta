@@ -1,15 +1,15 @@
 {
   "passed": true,
-  "checks": 16,
+  "checks": 22,
   "failures": [],
   "results": [
     {
-      "name": "standalone six physical focal choices",
+      "name": "standalone complete enhanced lab",
       "pass": true,
-      "detail": 6
+      "detail": ""
     },
     {
-      "name": "standalone every aperture floor physical",
+      "name": "standalone every physical aperture floor",
       "pass": true,
       "detail": [
         [
@@ -39,53 +39,82 @@
       ]
     },
     {
-      "name": "standalone full optical permutation matrix",
+      "name": "standalone every authored optical slider value",
       "pass": true,
       "detail": {
-        "count": 585,
+        "states": 13130,
         "failures": []
       }
     },
     {
-      "name": "standalone four distinct pedagogical presets",
+      "name": "standalone every exposure combination",
+      "pass": true,
+      "detail": {
+        "states": 2093,
+        "visualStates": 840
+      }
+    },
+    {
+      "name": "standalone all state invariants",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone exposure independence and known EV vector",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone background changes bokeh not DoF",
+      "pass": true,
+      "detail": {
+        "optical": 13130,
+        "exposure": 2093,
+        "failures": [],
+        "floors": [
+          [
+            2,
+            2
+          ],
+          [
+            1.8,
+            1.8
+          ],
+          [
+            1.8,
+            1.8
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4.5,
+            4.5
+          ],
+          [
+            5.6,
+            5.6
+          ]
+        ],
+        "exposureStates": 840,
+        "balanced": true,
+        "bgChanged": true,
+        "dofFixed": true
+      }
+    },
+    {
+      "name": "standalone four distinct presets",
       "pass": true,
       "detail": [
-        [
-          0,
-          11,
-          "1.94 m → ∞",
-          "Lectura: El límite lejano llega a infinito; fondo y horizonte caen dentro de la DoF calculada. El disco estimado es menor que el CoC elegido."
-        ],
-        [
-          2,
-          1.8,
-          "2.94 m → 3.07 m",
-          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. La separación geométrica del fondo es fuerte."
-        ],
-        [
-          2,
-          2.8,
-          "6.48 m → 7.61 m",
-          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. La separación geométrica del fondo es fuerte."
-        ],
-        [
-          5,
-          8,
-          "4.91 m → 7.71 m",
-          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. Hay separación moderada del plano de fondo."
-        ]
+        "35 milímetros a f 11, foco 4.00 m, profundidad de campo desde 1.94 m hasta ∞, desenfoque continuo más allá del umbral, fondo a 14.0 m, exposición sobreexpuesta ≈1.1 EV.",
+        "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición sobreexpuesta ≈1.3 EV.",
+        "85 milímetros a f 2.8, foco 7.00 m, profundidad de campo desde 6.48 m hasta 7.61 m, desenfoque continuo más allá del umbral, fondo a 19.0 m, exposición sobreexpuesta ≈1.1 EV.",
+        "80 milímetros a f 8, foco 6.00 m, profundidad de campo desde 4.91 m hasta 7.71 m, desenfoque continuo más allá del umbral, fondo a 18.0 m, exposición subexpuesta ≈3.0 EV."
       ]
     },
     {
-      "name": "standalone sunlight toggle",
-      "pass": true,
-      "detail": [
-        "false",
-        "true"
-      ]
-    },
-    {
-      "name": "standalone sunlight class",
+      "name": "standalone sunlight mode",
       "pass": true,
       "detail": ""
     },
@@ -100,12 +129,12 @@
       "detail": []
     },
     {
-      "name": "hosted six physical focal choices",
+      "name": "hosted complete enhanced lab",
       "pass": true,
-      "detail": 6
+      "detail": ""
     },
     {
-      "name": "hosted every aperture floor physical",
+      "name": "hosted every physical aperture floor",
       "pass": true,
       "detail": [
         [
@@ -135,53 +164,82 @@
       ]
     },
     {
-      "name": "hosted full optical permutation matrix",
+      "name": "hosted every authored optical slider value",
       "pass": true,
       "detail": {
-        "count": 585,
+        "states": 13130,
         "failures": []
       }
     },
     {
-      "name": "hosted four distinct pedagogical presets",
+      "name": "hosted every exposure combination",
+      "pass": true,
+      "detail": {
+        "states": 2093,
+        "visualStates": 840
+      }
+    },
+    {
+      "name": "hosted all state invariants",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted exposure independence and known EV vector",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "hosted background changes bokeh not DoF",
+      "pass": true,
+      "detail": {
+        "optical": 13130,
+        "exposure": 2093,
+        "failures": [],
+        "floors": [
+          [
+            2,
+            2
+          ],
+          [
+            1.8,
+            1.8
+          ],
+          [
+            1.8,
+            1.8
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4.5,
+            4.5
+          ],
+          [
+            5.6,
+            5.6
+          ]
+        ],
+        "exposureStates": 840,
+        "balanced": true,
+        "bgChanged": true,
+        "dofFixed": true
+      }
+    },
+    {
+      "name": "hosted four distinct presets",
       "pass": true,
       "detail": [
-        [
-          0,
-          11,
-          "1.94 m → ∞",
-          "Lectura: El límite lejano llega a infinito; fondo y horizonte caen dentro de la DoF calculada. El disco estimado es menor que el CoC elegido."
-        ],
-        [
-          2,
-          1.8,
-          "2.94 m → 3.07 m",
-          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. La separación geométrica del fondo es fuerte."
-        ],
-        [
-          2,
-          2.8,
-          "6.48 m → 7.61 m",
-          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. La separación geométrica del fondo es fuerte."
-        ],
-        [
-          5,
-          8,
-          "4.91 m → 7.71 m",
-          "Lectura: El fondo queda detrás del límite lejano: separación favorable para desenfoque. Hay separación moderada del plano de fondo."
-        ]
+        "35 milímetros a f 11, foco 4.00 m, profundidad de campo desde 1.94 m hasta ∞, desenfoque continuo más allá del umbral, fondo a 14.0 m, exposición sobreexpuesta ≈1.1 EV.",
+        "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición sobreexpuesta ≈1.3 EV.",
+        "85 milímetros a f 2.8, foco 7.00 m, profundidad de campo desde 6.48 m hasta 7.61 m, desenfoque continuo más allá del umbral, fondo a 19.0 m, exposición sobreexpuesta ≈1.1 EV.",
+        "80 milímetros a f 8, foco 6.00 m, profundidad de campo desde 4.91 m hasta 7.71 m, desenfoque continuo más allá del umbral, fondo a 18.0 m, exposición subexpuesta ≈3.0 EV."
       ]
     },
     {
-      "name": "hosted sunlight toggle",
-      "pass": true,
-      "detail": [
-        "false",
-        "true"
-      ]
-    },
-    {
-      "name": "hosted sunlight class",
+      "name": "hosted sunlight mode",
       "pass": true,
       "detail": ""
     },

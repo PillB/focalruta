@@ -55,7 +55,7 @@ with sync_playwright() as pw:
 # Meaningful Optical SVG lines against #071421 all exceed WCAG non-text 3:1 by chosen palette.
 def luminance(hexcolor):
     vals=[int(hexcolor[i:i+2],16)/255 for i in (1,3,5)];vals=[v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in vals];return .2126*vals[0]+.7152*vals[1]+.0722*vals[2]
-bg=luminance('#071421');ratios={c:(max(luminance(c),bg)+.05)/(min(luminance(c),bg)+.05) for c in ('#93c5fd','#4ade80','#fbbf24','#f8fafc')}
+bg=luminance('#071421');ratios={c:(max(luminance(c),bg)+.05)/(min(luminance(c),bg)+.05) for c in ('#93c5fd','#4ade80','#fbbf24','#f8fafc','#f0abfc')}
 add('Optical visualization meaningful lines >=3:1',min(ratios.values())>=3,ratios)
 
 report={'passed':all(x['pass'] for x in checks),'checks':len(checks),'failures':[x for x in checks if not x['pass']],'results':checks}
