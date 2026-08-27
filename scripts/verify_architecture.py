@@ -6,7 +6,13 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from generate_architecture_pages import OUTPUT, RULES_PATH, render
+from generate_architecture_pages import (
+    LEARNING_PATH,
+    OUTPUT,
+    PHOTOGRAPHERS_PATH,
+    RULES_PATH,
+    render,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,7 +34,9 @@ def public_files():
 def main() -> int:
     failures = []
     rules = json.loads(RULES_PATH.read_text(encoding="utf-8"))
-    expected = render(rules)
+    learning = json.loads(LEARNING_PATH.read_text(encoding="utf-8"))
+    photographers = json.loads(PHOTOGRAPHERS_PATH.read_text(encoding="utf-8"))
+    expected = render(rules, learning, photographers)
     check(OUTPUT.exists(), "generated challenge page missing", failures)
     check(OUTPUT.exists() and OUTPUT.read_text(encoding="utf-8") == expected, "challenge page is stale; regenerate it", failures)
     check(rules["file"]["minimum_bytes"] == 5_000_000, "5 MB minimum missing", failures)

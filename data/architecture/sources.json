@@ -70,5 +70,35 @@
     "independence_cluster": "fundacion_actual_history",
     "privacy_class": "PUBLIC_PRIMARY",
     "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-BAAN", "type": "PROFESSIONAL", "url_or_path": "https://iwan.com/about/", "publisher": "Iwan Baan", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "iwan_baan", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-GUERRA", "type": "PROFESSIONAL", "url_or_path": "https://www.archdaily.com/488918/fernando-guerra-on-photography-in-the-internet-age", "publisher": "ArchDaily", "publication_date": "2014-03-20", "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "fernando_guerra", "privacy_class": "PUBLIC_SECONDARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-STOLLER", "type": "PROFESSIONAL", "url_or_path": "https://esto.com/ezra-stoller", "publisher": "Esto", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "ezra_stoller", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-BINET", "type": "PROFESSIONAL", "url_or_path": "https://www.trans.ethz.ch/article/yes-now-helene-binet", "publisher": "ETH Zürich trans", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "helene_binet", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-HERVE", "type": "OFFICIAL", "url_or_path": "https://www.culture.gouv.fr/thematiques/architecture/actualites-de-l-architecture/Lucien-Herve-Geometrie-de-la-lumiere-au-Chateau-de-Tours", "publisher": "Ministère de la Culture", "publication_date": "2018-02-02", "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "lucien_herve", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-SHULMAN", "type": "OFFICIAL", "url_or_path": "https://www.getty.edu/art/exhibitions/shulman/index.html", "publisher": "Getty Research Institute", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "julius_shulman", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-HOFER", "type": "OFFICIAL", "url_or_path": "https://www.smb.museum/en/exhibitions/detail/image-and-space/", "publisher": "Staatliche Museen zu Berlin", "publication_date": "2022-03-25", "event_date": "2022-03-25/2022-08-28", "retrieved_at": "2026-08-27", "independence_cluster": "candida_hofer", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-PRINCEN", "type": "PROFESSIONAL", "url_or_path": "https://www.basprincen.com/", "publisher": "Bas Princen", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "bas_princen", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-BASILICO", "type": "PROFESSIONAL", "url_or_path": "https://www.archiviogabrielebasilico.it/en/scopri/conoscere-gabriele-basilico", "publisher": "Archivio Gabriele Basilico", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "gabriele_basilico", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-PHOTO-FINOTTI", "type": "PROFESSIONAL", "url_or_path": "https://www.archdaily.com.br/br/01-38782/fotografia-e-arquitetura-leonardo-finotti", "publisher": "ArchDaily Brasil", "publication_date": "2012-05-14", "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "leonardo_finotti", "privacy_class": "PUBLIC_SECONDARY", "status": "ACTIVE"
   }
 ]

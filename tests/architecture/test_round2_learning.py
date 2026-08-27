@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 WORKBENCH = ROOT / "architectural_photography" / "research" / "videos"
 DATA = ROOT / "data" / "architecture"
+PAGE = ROOT / "challenges" / "arquitectura-en-foco" / "index.html"
 
 
 def test_all_supplied_videos_have_verified_metadata_and_real_transcript_files():
@@ -49,3 +50,50 @@ def test_video_attributions_have_timestamp_and_known_video():
             if source["type"] == "VIDEO_TRANSCRIPT":
                 assert source["video_id"] in known
                 assert isinstance(source["timestamp_seconds"], (int, float))
+
+
+def test_photographer_transfer_cards_cover_required_canon_and_schema():
+    payload = json.loads((DATA / "photographers.json").read_text(encoding="utf-8"))
+    cards = payload["transfer_cards"]
+    names = {card["photographer"] for card in cards}
+    required_names = {
+        "Iwan Baan", "Fernando Guerra", "Ezra Stoller", "Hélène Binet",
+        "Lucien Hervé", "Julius Shulman", "Candida Höfer", "Bas Princen",
+        "Gabriele Basilico", "Leonardo Finotti",
+    }
+    required_fields = {
+        "photographer", "signature_question", "source_backed_mechanisms",
+        "field_drill", "competition_use", "misuse_risk", "sources",
+    }
+    assert required_names <= names
+    assert all(required_fields <= card.keys() for card in cards)
+    assert all(all(card[field] for field in required_fields) for card in cards)
+
+
+def test_six_seeing_modes_and_latin_american_practice_are_explicit():
+    payload = json.loads((DATA / "photographers.json").read_text(encoding="utf-8"))
+    assert payload["seeing_modes"] == [
+        "DOCUMENT / UNDERSTAND", "INHABIT / OBSERVE", "LIGHT / MATERIAL",
+        "TEMPORAL PALIMPSEST", "URBAN SYSTEMS", "ANTI-POSTAL DISCOVERY",
+    ]
+    assert any(card.get("region") == "LATIN_AMERICA" for card in payload["transfer_cards"])
+    text = json.dumps(payload, ensure_ascii=False).lower()
+    assert "ausencia" in text
+    assert "no exige una persona" in text
+
+
+def test_every_transfer_card_source_is_in_public_source_registry():
+    payload = json.loads((DATA / "photographers.json").read_text(encoding="utf-8"))
+    sources = json.loads((DATA / "sources.json").read_text(encoding="utf-8"))
+    registered = {source["url_or_path"] for source in sources}
+    cited = {url for card in payload["transfer_cards"] for url in card["sources"]}
+    assert cited <= registered
+
+
+def test_generated_page_exposes_learning_without_hover_dependency():
+    html = PAGE.read_text(encoding="utf-8")
+    assert 'id="learn"' in html
+    assert "Seis modos de ver" in html
+    assert "Posición antes que focal" in html
+    assert "Candida Höfer" in html
+    assert "title=" not in html
