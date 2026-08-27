@@ -1,0 +1,50 @@
+[
+  {
+    "year": 2023,
+    "theme": "Veo Arte en Todas Partes",
+    "winner_title": "El Aplauso Lluvioso de su Danza",
+    "winner_author": "Adrián Zorrilla",
+    "first_read_mechanism": "Traditional dancers remain visually forceful through torrential rain; weather and gesture transform a familiar event.",
+    "decisive_moment": "Dancing persists while rain becomes visible structure.",
+    "light_shadow": "Rain and ambient conditions, not a formal light formula.",
+    "geometry_pattern": "Group rhythm and repeated costume/gesture.",
+    "person_action": "Dance is the subject action.",
+    "familiarity": "Cultural event rediscovered through weather and timing.",
+    "transfers_to_2026": "Wait for architecture, weather, and human action to become inseparable in one frame.",
+    "does_not_transfer": "The 2023 cultural theme does not establish an architecture-specific formula.",
+    "official_source_ids": ["SRC-HIST-2023"],
+    "evidence_status": "VERIFIED"
+  },
+  {
+    "year": 2024,
+    "theme": "Capturas Urbanas",
+    "winner_title": "La Vida en Sombras",
+    "winner_author": "Andrés Moyano",
+    "first_read_mechanism": "Rare shadow behavior differentiates a location already photographed many times.",
+    "decisive_moment": "Shadows and urban characters align in a fleeting composition.",
+    "light_shadow": "Organizer explicitly praised light/shadow handling.",
+    "geometry_pattern": "Shadow shapes organize the frame.",
+    "person_action": "Characters give life to the urban environment.",
+    "familiarity": "Familiar place made uncommon by time and light.",
+    "transfers_to_2026": "A saturated building can remain viable when a rare relationship is visible immediately.",
+    "does_not_transfer": "Drone access and dramatic shadow are not requirements; neither should become a style prescription.",
+    "official_source_ids": ["SRC-HIST-2024"],
+    "evidence_status": "VERIFIED"
+  },
+  {
+    "year": 2025,
+    "theme": "Ritmos de Ciudad",
+    "winner_title": "Patrones Subterráneos",
+    "winner_author": "Catalina Cerón",
+    "first_read_mechanism": "A solitary figure and metro concrete patterns turn accelerated infrastructure into contemplation.",
+    "decisive_moment": "The figure pauses above repeated station geometry.",
+    "light_shadow": "Warm/cool light contrast was explicitly praised.",
+    "geometry_pattern": "Concrete repetition provides formal order.",
+    "person_action": "Contemplation contrasts with transit.",
+    "familiarity": "Everyday infrastructure rediscovered as contemplative space.",
+    "transfers_to_2026": "Infrastructure, geometry, and one restrained human verb can carry an architectural story.",
+    "does_not_transfer": "Solitary figures, metros, and formal pattern are not guaranteed preferences for the 2026 jury.",
+    "official_source_ids": ["SRC-HIST-2025"],
+    "evidence_status": "VERIFIED"
+  }
+]

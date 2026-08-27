@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0.0",
+  "source": "../REQUIREMENTS_INVENTORY.md",
+  "historical_user_message_count": 23,
+  "current_message_count": 1,
+  "status": "BOOTSTRAPPED_REQUIRES_TEST_MAPPING"
+}

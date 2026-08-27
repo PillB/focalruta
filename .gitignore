@@ -3,3 +3,18 @@ __pycache__/
 .DS_Store
 downloads/Canon6D_SOTA_HOSTED_PAGES.zip
 
+# Arquitectura en Foco: private source material (public repository hard gate)
+architectural_photography/inputs_private/
+architectural_photography/*.zip
+architectural_photography/2026-*-architectural-photo-strategy.json
+architectural_photography/Architectura.md
+architectural_photography/**/reference_copies/Architectura_historical_log.md
+architectural_photography/**/*system*prompt*
+architectural_photography/**/*developer*prompt*
+architectural_photography/EXECUTION_PROMPT.md
+architectural_photography/USER_MESSAGE_LEDGER.json
+architectural_photography/SOURCE_MANIFEST.json
+architectural_photography/architectural_photography_execution_kit_v2/
+architectural_photography/FocalRuta_Arquitectura_en_Foco_2026_Bonilla_Urban_Lens_OS.html
+architectural_photography/FocalRuta_Bonilla_Master82_*.json
+architectural_photography/FocalRuta_Bonilla_Source_Snapshots.json

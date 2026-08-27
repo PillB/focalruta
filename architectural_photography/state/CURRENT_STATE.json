@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-08-27T00:00:00-05:00",
+  "phase": "ROUND_1_COMPETITION_TRUTH",
+  "status": "IN_PROGRESS",
+  "baseline_commit": "9a415311f8d34772a6391193434bbf22c7b9af5b",
+  "branch": "agent/arquitectura-en-foco-2026",
+  "production_edits_allowed": true,
+  "privacy_gate": "PASS_FOR_ROUND_0",
+  "baseline_release_gate": "PASS",
+  "baseline_browser_gate": "PASS_CUSTOM_SIX_VIEWPORT_CAPTURE",
+  "baseline_visual_resource_gate": "FAIL_PREEXISTING_CONTRAST",
+  "complexity_lint": "RUFF_AVAILABLE_NEW_ARCHITECTURE_PASS_GLOBAL_BASELINE_3_FAILURES",
+  "competition_last_verified_at": "2026-08-27T13:10:00-05:00",
+  "round_1_tests": "13_UNIT_PASS_6_VIEWPORT_PASS",
+  "canonical_candidate_count": null,
+  "ranking_model_version": null,
+  "ranking_run_id": null,
+  "route_run_id": null,
+  "solarize": {
+    "requested_version": "2.2",
+    "status": "UNAVAILABLE_IN_SESSION_SKILL_CATALOG",
+    "fallback": "Apply specified research-RED-GREEN-refactor-validate-memory discipline directly"
+  }
+}

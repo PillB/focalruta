@@ -1,0 +1,41 @@
+[
+  {
+    "juror_id": "cristian-aninat",
+    "name": "Cristián Aninat",
+    "verified_sources": ["https://www.cristiananinat.com/", "https://cl.linkedin.com/in/caninatg"],
+    "public_projects": ["La Memoria del Color", "AninatStudio visual storytelling"],
+    "public_judgment_quotes": [],
+    "observable_visual_mechanisms": ["visual narrative", "editorial sequencing", "color-led organization", "attention to unprepared human moments"],
+    "transfer_hypotheses": ["Test whether the scene reads as a visual story without explanatory rescue."],
+    "counterexamples": ["His public practice spans portraiture, culture, branding, and architecture; no single mechanism predicts contest judgment."],
+    "ranking_use": "LOW_WEIGHT_ROBUSTNESS_SIGNAL_ONLY",
+    "confidence": 0.62,
+    "last_verified_at": "2026-08-27"
+  },
+  {
+    "juror_id": "hans-stoll",
+    "name": "Hans Stoll",
+    "verified_sources": ["https://www.ojospropios.com/hans-stoll/", "https://andina.pe/agencia/noticia-expansion-una-propuesta-escultura-fotografica-a-cargo-hans-stoll-830108.aspx"],
+    "public_projects": ["Lima a Pedazos", "Expansión", "Serra"],
+    "public_judgment_quotes": [],
+    "observable_visual_mechanisms": ["austere clean composition", "natural light", "image-object-volume relationship", "contemplative architecture and landscape"],
+    "transfer_hypotheses": ["Test formal order, material/light legibility, and whether reduction strengthens the scene."],
+    "counterexamples": ["His practice includes portraiture, landscape, collage, and photo-sculpture; meaningful absence is not a universal judging rule."],
+    "ranking_use": "LOW_WEIGHT_ROBUSTNESS_SIGNAL_ONLY",
+    "confidence": 0.72,
+    "last_verified_at": "2026-08-27"
+  },
+  {
+    "juror_id": "camilo-monzon",
+    "name": "Camilo Monzón",
+    "verified_sources": ["https://www.archdaily.com/es/888711/camilo-monzon-registra-desde-el-cielo-las-grandes-obras-arquitectonicas-de-bogota"],
+    "public_projects": ["Fachadas Aéreas / Aerial Facades"],
+    "public_judgment_quotes": [],
+    "observable_visual_mechanisms": ["fifth-façade discovery", "aerial geometry", "non-default viewpoint", "urban pattern"],
+    "transfer_hypotheses": ["Test whether changing viewpoint reveals a real architectural relationship hidden from the default position."],
+    "counterexamples": ["Aerial work does not imply a drone preference, and contest legality/access/one-frame coherence dominate."],
+    "ranking_use": "LOW_WEIGHT_ROBUSTNESS_SIGNAL_ONLY",
+    "confidence": 0.66,
+    "last_verified_at": "2026-08-27"
+  }
+]

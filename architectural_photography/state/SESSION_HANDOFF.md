@@ -1,0 +1,20 @@
+# Session handoff
+
+- Current objective: complete Round 1 competition truth, organizer history, juror dossiers, deterministic preflight, and rules UI.
+- FocalRuta baseline: `9a415311f8d34772a6391193434bbf22c7b9af5b`; active branch `agent/arquitectura-en-foco-2026`.
+- Solarize: v2.2 requested; skill/repository unavailable in the current session catalog. Its stated lifecycle is being applied directly; Solarize was not modified.
+- Competition last verified: 2026-08-27 from official PDF, official article, and live official form.
+- Gates complete: source inventory; 36-member ZIP count; 23 historical-user-message ledger count; private-path `.gitignore`; staged/build/bundle marker scan; existing static release gate; required six-viewport local hosted/PWA capture.
+- RED/GREEN evidence: `python3 scripts/verify_release.py` exited 0 with `passed: true`; `python3 architectural_photography/qa/baseline/capture_baseline.py` exited 0 with six viewports green, no overflow/errors/failed resources, keyboard focus reached, and registered/controlling service worker. Existing browser and optics suites completed assertions but hung during Chrome teardown, so they are not counted as fresh machine-readable passes. `scripts/visual_resource_audit.py` exposed a pre-existing 1.05:1 inactive-toggle contrast failure.
+- Round 1 RED: `pytest tests/architecture/test_competition_rules.py` produced 5 expected missing-data failures.
+- Round 1 GREEN: `pytest tests/architecture/test_competition_rules.py tests/architecture/test_round1_research.py` passed 7/7; existing release gate remained green.
+- Canonical candidate count: unresolved pending semantic reconciliation.
+- Ranking model/run: none current.
+- Route run: none current.
+- Active hypotheses: historical Master82 and Bonilla conclusions remain historical until source verification and reranking.
+- Contradictions: Master82 contains a semantic Unidad Vecinal Nº3 duplicate; historical W03 labeling differs between supplied inventories and must be reconciled.
+- Privacy: Round 0 pass; private inputs ignored, manifest generated, public build/download scan found no private markers. Re-run before every commit/build/release.
+- Production files changed: none. Repository instruction/privacy files and workbench scaffolding only.
+- Round 1 UI/preflight GREEN: 13 unit/data/page tests pass; `scripts/verify_architecture.py` passes; new architecture code passes Ruff C901 at max complexity 10; independent browser QA passes all six required viewports after a RED missing-favicon run.
+- Blockers: full-repository Ruff now runs but exposes three pre-existing complexity violations in diagram generators (25, 14, 21); current Solarize source remains unavailable locally/session-wide; existing legacy QA scripts hang during Chrome teardown in this managed runner.
+- Next actions: preserve the three complexity violations as explicit baseline debt and refactor them under diagram hash/count/release regression evidence; deepen/finish Round 1 juror source snapshots; then start Round 2 transcript-first learning.

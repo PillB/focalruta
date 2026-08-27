@@ -1,0 +1,2 @@
+{"decision_id":"DEC-R0-001","date":"2026-08-27","decision":"Treat raw ZIP, raw chat JSON, Architectura historical conversation, and its reference copy as PRIVATE_LOCAL.","reason":"Public-repository privacy hard gate and archived-role content.","requirement_ids":["L12","Q05"]}
+{"decision_id":"DEC-R0-002","date":"2026-08-27","decision":"Do not edit production until all Round 0 baseline evidence is written.","reason":"Explicit zero-change baseline gate.","requirement_ids":["M04","P23"]}
