@@ -1,6 +1,6 @@
 # Session handoff
 
-- Current objective: complete Round 1 competition truth, organizer history, juror dossiers, deterministic preflight, and rules UI.
+- Current objective: complete Round 2 transcript-first learning, photographer transfer cards, field drills, and technical misconception gates.
 - FocalRuta baseline: `9a415311f8d34772a6391193434bbf22c7b9af5b`; active branch `agent/arquitectura-en-foco-2026`.
 - Solarize: v2.2 requested; skill/repository unavailable in the current session catalog. Its stated lifecycle is being applied directly; Solarize was not modified.
 - Competition last verified: 2026-08-27 from official PDF, official article, and live official form.
@@ -16,5 +16,8 @@
 - Privacy: Round 0 pass; private inputs ignored, manifest generated, public build/download scan found no private markers. Re-run before every commit/build/release.
 - Production files changed: none. Repository instruction/privacy files and workbench scaffolding only.
 - Round 1 UI/preflight GREEN: 13 unit/data/page tests pass; `scripts/verify_architecture.py` passes; new architecture code passes Ruff C901 at max complexity 10; independent browser QA passes all six required viewports after a RED missing-favicon run.
+- Round 1 commit: `83b5117 feat: establish arquitectura challenge round one`.
+- Round 2 video evidence: all 21 URL occurrences/20 unique IDs have exact YouTube titles, channels, publication timestamps, and saved timestamped caption tracks. Primary yt-dlp extraction failed consistently; official oEmbed/watch-page fallback verified metadata. A collector regression that attempted to downgrade cached transcripts was fixed so captured evidence is immutable.
+- Round 2 RED/GREEN: curriculum tests produced three intended missing-file failures; after implementation, 4/4 ledger/curriculum/physics/attribution tests pass. The unified curriculum has 17 lessons with Observe/Try/Diagnose/Break/6D/competition/source fields.
 - Blockers: full-repository Ruff now runs but exposes three pre-existing complexity violations in diagram generators (25, 14, 21); current Solarize source remains unavailable locally/session-wide; existing legacy QA scripts hang during Chrome teardown in this managed runner.
-- Next actions: preserve the three complexity violations as explicit baseline debt and refactor them under diagram hash/count/release regression evidence; deepen/finish Round 1 juror source snapshots; then start Round 2 transcript-first learning.
+- Next actions: build source-backed master-photographer transfer cards and learning UI; validate every cited timestamp semantically; then preserve/refactor the three pre-existing complexity violations under diagram hash/count/release regression evidence.
