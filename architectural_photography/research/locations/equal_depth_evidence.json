@@ -1,0 +1,325 @@
+{
+  "evidence_batch_id": "PLACE-SOURCE-TRUTH-2026-08-28-A",
+  "retrieved_at": "2026-08-28",
+  "sources": [
+    {
+      "source_id": "SRC-LOC-PARQUE3-USE-2019",
+      "type": "OFFICIAL",
+      "url": "https://portal.muniplibre.gob.pe/recomendamos-el-buen-uso-del-skatepark/",
+      "publisher": "Municipalidad de Pueblo Libre",
+      "evidence_status": "STALE",
+      "supports": "Identity and designed recreational use; the published 08:00–20:00 hours are too old for routing."
+    },
+    {
+      "source_id": "SRC-LOC-LIMATAMBO-PUCP",
+      "type": "ACADEMIC",
+      "url": "https://repositorio.pucp.edu.pe/index/handle/123456789/183590",
+      "publisher": "Pontificia Universidad Catolica del Peru",
+      "evidence_status": "CORROBORATED",
+      "supports": "Project identity and relationship between collective housing and pre-Hispanic traces."
+    },
+    {
+      "source_id": "SRC-LOC-SANFELIPE-PUCP",
+      "type": "ACADEMIC",
+      "url": "https://repositorio.pucp.edu.pe/items/5f3e4721-d251-4ed3-ab5b-3fd9d91f84dc",
+      "publisher": "Pontificia Universidad Catolica del Peru",
+      "evidence_status": "CORROBORATED",
+      "supports": "Superblock, mixed uses, green/public spaces, architectural order and continued inhabitation."
+    },
+    {
+      "source_id": "SRC-LOC-PREVI-MDLO-2026",
+      "type": "OFFICIAL",
+      "url": "https://www.munilosolivos.gob.pe/transparencia_mdlo/web_documentos/web/LOS_OLIVOS.pdf",
+      "publisher": "Municipalidad de Los Olivos",
+      "evidence_status": "VERIFIED",
+      "supports": "Current district-map identity and location of Urbanizacion PREVI."
+    },
+    {
+      "source_id": "SRC-LOC-AMERICAS-CORRIDOR",
+      "type": "OFFICIAL",
+      "url": "https://portal.muniplibre.gob.pe/turismo-pueblo-libre/corredor-turistico-historico-y-arqueologico-de-pueblo-libre/",
+      "publisher": "Municipalidad de Pueblo Libre",
+      "evidence_status": "VERIFIED",
+      "supports": "Current identity, address and open status."
+    },
+    {
+      "source_id": "SRC-LOC-SANTACRUZ-CULTURA",
+      "type": "OFFICIAL",
+      "url": "https://congresoarqueologia.cultura.gob.pe/sites/default/files/acta/archivos/Volumen%20II.pdf",
+      "publisher": "Ministerio de Cultura",
+      "evidence_status": "CORROBORATED",
+      "supports": "Pre-Hispanic, colonial and contemporary layers and the relationship with Residencial Santa Cruz."
+    },
+    {
+      "source_id": "SRC-LOC-PALOMINO-PUCP",
+      "type": "ACADEMIC",
+      "url": "https://repositorio.pucp.edu.pe/items/52cc4534-c47a-4bad-858e-c4bbb85a8b53/full",
+      "publisher": "Pontificia Universidad Catolica del Peru",
+      "evidence_status": "CORROBORATED",
+      "supports": "Original modular concept, curved collective spaces and later urban pressures."
+    },
+    {
+      "source_id": "SRC-LOC-LIBERTADORES-MINCETUR-2025",
+      "type": "OFFICIAL",
+      "url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=1931",
+      "publisher": "Ministerio de Comercio Exterior y Turismo",
+      "evidence_status": "VERIFIED",
+      "supports": "Identity, architecture, present museum use and state record updated 2025-11-14."
+    },
+    {
+      "source_id": "SRC-LOC-BANDERA-CORRIDOR",
+      "type": "OFFICIAL",
+      "url": "https://portal.muniplibre.gob.pe/turismo-pueblo-libre/corredor-turistico-historico-y-arqueologico-de-pueblo-libre/",
+      "publisher": "Municipalidad de Pueblo Libre",
+      "evidence_status": "VERIFIED",
+      "supports": "Current identity, address and open status."
+    },
+    {
+      "source_id": "SRC-LOC-CANDAMO-EMPRENDE-2026",
+      "type": "OFFICIAL",
+      "url": "https://portal.muniplibre.gob.pe/emprende-libre/m-add/",
+      "publisher": "Municipalidad de Pueblo Libre",
+      "evidence_status": "VERIFIED",
+      "supports": "Current July 2026 programmed public use as a municipal fair venue."
+    },
+    {
+      "source_id": "SRC-LOC-MATUTE-2026",
+      "type": "OFFICIAL",
+      "url": "https://www.gob.pe/institucion/munilavictoria/noticias/1393335-la-victoria-matute-tiene-nuevo-complejo-deportivo",
+      "publisher": "Municipalidad Distrital de La Victoria",
+      "evidence_status": "VERIFIED",
+      "supports": "The remodeled and expanded complex opened on 2026-05-14 with neighborhood sport and family use."
+    },
+    {
+      "source_id": "SRC-LOC-LCC-PROINVERSION-2026",
+      "type": "OFFICIAL",
+      "url": "https://www.gob.pe/institucion/proinversion/noticias/1376791-proinversion-moderno-centro-de-convenciones-de-lima-listo-para-adjudicarse-en-julio-2026",
+      "publisher": "ProInversion",
+      "evidence_status": "VERIFIED",
+      "supports": "Current identity, San Borja location, scale, program and 2026 operation-and-maintenance process."
+    },
+    {
+      "source_id": "SRC-LOC-QUINTA-LEURO-PDTL-2030",
+      "type": "OFFICIAL",
+      "url": "https://www.miraflores.gob.pe/wp-content/uploads/2025/04/PDTL-2024-2030-1.pdf",
+      "publisher": "Municipalidad de Miraflores",
+      "evidence_status": "VERIFIED",
+      "supports": "Current municipal heritage inventory confirms Quinta Leuro identity, address and monument status."
+    },
+    {
+      "source_id": "SRC-LOC-FUNICULAR-BARRANCO",
+      "type": "OFFICIAL",
+      "url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+      "publisher": "Municipalidad de Barranco",
+      "evidence_status": "CORROBORATED",
+      "supports": "Municipal history confirms the 1896 double-track hydraulic funicular and its spatial link to the descent."
+    },
+    {
+      "source_id": "SRC-LOC-REDUCTO-MIRAFLORES",
+      "type": "OFFICIAL",
+      "url": "https://www.miraflores.gob.pe/la-ciudad/parques/",
+      "publisher": "Municipalidad de Miraflores",
+      "evidence_status": "VERIFIED",
+      "supports": "Current municipal identity, location and relationship between Reducto 2 and the museum in the station replica."
+    },
+    {
+      "source_id": "SRC-LOC-BIBLIOTECA-BARRANCO",
+      "type": "OFFICIAL",
+      "url": "https://munibarranco.gob.pe/portal/cultura-biblioteca/",
+      "publisher": "Municipalidad de Barranco",
+      "evidence_status": "VERIFIED",
+      "supports": "Current program, address, weekday/Saturday hours, reading rooms and cultural-event use."
+    },
+    {
+      "source_id": "SRC-LOC-CRUZ-VIAJERO-RUTA",
+      "type": "OFFICIAL",
+      "url": "https://portal.muniplibre.gob.pe/turismo-pueblo-libre/ruta-del-libertador/",
+      "publisher": "Municipalidad de Pueblo Libre",
+      "evidence_status": "VERIFIED",
+      "supports": "Current identity, location and open status for Parque la Cruz del Viajero."
+    },
+    {
+      "source_id": "SRC-LOC-LUM-AGENDA-2026-08",
+      "type": "OFFICIAL",
+      "url": "https://lum.cultura.pe/actividades/agenda-agosto-2026",
+      "publisher": "Lugar de la Memoria / Ministerio de Cultura",
+      "evidence_status": "VERIFIED",
+      "supports": "Current August 2026 activity, address, free entry and Tuesday-Sunday 10:00-18:00 visiting hours."
+    },
+    {
+      "source_id": "SRC-LOC-QUEIROLO-INVENTORY-2024",
+      "type": "OFFICIAL",
+      "url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2024/12/Queirolo.pdf",
+      "publisher": "Municipalidad de Pueblo Libre",
+      "evidence_status": "VERIFIED",
+      "supports": "Architecture, maintained current condition, free entry, all-year use and 2023 visitor evidence."
+    },
+    {
+      "source_id": "SRC-LOC-TRADICIONES-MIRAFLORES",
+      "type": "OFFICIAL",
+      "url": "https://www.miraflores.gob.pe/la-ciudad/parques/",
+      "publisher": "Municipalidad de Miraflores",
+      "evidence_status": "VERIFIED",
+      "supports": "Current identity, location, children use, fountain, landscape and Palma sculpture integrated with a bench."
+    }
+  ],
+  "candidate_updates": [
+    {
+      "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+      "current_source_ids": ["SRC-LOC-PARQUE3-PROGRAM", "SRC-LOC-PARQUE3-USE-2019"],
+      "contradictions": ["Published 2019 opening hours are stale and cannot support a route window."],
+      "passes": {
+        "source_truth": {"status": "PARTIAL", "source_ids": ["SRC-LOC-PARQUE3-USE-2019"]},
+        "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-PARQUE3-PROGRAM"]}
+      }
+    },
+    {
+      "canonical_id": "torres-de-limatambo-supermanzana",
+      "current_source_ids": ["SRC-LOC-LIMATAMBO-PUCP"],
+      "passes": {"source_truth": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-LIMATAMBO-PUCP"]}}
+    },
+    {
+      "canonical_id": "residencial-san-felipe",
+      "current_source_ids": ["SRC-LOC-SANFELIPE-PUCP"],
+      "passes": {
+        "source_truth": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-SANFELIPE-PUCP"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-SANFELIPE-PUCP"]},
+        "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-SANFELIPE-PUCP"]}
+      }
+    },
+    {
+      "canonical_id": "previ-lima",
+      "current_source_ids": ["SRC-LOC-PREVI-MDLO-2026"],
+      "passes": {"source_truth": {"status": "PARTIAL", "source_ids": ["SRC-LOC-PREVI-MDLO-2026"]}}
+    },
+    {
+      "canonical_id": "parque-de-las-americas",
+      "current_source_ids": ["SRC-LOC-AMERICAS-CORRIDOR", "SRC-LOC-AMERICAS-PROGRAM", "SRC-LOC-AMERICAS-BIRDS"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-AMERICAS-CORRIDOR"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-AMERICAS-CORRIDOR", "SRC-LOC-AMERICAS-PROGRAM"]}
+      }
+    },
+    {
+      "canonical_id": "huaca-santa-cruz",
+      "current_source_ids": ["SRC-LOC-SANTACRUZ-CULTURA"],
+      "passes": {"source_truth": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-SANTACRUZ-CULTURA"]}}
+    },
+    {
+      "canonical_id": "conjunto-habitacional-palomino",
+      "current_source_ids": ["SRC-LOC-PALOMINO-PUCP"],
+      "passes": {
+        "source_truth": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-PALOMINO-PUCP"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-PALOMINO-PUCP"]}
+      }
+    },
+    {
+      "canonical_id": "quinta-de-los-libertadores-mnaahp",
+      "current_source_ids": ["SRC-LOC-LIBERTADORES-MINCETUR-2025"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LIBERTADORES-MINCETUR-2025"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-LIBERTADORES-MINCETUR-2025"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LIBERTADORES-MINCETUR-2025"]}
+      }
+    },
+    {
+      "canonical_id": "plaza-a-la-bandera",
+      "current_source_ids": ["SRC-LOC-BANDERA-CORRIDOR"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-BANDERA-CORRIDOR"]},
+        "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-BANDERA-CORRIDOR"]}
+      }
+    },
+    {
+      "canonical_id": "parque-virginia-candamo",
+      "current_source_ids": ["SRC-LOC-CANDAMO-EMPRENDE-2026"],
+      "passes": {
+        "source_truth": {"status": "PARTIAL", "source_ids": ["SRC-LOC-CANDAMO-EMPRENDE-2026"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-CANDAMO-EMPRENDE-2026"]}
+      }
+    },
+    {
+      "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+      "current_source_ids": ["SRC-LOC-MATUTE-2026"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-MATUTE-2026"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-MATUTE-2026"]},
+        "human_verbs_or_meaningful_absence": {"status": "PARTIAL", "source_ids": ["SRC-LOC-MATUTE-2026"]}
+      }
+    },
+    {
+      "canonical_id": "lima-centro-de-convenciones",
+      "current_source_ids": ["SRC-LOC-LCC-PROINVERSION-2026"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LCC-PROINVERSION-2026"]},
+        "original_spatial_contract": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LCC-PROINVERSION-2026"]},
+        "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-LCC-PROINVERSION-2026"]}
+      }
+    },
+    {
+      "canonical_id": "quinta-leuro-y-quintas-historicas",
+      "current_source_ids": ["SRC-LOC-QUINTA-LEURO-PDTL-2030"],
+      "passes": {"source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-QUINTA-LEURO-PDTL-2030"]}}
+    },
+    {
+      "canonical_id": "estacion-restos-del-funicular-de-barranco",
+      "current_source_ids": ["SRC-LOC-FUNICULAR-BARRANCO"],
+      "passes": {
+        "source_truth": {"status": "PARTIAL", "source_ids": ["SRC-LOC-FUNICULAR-BARRANCO"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-FUNICULAR-BARRANCO"]}
+      }
+    },
+    {
+      "canonical_id": "reducto-2-casa-museo-caceres",
+      "current_source_ids": ["SRC-LOC-REDUCTO-MIRAFLORES"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-REDUCTO-MIRAFLORES"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-REDUCTO-MIRAFLORES"]}
+      }
+    },
+    {
+      "canonical_id": "biblioteca-municipal-de-barranco",
+      "current_source_ids": ["SRC-LOC-BIBLIOTECA-BARRANCO"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-BIBLIOTECA-BARRANCO"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-BIBLIOTECA-BARRANCO"]},
+        "human_verbs_or_meaningful_absence": {"status": "PARTIAL", "source_ids": ["SRC-LOC-BIBLIOTECA-BARRANCO"]}
+      }
+    },
+    {
+      "canonical_id": "santisima-cruz-del-viajero",
+      "current_source_ids": ["SRC-LOC-CRUZ-VIAJERO-RUTA"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-CRUZ-VIAJERO-RUTA"]},
+        "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-CRUZ-VIAJERO-RUTA"]}
+      }
+    },
+    {
+      "canonical_id": "lugar-de-la-memoria-lum",
+      "current_source_ids": ["SRC-LOC-LUM-AGENDA-2026-08"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LUM-AGENDA-2026-08"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LUM-AGENDA-2026-08"]},
+        "human_verbs_or_meaningful_absence": {"status": "PARTIAL", "source_ids": ["SRC-LOC-LUM-AGENDA-2026-08"]}
+      }
+    },
+    {
+      "canonical_id": "antigua-taberna-queirolo",
+      "current_source_ids": ["SRC-LOC-QUEIROLO-INVENTORY-2024"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-QUEIROLO-INVENTORY-2024"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-QUEIROLO-INVENTORY-2024"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-QUEIROLO-INVENTORY-2024"]}
+      }
+    },
+    {
+      "canonical_id": "parque-tradiciones-ricardo-palma",
+      "current_source_ids": ["SRC-LOC-TRADICIONES-MIRAFLORES"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-TRADICIONES-MIRAFLORES"]},
+        "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-TRADICIONES-MIRAFLORES"]},
+        "architectural_causality": {"status": "PARTIAL", "source_ids": ["SRC-LOC-TRADICIONES-MIRAFLORES"]}
+      }
+    }
+  ]
+}
