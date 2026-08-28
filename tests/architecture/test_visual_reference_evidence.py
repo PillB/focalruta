@@ -25,7 +25,14 @@ def test_visual_intake_updates_ledger_without_promoting_candidates_by_itself():
     updates = [update for batch in batches() for update in batch["candidate_updates"]]
     for update in updates:
         item = ledger[update["canonical_id"]]
-        assert item["visual_reference_families"] == update["reference_families"]
+        ledger_references = {
+            reference["reference_id"]: reference
+            for reference in item["visual_reference_families"]
+        }
+        assert all(
+            ledger_references[reference["reference_id"]] == reference
+            for reference in update["reference_families"]
+        )
         if item["verification_complete"]:
             assert all(
                 check["status"] in {"CORROBORATED", "VERIFIED"}

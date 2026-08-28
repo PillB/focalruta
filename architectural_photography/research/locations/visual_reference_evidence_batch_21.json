@@ -1,0 +1,26 @@
+{
+  "batch_id":"VISUAL-FORENSICS-2026-08-28-21",
+  "retrieved_at":"2026-08-28T00:00:00-05:00",
+  "policy":"LINK_ONLY; discovery references establish viewpoint families, not present access or field success.",
+  "candidate_updates":[
+    {
+      "canonical_id":"parque-3-de-octubre-skatepark-muros-libres",
+      "verification_complete":false,
+      "ranking_eligible":false,
+      "route_eligible":false,
+      "reference_families":[
+        {"reference_id":"VR-PARQUE3-02","page_url":"https://portal.muniplibre.gob.pe/wp-content/uploads/2023/02/turismo_mpl.pdf","image_url":"https://portal.muniplibre.gob.pe/wp-content/uploads/2023/02/turismo_mpl.pdf","publisher":"Municipalidad de Pueblo Libre","viewpoint_family":"CIVIC_PARK_WITH_RAMPS_BENCHES_AND_DESIGNED_WALLS","likely_camera_height":"municipal survey eye level","fov_class":"wide","light_weather":"daylight","people_activity":"skateboard, BMX, inline-skate and scooter use described","edge_background":"ramps, benches, designed walls and surrounding park","cliche_cluster":"tourism inventory overview","proves":"The municipality defines the park as a multi-device urban-sports landscape, not a single ramp.","cannot_prove":"2026 condition, activity density or a decisive gesture.","redistribution":"LINK_ONLY"},
+        {"reference_id":"VR-PARQUE3-03","page_url":"https://skateparksperu.ning.com/photo/dsc-0595/prev?context=top","image_url":"https://skateparksperu.ning.com/photo/dsc-0595/prev?context=top","publisher":"Skateparks Perú community archive","viewpoint_family":"OPENING_ERA_OBSTACLE_SEQUENCE","likely_camera_height":"low-to-standing action viewpoint","fov_class":"wide-normal","light_weather":"daylight","people_activity":"mass opening and skate use represented in gallery context","edge_background":"successive ledges, banks and plaza boundary","cliche_cluster":"opening-day skate action","proves":"Low positions can align multiple obstacles into a causal movement sequence.","cannot_prove":"Current obstacle condition, provenance of an individual asset or present crowd pattern.","redistribution":"LINK_ONLY"}
+      ]
+    },
+    {
+      "canonical_id":"previ-lima",
+      "verification_complete":false,
+      "ranking_eligible":false,
+      "route_eligible":false,
+      "reference_families":[
+        {"reference_id":"VR-PREVI-03","page_url":"https://www.archdaily.com/1042148/previ-lima-and-the-politics-of-resident-authorship-in-social-housing","image_url":"https://www.archdaily.com/1042148/previ-lima-and-the-politics-of-resident-authorship-in-social-housing","publisher":"ArchDaily","viewpoint_family":"RESIDENT_AUTHORED_FACADE_ADDITION_AND_REPAIR","likely_camera_height":"street eye level across published case views","fov_class":"normal/wide-normal","light_weather":"varied daylight","people_activity":"domestic appropriation implied through additions and repairs","edge_background":"original seed dwelling mixed with upper, front and service additions","cliche_cluster":"before/after transformation catalog","proves":"A current 2026 professional synthesis identifies resident authorship as the central visible mechanism.","cannot_prove":"Which exact dwelling permits a one-frame public-street comparison or current resident activity.","redistribution":"LINK_ONLY"}
+      ]
+    }
+  ]
+}

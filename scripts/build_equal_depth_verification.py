@@ -138,7 +138,10 @@ def apply_visual_evidence(records):
         evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
         for update in evidence["candidate_updates"]:
             target = by_id[update["canonical_id"]]
-            target["visual_reference_families"] = update["reference_families"]
+            existing = {item["reference_id"]: item for item in target["visual_reference_families"]}
+            additions = {item["reference_id"]: item for item in update["reference_families"]}
+            existing.update(additions)
+            target["visual_reference_families"] = list(existing.values())
 
 def main():
     candidates = json.loads(CANDIDATES.read_text(encoding="utf-8"))

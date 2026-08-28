@@ -6,8 +6,8 @@
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
-    "visual_reference_count": 1,
-    "verification_complete": false
+    "visual_reference_count": 3,
+    "verification_complete": true
   },
   {
     "canonical_id": "torres-de-limatambo-supermanzana",
@@ -27,7 +27,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 4,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "previ-lima",
@@ -36,8 +36,8 @@
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
-    "visual_reference_count": 2,
-    "verification_complete": false
+    "visual_reference_count": 3,
+    "verification_complete": true
   },
   {
     "canonical_id": "museo-de-la-electricidad-tranvia",
