@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "last_verified_at": "2026-08-27",
+  "seeing_modes": [
+    "DOCUMENT / UNDERSTAND",
+    "INHABIT / OBSERVE",
+    "LIGHT / MATERIAL",
+    "TEMPORAL PALIMPSEST",
+    "URBAN SYSTEMS",
+    "ANTI-POSTAL DISCOVERY"
+  ],
+  "anti_dogma": "La coherencia temática no exige una persona: una ausencia significativa puede revelar función, expectativa y huella social.",
+  "transfer_cards": [
+    {
+      "photographer": "Iwan Baan",
+      "region": "GLOBAL",
+      "signature_question": "¿Cómo es apropiada la arquitectura por la vida que ocurre alrededor y dentro de ella?",
+      "source_backed_mechanisms": ["personas y comunidades en contexto", "arquitectura como ancla narrativa", "uso real antes que objeto aislado"],
+      "field_drill": "Observa diez minutos, registra cinco verbos reales y encuadra el dispositivo espacial que canaliza el verbo más revelador.",
+      "competition_use": "Hace visible habitar, identidad y transformación mediante una relación causal legible.",
+      "misuse_risk": "Añadir una persona como escala decorativa sin que cambie el significado.",
+      "sources": ["https://iwan.com/about/"]
+    },
+    {
+      "photographer": "Fernando Guerra",
+      "region": "EUROPE",
+      "signature_question": "¿Qué instante de luz o actividad hace que el edificio sea otro?",
+      "source_backed_mechanisms": ["espera activa", "cambio por hora, luz y personas", "decisión desde el lugar"],
+      "field_drill": "Fija posición y fondo; espera un gesto o cambio de luz con límite explícito de veinte minutos.",
+      "competition_use": "Convierte una vista conocida en un momento irrepetible sin alterar la realidad.",
+      "misuse_risk": "Confundir dramatismo casual con arquitectura causal.",
+      "sources": ["https://www.archdaily.com/488918/fernando-guerra-on-photography-in-the-internet-age"]
+    },
+    {
+      "photographer": "Ezra Stoller",
+      "region": "NORTH_AMERICA",
+      "signature_question": "¿Qué punto de vista vuelve legible el orden tridimensional en una imagen plana?",
+      "source_backed_mechanisms": ["vantage cuidadoso", "línea, forma y textura", "luz al servicio de la comprensión"],
+      "field_drill": "Haz una prueba A de estructura sin evento humano y elimina cada borde que compita con el orden principal.",
+      "competition_use": "Da claridad de primera lectura y resiliencia formal al relato.",
+      "misuse_risk": "Producir documentación impecable pero sin tensión temática.",
+      "sources": ["https://esto.com/ezra-stoller"]
+    },
+    {
+      "photographer": "Hélène Binet",
+      "region": "EUROPE",
+      "signature_question": "¿Qué revela la luz sobre el material, el tiempo y la memoria del lugar?",
+      "source_backed_mechanisms": ["paciencia y retorno", "detalle que implica el todo", "respuesta material a la luz"],
+      "field_drill": "Fotografía el mismo encuentro material en luz lateral, garúa y sombra abierta; compara qué historia sobrevive.",
+      "competition_use": "Abre una vía micro, táctil y temporal cuando la escena humana es débil.",
+      "misuse_risk": "Reducir tanto que desaparezca toda relación con arquitectura y tema.",
+      "sources": ["https://www.trans.ethz.ch/article/yes-now-helene-binet"]
+    },
+    {
+      "photographer": "Lucien Hervé",
+      "region": "EUROPE",
+      "signature_question": "¿Cuál es la mínima tensión de sombra, luz y geometría que evoca el conjunto?",
+      "source_backed_mechanisms": ["reducción cercana a la abstracción", "detalle como totalidad", "tensión sombra-luz"],
+      "field_drill": "Desde una posición fija, elimina información hasta que una sombra y dos planos expliquen el espacio.",
+      "competition_use": "Fortalece geometría, abstracción y luz sin depender de una postal completa.",
+      "misuse_risk": "Convertir cualquier patrón en formalismo sin identidad ni vida urbana.",
+      "sources": ["https://www.culture.gouv.fr/thematiques/architecture/actualites-de-l-architecture/Lucien-Herve-Geometrie-de-la-lumiere-au-Chateau-de-Tours"]
+    },
+    {
+      "photographer": "Julius Shulman",
+      "region": "NORTH_AMERICA",
+      "signature_question": "¿Cómo comunica la composición la promesa espacial y el modo de vida de un diseño?",
+      "source_backed_mechanisms": ["composición diseñada", "momento de luz", "figuras que activan una promesa doméstica"],
+      "field_drill": "Identifica la promesa original del espacio en ocho palabras y busca uso actual que la confirme o contradiga.",
+      "competition_use": "Conecta contrato original y vida presente con alta claridad visual.",
+      "misuse_risk": "La puesta histórica no autoriza dirigir, fabricar o falsificar la realidad presente.",
+      "sources": ["https://www.getty.edu/art/exhibitions/shulman/index.html"]
+    },
+    {
+      "photographer": "Candida Höfer",
+      "region": "EUROPE",
+      "signature_question": "¿Qué función social se vuelve visible precisamente cuando falta la gente?",
+      "source_backed_mechanisms": ["ausencia significativa", "estructura y proporción", "huella de instituciones y encuentro"],
+      "field_drill": "Haz una escena vacía donde mobiliario, desgaste, luz o espera hagan inequívoca la función colectiva.",
+      "competition_use": "Permite expresar habitar como expectativa o residuo social; no exige una persona.",
+      "misuse_risk": "Vaciar por estética un lugar cuya ausencia no comunica nada.",
+      "sources": ["https://www.smb.museum/en/exhibitions/detail/image-and-space/"]
+    },
+    {
+      "photographer": "Bas Princen",
+      "region": "EUROPE",
+      "signature_question": "¿Dónde se vuelve incierta la frontera entre edificio, infraestructura y paisaje?",
+      "source_backed_mechanisms": ["territorios construidos", "escala ambigua", "fricción entre objeto y paisaje"],
+      "field_drill": "Busca una sección urbana donde costa, muro, vía y edificio compitan por definir el espacio común.",
+      "competition_use": "Amplía arquitectura hacia sistemas e infraestructura sin caer en monumentos.",
+      "misuse_risk": "Atribuir una condición territorial a una sola referencia visual no verificada.",
+      "sources": ["https://www.basprincen.com/"]
+    },
+    {
+      "photographer": "Gabriele Basilico",
+      "region": "EUROPE",
+      "signature_question": "¿Qué estratos económicos e históricos dan forma a esta ciudad en transformación?",
+      "source_backed_mechanisms": ["rigor documental", "retorno al lugar", "comparación de tipologías y paisajes urbanos"],
+      "field_drill": "Regresa a un mismo eje en dos horas distintas y anota qué capa previa todavía controla la imagen.",
+      "competition_use": "Sostiene palimpsesto temporal, sistemas urbanos e identidad sin fama del edificio.",
+      "misuse_risk": "Confundir distancia documental con neutralidad o falta de elección.",
+      "sources": ["https://www.archiviogabrielebasilico.it/en/scopri/conoscere-gabriele-basilico"]
+    },
+    {
+      "photographer": "Leonardo Finotti",
+      "region": "LATIN_AMERICA",
+      "signature_question": "¿Cómo puede una secuencia de puntos de vista construir una cartografía crítica de la ciudad latinoamericana?",
+      "source_backed_mechanisms": ["arquitectura y ciudad como continuidad", "múltiples puntos de vista", "narrativa gráfica y cartografía"],
+      "field_drill": "Recorre una manzana con 35 mm y selecciona después un solo cruce donde edificio y tejido urbano sean inseparables.",
+      "competition_use": "Evita importar una mirada exclusivamente europea o estadounidense a Lima.",
+      "misuse_risk": "Usar la secuencia como excusa: la competencia exige que una sola imagen sostenga la idea.",
+      "sources": ["https://www.archdaily.com.br/br/01-38782/fotografia-e-arquitetura-leonardo-finotti"]
+    }
+  ]
+}

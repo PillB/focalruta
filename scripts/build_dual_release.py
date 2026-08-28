@@ -54,6 +54,10 @@ registration='''<script>\nif('serviceWorker' in navigator){window.addEventListen
 html=html.replace('</body>','<div class="hosted-badge no-print" style="position:fixed;right:10px;bottom:74px;z-index:55">● hosted lean</div>\n'+registration+'\n</body>',1)
 (OUT/'index.html').write_text(html,encoding='utf-8')
 
+# Native challenge and its public canonical data.
+shutil.copytree(SRC/'challenges',OUT/'challenges')
+shutil.copytree(SRC/'data'/'architecture',OUT/'data'/'architecture')
+
 # Standalone canonical file kept separately, unmodified behavior.
 shutil.copy2(SRC/'index.html',OUT/'FocalRuta_STANDALONE.html')
 shutil.copy2(SRC/'field_card.html',OUT/'field_card.html')
@@ -65,7 +69,7 @@ for icon in ['app-icon.svg','icon-192.png','icon-512.png']:
     if (SRC/'assets'/icon).exists(): shutil.copy2(SRC/'assets'/icon,OUT/'assets'/icon)
 
 # PWA: small shell pre-cache, granular runtime cache. Never return HTML for an image/style request.
-sw='''const VERSION='canon6d-sota-v1';\nconst SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime';\nconst CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./assets/icon-192.png','./assets/icon-512.png'];\nself.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));\nself.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>![SHELL,RUNTIME].includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));\nself.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;if(r.mode==='navigate'){e.respondWith(fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(async()=>await caches.match(r)||await caches.match('./index.html')));return;}if(/\\.(?:webp|png|svg|css|js|json)$/.test(u.pathname)){e.respondWith(caches.match(r).then(cached=>{const fresh=fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(()=>cached);return cached||fresh}));}});\n'''
+sw='''const VERSION='canon6d-sota-v2';\nconst SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime';\nconst CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./challenges/arquitectura-en-foco/index.html','./data/architecture/competition_rules.json','./data/architecture/learning.json','./assets/icon-192.png','./assets/icon-512.png'];\nself.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));\nself.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>![SHELL,RUNTIME].includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));\nself.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;if(r.mode==='navigate'){e.respondWith(fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(async()=>await caches.match(r)||await caches.match('./index.html')));return;}if(/\\.(?:webp|png|svg|css|js|json)$/.test(u.pathname)){e.respondWith(caches.match(r).then(cached=>{const fresh=fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(()=>cached);return cached||fresh}));}});\n'''
 (OUT/'sw.js').write_text(sw,encoding='utf-8')
 
 # Pages workflow from official artifact pattern.

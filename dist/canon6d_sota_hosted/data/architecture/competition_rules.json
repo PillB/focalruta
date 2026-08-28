@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "competition_id": "fundacion-actual-arquitectura-en-foco-2026",
+  "title": "Veo Arte en Todas Partes: Arquitectura en foco",
+  "theme": "Arquitectura en relación con la vida cotidiana, las personas y el paisaje urbano; transformación, identidad y maneras de habitar.",
+  "eligibility": {
+    "minimum_age": 18,
+    "residency": ["Chile", "Peru", "Colombia"]
+  },
+  "submission": {
+    "photo_count": 1,
+    "authored_by_participant": true,
+    "filename_pattern": "nombre-apellido",
+    "required_fields": ["personal_details", "title", "place", "capture_date_or_year", "brief_description"]
+  },
+  "file": {
+    "extensions": [".jpg", ".jpeg"],
+    "minimum_bytes": 5000000,
+    "maximum_bytes": 25000000,
+    "backup_suggestion": {"dpi": 300, "width_px": 5900, "height_px": 4100, "color_mode": "RGB"}
+  },
+  "capture": {"minimum_year": 2020, "digital_camera_any_type": true},
+  "editing": {
+    "allowed_basic_adjustments": [
+      "composition_crop",
+      "white_balance",
+      "black_and_white_conversion",
+      "brightness",
+      "contrast",
+      "sharpness",
+      "color_correction"
+    ],
+    "prohibited": [
+      "fundamental_element_retouch",
+      "ai_generated_intervened_or_edited",
+      "collage_montage_or_reality_altering_composition"
+    ]
+  },
+  "dates": {
+    "opens": "2026-07-30",
+    "closes_local": "2026-08-30T23:59:00",
+    "queries_through": "2026-08-29",
+    "results": "2026-10-22"
+  },
+  "finalist_count": 35,
+  "jurors": ["Cristián Aninat", "Hans Stoll", "Camilo Monzón"],
+  "official_criteria": ["Propuesta creativa y estética", "Coherencia con la temática"],
+  "inspiration_nonexclusive": [
+    "everyday_architecture", "inhabitation", "interiors", "legacy_present_future",
+    "forms_geometry", "light_shadow", "city_architecture", "micro_macro", "abstraction"
+  ],
+  "source_discrepancies": [
+    {
+      "discrepancy_id": "DISC-FILE-MINIMUM",
+      "claim": "The official PDF requires 5–25 MB; the live upload widget exposes only the 25 MB maximum.",
+      "authority": "SRC-COMP-2026-PDF",
+      "status": "VERIFIED"
+    },
+    {
+      "discrepancy_id": "DISC-JUROR-NAMES",
+      "claim": "The dated public article retains generic jury copy; the official PDF names Aninat, Stoll, and Monzón.",
+      "authority": "SRC-COMP-2026-PDF",
+      "status": "VERIFIED"
+    }
+  ],
+  "ai_firewall": {
+    "ui_instance_limit": 1,
+    "planning_allowed": true,
+    "candidate_image_ai_workflow": "PROHIBITED_UNLESS_EXACT_ORGANIZER_AUTHORIZATION_STORED",
+    "final_evaluation": "MANUAL",
+    "file_preflight": "DETERMINISTIC_LOCAL_ONLY"
+  },
+  "source_ids": ["SRC-COMP-2026-PDF", "SRC-COMP-2026-PAGE", "SRC-COMP-2026-FORM"],
+  "evidence_status": "VERIFIED",
+  "last_verified_at": "2026-08-27T13:10:00-05:00"
+}

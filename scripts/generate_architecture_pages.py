@@ -1,76 +1,56 @@
 #!/usr/bin/env python3
-"""Generate the dependency-free Round 1 architecture challenge shell."""
-
+"""Generate the dependency-free Arquitectura en Foco challenge."""
 from __future__ import annotations
-
 import json
 from html import escape
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
-RULES_PATH = ROOT / "data" / "architecture" / "competition_rules.json"
-LEARNING_PATH = ROOT / "data" / "architecture" / "learning.json"
-PHOTOGRAPHERS_PATH = ROOT / "data" / "architecture" / "photographers.json"
-OUTPUT = ROOT / "challenges" / "arquitectura-en-foco" / "index.html"
+RULES_PATH = ROOT / "data/architecture/competition_rules.json"
+LEARNING_PATH = ROOT / "data/architecture/learning.json"
+PHOTOGRAPHERS_PATH = ROOT / "data/architecture/photographers.json"
+COHORT_PATH = ROOT / "architectural_photography/research/locations/verification_cohort.json"
+OUTPUT = ROOT / "challenges/arquitectura-en-foco/index.html"
 
+CSS = """:root{--ink:#10211d;--muted:#5e6d67;--paper:#f4f0e7;--card:#fffdf8;--accent:#b84c32;--green:#176b55;--line:#cbc2b2}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,sans-serif}a{color:inherit}header,main,footer{max-width:1040px;margin:auto;padding-inline:clamp(18px,4vw,48px)}header{padding-top:34px;padding-bottom:28px}h1{font-size:clamp(2.5rem,10vw,6rem);line-height:.88;margin:.3em 0}h2{font-size:clamp(1.7rem,5vw,3rem);line-height:1.05}.eyebrow,.status{font-size:.75rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow:auto;padding:8px max(12px,env(safe-area-inset-left));background:rgba(244,240,231,.96);border-block:1px solid var(--line)}nav a{min-height:44px;display:grid;place-items:center;padding:0 13px;border-radius:999px;text-decoration:none;font-weight:750;white-space:nowrap}nav a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}section{padding:34px 0;border-top:1px solid var(--line)}.command,.callout{padding:18px;border-radius:16px;background:var(--ink);color:white}.command-grid,.scenes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}.command-grid article,.scene{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card)}.command-grid article{color:var(--ink)}.scene .reject{color:var(--muted);font-size:.92rem}.modes{columns:2;gap:30px}label{display:block;font-weight:750;margin-top:13px}input,textarea,select,button{width:100%;min-height:44px;font:inherit}textarea{min-height:82px}button{margin-top:10px;padding:9px 14px;border:0;border-radius:10px;background:var(--ink);color:white;font-weight:800}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.actions button{background:var(--green)}.secondary{background:white!important;color:var(--ink)!important;border:1px solid var(--line)!important}.rule{font-weight:800}.warning{border-left:5px solid var(--accent);padding-left:16px}footer{padding-block:30px 70px;color:var(--muted)}@media(max-width:560px){.modes{columns:1}.actions{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}"""
 
-def render_learning(learning: dict, photographers: dict) -> str:
+SCRIPT = r"""const KEY='focalruta.architecture.field.v1',form=document.querySelector('#field-form'),status=document.querySelector('#save-status');
+const state=()=>Object.fromEntries(new FormData(form).entries());function save(extra={}){localStorage.setItem(KEY,JSON.stringify({...state(),...extra,updatedAt:new Date().toISOString()}));status.textContent='Notas guardadas en este dispositivo.'}function restore(data){for(const [key,value] of Object.entries(data||{})){const control=form.elements.namedItem(key);if(control)control.value=value}status.textContent='Notas restauradas.'}try{restore(JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(error){status.textContent='No se pudieron restaurar las notas.'}form.addEventListener('input',()=>save());document.querySelectorAll('[data-decision]').forEach(button=>button.addEventListener('click',()=>save({decision:button.dataset.decision})));
+document.querySelector('#export-field').addEventListener('click',()=>{const blob=new Blob([localStorage.getItem(KEY)||JSON.stringify(state())],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='focalruta-arquitectura-campo.json';a.click();URL.revokeObjectURL(a.href)});document.querySelector('#import-field').addEventListener('click',()=>document.querySelector('#import-file').click());document.querySelector('#import-file').addEventListener('change',event=>{const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);restore(data);save(data)}catch(error){status.textContent='El archivo no contiene notas válidas.'}};reader.readAsText(file)});document.querySelector('#clear-field').addEventListener('click',()=>{localStorage.removeItem(KEY);form.reset();status.textContent='Notas borradas.'});
+const fileInput=document.querySelector('#candidate'),year=document.querySelector('#year'),result=document.querySelector('#result');document.querySelector('#check').addEventListener('click',()=>{const files=[...fileInput.files],errors=[];if(files.length!==1)errors.push('Selecciona exactamente un archivo.');if(files.length===1){const f=files[0],stem=f.name.replace(/\.[^.]+$/,'');if(!/\.jpe?g$/i.test(f.name))errors.push('Debe ser JPG o JPEG.');if(f.size<5000000||f.size>25000000)errors.push('Debe pesar entre 5 y 25 MB.');if(!/^[^\W\d_]+(?:-[^\W\d_]+)+$/u.test(stem))errors.push('Usa nombre-apellido.')}if(Number(year.value)<2020)errors.push('La captura debe ser de 2020 o posterior.');result.textContent=errors.length?errors.join(' '):'Pasa las comprobaciones automáticas.'});"""
+
+def scene_cards(cohort: dict) -> str:
+    return "".join(
+        f'<article class="scene"><p class="eyebrow">{escape(s["district"])}</p><h3>{escape(s["name"])}</h3>'
+        f'<p>{escape(s["primary_scene_mechanism"].replace("_", " ").title())}</p><p class="reject"><strong>Puede fallar:</strong> {escape(s["expert_rejection"])}</p>'
+        '<span class="status">En verificación · sin ranking</span></article>' for s in cohort["candidates"]
+    )
+
+def render(rules: dict, learning: dict, photographers: dict, cohort: dict | None = None) -> str:
+    cohort = cohort or json.loads(COHORT_PATH.read_text(encoding="utf-8"))
+    options = "".join(f'<option value="{escape(s["canonical_id"])}">{escape(s["name"])}</option>' for s in cohort["candidates"])
     modes = "".join(f"<li>{escape(mode)}</li>" for mode in photographers["seeing_modes"])
-    cards = "".join(
-        f'<article class="card"><h3>{escape(card["photographer"])}</h3>'
-        f'<p><strong>Pregunta:</strong> {escape(card["signature_question"])}</p>'
-        f'<p><strong>Prueba de campo:</strong> {escape(card["field_drill"])}</p>'
-        f'<p><strong>Riesgo:</strong> {escape(card["misuse_risk"])}</p></article>'
+    masters = "".join(
+        f'<article class="scene"><h3>{escape(card["photographer"])}</h3><p>{escape(card["signature_question"])}</p>'
+        f'<p><strong>Prueba:</strong> {escape(card["field_drill"])}</p></article>'
         for card in photographers["transfer_cards"]
     )
     lesson = learning["lessons"][1]
-    return (
-        '<section id="learn"><h2>Aprende en el lugar</h2>'
-        '<h3>Seis modos de ver</h3><ol class="modes">' + modes + '</ol>'
-        '<article class="drill"><h3>Posición antes que focal</h3>'
-        f'<p><strong>Observa:</strong> {escape(lesson["observe"])}</p>'
-        f'<p><strong>Prueba:</strong> {escape(lesson["try"])}</p></article>'
-        '<div class="cards">' + cards + '</div></section>'
-    )
-
-
-def render(rules: dict, learning: dict, photographers: dict) -> str:
     jurors = " · ".join(escape(name) for name in rules["jurors"])
-    learning_html = render_learning(learning, photographers)
-    return f'''<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="../../assets/app-icon.svg" type="image/svg+xml">
-<title>Arquitectura en Foco · FocalRuta</title><style>
-:root{{--ink:#14231f;--paper:#f7f3e9;--accent:#b84c32;--line:#c9c0ad}}*{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,sans-serif}}main{{max-width:920px;margin:auto;padding:clamp(20px,5vw,56px)}}h1{{font-size:clamp(2rem,8vw,4.8rem);line-height:.95}}section{{border-top:1px solid var(--line);padding:28px 0}}.rule{{font-weight:750}}.warning,.drill{{border-left:5px solid var(--accent);padding:14px 18px;background:#fff}}.modes{{columns:2;gap:28px}}.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}}.card{{padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff}}label{{display:block;margin:12px 0 4px}}input,button{{font:inherit;min-height:44px}}input[type=file]{{max-width:100%}}button{{margin-top:16px;padding:8px 18px;background:var(--ink);color:white;border:0;border-radius:6px}}button:focus-visible,input:focus-visible{{outline:3px solid var(--accent);outline-offset:3px}}@media(max-width:520px){{.modes{{columns:1}}}}@media(prefers-reduced-motion:reduce){{*{{scroll-behavior:auto!important}}}}
-</style></head><body><main>
-<p>FocalRuta · Challenge 2026</p><h1>Arquitectura<br>en foco</h1>
-<p>Una sola fotografía. Busca la relación entre diseño, vida cotidiana y ciudad que se lea antes de la explicación.</p>
-<section id="rules"><h2>Reglas que pueden descalificarte</h2>
-<p class="rule">Cierre: 30 de agosto de 2026 · 23:59, hora local del país.</p>
-<p class="rule">Exactamente 1 JPG/JPEG · 5–25 MB · captura desde 2020 · archivo nombre-apellido.</p>
-<p>Jurado indicado en las bases: {jurors}.</p>
-<p>El formulario muestra 25 MB como máximo; las bases oficiales también exigen el mínimo de 5 MB.</p></section>
-<section id="ai-firewall" class="warning"><h2>Flujo limpio con IA</h2><p>Usa este planificador para investigar y planear. Mantén el RAW/JPG/JPEG candidato fuera de crítica, selección, edición o mejora con IA salvo autorización específica y almacenada del organizador. La evaluación final es manual y el preflight local no modifica el archivo.</p></section>
-{learning_html}
-<section id="architecture-preflight"><h2>Preflight local</h2><p>Este navegador inspecciona nombre, formato y tamaño sin subir la fotografía.</p>
-<label for="candidate">Fotografía candidata</label><input id="candidate" type="file" accept=".jpg,.jpeg,image/jpeg">
-<label for="year">Año de captura</label><input id="year" type="number" min="2020" max="2026" value="2026">
-<button id="check" type="button">Comprobar archivo</button><p id="result" role="status" aria-live="polite">Aún sin comprobar.</p></section>
-<noscript><section><h2>Preflight sin JavaScript</h2><p>Comprueba manualmente: un solo JPG/JPEG, 5–25 MB, captura 2020 o posterior, nombre-apellido, respaldo y campos del formulario. Confirma solo ajustes básicos permitidos y ninguna alteración fundamental, collage o intervención con IA.</p></section></noscript>
-</main><script>
-const fileInput=document.querySelector('#candidate'),year=document.querySelector('#year'),result=document.querySelector('#result');
-document.querySelector('#check').addEventListener('click',()=>{{const files=[...fileInput.files];const errors=[];if(files.length!==1)errors.push('Selecciona exactamente un archivo.');if(files.length===1){{const f=files[0],stem=f.name.replace(/\.[^.]+$/,'');if(!/\.jpe?g$/i.test(f.name))errors.push('Debe ser JPG o JPEG.');if(f.size<5000000||f.size>25000000)errors.push('Debe pesar entre 5 y 25 MB.');if(!/^[^\W\d_]+(?:-[^\W\d_]+)+$/u.test(stem))errors.push('Usa nombre-apellido.')}}if(Number(year.value)<2020)errors.push('La captura debe ser de 2020 o posterior.');result.textContent=errors.length?errors.join(' '):'Pasa las comprobaciones automáticas. Completa las confirmaciones manuales antes de enviar.';}});
-</script></body></html>'''
-
+    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10211d"><link rel="icon" href="../../assets/app-icon.svg" type="image/svg+xml"><title>Arquitectura en Foco · FocalRuta</title><style>{CSS}</style></head><body>
+<header id="today"><p class="eyebrow">FOCALRUTA · CHALLENGE 2026</p><h1>Arquitectura<br>en foco</h1><p>Una sola fotografía. Encuentra una relación entre diseño, vida cotidiana y ciudad que se lea antes de la explicación.</p><div class="command"><div class="command-grid"><article><strong>Practica</strong><p>Tres posiciones antes de elegir focal.</p></article><article><strong>Explora</strong><p>6 escenas en verificación; todavía no son un ranking.</p></article><article><strong>Decide</strong><p>CONTRATO vs USO y una prueba A/B/C/D/E.</p></article><article><strong>No olvides</strong><p>Un JPG/JPEG de 5–25 MB.</p></article></div></div></header>
+<nav aria-label="Tareas del challenge"><a href="../../index.html">FocalRuta</a><a href="#today">Hoy</a><a href="#scenes">Escenas</a><a href="#learn">Aprender</a><a href="#field-run">Campo</a><a href="#rules">Reglas</a></nav><main>
+<section id="scenes"><p class="eyebrow">COLA DE INVESTIGACIÓN</p><h2>Escenas en verificación</h2><p>Estas hipótesis tienen identidad y fuente actual. Ninguna está puntuada ni habilitada como ruta.</p><div class="scenes">{scene_cards(cohort)}</div></section>
+<section id="learn"><p class="eyebrow">PRÁCTICA</p><h2>Aprende antes de perseguir una locación</h2><h3>Seis modos de ver</h3><ol class="modes">{modes}</ol><article class="callout"><h3>Posición antes que focal</h3><p><strong>Observa:</strong> {escape(lesson["observe"])}</p><p><strong>Prueba:</strong> {escape(lesson["try"])}</p></article><h3>Preguntas de maestros</h3><div class="scenes">{masters}</div></section>
+<section id="field-run"><p class="eyebrow">OFFLINE · GUARDADO LOCAL</p><h2>CONTRATO vs USO</h2><p>Observa diez minutos. Resume el propósito original, registra cinco verbos, encuentra tres posiciones y elige focal al final.</p><form id="field-form"><label for="field-scene">Escena</label><select id="field-scene" name="scene">{options}</select><label for="contract">Propósito original · 8 palabras</label><input id="contract" name="contract" maxlength="90"><label for="verbs">Cinco verbos observados</label><textarea id="verbs" name="verbs"></textarea><label for="device">Dispositivo arquitectónico que causa la acción</label><textarea id="device" name="device"></textarea><label for="failure">Por qué todavía falla la mejor toma</label><textarea id="failure" name="failure"></textarea><div class="actions" role="group" aria-label="Decisión de campo"><button type="button" data-decision="STAY">STAY</button><button type="button" data-decision="MOVE">MOVE</button><button type="button" data-decision="RETURN_OTHER_LIGHT">RETURN OTHER LIGHT</button></div><p id="save-status" role="status" aria-live="polite">Se guarda solo en este dispositivo.</p></form><div class="actions"><button id="export-field" type="button" class="secondary">Exportar notas</button><button id="import-field" type="button" class="secondary">Importar notas</button><button id="clear-field" type="button" class="secondary">Borrar notas</button></div><input id="import-file" type="file" accept="application/json" hidden></section>
+<section id="ai-firewall"><p class="eyebrow">FLUJO LIMPIO</p><h2>IA para planear, no para intervenir la foto</h2><p>Usa el planificador para investigar, aprender y organizar campo. La selección y evaluación final de la fotografía se mantienen manuales.</p></section><section id="rules" class="architecture-preflight"><p class="eyebrow">PREVUELO</p><h2>Reglas que pueden descalificarte</h2><p class="rule">Cierre: 30 de agosto de 2026 · 23:59, hora local.</p><p class="rule">Exactamente 1 JPG/JPEG · 5–25 MB · captura desde 2020 · nombre-apellido.</p><p>Jurado indicado en las bases: {jurors}.</p><p class="warning">El formulario muestra 25 MB como máximo; las bases también exigen el mínimo de 5 MB.</p><label for="candidate">Fotografía candidata</label><input id="candidate" type="file" accept=".jpg,.jpeg,image/jpeg"><label for="year">Año</label><input id="year" type="number" min="2020" max="2026" value="2026"><button id="check" type="button">Comprobar archivo</button><p id="result" role="status" aria-live="polite">Aún sin comprobar.</p></section>
+<noscript><section><h2>Escenas en verificación</h2><p>Ccori Wasi · Parque 3 de Octubre · Parque de las Américas · Antigua Taberna Queirolo · LUM · Puente de la Paz.</p><h2>CONTRATO vs USO</h2><p>Observa 10 minutos, escribe propósito en 8 palabras, anota 5 verbos, encuentra 3 posiciones, inspecciona bordes y elige focal al final.</p><h2>Reglas</h2><p>Un JPG/JPEG · 5–25 MB · captura desde 2020 · nombre-apellido.</p></section></noscript></main><footer>FocalRuta guarda las notas en tu navegador. La exportación JSON permite moverlas entre dispositivos.</footer><script>{SCRIPT}</script></body></html>'''
 
 def main() -> None:
-    rules = json.loads(RULES_PATH.read_text(encoding="utf-8"))
-    learning = json.loads(LEARNING_PATH.read_text(encoding="utf-8"))
-    photographers = json.loads(PHOTOGRAPHERS_PATH.read_text(encoding="utf-8"))
+    values = [json.loads(path.read_text(encoding="utf-8")) for path in (RULES_PATH, LEARNING_PATH, PHOTOGRAPHERS_PATH, COHORT_PATH)]
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(render(rules, learning, photographers), encoding="utf-8")
+    OUTPUT.write_text(render(*values), encoding="utf-8")
     print(OUTPUT.relative_to(ROOT))
-
 
 if __name__ == "__main__":
     main()
