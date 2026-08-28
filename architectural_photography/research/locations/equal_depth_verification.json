@@ -8553,7 +8553,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-ORBEA-01",
+          "page_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2023/02/turismo_mpl.pdf",
+          "image_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2023/02/turismo_mpl.pdf",
+          "publisher": "Municipalidad Distrital de Pueblo Libre",
+          "viewpoint_family": "COLONIAL_REPUBLICAN_HACIENDA_COMPLEX",
+          "likely_camera_height": "visitor and survey eye level",
+          "fov_class": "site-wide/normal/detail",
+          "light_weather": "daylight",
+          "people_activity": "coordinated visiting and maintaining a private historic property",
+          "edge_background": "stairs, perimeter patios, upper corridors, seed terrace, oratory and service structures",
+          "cliche_cluster": "empty colonial courtyard",
+          "proves": "The municipal inventory documents a multi-part productive and domestic complex, not merely a façade, and explicitly says entry requires prior coordination.",
+          "cannot_prove": "2026 conservation state, current owner consent or any public access window.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-ORBEA-02",
+          "page_url": "https://repositorio.cultura.gob.pe/handle/CULTURA/27",
+          "image_url": "https://repositorio.cultura.gob.pe/handle/CULTURA/27",
+          "publisher": "Ministerio de Cultura del Perú · Repositorio Institucional",
+          "viewpoint_family": "PROTECTED_HACIENDA_AND_CHAPEL_IDENTITY",
+          "likely_camera_height": "catalogue/documentation level",
+          "fov_class": "site/architectural",
+          "light_weather": "not fixed",
+          "people_activity": "historic domestic, productive and devotional use",
+          "edge_background": "house, chapel and former agricultural dependencies within the urban block",
+          "cliche_cluster": "heritage-catalogue record",
+          "proves": "The national heritage register establishes the protected identity of the hacienda-and-chapel ensemble.",
+          "cannot_prove": "Present visibility from public space, interior condition or operational access.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-ORBEA-03",
+          "page_url": "https://www.munlima.gob.pe/images/descargas/programas/prolima/compendio-patrimonio-inmueble.pdf",
+          "image_url": "https://www.munlima.gob.pe/images/descargas/programas/prolima/compendio-patrimonio-inmueble.pdf",
+          "publisher": "Municipalidad Metropolitana de Lima · patrimonio inmueble",
+          "viewpoint_family": "HACIENDA_RESIDUE_INSIDE_CONTEMPORARY_PUEBLO_LIBRE",
+          "likely_camera_height": "urban survey level",
+          "fov_class": "wide/site-wide",
+          "light_weather": "not fixed",
+          "people_activity": "moving around a surviving agrarian enclosure embedded in the city",
+          "edge_background": "perimeter walls, adjacent streets and contemporary neighborhood fabric",
+          "cliche_cluster": "isolated monument inventory",
+          "proves": "The metropolitan catalogue supplies the urban-survival context needed to test enclosure against present city life.",
+          "cannot_prove": "Current wall condition or whether a public-space composition can reveal the internal productive order.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Casa Hacienda Orbea puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -9903,7 +9952,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-PORTA-01",
+          "page_url": "https://www.miraflores.gob.pe/calle_miraflores/calle-porta/",
+          "image_url": "https://www.miraflores.gob.pe/calle_miraflores/calle-porta/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "SEVEN_BLOCK_BALNEARIO_TO_HIGH_RISE_CORRIDOR",
+          "likely_camera_height": "pedestrian eye level",
+          "fov_class": "street-long/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "walking between Schell and the malecón, entering homes and towers",
+          "edge_background": "surviving houses, large new buildings and the long slope toward the coast",
+          "cliche_cluster": "nostalgic old-street view",
+          "proves": "The municipality explicitly frames Porta as a historic street where old summer houses are visually overwhelmed by large buildings.",
+          "cannot_prove": "Which houses survive in August 2026 or the strongest same-frame height contrast.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PORTA-02",
+          "page_url": "https://andina.pe/agencia/noticia-promueven-conservacion-casonas-antiguas-miraflores-norma-edil-421347.aspx",
+          "image_url": "https://andina.pe/agencia/noticia-promueven-conservacion-casonas-antiguas-miraflores-norma-edil-421347.aspx",
+          "publisher": "Agencia Peruana de Noticias Andina",
+          "viewpoint_family": "MICROZONE_CONSERVATION_VERSUS_DEVELOPMENT_PRESSURE",
+          "likely_camera_height": "street/news level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "living in, maintaining and redeveloping older residential fabric",
+          "edge_background": "casona lot, neighboring construction and protected streetscape",
+          "cliche_cluster": "heritage-at-risk news image",
+          "proves": "The public-policy record demonstrates that preservation and development potential are an explicit urban conflict, not an invented photo caption.",
+          "cannot_prove": "Current participation in the voluntary mechanism or the status of any named Porta property.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PORTA-03",
+          "page_url": "https://www.flickr.com/photos/leondeurgel/48554089191",
+          "image_url": "https://www.flickr.com/photos/leondeurgel/48554089191",
+          "publisher": "Lima Remember archive on Flickr",
+          "viewpoint_family": "DEMOLISHED_CASONA_MEMORY_AT_PORTA_BLOCK_SEVEN",
+          "likely_camera_height": "archival street eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "historical residential occupation; present use absent",
+          "edge_background": "former casona frontage and block context",
+          "cliche_cluster": "before-loss nostalgia",
+          "proves": "The dated archival image supplies a concrete lost-building reference for Porta's seventh block.",
+          "cannot_prove": "Present replacement, exact demolition date or any surviving field condition; it is comparison evidence only.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Calle Porta y casonas frente a verticalización puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -10084,7 +10182,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-SAENZ-01",
+          "page_url": "https://repositorio.cultura.gob.pe/bitstream/handle/CULTURA/1132/ZONA%20MONUMENTAL%20DE%20BARRANCO.pdf?isAllowed=y&sequence=1",
+          "image_url": "https://repositorio.cultura.gob.pe/bitstream/handle/CULTURA/1132/ZONA%20MONUMENTAL%20DE%20BARRANCO.pdf?isAllowed=y&sequence=1",
+          "publisher": "Ministerio de Cultura del Perú",
+          "viewpoint_family": "COMPLETE_STREET_SURVEY_WITH_RECORDED_CAMERA_ANGLES",
+          "likely_camera_height": "systematic pedestrian survey level",
+          "fov_class": "street-long/wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "walking, entering houses and moving between avenue and passages",
+          "edge_background": "building heights, alignments, age classes and marked viewpoints along Sáenz Peña",
+          "cliche_cluster": "heritage-street elevation sequence",
+          "proves": "The official study provides a street-scale visual baseline and explicit camera positions, enabling repeat-view comparison rather than selective postcard sampling.",
+          "cannot_prove": "Current 2026 uses, vegetation, construction or access inside individual properties.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-SAENZ-02",
+          "page_url": "https://tesis.pucp.edu.pe/items/8496ad49-ee65-496e-b8f3-31e0481e76c7",
+          "image_url": "https://tesis.pucp.edu.pe/items/8496ad49-ee65-496e-b8f3-31e0481e76c7",
+          "publisher": "Pontificia Universidad Católica del Perú",
+          "viewpoint_family": "HERITAGE_REUSE_AS_CONTEMPORARY_SPATIAL_SYSTEM",
+          "likely_camera_height": "research documentation exterior/interior",
+          "fov_class": "wide/normal/detail",
+          "light_weather": "mixed",
+          "people_activity": "working, visiting, consuming culture and adapting old rooms",
+          "edge_background": "historic structures, material interventions and new-use circulation",
+          "cliche_cluster": "before-after adaptive reuse",
+          "proves": "Academic case-study evidence identifies Sáenz Peña as a living reuse problem where contemporary dynamics occupy inherited systems.",
+          "cannot_prove": "The current operator or access state of every studied building.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-SAENZ-03",
+          "page_url": "https://cdn.www.gob.pe/uploads/document/file/5599656/4970600-barranco-talento-y-creacion.pdf",
+          "image_url": "https://cdn.www.gob.pe/uploads/document/file/5599656/4970600-barranco-talento-y-creacion.pdf",
+          "publisher": "Ministerio de Comercio Exterior y Turismo / Barranco",
+          "viewpoint_family": "DOMEYER_SAENZ_PENA_CREATIVE_USE_NETWORK",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "street/interior mixed",
+          "light_weather": "day/evening",
+          "people_activity": "viewing art, making art, eating, shopping and passing between cultural addresses",
+          "edge_background": "Domeyer and Sáenz Peña façades, courtyards, galleries and passages",
+          "cliche_cluster": "creative-district lifestyle guide",
+          "proves": "The official guide records multiple distinct present-day creative occupations across the corridor rather than one landmark.",
+          "cannot_prove": "August 2026 opening status, exact pedestrian peaks or photography conditions inside businesses.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Sáenz Peña / Domeyer / pasajes puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -10266,7 +10413,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-HARTH-01",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/casa-harth-terre/",
+          "image_url": "https://cammp.ulima.edu.pe/edificios/casa-harth-terre/",
+          "publisher": "Universidad de Lima · Catálogo Arquitectura Movimiento Moderno Perú",
+          "viewpoint_family": "1938_ARCHIVE_TO_CURRENT_PRIVATE_RESIDENCE",
+          "likely_camera_height": "archival and present street eye level",
+          "fov_class": "wide/normal/detail/plan",
+          "light_weather": "daylight",
+          "people_activity": "private dwelling behind a historically documented entry sequence",
+          "edge_background": "general façade, lateral entrance, doorway detail and first-floor plan",
+          "cliche_cluster": "isolated modern-house elevation",
+          "proves": "The academic catalogue provides matched archival views and plan evidence, while labeling current use as housing, conservation unevaluated and destruction threat present.",
+          "cannot_prove": "Interior access, current occupants' consent or the exact physical source of the stated threat.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HARTH-02",
+          "page_url": "https://www.miraflores.gob.pe/la-ciudad/patrimonio-cultural/",
+          "image_url": "https://www.miraflores.gob.pe/la-ciudad/patrimonio-cultural/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "MUNICIPAL_HERITAGE_LISTING_AND_STREET_IDENTITY",
+          "likely_camera_height": "pedestrian eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "passing and living along Avenida de la Aviación",
+          "edge_background": "house frontage, avenue vegetation and adjacent development",
+          "cliche_cluster": "heritage-list thumbnail",
+          "proves": "The municipal heritage page identifies the house and address as a district cultural asset.",
+          "cannot_prove": "The apparent conflict with the CAMMP 'no protection' field, which requires resolution before any verified protection claim.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HARTH-03",
+          "page_url": "https://www.miraflores.gob.pe/wp-content/uploads/2020/10/PDTL-MIRAFLORES_web.pdf",
+          "image_url": "https://www.miraflores.gob.pe/wp-content/uploads/2020/10/PDTL-MIRAFLORES_web.pdf",
+          "publisher": "Municipalidad Distrital de Miraflores · Tourism Development Plan",
+          "viewpoint_family": "DOCUMENTED_HERITAGE_OBJECT_WITH_URBAN_CONTEXT",
+          "likely_camera_height": "municipal survey level",
+          "fov_class": "normal/site context",
+          "light_weather": "daylight",
+          "people_activity": "ordinary residential street use around a catalogued house",
+          "edge_background": "house mass, property boundary and contemporary Miraflores fabric",
+          "cliche_cluster": "tourism-plan heritage image",
+          "proves": "The municipal plan supplies a second official visual record and a declared-heritage assertion for contradiction checking.",
+          "cannot_prove": "Current statutory effect, public entry or 2026 conservation condition.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Casa Emilio Harth-Terré puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
