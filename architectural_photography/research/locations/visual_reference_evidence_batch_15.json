@@ -1,0 +1,219 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-15",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "puente-villena-bajada-balta-costa-verde",
+      "reference_families": [
+        {
+          "reference_id": "VR-VILLENA-01",
+          "page_url": "https://www.miraflores.gob.pe/puentes-villena-y-mellizo-lucen-nueva-iluminacion-led/",
+          "image_url": "https://www.miraflores.gob.pe/puentes-villena-y-mellizo-lucen-nueva-iluminacion-led/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "NIGHT_BRIDGE_CIRCULATION_AND_LED_RETROFIT",
+          "likely_camera_height": "pedestrian eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "night through dawn; uniform LED",
+          "people_activity": "walking, cycling, driving and exercising between the malecones",
+          "edge_background": "twin bridge decks, transparent side protection, ravine and lit coastal edge",
+          "cliche_cluster": "illuminated bridge symmetry",
+          "proves": "January 2026 municipal evidence confirms all-night lighting and high daily circulation after the September 2025 resurfacing.",
+          "cannot_prove": "Unobstructed camera positions, pedestrian density by hour or whether the LED treatment produces a strong one-frame relationship.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-VILLENA-02",
+          "page_url": "https://www.miraflores.gob.pe/iniciamos-la-instalacion-de-paneles-de-policarbonato-en-puentes-villena-y-mellizo/",
+          "image_url": "https://www.miraflores.gob.pe/iniciamos-la-instalacion-de-paneles-de-policarbonato-en-puentes-villena-y-mellizo/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "TRANSPARENT_SAFETY_EDGE_AND_CHANGED_URBAN_IMAGE",
+          "likely_camera_height": "pedestrian and work-documentation level",
+          "fov_class": "normal/detail",
+          "light_weather": "daylight",
+          "people_activity": "installing, crossing and looking through the bridge edge",
+          "edge_background": "new anti-impact panels, bridge railing and coastal drop",
+          "cliche_cluster": "municipal improvement documentation",
+          "proves": "A May 2026 intervention materially changed the bridge edge, so older unobstructed views are stale for framing decisions.",
+          "cannot_prove": "Completion state on the visit date, reflection behavior in garúa or whether photography through the panels remains clear.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-VILLENA-03",
+          "page_url": "https://www.miraflores.gob.pe/wp-content/uploads/2022/03/02.-CAP%C3%8DTULO-II-II.6-FINAL-88-pg.pdf",
+          "image_url": "https://www.miraflores.gob.pe/wp-content/uploads/2022/03/02.-CAP%C3%8DTULO-II-II.6-FINAL-88-pg.pdf",
+          "publisher": "Autoridad del Proyecto Costa Verde / Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "CLIFF_TO_COAST_ACCESS_AND_BICYCLE_FRICTION",
+          "likely_camera_height": "planning document and pedestrian route level",
+          "fov_class": "site-wide/route",
+          "light_weather": "not fixed",
+          "people_activity": "descending, carrying bicycles and transferring between upper city and coast",
+          "edge_background": "Bajada Balta stairs, acantilado, bridge and lower coastal infrastructure",
+          "cliche_cluster": "coastal-access overview",
+          "proves": "The 2022–2032 master plan identifies Bajada Balta as an actual but inadequate cyclist descent, supporting a contract-versus-use test rather than a scenic bridge portrait.",
+          "cannot_prove": "Present stair condition, current barriers or the frequency of bicycle carrying.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+      "reference_families": [
+        {
+          "reference_id": "VR-PAZ-01",
+          "page_url": "https://www.miraflores.gob.pe/miles-de-visitantes-cruzaron-el-puente-de-la-paz-en-el-primer-dia-de-acceso-libre-y-gratuito/",
+          "image_url": "https://www.miraflores.gob.pe/miles-de-visitantes-cruzaron-el-puente-de-la-paz-en-el-primer-dia-de-acceso-libre-y-gratuito/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "OPENING_DAY_MIXED_PEDESTRIAN_OCCUPATION",
+          "likely_camera_height": "pedestrian eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "crossing with children, pets and bicycles; skating, photographing and gathering",
+          "edge_background": "tubular span, transparent deck segment, Armendáriz traffic and cliff parks",
+          "cliche_cluster": "opening-day crowd and glass-floor selfie",
+          "proves": "Official opening evidence records varied real verbs and free public use across the Miraflores–Barranco connection.",
+          "cannot_prove": "Normal-day density, present operating restrictions or a non-selfie composition.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PAZ-02",
+          "page_url": "https://www.miraflores.gob.pe/wp-content/uploads/2025/09/REVISTA-MUNICIPAL-AGOSTO-2025-VRS-3.pdf",
+          "image_url": "https://www.miraflores.gob.pe/wp-content/uploads/2025/09/REVISTA-MUNICIPAL-AGOSTO-2025-VRS-3.pdf",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "GLASS_DECK_OVER_VEHICULAR_RAVINE",
+          "likely_camera_height": "pedestrian eye level and elevated overview",
+          "fov_class": "wide/detail",
+          "light_weather": "day/evening",
+          "people_activity": "walking, cycling, pausing, looking down and making selfies",
+          "edge_background": "112 m span, 60 m drop, vehicle flow and opposing cliff edges",
+          "cliche_cluster": "glass-floor spectacle",
+          "proves": "The operator documents the bridge's dimensional relation to the traffic channel and its dominant visitor behavior, making the saturation risk explicit.",
+          "cannot_prove": "Structural uniqueness beyond the operator claim or whether traffic/person alignment is visually readable at a chosen focal length.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PAZ-03",
+          "page_url": "https://www.miraflores.gob.pe/Gestorw3b/files/pdf/10773-29116-plan_de_movilidad_web.pdf",
+          "image_url": "https://www.miraflores.gob.pe/Gestorw3b/files/pdf/10773-29116-plan_de_movilidad_web.pdf",
+          "publisher": "Municipalidad Distrital de Miraflores · Plan de Movilidad Urbana",
+          "viewpoint_family": "PLANNED_INTERDISTRICT_CONNECTION_OVER_ARMENDARIZ",
+          "likely_camera_height": "plan/section and street level",
+          "fov_class": "site-wide",
+          "light_weather": "not fixed",
+          "people_activity": "connecting districts above a vehicular descent",
+          "edge_background": "Armendáriz section, green edges and proposed cross-ravine link",
+          "cliche_cluster": "infrastructure plan diagram",
+          "proves": "The mobility plan establishes the long-standing spatial contract: bridge the ravine and connect Miraflores with Barranco.",
+          "cannot_prove": "How the completed pedestrian-only design performs today or current access hours.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "ovalo-de-miraflores",
+      "reference_families": [
+        {
+          "reference_id": "VR-OVALO-01",
+          "page_url": "https://www.miraflores.gob.pe/miraflores-presenta-renovada-fuente-ornamental-del-ovalo-central/",
+          "image_url": "https://www.miraflores.gob.pe/miraflores-presenta-renovada-fuente-ornamental-del-ovalo-central/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "RENOVATED_DAY_NIGHT_WATER_LIGHT_CIVIC_NODE",
+          "likely_camera_height": "pedestrian and elevated overview",
+          "fov_class": "wide/site-wide",
+          "light_weather": "permanent daytime water; programmed night light",
+          "people_activity": "crossing, watching, meeting and circulating around the traffic island",
+          "edge_background": "430 m² fountain, road lanes, cycle crossings, Juan Fanning monument and Parque Central",
+          "cliche_cluster": "new illuminated fountain spectacle",
+          "proves": "The May 2026 reopening replaced more than fifteen years of abandonment with a working water-light system and renewed pedestrian edges.",
+          "cannot_prove": "Show schedule, crowd behavior after novelty fades or a safe camera position inside the traffic geometry.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-OVALO-02",
+          "page_url": "https://www.miraflores.gob.pe/pileta-del-ovalo-central-de-miraflores-sera-recuperada-y-modernizada-tras-15-anos/",
+          "image_url": "https://www.miraflores.gob.pe/pileta-del-ovalo-central-de-miraflores-sera-recuperada-y-modernizada-tras-15-anos/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "ABANDONED_INFRASTRUCTURE_TO_TECHNOLOGICAL_REPLACEMENT",
+          "likely_camera_height": "municipal documentation and pedestrian level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "passing an inactive landmark before renovation",
+          "edge_background": "1963 fountain footprint, traffic circle and construction boundary",
+          "cliche_cluster": "before-renovation civic landmark",
+          "proves": "The October 2025 source fixes the prior condition and attributes the original 1960s urban-furniture intervention to Emilio Rodríguez Larraín.",
+          "cannot_prove": "Exact historic design authorship, original operation or any current construction state.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-OVALO-03",
+          "page_url": "https://www.miraflores.gob.pe/wp-content/uploads/2026/02/REVISTA-MUNICIPAL-MM-ENERO-FEBRERO.pdf",
+          "image_url": "https://www.miraflores.gob.pe/wp-content/uploads/2026/02/REVISTA-MUNICIPAL-MM-ENERO-FEBRERO.pdf",
+          "publisher": "Municipalidad Distrital de Miraflores · Revista Municipal",
+          "viewpoint_family": "AERIAL_TRAFFIC_RING_AND_PUBLIC_REALM_RECONFIGURATION",
+          "likely_camera_height": "aerial/oblique",
+          "fov_class": "site-wide",
+          "light_weather": "daylight",
+          "people_activity": "driving, cycling and crossing around a largely inaccessible center",
+          "edge_background": "roundabout, fountain, landscaped ring, adjacent blocks and Parque Central",
+          "cliche_cluster": "promotional aerial overview",
+          "proves": "The aerial reference reveals the fountain as one element inside a road-and-crossing system rather than an isolated object.",
+          "cannot_prove": "A photographer-accessible equivalent viewpoint or pedestrian safety from ground level.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "palacio-municipal-virgen-milagrosa",
+      "reference_families": [
+        {
+          "reference_id": "VR-PALVIRGEN-01",
+          "page_url": "https://www.miraflores.gob.pe/la-ciudad/patrimonio-cultural/",
+          "image_url": "https://www.miraflores.gob.pe/la-ciudad/patrimonio-cultural/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "NEOCOLONIAL_CIVIC_FACADE_AND_PUBLIC_OFFICE",
+          "likely_camera_height": "pedestrian eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "entering municipal services, crossing Larco and gathering at Parque Central",
+          "edge_background": "four-storey palace façade, portico, church edge and civic park",
+          "cliche_cluster": "frontal heritage façade",
+          "proves": "The municipality identifies the 1944 Luis Miró Quesada Garland palace, its neocolonial language and continuing public-office function.",
+          "cannot_prove": "Current interior photography permission, peak service times or a causal palace–church relation.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PALVIRGEN-02",
+          "page_url": "https://www.miraflores.gob.pe/miratv-iglesia-virgen-milagrosa-patrimonio-inmueble-de-miraflores/",
+          "image_url": "https://www.miraflores.gob.pe/miratv-iglesia-virgen-milagrosa-patrimonio-inmueble-de-miraflores/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "CHURCH_FRONTING_CENTRAL_PARK",
+          "likely_camera_height": "pedestrian eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "worshipping, waiting, crossing and occupying the civic park",
+          "edge_background": "neocolonial church façade, palace frontage, trees and park circulation",
+          "cliche_cluster": "frontal church postcard",
+          "proves": "The official heritage feature establishes the church's direct spatial relation to Parque Central.",
+          "cannot_prove": "Service schedule, interior access or whether palace and church can be composed without tree and traffic clutter.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PALVIRGEN-03",
+          "page_url": "https://www.miraflores.gob.pe/los-servicios/cultura-y-turismo/cultura-miraflores/",
+          "image_url": "https://www.miraflores.gob.pe/los-servicios/cultura-y-turismo/cultura-miraflores/",
+          "publisher": "Municipalidad Distrital de Miraflores · Cultura Miraflores",
+          "viewpoint_family": "PALACE_TO_PUBLIC_ARTS_INTERIOR_ADAPTATION",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "interior wide/normal",
+          "light_weather": "controlled interior light",
+          "people_activity": "visiting exhibitions, circulating and attending cultural programming",
+          "edge_background": "first-floor palace fabric joined to Sala Luis Miró Quesada Garland",
+          "cliche_cluster": "empty gallery documentation",
+          "proves": "The current operator confirms a free public arts program inside the palace Tuesday–Sunday, 11:00–21:00, creating a testable civic-to-cultural use relation.",
+          "cannot_prove": "Photography policy, exhibit turnover after retrieval or a compelling single-frame relation to the church exterior.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}
