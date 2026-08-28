@@ -5,6 +5,7 @@ ROOT = Path(__file__).resolve().parents[2]
 HOME = ROOT / "index.html"
 CHALLENGE = ROOT / "challenges/arquitectura-en-foco/index.html"
 BUILD = ROOT / "scripts/build_dual_release.py"
+CANDIDATES = ROOT / "data/architecture/candidates.json"
 
 
 def text(path: Path) -> str:
@@ -21,9 +22,32 @@ def test_challenge_has_task_navigation_and_truthful_queue_language():
     page = text(CHALLENGE)
     for anchor in ("#today", "#scenes", "#learn", "#field-run", "#rules"):
         assert f'href="{anchor}"' in page
-    assert "6 escenas en verificación" in page
+    assert "81 lugares y escenas" in page
     assert "Top 3" not in page
     assert "probabilidad de ganar" not in page.lower()
+
+
+def test_user_can_choose_scene_count_or_all_without_implying_rank():
+    page = text(CHALLENGE)
+    assert 'id="scene-limit"' in page
+    assert 'value="all"' in page
+    assert "Mostrar N escenas" in page
+    assert "applySceneLimit" in page
+    assert "sceneLimit" in page
+    assert "Top 3" not in page
+    assert page.count('class="scene"') >= 81
+    assert "Torres de Limatambo" in page
+    assert "Residencial San Felipe" in page
+    assert "PREVI Lima" in page
+
+
+def test_public_candidate_universe_contains_all_81_without_rank_fields():
+    candidates = __import__("json").loads(text(CANDIDATES))
+    assert len(candidates) == 81
+    assert len({item["canonical_id"] for item in candidates}) == 81
+    prohibited = {"R0", "R1", "R2", "R3", "masterRank", "fieldRank", "robustIndex"}
+    assert all(prohibited.isdisjoint(item) for item in candidates)
+    assert all(item["ranking_eligible"] is False for item in candidates)
 
 
 def test_field_run_is_local_persistent_and_portable():

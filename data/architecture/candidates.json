@@ -1,0 +1,650 @@
+[
+  {
+    "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+    "name": "Parque 3 de Octubre + Skatepark Muros Libres",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "torres-de-limatambo-supermanzana",
+    "name": "Torres de Limatambo / supermanzana",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "residencial-san-felipe",
+    "name": "Residencial San Felipe",
+    "district": "Jesús María",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "previ-lima",
+    "name": "PREVI Lima",
+    "district": "Los Olivos",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "museo-de-la-electricidad-tranvia",
+    "name": "Museo de la Electricidad & Tranvía",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "parque-de-las-americas",
+    "name": "Parque de las Américas",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "huaca-santa-cruz",
+    "name": "Huaca Santa Cruz",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "conjunto-habitacional-palomino",
+    "name": "Conjunto Habitacional Palomino",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "quinta-de-los-libertadores-mnaahp",
+    "name": "Quinta de los Libertadores + MNAAHP",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "plaza-a-la-bandera",
+    "name": "Plaza a la Bandera",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "parque-virginia-candamo",
+    "name": "Parque Virginia Candamo",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "unidad-vecinal-3",
+    "name": "Unidad Vecinal Nº3",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+    "name": "Unidad Vecinal Matute + complejo deportivo",
+    "district": "La Victoria",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "lima-centro-de-convenciones",
+    "name": "Lima Centro de Convenciones",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "casa-museo-julia-codesido",
+    "name": "Casa Museo Julia Codesido",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "huaca-san-borja",
+    "name": "Huaca San Borja",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "quinta-leuro-y-quintas-historicas",
+    "name": "Quinta Leuro y quintas históricas",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "estacion-restos-del-funicular-de-barranco",
+    "name": "Estación / restos del Funicular de Barranco",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "reducto-2-casa-museo-caceres",
+    "name": "Reducto Nº 2 / Casa Museo Cáceres",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "biblioteca-municipal-de-barranco",
+    "name": "Biblioteca Municipal de Barranco",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "santisima-cruz-del-viajero",
+    "name": "Santísima Cruz del Viajero",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "torres-centro-empresarial-camino-real",
+    "name": "Torres / Centro Empresarial Camino Real",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "lugar-de-la-memoria-lum",
+    "name": "Lugar de la Memoria (LUM)",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "antigua-taberna-queirolo",
+    "name": "Antigua Taberna Queirolo",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "casa-museo-marina-nunez-del-prado",
+    "name": "Casa Museo Marina Núñez del Prado",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "parque-tradiciones-ricardo-palma",
+    "name": "Parque Tradiciones / Ricardo Palma",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+    "name": "Plaza de los Libertadores + Santa María Magdalena",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+    "name": "Centro de Convenciones / estación La Cultura",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "biblioteca-nacional-del-peru",
+    "name": "Biblioteca Nacional del Perú",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+    "name": "Biblioteca Municipal y borde lagunas del Olivar",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+    "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "gran-teatro-nacional",
+    "name": "Gran Teatro Nacional",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "mirador-catalina-recavarren",
+    "name": "Mirador Catalina Recavarren",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "parque-municipal-y-entorno-civico",
+    "name": "Parque Municipal y entorno cívico",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "mac-lima-parque-espejo-de-agua",
+    "name": "MAC Lima + parque / espejo de agua",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "puente-villena-bajada-balta-costa-verde",
+    "name": "Puente Villena / Bajada Balta / Costa Verde",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "casa-raul-porras-barrenechea",
+    "name": "Casa Raúl Porras Barrenechea",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "casa-hacienda-orbea",
+    "name": "Casa Hacienda Orbea",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "calle-choquehuanca-basadre-residencial",
+    "name": "Calle Choquehuanca / Basadre residencial",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+    "name": "Palacio Municipal y de la Cultura · San Isidro",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "museo-larco-jardines",
+    "name": "Museo Larco + jardines",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "bosque-el-olivar",
+    "name": "Bosque El Olivar",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "huaca-huallamarca",
+    "name": "Huaca Huallamarca",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+    "name": "Calle Porta y casonas frente a verticalización",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "saenz-pena-domeyer-pasajes",
+    "name": "Sáenz Peña / Domeyer / pasajes",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "casa-emilio-harth-terre",
+    "name": "Casa Emilio Harth-Terré",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "parque-de-la-felicidad",
+    "name": "Parque de la Felicidad",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+    "name": "Ministerio de Cultura / Museo de la Nación",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "iglesia-santisima-cruz",
+    "name": "Iglesia Santísima Cruz",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "huaca-pucllana",
+    "name": "Huaca Pucllana",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+    "name": "Museo Pedro de Osma y Av. Pedro de Osma",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "casa-hacienda-moreyra",
+    "name": "Casa-Hacienda Moreyra",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "torre-banco-de-la-nacion",
+    "name": "Torre Banco de la Nación",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "parque-maria-reiche",
+    "name": "Parque María Reiche",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "parroquia-nuestra-senora-del-pilar",
+    "name": "Parroquia Nuestra Señora del Pilar",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+    "name": "Puente de los Suspiros + Bajada de Baños",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "country-club-lima-hotel",
+    "name": "Country Club Lima Hotel",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "pentagonito-y-bordes-civicos",
+    "name": "Pentagonito y bordes cívicos",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+    "name": "Faro La Marina + Parque Antonio Raimondi",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "casa-museo-ricardo-palma",
+    "name": "Casa Museo Ricardo Palma",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "ovalo-de-miraflores",
+    "name": "Óvalo de Miraflores",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "coliseo-eduardo-dibos",
+    "name": "Coliseo Eduardo Dibós",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "huaca-julio-c-tello",
+    "name": "Huaca Julio C. Tello",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "palacio-municipal-virgen-milagrosa",
+    "name": "Palacio Municipal + Virgen Milagrosa",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "la-ermita-de-barranco",
+    "name": "La Ermita de Barranco",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "parque-kennedy-gatos-civic-core",
+    "name": "Parque Kennedy / gatos / civic core",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "parque-del-amor-el-beso",
+    "name": "Parque del Amor & El Beso",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "larcomar-acantilado",
+    "name": "Larcomar + acantilado",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "centro-cultural-ccori-wasi",
+    "name": "Centro Cultural Ccori Wasi",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "centro-civico-de-lima-real-plaza",
+    "name": "Centro Cívico de Lima / Real Plaza",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "agrupamiento-chabuca-granda",
+    "name": "Agrupamiento Chabuca Granda",
+    "district": "Rímac",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "edificio-alvarez-calderon",
+    "name": "Edificio Álvarez Calderón",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "quinta-heeren-restauracion-2026",
+    "name": "Quinta Heeren · restauración 2026",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+    "name": "Transecto de ciudad compacta · Pueblo Libre/Lince/Surquillo",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "jiron-trujillo-puente-de-piedra",
+    "name": "Jirón Trujillo + Puente de Piedra",
+    "district": "Rímac",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+    "name": "Puente de la Paz / Quebrada de Armendáriz",
+    "district": "Miraflores–Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "jiron-de-la-union",
+    "name": "Jirón de la Unión",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "damero-de-lima-interseccion-como-objeto",
+    "name": "Damero de Lima · intersección como objeto",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "casa-garcia-bryce",
+    "name": "Casa García Bryce",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "aulario-104-universidad-ricardo-palma",
+    "name": "Aulario 104 · Universidad Ricardo Palma",
+    "district": "Santiago de Surco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  },
+  {
+    "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+    "name": "Cantagallo · comunidad Shipibo-Konibo",
+    "district": "Rímac",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true
+  }
+]
