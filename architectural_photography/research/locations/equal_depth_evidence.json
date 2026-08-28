@@ -193,6 +193,94 @@
       "publisher": "Municipalidad de Miraflores",
       "evidence_status": "CORROBORATED",
       "supports": "Bridge identity, recovery and its causal connection across Bajada Balta between two malecones."
+    },
+    {
+      "source_id": "SRC-LOC-PORRAS-MIRAFLORES-2023",
+      "type": "OFFICIAL",
+      "url": "https://www.miraflores.gob.pe/casa-raul-porras-barrenechea-una-joya-historica-en-el-corazon-de-miraflores/",
+      "publisher": "Municipalidad de Miraflores",
+      "evidence_status": "CORROBORATED",
+      "supports": "Restored house, research-institute use, interior program and reservation-based visits after 2022 reopening."
+    },
+    {
+      "source_id": "SRC-LOC-ORBEA-CLOSED",
+      "type": "OFFICIAL",
+      "url": "https://portal.muniplibre.gob.pe/turismo-pueblo-libre/ruta-del-libertador/",
+      "publisher": "Municipalidad de Pueblo Libre",
+      "evidence_status": "VERIFIED",
+      "supports": "Current municipal route lists Casa Hacienda Orbea at Jr. Juan Acevedo and marks it closed."
+    },
+    {
+      "source_id": "SRC-LOC-LARCO-VISIT-2026",
+      "type": "PRIMARY",
+      "url": "https://www.museolarco.org/planea-tu-visita/",
+      "publisher": "Museo Larco",
+      "evidence_status": "VERIFIED",
+      "supports": "Current 2026 operator evidence for mansion, gardens, public use, hours and address."
+    },
+    {
+      "source_id": "SRC-LOC-PORTA-MIRAFLORES",
+      "type": "OFFICIAL",
+      "url": "https://www.miraflores.gob.pe/calle_miraflores/calle-porta/",
+      "publisher": "Municipalidad de Miraflores",
+      "evidence_status": "VERIFIED",
+      "supports": "Seven-block historic street, surviving houses, vertical-building contrast and connection between Schell and the malecon."
+    },
+    {
+      "source_id": "SRC-LOC-HARTH-TERRE-PDTL-2030",
+      "type": "OFFICIAL",
+      "url": "https://www.miraflores.gob.pe/wp-content/uploads/2025/04/PDTL-2024-2030-1.pdf",
+      "publisher": "Municipalidad de Miraflores",
+      "evidence_status": "VERIFIED",
+      "supports": "Current municipal-plan heritage inventory confirms identity, address and monument status."
+    },
+    {
+      "source_id": "SRC-LOC-LARCO-VISIT-2026-B",
+      "type": "PRIMARY",
+      "url": "https://www.museolarco.org/planea-tu-visita/",
+      "publisher": "Museo Larco",
+      "evidence_status": "VERIFIED",
+      "supports": "Current August 2026 hours, mansion-and-garden identity, public programs and visitor behavior."
+    },
+    {
+      "source_id": "SRC-LOC-PORTA-STREET",
+      "type": "OFFICIAL",
+      "url": "https://www.miraflores.gob.pe/calle_miraflores/calle-porta/",
+      "publisher": "Municipalidad de Miraflores",
+      "evidence_status": "VERIFIED",
+      "supports": "Historic seven-block street and explicit surviving-house versus high-rise contrast."
+    },
+    {
+      "source_id": "SRC-LOC-IGLESIA-CRUZ-BARRANCO",
+      "type": "OFFICIAL",
+      "url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+      "publisher": "Municipalidad de Barranco",
+      "evidence_status": "VERIFIED",
+      "supports": "Architect, construction chronology, cross-shaped plan, vaulted aisles, facade and exterior oratories."
+    },
+    {
+      "source_id": "SRC-LOC-PUCLLANA-AGENDA-2026",
+      "type": "OFFICIAL",
+      "url": "https://www.miraflores.gob.pe/museo-de-sitio-pucllana-presenta-variada-e-inclusiva-agenda-por-el-mes-de-los-museos/",
+      "publisher": "Municipalidad de Miraflores",
+      "evidence_status": "VERIFIED",
+      "supports": "Current 2026 day/night visits, public program, performance and inclusive activities."
+    },
+    {
+      "source_id": "SRC-LOC-PEDRO-OSMA-VISIT",
+      "type": "PRIMARY",
+      "url": "https://www.museopedrodeosma.org/planea-tu-visita",
+      "publisher": "Museo Pedro de Osma",
+      "evidence_status": "VERIFIED",
+      "supports": "Current operator identity, accessibility and Tuesday-Sunday hours."
+    },
+    {
+      "source_id": "SRC-LOC-MOREYRA-PDLC",
+      "type": "OFFICIAL",
+      "url": "https://www.munisanisidro.gob.pe/Transparencia/Tema02/ORD.%20438-COMPLETA.pdf",
+      "publisher": "Municipalidad de San Isidro",
+      "evidence_status": "CORROBORATED",
+      "supports": "Foundational hacienda role, heritage status and adaptive reuse as restaurant/bar."
     }
   ],
   "candidate_updates": [
@@ -394,6 +482,101 @@
         "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-VILLENA-RECOVERY"]},
         "architectural_causality": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-VILLENA-RECOVERY"]},
         "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-VILLENA-RECOVERY"]}
+      }
+    },
+    {
+      "canonical_id": "casa-raul-porras-barrenechea",
+      "current_source_ids": ["SRC-LOC-PORRAS-MIRAFLORES-2023"],
+      "passes": {
+        "source_truth": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-PORRAS-MIRAFLORES-2023"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-PORRAS-MIRAFLORES-2023"]},
+        "current_life": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-PORRAS-MIRAFLORES-2023"]}
+      }
+    },
+    {
+      "canonical_id": "casa-hacienda-orbea",
+      "current_source_ids": ["SRC-LOC-ORBEA-CLOSED"],
+      "contradictions": ["Current municipal tourism route marks the property closed; exterior-only research remains possible but route eligibility is false."],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-ORBEA-CLOSED"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-ORBEA-CLOSED"]},
+        "moment_logistics_ethics": {"status": "PARTIAL", "source_ids": ["SRC-LOC-ORBEA-CLOSED"]}
+      }
+    },
+    {
+      "canonical_id": "museo-larco-jardines",
+      "current_source_ids": ["SRC-LOC-LARCO-VISIT-2026"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LARCO-VISIT-2026"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LARCO-VISIT-2026"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-LARCO-VISIT-2026"]}
+      }
+    },
+    {
+      "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+      "current_source_ids": ["SRC-LOC-PORTA-MIRAFLORES"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-PORTA-MIRAFLORES"]},
+        "current_life": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-PORTA-MIRAFLORES"]},
+        "architectural_causality": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-PORTA-MIRAFLORES"]}
+      }
+    },
+    {
+      "canonical_id": "casa-emilio-harth-terre",
+      "current_source_ids": ["SRC-LOC-HARTH-TERRE-PDTL-2030"],
+      "passes": {"source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-HARTH-TERRE-PDTL-2030"]}}
+    },
+    {
+      "canonical_id": "museo-larco-jardines",
+      "current_source_ids": ["SRC-LOC-LARCO-VISIT-2026-B"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LARCO-VISIT-2026-B"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-LARCO-VISIT-2026-B"]},
+        "human_verbs_or_meaningful_absence": {"status": "PARTIAL", "source_ids": ["SRC-LOC-LARCO-VISIT-2026-B"]}
+      }
+    },
+    {
+      "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+      "current_source_ids": ["SRC-LOC-PORTA-STREET"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-PORTA-STREET"]},
+        "current_life": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-PORTA-STREET"]},
+        "architectural_causality": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-PORTA-STREET"]}
+      }
+    },
+    {
+      "canonical_id": "iglesia-santisima-cruz",
+      "current_source_ids": ["SRC-LOC-IGLESIA-CRUZ-BARRANCO"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-IGLESIA-CRUZ-BARRANCO"]},
+        "original_spatial_contract": {"status": "VERIFIED", "source_ids": ["SRC-LOC-IGLESIA-CRUZ-BARRANCO"]},
+        "architectural_causality": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-IGLESIA-CRUZ-BARRANCO"]}
+      }
+    },
+    {
+      "canonical_id": "huaca-pucllana",
+      "current_source_ids": ["SRC-LOC-PUCLLANA-AGENDA-2026"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-PUCLLANA-AGENDA-2026"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-PUCLLANA-AGENDA-2026"]},
+        "human_verbs_or_meaningful_absence": {"status": "PARTIAL", "source_ids": ["SRC-LOC-PUCLLANA-AGENDA-2026"]}
+      }
+    },
+    {
+      "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+      "current_source_ids": ["SRC-LOC-PEDRO-OSMA-VISIT"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-PEDRO-OSMA-VISIT"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-PEDRO-OSMA-VISIT"]}
+      }
+    },
+    {
+      "canonical_id": "casa-hacienda-moreyra",
+      "current_source_ids": ["SRC-LOC-MOREYRA-PDLC"],
+      "passes": {
+        "source_truth": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-MOREYRA-PDLC"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-MOREYRA-PDLC"]},
+        "current_life": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-MOREYRA-PDLC"]}
       }
     }
   ]
