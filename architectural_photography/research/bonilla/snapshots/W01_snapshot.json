@@ -1,0 +1,39 @@
+{
+  "source_id": "W01",
+  "title": "Lima y el Callao: Guía de Arquitectura y Paisaje",
+  "url": "https://www.juntadeandalucia.es/fomentoyvivienda/portal-web/web/areas/arquitectura/ArquitecturaObras/44b96e8a-7dd1-11e8-9dbf-ad370074c308",
+  "status": "VERIFIED",
+  "lesson": "Palimpsesto + itinerario: la locación importa menos que la secuencia territorial.",
+  "claim_ids": [
+    "CLM-BONILLA-01-FRAMEWORK"
+  ],
+  "candidate_added": [],
+  "candidate_merged": [],
+  "candidate_removed_or_quarantined": [],
+  "canonical_count_after": 81,
+  "ranking_model_version": null,
+  "ranking_run_id": null,
+  "top5": [],
+  "delta_vs_previous": "Canonical baseline established without promotion.",
+  "confidence": 0.9,
+  "open_questions": [
+    "Which current, primary place source verifies any derived Lima scene?",
+    "What field evidence would make the relationship legible in one frame?"
+  ],
+  "retrieved_at": "2026-08-27T17:30:00-05:00",
+  "source_access": "DIRECT_CURRENT",
+  "evidentiary_role": "CONTEXTUAL_FRAMEWORK",
+  "expert_rejection": "A published source can support a conceptual lens, but it cannot verify current scene conditions, access, safety, consent, light, activity, or one-frame strength. Its Callao coverage is outside the 43-district Lima boundary and cannot seed candidates.",
+  "historical_candidate_suggestions": [
+    "Centro Cultural Ccori Wasi",
+    "Unidad Vecinal Nº3"
+  ],
+  "historical_count_after": 70,
+  "historical_top5": [
+    "PREVI Lima",
+    "Centro Cultural Ccori Wasi",
+    "Torres de Limatambo / supermanzana",
+    "Residencial San Felipe",
+    "Parque 3 de Octubre + Skatepark Muros Libres"
+  ]
+}

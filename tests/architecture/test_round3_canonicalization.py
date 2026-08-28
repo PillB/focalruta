@@ -3,6 +3,7 @@ from pathlib import Path
 
 from scripts.canonicalize_architecture_candidates import (
     HISTORICAL_SCORE_FIELDS,
+    canonicalize_runs,
     canonicalize_records,
     normalize_identity,
 )
@@ -50,16 +51,37 @@ def test_historical_lima_neighborhood_and_cross_district_labels_are_resolved():
     assert result["quarantined"] == []
 
 
-def test_generated_master82_derivative_is_historical_only_and_score_isolated():
+def test_generated_historical_union_is_provenanced_and_score_isolated():
     candidates = json.loads(
         (ROOT / "architectural_photography" / "ranking" / "canonical_candidates.json").read_text(encoding="utf-8")
     )
     report = json.loads(
         (ROOT / "architectural_photography" / "ranking" / "reconciliation_report.json").read_text(encoding="utf-8")
     )
-    assert report["historical_count"] == 82
+    assert report["source_runs"] == {"Master68": 68, "Master82": 82}
     assert report["canonical_count"] == 81
+    assert report["run_deltas"]["Master68_to_Master82"] == {
+        "retained": 68, "added": 13, "removed": 0,
+    }
     assert len({item["canonical_id"] for item in candidates}) == 81
     assert all(item["evidence_status"] == "HISTORICAL_ONLY" for item in candidates)
     assert all(item["ranking_eligible"] is False for item in candidates)
     assert all(not (HISTORICAL_SCORE_FIELDS & item.keys()) for item in candidates)
+    assert sum("Master68" in item["source_runs"] for item in candidates) == 68
+    assert sum("Master82" in item["source_runs"] for item in candidates) == 81
+
+
+def test_multiple_runs_preserve_run_provenance_without_inflating_identity():
+    shared = {"id": "shared", "name": "Parque de prueba", "district": "Lince"}
+    newer = {"id": "new", "name": "Edificio nuevo", "district": "Surquillo"}
+    result = canonicalize_runs({"Master68": [shared], "Master82": [shared, newer]})
+    assert len(result["candidates"]) == 2
+    park = next(item for item in result["candidates"] if item["canonical_id"] == "parque-de-prueba")
+    assert park["source_runs"] == ["Master68", "Master82"]
+    assert park["historical_refs"] == [
+        {"run_id": "Master68", "historical_id": "shared"},
+        {"run_id": "Master82", "historical_id": "shared"},
+    ]
+    assert result["run_deltas"]["Master68_to_Master82"] == {
+        "retained": 1, "added": 1, "removed": 0,
+    }

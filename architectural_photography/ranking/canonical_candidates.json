@@ -1,107 +1,5 @@
 [
   {
-    "group": "Bonilla/Baracco · adaptive reuse",
-    "storyTitle": "La casa que ya tuvo tres vidas",
-    "purpose": "Casona doméstica; luego sede temprana de la Universidad Ricardo Palma y oficina universitaria. En 2004 fue restaurada y adaptada por Juvenal Baracco y Enrique Bonilla como centro cultural.",
-    "currentLife": "Galería, auditorio, biblioteca y plataforma pública de exposiciones, conciertos y encuentros; en 2026 sigue recibiendo exposiciones y actividades abiertas.",
-    "friction": "La arquitectura conserva una casa y, al mismo tiempo, rehace su contrato: residencia → universidad → cultura pública. La pregunta no es qué parte es vieja o nueva, sino dónde ambas edades se necesitan.",
-    "verbs": "entrar · mirar · conversar · esperar · cruzar · reunirse",
-    "cliche": "fachada limpia o interior vacío de arquitectura restaurada",
-    "question": "¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?",
-    "moment": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural.",
-    "lens": "50 mm primero · 35 mm si necesitamos calle+patio · 85 mm para comprimir puerta/patio/figura",
-    "light": "mañana suave o blue hour si el interior está activo; evitar que la luz espectacular convierta el lugar en puro decorado",
-    "kill": "Si la intervención nueva y la casona no pueden leerse simultáneamente, queda como “bonita casa cultural”.",
-    "source": "https://www.urp.edu.pe/oficinas/centro-cultural-ccoriwasi/",
-    "source2": "https://elperuano.pe/noticia/297087-el-jardin-de-atras-70-artistas-participan-en-muestra-colectiva-en-el-centro-cultural-ccori-wasi",
-    "sourceIds": [
-      "W01",
-      "W18"
-    ],
-    "origin": "bonilla14",
-    "passes": [
-      {
-        "n": "01",
-        "label": "Contrato original",
-        "text": "Casona doméstica; luego sede temprana de la Universidad Ricardo Palma y oficina universitaria. En 2004 fue restaurada y adaptada por Juvenal Baracco y Enrique Bonilla como centro cultural."
-      },
-      {
-        "n": "02",
-        "label": "Vida actual",
-        "text": "Galería, auditorio, biblioteca y plataforma pública de exposiciones, conciertos y encuentros; en 2026 sigue recibiendo exposiciones y actividades abiertas."
-      },
-      {
-        "n": "03",
-        "label": "Fricción",
-        "text": "La arquitectura conserva una casa y, al mismo tiempo, rehace su contrato: residencia → universidad → cultura pública. La pregunta no es qué parte es vieja o nueva, sino dónde ambas edades se necesitan."
-      },
-      {
-        "n": "04",
-        "label": "Verbos humanos",
-        "text": "entrar · mirar · conversar · esperar · cruzar · reunirse"
-      },
-      {
-        "n": "05",
-        "label": "Cliché dominante",
-        "text": "fachada limpia o interior vacío de arquitectura restaurada"
-      },
-      {
-        "n": "06",
-        "label": "Pregunta ganable",
-        "text": "¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?"
-      },
-      {
-        "n": "07",
-        "label": "Momento decisivo",
-        "text": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural."
-      },
-      {
-        "n": "08",
-        "label": "Óptica real",
-        "text": "50 mm primero · 35 mm si necesitamos calle+patio · 85 mm para comprimir puerta/patio/figura"
-      },
-      {
-        "n": "09",
-        "label": "Luz",
-        "text": "mañana suave o blue hour si el interior está activo; evitar que la luz espectacular convierta el lugar en puro decorado"
-      },
-      {
-        "n": "10",
-        "label": "Kill condition",
-        "text": "Si la intervención nueva y la casona no pueden leerse simultáneamente, queda como “bonita casa cultural”."
-      }
-    ],
-    "shots": [
-      {
-        "label": "A · ESTRUCTURA",
-        "lens": "35 / 50",
-        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-        "gate": "¿La arquitectura explica su orden por sí sola?"
-      },
-      {
-        "label": "B · HABITAR",
-        "lens": "50 mm",
-        "plan": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural.",
-        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
-      },
-      {
-        "label": "C · ANTI-POSTAL",
-        "lens": "85 o posición alternativa",
-        "plan": "Ataca el cliché: fachada limpia o interior vacío de arquitectura restaurada. Busca la relación definida por: ¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?",
-        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
-      }
-    ],
-    "canonical_id": "centro-cultural-ccori-wasi",
-    "name": "Centro Cultural Ccori Wasi",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "ccori-wasi"
-    ]
-  },
-  {
     "origin": "expansion18",
     "delta": null,
     "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
@@ -112,108 +10,20 @@
     "requires_current_verification": true,
     "historical_ids": [
       "parque3-skate"
-    ]
-  },
-  {
-    "group": "García Bryce + ciudad moderna",
-    "storyTitle": "El centro cívico que terminó siendo centro comercial",
-    "purpose": "El proyecto de 1966 buscó extender la vitalidad del centro, recibir el Jirón de la Unión, articular norte-sur y crear un complejo cívico, administrativo y comercial integrado al tejido.",
-    "currentLife": "Hoy el mismo conjunto alberga Real Plaza, retail, comida, cine y conexión directa con la Estación Central del Metropolitano: una enorme máquina de consumo y tránsito cotidiano.",
-    "friction": "La promesa de “civismo” no desapareció: mutó. Miles de personas todavía atraviesan la arquitectura, pero con verbos de compra, transporte y ocio.",
-    "verbs": "cruzar · comprar · esperar · comer · transbordar · reunirse",
-    "cliche": "torre brutalista en contrapicado o skyline",
-    "question": "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?",
-    "moment": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical.",
-    "lens": "35 mm prioritario · 50 mm para eje de paso · 85 mm si se puede apilar brutalismo + retail + personas",
-    "light": "fin de tarde/blue hour para distinguir concreto, señalética comercial y flujo humano sin perder detalle",
-    "kill": "Si la torre domina y el uso actual solo aparece como ruido, la historia fracasa.",
-    "source": "https://galeria-arquitectura.pucp.edu.pe/exposicion/garcia-bryce/centro-civicode-lima/",
-    "source2": "https://www.realplaza.com/centro-civico",
-    "sourceIds": [
-      "W17",
-      "W18"
     ],
-    "origin": "bonilla14",
-    "passes": [
+    "historical_refs": [
       {
-        "n": "01",
-        "label": "Contrato original",
-        "text": "El proyecto de 1966 buscó extender la vitalidad del centro, recibir el Jirón de la Unión, articular norte-sur y crear un complejo cívico, administrativo y comercial integrado al tejido."
+        "run_id": "Master68",
+        "historical_id": "parque3-skate"
       },
       {
-        "n": "02",
-        "label": "Vida actual",
-        "text": "Hoy el mismo conjunto alberga Real Plaza, retail, comida, cine y conexión directa con la Estación Central del Metropolitano: una enorme máquina de consumo y tránsito cotidiano."
-      },
-      {
-        "n": "03",
-        "label": "Fricción",
-        "text": "La promesa de “civismo” no desapareció: mutó. Miles de personas todavía atraviesan la arquitectura, pero con verbos de compra, transporte y ocio."
-      },
-      {
-        "n": "04",
-        "label": "Verbos humanos",
-        "text": "cruzar · comprar · esperar · comer · transbordar · reunirse"
-      },
-      {
-        "n": "05",
-        "label": "Cliché dominante",
-        "text": "torre brutalista en contrapicado o skyline"
-      },
-      {
-        "n": "06",
-        "label": "Pregunta ganable",
-        "text": "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?"
-      },
-      {
-        "n": "07",
-        "label": "Momento decisivo",
-        "text": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical."
-      },
-      {
-        "n": "08",
-        "label": "Óptica real",
-        "text": "35 mm prioritario · 50 mm para eje de paso · 85 mm si se puede apilar brutalismo + retail + personas"
-      },
-      {
-        "n": "09",
-        "label": "Luz",
-        "text": "fin de tarde/blue hour para distinguir concreto, señalética comercial y flujo humano sin perder detalle"
-      },
-      {
-        "n": "10",
-        "label": "Kill condition",
-        "text": "Si la torre domina y el uso actual solo aparece como ruido, la historia fracasa."
+        "run_id": "Master82",
+        "historical_id": "parque3-skate"
       }
     ],
-    "shots": [
-      {
-        "label": "A · ESTRUCTURA",
-        "lens": "35 / 50",
-        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-        "gate": "¿La arquitectura explica su orden por sí sola?"
-      },
-      {
-        "label": "B · HABITAR",
-        "lens": "50 mm",
-        "plan": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical.",
-        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
-      },
-      {
-        "label": "C · ANTI-POSTAL",
-        "lens": "85 o posición alternativa",
-        "plan": "Ataca el cliché: torre brutalista en contrapicado o skyline. Busca la relación definida por: ¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?",
-        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
-      }
-    ],
-    "canonical_id": "centro-civico-de-lima-real-plaza",
-    "name": "Centro Cívico de Lima / Real Plaza",
-    "district": "Lima",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "centro-civico-lima"
+    "source_runs": [
+      "Master68",
+      "Master82"
     ]
   },
   {
@@ -227,6 +37,20 @@
     "requires_current_verification": true,
     "historical_ids": [
       "limatambo"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "limatambo"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "limatambo"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
     ]
   },
   {
@@ -240,6 +64,20 @@
     "requires_current_verification": true,
     "historical_ids": [
       "san-felipe"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "san-felipe"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "san-felipe"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
     ]
   },
   {
@@ -253,312 +91,209 @@
     "requires_current_verification": true,
     "historical_ids": [
       "previ"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "previ"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "previ"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
     ]
   },
   {
-    "group": "García Bryce · vivienda + patrimonio",
-    "storyTitle": "Vivienda moderna que decidió no gritar en un barrio antiguo",
-    "purpose": "48 viviendas y locales comerciales concebidos en los años 80 para revitalizar un contexto histórico frente a la Alameda de los Descalzos sin romper su fisonomía urbana.",
-    "currentLife": "Sigue siendo vivienda y comercio: la arquitectura contemporánea de su época envejeció hasta convertirse ella misma en otra capa del Rímac histórico.",
-    "friction": "La obra nació como “nueva” pero contextual. Cuatro décadas después, la pregunta se invierte: ¿qué pasa cuando aquello que debía dialogar con el pasado ya se volvió pasado vivido?",
-    "verbs": "salir · conversar · comprar · tender · mirar · regresar",
-    "cliche": "documentación frontal del conjunto o Alameda aislada",
-    "question": "¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?",
-    "moment": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico.",
-    "lens": "50 mm líder · 35 mm para calle elevada + contexto · 85 mm para apilar vivienda moderna y monumento",
-    "light": "mañana o tarde lateral; necesitamos volumen y vida, no cielo dramático",
-    "kill": "Si solo reconocemos un edificio posmoderno, sin relación con el barrio ni vida doméstica, no hay tesis.",
-    "source": "https://galeria-arquitectura.pucp.edu.pe/exposicion/garcia-bryce/conjunto-habitacional-chabuca-granda/",
-    "source2": "https://cris.ulima.edu.pe/es/publications/el-valor-del-espacio-p%C3%BAblico-en-las-propuestas-de-dise%C3%B1o-del-agru/",
-    "sourceIds": [
-      "W07"
-    ],
-    "origin": "bonilla14",
-    "passes": [
-      {
-        "n": "01",
-        "label": "Contrato original",
-        "text": "48 viviendas y locales comerciales concebidos en los años 80 para revitalizar un contexto histórico frente a la Alameda de los Descalzos sin romper su fisonomía urbana."
-      },
-      {
-        "n": "02",
-        "label": "Vida actual",
-        "text": "Sigue siendo vivienda y comercio: la arquitectura contemporánea de su época envejeció hasta convertirse ella misma en otra capa del Rímac histórico."
-      },
-      {
-        "n": "03",
-        "label": "Fricción",
-        "text": "La obra nació como “nueva” pero contextual. Cuatro décadas después, la pregunta se invierte: ¿qué pasa cuando aquello que debía dialogar con el pasado ya se volvió pasado vivido?"
-      },
-      {
-        "n": "04",
-        "label": "Verbos humanos",
-        "text": "salir · conversar · comprar · tender · mirar · regresar"
-      },
-      {
-        "n": "05",
-        "label": "Cliché dominante",
-        "text": "documentación frontal del conjunto o Alameda aislada"
-      },
-      {
-        "n": "06",
-        "label": "Pregunta ganable",
-        "text": "¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?"
-      },
-      {
-        "n": "07",
-        "label": "Momento decisivo",
-        "text": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico."
-      },
-      {
-        "n": "08",
-        "label": "Óptica real",
-        "text": "50 mm líder · 35 mm para calle elevada + contexto · 85 mm para apilar vivienda moderna y monumento"
-      },
-      {
-        "n": "09",
-        "label": "Luz",
-        "text": "mañana o tarde lateral; necesitamos volumen y vida, no cielo dramático"
-      },
-      {
-        "n": "10",
-        "label": "Kill condition",
-        "text": "Si solo reconocemos un edificio posmoderno, sin relación con el barrio ni vida doméstica, no hay tesis."
-      }
-    ],
-    "shots": [
-      {
-        "label": "A · ESTRUCTURA",
-        "lens": "35 / 50",
-        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-        "gate": "¿La arquitectura explica su orden por sí sola?"
-      },
-      {
-        "label": "B · HABITAR",
-        "lens": "50 mm",
-        "plan": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico.",
-        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
-      },
-      {
-        "label": "C · ANTI-POSTAL",
-        "lens": "85 o posición alternativa",
-        "plan": "Ataca el cliché: documentación frontal del conjunto o Alameda aislada. Busca la relación definida por: ¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?",
-        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
-      }
-    ],
-    "canonical_id": "agrupamiento-chabuca-granda",
-    "name": "Agrupamiento Chabuca Granda",
-    "district": "Rímac",
+    "origin": "legacy50",
+    "delta": -4,
+    "canonical_id": "museo-de-la-electricidad-tranvia",
+    "name": "Museo de la Electricidad & Tranvía",
+    "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
     "historical_ids": [
-      "chabuca-granda-rimac"
+      "electricidad"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "electricidad"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "electricidad"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
     ]
   },
   {
-    "group": "García Bryce · densidad sin violencia",
-    "storyTitle": "El multifamiliar que intentó no aplastar al vecino",
-    "purpose": "Edificio de departamentos de 1963 premiado por resolver densidad multifamiliar sin imponerse violentamente sobre la escala residencial unifamiliar de San Isidro.",
-    "currentLife": "Sigue como vivienda en un San Isidro mucho más denso y vertical que el contexto que motivó aquella cuidadosa negociación de escala.",
-    "friction": "La obra era una respuesta al miedo de que el multifamiliar destruyera intimidad y escala. Hoy podemos preguntarle al edificio si esa negociación sobrevivió a la ciudad que vino después.",
-    "verbs": "entrar · vivir · mirar · estacionar · caminar",
-    "cliche": "fachada moderna aislada, tratada como objeto de catálogo",
-    "question": "¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?",
-    "moment": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno.",
-    "lens": "85 mm líder para capas · 50 mm para escala de calle · 35 mm solo si el contexto inmediato añade información",
-    "light": "mañana o tarde lateral para leer planos y materiales sin convertirlo en abstracción pura",
-    "kill": "Si el fondo contemporáneo no puede entrar limpiamente, la foto queda como documentación moderna.",
-    "source": "https://cammp.ulima.edu.pe/edificios/edificio-departamentos-alvarez-calderon/",
-    "source2": "https://cammp.ulima.edu.pe/lugares/san-isidro/",
-    "sourceIds": [
-      "W17",
-      "W18"
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "parque-de-las-americas",
+    "name": "Parque de las Américas",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "parque-americas-pl"
     ],
-    "origin": "bonilla14",
-    "passes": [
+    "historical_refs": [
       {
-        "n": "01",
-        "label": "Contrato original",
-        "text": "Edificio de departamentos de 1963 premiado por resolver densidad multifamiliar sin imponerse violentamente sobre la escala residencial unifamiliar de San Isidro."
+        "run_id": "Master68",
+        "historical_id": "parque-americas-pl"
       },
       {
-        "n": "02",
-        "label": "Vida actual",
-        "text": "Sigue como vivienda en un San Isidro mucho más denso y vertical que el contexto que motivó aquella cuidadosa negociación de escala."
-      },
-      {
-        "n": "03",
-        "label": "Fricción",
-        "text": "La obra era una respuesta al miedo de que el multifamiliar destruyera intimidad y escala. Hoy podemos preguntarle al edificio si esa negociación sobrevivió a la ciudad que vino después."
-      },
-      {
-        "n": "04",
-        "label": "Verbos humanos",
-        "text": "entrar · vivir · mirar · estacionar · caminar"
-      },
-      {
-        "n": "05",
-        "label": "Cliché dominante",
-        "text": "fachada moderna aislada, tratada como objeto de catálogo"
-      },
-      {
-        "n": "06",
-        "label": "Pregunta ganable",
-        "text": "¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?"
-      },
-      {
-        "n": "07",
-        "label": "Momento decisivo",
-        "text": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno."
-      },
-      {
-        "n": "08",
-        "label": "Óptica real",
-        "text": "85 mm líder para capas · 50 mm para escala de calle · 35 mm solo si el contexto inmediato añade información"
-      },
-      {
-        "n": "09",
-        "label": "Luz",
-        "text": "mañana o tarde lateral para leer planos y materiales sin convertirlo en abstracción pura"
-      },
-      {
-        "n": "10",
-        "label": "Kill condition",
-        "text": "Si el fondo contemporáneo no puede entrar limpiamente, la foto queda como documentación moderna."
+        "run_id": "Master82",
+        "historical_id": "parque-americas-pl"
       }
     ],
-    "shots": [
-      {
-        "label": "A · ESTRUCTURA",
-        "lens": "35 / 50",
-        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-        "gate": "¿La arquitectura explica su orden por sí sola?"
-      },
-      {
-        "label": "B · HABITAR",
-        "lens": "50 mm",
-        "plan": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno.",
-        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
-      },
-      {
-        "label": "C · ANTI-POSTAL",
-        "lens": "85 o posición alternativa",
-        "plan": "Ataca el cliché: fachada moderna aislada, tratada como objeto de catálogo. Busca la relación definida por: ¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?",
-        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
-      }
-    ],
-    "canonical_id": "edificio-alvarez-calderon",
-    "name": "Edificio Álvarez Calderón",
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -5,
+    "canonical_id": "huaca-santa-cruz",
+    "name": "Huaca Santa Cruz",
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
     "historical_ids": [
-      "alvarez-calderon"
+      "santa-cruz"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "santa-cruz"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "santa-cruz"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
     ]
   },
   {
-    "group": "patrimonio en transición",
-    "storyTitle": "La arquitectura fotografiada mientras cambia de tiempo verbal",
-    "purpose": "Conjunto residencial republicano de 1880–90, luego patrimonializado, que sufrió degradación y pérdida de vida urbana.",
-    "currentLife": "En 2026 la MML/PROLIMA inició una restauración integral para reinsertarlo como espacio público, vecinal y cultural. Es un estado transitorio excepcional: todavía no es la ruina de ayer ni el parque cultural de mañana.",
-    "friction": "La restauración suele intentar borrar la condición de obra. Aquí la obra misma puede ser la evidencia de cómo una ciudad decide qué memoria quiere volver a habitar.",
-    "verbs": "reparar · apuntalar · medir · entrar · observar",
-    "cliche": "postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada",
-    "question": "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?",
-    "moment": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes.",
-    "lens": "50 mm líder · 85 mm para trabajador+detalle+profundidad · 35 mm si acceso permite patio completo",
-    "light": "luz de obra real; evitar teatralizar la decadencia",
-    "kill": "Sin acceso legal o sin actividad visible de restauración, la historia pierde su singularidad 2026.",
-    "source": "https://www.gob.pe/institucion/munilima/noticias/1338457-la-quinta-heeren-volvera-a-integrarse-plenamente-a-la-vida-urbana-de-lima-anuncia-alcalde-renzo-reggiardo",
-    "source2": "https://elperuano.pe/noticia/280580-municipalidad-de-lima-restaurara-la-quinta-heeren-para-convertirla-en-nuevo-pulmon-de-barrios-altos",
-    "sourceIds": [
-      "W02",
-      "W09",
-      "W18"
-    ],
-    "origin": "bonilla14",
-    "passes": [
-      {
-        "n": "01",
-        "label": "Contrato original",
-        "text": "Conjunto residencial republicano de 1880–90, luego patrimonializado, que sufrió degradación y pérdida de vida urbana."
-      },
-      {
-        "n": "02",
-        "label": "Vida actual",
-        "text": "En 2026 la MML/PROLIMA inició una restauración integral para reinsertarlo como espacio público, vecinal y cultural. Es un estado transitorio excepcional: todavía no es la ruina de ayer ni el parque cultural de mañana."
-      },
-      {
-        "n": "03",
-        "label": "Fricción",
-        "text": "La restauración suele intentar borrar la condición de obra. Aquí la obra misma puede ser la evidencia de cómo una ciudad decide qué memoria quiere volver a habitar."
-      },
-      {
-        "n": "04",
-        "label": "Verbos humanos",
-        "text": "reparar · apuntalar · medir · entrar · observar"
-      },
-      {
-        "n": "05",
-        "label": "Cliché dominante",
-        "text": "postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada"
-      },
-      {
-        "n": "06",
-        "label": "Pregunta ganable",
-        "text": "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?"
-      },
-      {
-        "n": "07",
-        "label": "Momento decisivo",
-        "text": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes."
-      },
-      {
-        "n": "08",
-        "label": "Óptica real",
-        "text": "50 mm líder · 85 mm para trabajador+detalle+profundidad · 35 mm si acceso permite patio completo"
-      },
-      {
-        "n": "09",
-        "label": "Luz",
-        "text": "luz de obra real; evitar teatralizar la decadencia"
-      },
-      {
-        "n": "10",
-        "label": "Kill condition",
-        "text": "Sin acceso legal o sin actividad visible de restauración, la historia pierde su singularidad 2026."
-      }
-    ],
-    "shots": [
-      {
-        "label": "A · ESTRUCTURA",
-        "lens": "35 / 50",
-        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-        "gate": "¿La arquitectura explica su orden por sí sola?"
-      },
-      {
-        "label": "B · HABITAR",
-        "lens": "50 mm",
-        "plan": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes.",
-        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
-      },
-      {
-        "label": "C · ANTI-POSTAL",
-        "lens": "85 o posición alternativa",
-        "plan": "Ataca el cliché: postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada. Busca la relación definida por: ¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?",
-        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
-      }
-    ],
-    "canonical_id": "quinta-heeren-restauracion-2026",
-    "name": "Quinta Heeren · restauración 2026",
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "conjunto-habitacional-palomino",
+    "name": "Conjunto Habitacional Palomino",
     "district": "Lima",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
     "historical_ids": [
-      "quinta-heeren-2026"
+      "palomino"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "palomino"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "palomino"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "quinta-de-los-libertadores-mnaahp",
+    "name": "Quinta de los Libertadores + MNAAHP",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "quinta-libertadores"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "quinta-libertadores"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "quinta-libertadores"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "plaza-a-la-bandera",
+    "name": "Plaza a la Bandera",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "plaza-bandera"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "plaza-bandera"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "plaza-bandera"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "parque-virginia-candamo",
+    "name": "Parque Virginia Candamo",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "virginia-candamo"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "virginia-candamo"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "virginia-candamo"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
     ]
   },
   {
@@ -662,6 +397,2091 @@
     "historical_ids": [
       "uv3",
       "uv3-bonilla"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "uv3"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "uv3"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "uv3-bonilla"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+    "name": "Unidad Vecinal Matute + complejo deportivo",
+    "district": "La Victoria",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "matute"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "matute"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "matute"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "lima-centro-de-convenciones",
+    "name": "Lima Centro de Convenciones",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "lcc"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "lcc"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "lcc"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "casa-museo-julia-codesido",
+    "name": "Casa Museo Julia Codesido",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "julia-codesido"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "julia-codesido"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "julia-codesido"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "huaca-san-borja",
+    "name": "Huaca San Borja",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "huaca-san-borja"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "huaca-san-borja"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "huaca-san-borja"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "quinta-leuro-y-quintas-historicas",
+    "name": "Quinta Leuro y quintas históricas",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "quinta-leuro"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "quinta-leuro"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "quinta-leuro"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "estacion-restos-del-funicular-de-barranco",
+    "name": "Estación / restos del Funicular de Barranco",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "funicular"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "funicular"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "funicular"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "reducto-2-casa-museo-caceres",
+    "name": "Reducto Nº 2 / Casa Museo Cáceres",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "reducto"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "reducto"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "reducto"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "biblioteca-municipal-de-barranco",
+    "name": "Biblioteca Municipal de Barranco",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "biblioteca-barranco"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "biblioteca-barranco"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "biblioteca-barranco"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "santisima-cruz-del-viajero",
+    "name": "Santísima Cruz del Viajero",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "cruz-viajero"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "cruz-viajero"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "cruz-viajero"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "torres-centro-empresarial-camino-real",
+    "name": "Torres / Centro Empresarial Camino Real",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "camino-real"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "camino-real"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "camino-real"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "lugar-de-la-memoria-lum",
+    "name": "Lugar de la Memoria (LUM)",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "lum"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "lum"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "lum"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "antigua-taberna-queirolo",
+    "name": "Antigua Taberna Queirolo",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "queirolo"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "queirolo"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "queirolo"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "casa-museo-marina-nunez-del-prado",
+    "name": "Casa Museo Marina Núñez del Prado",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "marina-nunez"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "marina-nunez"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "marina-nunez"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -14,
+    "canonical_id": "parque-tradiciones-ricardo-palma",
+    "name": "Parque Tradiciones / Ricardo Palma",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "tradiciones"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "tradiciones"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "tradiciones"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+    "name": "Plaza de los Libertadores + Santa María Magdalena",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "plaza-libertadores"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "plaza-libertadores"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "plaza-libertadores"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -13,
+    "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+    "name": "Centro de Convenciones / estación La Cultura",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "convenciones"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "convenciones"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "convenciones"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -6,
+    "canonical_id": "biblioteca-nacional-del-peru",
+    "name": "Biblioteca Nacional del Perú",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "bnp"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "bnp"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "bnp"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -13,
+    "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+    "name": "Biblioteca Municipal y borde lagunas del Olivar",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "biblioteca-olivar"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "biblioteca-olivar"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "biblioteca-olivar"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+    "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "financiero"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "financiero"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "financiero"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "gran-teatro-nacional",
+    "name": "Gran Teatro Nacional",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "gtn"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "gtn"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "gtn"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -19,
+    "canonical_id": "mirador-catalina-recavarren",
+    "name": "Mirador Catalina Recavarren",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "mirador-catalina"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "mirador-catalina"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "mirador-catalina"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -15,
+    "canonical_id": "parque-municipal-y-entorno-civico",
+    "name": "Parque Municipal y entorno cívico",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "municipal-barranco"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "municipal-barranco"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "municipal-barranco"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "mac-lima-parque-espejo-de-agua",
+    "name": "MAC Lima + parque / espejo de agua",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "mac"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "mac"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "mac"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -14,
+    "canonical_id": "puente-villena-bajada-balta-costa-verde",
+    "name": "Puente Villena / Bajada Balta / Costa Verde",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "balta"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "balta"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "balta"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -8,
+    "canonical_id": "casa-raul-porras-barrenechea",
+    "name": "Casa Raúl Porras Barrenechea",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "porras"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "porras"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "porras"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "casa-hacienda-orbea",
+    "name": "Casa Hacienda Orbea",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "orbea"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "orbea"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "orbea"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -15,
+    "canonical_id": "calle-choquehuanca-basadre-residencial",
+    "name": "Calle Choquehuanca / Basadre residencial",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "choquehuanca"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "choquehuanca"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "choquehuanca"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+    "name": "Palacio Municipal y de la Cultura · San Isidro",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "palacio-si"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "palacio-si"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "palacio-si"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "museo-larco-jardines",
+    "name": "Museo Larco + jardines",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "museo-larco"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "museo-larco"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "museo-larco"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "bosque-el-olivar",
+    "name": "Bosque El Olivar",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "olivar"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "olivar"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "olivar"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -27,
+    "canonical_id": "huaca-huallamarca",
+    "name": "Huaca Huallamarca",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "huallamarca"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "huallamarca"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "huallamarca"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -18,
+    "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+    "name": "Calle Porta y casonas frente a verticalización",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "calle-porta"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "calle-porta"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "calle-porta"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -14,
+    "canonical_id": "saenz-pena-domeyer-pasajes",
+    "name": "Sáenz Peña / Domeyer / pasajes",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "saenz-pena"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "saenz-pena"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "saenz-pena"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "casa-emilio-harth-terre",
+    "name": "Casa Emilio Harth-Terré",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "harth-terre"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "harth-terre"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "harth-terre"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "parque-de-la-felicidad",
+    "name": "Parque de la Felicidad",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "felicidad"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "felicidad"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "felicidad"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+    "name": "Ministerio de Cultura / Museo de la Nación",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "mincul"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "mincul"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "mincul"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "iglesia-santisima-cruz",
+    "name": "Iglesia Santísima Cruz",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "santisima-cruz"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "santisima-cruz"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "santisima-cruz"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -23,
+    "canonical_id": "huaca-pucllana",
+    "name": "Huaca Pucllana",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "pucllana"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "pucllana"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "pucllana"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+    "name": "Museo Pedro de Osma y Av. Pedro de Osma",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "pedro-osma"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "pedro-osma"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "pedro-osma"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -18,
+    "canonical_id": "casa-hacienda-moreyra",
+    "name": "Casa-Hacienda Moreyra",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "moreyra"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "moreyra"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "moreyra"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "torre-banco-de-la-nacion",
+    "name": "Torre Banco de la Nación",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "torre-bn"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "torre-bn"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "torre-bn"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -13,
+    "canonical_id": "parque-maria-reiche",
+    "name": "Parque María Reiche",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "maria-reiche"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "maria-reiche"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "maria-reiche"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "parroquia-nuestra-senora-del-pilar",
+    "name": "Parroquia Nuestra Señora del Pilar",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "pilar"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "pilar"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "pilar"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -16,
+    "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+    "name": "Puente de los Suspiros + Bajada de Baños",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "suspiros"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "suspiros"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "suspiros"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -20,
+    "canonical_id": "country-club-lima-hotel",
+    "name": "Country Club Lima Hotel",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "country-club"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "country-club"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "country-club"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -25,
+    "canonical_id": "pentagonito-y-bordes-civicos",
+    "name": "Pentagonito y bordes cívicos",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "pentagonito"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "pentagonito"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "pentagonito"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+    "name": "Faro La Marina + Parque Antonio Raimondi",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "faro"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "faro"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "faro"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "casa-museo-ricardo-palma",
+    "name": "Casa Museo Ricardo Palma",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "ricardo-palma"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "ricardo-palma"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "ricardo-palma"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -22,
+    "canonical_id": "ovalo-de-miraflores",
+    "name": "Óvalo de Miraflores",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "ovalo"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "ovalo"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "ovalo"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "coliseo-eduardo-dibos",
+    "name": "Coliseo Eduardo Dibós",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "dibos"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "dibos"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "dibos"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "huaca-julio-c-tello",
+    "name": "Huaca Julio C. Tello",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "huaca-julio-tello"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "huaca-julio-tello"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "huaca-julio-tello"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -15,
+    "canonical_id": "palacio-municipal-virgen-milagrosa",
+    "name": "Palacio Municipal + Virgen Milagrosa",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "palacio-mira"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "palacio-mira"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "palacio-mira"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -19,
+    "canonical_id": "la-ermita-de-barranco",
+    "name": "La Ermita de Barranco",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "ermita"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "ermita"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "ermita"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -19,
+    "canonical_id": "parque-kennedy-gatos-civic-core",
+    "name": "Parque Kennedy / gatos / civic core",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "kennedy"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "kennedy"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "kennedy"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "parque-del-amor-el-beso",
+    "name": "Parque del Amor & El Beso",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "parque-amor"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "parque-amor"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "parque-amor"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -20,
+    "canonical_id": "larcomar-acantilado",
+    "name": "Larcomar + acantilado",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "larcomar"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master68",
+        "historical_id": "larcomar"
+      },
+      {
+        "run_id": "Master82",
+        "historical_id": "larcomar"
+      }
+    ],
+    "source_runs": [
+      "Master68",
+      "Master82"
+    ]
+  },
+  {
+    "group": "Bonilla/Baracco · adaptive reuse",
+    "storyTitle": "La casa que ya tuvo tres vidas",
+    "purpose": "Casona doméstica; luego sede temprana de la Universidad Ricardo Palma y oficina universitaria. En 2004 fue restaurada y adaptada por Juvenal Baracco y Enrique Bonilla como centro cultural.",
+    "currentLife": "Galería, auditorio, biblioteca y plataforma pública de exposiciones, conciertos y encuentros; en 2026 sigue recibiendo exposiciones y actividades abiertas.",
+    "friction": "La arquitectura conserva una casa y, al mismo tiempo, rehace su contrato: residencia → universidad → cultura pública. La pregunta no es qué parte es vieja o nueva, sino dónde ambas edades se necesitan.",
+    "verbs": "entrar · mirar · conversar · esperar · cruzar · reunirse",
+    "cliche": "fachada limpia o interior vacío de arquitectura restaurada",
+    "question": "¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?",
+    "moment": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural.",
+    "lens": "50 mm primero · 35 mm si necesitamos calle+patio · 85 mm para comprimir puerta/patio/figura",
+    "light": "mañana suave o blue hour si el interior está activo; evitar que la luz espectacular convierta el lugar en puro decorado",
+    "kill": "Si la intervención nueva y la casona no pueden leerse simultáneamente, queda como “bonita casa cultural”.",
+    "source": "https://www.urp.edu.pe/oficinas/centro-cultural-ccoriwasi/",
+    "source2": "https://elperuano.pe/noticia/297087-el-jardin-de-atras-70-artistas-participan-en-muestra-colectiva-en-el-centro-cultural-ccori-wasi",
+    "sourceIds": [
+      "W01",
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Casona doméstica; luego sede temprana de la Universidad Ricardo Palma y oficina universitaria. En 2004 fue restaurada y adaptada por Juvenal Baracco y Enrique Bonilla como centro cultural."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Galería, auditorio, biblioteca y plataforma pública de exposiciones, conciertos y encuentros; en 2026 sigue recibiendo exposiciones y actividades abiertas."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La arquitectura conserva una casa y, al mismo tiempo, rehace su contrato: residencia → universidad → cultura pública. La pregunta no es qué parte es vieja o nueva, sino dónde ambas edades se necesitan."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "entrar · mirar · conversar · esperar · cruzar · reunirse"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "fachada limpia o interior vacío de arquitectura restaurada"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm primero · 35 mm si necesitamos calle+patio · 85 mm para comprimir puerta/patio/figura"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "mañana suave o blue hour si el interior está activo; evitar que la luz espectacular convierta el lugar en puro decorado"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si la intervención nueva y la casona no pueden leerse simultáneamente, queda como “bonita casa cultural”."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: fachada limpia o interior vacío de arquitectura restaurada. Busca la relación definida por: ¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "centro-cultural-ccori-wasi",
+    "name": "Centro Cultural Ccori Wasi",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "ccori-wasi"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "ccori-wasi"
+      }
+    ],
+    "source_runs": [
+      "Master82"
+    ]
+  },
+  {
+    "group": "García Bryce + ciudad moderna",
+    "storyTitle": "El centro cívico que terminó siendo centro comercial",
+    "purpose": "El proyecto de 1966 buscó extender la vitalidad del centro, recibir el Jirón de la Unión, articular norte-sur y crear un complejo cívico, administrativo y comercial integrado al tejido.",
+    "currentLife": "Hoy el mismo conjunto alberga Real Plaza, retail, comida, cine y conexión directa con la Estación Central del Metropolitano: una enorme máquina de consumo y tránsito cotidiano.",
+    "friction": "La promesa de “civismo” no desapareció: mutó. Miles de personas todavía atraviesan la arquitectura, pero con verbos de compra, transporte y ocio.",
+    "verbs": "cruzar · comprar · esperar · comer · transbordar · reunirse",
+    "cliche": "torre brutalista en contrapicado o skyline",
+    "question": "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?",
+    "moment": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical.",
+    "lens": "35 mm prioritario · 50 mm para eje de paso · 85 mm si se puede apilar brutalismo + retail + personas",
+    "light": "fin de tarde/blue hour para distinguir concreto, señalética comercial y flujo humano sin perder detalle",
+    "kill": "Si la torre domina y el uso actual solo aparece como ruido, la historia fracasa.",
+    "source": "https://galeria-arquitectura.pucp.edu.pe/exposicion/garcia-bryce/centro-civicode-lima/",
+    "source2": "https://www.realplaza.com/centro-civico",
+    "sourceIds": [
+      "W17",
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "El proyecto de 1966 buscó extender la vitalidad del centro, recibir el Jirón de la Unión, articular norte-sur y crear un complejo cívico, administrativo y comercial integrado al tejido."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Hoy el mismo conjunto alberga Real Plaza, retail, comida, cine y conexión directa con la Estación Central del Metropolitano: una enorme máquina de consumo y tránsito cotidiano."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La promesa de “civismo” no desapareció: mutó. Miles de personas todavía atraviesan la arquitectura, pero con verbos de compra, transporte y ocio."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "cruzar · comprar · esperar · comer · transbordar · reunirse"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "torre brutalista en contrapicado o skyline"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "35 mm prioritario · 50 mm para eje de paso · 85 mm si se puede apilar brutalismo + retail + personas"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "fin de tarde/blue hour para distinguir concreto, señalética comercial y flujo humano sin perder detalle"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si la torre domina y el uso actual solo aparece como ruido, la historia fracasa."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: torre brutalista en contrapicado o skyline. Busca la relación definida por: ¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "centro-civico-de-lima-real-plaza",
+    "name": "Centro Cívico de Lima / Real Plaza",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "centro-civico-lima"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "centro-civico-lima"
+      }
+    ],
+    "source_runs": [
+      "Master82"
+    ]
+  },
+  {
+    "group": "García Bryce · vivienda + patrimonio",
+    "storyTitle": "Vivienda moderna que decidió no gritar en un barrio antiguo",
+    "purpose": "48 viviendas y locales comerciales concebidos en los años 80 para revitalizar un contexto histórico frente a la Alameda de los Descalzos sin romper su fisonomía urbana.",
+    "currentLife": "Sigue siendo vivienda y comercio: la arquitectura contemporánea de su época envejeció hasta convertirse ella misma en otra capa del Rímac histórico.",
+    "friction": "La obra nació como “nueva” pero contextual. Cuatro décadas después, la pregunta se invierte: ¿qué pasa cuando aquello que debía dialogar con el pasado ya se volvió pasado vivido?",
+    "verbs": "salir · conversar · comprar · tender · mirar · regresar",
+    "cliche": "documentación frontal del conjunto o Alameda aislada",
+    "question": "¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?",
+    "moment": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico.",
+    "lens": "50 mm líder · 35 mm para calle elevada + contexto · 85 mm para apilar vivienda moderna y monumento",
+    "light": "mañana o tarde lateral; necesitamos volumen y vida, no cielo dramático",
+    "kill": "Si solo reconocemos un edificio posmoderno, sin relación con el barrio ni vida doméstica, no hay tesis.",
+    "source": "https://galeria-arquitectura.pucp.edu.pe/exposicion/garcia-bryce/conjunto-habitacional-chabuca-granda/",
+    "source2": "https://cris.ulima.edu.pe/es/publications/el-valor-del-espacio-p%C3%BAblico-en-las-propuestas-de-dise%C3%B1o-del-agru/",
+    "sourceIds": [
+      "W07"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "48 viviendas y locales comerciales concebidos en los años 80 para revitalizar un contexto histórico frente a la Alameda de los Descalzos sin romper su fisonomía urbana."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Sigue siendo vivienda y comercio: la arquitectura contemporánea de su época envejeció hasta convertirse ella misma en otra capa del Rímac histórico."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La obra nació como “nueva” pero contextual. Cuatro décadas después, la pregunta se invierte: ¿qué pasa cuando aquello que debía dialogar con el pasado ya se volvió pasado vivido?"
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "salir · conversar · comprar · tender · mirar · regresar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "documentación frontal del conjunto o Alameda aislada"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm líder · 35 mm para calle elevada + contexto · 85 mm para apilar vivienda moderna y monumento"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "mañana o tarde lateral; necesitamos volumen y vida, no cielo dramático"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si solo reconocemos un edificio posmoderno, sin relación con el barrio ni vida doméstica, no hay tesis."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: documentación frontal del conjunto o Alameda aislada. Busca la relación definida por: ¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "agrupamiento-chabuca-granda",
+    "name": "Agrupamiento Chabuca Granda",
+    "district": "Rímac",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "chabuca-granda-rimac"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "chabuca-granda-rimac"
+      }
+    ],
+    "source_runs": [
+      "Master82"
+    ]
+  },
+  {
+    "group": "García Bryce · densidad sin violencia",
+    "storyTitle": "El multifamiliar que intentó no aplastar al vecino",
+    "purpose": "Edificio de departamentos de 1963 premiado por resolver densidad multifamiliar sin imponerse violentamente sobre la escala residencial unifamiliar de San Isidro.",
+    "currentLife": "Sigue como vivienda en un San Isidro mucho más denso y vertical que el contexto que motivó aquella cuidadosa negociación de escala.",
+    "friction": "La obra era una respuesta al miedo de que el multifamiliar destruyera intimidad y escala. Hoy podemos preguntarle al edificio si esa negociación sobrevivió a la ciudad que vino después.",
+    "verbs": "entrar · vivir · mirar · estacionar · caminar",
+    "cliche": "fachada moderna aislada, tratada como objeto de catálogo",
+    "question": "¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?",
+    "moment": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno.",
+    "lens": "85 mm líder para capas · 50 mm para escala de calle · 35 mm solo si el contexto inmediato añade información",
+    "light": "mañana o tarde lateral para leer planos y materiales sin convertirlo en abstracción pura",
+    "kill": "Si el fondo contemporáneo no puede entrar limpiamente, la foto queda como documentación moderna.",
+    "source": "https://cammp.ulima.edu.pe/edificios/edificio-departamentos-alvarez-calderon/",
+    "source2": "https://cammp.ulima.edu.pe/lugares/san-isidro/",
+    "sourceIds": [
+      "W17",
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Edificio de departamentos de 1963 premiado por resolver densidad multifamiliar sin imponerse violentamente sobre la escala residencial unifamiliar de San Isidro."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Sigue como vivienda en un San Isidro mucho más denso y vertical que el contexto que motivó aquella cuidadosa negociación de escala."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La obra era una respuesta al miedo de que el multifamiliar destruyera intimidad y escala. Hoy podemos preguntarle al edificio si esa negociación sobrevivió a la ciudad que vino después."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "entrar · vivir · mirar · estacionar · caminar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "fachada moderna aislada, tratada como objeto de catálogo"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "85 mm líder para capas · 50 mm para escala de calle · 35 mm solo si el contexto inmediato añade información"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "mañana o tarde lateral para leer planos y materiales sin convertirlo en abstracción pura"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si el fondo contemporáneo no puede entrar limpiamente, la foto queda como documentación moderna."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: fachada moderna aislada, tratada como objeto de catálogo. Busca la relación definida por: ¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "edificio-alvarez-calderon",
+    "name": "Edificio Álvarez Calderón",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "alvarez-calderon"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "alvarez-calderon"
+      }
+    ],
+    "source_runs": [
+      "Master82"
+    ]
+  },
+  {
+    "group": "patrimonio en transición",
+    "storyTitle": "La arquitectura fotografiada mientras cambia de tiempo verbal",
+    "purpose": "Conjunto residencial republicano de 1880–90, luego patrimonializado, que sufrió degradación y pérdida de vida urbana.",
+    "currentLife": "En 2026 la MML/PROLIMA inició una restauración integral para reinsertarlo como espacio público, vecinal y cultural. Es un estado transitorio excepcional: todavía no es la ruina de ayer ni el parque cultural de mañana.",
+    "friction": "La restauración suele intentar borrar la condición de obra. Aquí la obra misma puede ser la evidencia de cómo una ciudad decide qué memoria quiere volver a habitar.",
+    "verbs": "reparar · apuntalar · medir · entrar · observar",
+    "cliche": "postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada",
+    "question": "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?",
+    "moment": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes.",
+    "lens": "50 mm líder · 85 mm para trabajador+detalle+profundidad · 35 mm si acceso permite patio completo",
+    "light": "luz de obra real; evitar teatralizar la decadencia",
+    "kill": "Sin acceso legal o sin actividad visible de restauración, la historia pierde su singularidad 2026.",
+    "source": "https://www.gob.pe/institucion/munilima/noticias/1338457-la-quinta-heeren-volvera-a-integrarse-plenamente-a-la-vida-urbana-de-lima-anuncia-alcalde-renzo-reggiardo",
+    "source2": "https://elperuano.pe/noticia/280580-municipalidad-de-lima-restaurara-la-quinta-heeren-para-convertirla-en-nuevo-pulmon-de-barrios-altos",
+    "sourceIds": [
+      "W02",
+      "W09",
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Conjunto residencial republicano de 1880–90, luego patrimonializado, que sufrió degradación y pérdida de vida urbana."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "En 2026 la MML/PROLIMA inició una restauración integral para reinsertarlo como espacio público, vecinal y cultural. Es un estado transitorio excepcional: todavía no es la ruina de ayer ni el parque cultural de mañana."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La restauración suele intentar borrar la condición de obra. Aquí la obra misma puede ser la evidencia de cómo una ciudad decide qué memoria quiere volver a habitar."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "reparar · apuntalar · medir · entrar · observar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm líder · 85 mm para trabajador+detalle+profundidad · 35 mm si acceso permite patio completo"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "luz de obra real; evitar teatralizar la decadencia"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Sin acceso legal o sin actividad visible de restauración, la historia pierde su singularidad 2026."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada. Busca la relación definida por: ¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "quinta-heeren-restauracion-2026",
+    "name": "Quinta Heeren · restauración 2026",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "quinta-heeren-2026"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "quinta-heeren-2026"
+      }
+    ],
+    "source_runs": [
+      "Master82"
     ]
   },
   {
@@ -764,6 +2584,15 @@
     "requires_current_verification": true,
     "historical_ids": [
       "compact-city-transect"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "compact-city-transect"
+      }
+    ],
+    "source_runs": [
+      "Master82"
     ]
   },
   {
@@ -866,19 +2695,15 @@
     "requires_current_verification": true,
     "historical_ids": [
       "jiron-trujillo-rimac"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "parque-de-las-americas",
-    "name": "Parque de las Américas",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "parque-americas-pl"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "jiron-trujillo-rimac"
+      }
+    ],
+    "source_runs": [
+      "Master82"
     ]
   },
   {
@@ -982,71 +2807,15 @@
     "requires_current_verification": true,
     "historical_ids": [
       "armendariz-puente-paz"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -4,
-    "canonical_id": "museo-de-la-electricidad-tranvia",
-    "name": "Museo de la Electricidad & Tranvía",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "electricidad"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "conjunto-habitacional-palomino",
-    "name": "Conjunto Habitacional Palomino",
-    "district": "Lima",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "palomino"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -5,
-    "canonical_id": "huaca-santa-cruz",
-    "name": "Huaca Santa Cruz",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "santa-cruz"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "quinta-de-los-libertadores-mnaahp",
-    "name": "Quinta de los Libertadores + MNAAHP",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "quinta-libertadores"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
-    "name": "Unidad Vecinal Matute + complejo deportivo",
-    "district": "La Victoria",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "matute"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "armendariz-puente-paz"
+      }
+    ],
+    "source_runs": [
+      "Master82"
     ]
   },
   {
@@ -1149,19 +2918,15 @@
     "requires_current_verification": true,
     "historical_ids": [
       "jiron-union"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "casa-museo-julia-codesido",
-    "name": "Casa Museo Julia Codesido",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "julia-codesido"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "jiron-union"
+      }
+    ],
+    "source_runs": [
+      "Master82"
     ]
   },
   {
@@ -1263,45 +3028,15 @@
     "requires_current_verification": true,
     "historical_ids": [
       "damero-renacentista"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "plaza-a-la-bandera",
-    "name": "Plaza a la Bandera",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "plaza-bandera"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -11,
-    "canonical_id": "lima-centro-de-convenciones",
-    "name": "Lima Centro de Convenciones",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "lcc"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "parque-virginia-candamo",
-    "name": "Parque Virginia Candamo",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "virginia-candamo"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "damero-renacentista"
+      }
+    ],
+    "source_runs": [
+      "Master82"
     ]
   },
   {
@@ -1404,6 +3139,15 @@
     "requires_current_verification": true,
     "historical_ids": [
       "casa-garcia-bryce"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "casa-garcia-bryce"
+      }
+    ],
+    "source_runs": [
+      "Master82"
     ]
   },
   {
@@ -1505,97 +3249,15 @@
     "requires_current_verification": true,
     "historical_ids": [
       "aulario-104"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -12,
-    "canonical_id": "huaca-san-borja",
-    "name": "Huaca San Borja",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "huaca-san-borja"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -12,
-    "canonical_id": "quinta-leuro-y-quintas-historicas",
-    "name": "Quinta Leuro y quintas históricas",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "quinta-leuro"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "santisima-cruz-del-viajero",
-    "name": "Santísima Cruz del Viajero",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "cruz-viajero"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -11,
-    "canonical_id": "estacion-restos-del-funicular-de-barranco",
-    "name": "Estación / restos del Funicular de Barranco",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "funicular"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -17,
-    "canonical_id": "lugar-de-la-memoria-lum",
-    "name": "Lugar de la Memoria (LUM)",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "lum"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -12,
-    "canonical_id": "torres-centro-empresarial-camino-real",
-    "name": "Torres / Centro Empresarial Camino Real",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "camino-real"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -11,
-    "canonical_id": "reducto-2-casa-museo-caceres",
-    "name": "Reducto Nº 2 / Casa Museo Cáceres",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "reducto"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "aulario-104"
+      }
+    ],
+    "source_runs": [
+      "Master82"
     ]
   },
   {
@@ -1697,604 +3359,15 @@
     "requires_current_verification": true,
     "historical_ids": [
       "cantagallo-ethical"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
-    "name": "Plaza de los Libertadores + Santa María Magdalena",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "plaza-libertadores"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -11,
-    "canonical_id": "biblioteca-municipal-de-barranco",
-    "name": "Biblioteca Municipal de Barranco",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "biblioteca-barranco"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "antigua-taberna-queirolo",
-    "name": "Antigua Taberna Queirolo",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "queirolo"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -12,
-    "canonical_id": "casa-museo-marina-nunez-del-prado",
-    "name": "Casa Museo Marina Núñez del Prado",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "marina-nunez"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -21,
-    "canonical_id": "gran-teatro-nacional",
-    "name": "Gran Teatro Nacional",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "gtn"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -14,
-    "canonical_id": "parque-tradiciones-ricardo-palma",
-    "name": "Parque Tradiciones / Ricardo Palma",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "tradiciones"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -13,
-    "canonical_id": "centro-de-convenciones-estacion-la-cultura",
-    "name": "Centro de Convenciones / estación La Cultura",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "convenciones"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -6,
-    "canonical_id": "biblioteca-nacional-del-peru",
-    "name": "Biblioteca Nacional del Perú",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "bnp"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "casa-hacienda-orbea",
-    "name": "Casa Hacienda Orbea",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "orbea"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -13,
-    "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
-    "name": "Biblioteca Municipal y borde lagunas del Olivar",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "biblioteca-olivar"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -19,
-    "canonical_id": "mirador-catalina-recavarren",
-    "name": "Mirador Catalina Recavarren",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "mirador-catalina"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -17,
-    "canonical_id": "mac-lima-parque-espejo-de-agua",
-    "name": "MAC Lima + parque / espejo de agua",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "mac"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -11,
-    "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
-    "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "financiero"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -15,
-    "canonical_id": "parque-municipal-y-entorno-civico",
-    "name": "Parque Municipal y entorno cívico",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "municipal-barranco"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -14,
-    "canonical_id": "puente-villena-bajada-balta-costa-verde",
-    "name": "Puente Villena / Bajada Balta / Costa Verde",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "balta"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -8,
-    "canonical_id": "casa-raul-porras-barrenechea",
-    "name": "Casa Raúl Porras Barrenechea",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "porras"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -27,
-    "canonical_id": "huaca-huallamarca",
-    "name": "Huaca Huallamarca",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "huallamarca"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "museo-larco-jardines",
-    "name": "Museo Larco + jardines",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "museo-larco"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -21,
-    "canonical_id": "casa-emilio-harth-terre",
-    "name": "Casa Emilio Harth-Terré",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "harth-terre"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -21,
-    "canonical_id": "bosque-el-olivar",
-    "name": "Bosque El Olivar",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "olivar"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -15,
-    "canonical_id": "calle-choquehuanca-basadre-residencial",
-    "name": "Calle Choquehuanca / Basadre residencial",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "choquehuanca"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -18,
-    "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
-    "name": "Calle Porta y casonas frente a verticalización",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "calle-porta"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -12,
-    "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
-    "name": "Palacio Municipal y de la Cultura · San Isidro",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "palacio-si"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -14,
-    "canonical_id": "saenz-pena-domeyer-pasajes",
-    "name": "Sáenz Peña / Domeyer / pasajes",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "saenz-pena"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -23,
-    "canonical_id": "huaca-pucllana",
-    "name": "Huaca Pucllana",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "pucllana"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -18,
-    "canonical_id": "casa-hacienda-moreyra",
-    "name": "Casa-Hacienda Moreyra",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "moreyra"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -12,
-    "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
-    "name": "Ministerio de Cultura / Museo de la Nación",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "mincul"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -21,
-    "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
-    "name": "Museo Pedro de Osma y Av. Pedro de Osma",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "pedro-osma"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -21,
-    "canonical_id": "torre-banco-de-la-nacion",
-    "name": "Torre Banco de la Nación",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "torre-bn"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -11,
-    "canonical_id": "iglesia-santisima-cruz",
-    "name": "Iglesia Santísima Cruz",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "santisima-cruz"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -12,
-    "canonical_id": "parque-de-la-felicidad",
-    "name": "Parque de la Felicidad",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "felicidad"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -25,
-    "canonical_id": "pentagonito-y-bordes-civicos",
-    "name": "Pentagonito y bordes cívicos",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "pentagonito"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -20,
-    "canonical_id": "country-club-lima-hotel",
-    "name": "Country Club Lima Hotel",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "country-club"
-    ]
-  },
-  {
-    "origin": "expansion18",
-    "delta": null,
-    "canonical_id": "huaca-julio-c-tello",
-    "name": "Huaca Julio C. Tello",
-    "district": "Pueblo Libre",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "huaca-julio-tello"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -13,
-    "canonical_id": "parque-maria-reiche",
-    "name": "Parque María Reiche",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "maria-reiche"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -22,
-    "canonical_id": "ovalo-de-miraflores",
-    "name": "Óvalo de Miraflores",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "ovalo"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -17,
-    "canonical_id": "coliseo-eduardo-dibos",
-    "name": "Coliseo Eduardo Dibós",
-    "district": "San Borja",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "dibos"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -17,
-    "canonical_id": "faro-la-marina-parque-antonio-raimondi",
-    "name": "Faro La Marina + Parque Antonio Raimondi",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "faro"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -11,
-    "canonical_id": "parroquia-nuestra-senora-del-pilar",
-    "name": "Parroquia Nuestra Señora del Pilar",
-    "district": "San Isidro",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "pilar"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -16,
-    "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
-    "name": "Puente de los Suspiros + Bajada de Baños",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "suspiros"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -17,
-    "canonical_id": "casa-museo-ricardo-palma",
-    "name": "Casa Museo Ricardo Palma",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "ricardo-palma"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -19,
-    "canonical_id": "la-ermita-de-barranco",
-    "name": "La Ermita de Barranco",
-    "district": "Barranco",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "ermita"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -15,
-    "canonical_id": "palacio-municipal-virgen-milagrosa",
-    "name": "Palacio Municipal + Virgen Milagrosa",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "palacio-mira"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -19,
-    "canonical_id": "parque-kennedy-gatos-civic-core",
-    "name": "Parque Kennedy / gatos / civic core",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "kennedy"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -20,
-    "canonical_id": "larcomar-acantilado",
-    "name": "Larcomar + acantilado",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "larcomar"
-    ]
-  },
-  {
-    "origin": "legacy50",
-    "delta": -17,
-    "canonical_id": "parque-del-amor-el-beso",
-    "name": "Parque del Amor & El Beso",
-    "district": "Miraflores",
-    "evidence_status": "HISTORICAL_ONLY",
-    "ranking_eligible": false,
-    "requires_current_verification": true,
-    "historical_ids": [
-      "parque-amor"
+    ],
+    "historical_refs": [
+      {
+        "run_id": "Master82",
+        "historical_id": "cantagallo-ethical"
+      }
+    ],
+    "source_runs": [
+      "Master82"
     ]
   }
 ]

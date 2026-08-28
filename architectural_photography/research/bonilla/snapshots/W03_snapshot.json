@@ -1,0 +1,36 @@
+{
+  "source_id": "W03",
+  "title": "Registro académico de la tesis en Dialnet",
+  "url": "https://dialnet.unirioja.es/servlet/tesis?codigo=344882",
+  "status": "REFERENCE",
+  "lesson": "Snapshot documental; no agrega una hipótesis fotográfica distinta a W02.",
+  "claim_ids": [
+    "CLM-BONILLA-03-FRAMEWORK"
+  ],
+  "candidate_added": [],
+  "candidate_merged": [],
+  "candidate_removed_or_quarantined": [],
+  "canonical_count_after": 81,
+  "ranking_model_version": null,
+  "ranking_run_id": null,
+  "top5": [],
+  "delta_vs_previous": "No canonical change; historical additions remain provenance-only.",
+  "confidence": 0.65,
+  "open_questions": [
+    "Which current, primary place source verifies any derived Lima scene?",
+    "What field evidence would make the relationship legible in one frame?"
+  ],
+  "retrieved_at": "2026-08-27T17:30:00-05:00",
+  "source_access": "INDEX_ONLY",
+  "evidentiary_role": "CONTEXTUAL_FRAMEWORK",
+  "expert_rejection": "A published source can support a conceptual lens, but it cannot verify current scene conditions, access, safety, consent, light, activity, or one-frame strength.",
+  "historical_candidate_suggestions": [],
+  "historical_count_after": 72,
+  "historical_top5": [
+    "PREVI Lima",
+    "Centro Cultural Ccori Wasi",
+    "Torres de Limatambo / supermanzana",
+    "Residencial San Felipe",
+    "Parque 3 de Octubre + Skatepark Muros Libres"
+  ]
+}
