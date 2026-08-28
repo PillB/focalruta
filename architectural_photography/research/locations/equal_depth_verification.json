@@ -8735,7 +8735,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-CHOQUE-01",
+          "page_url": "https://www.verticearquitectos.com/proyectos/edificio-multifamiliar-choquehuanca-1424",
+          "image_url": "https://www.verticearquitectos.com/proyectos/edificio-multifamiliar-choquehuanca-1424",
+          "publisher": "Vértice Arquitectos",
+          "viewpoint_family": "LOW_RISE_MULTIFAMILY_AS_LARGE_HOUSE",
+          "likely_camera_height": "professional street eye level",
+          "fov_class": "wide/normal/detail",
+          "light_weather": "daylight",
+          "people_activity": "entering homes, screening bedrooms and negotiating the semibasement edge",
+          "edge_background": "permeable concrete enclosure, wood screens, balconies and neighboring residential scale",
+          "cliche_cluster": "empty commissioned façade",
+          "proves": "The architect documents a deliberate three-storey house-like response to the street and specific devices mediating privacy, climate and permeability.",
+          "cannot_prove": "Current occupancy behavior, whether screens move during a visit or the character of the entire street corridor.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CHOQUE-02",
+          "page_url": "https://www.verticearquitectos.com/proyectos/2012-edificio-basadre",
+          "image_url": "https://www.verticearquitectos.com/proyectos/2012-edificio-basadre",
+          "publisher": "Vértice Arquitectos",
+          "viewpoint_family": "BASADRE_DEPTH_SECOND_FACADE_AND_RESIDENTIAL_VOID",
+          "likely_camera_height": "professional exterior/interior documentation",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "inhabiting street-facing rooms and ventilating secondary rooms through a rear void",
+          "edge_background": "avenue frontage, deep lot, second façade and surrounding mid-rise fabric",
+          "cliche_cluster": "isolated luxury-apartment portrait",
+          "proves": "The project record provides a second residential mechanism on Basadre: a deep site organized around an internal void rather than façade alone.",
+          "cannot_prove": "Public visibility of the rear void or current street-level access.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CHOQUE-03",
+          "page_url": "https://www.gob.pe/42534",
+          "image_url": "https://www.gob.pe/42534",
+          "publisher": "Municipalidad Distrital de San Isidro · Gob.pe",
+          "viewpoint_family": "DISTRICT_SCALE_RESIDENCE_TO_MULTIFAMILY_TRANSITION",
+          "likely_camera_height": "street and district overview",
+          "fov_class": "corridor/site-wide",
+          "light_weather": "not fixed",
+          "people_activity": "living, walking and working across a mixed residential-financial district",
+          "edge_background": "older houses, new multifamily blocks and nearby business fabric",
+          "cliche_cluster": "generic tradition-versus-modernity skyline",
+          "proves": "The current municipal history explicitly identifies residences, multifamily buildings and financial growth as coexisting district structure.",
+          "cannot_prove": "A specific conflict at Choquehuanca/Basadre; the field frame must demonstrate it rather than repeat the district narrative.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Calle Choquehuanca / Basadre residencial puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -8919,7 +8968,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-PALSI-01",
+          "page_url": "https://arquitecturapanamericana.com/puesta-en-valor-de-los-equipamientos-culturales-del-bosque-el-olivar-de-san-isidro/",
+          "image_url": "https://arquitecturapanamericana.com/puesta-en-valor-de-los-equipamientos-culturales-del-bosque-el-olivar-de-san-isidro/",
+          "publisher": "Bienal Panamericana de Arquitectura de Quito",
+          "viewpoint_family": "1934_CONSISTORIAL_HOUSE_RESTORED_AS_CULTURAL_EQUIPMENT",
+          "likely_camera_height": "professional exterior/interior documentation",
+          "fov_class": "wide/normal/detail",
+          "light_weather": "day and controlled interior light",
+          "people_activity": "attending culture, crossing the park edge and reoccupying former municipal rooms",
+          "edge_background": "restored Casa Consistorial, Olivar vegetation and cultural additions",
+          "cliche_cluster": "pristine restoration portfolio",
+          "proves": "The project record establishes the building's original 1934 municipal purpose and its architectural conversion within the Olivar cultural system.",
+          "cannot_prove": "Current program, visitor density or unrestricted interior photography.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PALSI-02",
+          "page_url": "https://www.munisanisidro.gob.pe/Transparencia/Tema02/PDLC%20FASE%201%20CON%20INF%20TEC%20CEPLAN.pdf",
+          "image_url": "https://www.munisanisidro.gob.pe/Transparencia/Tema02/PDLC%20FASE%201%20CON%20INF%20TEC%20CEPLAN.pdf",
+          "publisher": "Municipalidad Distrital de San Isidro",
+          "viewpoint_family": "CULTURAL_NETWORK_INSIDE_MONUMENTAL_OLIVAR_ZONE",
+          "likely_camera_height": "planning/site documentation",
+          "fov_class": "site-wide",
+          "light_weather": "not fixed",
+          "people_activity": "reading, attending theater, viewing exhibitions and using multipurpose rooms",
+          "edge_background": "Casa de la Cultura, library, theater, galleries and protected olive-grove setting",
+          "cliche_cluster": "institutional inventory",
+          "proves": "The 2023–2033 district plan identifies a multi-building cultural network and its services rather than a single heritage object.",
+          "cannot_prove": "2026 opening hours, active program on a chosen day or visual permeability between the buildings.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PALSI-03",
+          "page_url": "https://www.munisanisidro.gob.pe/Transparencia/Tema02/Rendicion_de_Cuentas_a_Mayo_2022.pdf",
+          "image_url": "https://www.munisanisidro.gob.pe/Transparencia/Tema02/Rendicion_de_Cuentas_a_Mayo_2022.pdf",
+          "publisher": "Municipalidad Distrital de San Isidro",
+          "viewpoint_family": "OCCUPIED_GALLERY_LECTURE_AND_EXHIBITION_ROOMS",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "interior normal/wide-normal",
+          "light_weather": "controlled interior light",
+          "people_activity": "looking at art, presenting, discussing and moving through gallery rooms",
+          "edge_background": "art walls, lectern, visitors and multipurpose cultural interior",
+          "cliche_cluster": "event-report gallery image",
+          "proves": "Municipal accountability imagery records actual cultural occupation and gives a human-use counterfamily to empty restoration photography.",
+          "cannot_prove": "Current 2026 program or whether the same rooms remain photographically accessible.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Palacio Municipal y de la Cultura · San Isidro puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -12155,7 +12253,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-PILAR-01",
+          "page_url": "https://www.gob.pe/43235-lugares-para-visitar-en-san-isidro-parroquia-nuestra-senora-del-pilar",
+          "image_url": "https://www.gob.pe/43235-lugares-para-visitar-en-san-isidro-parroquia-nuestra-senora-del-pilar",
+          "publisher": "Municipalidad Distrital de San Isidro · Gob.pe",
+          "viewpoint_family": "NEOCOLONIAL_TEMPLE_FROM_HACIENDA_TO_URBAN_PARISH",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "wide/normal/interior",
+          "light_weather": "day and interior ambient light",
+          "people_activity": "worshipping, marrying, baptizing and gathering in the broad nave",
+          "edge_background": "neocolonial envelope, former hacienda context and urbanized surroundings",
+          "cliche_cluster": "frontal church and gilded-altarpiece portrait",
+          "proves": "The municipal history links the parish directly to the subdivision of hacienda land and documents its large-neve community role.",
+          "cannot_prove": "Current service attendance, photography conditions or whether the old agrarian relation remains visible outside the caption.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PILAR-02",
+          "page_url": "https://virgendelpilarcp.com/horarios/",
+          "image_url": "https://virgendelpilarcp.com/horarios/",
+          "publisher": "Parroquia Nuestra Señora del Pilar",
+          "viewpoint_family": "CURRENT_RECURRING_RITUAL_WINDOWS",
+          "likely_camera_height": "congregant eye level",
+          "fov_class": "interior/exterior normal",
+          "light_weather": "morning, midday and evening services",
+          "people_activity": "arriving, attending mass, confessing and leaving through the parish threshold",
+          "edge_background": "entry axis, nave and Víctor Andrés Belaúnde street edge",
+          "cliche_cluster": "service-time congregation",
+          "proves": "The parish's current schedule supplies recurring activity windows and distinguishes weekday, Saturday and Sunday occupation.",
+          "cannot_prove": "Permission to photograph services, attendance intensity or last-minute schedule changes.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PILAR-03",
+          "page_url": "https://aboutbasquecountry.eus/wp-content/uploads/2019/08/100-an%CC%83os-de-presencia-pasionista-en-el-Peru-final_web.pdf",
+          "image_url": "https://aboutbasquecountry.eus/wp-content/uploads/2019/08/100-an%CC%83os-de-presencia-pasionista-en-el-Peru-final_web.pdf",
+          "publisher": "Congregación Pasionista · centenary history",
+          "viewpoint_family": "COLONIAL_ALTARPIECE_INSIDE_TWENTIETH_CENTURY_CHURCH",
+          "likely_camera_height": "interior visitor eye level",
+          "fov_class": "normal/detail",
+          "light_weather": "interior ambient/artificial light",
+          "people_activity": "approaching, praying before and circulating around the transferred altarpiece",
+          "edge_background": "eighteenth-century carved retablo, later church nave and stained-glass sequence",
+          "cliche_cluster": "ornate altar detail",
+          "proves": "The institutional history documents a genuine temporal layering: a Nazca hacienda altarpiece reconstructed inside the later San Isidro church.",
+          "cannot_prove": "Current conservation condition, lighting or a competition-safe interior session.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Parroquia Nuestra Señora del Pilar puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -12574,7 +12721,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-CCLH-01",
+          "page_url": "https://www.countryclublimahotel.com/es/el-hotel",
+          "image_url": "https://www.countryclublimahotel.com/es/el-hotel",
+          "publisher": "Country Club Lima Hotel",
+          "viewpoint_family": "1927_HOTEL_SOCIAL_LIFE_AND_CONTINUOUS_ADAPTATION",
+          "likely_camera_height": "guest and professional interior/exterior level",
+          "fov_class": "wide/normal/detail",
+          "light_weather": "day, evening and controlled interior light",
+          "people_activity": "staying, dining, meeting and attending social events",
+          "edge_background": "historic wings, central entry, gardens and hospitality interiors",
+          "cliche_cluster": "luxury-hotel symmetry and empty lobby",
+          "proves": "The operator documents continuing transformation since 1927 and the former spatial connection between hotel gardens, golf and polo.",
+          "cannot_prove": "Public non-guest access, photography authorization or survival of the original golf/polo relationship in a current frame.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CCLH-02",
+          "page_url": "https://www.countryclublimahotel.com/en/highlights/art-and-heritage",
+          "image_url": "https://www.countryclublimahotel.com/en/highlights/art-and-heritage",
+          "publisher": "Country Club Lima Hotel",
+          "viewpoint_family": "WORKING_HOTEL_AS_COLONIAL_ART_GALLERY",
+          "likely_camera_height": "guest eye level",
+          "fov_class": "interior normal/detail",
+          "light_weather": "controlled interior light",
+          "people_activity": "checking in, dining and passing more than 300 displayed artworks",
+          "edge_background": "hospitality circulation, colonial works, furniture and suites",
+          "cliche_cluster": "decorative luxury-art interior",
+          "proves": "The operator confirms a 1999 adaptive layer that turns ordinary hotel circulation into a living-gallery experience.",
+          "cannot_prove": "Exact artwork locations, present rotation or photography conditions.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CCLH-03",
+          "page_url": "https://www.munisanisidro.gob.pe/transparencia/tema02/Memoria_Institucional_2014.pdf",
+          "image_url": "https://www.munisanisidro.gob.pe/transparencia/tema02/Memoria_Institucional_2014.pdf",
+          "publisher": "Municipalidad Distrital de San Isidro",
+          "viewpoint_family": "FORMAL_FRONTAGE_AND_ORIGINAL_URBANIZATION_CONTRACT",
+          "likely_camera_height": "frontal street eye level",
+          "fov_class": "wide/site-wide",
+          "light_weather": "daylight",
+          "people_activity": "arriving through the central stairs and moving between hotel and surrounding district",
+          "edge_background": "symmetrical façade, entrance court and land once acquired for hotel-plus-neighborhood development",
+          "cliche_cluster": "empty frontal heritage hotel",
+          "proves": "The municipal record links the building to the 1925 company formed to construct the club and urbanize 1.3 million square metres around it.",
+          "cannot_prove": "The exact current visual boundary of that development contract or public camera access.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Country Club Lima Hotel puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
