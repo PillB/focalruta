@@ -15260,7 +15260,56 @@
           "gate": "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?"
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-CCLIMA-01",
+          "page_url": "https://www.realplaza.com/centro-civico",
+          "image_url": "https://www.realplaza.com/centro-civico",
+          "publisher": "Real Plaza",
+          "viewpoint_family": "CURRENT_RETAIL_CIRCULATION_AND_LONG_DAY",
+          "likely_camera_height": "shopper eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "interior/day-evening",
+          "people_activity": "commuting, shopping, eating, waiting and collecting orders",
+          "edge_background": "brutalist podium, retail levels, services and Garcilaso threshold",
+          "cliche_cluster": "busy shopping-center interior",
+          "proves": "The current operator confirms daily 07:00–22:00 occupation and a dense service program inside the former civic complex.",
+          "cannot_prove": "Professional photography permission, precise pedestrian peak or a legible civic-to-commercial contradiction.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CCLIMA-02",
+          "page_url": "https://revistas.uni.edu.pe/index.php/ica/article/view/1763",
+          "image_url": "https://revistas.uni.edu.pe/index.php/ica/article/view/1763",
+          "publisher": "Universidad Nacional de Ingeniería · Ciudad & Arquitectura",
+          "viewpoint_family": "CIVIC_COMPLEX_TO_COMMERCIAL_REUSE",
+          "likely_camera_height": "architectural documentation",
+          "fov_class": "site/interior mixed",
+          "light_weather": "mixed",
+          "people_activity": "public-service history versus contemporary consumption",
+          "edge_background": "original civic fabric and later commercial insertion",
+          "cliche_cluster": "adaptive-reuse overview",
+          "proves": "Peer-reviewed analysis establishes remodel/new-build intervention as the mechanism connecting the historic center to contemporary urban needs.",
+          "cannot_prove": "Current occupancy, best camera position or whether the transformation reads without archival comparison.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CCLIMA-03",
+          "page_url": "https://www.icsc.com/uploads/awards/Latam_2012Winners.pdf",
+          "image_url": "https://www.icsc.com/uploads/awards/Latam_2012Winners.pdf",
+          "publisher": "International Council of Shopping Centers",
+          "viewpoint_family": "ABANDONMENT_TO_MALL_PUBLIC_REALM_CLAIM",
+          "likely_camera_height": "professional project documentation",
+          "fov_class": "wide/mixed",
+          "light_weather": "day/interior",
+          "people_activity": "commercial occupation after prolonged abandonment",
+          "edge_background": "historic concrete structure and mall insertions",
+          "cliche_cluster": "award-project promotional imagery",
+          "proves": "The project record documents the explicit objective of preserving symbolic urban character while converting a long-abandoned complex to retail use.",
+          "cannot_prove": "Whether that claim succeeds experientially today; field evidence must test rather than repeat it.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -15827,7 +15876,56 @@
           "gate": "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?"
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-HEEREN-01",
+          "page_url": "https://www.gob.pe/institucion/munilima/noticias/1261820-el-alcalde-de-lima-concreta-la-adquisicion-de-la-historica-quinta-heeren",
+          "image_url": "https://www.gob.pe/institucion/munilima/noticias/1261820-el-alcalde-de-lima-concreta-la-adquisicion-de-la-historica-quinta-heeren",
+          "publisher": "Municipalidad Metropolitana de Lima · Gob.pe",
+          "viewpoint_family": "RESTORATION_START_NEIGHBORS_AND_COURTYARD",
+          "likely_camera_height": "ceremony/street eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "summer daylight",
+          "people_activity": "gathering, announcing, planting and preparing restoration",
+          "edge_background": "historic blocks, central space, neighbors and work-start ceremony",
+          "cliche_cluster": "official restoration launch",
+          "proves": "January 2026 evidence confirms municipal ownership and the start of integral restoration rather than a speculative future project.",
+          "cannot_prove": "Daily work, public access or current interior condition.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HEEREN-02",
+          "page_url": "https://www.gob.pe/institucion/munilima/noticias/1338457-la-quinta-heeren-volvera-a-integrarse-plenamente-a-la-vida-urbana-de-lima-anuncia-alcalde-renzo-reggiardo",
+          "image_url": "https://www.gob.pe/institucion/munilima/noticias/1338457-la-quinta-heeren-volvera-a-integrarse-plenamente-a-la-vida-urbana-de-lima-anuncia-alcalde-renzo-reggiardo",
+          "publisher": "Municipalidad Metropolitana de Lima · Gob.pe",
+          "viewpoint_family": "THIRTEEN_BLOCKS_PARK_AND_FUTURE_CULTURAL_INSERTION",
+          "likely_camera_height": "site/plan interpretation",
+          "fov_class": "site-wide",
+          "light_weather": "not fixed",
+          "people_activity": "future neighborhood and cultural use, not yet verified",
+          "edge_background": "13 heritage blocks, historic park and planned modern community building",
+          "cliche_cluster": "promised revitalization rendering",
+          "proves": "The October 2025 acquisition record establishes the transfer from restricted private deterioration to municipal ownership and identifies concrete components whose future completion can be tested separately.",
+          "cannot_prove": "Completed public-space use; all promised post-restoration activity remains future and non-routable.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HEEREN-03",
+          "page_url": "https://fliphtml5.com/prolimachl/wjyp/62._ElPregonero_N%C2%B062-Octubre2025-p%C3%A1ginas/",
+          "image_url": "https://fliphtml5.com/prolimachl/wjyp/62._ElPregonero_N%C2%B062-Octubre2025-p%C3%A1ginas/",
+          "publisher": "PROLIMA · El Pregonero",
+          "viewpoint_family": "MATERIAL_READING_QUINCHA_MORTAR_AND_RECOVERY_METHOD",
+          "likely_camera_height": "detail and technical documentation",
+          "fov_class": "detail/normal",
+          "light_weather": "mixed work light",
+          "people_activity": "sampling, documenting, reconstructing and planning with neighbors",
+          "edge_background": "quincha, huasca, mortars, decorative elements and historic blocks",
+          "cliche_cluster": "restoration-process feature",
+          "proves": "PROLIMA's technical feature documents evidence-led material reading and a participatory management proposal, providing detail-scale mechanisms beyond façade restoration.",
+          "cannot_prove": "Current on-site phase, public access or completed community occupation.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -16586,7 +16684,56 @@
           "gate": "¿Qué detalle de uso contemporáneo contradice o completa una fachada de otra época sin que ninguna de las dos capas domine?"
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-JIRONUNION-01",
+          "page_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=4614",
+          "image_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=4614",
+          "publisher": "MINCETUR · Inventario Nacional de Recursos Turísticos",
+          "viewpoint_family": "LONG_PEDESTRIAN_COMMERCIAL_SPINE",
+          "likely_camera_height": "pedestrian eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "day/evening",
+          "people_activity": "walking, shopping, performing, worshipping and crossing",
+          "edge_background": "nine-block historic-commercial corridor and repeated thresholds",
+          "cliche_cluster": "central vanishing-point street crowd",
+          "proves": "The official inventory defines the jirón as a historically continuous commercial pedestrian spine rather than a single monument.",
+          "cannot_prove": "Current block-by-block density, least saturated intersection or present storefront state.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-JIRONUNION-02",
+          "page_url": "https://www.gob.pe/institucion/bnp/noticias/1337166-mas-de-400-personas-participaron-en-recorrido-historico-organizado-por-la-biblioteca-nacional-del-peru-por-el-491-aniversario-de-lima",
+          "image_url": "https://www.gob.pe/institucion/bnp/noticias/1337166-mas-de-400-personas-participaron-en-recorrido-historico-organizado-por-la-biblioteca-nacional-del-peru-por-el-491-aniversario-de-lima",
+          "publisher": "Biblioteca Nacional del Perú · Gob.pe",
+          "viewpoint_family": "GUIDED_MEMORY_AND_LOST_CULTURAL_ADDRESS",
+          "likely_camera_height": "walking-tour eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "walking, listening and locating vanished cultural places",
+          "edge_background": "commercial street, historic façades and former Broggi restaurant site",
+          "cliche_cluster": "heritage-tour documentation",
+          "proves": "A January 2026 walk demonstrates how present commerce and absent cultural addresses can coexist through guided collective attention.",
+          "cannot_prove": "Unguided legibility or recurring tours.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-JIRONUNION-03",
+          "page_url": "https://www.gob.pe/pl/busquedas?contenido%5B%5D=noticias&institucion%5B%5D=munilima&sort_by=recent",
+          "image_url": "https://www.gob.pe/pl/busquedas?contenido%5B%5D=noticias&institucion%5B%5D=munilima&sort_by=recent",
+          "publisher": "Municipalidad Metropolitana de Lima · Gob.pe",
+          "viewpoint_family": "PATRIOTIC_PROCESSION_AND_TEMPORARY_LINEAR_STAGE",
+          "likely_camera_height": "crowd eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "winter day/evening",
+          "people_activity": "parading, dancing, watching and compressing along the pedestrian axis",
+          "edge_background": "Jirón de la Unión façades, Plaza Mayor approaches and temporary performance flow",
+          "cliche_cluster": "festival crowd coverage",
+          "proves": "July 2026 municipal coverage records the street becoming a linear civic stage rather than only a shopping corridor.",
+          "cannot_prove": "Future recurrence, exact route position or crowd-safe photography.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué detalle de uso contemporáneo contradice o completa una fachada de otra época sin que ninguna de las dos capas domine?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -16770,7 +16917,56 @@
           "gate": "¿Puede una intersección a nivel de calle hacer visible el damero mediante cuatro corrientes humanas y una perspectiva axial?"
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-DAMERO-01",
+          "page_url": "https://www.c40.org/wp-content/uploads/2025/06/20241111-Lima_active_es.pdf",
+          "image_url": "https://www.c40.org/wp-content/uploads/2025/06/20241111-Lima_active_es.pdf",
+          "publisher": "C40 Cities / Municipalidad Metropolitana de Lima / PROLIMA",
+          "viewpoint_family": "PRIORITY_PEDESTRIAN_GRID_AND_ACCESS_CONTROL",
+          "likely_camera_height": "plan/street mixed",
+          "fov_class": "intersection/site-wide",
+          "light_weather": "not fixed",
+          "people_activity": "walking, crossing, delivering and sharing restricted streets",
+          "edge_background": "Damero grid, controlled vehicle entries and pedestrian-priority phases",
+          "cliche_cluster": "heritage master-plan diagram",
+          "proves": "The implementation document defines intersections as operational nodes where walking priority, vehicle restriction and public transport meet.",
+          "cannot_prove": "Current enforcement at any chosen crossing or exact street furniture.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-DAMERO-02",
+          "page_url": "https://elperuano.pe/noticia/298407-la-mml-restablece-el-transito-vehicular-en-el-centro-historico-de-lima",
+          "image_url": "https://elperuano.pe/noticia/298407-la-mml-restablece-el-transito-vehicular-en-el-centro-historico-de-lima",
+          "publisher": "Diario Oficial El Peruano",
+          "viewpoint_family": "TEMPORARY_CLOSURE_AND_RETURN_OF_TRAFFIC",
+          "likely_camera_height": "street/news eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "driving, crossing, policing and resuming commerce",
+          "edge_background": "controlled historic-center perimeter and grid intersections",
+          "cliche_cluster": "traffic-control news image",
+          "proves": "June 2026 evidence shows intersection behavior reversing when temporary restrictions end, a real time-sensitive urban mechanism.",
+          "cannot_prove": "Any present restriction or the most legible intersection.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-DAMERO-03",
+          "page_url": "https://www.gob.pe/institucion/munilima/noticias/1288091-el-prolima-libera-de-los-cables-aereos-en-mesa-redonda-mercado-central-y-el-triangulo-de-grau",
+          "image_url": "https://www.gob.pe/institucion/munilima/noticias/1288091-el-prolima-libera-de-los-cables-aereos-en-mesa-redonda-mercado-central-y-el-triangulo-de-grau",
+          "publisher": "Municipalidad Metropolitana de Lima · Gob.pe",
+          "viewpoint_family": "REMOVED_OVERHEAD_CLUTTER_AND_REVEALED_FACADES",
+          "likely_camera_height": "street eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "working, selling and moving through newly cleared visual corridors",
+          "edge_background": "intersections, historic façades and removed cable fields",
+          "cliche_cluster": "before/after streetscape improvement",
+          "proves": "Work across more than 50 blocks creates a measurable visual-condition change relevant to edge discipline and temporal comparison.",
+          "cannot_prove": "Cable condition at every candidate crossing or current construction barriers.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Puede una intersección a nivel de calle hacer visible el damero mediante cuatro corrientes humanas y una perspectiva axial?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
