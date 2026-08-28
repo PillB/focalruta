@@ -1,0 +1,219 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-05",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "reducto-2-casa-museo-caceres",
+      "reference_families": [
+        {
+          "reference_id": "VR-REDUCTO2-01",
+          "page_url": "https://www.flickr.com/photos/munimiraflores/albums/72157673090929483",
+          "image_url": "https://www.flickr.com/photos/munimiraflores/albums/72157673090929483",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "MUSEUM_SITE_WALKTHROUGH",
+          "likely_camera_height": "mixed eye-level gallery viewpoints",
+          "fov_class": "mixed",
+          "light_weather": "daylight and interior light",
+          "people_activity": "museum interpretation implied; individual activity not audited",
+          "edge_background": "museum rooms, entrance and park setting across 21 images",
+          "cliche_cluster": "municipal museum documentation",
+          "proves": "The municipal gallery establishes multiple spatial families beyond the park monument.",
+          "cannot_prove": "Current 2026 arrangement, stable asset URLs or visitor rhythm.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-REDUCTO2-02",
+          "page_url": "https://www.flickr.com/photos/munimiraflores/7395438182",
+          "image_url": "https://www.flickr.com/photos/munimiraflores/7395438182",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "PARK_AND_HISTORIC_SITE_OVERVIEW",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not established",
+          "edge_background": "landscape, monument and site structures",
+          "cliche_cluster": "green historic park overview",
+          "proves": "The reducto is read through landscape and commemorative elements, not a single building.",
+          "cannot_prove": "Current ceremonies, Sunday flag raising or civil-wedding positioning.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-REDUCTO2-03",
+          "page_url": "https://www.urbipedia.org/hoja/Parque_Reducto_n.%C2%BA_2",
+          "image_url": "https://www.urbipedia.org/hoja/Parque_Reducto_n.%C2%BA_2",
+          "publisher": "Urbipedia / Wikimedia-linked gallery",
+          "viewpoint_family": "CEREMONY_LOCOMOTIVE_MONUMENT_SET",
+          "likely_camera_height": "mixed",
+          "fov_class": "mixed",
+          "light_weather": "daylight",
+          "people_activity": "flag ceremony, commemoration and tai chi represented in gallery list",
+          "edge_background": "locomotive, busts, museum entrance and ceremonial lawn",
+          "cliche_cluster": "patriotic monument catalogue",
+          "proves": "The site supports materially different event and object relationships that must not be collapsed into one cliché.",
+          "cannot_prove": "Current schedule or which event produces a caption-independent architectural image.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "biblioteca-municipal-de-barranco",
+      "reference_families": [
+        {
+          "reference_id": "VR-BIBBARRANCO-01",
+          "page_url": "https://www.ytuqueplanes.com/teapuntas-lima-callao/distritos-con-historia/barranco/biblioteca-municipal",
+          "image_url": "https://www.ytuqueplanes.com/imagenes/fotos/turismo-urbano/distrito/atractivo/detalle/barranco_bib_muni_1200x630.webp",
+          "publisher": "PROMPERÚ — Y tú qué planes",
+          "viewpoint_family": "SYMMETRIC_FACADE_AND_PARK",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "tripartite façade, central portico and municipal park",
+          "cliche_cluster": "frontal heritage façade",
+          "proves": "The former municipal building's symmetry and park frontage are the dominant default view.",
+          "cannot_prove": "Interior reading activity, edge saturation or current hours.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BIBBARRANCO-02",
+          "page_url": "https://www.gob.pe/institucion/munibarranco/noticias/666331-nuestra-biblioteca-municipal-cumplio-100-anos",
+          "image_url": "https://www.gob.pe/institucion/munibarranco/noticias/666331-nuestra-biblioteca-municipal-cumplio-100-anos",
+          "publisher": "Municipalidad Distrital de Barranco",
+          "viewpoint_family": "RESTORED_INTERIOR_READING_ROOMS",
+          "likely_camera_height": "mixed official gallery viewpoints",
+          "fov_class": "normal and wide-normal",
+          "light_weather": "interior artificial/daylight mix",
+          "people_activity": "reading, projection and ceremonies supported by program",
+          "edge_background": "open shelving, adult/children rooms, projection and ceremonial rooms",
+          "cliche_cluster": "institutional renovation gallery",
+          "proves": "The 2020 restoration reopened spatial functions and restored rooms toward their earlier arrangement.",
+          "cannot_prove": "Current occupancy, precise asset URLs or whether quiet absence is visually stronger.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BIBBARRANCO-03",
+          "page_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=1896",
+          "image_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=1896",
+          "publisher": "MINCETUR tourism inventory",
+          "viewpoint_family": "BUILDING_AS_CIVIC_PARK_EDGE",
+          "likely_camera_height": "page-level gallery locator",
+          "fov_class": "unknown",
+          "light_weather": "not established",
+          "people_activity": "library, events and guided visits documented",
+          "edge_background": "building belongs to the homogeneous heritage ensemble of Parque Municipal",
+          "cliche_cluster": "civic landmark inventory",
+          "proves": "The library's architectural meaning depends on its park ensemble and continuing public program.",
+          "cannot_prove": "A specific current scene, present operating status or individual image metadata.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "santisima-cruz-del-viajero",
+      "reference_families": [
+        {
+          "reference_id": "VR-CRUZVIAJERO-01",
+          "page_url": "https://camp.ucss.edu.pe/blog/tradicion-y-modernidad-el-camino-de-las-cruces-de-lima/",
+          "image_url": "https://camp.ucss.edu.pe/wp-content/uploads/2025/04/Cruz-del-viajero.jpg",
+          "publisher": "CampUCSS",
+          "viewpoint_family": "MONUMENT_PARK_AND_FENCE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "soft daylight",
+          "people_activity": "flowers indicate devotional residue; no person visible",
+          "edge_background": "tiled base, trees, lamps and fence",
+          "cliche_cluster": "isolated heritage monument",
+          "proves": "Material offerings and park infrastructure can express present social use without a person.",
+          "cannot_prove": "Offering frequency, current traffic pattern or a wider route relationship.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CRUZVIAJERO-02",
+          "page_url": "https://elcomercio.pe/lima/cruces-del-camino-emblemas-de-la-identidad-catolica-del-peru-en-que-lugares-de-lima-puedes-encontrarlas-cruz-del-camino-patrimonio-peru-fiestas-patrias-28-de-julio-noticias-noticia/",
+          "image_url": "https://cloudfront-us-east-1.images.arcpublishing.com/elcomercio/72RIJ7GMMBHZZNGPRBGGHADFCI.JPG",
+          "publisher": "El Comercio",
+          "viewpoint_family": "MEDIAN_TRAFFIC_AND_CROSS",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "daylight",
+          "people_activity": "road traffic contextualizes the monument",
+          "edge_background": "grass median, avenue and urban buildings",
+          "cliche_cluster": "roadside cross documentation",
+          "proves": "The historic route marker now operates inside contemporary traffic infrastructure.",
+          "cannot_prove": "A safe field position, pedestrian interaction or current devotional event.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CRUZVIAJERO-03",
+          "page_url": "https://es.wikiloc.com/rutas-senderismo/caminata-en-pueblo-libre-185962784",
+          "image_url": "https://s1.wklcdn.com/image_185/5555850/185962792/115246891.700x525.jpg",
+          "publisher": "Wikiloc community route",
+          "viewpoint_family": "PARK_SIGN_SIDEWALK_AND_PEDESTRIANS",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "overcast daylight",
+          "people_activity": "pedestrians and parked cars in background",
+          "edge_background": "park sign, mature tree, lamps and sidewalk",
+          "cliche_cluster": "wayfinding record",
+          "proves": "The named park and walking route broaden the scene from object to urban waypoint.",
+          "cannot_prove": "Image authorship beyond host, routine pedestrian volume or monument visibility from this point.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "torres-centro-empresarial-camino-real",
+      "reference_families": [
+        {
+          "reference_id": "VR-CAMINOREAL-01",
+          "page_url": "https://grupocentenario.com.pe/oficinas-modernas-en-san-isidro-innovacion-y-espacios-de-primer-nivel/",
+          "image_url": "https://grupocentenario.com.pe/wp-content/uploads/2025/01/8.jpg",
+          "publisher": "Grupo Centenario",
+          "viewpoint_family": "AERIAL_THREE_TOWER_SYSTEM",
+          "likely_camera_height": "aerial",
+          "fov_class": "very wide",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "three towers, podium and surrounding San Isidro fabric",
+          "cliche_cluster": "corporate skyline aerial",
+          "proves": "The complex is a linked podium-and-three-tower system rather than one tower.",
+          "cannot_prove": "A publicly reachable view, ground life or pre-renovation contrast.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CAMINOREAL-02",
+          "page_url": "https://centenariooficinas.pe/torres-camino-real-espacios-renovados-para-el-exito-empresarial/",
+          "image_url": "https://centenariooficinas.pe/wp-content/uploads/2024/08/Foto-banner.jpg",
+          "publisher": "Oficinas Centenario",
+          "viewpoint_family": "RENOVATED_GLASS_FACADE_AND_PODIUM",
+          "likely_camera_height": "elevated/standing exterior",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "new glass skins, lobbies and shared podium",
+          "cliche_cluster": "corporate renovation hero image",
+          "proves": "The present visual identity is a recent envelope transformation, not the original concrete-era appearance.",
+          "cannot_prove": "Ordinary worker movement, public access or how much old fabric remains visible.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CAMINOREAL-03",
+          "page_url": "https://elcomercio.pe/somos/historias/san-isidro-centro-comercial-camino-real-se-transforma-un-viaje-nostalgico-por-el-primer-centro-comercial-del-peru-historia-remodelacion-noticia/",
+          "image_url": "https://elcomercio.pe/somos/historias/san-isidro-centro-comercial-camino-real-se-transforma-un-viaje-nostalgico-por-el-primer-centro-comercial-del-peru-historia-remodelacion-noticia/",
+          "publisher": "El Comercio",
+          "viewpoint_family": "EMPTY_MALL_AND_WORKING_TOWERS",
+          "likely_camera_height": "interior eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "interior ambient light",
+          "people_activity": "2019 residual shops; later empty upper floor reported",
+          "edge_background": "commercial podium connected to still-operating office towers",
+          "cliche_cluster": "nostalgic dead-mall story",
+          "proves": "The strongest temporal contradiction is an emptied retail podium beneath functioning corporate towers.",
+          "cannot_prove": "Current 2026 mall state, present access or stable individual image asset URLs.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}
