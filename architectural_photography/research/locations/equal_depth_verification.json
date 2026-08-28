@@ -8173,7 +8173,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-PORRAS-01",
+          "page_url": "https://www.miraflores.gob.pe/casa-raul-porras-barrenechea-una-joya-historica-en-el-corazon-de-miraflores/",
+          "image_url": "https://www.miraflores.gob.pe/casa-raul-porras-barrenechea-una-joya-historica-en-el-corazon-de-miraflores/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "RESTORED_HOUSE_STUDY_AND_LIBRARY_SEQUENCE",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "interior/daylight",
+          "people_activity": "studying, researching, guiding and remembering",
+          "edge_background": "entry hall, main room, study, office, library and personal archive",
+          "cliche_cluster": "great-person house-museum interior",
+          "proves": "The post-restoration route preserves a sequence from domestic rooms to active research institute, making intellectual work the present verb.",
+          "cannot_prove": "Current interior photography permission, occupancy or unrestricted access.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PORRAS-02",
+          "page_url": "https://visitamiraflores.com/en/lugares/instituto-raul-porras-barrenechea/",
+          "image_url": "https://visitamiraflores.com/en/lugares/instituto-raul-porras-barrenechea/",
+          "publisher": "Visita Miraflores",
+          "viewpoint_family": "STREET_HOUSE_AND_RESERVATION_THRESHOLD",
+          "likely_camera_height": "street eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "arriving by appointment and entering an active institute",
+          "edge_background": "Colina street, historic house frontage and controlled entry",
+          "cliche_cluster": "quiet heritage-house façade",
+          "proves": "Current visitor guidance confirms the dual institute/house-museum use and a reservation-controlled threshold.",
+          "cannot_prove": "Same-day access, street activity or feasible interior photography.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PORRAS-03",
+          "page_url": "https://institutoporras.blogspot.com/2021/",
+          "image_url": "https://institutoporras.blogspot.com/2021/",
+          "publisher": "Instituto Raúl Porras Barrenechea",
+          "viewpoint_family": "RESTORATION_PROCESS_AND_CULTURAL_CONTINUITY",
+          "likely_camera_height": "institutional documentation",
+          "fov_class": "mixed",
+          "light_weather": "mixed",
+          "people_activity": "restoring, documenting and reopening",
+          "edge_background": "historic-artistic house and restoration evidence",
+          "cliche_cluster": "institutional restoration record",
+          "proves": "The institute documents the conservation process behind the reopened cultural use, a temporal layer absent from a finished-house portrait.",
+          "cannot_prove": "Present conservation work or visually legible intervention boundaries.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Casa Raúl Porras Barrenechea puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -9143,7 +9192,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-BOSQUE-01",
+          "page_url": "https://www.gob.pe/43159",
+          "image_url": "https://www.gob.pe/43159",
+          "publisher": "Municipalidad de San Isidro · Gob.pe",
+          "viewpoint_family": "OLIVE_CANOPY_LAGOON_AND_CULTURAL_NETWORK",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "filtered daylight",
+          "people_activity": "walking, meeting, reading, observing birds and attending culture",
+          "edge_background": "centenary olive trunks, lagoon, rotunda, libraries and house museum",
+          "cliche_cluster": "picturesque olive-and-lagoon panorama",
+          "proves": "The official description defines the forest as an ecological and cultural network, not a single landscape object.",
+          "cannot_prove": "Current crowd rhythm, least photographed path or exact seasonal canopy density.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BOSQUE-02",
+          "page_url": "https://www.gob.pe/institucion/munisanisidro-lima/noticias/1398719-realizan-acciones-permanentes-de-limpieza-y-conservacion-en-el-bosque-el-olivar",
+          "image_url": "https://www.gob.pe/institucion/munisanisidro-lima/noticias/1398719-realizan-acciones-permanentes-de-limpieza-y-conservacion-en-el-bosque-el-olivar",
+          "publisher": "Municipalidad de San Isidro · Gob.pe",
+          "viewpoint_family": "LAGOON_MAINTENANCE_AND_ECOLOGICAL_CARE",
+          "likely_camera_height": "ground-level work documentation",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "cleaning, caring and monitoring habitat",
+          "edge_background": "lagoon edge, maintenance workers, fish, turtles and mature vegetation",
+          "cliche_cluster": "municipal conservation coverage",
+          "proves": "May 2026 evidence makes ongoing care labor visible as the condition that sustains the apparently natural scene.",
+          "cannot_prove": "Repeatable maintenance schedule or consent-safe proximity to workers.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BOSQUE-03",
+          "page_url": "https://www.gob.pe/institucion/munisanisidro-lima/noticias/1413693-san-isidro-pone-en-valor-arboles-patrimoniales-con-hasta-388-anos-de-historia",
+          "image_url": "https://www.gob.pe/institucion/munisanisidro-lima/noticias/1413693-san-isidro-pone-en-valor-arboles-patrimoniales-con-hasta-388-anos-de-historia",
+          "publisher": "Municipalidad de San Isidro · Gob.pe",
+          "viewpoint_family": "PATRIMONIAL_TREE_ROUTE_AND_HUMAN_SCALE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "winter daylight",
+          "people_activity": "guiding, learning, measuring and gathering around trees",
+          "edge_background": "388-year olive, route markers, people and surrounding urban forest",
+          "cliche_cluster": "heritage-tree ceremony",
+          "proves": "A July 2026 route supplies a scale-and-time mechanism where living trees function as monuments within everyday circulation.",
+          "cannot_prove": "Permanent signage, future guided timing or a one-frame relationship to surrounding housing.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Bosque El Olivar puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -11121,7 +11219,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-MOREYRA-01",
+          "page_url": "https://www.gob.pe/43161",
+          "image_url": "https://www.gob.pe/43161",
+          "publisher": "Municipalidad de San Isidro · Gob.pe",
+          "viewpoint_family": "HACIENDA_CORE_AND_URBANIZATION_ORIGIN",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "arriving, dining and crossing former estate thresholds",
+          "edge_background": "seventeenth-century rural residence, Paz Soldán avenue and modern San Isidro",
+          "cliche_cluster": "restored colonial-house façade",
+          "proves": "The official account links the house to the original estate and to the later urbanization around El Olivar, making it a surviving generator of district form.",
+          "cannot_prove": "Public access beyond restaurant operation or an externally legible estate-to-city relation.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MOREYRA-02",
+          "page_url": "https://www.archdaily.com.br/br/764930/restaurante-astrid-e-gaston-casa-moreyra-51-1-arquitectos",
+          "image_url": "https://www.archdaily.com.br/br/764930/restaurante-astrid-e-gaston-casa-moreyra-51-1-arquitectos",
+          "publisher": "ArchDaily / 51-1 Arquitectos",
+          "viewpoint_family": "ADAPTIVE_REUSE_OLD_HOUSE_AND_RESTAURANT",
+          "likely_camera_height": "professional architectural eye level",
+          "fov_class": "mixed",
+          "light_weather": "day/interior/night",
+          "people_activity": "cooking, serving, dining and moving through adapted rooms",
+          "edge_background": "historic fabric, contemporary service insertions, patios and dining rooms",
+          "cliche_cluster": "polished hospitality architecture",
+          "proves": "The project record documents a contemporary program inserted into protected fabric, supporting an original-contract versus present-use test.",
+          "cannot_prove": "Unstaged current occupation, competition photography permission or 2026 interior configuration.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MOREYRA-03",
+          "page_url": "https://www.munisanisidro.gob.pe/transparencia/tema02/Memoria_Institucional_2014.pdf",
+          "image_url": "https://www.munisanisidro.gob.pe/transparencia/tema02/Memoria_Institucional_2014.pdf",
+          "publisher": "Municipalidad de San Isidro",
+          "viewpoint_family": "NIGHT_FACADE_CHAPEL_AND_HACIENDA_COMPLEX",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "night architectural light",
+          "people_activity": "hospitality arrival implied, not proven",
+          "edge_background": "illuminated entry, stairs, landscape, chapel and former service complex",
+          "cliche_cluster": "luxury illuminated hacienda",
+          "proves": "The municipal record describes the house as residence and agricultural administrative nucleus and shows a materially distinct night threshold.",
+          "cannot_prove": "Current lighting, visible chapel/catacomb relation or public exterior position after hours.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Casa-Hacienda Moreyra puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -16422,7 +16569,56 @@
           "gate": "¿Puede una puerta que se abre convertir la casa simultáneamente en hogar, archivo y aula?"
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-GARCIABRYCE-01",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/casa-garcia-bryce/",
+          "image_url": "https://cammp.ulima.edu.pe/edificios/casa-garcia-bryce/",
+          "publisher": "Universidad de Lima · Catálogo Arquitectura Movimiento Moderno Perú",
+          "viewpoint_family": "ARCHIVAL_FACADE_LATERAL_VOLUME_AND_CURRENT_VIEW",
+          "likely_camera_height": "street eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "archival and current daylight",
+          "people_activity": "private dwelling use; occupants not evidence",
+          "edge_background": "three street fronts, boulevard, Roosevelt park and orthogonal mass",
+          "cliche_cluster": "canonical modern-house documentation",
+          "proves": "The scholarly catalogue supplies archival and current views plus plan/section evidence linking the house to three public edges.",
+          "cannot_prove": "Permission beyond the public street, current residents or interior visibility.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-GARCIABRYCE-02",
+          "page_url": "https://cammp.ulima.edu.pe/autores/garcia-bryce-jose/",
+          "image_url": "https://cammp.ulima.edu.pe/autores/garcia-bryce-jose/",
+          "publisher": "Universidad de Lima · Catálogo Arquitectura Movimiento Moderno Perú",
+          "viewpoint_family": "AUTHOR_LINEAGE_AND_MODERN_HOUSING_COMPARISON",
+          "likely_camera_height": "catalogue comparison",
+          "fov_class": "mixed",
+          "light_weather": "archival",
+          "people_activity": "not established",
+          "edge_background": "house within García Bryce's modern residential sequence",
+          "cliche_cluster": "architect monograph comparison",
+          "proves": "The author catalogue positions the house within a broader experimental housing lineage, supporting typological comparison rather than fame scoring.",
+          "cannot_prove": "Current public life or a scene-specific decisive moment.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-GARCIABRYCE-03",
+          "page_url": "https://limacap.org/wp-content/uploads/2025/06/REVISTA-ARKHIA-2.pdf",
+          "image_url": "https://limacap.org/wp-content/uploads/2025/06/REVISTA-ARKHIA-2.pdf",
+          "publisher": "Colegio de Arquitectos del Perú · Revista Arkhia",
+          "viewpoint_family": "1952_TO_CURRENT_CONDITION_COMPARISON",
+          "likely_camera_height": "archival/current street comparison",
+          "fov_class": "normal",
+          "light_weather": "daylight",
+          "people_activity": "none established",
+          "edge_background": "original published state and 2025 current condition",
+          "cliche_cluster": "then-and-now architecture comparison",
+          "proves": "A 2025 professional source directly pairs the original published house with its current condition, supporting a controlled temporal-palimpest test.",
+          "cannot_prove": "Condition on the shoot date, public access or whether change reads without a reproduced archival image.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Puede una puerta que se abre convertir la casa simultáneamente en hogar, archivo y aula?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
