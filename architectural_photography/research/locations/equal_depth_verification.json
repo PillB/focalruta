@@ -6047,7 +6047,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-LIBERTADORESMAG-01",
+          "page_url": "https://commons.wikimedia.org/wiki/Category:Iglesia_Mar%C3%ADa_Magdalena,_Pueblo_Libre",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Plaza%20Bol%C3%ADvar%20Pueblo%20Libre.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "PLAZA_CHURCH_AND_CIVIC_ENSEMBLE",
+          "likely_camera_height": "standing/elevated eye level",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "variable across 23-file category",
+          "edge_background": "plaza, church, palms, lamps and surrounding civic fabric",
+          "cliche_cluster": "historic plaza panorama",
+          "proves": "The candidate is an ensemble and should not be reduced to the church façade.",
+          "cannot_prove": "Current event rhythm, strongest plaza crossing or exact asset conditions.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LIBERTADORESMAG-02",
+          "page_url": "https://www.flickr.com/photos/pueblolibre/8982829505",
+          "image_url": "https://www.flickr.com/photos/pueblolibre/8982829505",
+          "publisher": "Destino Pueblo Libre / photograph by Amy Navarro Carpio",
+          "viewpoint_family": "CHURRIGUERESQUE_INTERIOR",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "interior ambient light",
+          "people_activity": "worship schedule documented; no current activity proved",
+          "edge_background": "pulpit, gilded side altars and nave",
+          "cliche_cluster": "ornate church interior",
+          "proves": "The interior offers a materially distinct order from the modest exterior/plaza sequence.",
+          "cannot_prove": "2026 schedule, crowd density or feasible quiet observation window.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LIBERTADORESMAG-03",
+          "page_url": "https://pueblolibrelima.com/santa-maria-magdalena/",
+          "image_url": "https://pueblolibrelima.com/wp-content/uploads/2025/05/Santa-Maria-Magdalena-in-Pueblo-Libre-scaled.jpg",
+          "publisher": "Pueblo Libre Lima",
+          "viewpoint_family": "NIGHT_CHURCH_AND_PLAZA_LIGHT",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "night architectural lighting",
+          "people_activity": "evening visitors implied, not legible",
+          "edge_background": "illuminated façade, fountain, palms, benches and lamps",
+          "cliche_cluster": "picturesque illuminated church",
+          "proves": "Evening lighting connects the façade to plaza fixtures but risks a conventional postcard.",
+          "cannot_prove": "Current lamp operation, mass exit gesture or anti-postal position.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Plaza de los Libertadores + Santa María Magdalena puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -6231,7 +6280,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-CULTURA-01",
+          "page_url": "https://dlpsarquitectos.com/proyecto/estacion-metro-de-lima-la-cultura-javier-prado/",
+          "image_url": "https://dlpsarquitectos.com/wp-content/uploads/2024/04/estacion_la_cultura_01.webp",
+          "publisher": "DLPS Arquitectos",
+          "viewpoint_family": "ELEVATED_STATION_STREET_AND_ENTRY",
+          "likely_camera_height": "street eye level",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "commuters gathering and ascending",
+          "edge_background": "elevated viaduct, columns, red roof, railing and street",
+          "cliche_cluster": "transit infrastructure overview",
+          "proves": "The elevated station channels passengers vertically from street to platform through a visible structural system.",
+          "cannot_prove": "Current peak cadence, safe camera position or relation to LCC in one frame.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CULTURA-02",
+          "page_url": "https://tvperu.gob.pe/noticias/locales/estacion-la-cultura-cerrara-el-13-y-14-abril-por-la-cumbre-de-las-americas",
+          "image_url": "https://tvperu.gob.pe/sites/default/files/styles/note/public/000319118w.jpg?itok=oe0wKN5V",
+          "publisher": "TV Perú",
+          "viewpoint_family": "TURNSTILES_AND_EXIT_FLOW",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "covered station light",
+          "people_activity": "commuters exiting through turnstiles",
+          "edge_background": "ticket booths, turnstiles, directional signs and station name",
+          "cliche_cluster": "news transit crowd",
+          "proves": "Built controls visibly funnel human flow and make architecture causal to the gesture.",
+          "cannot_prove": "Current crowd density, repeatability or a position outside controlled circulation.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CULTURA-03",
+          "page_url": "https://peru21.pe/lima/cierre-temporal-de-estacion-de-la-linea-1-durante-el-foro-apec-2024/",
+          "image_url": "https://peru21.pe/sites/default/efsfiles/styles/amp_1200x675_16_9/public/2024-11/estacion-de-la-linea-1.jpeg?itok=MqjghxtI",
+          "publisher": "Perú21",
+          "viewpoint_family": "CLOSED_OR_DISRUPTED_CIVIC_INTERCHANGE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "daylight/covered entrance",
+          "people_activity": "operating entrance shown; temporary event closure reported",
+          "edge_background": "entry signage and ticket services within larger civic district",
+          "cliche_cluster": "operational news image",
+          "proves": "Large civic events can reverse the station's normal access function, a genuine temporal contradiction.",
+          "cannot_prove": "Any 2026 closure, access to an LCC-linked viewpoint or normal daily pattern.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Centro de Convenciones / estación La Cultura puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -6413,7 +6511,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-BNP-01",
+          "page_url": "https://artsandculture.google.com/asset/fachada-lateral-de-la-nueva-sede-de-la-biblioteca-nacional-del-per%C3%BA/DwHpjQqnDxJX1w?hl=es",
+          "image_url": "https://artsandculture.google.com/asset/fachada-lateral-de-la-nueva-sede-de-la-biblioteca-nacional-del-per%C3%BA/DwHpjQqnDxJX1w?hl=es",
+          "publisher": "Biblioteca Nacional del Perú / Google Arts & Culture",
+          "viewpoint_family": "LATERAL_FACADE_ARCHIVE",
+          "likely_camera_height": "standing/elevated eye level",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "not established",
+          "edge_background": "long institutional façade and site edge",
+          "cliche_cluster": "institutional architecture record",
+          "proves": "A BNP-authored 2020 photograph documents the lateral mass beyond the frontal emblematic view.",
+          "cannot_prove": "Current edge use, stable direct asset URL or strongest public position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BNP-02",
+          "page_url": "https://www.bnp.gob.pe/la-biblioteca-nacional-del-peru-celebra-20-anos-de-su-sede-en-san-borja-con-una-exposicion-que-proyecta-el-futuro-del-acceso-al-conocimiento/",
+          "image_url": "https://www.bnp.gob.pe/la-biblioteca-nacional-del-peru-celebra-20-anos-de-su-sede-en-san-borja-con-una-exposicion-que-proyecta-el-futuro-del-acceso-al-conocimiento/",
+          "publisher": "Biblioteca Nacional del Perú",
+          "viewpoint_family": "HALL_EXHIBITION_AND_GUIDED_ROUTE",
+          "likely_camera_height": "mixed event eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "interior institutional light",
+          "people_activity": "ceremony, conversation and guided exhibition route",
+          "edge_background": "hall, Francisco Laso gallery, plans, photographs and audiovisual display",
+          "cliche_cluster": "institutional anniversary coverage",
+          "proves": "The 2026 anniversary exhibition makes the building's own design history visible inside its civic hall.",
+          "cannot_prove": "Exhibition duration, uncrowded position or individual asset URLs.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BNP-03",
+          "page_url": "https://www.gob.pe/28271-salas-de-lectura-y-estudio",
+          "image_url": "https://www.gob.pe/28271-salas-de-lectura-y-estudio",
+          "publisher": "Biblioteca Nacional del Perú / Gob.pe",
+          "viewpoint_family": "READING_ROOM_AND_TERRACE_USE",
+          "likely_camera_height": "page-level operational locator",
+          "fov_class": "unknown",
+          "light_weather": "interior and outdoor terrace light",
+          "people_activity": "reading, studying and consulting collections",
+          "edge_background": "study room, outdoor terrace and specialized collections",
+          "cliche_cluster": "library service documentation",
+          "proves": "The building enables a meaningful interior-to-terrace transition tied to real study behavior.",
+          "cannot_prove": "Photography feasibility, current occupancy or exact visual arrangement.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Biblioteca Nacional del Perú puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -6595,7 +6742,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-OLIVARLIB-01",
+          "page_url": "https://experiencias.com.pe/atraccion/TAT386231760/biblioteca-municipal-san-isidro",
+          "image_url": "https://experiencias.com.pe/public/image/variant/1200/450/inbr7f9cnx716v4hypk0yl207615/BibliotecaMunicipalidadSan-Isidro-2.webp",
+          "publisher": "Experiencias Perú",
+          "viewpoint_family": "LIBRARY_ENTRY_RAMP_AND_TREES",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight under tree shade",
+          "people_activity": "reading/cultural use implied by banners; no person legible",
+          "edge_background": "pale façade, ramp, stairs, banners and mature trees",
+          "cliche_cluster": "institution entrance record",
+          "proves": "The accessible ramp and tree canopy mediate arrival from the Olivar landscape.",
+          "cannot_prove": "Current event, visitor flow or relation to lagoon in the same frame.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-OLIVARLIB-02",
+          "page_url": "https://enlima.pe/lugares/centro-cultural-el-olivar-san-isidro-lima",
+          "image_url": "https://enlima.pe/sites/default/files/cc-el-olivar-01_0.jpg",
+          "publisher": "En Lima Agenda Cultural",
+          "viewpoint_family": "CULTURAL_CENTER_BALCONY_AND_VINE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "cultural program documented; none visible",
+          "edge_background": "white brick, windows, timber balcony, vine and entry ramp",
+          "cliche_cluster": "quiet cultural-center façade",
+          "proves": "The library is embedded in a broader theater/gallery/cultural-center envelope.",
+          "cannot_prove": "Current program timing or lagoon-edge activity.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-OLIVARLIB-03",
+          "page_url": "https://commons.wikimedia.org/wiki/Category:Parque_El_Olivar",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Laguna%20del%20parque%20y%20la%20biblioteca%20principal.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "LAGOON_LIBRARY_AND_PARK_EDGE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "variable park use; not established in named file",
+          "edge_background": "lagoon foreground, vegetation and principal library beyond",
+          "cliche_cluster": "picturesque lagoon reflection",
+          "proves": "A real sightline links water, landscape and the library, validating the candidate's combined identity.",
+          "cannot_prove": "Current water condition, bird/reader interaction or least saturated position.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Biblioteca Municipal y borde lagunas del Olivar puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
