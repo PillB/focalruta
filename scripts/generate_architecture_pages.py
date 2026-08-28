@@ -31,7 +31,8 @@ def scene_cards(candidates: list[dict], cohort: dict, verification: dict) -> str
         mechanism = verified["primary_scene_mechanism"].replace("_", " ").title() if verified else "Mecanismo visual por investigar"
         rejection = verified["expert_rejection"] if verified else "Faltan fuentes actuales, forénsica visual, diez pases y pruebas A/B/C/D/E."
         visual_count = len(progress[candidate["canonical_id"]]["visual_reference_families"])
-        status = f"Forénsica visual: {visual_count} referencias · sin ranking" if visual_count else "Forénsica visual pendiente · sin ranking"
+        desk_verified = progress[candidate["canonical_id"]]["verification_complete"]
+        status = f"Dossier de escritorio verificado · {visual_count} referencias · campo pendiente" if desk_verified else f"Forénsica visual: {visual_count} referencias · sin ranking"
         cards.append(
             f'<article class="scene"><p class="eyebrow">{escape(candidate["district"])}</p><h3>{escape(candidate["name"])}</h3>'
             f'<p>{escape(mechanism)}</p><p class="reject"><strong>Puede fallar:</strong> {escape(rejection)}</p>'
@@ -46,7 +47,7 @@ def public_candidates(candidates: list[dict], verification: dict) -> list[dict]:
         {
             **{field: candidate[field] for field in fields},
             "visual_reference_count": len(progress[candidate["canonical_id"]]["visual_reference_families"]),
-            "verification_complete": False,
+            "verification_complete": progress[candidate["canonical_id"]]["verification_complete"],
         }
         for candidate in candidates
     ]
@@ -56,6 +57,7 @@ def render(rules: dict, learning: dict, photographers: dict, cohort: dict | None
     candidates = candidates or json.loads(CANONICAL_PATH.read_text(encoding="utf-8"))
     verification = verification or json.loads(VERIFICATION_PATH.read_text(encoding="utf-8"))
     visual_started = sum(bool(item["visual_reference_families"]) for item in verification["records"])
+    desk_verified = sum(item["verification_complete"] for item in verification["records"])
     options = "".join(f'<option value="{escape(s["canonical_id"])}">{escape(s["name"])}</option>' for s in candidates)
     modes = "".join(f"<li>{escape(mode)}</li>" for mode in photographers["seeing_modes"])
     masters = "".join(
@@ -66,7 +68,7 @@ def render(rules: dict, learning: dict, photographers: dict, cohort: dict | None
     lesson = learning["lessons"][1]
     jurors = " · ".join(escape(name) for name in rules["jurors"])
     return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10211d"><link rel="icon" href="../../assets/app-icon.svg" type="image/svg+xml"><title>Arquitectura en Foco · FocalRuta</title><style>{CSS}</style></head><body>
-<header id="today"><p class="eyebrow">FOCALRUTA · CHALLENGE 2026</p><h1>Arquitectura<br>en foco</h1><p>Una sola fotografía. Encuentra una relación entre diseño, vida cotidiana y ciudad que se lea antes de la explicación.</p><div class="command"><div class="command-grid"><article><strong>Practica</strong><p>Tres posiciones antes de elegir focal.</p></article><article><strong>Explora</strong><p>81 lugares y escenas; {visual_started} tienen forénsica visual iniciada y todas requieren la misma profundidad.</p></article><article><strong>Decide</strong><p>CONTRATO vs USO y una prueba A/B/C/D/E.</p></article><article><strong>No olvides</strong><p>Un JPG/JPEG de 5–25 MB.</p></article></div></div></header>
+<header id="today"><p class="eyebrow">FOCALRUTA · CHALLENGE 2026</p><h1>Arquitectura<br>en foco</h1><p>Una sola fotografía. Encuentra una relación entre diseño, vida cotidiana y ciudad que se lea antes de la explicación.</p><div class="command"><div class="command-grid"><article><strong>Practica</strong><p>Tres posiciones antes de elegir focal.</p></article><article><strong>Explora</strong><p>81 lugares y escenas; {visual_started} tienen forénsica visual y {desk_verified} dossier de escritorio verificado. Todos siguen sin ranking.</p></article><article><strong>Decide</strong><p>CONTRATO vs USO y una prueba A/B/C/D/E.</p></article><article><strong>No olvides</strong><p>Un JPG/JPEG de 5–25 MB.</p></article></div></div></header>
 <nav aria-label="Tareas del challenge"><a href="../../index.html">FocalRuta</a><a href="#today">Hoy</a><a href="#scenes">Escenas</a><a href="#learn">Aprender</a><a href="#field-run">Campo</a><a href="#rules">Reglas</a></nav><main>
 <section id="scenes"><p class="eyebrow">UNIVERSO CANÓNICO</p><h2>Todos los lugares y escenas</h2><p>Las 81 identidades históricas reconciliadas están visibles. Ninguna está puntuada ni habilitada como ruta; cada una debe alcanzar el mismo nivel de fuentes, imágenes, composición, preguntas, diez pases y A/B/C/D/E.</p><label for="scene-limit">Mostrar N escenas</label><select id="scene-limit"><option value="10">10 escenas</option><option value="25">25 escenas</option><option value="40">40 escenas</option><option value="all" selected>Todas las escenas</option></select><p id="scene-count-status" role="status" aria-live="polite">Mostrando todas las escenas sin ordenar.</p><div class="scenes" id="scene-cards">{scene_cards(candidates, cohort, verification)}</div></section>
 <section id="learn"><p class="eyebrow">PRÁCTICA</p><h2>Aprende antes de perseguir una locación</h2><h3>Seis modos de ver</h3><ol class="modes">{modes}</ol><article class="callout"><h3>Posición antes que focal</h3><p><strong>Observa:</strong> {escape(lesson["observe"])}</p><p><strong>Prueba:</strong> {escape(lesson["try"])}</p></article><h3>Preguntas de maestros</h3><div class="scenes">{masters}</div></section>

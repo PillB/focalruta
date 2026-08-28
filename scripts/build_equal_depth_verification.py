@@ -19,6 +19,8 @@ PASSES = [
     "position_then_optics", "moment_logistics_ethics", "one_frame_contest_test",
 ]
 PROOFS = ["A_STRUCTURE", "B_HABITAR", "C_ANTI_POSTAL", "D_LIGHT_MATERIAL", "E_ONE_FRAME_STORY"]
+DESK_PASS_STATUSES = {"CORROBORATED", "VERIFIED"}
+FIELD_PROOF_STATUS = "READY_FOR_FIELD"
 
 def empty_checklist(names):
     return {name: {"status": "NOT_STARTED", "source_ids": []} for name in names}
@@ -112,6 +114,23 @@ def apply_evidence(records):
             target["contradictions"] = sorted(set(target["contradictions"] + update.get("contradictions", [])))
             for pass_name, pass_update in update["passes"].items():
                 target["passes"][pass_name] = pass_update
+            for proof_name, proof_update in update.get("proofs", {}).items():
+                target["proofs"][proof_name] = proof_update
+            if update.get("composition_questions"):
+                target["composition_questions"] = update["composition_questions"]
+
+def desk_verification_complete(record):
+    passes_ready = all(item["status"] in DESK_PASS_STATUSES for item in record["passes"].values())
+    proofs_ready = all(item["status"] == FIELD_PROOF_STATUS for item in record["proofs"].values())
+    references_ready = len(record["visual_reference_families"]) >= 3
+    questions_ready = len(record["composition_questions"]) == 3 and all(record["composition_questions"])
+    return passes_ready and proofs_ready and references_ready and questions_ready
+
+def apply_completion_state(records):
+    for target in records:
+        target["verification_complete"] = desk_verification_complete(target)
+        if target["verification_complete"]:
+            target["verification_status"] = "DESK_VERIFIED_FIELD_PENDING"
 
 def apply_visual_evidence(records):
     by_id = {item["canonical_id"]: item for item in records}
@@ -127,13 +146,15 @@ def main():
     apply_historical_hypotheses(records)
     apply_evidence(records)
     apply_visual_evidence(records)
+    apply_completion_state(records)
     payload = {
         "ledger_id": "EQUAL-DEPTH-81-2026-08-28", "candidate_count": len(candidates),
         "completion_rule": "All ten passes, five proofs, current sources, visual families and composition questions must be VERIFIED or CORROBORATED.",
         "records": records,
     }
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"records": len(payload["records"]), "complete": 0}))
+    complete = sum(item["verification_complete"] for item in records)
+    print(json.dumps({"records": len(payload["records"]), "complete": complete}))
 
 if __name__ == "__main__":
     main()

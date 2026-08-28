@@ -20,12 +20,20 @@ def test_visual_references_have_forensic_limits_and_link_only_policy():
         assert reference["image_url"].startswith("https://")
         assert reference["redistribution"] == "LINK_ONLY"
 
-def test_visual_intake_updates_ledger_without_completing_candidates():
+def test_visual_intake_updates_ledger_without_promoting_candidates_by_itself():
     ledger = {item["canonical_id"]: item for item in json.loads(LEDGER.read_text(encoding="utf-8"))["records"]}
     updates = [update for batch in batches() for update in batch["candidate_updates"]]
     for update in updates:
         item = ledger[update["canonical_id"]]
         assert item["visual_reference_families"] == update["reference_families"]
-        assert item["verification_complete"] is False
+        if item["verification_complete"]:
+            assert all(
+                check["status"] in {"CORROBORATED", "VERIFIED"}
+                for check in item["passes"].values()
+            )
+            assert all(
+                proof["status"] == "READY_FOR_FIELD"
+                for proof in item["proofs"].values()
+            )
         assert item["ranking_eligible"] is False
         assert item["route_eligible"] is False

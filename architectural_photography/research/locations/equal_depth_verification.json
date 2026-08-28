@@ -5022,95 +5022,178 @@
       "canonical_id": "lugar-de-la-memoria-lum",
       "name": "Lugar de la Memoria (LUM)",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LUM-AGENDA-2026-08"
-          ]
+            "SRC-LOC-LUM-AGENDA-2026-08",
+            "SRC-LOC-LUM-ARCHITECTS"
+          ],
+          "answer": "The active Ministry of Culture venue is the 2013 Barclay & Crousse building on the Miraflores cliff; its current August 2026 agenda confirms public cultural occupation."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHITECTS",
+            "SRC-LOC-LUM-ARCHDAILY"
+          ],
+          "answer": "The project reconstructs the coastal ravine as an approach, civic esplanade, exhibition ascent and roof-level return toward city and sea, using movement to prepare reflection."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
             "SRC-LOC-LUM-AGENDA-2026-08"
-          ]
+          ],
+          "answer": "The building remains an active museum and cultural venue with exhibitions and programmed public activity in August 2026; the next event window must still be checked."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-LUM-AGENDA-2026-08"
-          ]
+            "SRC-LOC-LUM-AGENDA-2026-08",
+            "SRC-LOC-LUM-ARCHITECTS"
+          ],
+          "answer": "Credible verbs are approach, descend, enter, read, climb, pause and return; the strongest verb is climbing because the architecture turns bodily progression into the interpretive sequence."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHITECTS"
+          ],
+          "answer": "The artificial ravine, ramp, terraces and roof path force the visitor through alternating compression, exposure and return; the route rather than the façade is the causal subject."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHDAILY",
+            "SRC-LOC-LUM-ARCHITECTS"
+          ],
+          "answer": "Published coverage is dominated by empty cliff-and-building hero views. The underrepresented family is an occupied ramp where exhibition, body and coastal section remain simultaneously legible."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHITECTS",
+            "SRC-LOC-LUM-ARCHDAILY"
+          ],
+          "answer": "Diffuse garúa preserves concrete tonal steps and the continuity with the cliff; harder lateral light may clarify ramp depth but risks turning the museum into sculptural spectacle."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHITECTS",
+            "SRC-LOC-LUM-ARCHDAILY"
+          ],
+          "answer": "Test three positions: low in the entry fissure for compression, oblique beside the main ramp for layered ascent, and high on the return terrace for city re-entry. Choose 35 mm only when the route needs context; use 50 mm to isolate an aligned gesture."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LUM-AGENDA-2026-08"
+          ],
+          "answer": "Work during ordinary open cultural use, wait no more than 20 minutes for a solitary or paired ascent, avoid identifiable grief or sensitive testimony, and verify current photography and roof-access conditions on arrival."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHITECTS",
+            "SRC-LOC-LUM-ARCHDAILY"
+          ],
+          "answer": "The scene survives only if the viewer first reads a person being directed through a concrete ravine and then discovers exhibition and city/sea return; an empty award-building view fails the theme test."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHITECTS"
+          ],
+          "position": "Low edge of the entry fissure, outside the circulation line",
+          "camera_height": "1.1 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter for static architecture, ISO as required",
+          "expected_action": "No person required; fissure, ramp and upper opening must read",
+          "light": "Diffuse morning garúa",
+          "edge_guards": "Exclude parked vehicles, signs and clipped handrails",
+          "wait_trigger": "Clear five-second interval",
+          "kill_trigger": "Route reads as unrelated concrete planes",
+          "access_ethics": "Remain in ordinary visitor area; do not block passage",
+          "fallback": "Oblique exterior esplanade section"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LUM-AGENDA-2026-08",
+            "SRC-LOC-LUM-ARCHITECTS"
+          ],
+          "position": "Outside bend of principal visitor ramp",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6–8, at least 1/250 s for walking gesture",
+          "expected_action": "Visitor climbs, pauses to read, then resumes ascent",
+          "light": "Soft side light",
+          "edge_guards": "Keep exhibition edge and destination opening visible",
+          "wait_trigger": "One visitor enters lower third while another level remains clear",
+          "kill_trigger": "Person supplies scale only",
+          "access_ethics": "Avoid photographing sensitive testimony or distressed visitors",
+          "fallback": "Back-facing visitor returning toward city"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHDAILY"
+          ],
+          "position": "Inside route looking across ramp rather than from canonical cliff overlook",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, protect exterior highlights",
+          "expected_action": "Cross-route movement interrupts empty hero geometry",
+          "light": "Garúa or flat midday",
+          "edge_guards": "No uninterrupted bay panorama",
+          "wait_trigger": "Body overlaps ramp diagonal without merging with railing",
+          "kill_trigger": "Frame resembles published empty hero sequence",
+          "access_ethics": "Visitor circulation retains priority",
+          "fallback": "Tight material/hand/railing relation without identity"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHITECTS"
+          ],
+          "position": "Close to board-marked concrete at a ramp turn",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/5.6–8, expose for concrete highlights",
+          "expected_action": "Hand or shadow crosses material joint",
+          "light": "Brief lateral sun or bright overcast",
+          "edge_guards": "Retain one spatial opening so detail implies whole",
+          "wait_trigger": "Gesture and material seam align",
+          "kill_trigger": "Becomes abstract texture without architectural direction",
+          "access_ethics": "No staged touching or obstruction",
+          "fallback": "Unoccupied shadow transition across wall and stair"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LUM-ARCHITECTS",
+            "SRC-LOC-LUM-AGENDA-2026-08"
+          ],
+          "position": "Upper return where ramp, visitor and Lima horizon can coexist",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, highlight-safe exposure, 1/250 s",
+          "expected_action": "Visitor exits interpretive route and turns back toward city",
+          "light": "Late soft daylight before blue hour",
+          "edge_guards": "Horizon must not overpower visitor or route",
+          "wait_trigger": "Turn or pause makes return legible",
+          "kill_trigger": "Requires caption to connect museum and city",
+          "access_ethics": "Use only if terrace is ordinarily open and photography allowed",
+          "fallback": "Interior-to-exterior threshold with back-facing figure"
         }
       },
       "visual_reference_families": [
@@ -5164,9 +5247,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Lugar de la Memoria (LUM) puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one visitor's climb connect exhibition, concrete ravine and return view toward Lima without the caption supplying the memory metaphor?",
+        "Which horizon, railing or exhibition edge would split the visitor from the architectural sequence?",
+        "Does moving lower or farther back reveal the route more clearly than changing from 35 mm to 50 mm?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -5244,10 +5327,14 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-LUM-AGENDA-2026-08"
+        "SRC-LOC-LUM-AGENDA-2026-08",
+        "SRC-LOC-LUM-ARCHDAILY",
+        "SRC-LOC-LUM-ARCHITECTS"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "The published architectural sequence establishes design intent but not current roof access or ordinary visitor density; verify both before routing."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -15702,110 +15789,176 @@
       "canonical_id": "centro-cultural-ccori-wasi",
       "name": "Centro Cultural Ccori Wasi",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CCORI-URP"
-          ]
+            "SRC-LOC-CCORI-URP",
+            "SRC-LOC-CCORI-OFFICE"
+          ],
+          "answer": "The URP identifies the Miraflores casona, its university history and the 2004 Baracco–Bonilla restoration/adaptation as an operating cultural center."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-CCORI-URP"
-          ]
+            "SRC-LOC-CCORI-OFFICE"
+          ],
+          "answer": "A domestic casona became an early university site and later a gallery, auditorium and library; the retained house and inserted public program form the spatial contract to test."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CCORI-URP"
-          ]
+            "SRC-LOC-CCORI-URP",
+            "SRC-LOC-CCORI-2026-EVENT"
+          ],
+          "answer": "URP records active cultural functions and a July 2026 occupied exhibition; future program and normal visitor density remain visit-specific."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CCORI-URP",
+            "SRC-LOC-CCORI-2026-EVENT"
+          ],
+          "answer": "Enter, look, compare, cross, wait, read and converse are credible; crossing the threshold is strongest because it connects street, old house and current public use."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CCORI-OFFICE"
+          ],
+          "answer": "The retained entrance, domestic sequence and adapted gallery rooms channel visitors from Avenida Arequipa into cultural occupation; the threshold and depth sequence cause the story."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CCORI-OFFICE",
+            "SRC-LOC-CCORI-2026-EVENT"
+          ],
+          "answer": "Institutional imagery favors clean rooms and event documentation. The less common relation is street-to-house-to-exhibition depth with an actual crossing gesture."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CCORI-OFFICE"
+          ],
+          "answer": "Balanced exterior/interior light is more useful than dramatic illumination because wall thickness, doorway sequence and old/new junction must remain readable together."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CCORI-OFFICE"
+          ],
+          "answer": "Test outside across Avenida Arequipa for full threshold, just inside the entrance for reverse street connection, and oblique within the first gallery for old/new junction. Start at 50 mm; use 35 mm only if the street layer disappears."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CCORI-URP",
+            "SRC-LOC-CCORI-2026-EVENT"
+          ],
+          "answer": "Verify the active exhibition and photography conditions, observe for 15 minutes, avoid blocking the narrow threshold, and prefer back-facing or non-identifiable visitors during ordinary cultural use."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CCORI-OFFICE",
+            "SRC-LOC-CCORI-2026-EVENT"
+          ],
+          "answer": "The frame passes only when the building's inherited domestic depth and present public occupation are both visible; a restored façade, empty room or isolated artwork fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W18"
+            "SRC-LOC-CCORI-OFFICE"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Entrance axis from just inside property line",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, bracket mentally but make one highlight-safe exposure",
+          "expected_action": "Empty threshold sequence remains legible",
+          "light": "Soft morning exterior with interior lights on",
+          "edge_guards": "Keep door jambs complete and exclude traffic clutter",
+          "wait_trigger": "Clear street gap",
+          "kill_trigger": "Rooms collapse into one dark opening",
+          "access_ethics": "Do not obstruct entrance",
+          "fallback": "Oblique first-gallery old/new junction"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W18"
+            "SRC-LOC-CCORI-2026-EVENT"
           ],
-          "label": "B · HABITAR",
+          "position": "Across or beside main threshold",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/5.6, 1/250 s, ISO as required",
+          "expected_action": "Visitor crosses inward while another looks deeper inside",
+          "light": "Balanced daylight and gallery light",
+          "edge_guards": "Separate both figures from door frames and artworks",
+          "wait_trigger": "Two depth-separated verbs align",
+          "kill_trigger": "Figures become generic event crowd",
+          "access_ethics": "Prefer back-facing visitors; respect event rules",
+          "fallback": "Single visitor crossing with artwork as second presence"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W18"
+            "SRC-LOC-CCORI-OFFICE"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: fachada limpia o interior vacío de arquitectura restaurada. Busca la relación definida por: ¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Side of entrance showing Avenida Arequipa edge and adapted interior",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, protect doorway highlights",
+          "expected_action": "Street passerby and cultural visitor move in opposing depth planes",
+          "light": "Overcast or garúa",
+          "edge_guards": "Avoid centered façade symmetry",
+          "wait_trigger": "Street and interior gestures do not overlap",
+          "kill_trigger": "Reads as a heritage façade with incidental people",
+          "access_ethics": "Stay on legitimate public edge",
+          "fallback": "Reverse view from gallery toward street"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W18"
+            "SRC-LOC-CCORI-OFFICE"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "50 mm primero · 35 mm si necesitamos calle+patio · 85 mm para comprimir puerta/patio/figura",
-          "plan": "mañana suave o blue hour si el interior está activo; evitar que la luz espectacular convierta el lugar en puro decorado",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "At visible old/new material junction",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/5.6–8, retain surface texture",
+          "expected_action": "Visitor shadow or hand passes junction without staging",
+          "light": "Raking window light",
+          "edge_guards": "Include doorway depth so detail implies building",
+          "wait_trigger": "Shadow clarifies junction",
+          "kill_trigger": "Becomes decorative texture study",
+          "access_ethics": "No touching or repositioning objects",
+          "fallback": "Empty light transition across wall thickness"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W18"
+            "SRC-LOC-CCORI-OFFICE",
+            "SRC-LOC-CCORI-2026-EVENT"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "50 mm primero · 35 mm si necesitamos calle+patio · 85 mm para comprimir puerta/patio/figura",
-          "plan": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural.",
-          "gate": "¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?"
+          "position": "Threshold aligned through first cultural room",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/250 s, balance interior/exterior",
+          "expected_action": "One arrival crosses while a second act of looking occurs deeper inside",
+          "light": "Late afternoon before exterior falls too dark",
+          "edge_guards": "Street, old shell and current program each retain a distinct plane",
+          "wait_trigger": "Three layers read in one glance",
+          "kill_trigger": "Chronology is invisible without caption",
+          "access_ethics": "Use only during ordinary public access",
+          "fallback": "Visitor leaving with cultural interior still visible"
         }
       },
       "visual_reference_families": [
@@ -15859,9 +16012,9 @@
         }
       ],
       "composition_questions": [
-        "¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can street, inherited casona and inserted cultural program read as three spatial lives before the history is explained?",
+        "Which doorway or exhibition panel must stay separated from the visitor for the depth sequence to survive?",
+        "Is the relationship clearer by stepping into alignment with the threshold or by widening the focal length?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -15929,10 +16082,14 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-CCORI-2026-EVENT",
+        "SRC-LOC-CCORI-OFFICE",
         "SRC-LOC-CCORI-URP"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A July 2026 exhibition proves recent occupation but cannot establish the next installation, quiet hours or unrestricted photography."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -17364,117 +17521,177 @@
       "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
       "name": "Puente de la Paz / Quebrada de Armendáriz",
       "district": "Miraflores–Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PAZ-2026"
-          ]
+            "SRC-LOC-PAZ-2026",
+            "SRC-LOC-PAZ-MOBILITY"
+          ],
+          "answer": "The 112 m pedestrian/cycle connection spans Armendáriz between Miraflores and Barranco; municipal sources establish its mobility purpose and completed public use."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PAZ-MOBILITY"
+          ],
+          "answer": "The bridge was conceived to remove a long detour and connect two cliff-top pedestrian systems across a deep vehicular ravine."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PAZ-2026"
-          ]
+            "SRC-LOC-PAZ-2026",
+            "SRC-LOC-PAZ-MAGAZINE"
+          ],
+          "answer": "Opening evidence records walkers, cyclists, families, pets, skaters and people stopping at the transparent section; normal-day intensity is not yet proven."
         },
         "human_verbs_or_meaningful_absence": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-PAZ-2026"
-          ]
+            "SRC-LOC-PAZ-2026",
+            "SRC-LOC-PAZ-MAGAZINE"
+          ],
+          "answer": "Cross, pedal, run, stop, look down and photograph are observed verbs. The decisive contradiction is fast crossing versus deliberate stopping over glass."
         },
         "architectural_causality": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PAZ-2026"
-          ]
+            "SRC-LOC-PAZ-2026",
+            "SRC-LOC-PAZ-MAGAZINE"
+          ],
+          "answer": "The long linear span enables uninterrupted crossing while the transparent deck and ravine view solicit stopping; two behaviors are produced by different parts of one object."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PAZ-2026",
+            "SRC-LOC-PAZ-MAGAZINE"
+          ],
+          "answer": "Opening crowds, centered symmetry, glass-floor reactions and sunset views dominate. A side-on section aligning a runner, stopped viewer and traffic below is the underrepresented relationship."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PAZ-MAGAZINE"
+          ],
+          "answer": "Garúa suppresses the postcard coast and lets tubular structure, transparent deck and traffic channel separate tonally; hard noon light risks glare but may project useful shadows."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PAZ-2026",
+            "SRC-LOC-PAZ-MOBILITY"
+          ],
+          "answer": "Test entrance oblique for flow split, side-on middle position for crossing/stopping, and distant cliff path for bridge-over-traffic section. Start at 50 mm; use 85 mm only from farther back to align verbs without changing their spatial relation."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PAZ-2026"
+          ],
+          "answer": "Scout during ordinary morning use, remain outside moving lanes, cap waits at 20 minutes, avoid faces on the transparent deck, and verify current access or maintenance before committing the visit."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PAZ-2026",
+            "SRC-LOC-PAZ-MOBILITY"
+          ],
+          "answer": "The frame passes if the bridge visibly causes simultaneous transit and pause above the vehicular cut; it fails when the coast, engineering silhouette or selfie becomes the sole subject."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W10",
-            "W11",
-            "W15"
+            "SRC-LOC-PAZ-MOBILITY"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Distant cliff path with full span over Armendáriz",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s for traffic definition",
+          "expected_action": "Sparse users establish bridge function without dominating",
+          "light": "Garúa morning",
+          "edge_guards": "Keep both landings and traffic channel visible",
+          "wait_trigger": "Clean separation of users",
+          "kill_trigger": "Bridge becomes isolated engineering object",
+          "access_ethics": "Stay on public path and away from road edge",
+          "fallback": "Entrance oblique with both directions visible"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W10",
-            "W11",
-            "W15"
+            "SRC-LOC-PAZ-2026"
           ],
-          "label": "B · HABITAR",
+          "position": "Side of transparent section outside direct flow",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Runner atraviesa rápido mientras otra persona se detiene sobre el vidrio con teléfono, ambos dentro de la misma geometría.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/5.6–8, 1/500 s",
+          "expected_action": "Runner crosses while another person stops and looks down",
+          "light": "Soft morning",
+          "edge_guards": "Separate bodies from tubular rails and phones from faces",
+          "wait_trigger": "Fast and stopped verbs share frame",
+          "kill_trigger": "Stopped figure only supplies scale",
+          "access_ethics": "Do not obstruct lane or photograph identifiable reactions closely",
+          "fallback": "Cyclist passing a stationary back-facing viewer"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W10",
-            "W11",
-            "W15"
+            "SRC-LOC-PAZ-MAGAZINE"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: simetría del puente, selfie sobre vidrio, sunset hero. Busca la relación definida por: ¿Puede una sola imagen enfrentar a quien usa el puente como atajo con quien lo usa como mirador/escenario?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Oblique side position including traffic below, excluding ocean horizon",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s, polarizer not assumed",
+          "expected_action": "Pedestrian crosses above vehicle stream",
+          "light": "Flat garúa",
+          "edge_guards": "Exclude sunset, centered vanishing point and selfie pose",
+          "wait_trigger": "Vehicle and pedestrian directions oppose cleanly",
+          "kill_trigger": "Reads as promotional bridge photograph",
+          "access_ethics": "Keep clear of circulation",
+          "fallback": "Tight bridge-deck/traffic section from legal overlook"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W10",
-            "W11",
-            "W15"
+            "SRC-LOC-PAZ-MAGAZINE"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "50 mm líder · 85 mm para acercar los dos verbos · 35 mm si necesitamos revelar la quebrada debajo",
-          "plan": "mañana/garúa para sacar al puente del cliché sunset; azul solo si el flujo sigue fuerte",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "At junction of opaque and transparent deck",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s, protect glass reflections",
+          "expected_action": "Footstep crosses material transition",
+          "light": "Bright overcast",
+          "edge_guards": "Include tubular frame and ravine depth",
+          "wait_trigger": "Single foot/step aligns without face",
+          "kill_trigger": "Becomes generic glass-floor detail",
+          "access_ethics": "No staged pose or lane obstruction",
+          "fallback": "Shadow of passerby across deck transition"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W10",
-            "W11",
-            "W15"
+            "SRC-LOC-PAZ-2026",
+            "SRC-LOC-PAZ-MOBILITY"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "50 mm líder · 85 mm para acercar los dos verbos · 35 mm si necesitamos revelar la quebrada debajo",
-          "plan": "Runner atraviesa rápido mientras otra persona se detiene sobre el vidrio con teléfono, ambos dentro de la misma geometría.",
-          "gate": "¿Puede una sola imagen enfrentar a quien usa el puente como atajo con quien lo usa como mirador/escenario?"
+          "position": "Far enough along bridge to layer crossing, stopping and traffic",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s, ISO as needed",
+          "expected_action": "Runner, stopped viewer and vehicle occupy three causal layers",
+          "light": "Garúa or soft late afternoon without sunset color",
+          "edge_guards": "All three layers separated; ocean omitted",
+          "wait_trigger": "Three verbs align within 20-minute cap",
+          "kill_trigger": "Any layer requires caption or merges visually",
+          "access_ethics": "Public position, no obstruction, prefer non-identifiable figures",
+          "fallback": "Two-layer crossing/stopping frame with ravine geometry explicit"
         }
       },
       "visual_reference_families": [
@@ -17528,9 +17745,9 @@
         }
       ],
       "composition_questions": [
-        "¿Puede una sola imagen enfrentar a quien usa el puente como atajo con quien lo usa como mirador/escenario?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can crossing and stopping appear as conflicting verbs caused by the same bridge geometry before the selfie context is explained?",
+        "Which railing, phone or traffic overlap would turn the scene back into spectacle?",
+        "Does a more distant position align fast and stopped users better than an 85 mm crop from nearby?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -17598,10 +17815,14 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-PAZ-2026"
+        "SRC-LOC-PAZ-2026",
+        "SRC-LOC-PAZ-MAGAZINE",
+        "SRC-LOC-PAZ-MOBILITY"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Opening-period crowds prove possible behaviors but not normal-day density or present operating restrictions; direct verification remains mandatory before routing."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },

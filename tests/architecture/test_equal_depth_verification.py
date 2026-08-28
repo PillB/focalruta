@@ -22,13 +22,15 @@ def test_all_81_candidates_have_identical_verification_shape():
     assert len(passes) == 10
     assert proofs == ("A_STRUCTURE", "B_HABITAR", "C_ANTI_POSTAL", "D_LIGHT_MATERIAL", "E_ONE_FRAME_STORY")
 
-def test_no_candidate_is_complete_or_rankable_from_historical_detail_alone():
+def test_historical_detail_alone_never_promotes_a_candidate():
     for item in records():
-        assert item["verification_complete"] is False
         assert item["ranking_eligible"] is False
         assert item["route_eligible"] is False
         assert all(check["status"] in {"NOT_STARTED", "PARTIAL", "CORROBORATED", "VERIFIED"} for check in item["passes"].values())
-        assert all(check["status"] in {"NOT_STARTED", "HYPOTHESIS"} for check in item["proofs"].values())
+        assert all(check["status"] in {"NOT_STARTED", "HYPOTHESIS", "READY_FOR_FIELD"} for check in item["proofs"].values())
+        if item["verification_complete"]:
+            assert all(check["status"] in {"CORROBORATED", "VERIFIED"} for check in item["passes"].values())
+            assert all(check["status"] == "READY_FOR_FIELD" for check in item["proofs"].values())
 
 def test_partial_evidence_updates_are_source_linked_without_promotion():
     items = {item["canonical_id"]: item for item in records()}
@@ -37,12 +39,15 @@ def test_partial_evidence_updates_are_source_linked_without_promotion():
         updates.extend(batch["candidate_updates"])
     updated_ids = {update["canonical_id"] for update in updates}
     assert updated_ids == set(items)
-    assert sum(item["verification_status"] == "IN_PROGRESS" for item in items.values()) == len(updated_ids)
+    assert sum(
+        item["verification_status"] in {"IN_PROGRESS", "DESK_VERIFIED_FIELD_PENDING"}
+        for item in items.values()
+    ) == len(updated_ids)
     for item in items.values():
         for check in item["passes"].values():
             if check["status"] != "NOT_STARTED":
                 assert check["source_ids"]
-        assert item["verification_complete"] is False
+        assert item["ranking_eligible"] is False
 
 def test_every_equal_depth_source_reference_resolves():
     batches = evidence_batches()
@@ -76,8 +81,31 @@ def test_all_candidates_retain_equal_depth_historical_context_without_promotion(
             assert context["depth"] == "EMPTY_HISTORICAL_SHELL"
         assert len(item["composition_questions"]) == 3
         assert all(question for question in item["composition_questions"])
-        assert all(proof["status"] == "HYPOTHESIS" for proof in item["proofs"].values())
-        assert item["verification_complete"] is False
+        assert all(proof["status"] in {"HYPOTHESIS", "READY_FOR_FIELD"} for proof in item["proofs"].values())
+        assert item["ranking_eligible"] is False
     assert depths.count("SUBSTANTIVE") > 0
     assert depths.count("EMPTY_HISTORICAL_SHELL") > 0
     assert len(depths) == 81
+
+
+def test_completed_dossiers_are_substantive_and_still_fail_closed_for_field_use():
+    complete = [item for item in records() if item["verification_complete"]]
+    assert {item["canonical_id"] for item in complete} >= {
+        "lugar-de-la-memoria-lum",
+        "centro-cultural-ccori-wasi",
+        "puente-de-la-paz-quebrada-de-armendariz",
+    }
+    for item in complete:
+        assert item["verification_status"] == "DESK_VERIFIED_FIELD_PENDING"
+        assert len(item["visual_reference_families"]) >= 3
+        assert len(item["composition_questions"]) == 3
+        assert all(check.get("answer") for check in item["passes"].values())
+        for proof in item["proofs"].values():
+            assert proof["status"] == "READY_FOR_FIELD"
+            assert all(proof.get(field) for field in (
+                "position", "camera_height", "orientation", "lens", "exposure_intent",
+                "expected_action", "light", "edge_guards", "wait_trigger", "kill_trigger",
+                "access_ethics", "fallback",
+            ))
+        assert item["ranking_eligible"] is False
+        assert item["route_eligible"] is False
