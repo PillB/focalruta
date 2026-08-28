@@ -16994,7 +16994,56 @@
           "gate": "¿Puede una secuencia de tres o cuatro fachadas demostrar densidad, comercio y vida peatonal sin necesitar un landmark?"
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-TRANSECT-01",
+          "page_url": "https://portal.imp.gob.pe/normas-zonificacion-y-sistema-vial-metropolitano/planos-de-zonificacion/",
+          "image_url": "https://portal.imp.gob.pe/normas-zonificacion-y-sistema-vial-metropolitano/planos-de-zonificacion/",
+          "publisher": "Instituto Metropolitano de Planificación",
+          "viewpoint_family": "CURRENT_METROPOLITAN_ZONING_MOSAIC",
+          "likely_camera_height": "plan/aerial and street comparison",
+          "fov_class": "district-wide/transect",
+          "light_weather": "not fixed",
+          "people_activity": "living, working and moving across changing residential/commercial zones",
+          "edge_background": "updated land-use boundaries, density categories and district seams",
+          "cliche_cluster": "abstract planning map",
+          "proves": "The metropolitan authority provides zoning plans updated through January 2026, allowing a transect to be derived from real regulatory transitions rather than arbitrary district hopping.",
+          "cannot_prove": "Built form, street life or a photographically coherent route; every stop needs field confirmation.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-TRANSECT-02",
+          "page_url": "https://www.gob.pe/institucion/munisurquillo/normas-legales/7840200-29-2026-mds",
+          "image_url": "https://www.gob.pe/institucion/munisurquillo/normas-legales/7840200-29-2026-mds",
+          "publisher": "Municipalidad Distrital de Surquillo · Gob.pe",
+          "viewpoint_family": "ACTIVE_2026_LAND_USE_REZONING",
+          "likely_camera_height": "planning and street level",
+          "fov_class": "district/transect",
+          "light_weather": "not fixed",
+          "people_activity": "inhabiting and contesting changing land-use intensity",
+          "edge_background": "residential, commercial and mixed-use blocks at district seams",
+          "cliche_cluster": "generic densification contrast",
+          "proves": "A March 2026 council action confirms that Surquillo's land-use framework is actively changing now.",
+          "cannot_prove": "Implementation on any selected block or whether the change is visible as architecture rather than paperwork.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-TRANSECT-03",
+          "page_url": "https://www.gob.pe/institucion/munilince/noticias/1261588-publicacion-de-expediente-de-cambio-de-zonificacion-jiron-sinchi-roca-n-2728-lince",
+          "image_url": "https://www.gob.pe/institucion/munilince/noticias/1261588-publicacion-de-expediente-de-cambio-de-zonificacion-jiron-sinchi-roca-n-2728-lince",
+          "publisher": "Municipalidad Distrital de Lince · Gob.pe",
+          "viewpoint_family": "BLOCK_SCALE_RESIDENTIAL_TO_COMMERCIAL_PRESSURE",
+          "likely_camera_height": "street and consultation-map level",
+          "fov_class": "block/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "living beside a proposed change from low-density housing to neighborhood commerce",
+          "edge_background": "single block, neighboring homes and consultation boundary",
+          "cliche_cluster": "old-house/new-commerce contrast",
+          "proves": "The live zoning consultation supplies a precise block-scale change mechanism in Lince rather than an invented compact-city narrative.",
+          "cannot_prove": "Approval, construction or relevance to Pueblo Libre and Surquillo without a deliberately bounded comparative sequence.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Puede una secuencia de tres o cuatro fachadas demostrar densidad, comercio y vida peatonal sin necesitar un landmark?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -17181,7 +17230,56 @@
           "gate": "¿En qué punto exacto del cruce cambia la experiencia del peatón y cómo puede una persona convertirse en esa bisagra?"
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-JTRUJILLO-01",
+          "page_url": "https://www.gob.pe/es/n/1211327",
+          "image_url": "https://www.gob.pe/es/n/1211327",
+          "publisher": "Municipalidad Metropolitana de Lima · Gob.pe",
+          "viewpoint_family": "HISTORIC_RIMAC_AXIS_WITH_RENEWED_STREETS_AND_CYCLE_LINK",
+          "likely_camera_height": "street eye level",
+          "fov_class": "street-long/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "walking, cycling and driving from Jirón Trujillo into the renewed Francisco Pizarro corridor",
+          "edge_background": "historic street, new sidewalks, cycle infrastructure and northern city flow",
+          "cliche_cluster": "municipal road-renewal coverage",
+          "proves": "The July 2025 municipal record confirms a contemporary inclusive-mobility layer beginning at Jirón Trujillo.",
+          "cannot_prove": "The present condition of the older pedestrian street or Puente de Piedra itself.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-JTRUJILLO-02",
+          "page_url": "https://whc.unesco.org/document/167757",
+          "image_url": "https://whc.unesco.org/document/167757",
+          "publisher": "UNESCO World Heritage Centre",
+          "viewpoint_family": "COMMUNITY_MAINTENANCE_OF_HISTORIC_STREET_AND_INDUSTRIAL_EDGE",
+          "likely_camera_height": "volunteer street eye level",
+          "fov_class": "wide/normal/detail",
+          "light_weather": "daylight",
+          "people_activity": "cleaning, maintaining and learning along Jirón Trujillo and the Backus fabric",
+          "edge_background": "historic façades, former industrial edge and public realm",
+          "cliche_cluster": "heritage-volunteer documentation",
+          "proves": "UNESCO volunteer evidence shows the corridor as maintained lived heritage, not only a route to the bridge.",
+          "cannot_prove": "Current 2026 maintenance or ordinary unprogrammed use.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-JTRUJILLO-03",
+          "page_url": "https://www.turismoperuano.com/puente-de-piedra-lima",
+          "image_url": "https://www.turismoperuano.com/puente-de-piedra-lima",
+          "publisher": "Turismo Peruano · secondary resource record",
+          "viewpoint_family": "STONE_BRIDGE_SECTION_OVER_RIVER_AND_EXPRESSWAY",
+          "likely_camera_height": "pedestrian bridge and river-edge level",
+          "fov_class": "wide/normal/detail",
+          "light_weather": "daylight",
+          "people_activity": "crossing between Rímac and Cercado above river and transport infrastructure",
+          "edge_background": "stone-and-lime piers, iron railings, river, Vía de Evitamiento and Jirón de la Unión continuation",
+          "cliche_cluster": "bridge elevation toward historic skyline",
+          "proves": "The resource description supplies structural and connective detail for a bridge-as-section hypothesis.",
+          "cannot_prove": "Current structural condition, traffic pattern or safe stopping point; primary field verification is required.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿En qué punto exacto del cruce cambia la experiencia del peatón y cómo puede una persona convertirse en esa bisagra?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -18556,7 +18654,56 @@
           "gate": "¿Puede existir una fotografía que la comunidad reconozca como verdadera y digna, donde arquitectura e infraestructura expliquen una relación urbana sin convertir a nadie en “tema”?"
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-CANTAGALLO-01",
+          "page_url": "https://www.gob.pe/institucion/mimp/noticias/1141830-mimp-promueve-el-empoderamiento-economico-de-las-mujeres-en-la-comunidad-shipiba-konibo-de-cantagallo",
+          "image_url": "https://www.gob.pe/institucion/mimp/noticias/1141830-mimp-promueve-el-empoderamiento-economico-de-las-mujeres-en-la-comunidad-shipiba-konibo-de-cantagallo",
+          "publisher": "Ministerio de la Mujer y Poblaciones Vulnerables · Gob.pe",
+          "viewpoint_family": "COMMUNITY_LED_ARTISTIC_AND_PRODUCTIVE_GATHERING",
+          "likely_camera_height": "collaborative event eye level",
+          "fov_class": "normal/wide-normal/detail",
+          "light_weather": "daylight/interior mixed",
+          "people_activity": "organizing, making art, meeting and strengthening productive work",
+          "edge_background": "community spaces and work surfaces defined by participants",
+          "cliche_cluster": "official visit and artisan portrait",
+          "proves": "A 2025 public record confirms active women-led artistic and productive organization.",
+          "cannot_prove": "Consent for independent photography or permission to use community life as competition subject.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CANTAGALLO-02",
+          "page_url": "https://www.gob.pe/institucion/vivienda/noticias/51885-mvcs-informa-sobre-proyecto-habitacional-para-la-comunidad-shipibo-conibo-de-cantagallo",
+          "image_url": "https://www.gob.pe/institucion/vivienda/noticias/51885-mvcs-informa-sobre-proyecto-habitacional-para-la-comunidad-shipibo-conibo-de-cantagallo",
+          "publisher": "Ministerio de Vivienda, Construcción y Saneamiento · Gob.pe",
+          "viewpoint_family": "HOUSING_PROMISE_BLOCKED_BY_CONTAMINATED_HIGH_RISK_GROUND",
+          "likely_camera_height": "site and technical documentation level",
+          "fov_class": "site-wide",
+          "light_weather": "not fixed",
+          "people_activity": "living while negotiating safe housing after the 2016 fire",
+          "edge_background": "settlement ground, river-adjacent infrastructure and proposed housing site",
+          "cliche_cluster": "vulnerability overview",
+          "proves": "The housing ministry documents the decisive spatial contradiction: planned housing was blocked by lead/arsenic contamination and very high risk.",
+          "cannot_prove": "Current contamination mitigation, present dwelling condition or community authorization.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CANTAGALLO-03",
+          "page_url": "https://www.gob.pe/institucion/cultura/noticias/500104-ministerio-de-cultura-trabaja-de-la-mano-con-la-comunidad-shipibo-konibo-de-cantagallo",
+          "image_url": "https://www.gob.pe/institucion/cultura/noticias/500104-ministerio-de-cultura-trabaja-de-la-mano-con-la-comunidad-shipibo-konibo-de-cantagallo",
+          "publisher": "Ministerio de Cultura · Gob.pe",
+          "viewpoint_family": "COMMUNITY_BUILT_HEALTH_SPACE_AND_INSTITUTIONAL_COLLABORATION",
+          "likely_camera_height": "collaborative event eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "building, opening and using Raometi Xobo as a health space",
+          "edge_background": "community-built facility and lived settlement context",
+          "cliche_cluster": "aid-project inauguration",
+          "proves": "The source documents a concrete community-led architectural response created with partners rather than a speculative outsider proposal.",
+          "cannot_prove": "Current operation, access or consent for any new photography.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Puede existir una fotografía que la comunidad reconozca como verdadera y digna, donde arquitectura e infraestructura expliquen una relación urbana sin convertir a nadie en “tema”?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
