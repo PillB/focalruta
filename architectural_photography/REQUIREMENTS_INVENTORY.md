@@ -14,8 +14,8 @@ Priority: **MUST** = release blocker or explicit repeated request; **SHOULD** = 
 - **A07 SHOULD** — The photograph should have first-read visual force before title/description adds nuance.
 
 ## B. Candidate universe / geography
-- **B01 MUST** — Preserve initial practical emphasis on San Isidro, Miraflores, San Borja and Barranco.
-- **B02 MUST** — Expand beyond them when evidence justifies the travel: Pueblo Libre/Jesús María, Centro/Barrios Altos/Rímac, Surquillo, PREVI/north Lima, Callao, etc.
+- **B01 MUST** — Candidate discovery, ranking and routes are geographically limited to **Lima Metropolitana as Provincia de Lima and its 43 districts**. Callao, other Peruvian provinces/cities and foreign locations are out of scope unless the user explicitly changes this boundary.
+- **B02 MUST** — Prioritize San Isidro, Miraflores, Centro de Lima/Cercado, San Borja, Barranco, Pueblo Libre, Magdalena del Mar, Surquillo and Lince; expand to other eligible Lima districts only when evidence justifies the travel.
 - **B03 MUST** — The historical 40-place list is a floor, not a fixed universe.
 - **B04 MUST** — Parque de las Américas is a graph edge for discovery, not an automatic favorite.
 - **B05 MUST** — Bonilla W01–W20 are graph edges/frameworks, never a fame/authority bonus.

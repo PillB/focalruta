@@ -1,0 +1,2300 @@
+[
+  {
+    "group": "Bonilla/Baracco · adaptive reuse",
+    "storyTitle": "La casa que ya tuvo tres vidas",
+    "purpose": "Casona doméstica; luego sede temprana de la Universidad Ricardo Palma y oficina universitaria. En 2004 fue restaurada y adaptada por Juvenal Baracco y Enrique Bonilla como centro cultural.",
+    "currentLife": "Galería, auditorio, biblioteca y plataforma pública de exposiciones, conciertos y encuentros; en 2026 sigue recibiendo exposiciones y actividades abiertas.",
+    "friction": "La arquitectura conserva una casa y, al mismo tiempo, rehace su contrato: residencia → universidad → cultura pública. La pregunta no es qué parte es vieja o nueva, sino dónde ambas edades se necesitan.",
+    "verbs": "entrar · mirar · conversar · esperar · cruzar · reunirse",
+    "cliche": "fachada limpia o interior vacío de arquitectura restaurada",
+    "question": "¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?",
+    "moment": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural.",
+    "lens": "50 mm primero · 35 mm si necesitamos calle+patio · 85 mm para comprimir puerta/patio/figura",
+    "light": "mañana suave o blue hour si el interior está activo; evitar que la luz espectacular convierta el lugar en puro decorado",
+    "kill": "Si la intervención nueva y la casona no pueden leerse simultáneamente, queda como “bonita casa cultural”.",
+    "source": "https://www.urp.edu.pe/oficinas/centro-cultural-ccoriwasi/",
+    "source2": "https://elperuano.pe/noticia/297087-el-jardin-de-atras-70-artistas-participan-en-muestra-colectiva-en-el-centro-cultural-ccori-wasi",
+    "sourceIds": [
+      "W01",
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Casona doméstica; luego sede temprana de la Universidad Ricardo Palma y oficina universitaria. En 2004 fue restaurada y adaptada por Juvenal Baracco y Enrique Bonilla como centro cultural."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Galería, auditorio, biblioteca y plataforma pública de exposiciones, conciertos y encuentros; en 2026 sigue recibiendo exposiciones y actividades abiertas."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La arquitectura conserva una casa y, al mismo tiempo, rehace su contrato: residencia → universidad → cultura pública. La pregunta no es qué parte es vieja o nueva, sino dónde ambas edades se necesitan."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "entrar · mirar · conversar · esperar · cruzar · reunirse"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "fachada limpia o interior vacío de arquitectura restaurada"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm primero · 35 mm si necesitamos calle+patio · 85 mm para comprimir puerta/patio/figura"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "mañana suave o blue hour si el interior está activo; evitar que la luz espectacular convierta el lugar en puro decorado"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si la intervención nueva y la casona no pueden leerse simultáneamente, queda como “bonita casa cultural”."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Una visitante entra desde la Av. Arequipa mientras otra presencia o una obra se lee al fondo, de modo que el umbral una calle, casona y programa cultural.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: fachada limpia o interior vacío de arquitectura restaurada. Busca la relación definida por: ¿Puede una sola persona atravesando el umbral hacer visibles tres vidas del mismo edificio sin que la foto necesite una cronología escrita?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "centro-cultural-ccori-wasi",
+    "name": "Centro Cultural Ccori Wasi",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "ccori-wasi"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+    "name": "Parque 3 de Octubre + Skatepark Muros Libres",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "parque3-skate"
+    ]
+  },
+  {
+    "group": "García Bryce + ciudad moderna",
+    "storyTitle": "El centro cívico que terminó siendo centro comercial",
+    "purpose": "El proyecto de 1966 buscó extender la vitalidad del centro, recibir el Jirón de la Unión, articular norte-sur y crear un complejo cívico, administrativo y comercial integrado al tejido.",
+    "currentLife": "Hoy el mismo conjunto alberga Real Plaza, retail, comida, cine y conexión directa con la Estación Central del Metropolitano: una enorme máquina de consumo y tránsito cotidiano.",
+    "friction": "La promesa de “civismo” no desapareció: mutó. Miles de personas todavía atraviesan la arquitectura, pero con verbos de compra, transporte y ocio.",
+    "verbs": "cruzar · comprar · esperar · comer · transbordar · reunirse",
+    "cliche": "torre brutalista en contrapicado o skyline",
+    "question": "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?",
+    "moment": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical.",
+    "lens": "35 mm prioritario · 50 mm para eje de paso · 85 mm si se puede apilar brutalismo + retail + personas",
+    "light": "fin de tarde/blue hour para distinguir concreto, señalética comercial y flujo humano sin perder detalle",
+    "kill": "Si la torre domina y el uso actual solo aparece como ruido, la historia fracasa.",
+    "source": "https://galeria-arquitectura.pucp.edu.pe/exposicion/garcia-bryce/centro-civicode-lima/",
+    "source2": "https://www.realplaza.com/centro-civico",
+    "sourceIds": [
+      "W17",
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "El proyecto de 1966 buscó extender la vitalidad del centro, recibir el Jirón de la Unión, articular norte-sur y crear un complejo cívico, administrativo y comercial integrado al tejido."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Hoy el mismo conjunto alberga Real Plaza, retail, comida, cine y conexión directa con la Estación Central del Metropolitano: una enorme máquina de consumo y tránsito cotidiano."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La promesa de “civismo” no desapareció: mutó. Miles de personas todavía atraviesan la arquitectura, pero con verbos de compra, transporte y ocio."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "cruzar · comprar · esperar · comer · transbordar · reunirse"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "torre brutalista en contrapicado o skyline"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "35 mm prioritario · 50 mm para eje de paso · 85 mm si se puede apilar brutalismo + retail + personas"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "fin de tarde/blue hour para distinguir concreto, señalética comercial y flujo humano sin perder detalle"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si la torre domina y el uso actual solo aparece como ruido, la historia fracasa."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: torre brutalista en contrapicado o skyline. Busca la relación definida por: ¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "centro-civico-de-lima-real-plaza",
+    "name": "Centro Cívico de Lima / Real Plaza",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "centro-civico-lima"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "torres-de-limatambo-supermanzana",
+    "name": "Torres de Limatambo / supermanzana",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "limatambo"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "residencial-san-felipe",
+    "name": "Residencial San Felipe",
+    "district": "Jesús María",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "san-felipe"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "previ-lima",
+    "name": "PREVI Lima",
+    "district": "Los Olivos",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "previ"
+    ]
+  },
+  {
+    "group": "García Bryce · vivienda + patrimonio",
+    "storyTitle": "Vivienda moderna que decidió no gritar en un barrio antiguo",
+    "purpose": "48 viviendas y locales comerciales concebidos en los años 80 para revitalizar un contexto histórico frente a la Alameda de los Descalzos sin romper su fisonomía urbana.",
+    "currentLife": "Sigue siendo vivienda y comercio: la arquitectura contemporánea de su época envejeció hasta convertirse ella misma en otra capa del Rímac histórico.",
+    "friction": "La obra nació como “nueva” pero contextual. Cuatro décadas después, la pregunta se invierte: ¿qué pasa cuando aquello que debía dialogar con el pasado ya se volvió pasado vivido?",
+    "verbs": "salir · conversar · comprar · tender · mirar · regresar",
+    "cliche": "documentación frontal del conjunto o Alameda aislada",
+    "question": "¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?",
+    "moment": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico.",
+    "lens": "50 mm líder · 35 mm para calle elevada + contexto · 85 mm para apilar vivienda moderna y monumento",
+    "light": "mañana o tarde lateral; necesitamos volumen y vida, no cielo dramático",
+    "kill": "Si solo reconocemos un edificio posmoderno, sin relación con el barrio ni vida doméstica, no hay tesis.",
+    "source": "https://galeria-arquitectura.pucp.edu.pe/exposicion/garcia-bryce/conjunto-habitacional-chabuca-granda/",
+    "source2": "https://cris.ulima.edu.pe/es/publications/el-valor-del-espacio-p%C3%BAblico-en-las-propuestas-de-dise%C3%B1o-del-agru/",
+    "sourceIds": [
+      "W07"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "48 viviendas y locales comerciales concebidos en los años 80 para revitalizar un contexto histórico frente a la Alameda de los Descalzos sin romper su fisonomía urbana."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Sigue siendo vivienda y comercio: la arquitectura contemporánea de su época envejeció hasta convertirse ella misma en otra capa del Rímac histórico."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La obra nació como “nueva” pero contextual. Cuatro décadas después, la pregunta se invierte: ¿qué pasa cuando aquello que debía dialogar con el pasado ya se volvió pasado vivido?"
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "salir · conversar · comprar · tender · mirar · regresar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "documentación frontal del conjunto o Alameda aislada"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm líder · 35 mm para calle elevada + contexto · 85 mm para apilar vivienda moderna y monumento"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "mañana o tarde lateral; necesitamos volumen y vida, no cielo dramático"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si solo reconocemos un edificio posmoderno, sin relación con el barrio ni vida doméstica, no hay tesis."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: documentación frontal del conjunto o Alameda aislada. Busca la relación definida por: ¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "agrupamiento-chabuca-granda",
+    "name": "Agrupamiento Chabuca Granda",
+    "district": "Rímac",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "chabuca-granda-rimac"
+    ]
+  },
+  {
+    "group": "García Bryce · densidad sin violencia",
+    "storyTitle": "El multifamiliar que intentó no aplastar al vecino",
+    "purpose": "Edificio de departamentos de 1963 premiado por resolver densidad multifamiliar sin imponerse violentamente sobre la escala residencial unifamiliar de San Isidro.",
+    "currentLife": "Sigue como vivienda en un San Isidro mucho más denso y vertical que el contexto que motivó aquella cuidadosa negociación de escala.",
+    "friction": "La obra era una respuesta al miedo de que el multifamiliar destruyera intimidad y escala. Hoy podemos preguntarle al edificio si esa negociación sobrevivió a la ciudad que vino después.",
+    "verbs": "entrar · vivir · mirar · estacionar · caminar",
+    "cliche": "fachada moderna aislada, tratada como objeto de catálogo",
+    "question": "¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?",
+    "moment": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno.",
+    "lens": "85 mm líder para capas · 50 mm para escala de calle · 35 mm solo si el contexto inmediato añade información",
+    "light": "mañana o tarde lateral para leer planos y materiales sin convertirlo en abstracción pura",
+    "kill": "Si el fondo contemporáneo no puede entrar limpiamente, la foto queda como documentación moderna.",
+    "source": "https://cammp.ulima.edu.pe/edificios/edificio-departamentos-alvarez-calderon/",
+    "source2": "https://cammp.ulima.edu.pe/lugares/san-isidro/",
+    "sourceIds": [
+      "W17",
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Edificio de departamentos de 1963 premiado por resolver densidad multifamiliar sin imponerse violentamente sobre la escala residencial unifamiliar de San Isidro."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Sigue como vivienda en un San Isidro mucho más denso y vertical que el contexto que motivó aquella cuidadosa negociación de escala."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La obra era una respuesta al miedo de que el multifamiliar destruyera intimidad y escala. Hoy podemos preguntarle al edificio si esa negociación sobrevivió a la ciudad que vino después."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "entrar · vivir · mirar · estacionar · caminar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "fachada moderna aislada, tratada como objeto de catálogo"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "85 mm líder para capas · 50 mm para escala de calle · 35 mm solo si el contexto inmediato añade información"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "mañana o tarde lateral para leer planos y materiales sin convertirlo en abstracción pura"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si el fondo contemporáneo no puede entrar limpiamente, la foto queda como documentación moderna."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: fachada moderna aislada, tratada como objeto de catálogo. Busca la relación definida por: ¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "edificio-alvarez-calderon",
+    "name": "Edificio Álvarez Calderón",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "alvarez-calderon"
+    ]
+  },
+  {
+    "group": "patrimonio en transición",
+    "storyTitle": "La arquitectura fotografiada mientras cambia de tiempo verbal",
+    "purpose": "Conjunto residencial republicano de 1880–90, luego patrimonializado, que sufrió degradación y pérdida de vida urbana.",
+    "currentLife": "En 2026 la MML/PROLIMA inició una restauración integral para reinsertarlo como espacio público, vecinal y cultural. Es un estado transitorio excepcional: todavía no es la ruina de ayer ni el parque cultural de mañana.",
+    "friction": "La restauración suele intentar borrar la condición de obra. Aquí la obra misma puede ser la evidencia de cómo una ciudad decide qué memoria quiere volver a habitar.",
+    "verbs": "reparar · apuntalar · medir · entrar · observar",
+    "cliche": "postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada",
+    "question": "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?",
+    "moment": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes.",
+    "lens": "50 mm líder · 85 mm para trabajador+detalle+profundidad · 35 mm si acceso permite patio completo",
+    "light": "luz de obra real; evitar teatralizar la decadencia",
+    "kill": "Sin acceso legal o sin actividad visible de restauración, la historia pierde su singularidad 2026.",
+    "source": "https://www.gob.pe/institucion/munilima/noticias/1338457-la-quinta-heeren-volvera-a-integrarse-plenamente-a-la-vida-urbana-de-lima-anuncia-alcalde-renzo-reggiardo",
+    "source2": "https://elperuano.pe/noticia/280580-municipalidad-de-lima-restaurara-la-quinta-heeren-para-convertirla-en-nuevo-pulmon-de-barrios-altos",
+    "sourceIds": [
+      "W02",
+      "W09",
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Conjunto residencial republicano de 1880–90, luego patrimonializado, que sufrió degradación y pérdida de vida urbana."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "En 2026 la MML/PROLIMA inició una restauración integral para reinsertarlo como espacio público, vecinal y cultural. Es un estado transitorio excepcional: todavía no es la ruina de ayer ni el parque cultural de mañana."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La restauración suele intentar borrar la condición de obra. Aquí la obra misma puede ser la evidencia de cómo una ciudad decide qué memoria quiere volver a habitar."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "reparar · apuntalar · medir · entrar · observar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm líder · 85 mm para trabajador+detalle+profundidad · 35 mm si acceso permite patio completo"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "luz de obra real; evitar teatralizar la decadencia"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Sin acceso legal o sin actividad visible de restauración, la historia pierde su singularidad 2026."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada. Busca la relación definida por: ¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "quinta-heeren-restauracion-2026",
+    "name": "Quinta Heeren · restauración 2026",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "quinta-heeren-2026"
+    ]
+  },
+  {
+    "group": "vivienda moderna · Bonilla guide lens",
+    "storyTitle": "La ciudad completa que todavía se mide a pie",
+    "purpose": "Unidad vecinal autónoma de 1945–49: 1,115 viviendas, equipamientos, parque central y circulación pensada para proteger al peatón del tráfico, con servicios a distancia caminable.",
+    "currentLife": "Sigue siendo vivienda; el catálogo moderno registra modificaciones y conservación mala, por lo que la utopía moderna y las adaptaciones acumuladas hoy conviven físicamente.",
+    "friction": "Fue diseñada como comunidad completa y racional. Su fotografía ganable no debe probar que “envejeció”, sino observar qué partes del contrato peatonal/social aún funcionan y cuáles fueron reescritas.",
+    "verbs": "caminar · jugar · comprar · cuidar · cruzar · conversar",
+    "cliche": "bloques modernos vacíos o nostalgia de archivo",
+    "question": "¿Dónde se ve hoy, en un solo frame, la distancia entre la “ciudad risueña” diseñada para caminar y la ciudad real que sus habitantes han tenido que adaptar?",
+    "moment": "Niño/vecino cruza un área libre original mientras una modificación doméstica, vehículo o cerramiento evidencia la segunda vida del plan.",
+    "lens": "35 mm para espacio entre bloques · 50 mm para relación habitante-modificación · 85 mm para capas repetidas",
+    "light": "garúa o lateral suave que mantenga lectura documental; sol duro solo si revela barreras/circulaciones",
+    "kill": "Si la imagen solo dice “housing moderno deteriorado”, es demasiado genérica.",
+    "source": "https://cammp.ulima.edu.pe/edificios/unidad-vecinal-n3/",
+    "source2": "https://www.archdaily.com/es/772696/utopias-construidas-las-unidades-vecinales-de-lima",
+    "sourceIds": [
+      "W01",
+      "W19"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Unidad vecinal autónoma de 1945–49: 1,115 viviendas, equipamientos, parque central y circulación pensada para proteger al peatón del tráfico, con servicios a distancia caminable."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Sigue siendo vivienda; el catálogo moderno registra modificaciones y conservación mala, por lo que la utopía moderna y las adaptaciones acumuladas hoy conviven físicamente."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "Fue diseñada como comunidad completa y racional. Su fotografía ganable no debe probar que “envejeció”, sino observar qué partes del contrato peatonal/social aún funcionan y cuáles fueron reescritas."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "caminar · jugar · comprar · cuidar · cruzar · conversar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "bloques modernos vacíos o nostalgia de archivo"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Dónde se ve hoy, en un solo frame, la distancia entre la “ciudad risueña” diseñada para caminar y la ciudad real que sus habitantes han tenido que adaptar?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Niño/vecino cruza un área libre original mientras una modificación doméstica, vehículo o cerramiento evidencia la segunda vida del plan."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "35 mm para espacio entre bloques · 50 mm para relación habitante-modificación · 85 mm para capas repetidas"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "garúa o lateral suave que mantenga lectura documental; sol duro solo si revela barreras/circulaciones"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si la imagen solo dice “housing moderno deteriorado”, es demasiado genérica."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Niño/vecino cruza un área libre original mientras una modificación doméstica, vehículo o cerramiento evidencia la segunda vida del plan.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: bloques modernos vacíos o nostalgia de archivo. Busca la relación definida por: ¿Dónde se ve hoy, en un solo frame, la distancia entre la “ciudad risueña” diseñada para caminar y la ciudad real que sus habitantes han tenido que adaptar?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "unidad-vecinal-3",
+    "name": "Unidad Vecinal Nº3",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "uv3",
+      "uv3-bonilla"
+    ]
+  },
+  {
+    "group": "Bonilla · ciudad compacta",
+    "storyTitle": "La densidad antes de convertirse en torre",
+    "purpose": "No es un monumento sino una tipología: lotes angostos, baja/mediana altura, patios y frentes activos que permiten densidad sin extender infinitamente la ciudad.",
+    "currentLife": "En distritos consolidados estas piezas conviven con torres, estacionamientos, bodegas y veredas estrechas; el conflicto de la “ciudad compacta” es visible calle por calle.",
+    "friction": "La foto compite contra la obsesión por edificios singulares. El sujeto es el intervalo y la repetición de decisiones pequeñas que construyen ciudad.",
+    "verbs": "salir · comprar · barrer · estacionar · conversar · mirar",
+    "cliche": "ninguno fuerte; el riesgo inverso es que parezca una calle cualquiera",
+    "question": "¿Puede una secuencia de tres o cuatro fachadas demostrar densidad, comercio y vida peatonal sin necesitar un landmark?",
+    "moment": "Una vereda activa conecta una bodega, una puerta residencial y un edificio nuevo, con al menos dos verbos humanos distintos.",
+    "lens": "50 mm para ritmo de fachadas · 85 mm para apilar lotes · 35 mm si la vereda y profundidad son la idea",
+    "light": "luz cotidiana; no esperar “bonito” clima",
+    "kill": "Si el lugar no produce una estructura gráfica inmediata, el concepto será demasiado sociológico y no suficientemente fotográfico.",
+    "source": "https://rpp.pe/columnistas/enriquebonilla/ciudad-difusa-ciudad-compacta-noticia-1168690",
+    "source2": "https://rpp.pe/columnistas/enriquebonilla/arquitectura-horizontal-y-ciudad-compacta-noticia-1281740",
+    "sourceIds": [
+      "W13",
+      "W19"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "No es un monumento sino una tipología: lotes angostos, baja/mediana altura, patios y frentes activos que permiten densidad sin extender infinitamente la ciudad."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "En distritos consolidados estas piezas conviven con torres, estacionamientos, bodegas y veredas estrechas; el conflicto de la “ciudad compacta” es visible calle por calle."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La foto compite contra la obsesión por edificios singulares. El sujeto es el intervalo y la repetición de decisiones pequeñas que construyen ciudad."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "salir · comprar · barrer · estacionar · conversar · mirar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "ninguno fuerte; el riesgo inverso es que parezca una calle cualquiera"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede una secuencia de tres o cuatro fachadas demostrar densidad, comercio y vida peatonal sin necesitar un landmark?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Una vereda activa conecta una bodega, una puerta residencial y un edificio nuevo, con al menos dos verbos humanos distintos."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm para ritmo de fachadas · 85 mm para apilar lotes · 35 mm si la vereda y profundidad son la idea"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "luz cotidiana; no esperar “bonito” clima"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si el lugar no produce una estructura gráfica inmediata, el concepto será demasiado sociológico y no suficientemente fotográfico."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Una vereda activa conecta una bodega, una puerta residencial y un edificio nuevo, con al menos dos verbos humanos distintos.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: ninguno fuerte; el riesgo inverso es que parezca una calle cualquiera. Busca la relación definida por: ¿Puede una secuencia de tres o cuatro fachadas demostrar densidad, comercio y vida peatonal sin necesitar un landmark?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+    "name": "Transecto de ciudad compacta · Pueblo Libre/Lince/Surquillo",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "compact-city-transect"
+    ]
+  },
+  {
+    "group": "Bonilla · vereda + bisagra",
+    "storyTitle": "La bisagra donde la ciudad cambia de nombre",
+    "purpose": "Eje histórico del Rímac enlazado al Jirón de la Unión por el Puente de Piedra; Bonilla lo plantea como contraparte fundamental del corazón peatonal de Lima.",
+    "currentLife": "Mantiene comercio, paso vecinal y fuerte condición peatonal, pero con una escala y textura menos musealizada que el eje del Cercado.",
+    "friction": "El puente articula dos topónimos y dos ciudades percibidas: centro monumental y Rímac cotidiano. La foto debe mostrar la transición, no el monumento.",
+    "verbs": "cruzar · vender · cargar · conversar · esperar",
+    "cliche": "Puente de Piedra o iglesia en vista monumental",
+    "question": "¿En qué punto exacto del cruce cambia la experiencia del peatón y cómo puede una persona convertirse en esa bisagra?",
+    "moment": "Persona cruza el umbral puente/jirón mientras dos escalas de fachada y dos densidades humanas se leen en profundidad.",
+    "lens": "50 mm líder · 85 mm para apilar eje/puente/peatón · 35 mm si la geometría del cruce manda",
+    "light": "mañana o tarde; sombras laterales útiles para la secuencia de veredas y portales",
+    "kill": "Si el frame se reduce a arquitectura patrimonial + peatones, falta la idea de bisagra.",
+    "source": "https://rpp.pe/columnistas/enriquebonilla/el-jiron-de-la-union-soy-yo-lima-historia-columna-noticia-1212267",
+    "source2": "https://rpp.pe/columnistas/enriquebonilla/una-veredita-alegre-noticia-1195376",
+    "sourceIds": [
+      "W06",
+      "W14"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Eje histórico del Rímac enlazado al Jirón de la Unión por el Puente de Piedra; Bonilla lo plantea como contraparte fundamental del corazón peatonal de Lima."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Mantiene comercio, paso vecinal y fuerte condición peatonal, pero con una escala y textura menos musealizada que el eje del Cercado."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "El puente articula dos topónimos y dos ciudades percibidas: centro monumental y Rímac cotidiano. La foto debe mostrar la transición, no el monumento."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "cruzar · vender · cargar · conversar · esperar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "Puente de Piedra o iglesia en vista monumental"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿En qué punto exacto del cruce cambia la experiencia del peatón y cómo puede una persona convertirse en esa bisagra?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Persona cruza el umbral puente/jirón mientras dos escalas de fachada y dos densidades humanas se leen en profundidad."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm líder · 85 mm para apilar eje/puente/peatón · 35 mm si la geometría del cruce manda"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "mañana o tarde; sombras laterales útiles para la secuencia de veredas y portales"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si el frame se reduce a arquitectura patrimonial + peatones, falta la idea de bisagra."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Persona cruza el umbral puente/jirón mientras dos escalas de fachada y dos densidades humanas se leen en profundidad.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: Puente de Piedra o iglesia en vista monumental. Busca la relación definida por: ¿En qué punto exacto del cruce cambia la experiencia del peatón y cómo puede una persona convertirse en esa bisagra?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "jiron-trujillo-puente-de-piedra",
+    "name": "Jirón Trujillo + Puente de Piedra",
+    "district": "Rímac",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "jiron-trujillo-rimac"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "parque-de-las-americas",
+    "name": "Parque de las Américas",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "parque-americas-pl"
+    ]
+  },
+  {
+    "group": "Costa Verde · infraestructura de conexión",
+    "storyTitle": "El parche urbano que se volvió destino",
+    "purpose": "Nueva conexión peatonal/ciclista de 112 m entre los malecones de Miraflores y Barranco sobre la quebrada de Armendáriz, concebida para evitar rodeos y mejorar movilidad sostenible.",
+    "currentLife": "En 2025–26 se convirtió además en atractivo turístico y dispositivo de selfie: la propia municipalidad registra cientos de miles de usuarios y destaca el vidrio como zona preferida para fotos y videos.",
+    "friction": "Una infraestructura diseñada para pasar se convirtió en un lugar donde la gente se detiene. Movimiento y detención compiten dentro del mismo objeto.",
+    "verbs": "cruzar · pedalear · correr · detenerse · mirar · fotografiar",
+    "cliche": "simetría del puente, selfie sobre vidrio, sunset hero",
+    "question": "¿Puede una sola imagen enfrentar a quien usa el puente como atajo con quien lo usa como mirador/escenario?",
+    "moment": "Runner atraviesa rápido mientras otra persona se detiene sobre el vidrio con teléfono, ambos dentro de la misma geometría.",
+    "lens": "50 mm líder · 85 mm para acercar los dos verbos · 35 mm si necesitamos revelar la quebrada debajo",
+    "light": "mañana/garúa para sacar al puente del cliché sunset; azul solo si el flujo sigue fuerte",
+    "kill": "Si domina la vista del mar o la selfie, perdemos arquitectura como comportamiento.",
+    "source": "https://www.miraflores.gob.pe/wp-content/uploads/2025/09/REVISTA-MUNICIPAL-AGOSTO-2025-VRS-3.pdf",
+    "source2": "https://www.miraflores.gob.pe/corredor-turistico-inician-los-trabajos-finales-previos-al-montaje-del-puente-peatonal-entre-miraflores-y-barranco/",
+    "sourceIds": [
+      "W10",
+      "W11",
+      "W15"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Nueva conexión peatonal/ciclista de 112 m entre los malecones de Miraflores y Barranco sobre la quebrada de Armendáriz, concebida para evitar rodeos y mejorar movilidad sostenible."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "En 2025–26 se convirtió además en atractivo turístico y dispositivo de selfie: la propia municipalidad registra cientos de miles de usuarios y destaca el vidrio como zona preferida para fotos y videos."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "Una infraestructura diseñada para pasar se convirtió en un lugar donde la gente se detiene. Movimiento y detención compiten dentro del mismo objeto."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "cruzar · pedalear · correr · detenerse · mirar · fotografiar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "simetría del puente, selfie sobre vidrio, sunset hero"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede una sola imagen enfrentar a quien usa el puente como atajo con quien lo usa como mirador/escenario?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Runner atraviesa rápido mientras otra persona se detiene sobre el vidrio con teléfono, ambos dentro de la misma geometría."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm líder · 85 mm para acercar los dos verbos · 35 mm si necesitamos revelar la quebrada debajo"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "mañana/garúa para sacar al puente del cliché sunset; azul solo si el flujo sigue fuerte"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si domina la vista del mar o la selfie, perdemos arquitectura como comportamiento."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Runner atraviesa rápido mientras otra persona se detiene sobre el vidrio con teléfono, ambos dentro de la misma geometría.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: simetría del puente, selfie sobre vidrio, sunset hero. Busca la relación definida por: ¿Puede una sola imagen enfrentar a quien usa el puente como atajo con quien lo usa como mirador/escenario?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+    "name": "Puente de la Paz / Quebrada de Armendáriz",
+    "district": "Miraflores–Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "armendariz-puente-paz"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -4,
+    "canonical_id": "museo-de-la-electricidad-tranvia",
+    "name": "Museo de la Electricidad & Tranvía",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "electricidad"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "conjunto-habitacional-palomino",
+    "name": "Conjunto Habitacional Palomino",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "palomino"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -5,
+    "canonical_id": "huaca-santa-cruz",
+    "name": "Huaca Santa Cruz",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "santa-cruz"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "quinta-de-los-libertadores-mnaahp",
+    "name": "Quinta de los Libertadores + MNAAHP",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "quinta-libertadores"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+    "name": "Unidad Vecinal Matute + complejo deportivo",
+    "district": "La Victoria",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "matute"
+    ]
+  },
+  {
+    "group": "Bonilla · eje urbano",
+    "storyTitle": "El eje que sobrevivió cambiando de público",
+    "purpose": "Eje central del Centro Histórico, históricamente asociado con paseo, comercio, sociabilidad y articulación del damero.",
+    "currentLife": "Sigue siendo intensamente peatonal y comercial, pero sus actores, tiendas, ritmos y símbolos han cambiado repetidamente; Bonilla lo narra como una línea donde la ciudad se vuelve más popular y se reprograma.",
+    "friction": "La arquitectura es el contenedor de una sucesión de Limas. El riesgo es fotografiar “calle histórica con gente” y no una transformación específica.",
+    "verbs": "jironear · comprar · vender · esperar · mirar · atravesar",
+    "cliche": "telefoto de balcones o calle llena hacia Plaza San Martín",
+    "question": "¿Qué detalle de uso contemporáneo contradice o completa una fachada de otra época sin que ninguna de las dos capas domine?",
+    "moment": "85 mm comprime cornisa/portal histórico, señal contemporánea y peatón cuyo gesto conecta ambos planos.",
+    "lens": "85 mm o 50 mm; 35 mm solo para una intersección donde el damero sea la tesis",
+    "light": "garúa/luz plana puede ayudar a color y capas; noche solo si la señalética es significado, no decoración",
+    "kill": "Si la fotografía podría titularse simplemente “Jirón de la Unión”, es demasiado obvia.",
+    "source": "https://rpp.pe/columnistas/enriquebonilla/el-jiron-de-la-union-soy-yo-lima-historia-columna-noticia-1212267",
+    "source2": "https://repositorio.usmp.edu.pe/handle/20.500.12727/6853?show=full",
+    "sourceIds": [
+      "W06",
+      "W02"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Eje central del Centro Histórico, históricamente asociado con paseo, comercio, sociabilidad y articulación del damero."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Sigue siendo intensamente peatonal y comercial, pero sus actores, tiendas, ritmos y símbolos han cambiado repetidamente; Bonilla lo narra como una línea donde la ciudad se vuelve más popular y se reprograma."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La arquitectura es el contenedor de una sucesión de Limas. El riesgo es fotografiar “calle histórica con gente” y no una transformación específica."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "jironear · comprar · vender · esperar · mirar · atravesar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "telefoto de balcones o calle llena hacia Plaza San Martín"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Qué detalle de uso contemporáneo contradice o completa una fachada de otra época sin que ninguna de las dos capas domine?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "85 mm comprime cornisa/portal histórico, señal contemporánea y peatón cuyo gesto conecta ambos planos."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "85 mm o 50 mm; 35 mm solo para una intersección donde el damero sea la tesis"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "garúa/luz plana puede ayudar a color y capas; noche solo si la señalética es significado, no decoración"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si la fotografía podría titularse simplemente “Jirón de la Unión”, es demasiado obvia."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "85 mm comprime cornisa/portal histórico, señal contemporánea y peatón cuyo gesto conecta ambos planos.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: telefoto de balcones o calle llena hacia Plaza San Martín. Busca la relación definida por: ¿Qué detalle de uso contemporáneo contradice o completa una fachada de otra época sin que ninguna de las dos capas domine?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "jiron-de-la-union",
+    "name": "Jirón de la Unión",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "jiron-union"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "casa-museo-julia-codesido",
+    "name": "Casa Museo Julia Codesido",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "julia-codesido"
+    ]
+  },
+  {
+    "group": "Bonilla · ciudad renacentista",
+    "storyTitle": "La geometría de 1535 todavía dirige nuestros pasos",
+    "purpose": "La traza fundacional ortogonal organiza manzanas, cruces, plaza y circulación desde el siglo XVI; Bonilla la interpreta en diálogo con modelos renacentistas de orden urbano.",
+    "currentLife": "La misma geometría todavía canaliza peatones, comercio, transporte y recuperación patrimonial. No es un plano histórico: sigue siendo una máquina de comportamiento.",
+    "friction": "Lo “ideal” de la cuadrícula se enfrenta al flujo imprevisible de la ciudad contemporánea.",
+    "verbs": "cruzar · doblar · esperar · vender · fluir",
+    "cliche": "Plaza Mayor monumental o vista aérea imposible con nuestro kit",
+    "question": "¿Puede una intersección a nivel de calle hacer visible el damero mediante cuatro corrientes humanas y una perspectiva axial?",
+    "moment": "Cambio de semáforo/flujo peatonal que produzca diagonales humanas dentro de una arquitectura ortogonal.",
+    "lens": "35 mm desde esquina segura · 50 mm si un eje termina en hito · evitar necesidad de dron",
+    "light": "mañana/mediodía para sombras ortogonales o garúa para lectura limpia",
+    "kill": "Si la cuadrícula no es visible sin mapa, la foto falla.",
+    "source": "https://revistas.ulima.edu.pe/index.php/contratexto/article/view/414",
+    "source2": "https://www.juntadeandalucia.es/fomentoyvivienda/portal-web/web/areas/arquitectura/ArquitecturaObras/44b96e8a-7dd1-11e8-9dbf-ad370074c308",
+    "sourceIds": [
+      "W04"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "La traza fundacional ortogonal organiza manzanas, cruces, plaza y circulación desde el siglo XVI; Bonilla la interpreta en diálogo con modelos renacentistas de orden urbano."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "La misma geometría todavía canaliza peatones, comercio, transporte y recuperación patrimonial. No es un plano histórico: sigue siendo una máquina de comportamiento."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "Lo “ideal” de la cuadrícula se enfrenta al flujo imprevisible de la ciudad contemporánea."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "cruzar · doblar · esperar · vender · fluir"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "Plaza Mayor monumental o vista aérea imposible con nuestro kit"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede una intersección a nivel de calle hacer visible el damero mediante cuatro corrientes humanas y una perspectiva axial?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Cambio de semáforo/flujo peatonal que produzca diagonales humanas dentro de una arquitectura ortogonal."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "35 mm desde esquina segura · 50 mm si un eje termina en hito · evitar necesidad de dron"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "mañana/mediodía para sombras ortogonales o garúa para lectura limpia"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si la cuadrícula no es visible sin mapa, la foto falla."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Cambio de semáforo/flujo peatonal que produzca diagonales humanas dentro de una arquitectura ortogonal.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: Plaza Mayor monumental o vista aérea imposible con nuestro kit. Busca la relación definida por: ¿Puede una intersección a nivel de calle hacer visible el damero mediante cuatro corrientes humanas y una perspectiva axial?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "damero-de-lima-interseccion-como-objeto",
+    "name": "Damero de Lima · intersección como objeto",
+    "district": "Lima",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "damero-renacentista"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "plaza-a-la-bandera",
+    "name": "Plaza a la Bandera",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "plaza-bandera"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "lima-centro-de-convenciones",
+    "name": "Lima Centro de Convenciones",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "lcc"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "parque-virginia-candamo",
+    "name": "Parque Virginia Candamo",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "virginia-candamo"
+    ]
+  },
+  {
+    "group": "García Bryce · casa + memoria pública",
+    "storyTitle": "Una casa privada que ahora enseña a mirar arquitectura",
+    "purpose": "Casa familiar de 1951–52 organizada por patios, pórticos y secuencias interior-exterior; una obra temprana fundamental de García Bryce.",
+    "currentLife": "Sigue siendo una vivienda, pero también ha servido recientemente como sede excepcional de actividades de Arquitectura PUCP y visitas guiadas, convirtiendo temporalmente una casa privada en aula pública de memoria arquitectónica.",
+    "friction": "La intimidad doméstica y la condición de “obra canónica” se superponen: la casa fue diseñada para vivir, no para ser monumento; hoy también se la visita para aprender.",
+    "verbs": "entrar · recorrer · explicar · habitar · recordar",
+    "cliche": "fachada de catálogo sin vida",
+    "question": "¿Puede una puerta que se abre convertir la casa simultáneamente en hogar, archivo y aula?",
+    "moment": "Solo si hay actividad autorizada: visitante entrando bajo el pórtico mientras otro plano de patio/galería es visible.",
+    "lens": "50 mm · 35 mm si acceso interior autorizado · 85 mm para pórtico/figura",
+    "light": "luz natural suave; la casa debe sentirse habitada, no musealizada",
+    "kill": "Sin acceso autorizado o evento, no perseguir; no fotografiar privacidad como “oportunidad”.",
+    "source": "https://cammp.ulima.edu.pe/edificios/casa-garcia-bryce/",
+    "source2": "https://arquitectura.pucp.edu.pe/actividades/eventos/presentacion-revista-a23/",
+    "sourceIds": [
+      "W17",
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Casa familiar de 1951–52 organizada por patios, pórticos y secuencias interior-exterior; una obra temprana fundamental de García Bryce."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "Sigue siendo una vivienda, pero también ha servido recientemente como sede excepcional de actividades de Arquitectura PUCP y visitas guiadas, convirtiendo temporalmente una casa privada en aula pública de memoria arquitectónica."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "La intimidad doméstica y la condición de “obra canónica” se superponen: la casa fue diseñada para vivir, no para ser monumento; hoy también se la visita para aprender."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "entrar · recorrer · explicar · habitar · recordar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "fachada de catálogo sin vida"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede una puerta que se abre convertir la casa simultáneamente en hogar, archivo y aula?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Solo si hay actividad autorizada: visitante entrando bajo el pórtico mientras otro plano de patio/galería es visible."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "50 mm · 35 mm si acceso interior autorizado · 85 mm para pórtico/figura"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "luz natural suave; la casa debe sentirse habitada, no musealizada"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Sin acceso autorizado o evento, no perseguir; no fotografiar privacidad como “oportunidad”."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Solo si hay actividad autorizada: visitante entrando bajo el pórtico mientras otro plano de patio/galería es visible.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: fachada de catálogo sin vida. Busca la relación definida por: ¿Puede una puerta que se abre convertir la casa simultáneamente en hogar, archivo y aula?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "casa-garcia-bryce",
+    "name": "Casa García Bryce",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "casa-garcia-bryce"
+    ]
+  },
+  {
+    "group": "Bonilla/Baracco · campus",
+    "storyTitle": "El edificio que no es destino: es camino",
+    "purpose": "Un edificio de 104 aulas concebido también como gran eje transversal de circulación del campus, con un nivel deambulatorio abierto que vincula peatonalmente pabellones.",
+    "currentLife": "La arquitectura es utilizada miles de veces como infraestructura cotidiana de estudio y desplazamiento; el aprendizaje sucede tanto dentro de las aulas como en el gran portal de circulación.",
+    "friction": "Un volumen monumental de 313 m puede parecer objeto, pero su función más interesante es precisamente permitir el flujo.",
+    "verbs": "cruzar · esperar · subir · encontrarse · estudiar",
+    "cliche": "gran perspectiva vacía del largo edificio",
+    "question": "¿Cómo fotografiar 313 metros de arquitectura sin fotografiar longitud, sino el ritmo humano que la vuelve eje?",
+    "moment": "Dos flujos de estudiantes cruzan en sentidos opuestos bajo el deambulatorio, uno detenido en un umbral de aula.",
+    "lens": "35 mm para eje y capas · 50 mm para ritmos repetidos · 85 mm para apilar puentes/cuerpos",
+    "light": "luz lateral o garúa; las sombras repetidas deben medir el módulo, no ocultar personas",
+    "kill": "Si no hay flujo humano o acceso legítimo, el edificio se vuelve ejercicio formal.",
+    "source": "https://arquitecturapanamericana.com/aulario-en-el-campus-de-la-universidad-ricardo-palma-surco/",
+    "source2": "https://revistas.ulima.edu.pe/index.php/contratexto/article/view/414",
+    "sourceIds": [
+      "W18"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Un edificio de 104 aulas concebido también como gran eje transversal de circulación del campus, con un nivel deambulatorio abierto que vincula peatonalmente pabellones."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "La arquitectura es utilizada miles de veces como infraestructura cotidiana de estudio y desplazamiento; el aprendizaje sucede tanto dentro de las aulas como en el gran portal de circulación."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "Un volumen monumental de 313 m puede parecer objeto, pero su función más interesante es precisamente permitir el flujo."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "cruzar · esperar · subir · encontrarse · estudiar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "gran perspectiva vacía del largo edificio"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Cómo fotografiar 313 metros de arquitectura sin fotografiar longitud, sino el ritmo humano que la vuelve eje?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Dos flujos de estudiantes cruzan en sentidos opuestos bajo el deambulatorio, uno detenido en un umbral de aula."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "35 mm para eje y capas · 50 mm para ritmos repetidos · 85 mm para apilar puentes/cuerpos"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "luz lateral o garúa; las sombras repetidas deben medir el módulo, no ocultar personas"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Si no hay flujo humano o acceso legítimo, el edificio se vuelve ejercicio formal."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Dos flujos de estudiantes cruzan en sentidos opuestos bajo el deambulatorio, uno detenido en un umbral de aula.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: gran perspectiva vacía del largo edificio. Busca la relación definida por: ¿Cómo fotografiar 313 metros de arquitectura sin fotografiar longitud, sino el ritmo humano que la vuelve eje?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "aulario-104-universidad-ricardo-palma",
+    "name": "Aulario 104 · Universidad Ricardo Palma",
+    "district": "Santiago de Surco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "aulario-104"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "huaca-san-borja",
+    "name": "Huaca San Borja",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "huaca-san-borja"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "quinta-leuro-y-quintas-historicas",
+    "name": "Quinta Leuro y quintas históricas",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "quinta-leuro"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "santisima-cruz-del-viajero",
+    "name": "Santísima Cruz del Viajero",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "cruz-viajero"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "estacion-restos-del-funicular-de-barranco",
+    "name": "Estación / restos del Funicular de Barranco",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "funicular"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "lugar-de-la-memoria-lum",
+    "name": "Lugar de la Memoria (LUM)",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "lum"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "torres-centro-empresarial-camino-real",
+    "name": "Torres / Centro Empresarial Camino Real",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "camino-real"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "reducto-2-casa-museo-caceres",
+    "name": "Reducto Nº 2 / Casa Museo Cáceres",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "reducto"
+    ]
+  },
+  {
+    "group": "Bonilla · comunidad + infraestructura",
+    "storyTitle": "Ciudad indígena dentro de la metrópoli — solo con consentimiento",
+    "purpose": "Asentamiento urbano Shipibo-Konibo construido por una comunidad que mantiene prácticas culturales, producción artesanal y redes colectivas en tensión con grandes infraestructuras metropolitanas.",
+    "currentLife": "La comunidad continúa activa en 2026; noticias oficiales recientes muestran trabajo de mujeres emprendedoras, vida comunitaria y demandas actuales de seguridad.",
+    "friction": "Es visualmente potente precisamente porque no es “objeto arquitectónico”. Pero fotografiar una comunidad vulnerable sin relación, consentimiento y colaboración sería extractivo y contrario al proyecto educativo.",
+    "verbs": "crear · vender · reunirse · enseñar · habitar · cuidar",
+    "cliche": "kené como textura exótica frente a concreto",
+    "question": "¿Puede existir una fotografía que la comunidad reconozca como verdadera y digna, donde arquitectura e infraestructura expliquen una relación urbana sin convertir a nadie en “tema”?",
+    "moment": "Solo con consentimiento y colaboración explícita; idealmente una actividad elegida por las propias personas retratadas.",
+    "lens": "35/50 mm documental; evitar 85 mm escondido o distancia voyeurista",
+    "light": "la luz es secundaria a consentimiento/contexto",
+    "kill": "Sin consentimiento informado y propósito compartido: NO SHOOT. Se mantiene como investigación, no como scouting opportunista.",
+    "source": "https://rpp.pe/columnistas/enriquebonilla/cantagallo-noticia-1179352",
+    "source2": "https://elperuano.pe/noticia/302264-reactivan-par-en-cantagallo-para-reforzar-seguridad-de-comunidad-shipibo-konibo",
+    "sourceIds": [
+      "W12"
+    ],
+    "origin": "bonilla14",
+    "passes": [
+      {
+        "n": "01",
+        "label": "Contrato original",
+        "text": "Asentamiento urbano Shipibo-Konibo construido por una comunidad que mantiene prácticas culturales, producción artesanal y redes colectivas en tensión con grandes infraestructuras metropolitanas."
+      },
+      {
+        "n": "02",
+        "label": "Vida actual",
+        "text": "La comunidad continúa activa en 2026; noticias oficiales recientes muestran trabajo de mujeres emprendedoras, vida comunitaria y demandas actuales de seguridad."
+      },
+      {
+        "n": "03",
+        "label": "Fricción",
+        "text": "Es visualmente potente precisamente porque no es “objeto arquitectónico”. Pero fotografiar una comunidad vulnerable sin relación, consentimiento y colaboración sería extractivo y contrario al proyecto educativo."
+      },
+      {
+        "n": "04",
+        "label": "Verbos humanos",
+        "text": "crear · vender · reunirse · enseñar · habitar · cuidar"
+      },
+      {
+        "n": "05",
+        "label": "Cliché dominante",
+        "text": "kené como textura exótica frente a concreto"
+      },
+      {
+        "n": "06",
+        "label": "Pregunta ganable",
+        "text": "¿Puede existir una fotografía que la comunidad reconozca como verdadera y digna, donde arquitectura e infraestructura expliquen una relación urbana sin convertir a nadie en “tema”?"
+      },
+      {
+        "n": "07",
+        "label": "Momento decisivo",
+        "text": "Solo con consentimiento y colaboración explícita; idealmente una actividad elegida por las propias personas retratadas."
+      },
+      {
+        "n": "08",
+        "label": "Óptica real",
+        "text": "35/50 mm documental; evitar 85 mm escondido o distancia voyeurista"
+      },
+      {
+        "n": "09",
+        "label": "Luz",
+        "text": "la luz es secundaria a consentimiento/contexto"
+      },
+      {
+        "n": "10",
+        "label": "Kill condition",
+        "text": "Sin consentimiento informado y propósito compartido: NO SHOOT. Se mantiene como investigación, no como scouting opportunista."
+      }
+    ],
+    "shots": [
+      {
+        "label": "A · ESTRUCTURA",
+        "lens": "35 / 50",
+        "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
+        "gate": "¿La arquitectura explica su orden por sí sola?"
+      },
+      {
+        "label": "B · HABITAR",
+        "lens": "50 mm",
+        "plan": "Solo con consentimiento y colaboración explícita; idealmente una actividad elegida por las propias personas retratadas.",
+        "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+      },
+      {
+        "label": "C · ANTI-POSTAL",
+        "lens": "85 o posición alternativa",
+        "plan": "Ataca el cliché: kené como textura exótica frente a concreto. Busca la relación definida por: ¿Puede existir una fotografía que la comunidad reconozca como verdadera y digna, donde arquitectura e infraestructura expliquen una relación urbana sin convertir a nadie en “tema”?",
+        "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+      }
+    ],
+    "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+    "name": "Cantagallo · comunidad Shipibo-Konibo",
+    "district": "Rímac",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "cantagallo-ethical"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+    "name": "Plaza de los Libertadores + Santa María Magdalena",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "plaza-libertadores"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "biblioteca-municipal-de-barranco",
+    "name": "Biblioteca Municipal de Barranco",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "biblioteca-barranco"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "antigua-taberna-queirolo",
+    "name": "Antigua Taberna Queirolo",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "queirolo"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "casa-museo-marina-nunez-del-prado",
+    "name": "Casa Museo Marina Núñez del Prado",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "marina-nunez"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "gran-teatro-nacional",
+    "name": "Gran Teatro Nacional",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "gtn"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -14,
+    "canonical_id": "parque-tradiciones-ricardo-palma",
+    "name": "Parque Tradiciones / Ricardo Palma",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "tradiciones"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -13,
+    "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+    "name": "Centro de Convenciones / estación La Cultura",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "convenciones"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -6,
+    "canonical_id": "biblioteca-nacional-del-peru",
+    "name": "Biblioteca Nacional del Perú",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "bnp"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "casa-hacienda-orbea",
+    "name": "Casa Hacienda Orbea",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "orbea"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -13,
+    "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+    "name": "Biblioteca Municipal y borde lagunas del Olivar",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "biblioteca-olivar"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -19,
+    "canonical_id": "mirador-catalina-recavarren",
+    "name": "Mirador Catalina Recavarren",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "mirador-catalina"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "mac-lima-parque-espejo-de-agua",
+    "name": "MAC Lima + parque / espejo de agua",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "mac"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+    "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "financiero"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -15,
+    "canonical_id": "parque-municipal-y-entorno-civico",
+    "name": "Parque Municipal y entorno cívico",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "municipal-barranco"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -14,
+    "canonical_id": "puente-villena-bajada-balta-costa-verde",
+    "name": "Puente Villena / Bajada Balta / Costa Verde",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "balta"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -8,
+    "canonical_id": "casa-raul-porras-barrenechea",
+    "name": "Casa Raúl Porras Barrenechea",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "porras"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -27,
+    "canonical_id": "huaca-huallamarca",
+    "name": "Huaca Huallamarca",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "huallamarca"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "museo-larco-jardines",
+    "name": "Museo Larco + jardines",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "museo-larco"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "casa-emilio-harth-terre",
+    "name": "Casa Emilio Harth-Terré",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "harth-terre"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "bosque-el-olivar",
+    "name": "Bosque El Olivar",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "olivar"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -15,
+    "canonical_id": "calle-choquehuanca-basadre-residencial",
+    "name": "Calle Choquehuanca / Basadre residencial",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "choquehuanca"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -18,
+    "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+    "name": "Calle Porta y casonas frente a verticalización",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "calle-porta"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+    "name": "Palacio Municipal y de la Cultura · San Isidro",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "palacio-si"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -14,
+    "canonical_id": "saenz-pena-domeyer-pasajes",
+    "name": "Sáenz Peña / Domeyer / pasajes",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "saenz-pena"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -23,
+    "canonical_id": "huaca-pucllana",
+    "name": "Huaca Pucllana",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "pucllana"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -18,
+    "canonical_id": "casa-hacienda-moreyra",
+    "name": "Casa-Hacienda Moreyra",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "moreyra"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+    "name": "Ministerio de Cultura / Museo de la Nación",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "mincul"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+    "name": "Museo Pedro de Osma y Av. Pedro de Osma",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "pedro-osma"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -21,
+    "canonical_id": "torre-banco-de-la-nacion",
+    "name": "Torre Banco de la Nación",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "torre-bn"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "iglesia-santisima-cruz",
+    "name": "Iglesia Santísima Cruz",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "santisima-cruz"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -12,
+    "canonical_id": "parque-de-la-felicidad",
+    "name": "Parque de la Felicidad",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "felicidad"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -25,
+    "canonical_id": "pentagonito-y-bordes-civicos",
+    "name": "Pentagonito y bordes cívicos",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "pentagonito"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -20,
+    "canonical_id": "country-club-lima-hotel",
+    "name": "Country Club Lima Hotel",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "country-club"
+    ]
+  },
+  {
+    "origin": "expansion18",
+    "delta": null,
+    "canonical_id": "huaca-julio-c-tello",
+    "name": "Huaca Julio C. Tello",
+    "district": "Pueblo Libre",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "huaca-julio-tello"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -13,
+    "canonical_id": "parque-maria-reiche",
+    "name": "Parque María Reiche",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "maria-reiche"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -22,
+    "canonical_id": "ovalo-de-miraflores",
+    "name": "Óvalo de Miraflores",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "ovalo"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "coliseo-eduardo-dibos",
+    "name": "Coliseo Eduardo Dibós",
+    "district": "San Borja",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "dibos"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+    "name": "Faro La Marina + Parque Antonio Raimondi",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "faro"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -11,
+    "canonical_id": "parroquia-nuestra-senora-del-pilar",
+    "name": "Parroquia Nuestra Señora del Pilar",
+    "district": "San Isidro",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "pilar"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -16,
+    "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+    "name": "Puente de los Suspiros + Bajada de Baños",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "suspiros"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "casa-museo-ricardo-palma",
+    "name": "Casa Museo Ricardo Palma",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "ricardo-palma"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -19,
+    "canonical_id": "la-ermita-de-barranco",
+    "name": "La Ermita de Barranco",
+    "district": "Barranco",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "ermita"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -15,
+    "canonical_id": "palacio-municipal-virgen-milagrosa",
+    "name": "Palacio Municipal + Virgen Milagrosa",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "palacio-mira"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -19,
+    "canonical_id": "parque-kennedy-gatos-civic-core",
+    "name": "Parque Kennedy / gatos / civic core",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "kennedy"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -20,
+    "canonical_id": "larcomar-acantilado",
+    "name": "Larcomar + acantilado",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "larcomar"
+    ]
+  },
+  {
+    "origin": "legacy50",
+    "delta": -17,
+    "canonical_id": "parque-del-amor-el-beso",
+    "name": "Parque del Amor & El Beso",
+    "district": "Miraflores",
+    "evidence_status": "HISTORICAL_ONLY",
+    "ranking_eligible": false,
+    "requires_current_verification": true,
+    "historical_ids": [
+      "parque-amor"
+    ]
+  }
+]

@@ -100,5 +100,11 @@
   },
   {
     "source_id": "SRC-PHOTO-FINOTTI", "type": "PROFESSIONAL", "url_or_path": "https://www.archdaily.com.br/br/01-38782/fotografia-e-arquitetura-leonardo-finotti", "publisher": "ArchDaily Brasil", "publication_date": "2012-05-14", "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "leonardo_finotti", "privacy_class": "PUBLIC_SECONDARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-GEO-INEI-LIMA-43", "type": "OFFICIAL", "url_or_path": "https://www.inei.gob.pe/peru_en_cifras/", "publisher": "Instituto Nacional de Estadística e Informática", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "peru_geography", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-GEO-PCM-LIMA", "type": "OFFICIAL", "url_or_path": "https://www.gob.pe/institucion/pcm/campa%C3%B1as/4355-limametropolitana-informacion-territorial", "publisher": "Presidencia del Consejo de Ministros", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "peru_geography", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
   }
 ]

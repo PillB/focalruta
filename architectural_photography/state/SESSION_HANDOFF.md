@@ -1,6 +1,6 @@
 # Session handoff
 
-- Current objective: complete Round 2 transcript-first learning, photographer transfer cards, field drills, and technical misconception gates.
+- Current objective: execute Round 3 place intelligence inside the 43-district Lima Metropolitana boundary, beginning with historical-run canonicalization and source reconciliation.
 - FocalRuta baseline: `9a415311f8d34772a6391193434bbf22c7b9af5b`; active branch `agent/arquitectura-en-foco-2026`.
 - Solarize: v2.2 requested; skill/repository unavailable in the current session catalog. Its stated lifecycle is being applied directly; Solarize was not modified.
 - Competition last verified: 2026-08-27 from official PDF, official article, and live official form.
@@ -8,11 +8,11 @@
 - RED/GREEN evidence: `python3 scripts/verify_release.py` exited 0 with `passed: true`; `python3 architectural_photography/qa/baseline/capture_baseline.py` exited 0 with six viewports green, no overflow/errors/failed resources, keyboard focus reached, and registered/controlling service worker. Existing browser and optics suites completed assertions but hung during Chrome teardown, so they are not counted as fresh machine-readable passes. `scripts/visual_resource_audit.py` exposed a pre-existing 1.05:1 inactive-toggle contrast failure.
 - Round 1 RED: `pytest tests/architecture/test_competition_rules.py` produced 5 expected missing-data failures.
 - Round 1 GREEN: `pytest tests/architecture/test_competition_rules.py tests/architecture/test_round1_research.py` passed 7/7; existing release gate remained green.
-- Canonical candidate count: unresolved pending semantic reconciliation.
+- Canonical candidate count: 81 from sanitized Master82 reconciliation (82 historical rows − 1 UV3 semantic duplicate); all remain `HISTORICAL_ONLY` and not ranking-eligible pending current verification.
 - Ranking model/run: none current.
 - Route run: none current.
 - Active hypotheses: historical Master82 and Bonilla conclusions remain historical until source verification and reranking.
-- Contradictions: Master82 contains a semantic Unidad Vecinal Nº3 duplicate; historical W03 labeling differs between supplied inventories and must be reconciled.
+- Contradictions: Master82 UV3 duplicate is resolved through aliases `uv3` + `uv3-bonilla`; historical W03 labeling still differs between supplied inventories and must be reconciled.
 - Privacy: Round 0 pass; private inputs ignored, manifest generated, public build/download scan found no private markers. Re-run before every commit/build/release.
 - Production files changed: none. Repository instruction/privacy files and workbench scaffolding only.
 - Round 1 UI/preflight GREEN: 13 unit/data/page tests pass; `scripts/verify_architecture.py` passes; new architecture code passes Ruff C901 at max complexity 10; independent browser QA passes all six required viewports after a RED missing-favicon run.
@@ -24,5 +24,9 @@
 - Diagram regression: regenerated 120 plan and 8 composition diagrams; PNG metadata bytes changed, but decoded RGBA pixels and dimensions matched Git for all 128 affected files. Metadata-only rewrites were restored rather than committed.
 - Transcript semantic audit: manually reviewed all 12 curriculum timestamp windows against saved caption tracks. Two `Fh6PIafC8wU` citations pointed to unrelated passages and were corrected to 324.9s (outer-edge distractions) and 1963.1s (anticipation/readiness for the moment).
 - Current validation: 22/22 tests pass; repository-wide C901 passes; `verify_architecture.py` and `verify_release.py` pass; diff check passes.
+- User geographic boundary: Lima Metropolitana is defined fail-closed as the 43 districts of Provincia de Lima. Priority field districts are Lima/Cercado, San Isidro, Miraflores, San Borja, Barranco, Pueblo Libre, Magdalena del Mar, Surquillo and Lince. Callao, other Peruvian provinces and foreign locations are quarantined; international examples are pedagogy only.
+- Round 3 geography RED/GREEN: missing-policy collection failure became 3/3 passes. Official INEI/PCM sources establish the 43-district boundary. Historical neighborhood/cross-district aliases are explicit for Barrios Altos, Centro Histórico, Miraflores–Barranco and Lima media.
+- Round 3 canonicalization RED/GREEN: missing-engine collection failure and a later 0/4 alias failure were resolved without widening geography. Master82 reconciles 82→81 through the explicit Unidad Vecinal 3 merge; historical IDs survive, inherited rank/score fields are absent, and all records remain historical-only/non-rankable.
+- Current validation after geography/canonicalization: 30/30 tests pass; repository-wide C901, architecture verifier, release verifier and diff check pass.
 - Blockers: current Solarize source remains unavailable locally/session-wide; existing legacy QA scripts hang during Chrome teardown in this managed runner. Neither blocks the tested Round 2 data/UI slice.
-- Next actions: complete contemporary 2024–2026 award transfer examples; close Round 2 checkpoint; begin Round 3 historical candidate ingestion, UV3 dedupe RED, and Bonilla W01–W20 source reconciliation.
+- Next actions: ingest and reconcile Master68/other discovered historical runs; resolve W01–W20 source identities and generate immutable snapshots; apply current-source/geography/access verification before promoting any of the 81 records into the serious scene universe.

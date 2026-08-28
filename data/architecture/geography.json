@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "jurisdiction": "Lima Metropolitana (Provincia de Lima)",
+  "country": "Peru",
+  "administrative_basis": "Ley N.º 31140 / INEI: Lima Metropolitana comprises the 43 districts of Provincia de Lima",
+  "last_verified_at": "2026-08-27",
+  "source_ids": ["SRC-GEO-INEI-LIMA-43", "SRC-GEO-PCM-LIMA"],
+  "priority_districts": [
+    "Lima", "San Isidro", "Miraflores", "San Borja", "Barranco",
+    "Pueblo Libre", "Magdalena del Mar", "Surquillo", "Lince"
+  ],
+  "eligible_districts": [
+    "Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclacayo",
+    "Chorrillos", "Cieneguilla", "Comas", "El Agustino", "Independencia",
+    "Jesús María", "La Molina", "La Victoria", "Lima", "Lince", "Los Olivos",
+    "Lurigancho-Chosica", "Lurín", "Magdalena del Mar", "Miraflores",
+    "Pachacámac", "Pucusana", "Pueblo Libre", "Puente Piedra", "Punta Hermosa",
+    "Punta Negra", "Rímac", "San Bartolo", "San Borja", "San Isidro",
+    "San Juan de Lurigancho", "San Juan de Miraflores", "San Luis",
+    "San Martín de Porres", "San Miguel", "Santa Anita", "Santa María del Mar",
+    "Santa Rosa", "Santiago de Surco", "Surquillo", "Villa El Salvador",
+    "Villa María del Triunfo"
+  ],
+  "explicitly_excluded": [
+    "Provincia Constitucional del Callao",
+    "other provinces of Peru",
+    "locations outside Peru"
+  ],
+  "outside_scope_action": "QUARANTINE_OUT_OF_SCOPE",
+  "research_reference_rule": "International work may inform pedagogy but cannot enter the candidate universe, ranking, or route."
+}

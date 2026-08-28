@@ -1,0 +1,19 @@
+{
+  "source_run": "Master82",
+  "historical_count": 82,
+  "canonical_count": 81,
+  "merge_count": 1,
+  "quarantined_count": 0,
+  "merges": [
+    {
+      "canonical_id": "unidad-vecinal-3",
+      "historical_ids": [
+        "uv3",
+        "uv3-bonilla"
+      ],
+      "reason": "SEMANTIC_IDENTITY_MATCH",
+      "count_effect": -1
+    }
+  ],
+  "quarantined": []
+}
