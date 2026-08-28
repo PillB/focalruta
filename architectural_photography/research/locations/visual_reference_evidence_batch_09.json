@@ -1,0 +1,219 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-09",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "huaca-pucllana",
+      "reference_families": [
+        {
+          "reference_id": "VR-PUCLLANA-01",
+          "page_url": "https://mspucllana.wixsite.com/museodesitiopucllana/en/contact-3",
+          "image_url": "https://mspucllana.wixsite.com/museodesitiopucllana/en/contact-3",
+          "publisher": "Museo de Sitio Pucllana",
+          "viewpoint_family": "PYRAMID_TOP_CITY_AND_VISITOR_ROUTE",
+          "likely_camera_height": "ground-to-elevated visitor route",
+          "fov_class": "wide/mixed",
+          "light_weather": "daylight",
+          "people_activity": "guided walking, climbing, looking and learning",
+          "edge_background": "adobe platforms, city skyline, flora/fauna park and exhibition room",
+          "cliche_cluster": "huaca-and-modern-towers panorama",
+          "proves": "The current visitor description verifies a route from excavated fabric to an elevated city view, enabling architecture to channel movement and temporal comparison.",
+          "cannot_prove": "Exact 2026 crowd rhythm, professional-photography permission or a non-cliché skyline alignment.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PUCLLANA-02",
+          "page_url": "https://www.miraflores.gob.pe/museo-de-sitio-pucllana-presenta-variada-e-inclusiva-agenda-por-el-mes-de-los-museos/",
+          "image_url": "https://www.miraflores.gob.pe/museo-de-sitio-pucllana-presenta-variada-e-inclusiva-agenda-por-el-mes-de-los-museos/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "DAY_NIGHT_AND_PARTICIPATORY_OCCUPATION",
+          "likely_camera_height": "visitor/event eye level",
+          "fov_class": "mixed",
+          "light_weather": "day and artificial night light",
+          "people_activity": "guided visiting, participating and performing",
+          "edge_background": "archaeological route and event spaces",
+          "cliche_cluster": "municipal cultural-event coverage",
+          "proves": "A 2026 program corroborates both day and night visits plus participatory activity, so time and human presence materially change the site's reading.",
+          "cannot_prove": "That a comparable performance will recur or that night access includes the Great Pyramid.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PUCLLANA-03",
+          "page_url": "https://www.miraflores.gob.pe/publico-experimentara-con-labor-de-arqueologos-en-museo-de-sitio-pucllana/",
+          "image_url": "https://www.miraflores.gob.pe/publico-experimentara-con-labor-de-arqueologos-en-museo-de-sitio-pucllana/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "ACTIVE_EXCAVATION_AND_WORKING_HERITAGE",
+          "likely_camera_height": "ground-level work area",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "morning daylight",
+          "people_activity": "excavating, analyzing, supervising and learning",
+          "edge_background": "excavation areas, archaeological strata and tools",
+          "cliche_cluster": "archaeology outreach coverage",
+          "proves": "The June–July 2026 activity shows Pucllana as an actively researched construction rather than a static ruin, a stronger present/past mechanism.",
+          "cannot_prove": "Ongoing public excavation after the published period or permission to photograph participants.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+      "reference_families": [
+        {
+          "reference_id": "VR-OSMA-01",
+          "page_url": "https://www.museopedrodeosma.org/museo",
+          "image_url": "https://www.museopedrodeosma.org/museo",
+          "publisher": "Museo Pedro de Osma",
+          "viewpoint_family": "ECLECTIC_HOUSE_STAINED_GLASS_AND_GARDEN",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight and interior light",
+          "people_activity": "museum visiting; exact occupation not established",
+          "edge_background": "early-twentieth-century house, stained glass, gardens and architectural details",
+          "cliche_cluster": "ornate mansion façade and garden",
+          "proves": "The institution identifies the house itself as part of the experience, supporting detail-to-whole and garden-to-interior studies.",
+          "cannot_prove": "A permitted interior camera position or current crowd density.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-OSMA-02",
+          "page_url": "https://www.museopedrodeosma.org/agenda/historias-ocultas-barranco",
+          "image_url": "https://www.museopedrodeosma.org/agenda/historias-ocultas-barranco",
+          "publisher": "Museo Pedro de Osma",
+          "viewpoint_family": "HOUSE_GARDEN_AND_NEIGHBORHOOD_WALK",
+          "likely_camera_height": "guided-walk eye level",
+          "fov_class": "mixed",
+          "light_weather": "late-afternoon/event dependent",
+          "people_activity": "walking, interpreting, conversing and comparing",
+          "edge_background": "historic house, gardens, Pedro de Osma avenue and surrounding Barranco fabric",
+          "cliche_cluster": "heritage walking-tour coverage",
+          "proves": "A 2026 institutional program explicitly links the house and garden to the surrounding avenue and everyday urban history.",
+          "cannot_prove": "Future recurrence, route access outside the event or a one-frame house/avenue relation.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-OSMA-03",
+          "page_url": "https://www.museopedrodeosma.org/planea-tu-visita",
+          "image_url": "https://www.museopedrodeosma.org/planea-tu-visita",
+          "publisher": "Museo Pedro de Osma",
+          "viewpoint_family": "CURRENT_PUBLIC_THRESHOLD_AND_ACCESS_LIMIT",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "mixed",
+          "light_weather": "daylight",
+          "people_activity": "arriving, joining mediated tours and circulating",
+          "edge_background": "avenue address, entrance, accessible route and museum plan",
+          "cliche_cluster": "visitor-information imagery",
+          "proves": "The current visitor page corroborates active mediated routes but prohibits interior photography and requires coordination for professional work.",
+          "cannot_prove": "Competition-photography authorization; interior concepts remain fail-closed until direct confirmation.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "parque-maria-reiche",
+      "reference_families": [
+        {
+          "reference_id": "VR-REICHE-01",
+          "page_url": "https://www.miraflores.gob.pe/visita-por-fiestas-patrias-los-emblematicos-espacios-publicos-recuperados-por-la-municipalidad-de-miraflores/",
+          "image_url": "https://www.miraflores.gob.pe/visita-por-fiestas-patrias-los-emblematicos-espacios-publicos-recuperados-por-la-municipalidad-de-miraflores/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "DAY_PARK_OCEAN_AND_FAMILY_USE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "daylight/coastal haze",
+          "people_activity": "walking, playing, pausing and looking toward the ocean",
+          "edge_background": "Nazca figures, family area, cliff-top lawn and Pacific horizon",
+          "cliche_cluster": "malecón ocean panorama",
+          "proves": "The recovered public space combines symbolic ground figures with family use and a cliff-top ocean outlook.",
+          "cannot_prove": "Current planting, precise sunset alignment or a gesture that makes the symbols architectural rather than decorative.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-REICHE-02",
+          "page_url": "https://www.miraflores.gob.pe/las-figuras-enigmaticas-de-las-pampas-de-nasca-vuelven-a-brillar-en-el-parque-maria-reiche-de-miraflores/",
+          "image_url": "https://www.miraflores.gob.pe/las-figuras-enigmaticas-de-las-pampas-de-nasca-vuelven-a-brillar-en-el-parque-maria-reiche-de-miraflores/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "NIGHT_LED_GLYPHS_AND_VIEWER_MOVEMENT",
+          "likely_camera_height": "standing/elevated eye level",
+          "fov_class": "wide",
+          "light_weather": "night LED illumination",
+          "people_activity": "walking, stopping and viewing",
+          "edge_background": "illuminated figures, dark lawn and coastal city light",
+          "cliche_cluster": "glowing-Nazca-figure postcard",
+          "proves": "Night illumination turns ground geometry into a legible spatial field and creates a distinct time-dependent mechanism.",
+          "cannot_prove": "Full 2026 system operation, color consistency or best camera elevation.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-REICHE-03",
+          "page_url": "https://www.miraflores.gob.pe/municipio-de-miraflores-repara-cuatro-figuras-led-del-parque-maria-reiche-tras-ser-vandalizadas/",
+          "image_url": "https://www.miraflores.gob.pe/municipio-de-miraflores-repara-cuatro-figuras-led-del-parque-maria-reiche-tras-ser-vandalizadas/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "MAINTENANCE_DAMAGE_AND_TEMPORAL_FRAGILITY",
+          "likely_camera_height": "municipal documentation eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "day/night documentation",
+          "people_activity": "repairing and maintaining",
+          "edge_background": "LED figures and park surface",
+          "cliche_cluster": "municipal maintenance coverage",
+          "proves": "The lighting is infrastructure with maintenance failure and repair, not a guaranteed scenic effect.",
+          "cannot_prove": "Present condition on the intended shoot date; verify before route.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+      "reference_families": [
+        {
+          "reference_id": "VR-SUSPIROS-01",
+          "page_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "image_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "publisher": "Municipalidad de Barranco",
+          "viewpoint_family": "BRIDGE_CROSSING_AND_RAVINE_ROUTE",
+          "likely_camera_height": "pedestrian eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "crossing, descending, meeting and looking",
+          "edge_background": "timber bridge, Bajada de Baños, vegetation and ravine walls",
+          "cliche_cluster": "iconic bridge portrait",
+          "proves": "The municipal account links the bridge to a much older natural descent, so the useful unit is crossing-over-route rather than the bridge alone.",
+          "cannot_prove": "Current congestion, repair state or a quiet anti-postal position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-SUSPIROS-02",
+          "page_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "image_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "publisher": "Municipalidad de Barranco",
+          "viewpoint_family": "BAJADA_FUNNEL_TO_COAST",
+          "likely_camera_height": "descending pedestrian eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "day/garúa",
+          "people_activity": "descending, climbing, selling and passing through",
+          "edge_background": "narrow descending path, façades, vegetation and coastal opening",
+          "cliche_cluster": "picturesque passage",
+          "proves": "The descent is a persistent topographic corridor whose constriction can visibly channel contemporary movement.",
+          "cannot_prove": "A specific vendor or pedestrian cadence, coastal visibility or edge clutter.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-SUSPIROS-03",
+          "page_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "image_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "publisher": "Municipalidad de Barranco",
+          "viewpoint_family": "HISTORICAL_FUNicular_ABSENCE_AND_ROUTE_MEMORY",
+          "likely_camera_height": "historical/ground comparison",
+          "fov_class": "mixed",
+          "light_weather": "historical and current comparison",
+          "people_activity": "walking where mechanized descent once operated nearby",
+          "edge_background": "Bajada corridor and memory of the 1896 hydraulic funicular",
+          "cliche_cluster": "heritage anecdote without visible residue",
+          "proves": "The documented former funicular supplies a temporal-layer hypothesis for movement infrastructure around the descent.",
+          "cannot_prove": "That physical funicular remains are visible in one frame; reject the concept if field evidence cannot show residue without a caption.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}
