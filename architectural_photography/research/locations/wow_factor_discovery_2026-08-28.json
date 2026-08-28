@@ -1,0 +1,222 @@
+{
+  "discovery_id": "WOW-LIMA-2026-08-28-A",
+  "retrieved_at": "2026-08-28T00:00:00-05:00",
+  "scope": "Lima Metropolitana (Provincia de Lima, 43 districts)",
+  "method": "Visual impact is only a discovery signal. Admission requires a distinct one-frame mechanism, architectural causality, a credible present-day action or meaningful absence, and an explicit expert rejection. Awards and fame add no score.",
+  "admission_effect": "Six identities enter the research mix as ADMIT_PENDING_EQUAL_DEPTH. Four remain discovery/currentity cases. None is ranking- or route-eligible until the same ten-pass, A/B/C/D/E, visual-family, access and contradiction gates applied to the original 81 are complete.",
+  "hypotheses": [
+    {
+      "discovery_id": "wow-utec-campus",
+      "canonical_name": "Campus UTEC",
+      "district": "Barranco",
+      "disposition": "ADMIT_PENDING_EQUAL_DEPTH",
+      "distinct_scene_mechanism": "An inhabited concrete megastructure exposes classrooms, terraces and circulation as a vertical section facing the city.",
+      "one_frame_hypothesis": "From a legitimate public or permitted campus position, align one student crossing a bridge with stacked teaching terraces so learning reads as movement through the structure, not as a heroic exterior silhouette.",
+      "distinct_from_existing": "Adds a vertical, visibly inhabited educational megastructure; Aulario 104 has a different courtyard-and-screen mechanism.",
+      "current_access_status": "PARTIAL",
+      "expert_rejection": "Its internationally published exterior is exceptionally saturated; without interior permission and a precise human-spatial alignment, the result is merely a replica of the award image.",
+      "kill_condition": "Kill if only the highway-facing monument view is available or students become incidental scale figures.",
+      "sources": [
+        {"source_type": "OFFICIAL", "url": "https://utec.edu.pe/nosotros", "use": "Current institutional identity, Barranco address and campus authorship."},
+        {"source_type": "OFFICIAL", "url": "https://www1.utec.edu.pe/node/12906", "use": "Human-scale design intent and RIBA recognition."},
+        {"source_type": "PROFESSIONAL", "url": "https://www.riba.org/explore/awards/riba-international-prize", "use": "Award provenance; not a ranking feature."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    },
+    {
+      "discovery_id": "wow-museo-pachacamac",
+      "canonical_name": "Museo de Sitio Pachacamac",
+      "district": "Lurín",
+      "disposition": "ADMIT_PENDING_EQUAL_DEPTH",
+      "distinct_scene_mechanism": "Folded concrete walls and ramps turn the visitor's contemporary museum walk into an echo of ancient processional paths.",
+      "one_frame_hypothesis": "Place a visitor at the point where a ramp, rough concrete wall and framed sanctuary align, making the new building mediate rather than imitate the archaeological landscape.",
+      "distinct_from_existing": "Adds a contemporary museum whose circulation explicitly translates a pre-Hispanic territorial system.",
+      "current_access_status": "PARTIAL",
+      "expert_rejection": "The desert concrete is photogenic enough to survive as empty formalism; a frame that omits the sanctuary relationship mistakes resemblance for architectural causality.",
+      "kill_condition": "Kill if the frame cannot connect visitor path, contemporary wall and archaeological territory in one readable relation.",
+      "sources": [
+        {"source_type": "OFFICIAL", "url": "https://pachacamac.cultura.pe/museo-pachacamac", "use": "Current museum role, identity, address and authorship."},
+        {"source_type": "PROFESSIONAL", "url": "https://www.archdaily.com/784135/museo-de-sitio-pachacamac-llosa-cortegana-arquitectos", "use": "Architect-authored spatial and material account."},
+        {"source_type": "OFFICIAL", "url": "https://museos.cultura.pe/museos/museo-de-sitio-pachacamac", "use": "Ministry museum registry."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    },
+    {
+      "discovery_id": "wow-up-centro-investigacion",
+      "canonical_name": "Centro de Investigación Universidad del Pacífico",
+      "district": "Jesús María",
+      "disposition": "ADMIT_PENDING_EQUAL_DEPTH",
+      "distinct_scene_mechanism": "A bridge over a sunken garden, multiple-height void and internal bridges make intellectual exchange physically visible as crossing and overlooking.",
+      "one_frame_hypothesis": "Stack two real research-day verbs across separate bridges or levels while the void keeps both actions spatially legible.",
+      "distinct_from_existing": "Adds a compact vertical social condenser whose designed purpose is interaction among researchers.",
+      "current_access_status": "UNRESOLVED",
+      "expert_rejection": "Published interiors are pristine and access-controlled; without normal working activity and permission, this becomes an empty atrium exercise.",
+      "kill_condition": "Kill if access is limited to the street façade or if no simultaneous cross-level actions occur within the wait limit.",
+      "sources": [
+        {"source_type": "PRIMARY", "url": "https://www.metropolisperu.com/educativos-centroinvestigacionup", "use": "Architect description of bridge, void and interaction intent."},
+        {"source_type": "PROFESSIONAL", "url": "https://www.archdaily.com/295825/universidad-del-pacifico-branch-office-metropolis", "use": "Project identity, year, area and visual record."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    },
+    {
+      "discovery_id": "wow-mali-palacio-exposicion",
+      "canonical_name": "MALI · Palacio de la Exposición",
+      "district": "Lima",
+      "disposition": "ADMIT_PENDING_EQUAL_DEPTH",
+      "distinct_scene_mechanism": "A nineteenth-century exhibition machine retains its original public-display logic while housing a modern national art museum.",
+      "one_frame_hypothesis": "Use the iron structural rhythm, gallery threshold and a visitor encountering contemporary display to show continuity of exhibition rather than a restored façade.",
+      "distinct_from_existing": "Adds original-program continuity across 150 years, unlike Ccori Wasi's successive changes of use.",
+      "current_access_status": "PARTIAL",
+      "expert_rejection": "The façade and park view are civic postcards; the stronger claim requires permission and an interior frame where the old structural system visibly controls present museum behavior.",
+      "kill_condition": "Kill if the iron system and present exhibition verb cannot coexist visibly in one frame.",
+      "sources": [
+        {"source_type": "OFFICIAL", "url": "https://mali.pe/wp-content/uploads/2023/07/Publicacion_Restauracion-de-la-Fachada-del-MALI_060623-1.pdf", "use": "Museum history, original exhibition purpose and restoration record."},
+        {"source_type": "OFFICIAL", "url": "https://mali.pe/", "use": "Current institutional program and visitor information."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    },
+    {
+      "discovery_id": "wow-torre-tagle",
+      "canonical_name": "Palacio de Torre Tagle",
+      "district": "Lima",
+      "disposition": "ADMIT_PENDING_EQUAL_DEPTH",
+      "distinct_scene_mechanism": "A preserved domestic sequence now stages the public threshold of diplomacy, joining residence, state protocol and controlled civic access.",
+      "one_frame_hypothesis": "Frame a visitor crossing from zaguán to patio beneath the projecting balconies so the former private hierarchy and present public opening read together.",
+      "distinct_from_existing": "Adds a highly preserved residence-to-state transformation with a tightly controlled spatial sequence.",
+      "current_access_status": "VERIFY_BEFORE_ROUTE",
+      "expert_rejection": "Its balconies are among Lima's most repeated images; only a present-day threshold action can overcome the postcard cluster, and published hours may have changed.",
+      "kill_condition": "Kill if current access is façade-only or photography rules prevent the visitor-and-patio relationship.",
+      "sources": [
+        {"source_type": "OFFICIAL", "url": "https://visitalima.pe/atractivos/palacio-torre-tagle/", "use": "Municipal identity and published public-access scope."},
+        {"source_type": "OFFICIAL", "url": "https://www.gob.pe/institucion/rree/noticias/951006-torre-tagle-para-ti-el-palacio-sera-abierto-para-la-visita-del-publico-durante-los-sabados-y-domingos", "use": "Foreign Ministry public-opening program and architectural description."},
+        {"source_type": "PRIMARY", "url": "https://www.rree.gob.pe/SitePages/ministerio.aspx", "use": "Institutional history and spatial elements."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    },
+    {
+      "discovery_id": "wow-edificio-el-pacifico",
+      "canonical_name": "Edificio El Pacífico",
+      "district": "Miraflores",
+      "disposition": "ADMIT_PENDING_EQUAL_DEPTH",
+      "distinct_scene_mechanism": "Three street galleries once fed cinema, commerce and housing into one modern mixed-use hinge; current passage can test whether that permeability survives.",
+      "one_frame_hypothesis": "Position inside a surviving gallery so three directional flows, the commercial base and residential slab form one urban-room image.",
+      "distinct_from_existing": "Splits a specific mixed-use circulation system from the broader Óvalo de Miraflores civic-core candidate.",
+      "current_access_status": "PARTIAL",
+      "expert_rejection": "A frontal modernist elevation does not prove the building still organizes the center; the galleries and their present flows are the actual test.",
+      "kill_condition": "Kill or merge back into Óvalo de Miraflores if the original galleries are inaccessible, illegible or no longer function as connected passages.",
+      "sources": [
+        {"source_type": "ACADEMIC", "url": "https://cammp.ulima.edu.pe/edificios/edificio-el-pacifico-3/", "use": "Original program, gallery geometry, present use and conservation assessment."},
+        {"source_type": "PROFESSIONAL", "url": "https://www.archdaily.cl/cl/876374/catalogo-arquitectura-movimiento-moderno-peru-una-seleccion-de-obras-notables-de-entre-1945-y-1965", "use": "Independent professional catalog context and visual record."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    },
+    {
+      "discovery_id": "wow-casa-fernandini",
+      "canonical_name": "Casa Fernandini",
+      "district": "Lima",
+      "disposition": "DISCOVERY_ONLY",
+      "distinct_scene_mechanism": "Art Nouveau domestic craft, including stained glass and metalwork, now supports cultural and educational activity.",
+      "one_frame_hypothesis": "Relate a workshop or cultural-use gesture to the stair, stained glass and domestic circulation rather than inventorying decoration.",
+      "distinct_from_existing": "Potentially adds craft-rich domestic-to-cultural reuse, but overlaps Ccori Wasi until current program and access are compared.",
+      "current_access_status": "UNRESOLVED",
+      "expert_rejection": "Decorative abundance can produce instant spectacle without a story; current programming and routine access are not authoritative enough yet.",
+      "kill_condition": "Reject if only ornament detail is available or if it duplicates Ccori Wasi's adaptive-reuse mechanism less clearly.",
+      "sources": [
+        {"source_type": "PUBLIC_SECONDARY", "url": "https://www.elperuano.pe/noticia/201710-casa-fernandini-art-nouveau-en-el-corazon-de-lima", "use": "Heritage identity and reported educational/cultural use."},
+        {"source_type": "ACADEMIC", "url": "https://www.juntadeandalucia.es/sites/default/files/2022-05/60acb153b9883-guia_lima_y_callao.pdf", "use": "Architectural-guide context for the historic center."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    },
+    {
+      "discovery_id": "wow-museo-arte-italiano",
+      "canonical_name": "Museo de Arte Italiano",
+      "district": "Lima",
+      "disposition": "DISCOVERY_ONLY",
+      "distinct_scene_mechanism": "A purpose-built centennial gift compresses national diplomacy, Italian Renaissance quotation and museum use into a small coffer-like volume.",
+      "one_frame_hypothesis": "Use the apse-like end, decorative program and a visitor's movement to test whether imported architectural memory becomes lived Lima space.",
+      "distinct_from_existing": "Adds a compact purpose-built diplomatic gift, but risks duplicating MALI and the civic museum cluster.",
+      "current_access_status": "VERIFY_BEFORE_ROUTE",
+      "expert_rejection": "Stylistic richness and symbolic origin are caption-dependent; without a spatially causal visitor scene it is an attractive object, not a competition photograph.",
+      "kill_condition": "Reject if current museum operation is unavailable or the one-frame idea needs the gift history to be intelligible.",
+      "sources": [
+        {"source_type": "OFFICIAL", "url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=11122", "use": "Official tourism inventory, architectural form and photography indication."},
+        {"source_type": "OFFICIAL", "url": "https://repositorio.cultura.gob.pe/bitstream/handle/CULTURA/1475/Guia%20museos%20e%20instituciones%20museales%202023%20web.pdf?isAllowed=y&sequence=1", "use": "Ministry museum identity and institutional status."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    },
+    {
+      "discovery_id": "wow-muna",
+      "canonical_name": "Museo Nacional del Perú (MUNA)",
+      "district": "Lurín",
+      "disposition": "QUARANTINE_CURRENTITY",
+      "distinct_scene_mechanism": "A monumental contemporary cultural platform sits between metropolitan expansion and the Pachacamac archaeological landscape.",
+      "one_frame_hypothesis": "Only if operating publicly, relate a visitor's long approach to the building's platform and the wider archaeological territory.",
+      "distinct_from_existing": "Could add national-scale institutional monumentality, but its operational reality must precede visual enthusiasm.",
+      "current_access_status": "UNRESOLVED",
+      "expert_rejection": "A 2026 ministry record says the institution remains in process; monumental form cannot compensate for uncertain public life or access.",
+      "kill_condition": "Keep quarantined while ordinary public access, current program and a real inhabitation verb remain unverified.",
+      "sources": [
+        {"source_type": "OFFICIAL", "url": "https://transparencia.cultura.gob.pe/sites/default/files/transparencia/2026/06/resoluciones-directorales/resolucion-directoral-ndeg-000028-2026-dgm-vmpcic-mc.pdf", "use": "Current ministry evidence that MUNA remains in process."},
+        {"source_type": "PROFESSIONAL", "url": "https://premioarquitecturayciudad.pe/", "use": "Current professional award framework for city contribution; not operational evidence or score."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    },
+    {
+      "discovery_id": "wow-pabellon-el-olivar",
+      "canonical_name": "Pabellón El Olivar",
+      "district": "San Isidro",
+      "disposition": "DISCOVERY_ONLY",
+      "distinct_scene_mechanism": "A contemporary pavilion reads and reinterprets an Emilio Soyer house beside El Olivar through deliberate architectural dialogue.",
+      "one_frame_hypothesis": "If legitimately visible and permitted, place old enclosure, new pavilion and present domestic or cultural use in one layered frame.",
+      "distinct_from_existing": "Adds architect-to-architect dialogue with a specific preexistence, but may be private and non-observable.",
+      "current_access_status": "UNRESOLVED",
+      "expert_rejection": "Award publication proves design quality, not public accessibility or competition relevance; a private masterpiece may be operationally useless.",
+      "kill_condition": "Reject if no legitimate access or if its relationship to the preexisting house cannot be photographed without invading private life.",
+      "sources": [
+        {"source_type": "PROFESSIONAL", "url": "https://baq2022.arquitecturapanamericana.com/proyectos/pabellon-el-olivar/", "use": "Architect-authored preexistence and dialogue concept."},
+        {"source_type": "OFFICIAL", "url": "https://msi.gob.pe/portal/turismo/el-olivar/", "use": "Municipal context for El Olivar; does not establish pavilion access."}
+      ],
+      "fame_bonus": false,
+      "award_bonus": false,
+      "equal_depth_required": true,
+      "ranking_eligible": false,
+      "route_eligible": false
+    }
+  ]
+}
