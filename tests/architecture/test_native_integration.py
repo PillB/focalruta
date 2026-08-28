@@ -6,6 +6,7 @@ HOME = ROOT / "index.html"
 CHALLENGE = ROOT / "challenges/arquitectura-en-foco/index.html"
 BUILD = ROOT / "scripts/build_dual_release.py"
 CANDIDATES = ROOT / "data/architecture/candidates.json"
+VERIFICATION = ROOT / "architectural_photography/research/locations/equal_depth_verification.json"
 
 
 def text(path: Path) -> str:
@@ -48,6 +49,23 @@ def test_public_candidate_universe_contains_all_81_without_rank_fields():
     prohibited = {"R0", "R1", "R2", "R3", "masterRank", "fieldRank", "robustIndex"}
     assert all(prohibited.isdisjoint(item) for item in candidates)
     assert all(item["ranking_eligible"] is False for item in candidates)
+
+
+def test_generated_progress_matches_equal_depth_ledger_without_promotion():
+    import json
+
+    candidates = json.loads(text(CANDIDATES))
+    verification = json.loads(text(VERIFICATION))["records"]
+    expected = {
+        item["canonical_id"]: len(item["visual_reference_families"])
+        for item in verification
+    }
+    assert {item["canonical_id"]: item["visual_reference_count"] for item in candidates} == expected
+    assert sum(item["visual_reference_count"] > 0 for item in candidates) == 14
+    assert all(item["ranking_eligible"] is False for item in candidates)
+    page = text(CHALLENGE)
+    assert "14 tienen forénsica visual iniciada" in page
+    assert "seis tienen verificación iniciada" not in page
 
 
 def test_field_run_is_local_persistent_and_portable():

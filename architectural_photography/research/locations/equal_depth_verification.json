@@ -2575,7 +2575,56 @@
           "gate": "¿Dónde se ve hoy, en un solo frame, la distancia entre la “ciudad risueña” diseñada para caminar y la ciudad real que sus habitantes han tenido que adaptar?"
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-UV3-01",
+          "page_url": "https://www.scielo.cl/scielo.php?pid=S0718-83582022000200145&script=sci_arttext",
+          "image_url": "https://www.scielo.cl/img/revistas/invi/v37n105/0718-8358-invi-37-105-145-gf3.jpg",
+          "publisher": "Revista INVI / Universidad de Chile",
+          "viewpoint_family": "AERIAL_TRANSFORMATION_MAP",
+          "likely_camera_height": "aerial and analytical plan",
+          "fov_class": "site-wide",
+          "light_weather": "not used as light evidence",
+          "people_activity": "appropriation inferred from documented physical changes",
+          "edge_background": "blocks, planned open spaces and later enclosures",
+          "cliche_cluster": "academic overview",
+          "proves": "Fieldwork-backed comparison identifies where planned collective space became subdivided or extended.",
+          "cannot_prove": "Current 2026 condition, a ground-level composition or activity timing.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-UV3-02",
+          "page_url": "https://www.scielo.cl/scielo.php?pid=S0718-83582022000200145&script=sci_arttext",
+          "image_url": "https://www.scielo.cl/img/revistas/invi/v37n105/0718-8358-invi-37-105-145-gf6.jpg",
+          "publisher": "Revista INVI / Universidad de Chile",
+          "viewpoint_family": "GROUND_EDGE_APPROPRIATION",
+          "likely_camera_height": "standing eye level plus analytical plan",
+          "fov_class": "normal and plan",
+          "light_weather": "daylight",
+          "people_activity": "resident extensions and boundary-making documented through built traces",
+          "edge_background": "brick walls, terraces and former shared setbacks",
+          "cliche_cluster": "before/after transformation evidence",
+          "proves": "The original open-space contract remains visible precisely where residents have enclosed or adapted it.",
+          "cannot_prove": "Consent-free access, present human gesture or the least repeated camera position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-UV3-03",
+          "page_url": "https://unidadvecinal3.blogspot.com/2011/01/mi-paseo-por-la-unidad-vecinal-n-3.html",
+          "image_url": "https://4.bp.blogspot.com/_7m9PuoYd0JY/TSiHbSRjWkI/AAAAAAAAAAM/t2gqS4BR7AI/s1600/DSC01815.JPG",
+          "publisher": "Unidad Vecinal Nº 3 community blog",
+          "viewpoint_family": "GARDEN_BLOCK_DAILY_EDGE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "midday daylight",
+          "people_activity": "residents at frame edge and parked vehicles",
+          "edge_background": "garden, hedges, brick block and gate",
+          "cliche_cluster": "pleasant garden-city record",
+          "proves": "Landscape, housing and controlled edge can coexist in one ordinary ground-level frame.",
+          "cannot_prove": "Current maintenance, routine intensity or image authorship beyond the host page.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Dónde se ve hoy, en un solo frame, la distancia entre la “ciudad risueña” diseñada para caminar y la ciudad real que sus habitantes han tenido que adaptar?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -2749,7 +2798,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-MATUTE-01",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/unidad-vecinal-matute-i-etapa/",
+          "image_url": "https://cammp.ulima.edu.pe/edificios/unidad-vecinal-matute-i-etapa/",
+          "publisher": "CAMMP Universidad de Lima",
+          "viewpoint_family": "FIRST_STAGE_ARCHIVAL_GALLERY",
+          "likely_camera_height": "mixed archival viewpoints",
+          "fov_class": "aerial, wide and normal",
+          "light_weather": "mixed daylight",
+          "people_activity": "not consistently established",
+          "edge_background": "sports core, paths, multifamily and single-family housing",
+          "cliche_cluster": "canonical modern-housing documentation",
+          "proves": "The sourced gallery separates aerial, between-building, path, entrance, balcony and housing-type families.",
+          "cannot_prove": "Stable individual asset URLs, current condition or present activity.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MATUTE-02",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/unidad-vecinal-matute-ii-etapa/",
+          "image_url": "https://cammp.ulima.edu.pe/edificios/unidad-vecinal-matute-ii-etapa/",
+          "publisher": "CAMMP Universidad de Lima",
+          "viewpoint_family": "SECOND_STAGE_CITY_TO_NEIGHBORHOOD_GAP",
+          "likely_camera_height": "standing eye level and archival overview",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not established",
+          "edge_background": "different block distances distinguish city-scale and domestic-scale space",
+          "cliche_cluster": "formal façade and public-space study",
+          "proves": "The second stage intentionally changes inter-block distance and permeability to differentiate urban scales.",
+          "cannot_prove": "Which threshold remains publicly reachable or active in 2026.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MATUTE-03",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/unidad-vecinal-matute-i-etapa/",
+          "image_url": "https://cammp.ulima.edu.pe/edificios/unidad-vecinal-matute-i-etapa/",
+          "publisher": "CAMMP Universidad de Lima",
+          "viewpoint_family": "SPORTS_CORE_AND_HOUSING_SYSTEM",
+          "likely_camera_height": "aerial/plan-led scouting",
+          "fov_class": "site-wide",
+          "light_weather": "not established",
+          "people_activity": "sport and school use are part of the documented original program",
+          "edge_background": "central football field, civic services and housing clusters",
+          "cliche_cluster": "masterplan explanation",
+          "proves": "The sports core is architecturally causal rather than an unrelated nearby attraction.",
+          "cannot_prove": "Current scheduled play, spectator position or unobstructed field access.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Unidad Vecinal Matute + complejo deportivo puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -2933,7 +3031,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-LCC-01",
+          "page_url": "https://www.idom.com/proyecto/lima-centro-de-convenciones/",
+          "image_url": "https://www.metalocus.es/sites/default/files/metalocus_idom_lima_cconvenciones_05.jpg",
+          "publisher": "IDOM / Metalocus",
+          "viewpoint_family": "SCHOOL_COURTYARD_AND_CIVIC_MONUMENT",
+          "likely_camera_height": "standing/elevated neighboring viewpoint",
+          "fov_class": "wide",
+          "light_weather": "partly cloudy daylight",
+          "people_activity": "students moving in adjacent school courtyard",
+          "edge_background": "low school foreground against monumental LCC volume",
+          "cliche_cluster": "landmark skyline with contextual foreground",
+          "proves": "Everyday educational life can visibly contradict or humanize the convention center's monumental scale.",
+          "cannot_prove": "Public reachability of this exact position or current school activity schedule.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LCC-02",
+          "page_url": "https://www.idom.com/proyecto/lima-centro-de-convenciones/",
+          "image_url": "https://www.idom.com/proyecto/lima-centro-de-convenciones/",
+          "publisher": "IDOM",
+          "viewpoint_family": "INTERIOR_HUACA_VOID",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "bright exterior light entering shaded concrete void",
+          "people_activity": "event seating, standing and gathering documented",
+          "edge_background": "concrete ceiling/walls, lawn strips and open city edge",
+          "cliche_cluster": "architect-designed interior hero view",
+          "proves": "The architect identifies the exterior heart as a huaca-inspired void formed by room-height differences.",
+          "cannot_prove": "Ordinary non-event access or whether event furniture remains present.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LCC-03",
+          "page_url": "https://www.construccionyvivienda.com/2015/11/12/versatilidad-en-10-niveles/",
+          "image_url": "https://www.construccionyvivienda.com/wp-content/uploads/2015/11/Centro-de-Convenciones-27-de-enero-versatilidad-en-10-niveles.jpg",
+          "publisher": "Construcción y Vivienda",
+          "viewpoint_family": "NIGHT_ENTRANCE_AND_GATHERING",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "night architectural lighting",
+          "people_activity": "guests and passersby near entrance",
+          "edge_background": "bollards, forecourt, glass and overhanging volume",
+          "cliche_cluster": "illuminated civic landmark",
+          "proves": "Night use supplies figures and layered light at the entrance rather than an empty façade.",
+          "cannot_prove": "Current event schedule, unrestricted forecourt access or a repeatable crowd pattern.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Lima Centro de Convenciones puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -3113,7 +3260,40 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-CODESIDO-01",
+          "page_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2023/02/turismo_mpl.pdf",
+          "image_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2023/02/turismo_mpl.pdf",
+          "publisher": "Municipalidad de Pueblo Libre tourism inventory",
+          "viewpoint_family": "HOUSE_GARDEN_WORKSHOP_INVENTORY",
+          "likely_camera_height": "page-level locator; individual image unavailable",
+          "fov_class": "mixed/unknown",
+          "light_weather": "not established",
+          "people_activity": "museum visiting described, not visually verified",
+          "edge_background": "residence, surrounding gardens and artist workshop",
+          "cliche_cluster": "artist-house inventory",
+          "proves": "The municipal inventory confirms the house-garden-workshop relationship and attributes the design to José Sabogal.",
+          "cannot_prove": "Current opening, stable image assets, viewpoint saturation or visitor behavior.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CODESIDO-02",
+          "page_url": "https://www.tvperu.gob.pe/videos/museos-sin-limites/museos-sin-limites-casa-museo-de-julia-codesido-31122022-tvperu",
+          "image_url": "https://www.tvperu.gob.pe/videos/museos-sin-limites/museos-sin-limites-casa-museo-de-julia-codesido-31122022-tvperu",
+          "publisher": "TV Perú",
+          "viewpoint_family": "BROADCAST_WALKTHROUGH",
+          "likely_camera_height": "moving eye-level video",
+          "fov_class": "mixed",
+          "light_weather": "interior and exterior conditions",
+          "people_activity": "presenter/museum interpretation implied by program",
+          "edge_background": "house, collection and workshop sequence",
+          "cliche_cluster": "museum walkthrough",
+          "proves": "A public broadcaster documented the house as a sequence rather than a single exterior object.",
+          "cannot_prove": "Exact timestamped viewpoints until the video is manually audited, or 2026 access.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Casa Museo Julia Codesido puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",

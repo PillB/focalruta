@@ -5,7 +5,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 1,
+    "verification_complete": false
   },
   {
     "canonical_id": "torres-de-limatambo-supermanzana",
@@ -13,7 +15,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 3,
+    "verification_complete": false
   },
   {
     "canonical_id": "residencial-san-felipe",
@@ -21,7 +25,9 @@
     "district": "Jesús María",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 4,
+    "verification_complete": false
   },
   {
     "canonical_id": "previ-lima",
@@ -29,7 +35,9 @@
     "district": "Los Olivos",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 2,
+    "verification_complete": false
   },
   {
     "canonical_id": "museo-de-la-electricidad-tranvia",
@@ -37,7 +45,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 3,
+    "verification_complete": false
   },
   {
     "canonical_id": "parque-de-las-americas",
@@ -45,7 +55,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 4,
+    "verification_complete": false
   },
   {
     "canonical_id": "huaca-santa-cruz",
@@ -53,7 +65,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 2,
+    "verification_complete": false
   },
   {
     "canonical_id": "conjunto-habitacional-palomino",
@@ -61,7 +75,9 @@
     "district": "Lima",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 3,
+    "verification_complete": false
   },
   {
     "canonical_id": "quinta-de-los-libertadores-mnaahp",
@@ -69,7 +85,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 3,
+    "verification_complete": false
   },
   {
     "canonical_id": "plaza-a-la-bandera",
@@ -77,7 +95,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 3,
+    "verification_complete": false
   },
   {
     "canonical_id": "parque-virginia-candamo",
@@ -85,7 +105,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "unidad-vecinal-3",
@@ -93,7 +115,9 @@
     "district": "Lima",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 3,
+    "verification_complete": false
   },
   {
     "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
@@ -101,7 +125,9 @@
     "district": "La Victoria",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 3,
+    "verification_complete": false
   },
   {
     "canonical_id": "lima-centro-de-convenciones",
@@ -109,7 +135,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 3,
+    "verification_complete": false
   },
   {
     "canonical_id": "casa-museo-julia-codesido",
@@ -117,7 +145,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 2,
+    "verification_complete": false
   },
   {
     "canonical_id": "huaca-san-borja",
@@ -125,7 +155,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "quinta-leuro-y-quintas-historicas",
@@ -133,7 +165,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "estacion-restos-del-funicular-de-barranco",
@@ -141,7 +175,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "reducto-2-casa-museo-caceres",
@@ -149,7 +185,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "biblioteca-municipal-de-barranco",
@@ -157,7 +195,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "santisima-cruz-del-viajero",
@@ -165,7 +205,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "torres-centro-empresarial-camino-real",
@@ -173,7 +215,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "lugar-de-la-memoria-lum",
@@ -181,7 +225,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "antigua-taberna-queirolo",
@@ -189,7 +235,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "casa-museo-marina-nunez-del-prado",
@@ -197,7 +245,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "parque-tradiciones-ricardo-palma",
@@ -205,7 +255,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
@@ -213,7 +265,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "centro-de-convenciones-estacion-la-cultura",
@@ -221,7 +275,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "biblioteca-nacional-del-peru",
@@ -229,7 +285,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
@@ -237,7 +295,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
@@ -245,7 +305,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "gran-teatro-nacional",
@@ -253,7 +315,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "mirador-catalina-recavarren",
@@ -261,7 +325,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "parque-municipal-y-entorno-civico",
@@ -269,7 +335,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "mac-lima-parque-espejo-de-agua",
@@ -277,7 +345,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "puente-villena-bajada-balta-costa-verde",
@@ -285,7 +355,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "casa-raul-porras-barrenechea",
@@ -293,7 +365,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "casa-hacienda-orbea",
@@ -301,7 +375,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "calle-choquehuanca-basadre-residencial",
@@ -309,7 +385,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
@@ -317,7 +395,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "museo-larco-jardines",
@@ -325,7 +405,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "bosque-el-olivar",
@@ -333,7 +415,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "huaca-huallamarca",
@@ -341,7 +425,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
@@ -349,7 +435,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "saenz-pena-domeyer-pasajes",
@@ -357,7 +445,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "casa-emilio-harth-terre",
@@ -365,7 +455,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "parque-de-la-felicidad",
@@ -373,7 +465,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
@@ -381,7 +475,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "iglesia-santisima-cruz",
@@ -389,7 +485,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "huaca-pucllana",
@@ -397,7 +495,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
@@ -405,7 +505,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "casa-hacienda-moreyra",
@@ -413,7 +515,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "torre-banco-de-la-nacion",
@@ -421,7 +525,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "parque-maria-reiche",
@@ -429,7 +535,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "parroquia-nuestra-senora-del-pilar",
@@ -437,7 +545,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
@@ -445,7 +555,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "country-club-lima-hotel",
@@ -453,7 +565,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "pentagonito-y-bordes-civicos",
@@ -461,7 +575,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "faro-la-marina-parque-antonio-raimondi",
@@ -469,7 +585,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "casa-museo-ricardo-palma",
@@ -477,7 +595,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "ovalo-de-miraflores",
@@ -485,7 +605,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "coliseo-eduardo-dibos",
@@ -493,7 +615,9 @@
     "district": "San Borja",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "huaca-julio-c-tello",
@@ -501,7 +625,9 @@
     "district": "Pueblo Libre",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "palacio-municipal-virgen-milagrosa",
@@ -509,7 +635,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "la-ermita-de-barranco",
@@ -517,7 +645,9 @@
     "district": "Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "parque-kennedy-gatos-civic-core",
@@ -525,7 +655,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "parque-del-amor-el-beso",
@@ -533,7 +665,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "larcomar-acantilado",
@@ -541,7 +675,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "centro-cultural-ccori-wasi",
@@ -549,7 +685,9 @@
     "district": "Miraflores",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "centro-civico-de-lima-real-plaza",
@@ -557,7 +695,9 @@
     "district": "Lima",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "agrupamiento-chabuca-granda",
@@ -565,7 +705,9 @@
     "district": "Rímac",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "edificio-alvarez-calderon",
@@ -573,7 +715,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "quinta-heeren-restauracion-2026",
@@ -581,7 +725,9 @@
     "district": "Lima",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
@@ -589,7 +735,9 @@
     "district": "Lima",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "jiron-trujillo-puente-de-piedra",
@@ -597,7 +745,9 @@
     "district": "Rímac",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
@@ -605,7 +755,9 @@
     "district": "Miraflores–Barranco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "jiron-de-la-union",
@@ -613,7 +765,9 @@
     "district": "Lima",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "damero-de-lima-interseccion-como-objeto",
@@ -621,7 +775,9 @@
     "district": "Lima",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "casa-garcia-bryce",
@@ -629,7 +785,9 @@
     "district": "San Isidro",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "aulario-104-universidad-ricardo-palma",
@@ -637,7 +795,9 @@
     "district": "Santiago de Surco",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   },
   {
     "canonical_id": "cantagallo-comunidad-shipibo-konibo",
@@ -645,6 +805,8 @@
     "district": "Rímac",
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
-    "requires_current_verification": true
+    "requires_current_verification": true,
+    "visual_reference_count": 0,
+    "verification_complete": false
   }
 ]
