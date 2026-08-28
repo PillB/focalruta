@@ -1,0 +1,219 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-18",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "parque-de-la-felicidad",
+      "reference_families": [
+        {
+          "reference_id": "VR-FELICIDAD-01",
+          "page_url": "https://www.gob.pe/institucion/munisanborja/noticias/1307814-sumaq-plantas-el-primer-festival-de-orquideas-y-plantas-de-coleccion-en-san-borja",
+          "image_url": "https://www.gob.pe/institucion/munisanborja/noticias/1307814-sumaq-plantas-el-primer-festival-de-orquideas-y-plantas-de-coleccion-en-san-borja",
+          "publisher": "Municipalidad Distrital de San Borja · Gob.pe",
+          "viewpoint_family": "PARK_AS_TEMPORARY_ECOLOGICAL_MARKET",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "wide/normal/detail",
+          "light_weather": "daylight",
+          "people_activity": "exhibiting, buying, diagnosing plants and gathering around temporary stalls",
+          "edge_background": "lawns, paths, plant stands and surrounding residential edge",
+          "cliche_cluster": "colorful public-fair coverage",
+          "proves": "A December 2025 municipal event shows the park acting as civic ecological infrastructure rather than only picturesque landscape.",
+          "cannot_prove": "A recurring 2026 schedule or normal-day occupancy.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FELICIDAD-02",
+          "page_url": "https://www.google.com/maps/search/Parque%20de%20la%20Felicidad%2C%20San%20Borja%2C%20Lima%2C%20Lima%20Metropolitana%2C%20Lima%2C%20Per%C3%BA",
+          "image_url": "https://www.google.com/maps/search/Parque%20de%20la%20Felicidad%2C%20San%20Borja%2C%20Lima%2C%20Lima%20Metropolitana%2C%20Lima%2C%20Per%C3%BA",
+          "publisher": "Google Maps place listing",
+          "viewpoint_family": "LAGOON_BRIDGE_AMPHITHEATER_AND_PLAY_NETWORK",
+          "likely_camera_height": "visitor eye level and mapped aerial",
+          "fov_class": "site-wide/wide",
+          "light_weather": "mixed user-contributed conditions",
+          "people_activity": "picnicking, playing, crossing the bridge and occupying the amphitheater",
+          "edge_background": "artificial lake, bridge, lawns, playground and treatment plant",
+          "cliche_cluster": "lake reflection and ornamental bridge",
+          "proves": "The current place listing separates several spatial components and records an always-open public-park claim.",
+          "cannot_prove": "Municipal authority for the hours, image dates or present maintenance; verify before route.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FELICIDAD-03",
+          "page_url": "https://cdn.www.gob.pe/uploads/document/file/5386815/4819640-compendio-2008.pdf",
+          "image_url": "https://cdn.www.gob.pe/uploads/document/file/5386815/4819640-compendio-2008.pdf",
+          "publisher": "Municipalidad Distrital de San Borja · statistical compendium",
+          "viewpoint_family": "PARK_WITHIN_DISTRICT_GREEN_SYSTEM",
+          "likely_camera_height": "planning/inventory level",
+          "fov_class": "district/site-wide",
+          "light_weather": "not fixed",
+          "people_activity": "recreating within a larger municipal park network",
+          "edge_background": "park boundary, Boulevard de Surco and adjacent green circuit",
+          "cliche_cluster": "park inventory",
+          "proves": "The official compendium establishes the park as part of San Borja's maintained municipal green-space system.",
+          "cannot_prove": "Current design details or a unique one-frame relationship.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "casa-museo-ricardo-palma",
+      "reference_families": [
+        {
+          "reference_id": "VR-RPALMA-01",
+          "page_url": "https://www.miraflores.gob.pe/los-servicios/cultura-y-turismo/cultura-miraflores/",
+          "image_url": "https://www.miraflores.gob.pe/los-servicios/cultura-y-turismo/cultura-miraflores/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "EARLY_TWENTIETH_CENTURY_RANCHITO_CURRENTLY_IN_MAINTENANCE",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "wide/normal/interior",
+          "light_weather": "day and interior ambient light",
+          "people_activity": "historically living and writing; current visiting suspended by maintenance",
+          "edge_background": "domestic rooms, small-scale façade and General Suárez residential street",
+          "cliche_cluster": "writer's desk and period-room tableau",
+          "proves": "The current operator explicitly marks the museum in maintenance and identifies the house as Palma's 1912–1919 residence with restored 2019 museography.",
+          "cannot_prove": "Reopening date, present interior condition or public access.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-RPALMA-02",
+          "page_url": "https://www.miraflores.gob.pe/municipalidad-de-miraflores-inaugura-este-martes-6-de-octubre-la-restauracion-y-nueva-museografia-de-casa-museo-ricardo-palma/",
+          "image_url": "https://www.miraflores.gob.pe/municipalidad-de-miraflores-inaugura-este-martes-6-de-octubre-la-restauracion-y-nueva-museografia-de-casa-museo-ricardo-palma/",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "RESTORED_DOMESTIC_ROOMS_AND_NEW_MUSEOGRAPHY",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "interior normal/detail",
+          "light_weather": "controlled interior light",
+          "people_activity": "moving through a domestic sequence re-scripted as museum",
+          "edge_background": "period furnishings, digital interpretation and compact ranch-house rooms",
+          "cliche_cluster": "empty literary-house interior",
+          "proves": "The 2020 reopening documents the intervention layer that must be distinguished from the original domestic spatial contract.",
+          "cannot_prove": "Any 2026 condition while maintenance is active.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-RPALMA-03",
+          "page_url": "https://www.miraflores.gob.pe/wp-content/uploads/2024/06/INFORME-DE-RENDICION-DE-CUENTAS-2024-I-MAYO-DE-2024.pdf",
+          "image_url": "https://www.miraflores.gob.pe/wp-content/uploads/2024/06/INFORME-DE-RENDICION-DE-CUENTAS-2024-I-MAYO-DE-2024.pdf",
+          "publisher": "Municipalidad Distrital de Miraflores",
+          "viewpoint_family": "ADJACENT_CONSTRUCTION_DAMAGE_AND_MAINTENANCE_RESPONSE",
+          "likely_camera_height": "technical inspection level",
+          "fov_class": "detail/normal",
+          "light_weather": "work light/daylight",
+          "people_activity": "repairing and monitoring damage to a small heritage house beside active development",
+          "edge_background": "repaired wall, neighboring construction and vulnerable domestic fabric",
+          "cliche_cluster": "maintenance-report detail",
+          "proves": "Municipal reporting documents a wall repair and monitoring of damage attributed to adjacent construction, yielding a concrete current-life conflict.",
+          "cannot_prove": "Ongoing damage in 2026 or a publicly visible condition.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "centro-cultural-ccori-wasi",
+      "reference_families": [
+        {
+          "reference_id": "VR-CCORI-01",
+          "page_url": "https://www.urp.edu.pe/oficinas/centro-cultural-ccoriwasi/",
+          "image_url": "https://www.urp.edu.pe/oficinas/centro-cultural-ccoriwasi/",
+          "publisher": "Universidad Ricardo Palma",
+          "viewpoint_family": "TRADITIONAL_HOUSE_RESTORED_FOR_GALLERY_AUDITORIUM_LIBRARY",
+          "likely_camera_height": "visitor and professional documentation level",
+          "fov_class": "wide/normal/interior",
+          "light_weather": "day and controlled interior light",
+          "people_activity": "viewing exhibitions, attending talks and reading",
+          "edge_background": "restored casona, inserted cultural rooms and Avenida Arequipa threshold",
+          "cliche_cluster": "award-winning empty adaptive reuse",
+          "proves": "The operator documents the 2004 Baracco–Bonilla conversion and the continuing gallery, auditorium and library program.",
+          "cannot_prove": "Daily crowd pattern, current exhibition installation or unrestricted photography.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CCORI-02",
+          "page_url": "https://www.urp.edu.pe/investigacion/centro-cultural-ccoriwasi/",
+          "image_url": "https://www.urp.edu.pe/investigacion/centro-cultural-ccoriwasi/",
+          "publisher": "Universidad Ricardo Palma",
+          "viewpoint_family": "ARCHITECTURE_STUDENT_WORK_REOCCUPIES_FORMER_CAMPUS_HOUSE",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "gallery wide/normal/detail",
+          "light_weather": "interior exhibition light",
+          "people_activity": "students exhibiting, visitors comparing projects and circulating through the adapted house",
+          "edge_background": "central gallery, two auxiliary rooms and traces of the original casona",
+          "cliche_cluster": "architecture-school exhibition panels",
+          "proves": "The university records a concrete exhibition family that reconnects the building to its earlier architecture-teaching occupation.",
+          "cannot_prove": "A current August 2026 show or exhibit layout.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CCORI-03",
+          "page_url": "https://es.linkedin.com/posts/universidad-ricardo-palma_universidadricardopalma-ccoriwasi-artesvisuales-activity-7480030965566873600-jb6F",
+          "image_url": "https://es.linkedin.com/posts/universidad-ricardo-palma_universidadricardopalma-ccoriwasi-artesvisuales-activity-7480030965566873600-jb6F",
+          "publisher": "Universidad Ricardo Palma",
+          "viewpoint_family": "CURRENT_2026_EXHIBITION_AND_OCCUPIED_GALLERY",
+          "likely_camera_height": "event eye level",
+          "fov_class": "interior normal/wide-normal",
+          "light_weather": "gallery light",
+          "people_activity": "opening, looking, meeting and moving among more than thirty works",
+          "edge_background": "contemporary art, restored walls and visitor circulation",
+          "cliche_cluster": "exhibition-opening documentation",
+          "proves": "A July 2026 university post corroborates active, free, seven-day cultural occupation.",
+          "cannot_prove": "The next exhibition, quiet-hour availability or photography conditions.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "aulario-104-universidad-ricardo-palma",
+      "reference_families": [
+        {
+          "reference_id": "VR-A104-01",
+          "page_url": "https://inesmoisset.com/wp-content/uploads/2016/04/entrevista-juvenal-baracco-3060n38.pdf",
+          "image_url": "https://inesmoisset.com/wp-content/uploads/2016/04/entrevista-juvenal-baracco-3060n38.pdf",
+          "publisher": "30-60 Cuaderno Latinoamericano de Arquitectura",
+          "viewpoint_family": "LONG_THIN_CLASSROOM_BAR_AND_CAMPUS_MEMORY",
+          "likely_camera_height": "professional architectural documentation",
+          "fov_class": "site-wide/wide/section",
+          "light_weather": "daylight",
+          "people_activity": "moving along a 313 m learning bar and occupying stacked classrooms",
+          "edge_background": "six levels, double-height zones and long campus circulation",
+          "cliche_cluster": "award-project exterior overview",
+          "proves": "The architect interview establishes authorship, 2009–2011 execution, size and an explicit design discourse relating innovation to Peruvian spatial memory.",
+          "cannot_prove": "Current student flows, access or whether the discourse is visually legible without explanation.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-A104-02",
+          "page_url": "https://files.core.ac.uk/download/530013351.pdf",
+          "image_url": "https://files.core.ac.uk/download/530013351.pdf",
+          "publisher": "Universidad Ricardo Palma repository mirror",
+          "viewpoint_family": "SEMIBASEMENT_DOUBLE_HEIGHT_AND_CLASSROOM_SECTION",
+          "likely_camera_height": "analytical plan/section and campus level",
+          "fov_class": "section/site-wide",
+          "light_weather": "not fixed",
+          "people_activity": "entering at split grade, crossing double-height levels and attending classrooms",
+          "edge_background": "semibasement, six-storey envelope and campus approach",
+          "cliche_cluster": "diagrammatic precedent analysis",
+          "proves": "The academic precedent analysis identifies level changes and double-height organization that can generate a causal movement frame.",
+          "cannot_prove": "Current circulation rules or source-image dates.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-A104-03",
+          "page_url": "https://www.biau.es/index_option-com_content-view-article-id-922-viviendas-equipamientos-educativos-y-actuaciones-de-rehabilitacion-compiten-por-peru-en-la-fase-final-de-la-viii-biau-catid-7-noticias-Itemid-104.html",
+          "image_url": "https://www.biau.es/index_option-com_content-view-article-id-922-viviendas-equipamientos-educativos-y-actuaciones-de-rehabilitacion-compiten-por-peru-en-la-fase-final-de-la-viii-biau-catid-7-noticias-Itemid-104.html",
+          "publisher": "Bienal Iberoamericana de Arquitectura y Urbanismo",
+          "viewpoint_family": "CONTEMPORARY_EDUCATIONAL_BUILDING_IN_AWARD_CONTEXT",
+          "likely_camera_height": "professional exterior documentation",
+          "fov_class": "wide/site-wide",
+          "light_weather": "daylight",
+          "people_activity": "institutional occupation implied, not documented",
+          "edge_background": "new classroom building and surrounding campus fabric",
+          "cliche_cluster": "jury-submission hero view",
+          "proves": "The BIAU record corroborates the building's professional significance and correct identity.",
+          "cannot_prove": "Competition relevance, current use quality or an original field viewpoint; fame supplies no score.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}
