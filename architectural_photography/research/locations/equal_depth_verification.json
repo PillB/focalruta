@@ -6525,97 +6525,172 @@
       "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
       "name": "Plaza de los Libertadores + Santa María Magdalena",
       "district": "Pueblo Libre",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LIBERTADORES-2026"
-          ]
+            "SRC-LOC-LIBERTADORES-ROUTE"
+          ],
+          "answer": "Municipal tourism records distinguish the open Plaza de los Libertadores, Plazoleta Santa María Magdalena and parish within Pueblo Libre's historic route."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-ROUTE",
+            "SRC-LOC-LIBERTADORES-REYES-2026"
+          ],
+          "answer": "The church threshold, adjoining plazoleta and larger civic plaza form a sequence for worship, procession, civic assembly and neighborhood encounter."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LIBERTADORES-2026"
-          ]
+            "SRC-LOC-LIBERTADORES-JUNE-2026",
+            "SRC-LOC-LIBERTADORES-REYES-2026"
+          ],
+          "answer": "Municipal 2026 evidence confirms cultural events, family gathering and procession between the parish and plaza; ordinary cadence remains a field observation."
         },
         "human_verbs_or_meaningful_absence": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-LIBERTADORES-2026"
-          ]
+            "SRC-LOC-LIBERTADORES-REYES-2026"
+          ],
+          "answer": "Enter, exit, process, cross, wait, gather and watch are credible. The strongest relation is movement beginning at the parish threshold and resolving in the civic plaza."
         },
         "architectural_causality": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-LIBERTADORES-2026"
-          ]
+            "SRC-LOC-LIBERTADORES-ROUTE"
+          ],
+          "answer": "Aligned thresholds, open paving, fountain/landscape edges and the church frontage create an origin, passage and receiving field for collective movement."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-ROUTE"
+          ],
+          "answer": "Church-front postcard, empty plaza panorama and ornate interior dominate. The underused frame is the diagonal church-to-plaza route activated by one readable transition."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-JUNE-2026"
+          ],
+          "answer": "Late side light or balanced blue hour can separate white façade, dark threshold, paving and figures; picturesque night lighting alone is insufficient."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-ROUTE"
+          ],
+          "answer": "Test plaza-center diagonal toward the parish, side of the church threshold and low behind a plaza edge. Start 50 mm for origin/action/destination; 35 mm only for the full sequence and 85 mm from distance for layered exit/crossing."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-ROUTE",
+            "SRC-LOC-LIBERTADORES-JUNE-2026"
+          ],
+          "answer": "Verify same-day worship/events, remain outside ritual paths, avoid identifiable children, do not photograph worship closely without consent and cap ordinary observation at 25 minutes."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-REYES-2026"
+          ],
+          "answer": "The frame passes when the built sequence visibly turns private devotion into public civic movement. A standalone façade, fountain or crowd fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-ROUTE"
+          ],
+          "position": "Plaza-center diagonal aligning church threshold, plazoleta and civic field",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals origin–passage–destination",
+          "light": "Soft morning",
+          "edge_guards": "Avoid clipped towers, palms over façade and parked vehicles",
+          "wait_trigger": "Central diagonal clears",
+          "kill_trigger": "Reads as generic historic plaza",
+          "access_ethics": "Public plaza only",
+          "fallback": "Side-threshold structural sequence"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-REYES-2026"
+          ],
+          "position": "Side of parish exit facing plaza destination",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult exits or processes as others wait across the plaza",
+          "light": "Bright overcast",
+          "edge_guards": "Separate threshold figure from waiting group and lamps",
+          "wait_trigger": "Origin and destination actions align",
+          "kill_trigger": "People only add scale",
+          "access_ethics": "Respect worship; no close identifiable minors",
+          "fallback": "Back-facing adult crossing from threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-ROUTE"
+          ],
+          "position": "Low behind plaza edge looking obliquely across—not frontally at—the church",
+          "camera_height": "0.8 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian crosses between fountain edge and dark threshold",
+          "light": "Garúa daylight",
+          "edge_guards": "No centered façade or fountain",
+          "wait_trigger": "Figure bridges both spatial bands",
+          "kill_trigger": "Becomes tourist portrait",
+          "access_ethics": "Do not obstruct path",
+          "fallback": "Empty threshold-to-edge line"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-JUNE-2026"
+          ],
+          "position": "Far side angle across paving toward façade relief",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/250 s, protect façade",
+          "expected_action": "Long shadow or figure crosses paving seam",
+          "light": "Late-afternoon side light",
+          "edge_guards": "Retain threshold and plaza material bands",
+          "wait_trigger": "Shadow points toward entrance",
+          "kill_trigger": "Reads as decorative church light",
+          "access_ethics": "Public edge",
+          "fallback": "Empty raking-light proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIBERTADORES-REYES-2026"
+          ],
+          "position": "Oblique plaza edge combining parish exit, processional line and civic gathering point",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Exit, crossing and reception occur in three layers",
+          "light": "Soft late afternoon",
+          "edge_guards": "Keep all three layers distinct",
+          "wait_trigger": "Three verbs align",
+          "kill_trigger": "Caption is needed to connect church and plaza",
+          "access_ethics": "Stay outside ceremony; protect privacy",
+          "fallback": "Two-layer exit and crossing"
         }
       },
       "visual_reference_families": [
@@ -6669,9 +6744,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Plaza de los Libertadores + Santa María Magdalena puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a procession, worship exit or ordinary crossing make the church–plazoleta–civic-plaza sequence legible as one spatial system rather than two landmarks?",
+        "Which palm, lamp, fountain, parked vehicle or overlapping figure would break the origin–path–destination relation?",
+        "Does moving onto the diagonal between parish threshold and plaza center reveal the sequence better than widening from 50 mm to 35 mm?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -6749,10 +6824,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-LIBERTADORES-2026"
+        "SRC-LOC-LIBERTADORES-2026",
+        "SRC-LOC-LIBERTADORES-JUNE-2026",
+        "SRC-LOC-LIBERTADORES-REYES-2026",
+        "SRC-LOC-LIBERTADORES-ROUTE"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "2026 ceremonies prove episodic church-to-plaza movement, not ordinary daily density.",
+        "The municipality lists plaza, plazoleta and parish as open, but this does not establish interior-photography conditions or a recurring worship/event schedule."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -16890,105 +16971,175 @@
       "canonical_id": "agrupamiento-chabuca-granda",
       "name": "Agrupamiento Chabuca Granda",
       "district": "Rímac",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
+            "SRC-LOC-CHABUCA-BN-1984",
             "SRC-LOC-CHABUCA-PUCP"
-          ]
+          ],
+          "answer": "The 1984 Rímac project contains 48 dwellings and 14 shops and was designed by José García Bryce as housing/commercial fabric facing the Alameda de los Descalzos."
         },
         "original_spatial_contract": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CHABUCA-PUCP"
-          ]
+            "SRC-LOC-CHABUCA-PUCP",
+            "SRC-LOC-CHABUCA-BN-1984"
+          ],
+          "answer": "It densified house, patio and quinta types, completed the historic block edge and used transitional common spaces to connect city, commerce and dwelling."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHABUCA-PUCP-2024"
+          ],
+          "answer": "Current scholarship continues to treat it as inhabited collective housing whose common spaces support belonging; exact shop activity, maintenance and access require direct verification."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHABUCA-PUCP-2024",
+            "SRC-LOC-CHABUCA-BN-1984"
+          ],
+          "answer": "Enter, return, sell, buy, greet, watch and tend are credible. The decisive verb is a resident or customer crossing the layered threshold between Alameda-facing edge and shared housing space."
         },
         "architectural_causality": {
           "status": "CORROBORATED",
           "source_ids": [
             "SRC-LOC-CHABUCA-PUCP"
-          ]
+          ],
+          "answer": "Completed block frontage, shop thresholds, elevated/common passages and courtyard-like transitions convert a historic street edge into graduated collective access."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHABUCA-PUCP",
+            "SRC-LOC-CHABUCA-PUCP-2024"
+          ],
+          "answer": "Formal frontal documentation and Alameda context views dominate. The underrepresented scene is a present domestic/commercial crossing that reveals the typological transition without requiring a plan."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHABUCA-PUCP"
+          ],
+          "answer": "Lateral light can distinguish recesses, galleries and block depth; garúa can emphasize lived surface and threshold hierarchy without romanticizing deterioration."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHABUCA-PUCP"
+          ],
+          "answer": "Test public block corner, shop/shared-entry axis and lawful Alameda-side distance. Start 50 mm for threshold/action, 35 mm for block-to-Alameda relation and 85 mm only when distance preserves the complete contextual layer."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHABUCA-PUCP-2024"
+          ],
+          "answer": "Remain on public streets unless invited, avoid windows and identifiable children, ask before sustained photography near homes/shops, observe 20 minutes and leave if residents object."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHABUCA-PUCP",
+            "SRC-LOC-CHABUCA-PUCP-2024"
+          ],
+          "answer": "The frame passes when a present act makes the old typological strategy legible as lived urban continuity. A contextual façade portrait or distant monument stack fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W07"
+            "SRC-LOC-CHABUCA-PUCP"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Public block corner showing completed frontage, recessed entry and Alameda edge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals graduated edge",
+          "light": "Soft morning",
+          "edge_guards": "Control cars, wires and clipped corner",
+          "wait_trigger": "Entry and frontage clear",
+          "kill_trigger": "Reads as isolated 1980s façade",
+          "access_ethics": "Public sidewalk only",
+          "fallback": "Normal-lens entry hierarchy"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W07"
+            "SRC-LOC-CHABUCA-PUCP-2024"
           ],
-          "label": "B · HABITAR",
+          "position": "Public side of shared/shop threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Resident returns or customer crosses while another person occupies the edge",
+          "light": "Bright overcast",
+          "edge_guards": "Separate action from gate and parked vehicles",
+          "wait_trigger": "Crossing and edge occupation align",
+          "kill_trigger": "Person only supplies scale",
+          "access_ethics": "No windows/minors; leave on objection",
+          "fallback": "Back-facing adult entering shared threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W07"
+            "SRC-LOC-CHABUCA-PUCP"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: documentación frontal del conjunto o Alameda aislada. Busca la relación definida por: ¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Oblique public edge looking from recess toward Alameda—not at a frontal elevation",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure moves from deep threshold into historic street field",
+          "light": "Garúa daylight",
+          "edge_guards": "No centered monument or full façade",
+          "wait_trigger": "Figure bridges recess and street",
+          "kill_trigger": "Context becomes decorative backdrop",
+          "access_ethics": "Remain outside residential interior",
+          "fallback": "Empty recess-to-Alameda relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W07"
+            "SRC-LOC-CHABUCA-PUCP"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "50 mm líder · 35 mm para calle elevada + contexto · 85 mm para apilar vivienda moderna y monumento",
-          "plan": "mañana o tarde lateral; necesitamos volumen y vida, no cielo dramático",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Distant public angle across recessed gallery and masonry planes",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Resident shadow or laundry movement crosses one recess",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain block depth and threshold",
+          "wait_trigger": "Shadow separates planes",
+          "kill_trigger": "Reads as texture or deterioration study",
+          "access_ethics": "Avoid private interior detail",
+          "fallback": "Unoccupied light/depth proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W07"
+            "SRC-LOC-CHABUCA-PUCP",
+            "SRC-LOC-CHABUCA-PUCP-2024"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "50 mm líder · 35 mm para calle elevada + contexto · 85 mm para apilar vivienda moderna y monumento",
-          "plan": "Residente aparece en la calle elevada/balcón mientras, al fondo, la Alameda o Santa Liberata establece el contexto histórico.",
-          "gate": "¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?"
+          "position": "Public corner layering Alameda edge, commercial/shared threshold and dwelling circulation",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Buying/returning and greeting occur across two threshold depths",
+          "light": "Soft late afternoon",
+          "edge_guards": "Do not let monument or traffic dominate",
+          "wait_trigger": "Two linked verbs align",
+          "kill_trigger": "Caption is needed to explain typological continuity",
+          "access_ethics": "Public position and respectful distance",
+          "fallback": "One returning resident plus active threshold"
         }
       },
       "visual_reference_families": [
@@ -17042,9 +17193,9 @@
         }
       ],
       "composition_questions": [
-        "¿Puede un gesto doméstico revelar que modernidad y patrimonio dejaron de ser opuestos y ahora comparten la misma memoria cotidiana?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one ordinary domestic or commercial gesture show how the reinterpretation of patio, quinta and street still mediates collective life?",
+        "Which parked vehicle, gate, laundry overlap or distant monument would erase the transition from public street to shared threshold?",
+        "Does stepping to the block corner or shared-entry axis reveal contextual continuity better than compressing Alameda and housing with 85 mm?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -17112,10 +17263,15 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-CHABUCA-PUCP"
+        "SRC-LOC-CHABUCA-BN-1984",
+        "SRC-LOC-CHABUCA-PUCP",
+        "SRC-LOC-CHABUCA-PUCP-2024"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Current academic work treats Chabuca Granda as a living housing precedent but does not verify which of the original fourteen shops remain active.",
+        "Public sources do not establish unrestricted access to internal common areas or resident consent for deliberate photography."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -18854,112 +19010,173 @@
       "canonical_id": "casa-garcia-bryce",
       "name": "Casa García Bryce",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-GARCIABRYCE-2025"
-          ]
+            "SRC-LOC-GARCIABRYCE-CAMMP"
+          ],
+          "answer": "Casa García Bryce/Casa Eguiguren is a 1951–1952 private dwelling at Eguiguren 221, designed on a corner site with three public edges."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-GARCIABRYCE-CAMMP"
+          ],
+          "answer": "A generous setback and portico lead to vestibule, living/dining and a gallery around the patio, while separate study/service circulation addresses the boulevard and park edges."
         },
         "current_life": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-GARCIABRYCE-2025"
-          ]
+            "SRC-LOC-GARCIABRYCE-CAMMP",
+            "SRC-LOC-GARCIABRYCE-PUCP-EVENT"
+          ],
+          "answer": "It remains a dwelling in good recorded condition and exceptionally hosted a registered guided cultural event in 2025; no routine public access is established."
         },
         "human_verbs_or_meaningful_absence": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-GARCIABRYCE-2025"
-          ]
+            "SRC-LOC-GARCIABRYCE-PUCP-EVENT"
+          ],
+          "answer": "Approach, enter, guide, observe, converse and remember are evidenced during authorized occupation. Without access, meaningful absence must rely only on public-edge traces and spatial order."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GARCIABRYCE-CAMMP"
+          ],
+          "answer": "Setback, two-column portico, emphasized door, vestibule, gallery and patio create a controlled sequence from public edge to domestic center while separate circulation protects privacy."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GARCIABRYCE-CAMMP"
+          ],
+          "answer": "Canonical façade, archival/current comparison and plan views dominate. The underused lawful relation compares how three public edges announce different degrees of domestic access."
         },
         "light_material_geometry": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-GARCIABRYCE-2025"
-          ]
+            "SRC-LOC-GARCIABRYCE-CAMMP",
+            "SRC-LOC-GARCIABRYCE-PUCP-EVENT"
+          ],
+          "answer": "Natural light reinforces the portico and interior sequence; white render, painted brick, stone base and projecting volume can reveal depth without turning private life into evidence."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GARCIABRYCE-CAMMP"
+          ],
+          "answer": "Test only public Eguiguren frontage, boulevard side and Roosevelt-park rear unless explicitly invited. Start 50 mm for portico/edge relation, 35 mm for lawful three-edge context and 85 mm for a distant material/threshold layer."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GARCIABRYCE-CAMMP",
+            "SRC-LOC-GARCIABRYCE-PUCP-EVENT"
+          ],
+          "answer": "No interior pursuit without explicit invitation. From public space avoid windows, occupants and prolonged surveillance; if no authorized event exists, cap the survey at ten minutes and use structure-only proofs."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GARCIABRYCE-CAMMP"
+          ],
+          "answer": "The frame passes only if a lawful public-edge image makes the graduated domestic threshold legible, or an authorized event shows learning shaped by that sequence. A catalogue façade fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-GARCIABRYCE-CAMMP"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Public Eguiguren sidewalk diagonal toward setback and two-column portico",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "No event; setback, portico and door must sequence clearly",
+          "light": "Soft morning",
+          "edge_guards": "Exclude windows, vehicles and clipped projecting volume",
+          "wait_trigger": "Public frontage clears",
+          "kill_trigger": "Reads as generic modern house",
+          "access_ethics": "Public sidewalk; no occupants/windows",
+          "fallback": "Boulevard-side volume relation"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-GARCIABRYCE-PUCP-EVENT"
           ],
-          "label": "B · HABITAR",
+          "position": "Only during authorized event, assigned edge facing portico and gallery",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Solo si hay actividad autorizada: visitante entrando bajo el pórtico mientras otro plano de patio/galería es visible.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/5.6–8, 1/250 s",
+          "expected_action": "Registered visitor enters while guide/observer occupies deeper plane",
+          "light": "Soft natural/interior light",
+          "edge_guards": "Separate figures from columns and door",
+          "wait_trigger": "Entry and learning gestures align",
+          "kill_trigger": "Event appears staged or architecture is incidental",
+          "access_ethics": "Explicit invitation and participant consent mandatory",
+          "fallback": "A_STRUCTURE from public edge"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-GARCIABRYCE-CAMMP"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: fachada de catálogo sin vida. Busca la relación definida por: ¿Puede una puerta que se abre convertir la casa simultáneamente en hogar, archivo y aula?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Public boulevard edge showing secondary frontage resolving toward Roosevelt park",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "No person required; different public edge changes access reading",
+          "light": "Garúa daylight",
+          "edge_guards": "No private window detail or centered façade",
+          "wait_trigger": "Sidewalk clears",
+          "kill_trigger": "Requires plan to understand three-edge thesis",
+          "access_ethics": "Public edge only",
+          "fallback": "Rear park-edge mass/setback relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-GARCIABRYCE-CAMMP"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "50 mm · 35 mm si acceso interior autorizado · 85 mm para pórtico/figura",
-          "plan": "luz natural suave; la casa debe sentirse habitada, no musealizada",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Distant public angle across portico, stone base and projecting upper volume",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s, protect white render",
+          "expected_action": "Raking light separates three façade planes",
+          "light": "Low lateral afternoon light",
+          "edge_guards": "No windows/occupants; retain entry context",
+          "wait_trigger": "Three planes separate tonally",
+          "kill_trigger": "Reads as abstract material crop",
+          "access_ethics": "No surveillance of dwelling",
+          "fallback": "Soft-light portico proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-GARCIABRYCE-CAMMP",
+            "SRC-LOC-GARCIABRYCE-PUCP-EVENT"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "50 mm · 35 mm si acceso interior autorizado · 85 mm para pórtico/figura",
-          "plan": "Solo si hay actividad autorizada: visitante entrando bajo el pórtico mientras otro plano de patio/galería es visible.",
-          "gate": "¿Puede una puerta que se abre convertir la casa simultáneamente en hogar, archivo y aula?"
+          "position": "Authorized portico edge connecting arrival, gallery and patio glimpse without private rooms",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Visitor arrival and guided observation align across threshold layers",
+          "light": "Soft daylight",
+          "edge_guards": "Exclude private rooms and overlapping participants",
+          "wait_trigger": "Two public-learning verbs align",
+          "kill_trigger": "No explicit authorization or caption must rescue domestic/public tension",
+          "access_ethics": "Event-only; consent and assigned position required",
+          "fallback": "Public A_STRUCTURE proof; never improvise interior access"
         }
       },
       "visual_reference_families": [
@@ -19013,9 +19230,9 @@
         }
       ],
       "composition_questions": [
-        "¿Puede una puerta que se abre convertir la casa simultáneamente en hogar, archivo y aula?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the three-edge site and portico make domestic privacy and occasional public learning legible without exposing residents?",
+        "Which wall, vegetation, vehicle or unauthorized interior glimpse would destroy the portico–threshold–patio sequence?",
+        "Does moving between the Eguiguren frontage, boulevard edge and Roosevelt-park rear reveal the house's spatial contract better than changing focal length?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -19083,10 +19300,15 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-GARCIABRYCE-2025"
+        "SRC-LOC-GARCIABRYCE-2025",
+        "SRC-LOC-GARCIABRYCE-CAMMP",
+        "SRC-LOC-GARCIABRYCE-PUCP-EVENT"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "CAMMP records current dwelling use and good condition but its evaluation date is not a same-day access guarantee.",
+        "The October 2025 registered event was exceptional; it cannot be converted into ordinary public access or a recurring activity window."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
