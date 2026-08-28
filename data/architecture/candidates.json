@@ -226,7 +226,7 @@
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
-    "visual_reference_count": 0,
+    "visual_reference_count": 3,
     "verification_complete": false
   },
   {
@@ -236,7 +236,7 @@
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
-    "visual_reference_count": 0,
+    "visual_reference_count": 3,
     "verification_complete": false
   },
   {
@@ -246,7 +246,7 @@
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
-    "visual_reference_count": 0,
+    "visual_reference_count": 3,
     "verification_complete": false
   },
   {
@@ -256,7 +256,7 @@
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
-    "visual_reference_count": 0,
+    "visual_reference_count": 3,
     "verification_complete": false
   },
   {

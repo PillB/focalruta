@@ -5113,7 +5113,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-LUM-01",
+          "page_url": "https://www.archdaily.com/584927/place-of-remembrance-barclay-and-crousse",
+          "image_url": "https://www.archdaily.com/584927/place-of-remembrance-barclay-and-crousse",
+          "publisher": "ArchDaily / photographs by Cristóbal Palma",
+          "viewpoint_family": "CLIFF_ESPLANADE_AND_BUILDING",
+          "likely_camera_height": "mixed professional architectural viewpoints",
+          "fov_class": "wide and very wide",
+          "light_weather": "coastal daylight",
+          "people_activity": "mostly controlled architectural documentation",
+          "edge_background": "cliff, reconciliation esplanade, concrete mass and bay horizon",
+          "cliche_cluster": "canonical award-building hero sequence",
+          "proves": "The building's public meaning begins in the cliff-like approach and civic esplanade, not at the façade.",
+          "cannot_prove": "Current public activity, least saturated field position or stable individual asset URLs.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LUM-02",
+          "page_url": "https://commons.wikimedia.org/wiki/Category:Building_of_Lugar_de_la_Memoria",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Interior%20LUM.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "INTERIOR_RAMP_AND_EXHIBITION",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "interior daylight",
+          "people_activity": "museum visitation varies across 18-file building category",
+          "edge_background": "ramps, concrete walls, exhibitions and openings",
+          "cliche_cluster": "museum interior record",
+          "proves": "The circulation ramp can connect bodily movement, exhibition content and architectural sequence.",
+          "cannot_prove": "Current exhibition layout, crowd timing or whether photography is practical during visits.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LUM-03",
+          "page_url": "https://barclaycrousse.squarespace.com/place-of-memory/",
+          "image_url": "https://barclaycrousse.squarespace.com/place-of-memory/",
+          "publisher": "Barclay & Crousse",
+          "viewpoint_family": "ROOF_RETURN_TO_CITY_AND_LANDSCAPE_MEMORY",
+          "likely_camera_height": "roof/terrace eye level",
+          "fov_class": "wide",
+          "light_weather": "coastal daylight",
+          "people_activity": "reflection and return movement intended by design",
+          "edge_background": "terraces, horizon, city and reconstructed ravine logic",
+          "cliche_cluster": "architect-authored landscape narrative",
+          "proves": "The completed route turns the visitor back toward city and coast, making movement architecturally causal.",
+          "cannot_prove": "A decisive present gesture or current roof access conditions.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Lugar de la Memoria (LUM) puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -5297,7 +5346,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-QUEIROLO-01",
+          "page_url": "https://antiguatabernaqueirolo.com/mi-barrio/",
+          "image_url": "https://antiguatabernaqueirolo.com/wp-content/uploads/2018/07/01-taberna-queirolo_06-1.jpg",
+          "publisher": "Antigua Taberna Queirolo",
+          "viewpoint_family": "EMPTY_DINING_ROOM_ORDER",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "warm interior light",
+          "people_activity": "none",
+          "edge_background": "tables, chairs, beams, photographs and terracotta floor",
+          "cliche_cluster": "nostalgic empty tavern interior",
+          "proves": "Furniture rhythm and accumulated wall memory make the room legible without patrons.",
+          "cannot_prove": "Current arrangement, service choreography or the strongest occupied moment.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-QUEIROLO-02",
+          "page_url": "https://antiguatabernaqueirolo.com/taberna-queirolo/la-antigua-taberna-queirolo-el-mejor-comienzo-de-la-ruta-del-pisco-en-lima/",
+          "image_url": "https://antiguatabernaqueirolo.com/wp-content/uploads/2018/12/empezando-la-ruta-del-pisco-en-lima-pueblo-libre.jpg",
+          "publisher": "Antigua Taberna Queirolo",
+          "viewpoint_family": "PATRONS_TABLES_AND_WALL_MEMORY",
+          "likely_camera_height": "seated/standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "warm interior light",
+          "people_activity": "drinking and conversation",
+          "edge_background": "small groups distributed between tables and framed photographs",
+          "cliche_cluster": "busy heritage restaurant",
+          "proves": "Conversation occupies the room in small clusters shaped by dense table spacing.",
+          "cannot_prove": "Repeatable gesture, current crowd density or a caption-independent architectural conflict.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-QUEIROLO-03",
+          "page_url": "https://gestion.pe/economia/empresas/bar-queirolo-el-conflicto-en-indecopi-por-el-nombre-entre-el-local-del-centro-y-la-taberna-de-pueblo-libre-noticia/",
+          "image_url": "https://gestion.pe/resizer/v2/LMQ57PLMGJGPZLDKYLF5CCAGXM.jpg?auth=5a63bd23aae8277cd0545f9c3994be6d2afaf0331a97b9bf4074cc54246404ad&height=1067&quality=75&smart=true&width=1600",
+          "publisher": "Gestión",
+          "viewpoint_family": "STREET_FACADE_AND_THRESHOLD",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "street/entry activity not established",
+          "edge_background": "historic frontage, signage and sidewalk threshold",
+          "cliche_cluster": "establishment identity façade",
+          "proves": "The street threshold is visually distinct from the enclosed nostalgic interior.",
+          "cannot_prove": "Current queue, pedestrian crossing or relation to nearby civic sites.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Antigua Taberna Queirolo puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -5479,7 +5577,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-MARINANP-01",
+          "page_url": "https://www.gob.pe/institucion/munisanisidro-lima/campa%C3%B1as/141769-casa-museo-marina-nunez-del-prado",
+          "image_url": "https://www.gob.pe/institucion/munisanisidro-lima/campa%C3%B1as/141769-casa-museo-marina-nunez-del-prado",
+          "publisher": "Municipalidad de San Isidro",
+          "viewpoint_family": "CURRENT_HOUSE_GARDEN_COLLECTION_GALLERY",
+          "likely_camera_height": "mixed official gallery viewpoints",
+          "fov_class": "mixed",
+          "light_weather": "exterior/interior mixed",
+          "people_activity": "visits, exhibitions and cultural activity documented",
+          "edge_background": "neocolonial house, sculpture garden, rooms and collection",
+          "cliche_cluster": "official museum gallery",
+          "proves": "A current 2026 municipal gallery presents house, garden and cultural program as one system.",
+          "cannot_prove": "Stable individual asset URLs, exact activity windows or visitor density.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MARINANP-02",
+          "page_url": "https://commons.wikimedia.org/wiki/File:Casa_Museo_Marina_Nu%C3%B1ez_del_Prado.jpg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Casa_Museo_Marina_Nu%C3%B1ez_del_Prado.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "SCULPTURE_GARDEN_AND_HOUSE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "none",
+          "edge_background": "bronze sculptures, lawn, mature trees and historic villa",
+          "cliche_cluster": "serene sculpture garden overview",
+          "proves": "Modern sculpture, garden and historic domestic architecture read together without a person.",
+          "cannot_prove": "Current object placement, visitor movement or best seasonal light.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MARINANP-03",
+          "page_url": "https://www.gob.pe/institucion/munisanisidro-lima/noticias/1343054-seguimos-acercando-el-arte-y-la-historia-a-traves-de-recorridos-en-la-casa-museo-marina-nunez-del-prado",
+          "image_url": "https://www.gob.pe/institucion/munisanisidro-lima/noticias/1343054-seguimos-acercando-el-arte-y-la-historia-a-traves-de-recorridos-en-la-casa-museo-marina-nunez-del-prado",
+          "publisher": "Municipalidad de San Isidro",
+          "viewpoint_family": "GUIDED_VISIT_AND_CREATIVE_RESIDUE",
+          "likely_camera_height": "mixed official event viewpoints",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "mixed",
+          "people_activity": "guided looking, listening and moving through former residence/workshop",
+          "edge_background": "artworks, rooms and garden linked by tour sequence",
+          "cliche_cluster": "cultural outreach coverage",
+          "proves": "Guided visits supply a credible human verb tied to the former residence and workshop.",
+          "cannot_prove": "Next tour time, permitted camera position or individual asset metadata.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Casa Museo Marina Núñez del Prado puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -5665,7 +5812,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-TRADICIONES-01",
+          "page_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=8853",
+          "image_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=8853",
+          "publisher": "MINCETUR tourism inventory",
+          "viewpoint_family": "LANDSCAPE_MOUNDS_PATHS_AND_CITY_BUFFER",
+          "likely_camera_height": "page-level gallery locator",
+          "fov_class": "mixed/unknown",
+          "light_weather": "not established",
+          "people_activity": "recreation documented as current program",
+          "edge_background": "grass mounds, paths, flowers, jacarandas and palms buffer traffic noise",
+          "cliche_cluster": "municipal green-space overview",
+          "proves": "The landscape topography was designed to mediate the surrounding urban noise and recreation.",
+          "cannot_prove": "Individual image conditions, activity timing or current maintenance detail.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-TRADICIONES-02",
+          "page_url": "https://tvrobles.lamula.pe/2018/02/06/municipalidad-de-miraflores-brindara-tour-gratuito-para-celebrar-el-nacimiento-de-ricardo-palma/tvrobles/",
+          "image_url": "https://lamula.pe/media/uploads/t/7fe220bfd5b855535cda36390786b1bc.jpg",
+          "publisher": "La Mula / municipal tour announcement",
+          "viewpoint_family": "SEATED_RICARDO_PALMA_SCULPTURE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "daylight",
+          "people_activity": "tour looking/posing implied; no crowd in reference",
+          "edge_background": "bronze seated figure, bench, lawn and path",
+          "cliche_cluster": "portrait with commemorative statue",
+          "proves": "The seated sculpture creates a human-scale invitation but is also the dominant photographic cliché.",
+          "cannot_prove": "A non-gimmick interaction, current tour schedule or wider landscape causality.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-TRADICIONES-03",
+          "page_url": "https://experiencias.com.pe/atraccion/TAT1148952407/parque-tradiciones",
+          "image_url": "https://experiencias.com.pe/public/image/variant/1200/450/zt6pqr24mog4wheaoy0j8mwvofc3/ParqueTradicional3.webp",
+          "publisher": "Experiencias Perú",
+          "viewpoint_family": "STATUE_PATH_AND_PLANTED_EDGE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "none",
+          "edge_background": "reading statue, paved platform, path and planted park",
+          "cliche_cluster": "clean tourist statue view",
+          "proves": "Widening beyond the figure can connect commemoration to the park's circulation.",
+          "cannot_prove": "Current pedestrian rhythm or a decisive relationship strong enough for one frame.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Parque Tradiciones / Ricardo Palma puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
