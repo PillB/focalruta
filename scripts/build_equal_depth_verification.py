@@ -10,6 +10,7 @@ CANDIDATES = ROOT / "data/architecture/candidates.json"
 OUTPUT = ROOT / "architectural_photography/research/locations/equal_depth_verification.json"
 EVIDENCE_DIR = ROOT / "architectural_photography/research/locations"
 EVIDENCE_GLOB = "equal_depth_evidence*.json"
+VISUAL_EVIDENCE_GLOB = "visual_reference_evidence*.json"
 MASTER82 = ROOT / "architectural_photography/FocalRuta_Bonilla_Master82_Ranking.json"
 PASSES = [
     "source_truth", "original_spatial_contract", "current_life",
@@ -112,11 +113,20 @@ def apply_evidence(records):
             for pass_name, pass_update in update["passes"].items():
                 target["passes"][pass_name] = pass_update
 
+def apply_visual_evidence(records):
+    by_id = {item["canonical_id"]: item for item in records}
+    for evidence_path in sorted(EVIDENCE_DIR.glob(VISUAL_EVIDENCE_GLOB)):
+        evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+        for update in evidence["candidate_updates"]:
+            target = by_id[update["canonical_id"]]
+            target["visual_reference_families"] = update["reference_families"]
+
 def main():
     candidates = json.loads(CANDIDATES.read_text(encoding="utf-8"))
     records = [record(candidate) for candidate in candidates]
     apply_historical_hypotheses(records)
     apply_evidence(records)
+    apply_visual_evidence(records)
     payload = {
         "ledger_id": "EQUAL-DEPTH-81-2026-08-28", "candidate_count": len(candidates),
         "completion_rule": "All ten passes, five proofs, current sources, visual families and composition questions must be VERIFIED or CORROBORATED.",

@@ -96,7 +96,24 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-PARQUE3-01",
+          "page_url": "https://surfergalaxy.com/skate/pueblo-libre-skate-plaza-peru-lima/",
+          "image_url": "https://surfergalaxy.com/wp-content/uploads/2022/06/Imagefromcontrol.surfergalaxy.comon2022-03-06at20.33.19.jpeg",
+          "publisher": "Surfergalaxy",
+          "viewpoint_family": "ACTIVITY_INSIDE_SKATE_PLAZA",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "overcast daylight",
+          "people_activity": "skaters waiting, sitting and riding",
+          "edge_background": "fence, trees and helicopter monument identify the civic edge",
+          "cliche_cluster": "action-only skate photograph",
+          "proves": "The concrete obstacles organize real waiting, riding and spectating behavior.",
+          "cannot_prove": "Current daily activity, access hours or the strongest architecture-led camera position.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Parque 3 de Octubre + Skatepark Muros Libres puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -279,7 +296,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-LIMATAMBO-01",
+          "page_url": "https://co.pinterest.com/pin/las-reconocen-son-las-torres-de-limatambo-un-icono-arquitectnico-de-san-borja--374502525234850440/",
+          "image_url": "https://i.pinimg.com/originals/17/6c/ed/176ced638a98c07e4f86306e88bea930.jpg",
+          "publisher": "Pinterest repost",
+          "viewpoint_family": "GATED_ENTRY_FRONTAL",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "overcast daylight",
+          "people_activity": "none legible",
+          "edge_background": "guardhouse, palms and gate dominate lower edge",
+          "cliche_cluster": "twin-tower icon from entrance",
+          "proves": "The paired towers and gate form the repeated default landmark view.",
+          "cannot_prove": "Authorship, current access or lived superblock activity.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LIMATAMBO-02",
+          "page_url": "https://rpp.pe/campanas/contenido-patrocinado/las-torres-de-limatambo-como-se-originaron-y-por-que-han-dejado-huella-en-cientos-de-familias-peruanas-noticia-1420996",
+          "image_url": "https://f.rpp-noticias.io/2022/07/27/500850_1291626.jpg?quality=80&width=1200",
+          "publisher": "RPP",
+          "viewpoint_family": "NEIGHBORHOOD_CONTEXT",
+          "likely_camera_height": "street level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not established by search record",
+          "edge_background": "low-rise residential fabric around towers",
+          "cliche_cluster": "towers as district emblem",
+          "proves": "The towers are read against the larger inhabited complex rather than as isolated objects.",
+          "cannot_prove": "A precise present-day human verb or underused angle.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LIMATAMBO-03",
+          "page_url": "https://wikimapia.org/1781114/Limatambo-Towers",
+          "image_url": "https://photos.wikimapia.org/p/00/00/27/90/34_big.jpg",
+          "publisher": "Wikimapia community image",
+          "viewpoint_family": "PARK_AND_SPORT_FOREGROUND",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "recreation implied, people not verified",
+          "edge_background": "sports court, lawn and paths layer the towers",
+          "cliche_cluster": "landscaped superblock overview",
+          "proves": "Open-space and recreation layers can make the superblock contract visible.",
+          "cannot_prove": "Current intensity of use or image provenance beyond the host page.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Torres de Limatambo / supermanzana puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -463,7 +529,72 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-SANFELIPE-01",
+          "page_url": "https://expositions-virtuelles.citedelarchitecture.fr/ciriani/02-03.html",
+          "image_url": "https://expositions-virtuelles.citedelarchitecture.fr/ciriani/images/PARTIE-02/02-03/VIGNETTES/11.jpg",
+          "publisher": "Cite de l'architecture et du patrimoine",
+          "viewpoint_family": "ARCHIVAL_FORMAL_ORDER",
+          "likely_camera_height": "unknown archival viewpoint",
+          "fov_class": "unknown",
+          "light_weather": "unknown",
+          "people_activity": "not established",
+          "edge_background": "formal phase-one spatial order",
+          "cliche_cluster": "canonical modernist documentation",
+          "proves": "A primary museum context documents the intended architectural order.",
+          "cannot_prove": "Current life, saturation or the exact field viewpoint.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-SANFELIPE-02",
+          "page_url": "https://www.archdaily.com/946440/architectural-classics-residencial-san-felipe-in-lima-enrique-ciriani-plus-mario-bernuy",
+          "image_url": "https://images.adsttc.com/media/images/573b/59da/e58e/ce71/5000/0002/large_jpg/100_6556_.jpg?1463507355=",
+          "publisher": "ArchDaily",
+          "viewpoint_family": "CENTRAL_AGORA_PEDESTRIANS",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "overcast daylight",
+          "people_activity": "pedestrians crossing central plaza",
+          "edge_background": "symmetrical blocks, planters and walkways",
+          "cliche_cluster": "canonical central-plaza symmetry",
+          "proves": "Pedestrian movement and spatial order coexist in the central square.",
+          "cannot_prove": "Whether this remains the least-saturated or strongest present-day relation.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-SANFELIPE-03",
+          "page_url": "https://www.alencastrearq.com/post/densificar-sin-perder-calidad-de-vida-el-camino-hacia-ciudades-m%C3%A1s-humanas-en-am%C3%A9rica-latina",
+          "image_url": "https://static.wixstatic.com/media/f2d12a_ac64de6c1dc440e3a06f20fa712b3621~mv2.webp/v1/fill/w_1000%2Ch_578%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01/f2d12a_ac64de6c1dc440e3a06f20fa712b3621~mv2.webp",
+          "publisher": "Alencastre Arquitectos",
+          "viewpoint_family": "LAWN_TREE_BUFFER",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "overcast daylight",
+          "people_activity": "none legible",
+          "edge_background": "mature trees and lawn layer the towers",
+          "cliche_cluster": "green modernist housing",
+          "proves": "Landscape buffers are a visible part of the density proposition.",
+          "cannot_prove": "Current social use or a one-frame contest event.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-SANFELIPE-04",
+          "page_url": "https://www.artofit.org/image-gallery/682154674803586835/architecture-classics-residencial-san-felipe-in-lima-enrique-ciriani-mario-bernuy/",
+          "image_url": "https://i.pinimg.com/originals/14/00/d9/1400d92e9a2cdca8d367afd806113dc4.jpg",
+          "publisher": "Artofit/Pinterest repost",
+          "viewpoint_family": "PILOTIS_REDUCTION",
+          "likely_camera_height": "low-to-eye level",
+          "fov_class": "normal",
+          "light_weather": "black-and-white directional light",
+          "people_activity": "none",
+          "edge_background": "pilotis and palms reduce the complex to structure",
+          "cliche_cluster": "formal modernist abstraction",
+          "proves": "Pilotis, shadow and façade rhythm support a reduction/light study.",
+          "cannot_prove": "Original author, current condition or lived use.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Residencial San Felipe puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -643,7 +774,40 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-PREVI-01",
+          "page_url": "https://hiddenarchitecture.net/previ-low-cost-housing-i/",
+          "image_url": "https://hiddenarchitecture.net/wp-content/uploads/2019/02/Land_Aerial.jpeg",
+          "publisher": "Hidden Architecture",
+          "viewpoint_family": "AERIAL_MASTERPLAN",
+          "likely_camera_height": "aerial",
+          "fov_class": "very wide",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "courtyard clusters and later extensions",
+          "cliche_cluster": "PREVI from above",
+          "proves": "The base grid and incremental transformation can be compared at neighborhood scale.",
+          "cannot_prove": "A ground-level field position achievable with the user's kit.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PREVI-02",
+          "page_url": "https://www.architecturalpapers.ch/indexda46.html?ID=95",
+          "image_url": "https://www.architecturalpapers.ch/images/articles/95_6_w1000h600.jpg",
+          "publisher": "disP/Architectural Papers",
+          "viewpoint_family": "GROUND_COURTYARD_PATHS",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "clear daylight",
+          "people_activity": "not legible",
+          "edge_background": "paths, lawns and modified modular houses",
+          "cliche_cluster": "clean courtyard documentation",
+          "proves": "Ground-level paths and shared green space remain readable against incremental houses.",
+          "cannot_prove": "Current activity or the degree of visual saturation across PREVI sectors.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en PREVI Lima puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -823,7 +987,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-ELECTRICIDAD-01",
+          "page_url": "https://www.deperu.com/cultural/museos/museo-de-la-electricidad-de-barranco-4400",
+          "image_url": "https://imgs.deperu.com/instituciones/museo_electricidad_estacion.jpg",
+          "publisher": "DePeru",
+          "viewpoint_family": "DAY_STATION_FRONTAL",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "shaded daylight",
+          "people_activity": "none legible",
+          "edge_background": "station sign, poles and trees frame tram",
+          "cliche_cluster": "parked tram under station sign",
+          "proves": "The sign/tram pairing is the dominant recognizable view.",
+          "cannot_prove": "Current tram operation or museum access.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-ELECTRICIDAD-02",
+          "page_url": "https://www.airial.travel/attractions/peru/barranco/electricity-museum-lima-zL8bNtrH",
+          "image_url": "https://airial.travel/_next/image?q=75&url=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fphoto-m%2F1280%2F1b%2Fca%2F50%2Ff7%2Fphoto1jpg.jpg&w=3840",
+          "publisher": "Airial/Tripadvisor derivative",
+          "viewpoint_family": "NIGHT_STATION",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "warm artificial night light",
+          "people_activity": "passing traffic implied",
+          "edge_background": "streetlights and cars contextualize the static tram",
+          "cliche_cluster": "nostalgic night tram",
+          "proves": "Artificial light changes material/color separation while retaining the same frontal cliché.",
+          "cannot_prove": "Current operating hours or original image authorship.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-ELECTRICIDAD-03",
+          "page_url": "https://www.tramz.com/pe/li/ba00.html",
+          "image_url": "https://tramz.com/pe/li/ba07.jpg",
+          "publisher": "The Tramways of Peru",
+          "viewpoint_family": "BOARDING_AND_ROUTE_EDGE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "boarding invitation implied by barriers/signage",
+          "edge_background": "rails, barriers and adjacent street expose transit infrastructure",
+          "cliche_cluster": "heritage vehicle documentation",
+          "proves": "Track, boarding edge and street relation can shift the subject from object to infrastructure.",
+          "cannot_prove": "Present-day service or passenger behavior.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Museo de la Electricidad & Tranvía puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -1008,7 +1221,72 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-AMERICAS-01",
+          "page_url": "https://beca.pe/edificio-velvet-departamentos-boutique-en-venta-en-pueblo-libre/",
+          "image_url": "https://beca.pe/wp-content/uploads/2024/12/Parque-de-las-Americas-vista-aerea-Beca-inmobiliaria-Edificio-Velvet.jpg",
+          "publisher": "Beca Inmobiliaria",
+          "viewpoint_family": "ELEVATED_URBAN_CONTEXT",
+          "likely_camera_height": "upper-floor elevated",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "residential blocks and streets encircle circular park",
+          "cliche_cluster": "real-estate amenity aerial",
+          "proves": "The circular center and surrounding residential edge are spatially coupled.",
+          "cannot_prove": "Ground-level human activity or a publicly accessible elevated viewpoint.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-AMERICAS-02",
+          "page_url": "https://archivosagil.blogspot.com/2021/05/recorriendo-la-capital-del-bicentenario_29.html",
+          "image_url": "https://1.bp.blogspot.com/-A2pCwnC2XtM/YLMfy80LI3I/AAAAAAAAGvU/2V_oWq6WUdg-IVw8Eb1ARHYMgy8av9NYwCLcBGAsYHQ/s1536/ame1%2B%25282%2529.jpeg",
+          "publisher": "Archivosagil",
+          "viewpoint_family": "CEREMONIAL_CIRCLE_GROUND",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "none legible",
+          "edge_background": "flagpoles and planted circle define civic geometry",
+          "cliche_cluster": "empty civic centerpiece",
+          "proves": "The park contains a formal ceremonial ring beyond generic greenery.",
+          "cannot_prove": "Current ceremony frequency or informal daily appropriation.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-AMERICAS-03",
+          "page_url": "https://archivosagil.blogspot.com/2021/05/recorriendo-la-capital-del-bicentenario_29.html",
+          "image_url": "https://1.bp.blogspot.com/-7aFx_vZHgIM/YLMfo0fl4iI/AAAAAAAAGvQ/A0aMyOYlE4wIVaaphFuUwmKKVS4HMZ28wCLcBGAsYHQ/s1280/ame1%2B%25281%2529.jpeg",
+          "publisher": "Archivosagil",
+          "viewpoint_family": "PERIMETER_SIGN_AND_SIDEWALK",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "daylight",
+          "people_activity": "pedestrian passing",
+          "edge_background": "sign, security booth, parked cars and trees",
+          "cliche_cluster": "identity sign record",
+          "proves": "The perimeter mixes civic branding, security and ordinary sidewalk movement.",
+          "cannot_prove": "A strong architecture-led composition or current crowd pattern.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-AMERICAS-04",
+          "page_url": "https://www.mypacer.com/parks/150128/parque-de-las-americas-pueblo-libre",
+          "image_url": "https://cdn.pacer.cc/osm/park/73952921/thumb_2403.png",
+          "publisher": "Pacer/OSM map",
+          "viewpoint_family": "PLAN_AND_ENTRY_MAP",
+          "likely_camera_height": "map, not photograph",
+          "fov_class": "plan",
+          "light_weather": "not applicable",
+          "people_activity": "walking route only",
+          "edge_background": "street perimeter and converging paths",
+          "cliche_cluster": "not photographic",
+          "proves": "Entry points, perimeter streets and path convergence for scouting.",
+          "cannot_prove": "Any real visual condition, light, access or activity.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Parque de las Américas puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -1190,7 +1468,40 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-HUACASANTACRUZ-01",
+          "page_url": "https://arqueologiadigital.cultura.pe/mapastematicos/huaca-santa-cruz-lima",
+          "image_url": "https://arqueologiadigital.cultura.pe/mapastematicos/huaca-santa-cruz-lima",
+          "publisher": "Ministerio de Cultura del Perú — Arqueología Digital",
+          "viewpoint_family": "OFFICIAL_THEMATIC_GALLERY",
+          "likely_camera_height": "multiple official gallery viewpoints",
+          "fov_class": "mixed",
+          "light_weather": "daylight in gallery images",
+          "people_activity": "not established",
+          "edge_background": "official page exposes four monument images but the crawler does not expose their asset URLs",
+          "cliche_cluster": "archaeological monument documentation",
+          "proves": "An official visual gallery exists for the San Isidro monument and contains multiple views.",
+          "cannot_prove": "Individual image authorship, exact camera positions, current visitor activity or present access.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HUACASANTACRUZ-02",
+          "page_url": "https://arqueologiadigital.cultura.pe/ortofotos/huaca-santa-cruz",
+          "image_url": "https://arqueologiadigital.cultura.pe/ortofotos/huaca-santa-cruz",
+          "publisher": "Ministerio de Cultura del Perú — Arqueología Digital",
+          "viewpoint_family": "ORTHOPHOTO_AND_3D_CONTEXT",
+          "likely_camera_height": "aerial/orthographic",
+          "fov_class": "site plan",
+          "light_weather": "not used as photographic evidence",
+          "people_activity": "not applicable",
+          "edge_background": "monument footprint and surrounding San Isidro fabric",
+          "cliche_cluster": "not a field photograph",
+          "proves": "The official orthophoto resource can support site-edge and position planning.",
+          "cannot_prove": "A feasible ground composition, light behavior or current street-level visibility.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Huaca Santa Cruz puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -1372,7 +1683,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-PALOMINO-01",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/conjunto-habitacional-palomino/",
+          "image_url": "https://limaparislima.wordpress.com/wp-content/uploads/2023/09/capture-decran-2023-09-20-a-16.39.24.png?w=599",
+          "publisher": "CAMMP Universidad de Lima / Limaparislima mirror",
+          "viewpoint_family": "AERIAL_CURVED_BLOCK_SYSTEM",
+          "likely_camera_height": "aerial",
+          "fov_class": "very wide",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "curved T-shaped blocks, open areas and neighborhood boundary",
+          "cliche_cluster": "modern-housing masterplan overview",
+          "proves": "The curved blocks create a repeated spatial system rather than a single façade object.",
+          "cannot_prove": "A publicly reachable camera position, present activity or current access through the estate.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PALOMINO-02",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/conjunto-habitacional-palomino/",
+          "image_url": "https://limaparislima.wordpress.com/wp-content/uploads/2023/09/capture-decran-2023-09-21-a-12.30.20.png?w=817",
+          "publisher": "CAMMP Universidad de Lima / Limaparislima mirror",
+          "viewpoint_family": "PUBLIC_SPACE_BETWEEN_HOUSING",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "lawn, paths and housing façades enclose shared open space",
+          "cliche_cluster": "empty modernist green court",
+          "proves": "Shared landscape and housing façades can be read in one ground-level relation.",
+          "cannot_prove": "Current human verbs, maintenance state outside the photographed sector or the decisive moment.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PALOMINO-03",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/conjunto-habitacional-palomino/",
+          "image_url": "https://limaparislima.wordpress.com/wp-content/uploads/2023/09/capture-decran-2023-09-20-a-17.12.57.png?w=686",
+          "publisher": "CAMMP Universidad de Lima / Limaparislima mirror",
+          "viewpoint_family": "BETWEEN_BLOCKS_AND_PATH",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "walking path bends between repeated housing blocks",
+          "cliche_cluster": "formal block rhythm",
+          "proves": "The curved circulation path changes alignment and overlap between repeated blocks.",
+          "cannot_prove": "Current pedestrian cadence, safe waiting location or whether this framing is saturated.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Conjunto Habitacional Palomino puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -1556,7 +1916,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-QUINTALIB-01",
+          "page_url": "https://elcomercio.pe/somos/historias/bicentenario-la-quinta-de-los-libertadores-un-recorrido-por-la-historica-casa-bicentenaria-en-pueblo-libre-fiestas-patrias-simon-bolivar-san-martin-noticia/",
+          "image_url": "https://elcomercio.pe/somos/historias/bicentenario-la-quinta-de-los-libertadores-un-recorrido-por-la-historica-casa-bicentenaria-en-pueblo-libre-fiestas-patrias-simon-bolivar-san-martin-noticia/",
+          "publisher": "El Comercio — photographs by Karen Zárate/GEC",
+          "viewpoint_family": "RESTORED_EXTERIOR_AND_HOUSE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "museum preparation documented",
+          "edge_background": "restored quincha house, garden and museum context",
+          "cliche_cluster": "heritage-house exterior",
+          "proves": "The attributed report distinguishes the restored house, garden and museum-preparation spaces.",
+          "cannot_prove": "Current 2026 display, public access or an uncrowded field position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-QUINTALIB-02",
+          "page_url": "https://elcomercio.pe/somos/historias/bicentenario-la-quinta-de-los-libertadores-un-recorrido-por-la-historica-casa-bicentenaria-en-pueblo-libre-fiestas-patrias-simon-bolivar-san-martin-noticia/",
+          "image_url": "https://elcomercio.pe/somos/historias/bicentenario-la-quinta-de-los-libertadores-un-recorrido-por-la-historica-casa-bicentenaria-en-pueblo-libre-fiestas-patrias-simon-bolivar-san-martin-noticia/",
+          "publisher": "El Comercio — photographs by Karen Zárate/GEC",
+          "viewpoint_family": "INTERIOR_MUSEOGRAPHY",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "interior ambient light",
+          "people_activity": "director and installation work documented",
+          "edge_background": "colored walls, objects and room thresholds",
+          "cliche_cluster": "period-room record",
+          "proves": "The 2021 report documents spatially distinct interior installation and threshold relationships.",
+          "cannot_prove": "Whether photography is currently feasible or whether visitor behavior supplies a stronger scene.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-QUINTALIB-03",
+          "page_url": "https://jabenito.blogspot.com/2015/12/inauguracion-de-la-quinta-de-los.html",
+          "image_url": "https://4.bp.blogspot.com/-lt-dytkMHXs/VmdboP_yJ9I/AAAAAAAAVL0/XTU17JjB7YU/s1600/Quinta%2Bde%2Blos%2BLibertadores%2BHuerta%2Bde%2Bnoche-739129.jpg",
+          "publisher": "José Antonio Benito blog",
+          "viewpoint_family": "GARDEN_AND_VERANDA_AT_NIGHT",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "night with warm architectural lighting",
+          "people_activity": "none legible",
+          "edge_background": "garden path, veranda columns and lit façade",
+          "cliche_cluster": "romantic illuminated heritage house",
+          "proves": "Night lighting separates garden, veranda and façade as spatial layers.",
+          "cannot_prove": "Current lighting schedule, public night access or original photographic metadata.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Quinta de los Libertadores + MNAAHP puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
@@ -1738,7 +2147,56 @@
           "gate": ""
         }
       },
-      "visual_reference_families": [],
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-PLAZABANDERA-01",
+          "page_url": "https://commons.wikimedia.org/wiki/Category:Plaza_de_la_bandera,_Lima",
+          "image_url": "https://commons.wikimedia.org/wiki/File:Vista_aerea_de_la_Plaza_de_la_Bandera.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "AERIAL_RADIAL_ROAD_SYSTEM",
+          "likely_camera_height": "aerial",
+          "fov_class": "very wide",
+          "light_weather": "daylight",
+          "people_activity": "not individually legible",
+          "edge_background": "radial avenues, circular plaza and surrounding blocks",
+          "cliche_cluster": "formal aerial civic geometry",
+          "proves": "The plaza is also a traffic distributor whose radial roads shape the civic form.",
+          "cannot_prove": "A reachable field viewpoint or ordinary pedestrian behavior.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PLAZABANDERA-02",
+          "page_url": "https://portal.muniplibre.gob.pe/pueblo-libre-presente-en-ceremonia-por-el-199-aniversario-de-la-creacion-de-la-primera-bandera-del-peru/",
+          "image_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2019/10/6.jpg",
+          "publisher": "Municipalidad de Pueblo Libre",
+          "viewpoint_family": "CEREMONY_RING_AND_FORMATIONS",
+          "likely_camera_height": "elevated event platform",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "military formations and civic ceremony",
+          "edge_background": "flagpole, circular paving, stands and urban perimeter",
+          "cliche_cluster": "official ceremony overview",
+          "proves": "The architecture channels large ceremonial formations around the central flag.",
+          "cannot_prove": "Frequency outside official dates or a non-credentialed camera position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PLAZABANDERA-03",
+          "page_url": "https://andina.pe/agencia/noticia.aspx?id=327834",
+          "image_url": "https://portal.andina.pe/EDPfotografia2/Thumbnail/2010/11/14/000140848W.jpg",
+          "publisher": "Agencia Andina",
+          "viewpoint_family": "GROUND_CEREMONY_URBAN_BACKDROP",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "overcast daylight",
+          "people_activity": "officers and civic participants gathered",
+          "edge_background": "formations, giant flag, trees and ordinary urban buildings",
+          "cliche_cluster": "patriotic event photograph",
+          "proves": "At ground level, ceremony and ordinary urban perimeter can coexist in one frame.",
+          "cannot_prove": "Current event calendar, access position or anti-postal differentiation.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
       "composition_questions": [
         "¿Qué relación arquitectónica específica en Plaza a la Bandera puede leerse sin pie de foto?",
         "¿Qué borde, fondo o superposición destruiría la lectura principal?",
