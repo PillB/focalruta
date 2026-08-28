@@ -1,0 +1,109 @@
+{
+  "intake_id": "USER-PLACES-2026-08-27-A",
+  "received_at": "2026-08-27T00:00:00-05:00",
+  "scope": "Provincia de Lima",
+  "decision_rule": "Preserve user ideas as discovery edges; merge known identities; require exact identity, current access, ethics and one-frame evidence before ranking or routing.",
+  "hypotheses": [
+    {
+      "user_label": "Parque americas",
+      "canonical_name": "Parque de las Américas",
+      "district": "Pueblo Libre",
+      "disposition": "MERGE_EXISTING_CANONICAL_IDENTITY",
+      "canonical_id": "parque-de-las-americas",
+      "scene_questions": [
+        "Can civic flag geometry and ordinary skating coexist without becoming ceremonial postcard imagery?",
+        "Can the biohuerto, bird route or neighborhood activity reveal a present use that contradicts the monumental name?"
+      ],
+      "current_sources": [
+        "https://portal.muniplibre.gob.pe/wp-content/uploads/2026/06/programa-JUNIO.pdf",
+        "https://portal.muniplibre.gob.pe/turismo-pueblo-libre/ruta-aves-urbanas/"
+      ],
+      "ranking_eligible": false,
+      "route_eligible": false,
+      "expert_rejection": "Municipal activity evidence proves current use but not an original one-frame relationship or an uncrowded visual position."
+    },
+    {
+      "user_label": "El queirolo",
+      "canonical_name": "Antigua Taberna Queirolo",
+      "district": "Pueblo Libre",
+      "disposition": "MERGE_EXISTING_CANONICAL_IDENTITY",
+      "canonical_id": "antigua-taberna-queirolo",
+      "scene_questions": [
+        "Does the old spatial order still channel present rituals of gathering, serving and waiting?",
+        "Can threshold, furniture wear and repeated gestures carry the architecture without relying on nostalgia?"
+      ],
+      "current_sources": [
+        "https://portal.muniplibre.gob.pe/wp-content/uploads/2024/12/Queirolo.pdf",
+        "https://www.santiagoqueirolo.com/es/contacto.html"
+      ],
+      "ranking_eligible": false,
+      "route_eligible": false,
+      "expert_rejection": "A picturesque historic interior is highly vulnerable to nostalgia, branding and incidental people; permission and a causal spatial relationship are still unverified."
+    },
+    {
+      "user_label": "Iglesia santo domingo",
+      "canonical_name": "Basílica y Convento de Santo Domingo",
+      "district": "Lima",
+      "disposition": "NEW_DISCOVERY_EDGE",
+      "canonical_id": null,
+      "scene_questions": [
+        "Can cloister circulation, light and repeated devotional movement reveal architecture as an active system?",
+        "Can tower, street threshold and postal infrastructure form a present-day relationship rather than a façade record?"
+      ],
+      "current_sources": [
+        "https://visita-lima.limaciudaddelosreyes.com.pe/es/iglesias/iglesia-y-convento-de-santo-domingo",
+        "https://museoconventosantodomingolima.org/"
+      ],
+      "ranking_eligible": false,
+      "route_eligible": false,
+      "expert_rejection": "A celebrated church is visually saturated; museum access does not imply photography permission, tripod permission or a non-postcard scene."
+    },
+    {
+      "user_label": "Iglesia de la soledad",
+      "canonical_name": "Santuario de Nuestra Señora de la Soledad",
+      "district": "Lima",
+      "disposition": "NEW_DISCOVERY_EDGE",
+      "canonical_id": null,
+      "scene_questions": [
+        "Can the small sanctuary's relationship to the monumental San Francisco complex show scale, dependence or persistence?",
+        "Can a real liturgical threshold or procession express inhabitation without intruding on worship?"
+      ],
+      "current_sources": [
+        "https://visita-lima.limaciudaddelosreyes.com.pe/es/semanasanta/eventosculturales",
+        "https://visita-lima.limaciudaddelosreyes.com.pe/es/semanasanta/viernes-santo"
+      ],
+      "ranking_eligible": false,
+      "route_eligible": false,
+      "expert_rejection": "Religious practice is not a spectacle; ordinary access, photography permission, consent and a scene outside exceptional Holy Week programming remain unresolved."
+    },
+    {
+      "user_label": "Huaca de breña",
+      "canonical_name": null,
+      "district": null,
+      "disposition": "IDENTITY_UNRESOLVED",
+      "canonical_id": null,
+      "identity_hypotheses": [
+        {
+          "canonical_name": "Complejo Arqueológico Mateo Salado",
+          "district": "Lima",
+          "identity_note": "Large managed complex on the Lima boundary with Breña and Pueblo Libre.",
+          "source": "https://www.gob.pe/institucion/proinversion/noticias/1342224-proinversion-impulsa-inversiones-culturales-y-educativas-en-huaca-mateo-salado-a-traves-de-proyectos-en-activos"
+        },
+        {
+          "canonical_name": "Huaca Independencia",
+          "district": "Breña",
+          "identity_note": "Small archaeological remnant in urbanización Azcona; current access and integrity unresolved.",
+          "source": "https://www.gob.pe/institucion/cultura/noticias/46150-comunicado-ministerio-de-cultura-alerta-sobre-inminentes-invasiones-en-sitios-arqueologicos-en-lima-durante-fiestas-de-fin-de-ano"
+        }
+      ],
+      "scene_questions": [
+        "Which site did the user mean?",
+        "Where does archaeological fabric physically force or contradict present residential street life?"
+      ],
+      "current_sources": [],
+      "ranking_eligible": false,
+      "route_eligible": false,
+      "expert_rejection": "The label is ambiguous and the two possible sites differ radically in scale, access, conservation and ethical risk; merging them would corrupt evidence and routing."
+    }
+  ]
+}
