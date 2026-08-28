@@ -106,5 +106,32 @@
   },
   {
     "source_id": "SRC-GEO-PCM-LIMA", "type": "OFFICIAL", "url_or_path": "https://www.gob.pe/institucion/pcm/campa%C3%B1as/4355-limametropolitana-informacion-territorial", "publisher": "Presidencia del Consejo de Ministros", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "peru_geography", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LOC-QUEIROLO-MUNI", "type": "OFFICIAL", "url_or_path": "https://portal.muniplibre.gob.pe/wp-content/uploads/2024/12/Queirolo.pdf", "publisher": "Municipalidad de Pueblo Libre", "publication_date": "2024-12", "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "antigua_taberna_queirolo", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LOC-QUEIROLO-OPERATOR", "type": "PRIMARY", "url_or_path": "https://www.santiagoqueirolo.com/es/contacto.html", "publisher": "Santiago Queirolo", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "antigua_taberna_queirolo", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LOC-CCORI-WASI-URP", "type": "PRIMARY", "url_or_path": "https://www.urp.edu.pe/investigacion/centro-cultural-ccoriwasi/", "publisher": "Universidad Ricardo Palma", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "ccori_wasi_urp", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LOC-LUM-OFFICIAL", "type": "OFFICIAL", "url_or_path": "https://lum.cultura.pe/", "publisher": "Lugar de la Memoria, la Tolerancia y la Inclusión Social", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "lum_ministerio_cultura", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LOC-LUM-CONTACT", "type": "OFFICIAL", "url_or_path": "https://lum.cultura.pe/contacto", "publisher": "Lugar de la Memoria, la Tolerancia y la Inclusión Social", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "lum_ministerio_cultura", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LOC-PARQUE3-PROGRAM", "type": "OFFICIAL", "url_or_path": "https://portal.muniplibre.gob.pe/wp-content/uploads/2026/04/programa-ABRIL.pdf", "publisher": "Municipalidad de Pueblo Libre", "publication_date": "2026-04", "event_date": "2026-04", "retrieved_at": "2026-08-27", "independence_cluster": "pueblo_libre_programming", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LOC-AMERICAS-PROGRAM", "type": "OFFICIAL", "url_or_path": "https://portal.muniplibre.gob.pe/wp-content/uploads/2026/06/programa-JUNIO.pdf", "publisher": "Municipalidad de Pueblo Libre", "publication_date": "2026-06", "event_date": "2026-06", "retrieved_at": "2026-08-27", "independence_cluster": "pueblo_libre_programming", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LOC-AMERICAS-BIRDS", "type": "OFFICIAL", "url_or_path": "https://portal.muniplibre.gob.pe/turismo-pueblo-libre/ruta-aves-urbanas/", "publisher": "Municipalidad de Pueblo Libre", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "pueblo_libre_tourism", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LOC-PUENTE-PAZ-OPENING", "type": "OFFICIAL", "url_or_path": "https://www.miraflores.gob.pe/miles-de-visitantes-cruzaron-el-puente-de-la-paz-en-el-primer-dia-de-acceso-libre-y-gratuito/", "publisher": "Municipalidad de Miraflores", "publication_date": "2025-08-21", "event_date": "2025-08-21", "retrieved_at": "2026-08-27", "independence_cluster": "puente_paz_miraflores", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
   }
 ]
