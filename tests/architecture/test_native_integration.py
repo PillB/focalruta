@@ -60,11 +60,12 @@ def test_generated_progress_matches_equal_depth_ledger_without_promotion():
         item["canonical_id"]: len(item["visual_reference_families"])
         for item in verification
     }
+    expected_started = sum(count > 0 for count in expected.values())
     assert {item["canonical_id"]: item["visual_reference_count"] for item in candidates} == expected
-    assert sum(item["visual_reference_count"] > 0 for item in candidates) == 14
+    assert sum(item["visual_reference_count"] > 0 for item in candidates) == expected_started
     assert all(item["ranking_eligible"] is False for item in candidates)
     page = text(CHALLENGE)
-    assert "14 tienen forénsica visual iniciada" in page
+    assert f"{expected_started} tienen forénsica visual iniciada" in page
     assert "seis tienen verificación iniciada" not in page
 
 
