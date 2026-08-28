@@ -1,0 +1,101 @@
+[
+  {
+    "canonical_id": "centro-cultural-ccori-wasi",
+    "name": "Centro Cultural Ccori Wasi",
+    "district": "Miraflores",
+    "identity_resolved": true,
+    "geography_eligible": true,
+    "source_last_verified_at": "2026-08-27",
+    "current_primary_sources": [
+      "https://www.urp.edu.pe/investigacion/centro-cultural-ccoriwasi/"
+    ],
+    "access_status": "MANAGED_PUBLIC",
+    "permission": "VERIFY_INTERIOR_PHOTOGRAPHY",
+    "primary_scene_mechanism": "ADAPTIVE_REUSE_OLD_NEW",
+    "selection_reasons": ["CURRENT_INSTITUTIONAL_SOURCE", "DISTINCT_SCENE_MECHANISM", "PRIORITY_DISTRICT"],
+    "expert_rejection": "Published opening information does not establish photography permission or a visually legible old/new relationship."
+  },
+  {
+    "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+    "name": "Parque 3 de Octubre + Skatepark Muros Libres",
+    "district": "Pueblo Libre",
+    "identity_resolved": true,
+    "geography_eligible": true,
+    "source_last_verified_at": "2026-08-27",
+    "current_primary_sources": [
+      "https://portal.muniplibre.gob.pe/wp-content/uploads/2026/04/programa-ABRIL.pdf"
+    ],
+    "access_status": "PUBLIC_EXTERIOR",
+    "permission": "PUBLIC_SPACE_SUBJECT_TO_EVENT_AND_PRIVACY_RULES",
+    "primary_scene_mechanism": "DECISIVE_MOTION_IN_DESIGNED_RAMP",
+    "selection_reasons": ["CURRENT_MUNICIPAL_ACTIVITY_SOURCE", "DISTINCT_SCENE_MECHANISM", "PRIORITY_DISTRICT"],
+    "expert_rejection": "Documented activity does not prove that a skater and ramp will form a non-generic architectural relationship."
+  },
+  {
+    "canonical_id": "parque-de-las-americas",
+    "name": "Parque de las Américas",
+    "district": "Pueblo Libre",
+    "identity_resolved": true,
+    "geography_eligible": true,
+    "source_last_verified_at": "2026-08-27",
+    "current_primary_sources": [
+      "https://portal.muniplibre.gob.pe/wp-content/uploads/2026/06/programa-JUNIO.pdf",
+      "https://portal.muniplibre.gob.pe/turismo-pueblo-libre/ruta-aves-urbanas/"
+    ],
+    "access_status": "PUBLIC_EXTERIOR",
+    "permission": "PUBLIC_SPACE_SUBJECT_TO_EVENT_AND_PRIVACY_RULES",
+    "primary_scene_mechanism": "CIVIC_SYMBOL_VERSUS_EVERYDAY_ECOLOGY",
+    "selection_reasons": ["CURRENT_MUNICIPAL_ACTIVITY_SOURCE", "DISTINCT_SCENE_MECHANISM", "PRIORITY_DISTRICT", "USER_DISCOVERY_IDEA"],
+    "expert_rejection": "Multiple documented uses can produce visual clutter rather than a single readable causal relationship."
+  },
+  {
+    "canonical_id": "antigua-taberna-queirolo",
+    "name": "Antigua Taberna Queirolo",
+    "district": "Pueblo Libre",
+    "identity_resolved": true,
+    "geography_eligible": true,
+    "source_last_verified_at": "2026-08-27",
+    "current_primary_sources": [
+      "https://portal.muniplibre.gob.pe/wp-content/uploads/2024/12/Queirolo.pdf",
+      "https://www.santiagoqueirolo.com/es/contacto.html"
+    ],
+    "access_status": "MANAGED_PUBLIC",
+    "permission": "VERIFY_INTERIOR_AND_IDENTIFIABLE_PEOPLE",
+    "primary_scene_mechanism": "INTERIOR_RITUAL_AND_MATERIAL_WEAR",
+    "selection_reasons": ["CURRENT_OPERATOR_OR_MUNICIPAL_SOURCE", "DISTINCT_SCENE_MECHANISM", "PRIORITY_DISTRICT", "USER_DISCOVERY_IDEA"],
+    "expert_rejection": "A branded nostalgic interior can overwhelm architectural causality and requires explicit photography permission."
+  },
+  {
+    "canonical_id": "lugar-de-la-memoria-lum",
+    "name": "Lugar de la Memoria (LUM)",
+    "district": "Miraflores",
+    "identity_resolved": true,
+    "geography_eligible": true,
+    "source_last_verified_at": "2026-08-27",
+    "current_primary_sources": [
+      "https://lum.cultura.pe/",
+      "https://lum.cultura.pe/contacto"
+    ],
+    "access_status": "MANAGED_PUBLIC",
+    "permission": "VERIFY_PHOTOGRAPHY_AND_EVENT_CONSENT",
+    "primary_scene_mechanism": "MEMORY_INSTITUTION_LANDSCAPE_THRESHOLD",
+    "selection_reasons": ["CURRENT_GOVERNMENT_INSTITUTION_SOURCE", "DISTINCT_SCENE_MECHANISM", "PRIORITY_DISTRICT"],
+    "expert_rejection": "Formal architecture and coastal setting are visually familiar; sensitive institutional use must not become aestheticized context."
+  },
+  {
+    "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+    "name": "Puente de la Paz / Quebrada de Armendáriz",
+    "district": "Miraflores–Barranco",
+    "identity_resolved": true,
+    "geography_eligible": true,
+    "source_last_verified_at": "2026-08-27",
+    "current_primary_sources": [
+      "https://www.miraflores.gob.pe/miles-de-visitantes-cruzaron-el-puente-de-la-paz-en-el-primer-dia-de-acceso-libre-y-gratuito/"
+    ],
+    "access_status": "PUBLIC_EXTERIOR",
+    "permission": "PUBLIC_SPACE_SUBJECT_TO_SAFETY_AND_PRIVACY_RULES",
+    "primary_scene_mechanism": "INFRASTRUCTURE_CHANNELS_MIXED_MOVEMENT",
+    "selection_reasons": ["CURRENT_MUNICIPAL_OPERATION_SOURCE", "DISTINCT_SCENE_MECHANISM", "PRIORITY_DISTRICT"],
+    "expert_rejection": "A newly popular bridge is heavily photographed; only a specific causal movement/terrain relationship can survive postcard saturation."
+  }
+]
