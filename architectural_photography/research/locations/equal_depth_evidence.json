@@ -161,6 +161,38 @@
       "publisher": "Municipalidad de Miraflores",
       "evidence_status": "VERIFIED",
       "supports": "Current identity, location, children use, fountain, landscape and Palma sculpture integrated with a bench."
+    },
+    {
+      "source_id": "SRC-LOC-BNP-HOURS",
+      "type": "OFFICIAL",
+      "url": "https://www.bnp.gob.pe/horarios-locales/",
+      "publisher": "Biblioteca Nacional del Peru",
+      "evidence_status": "VERIFIED",
+      "supports": "Current San Borja address and Monday-Saturday public hours."
+    },
+    {
+      "source_id": "SRC-LOC-BARRANCO-ATRACTIVOS",
+      "type": "OFFICIAL",
+      "url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+      "publisher": "Municipalidad de Barranco",
+      "evidence_status": "VERIFIED",
+      "supports": "Municipal architectural and use descriptions for Parque Municipal and Mirador Catalina Recavarren."
+    },
+    {
+      "source_id": "SRC-LOC-MAC-2026",
+      "type": "PRIMARY",
+      "url": "https://maclima.pe/",
+      "publisher": "Museo de Arte Contemporaneo de Lima",
+      "evidence_status": "VERIFIED",
+      "supports": "Current 2026 operator site, address, museum hours, exhibitions and public program."
+    },
+    {
+      "source_id": "SRC-LOC-VILLENA-RECOVERY",
+      "type": "OFFICIAL",
+      "url": "https://www.miraflores.gob.pe/visita-por-fiestas-patrias-los-emblematicos-espacios-publicos-recuperados-por-la-municipalidad-de-miraflores/",
+      "publisher": "Municipalidad de Miraflores",
+      "evidence_status": "CORROBORATED",
+      "supports": "Bridge identity, recovery and its causal connection across Bajada Balta between two malecones."
     }
   ],
   "candidate_updates": [
@@ -319,6 +351,49 @@
         "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-TRADICIONES-MIRAFLORES"]},
         "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-TRADICIONES-MIRAFLORES"]},
         "architectural_causality": {"status": "PARTIAL", "source_ids": ["SRC-LOC-TRADICIONES-MIRAFLORES"]}
+      }
+    },
+    {
+      "canonical_id": "biblioteca-nacional-del-peru",
+      "current_source_ids": ["SRC-LOC-BNP-HOURS"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-BNP-HOURS"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-BNP-HOURS"]}
+      }
+    },
+    {
+      "canonical_id": "mirador-catalina-recavarren",
+      "current_source_ids": ["SRC-LOC-BARRANCO-ATRACTIVOS"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-BARRANCO-ATRACTIVOS"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-BARRANCO-ATRACTIVOS"]},
+        "architectural_causality": {"status": "PARTIAL", "source_ids": ["SRC-LOC-BARRANCO-ATRACTIVOS"]}
+      }
+    },
+    {
+      "canonical_id": "parque-municipal-y-entorno-civico",
+      "current_source_ids": ["SRC-LOC-BARRANCO-ATRACTIVOS"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-BARRANCO-ATRACTIVOS"]},
+        "original_spatial_contract": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-BARRANCO-ATRACTIVOS"]},
+        "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-BARRANCO-ATRACTIVOS"]}
+      }
+    },
+    {
+      "canonical_id": "mac-lima-parque-espejo-de-agua",
+      "current_source_ids": ["SRC-LOC-MAC-2026"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-MAC-2026"]},
+        "current_life": {"status": "VERIFIED", "source_ids": ["SRC-LOC-MAC-2026"]}
+      }
+    },
+    {
+      "canonical_id": "puente-villena-bajada-balta-costa-verde",
+      "current_source_ids": ["SRC-LOC-VILLENA-RECOVERY"],
+      "passes": {
+        "source_truth": {"status": "VERIFIED", "source_ids": ["SRC-LOC-VILLENA-RECOVERY"]},
+        "architectural_causality": {"status": "CORROBORATED", "source_ids": ["SRC-LOC-VILLENA-RECOVERY"]},
+        "current_life": {"status": "PARTIAL", "source_ids": ["SRC-LOC-VILLENA-RECOVERY"]}
       }
     }
   ]

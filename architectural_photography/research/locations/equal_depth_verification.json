@@ -2297,19 +2297,23 @@
       "canonical_id": "biblioteca-nacional-del-peru",
       "name": "Biblioteca Nacional del Perú",
       "district": "San Borja",
-      "verification_status": "NOT_STARTED",
+      "verification_status": "IN_PROGRESS",
       "passes": {
         "source_truth": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-BNP-HOURS"
+          ]
         },
         "original_spatial_contract": {
           "status": "NOT_STARTED",
           "source_ids": []
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-BNP-HOURS"
+          ]
         },
         "human_verbs_or_meaningful_absence": {
           "status": "NOT_STARTED",
@@ -2364,7 +2368,9 @@
       },
       "visual_reference_families": [],
       "composition_questions": [],
-      "current_source_ids": [],
+      "current_source_ids": [
+        "SRC-LOC-BNP-HOURS"
+      ],
       "contradictions": [],
       "verification_complete": false,
       "ranking_eligible": false,
@@ -2605,15 +2611,19 @@
       "canonical_id": "mirador-catalina-recavarren",
       "name": "Mirador Catalina Recavarren",
       "district": "Barranco",
-      "verification_status": "NOT_STARTED",
+      "verification_status": "IN_PROGRESS",
       "passes": {
         "source_truth": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-BARRANCO-ATRACTIVOS"
+          ]
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BARRANCO-ATRACTIVOS"
+          ]
         },
         "current_life": {
           "status": "NOT_STARTED",
@@ -2624,8 +2634,10 @@
           "source_ids": []
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "PARTIAL",
+          "source_ids": [
+            "SRC-LOC-BARRANCO-ATRACTIVOS"
+          ]
         },
         "visual_forensic_saturation": {
           "status": "NOT_STARTED",
@@ -2672,7 +2684,9 @@
       },
       "visual_reference_families": [],
       "composition_questions": [],
-      "current_source_ids": [],
+      "current_source_ids": [
+        "SRC-LOC-BARRANCO-ATRACTIVOS"
+      ],
       "contradictions": [],
       "verification_complete": false,
       "ranking_eligible": false,
@@ -2682,19 +2696,25 @@
       "canonical_id": "parque-municipal-y-entorno-civico",
       "name": "Parque Municipal y entorno cívico",
       "district": "Barranco",
-      "verification_status": "NOT_STARTED",
+      "verification_status": "IN_PROGRESS",
       "passes": {
         "source_truth": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-BARRANCO-ATRACTIVOS"
+          ]
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BARRANCO-ATRACTIVOS"
+          ]
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "PARTIAL",
+          "source_ids": [
+            "SRC-LOC-BARRANCO-ATRACTIVOS"
+          ]
         },
         "human_verbs_or_meaningful_absence": {
           "status": "NOT_STARTED",
@@ -2749,7 +2769,9 @@
       },
       "visual_reference_families": [],
       "composition_questions": [],
-      "current_source_ids": [],
+      "current_source_ids": [
+        "SRC-LOC-BARRANCO-ATRACTIVOS"
+      ],
       "contradictions": [],
       "verification_complete": false,
       "ranking_eligible": false,
@@ -2759,19 +2781,23 @@
       "canonical_id": "mac-lima-parque-espejo-de-agua",
       "name": "MAC Lima + parque / espejo de agua",
       "district": "Barranco",
-      "verification_status": "NOT_STARTED",
+      "verification_status": "IN_PROGRESS",
       "passes": {
         "source_truth": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-MAC-2026"
+          ]
         },
         "original_spatial_contract": {
           "status": "NOT_STARTED",
           "source_ids": []
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-MAC-2026"
+          ]
         },
         "human_verbs_or_meaningful_absence": {
           "status": "NOT_STARTED",
@@ -2826,7 +2852,9 @@
       },
       "visual_reference_families": [],
       "composition_questions": [],
-      "current_source_ids": [],
+      "current_source_ids": [
+        "SRC-LOC-MAC-2026"
+      ],
       "contradictions": [],
       "verification_complete": false,
       "ranking_eligible": false,
@@ -2836,27 +2864,33 @@
       "canonical_id": "puente-villena-bajada-balta-costa-verde",
       "name": "Puente Villena / Bajada Balta / Costa Verde",
       "district": "Miraflores",
-      "verification_status": "NOT_STARTED",
+      "verification_status": "IN_PROGRESS",
       "passes": {
         "source_truth": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-VILLENA-RECOVERY"
+          ]
         },
         "original_spatial_contract": {
           "status": "NOT_STARTED",
           "source_ids": []
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "PARTIAL",
+          "source_ids": [
+            "SRC-LOC-VILLENA-RECOVERY"
+          ]
         },
         "human_verbs_or_meaningful_absence": {
           "status": "NOT_STARTED",
           "source_ids": []
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-VILLENA-RECOVERY"
+          ]
         },
         "visual_forensic_saturation": {
           "status": "NOT_STARTED",
@@ -2903,7 +2937,9 @@
       },
       "visual_reference_families": [],
       "composition_questions": [],
-      "current_source_ids": [],
+      "current_source_ids": [
+        "SRC-LOC-VILLENA-RECOVERY"
+      ],
       "contradictions": [],
       "verification_complete": false,
       "ranking_eligible": false,
