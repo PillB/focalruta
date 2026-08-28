@@ -1439,94 +1439,178 @@
       "canonical_id": "parque-de-las-americas",
       "name": "Parque de las Américas",
       "district": "Pueblo Libre",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-AMERICAS-CORRIDOR"
-          ]
+            "SRC-LOC-AMERICAS-CORRIDOR",
+            "SRC-LOC-AMERICAS-TOURISM"
+          ],
+          "answer": "Municipal sources identify Parque de las Américas as an open Pueblo Libre park whose paths and ceremonial center support civic commemoration and neighborhood circulation."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-TOURISM"
+          ],
+          "answer": "Its symbolic center and converging perimeter paths were intended to receive collective ceremony, institutional representation and public gathering rather than function only as planted relief."
         },
         "current_life": {
-          "status": "VERIFIED",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-AMERICAS-CORRIDOR",
-            "SRC-LOC-AMERICAS-PROGRAM"
-          ]
+            "SRC-LOC-AMERICAS-BIRDS",
+            "SRC-LOC-AMERICAS-PROGRAM",
+            "SRC-LOC-AMERICAS-ZEROWASTE-2026"
+          ],
+          "answer": "Current municipal material places ecological education, bird observation, waste-reduction programming and ordinary park movement in the same space; their exact cadence must be observed."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-TOURISM",
+            "SRC-LOC-AMERICAS-ZEROWASTE-2026"
+          ],
+          "answer": "Cross, circle, gather, parade, observe, teach and care are credible. The strongest ordinary scene is a person crossing the formal center while a small civic or ecological activity occupies an edge."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-TOURISM",
+            "SRC-LOC-AMERICAS-CORRIDOR"
+          ],
+          "answer": "Radial paths, a defined ceremonial circle, perimeter thresholds and shaded edges channel approach, pause and collective orientation."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-TOURISM",
+            "SRC-LOC-AMERICAS-BIRDS"
+          ],
+          "answer": "Monument/sign views and centered ceremonial overviews dominate. The underrepresented frame tests how radial order structures a mundane crossing, ecological observation or maintenance act."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-TOURISM"
+          ],
+          "answer": "Low lateral light can draw the circular and radial geometry; bright overcast can separate vegetation, paths and people without turning national symbols into the sole subject."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-CORRIDOR"
+          ],
+          "answer": "Test perimeter eye level across two paths, low at a path junction and slightly elevated from a lawful edge. Start 50 mm for action/device relation; use 35 mm for the radial system and 85 mm only from outside the circle for layered crossings."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-PROGRAM",
+            "SRC-LOC-AMERICAS-ZEROWASTE-2026"
+          ],
+          "answer": "Verify same-day programming and maintenance, observe 15 minutes, stay off ceremonial activity lines, avoid identifiable children and cap the wait at 25 minutes before using a structure-only fallback."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-TOURISM",
+            "SRC-LOC-AMERICAS-ZEROWASTE-2026"
+          ],
+          "answer": "The frame passes when the park's designed civic geometry visibly causes an everyday collective or care action. A flag, bust or sign portrait without spatial behavior fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-TOURISM"
+          ],
+          "position": "Perimeter diagonal aligning two radial paths with the ceremonial circle",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s, ISO as required",
+          "expected_action": "Brief clear interval exposes path convergence",
+          "light": "Soft early morning",
+          "edge_guards": "Exclude parked cars, clipped signs and dominant flagpoles",
+          "wait_trigger": "Central circle clears for five seconds",
+          "kill_trigger": "Reads as generic landscaped park",
+          "access_ethics": "Remain on public path",
+          "fallback": "Low junction view of radial paving"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-ZEROWASTE-2026"
+          ],
+          "position": "Oblique path junction facing an active edge and the center",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult crosses while another person teaches, observes or tends the edge",
+          "light": "Bright overcast",
+          "edge_guards": "Separate both actions from trunks and signs",
+          "wait_trigger": "Crossing coincides with an edge action",
+          "kill_trigger": "People merely provide scale",
+          "access_ethics": "No identifiable children; do not interrupt program",
+          "fallback": "Single adult carrying materials along radial path"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-BIRDS"
+          ],
+          "position": "Low from shaded perimeter across vegetation into the formal center",
+          "camera_height": "0.8 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Observer pauses where ecological edge meets ceremonial axis",
+          "light": "Garúa daylight",
+          "edge_guards": "No centered monument or title sign",
+          "wait_trigger": "Body and gaze connect edge to center",
+          "kill_trigger": "Becomes portrait-in-park",
+          "access_ethics": "Keep distance; no baiting wildlife",
+          "fallback": "Empty ecological edge framing radial path"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-TOURISM"
+          ],
+          "position": "Outside circle where raking light crosses paving and curb",
+          "camera_height": "0.7 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s, protect highlights",
+          "expected_action": "Foot or bicycle shadow crosses the radial seam",
+          "light": "Low late-afternoon side light",
+          "edge_guards": "Retain circle curvature and two material bands",
+          "wait_trigger": "Shadow completes the geometry",
+          "kill_trigger": "Reads only as paving abstraction",
+          "access_ethics": "Do not obstruct circulation",
+          "fallback": "Unoccupied light/material proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-AMERICAS-TOURISM",
+            "SRC-LOC-AMERICAS-ZEROWASTE-2026"
+          ],
+          "position": "Far oblique edge combining ceremonial center, converging path and active neighborhood edge",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Ordinary crossing intersects a small collective-care activity",
+          "light": "Soft late afternoon",
+          "edge_guards": "Keep center, action and destination distinct",
+          "wait_trigger": "Two actions align without overlap",
+          "kill_trigger": "Meaning depends on knowing the park name",
+          "access_ethics": "Public edge; respect program participants",
+          "fallback": "Crossing plus visible maintenance device"
         }
       },
       "visual_reference_families": [
@@ -1596,9 +1680,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Parque de las Américas puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the circular ceremonial geometry visibly organize an ordinary act of crossing, care or gathering without relying on flags or a monument caption?",
+        "Which parked vehicle, perimeter sign, tree overlap or empty foreground would sever the action from the converging paths?",
+        "Does moving from the perimeter to an oblique path junction reveal spatial causality better than simply widening from 50 mm to 35 mm?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -1678,10 +1762,15 @@
       "current_source_ids": [
         "SRC-LOC-AMERICAS-BIRDS",
         "SRC-LOC-AMERICAS-CORRIDOR",
-        "SRC-LOC-AMERICAS-PROGRAM"
+        "SRC-LOC-AMERICAS-PROGRAM",
+        "SRC-LOC-AMERICAS-TOURISM",
+        "SRC-LOC-AMERICAS-ZEROWASTE-2026"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Ceremonial and programmed uses are periodic and cannot be presented as daily activity.",
+        "Municipal sources establish an open park and current programs but do not verify 2026 maintenance, bird density or safe camera positions on a chosen date."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -5650,95 +5739,177 @@
       "canonical_id": "antigua-taberna-queirolo",
       "name": "Antigua Taberna Queirolo",
       "district": "Pueblo Libre",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-QUEIROLO-INVENTORY-2024"
-          ]
+            "SRC-LOC-QUEIROLO-INVENTORY-2024",
+            "SRC-LOC-QUEIROLO-HISTORY"
+          ],
+          "answer": "The retained 1870s house became a pulpería in 1880 and survives as Antigua Taberna Queirolo in Pueblo Libre, with municipal inventory and operator history supporting identity and continuity."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-QUEIROLO-INVENTORY-2024"
-          ]
+            "SRC-LOC-QUEIROLO-HISTORY"
+          ],
+          "answer": "The corner pulpería joined storage, sale and neighborhood encounter; its compact rooms, street threshold and counter/table order made exchange and conversation spatially inseparable."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-QUEIROLO-INVENTORY-2024"
-          ]
+            "SRC-LOC-QUEIROLO-INVENTORY-2024",
+            "SRC-LOC-QUEIROLO-CURRENT"
+          ],
+          "answer": "It currently operates as bar, restaurant and café and remains a public meeting place; exact service pattern and photography tolerance require direct confirmation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-HISTORY",
+            "SRC-LOC-QUEIROLO-CURRENT"
+          ],
+          "answer": "Enter, order, carry, pour, pass, eat, toast and converse are credible. The decisive relation is staff threading a narrow service path while adjacent groups occupy the retained room order."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-HISTORY"
+          ],
+          "answer": "The corner threshold, dense table spacing, beams, wall perimeter and service passage compress movement and turn circulation into visible negotiation with gathering."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-HISTORY",
+            "SRC-LOC-QUEIROLO-CURRENT"
+          ],
+          "answer": "Warm empty interiors, façade identity and convivial toast images dominate. The less repeated scene is the service path visibly mediating old room geometry and contemporary mixed-age occupation."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-HISTORY"
+          ],
+          "answer": "Window/door light against warm interior surfaces can separate threshold, server and table rhythm; avoid amber atmosphere that hides the architectural sequence."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-INVENTORY-2024",
+            "SRC-LOC-QUEIROLO-HISTORY"
+          ],
+          "answer": "Test street threshold into room, side of the service passage and seated-height table edge. Start 35 mm only for threshold-to-room depth, 50 mm for service/gathering relation and 85 mm from a lawful distant seat for layered gestures."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-CURRENT",
+            "SRC-LOC-QUEIROLO-INVENTORY-2024"
+          ],
+          "answer": "Request permission before deliberate interior work, avoid peak obstruction, observe from an assigned position, do not stage patrons or staff and leave if consent or safe separation cannot be maintained."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-HISTORY",
+            "SRC-LOC-QUEIROLO-CURRENT"
+          ],
+          "answer": "The frame passes if inherited room compression visibly shapes present service and encounter. Heritage décor, food or a toast without architectural causality fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-HISTORY"
+          ],
+          "position": "Authorized doorway edge looking through threshold, passage and rear room",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/125 s minimum, ISO as required",
+          "expected_action": "Brief empty interval reveals three-part depth",
+          "light": "Balanced daylight and interior light",
+          "edge_guards": "Control bright doorway, signage and clipped tables",
+          "wait_trigger": "Service path clears",
+          "kill_trigger": "Reads as decorated restaurant inventory",
+          "access_ethics": "Permission required; do not block entry",
+          "fallback": "Exterior threshold structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-CURRENT"
+          ],
+          "position": "Authorized side position beside—not inside—the service passage",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Server passes as two groups converse across dense table rhythm",
+          "light": "Soft mixed interior light",
+          "edge_guards": "Separate server, patrons and passage edges",
+          "wait_trigger": "Carry/pour gesture aligns with occupied tables",
+          "kill_trigger": "Server is isolated from architectural route",
+          "access_ethics": "Explicit venue permission and non-identifiable patrons",
+          "fallback": "Back-facing server entering room"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-HISTORY"
+          ],
+          "position": "Seated-height edge across table legs toward street threshold",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Arrival crosses against seated occupation",
+          "light": "Overcast doorway light",
+          "edge_guards": "Exclude branded tabletop and food close-ups",
+          "wait_trigger": "Incoming figure clears doorway frame",
+          "kill_trigger": "Becomes lifestyle advertisement",
+          "access_ethics": "Use assigned table only",
+          "fallback": "Empty chair/service-path relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-HISTORY"
+          ],
+          "position": "Authorized rear angle toward doorway light across beams and wall memory",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/5.6, 1/250 s, protect doorway highlights",
+          "expected_action": "Hand carrying a glass enters one material bay",
+          "light": "Late-afternoon doorway side light",
+          "edge_guards": "Retain beam, wall and floor junction",
+          "wait_trigger": "Gesture separates from framed photographs",
+          "kill_trigger": "Reads as product detail",
+          "access_ethics": "No staged service",
+          "fallback": "Empty light band across retained surfaces"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUEIROLO-HISTORY",
+            "SRC-LOC-QUEIROLO-CURRENT"
+          ],
+          "position": "Authorized oblique position joining corner threshold, service path and family table",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6–8, 1/250 s",
+          "expected_action": "Arrival, service and conversation occur in three depth layers",
+          "light": "Soft daytime mixed light",
+          "edge_guards": "No dominant logo, food plate or overlapping faces",
+          "wait_trigger": "All three verbs align cleanly",
+          "kill_trigger": "Caption is needed to explain pulpería-to-tavern continuity",
+          "access_ethics": "Permission and privacy confirmation mandatory",
+          "fallback": "Service and conversation in two layers"
         }
       },
       "visual_reference_families": [
@@ -5792,9 +5963,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Antigua Taberna Queirolo puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the former pulpería's tight room order visibly channel serving, passing and conversation rather than merely signal nostalgia?",
+        "Which branded sign, empty chair, overlapping patron or bright doorway would disconnect the service path from the table cluster?",
+        "Does shifting to the service-path threshold reveal the room's social mechanics better than choosing a wider lens from the entrance?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -5872,10 +6043,15 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-QUEIROLO-CURRENT",
+        "SRC-LOC-QUEIROLO-HISTORY",
         "SRC-LOC-QUEIROLO-INVENTORY-2024"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Published interior images do not establish current furniture layout, crowd density or permission for deliberate photography during service.",
+        "The operator's history is primary self-description and supports chronology/use, not an independent conservation assessment."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -16405,108 +16581,175 @@
       "canonical_id": "centro-civico-de-lima-real-plaza",
       "name": "Centro Cívico de Lima / Real Plaza",
       "district": "Lima",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CENTROCIVICO-CAMMP"
-          ]
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT",
+            "SRC-LOC-CENTROCIVICO-REALPLAZA"
+          ],
+          "answer": "The 1966–1970 Centro Cívico y Comercial survives at Av. Garcilaso de la Vega 1337 and currently contains the operating Real Plaza Centro Cívico."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-CENTROCIVICO-CAMMP"
-          ]
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT"
+          ],
+          "answer": "The competition project combined a central public space, multiple entrances, civic/commercial program and vertical landmark in a permeable complex intended to extend central-city movement."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-CENTROCIVICO-REALPLAZA"
+          ],
+          "answer": "The current operator confirms daily 07:00–22:00 occupation with retail, food, services and events; actual circulation density and mall photography constraints remain field checks."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CENTROCIVICO-REALPLAZA",
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT"
+          ],
+          "answer": "Enter, cross, ascend, descend, shop, eat, wait and meet are credible. The decisive relation places transfer-like crossing and commercial waiting inside the original central circulation order."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT"
+          ],
+          "answer": "Podium passages, central void, entrances, level changes and vertical circulation collect flows before redistributing them between city, services and commercial levels."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT",
+            "SRC-LOC-CENTROCIVICO-REALPLAZA"
+          ],
+          "answer": "Tower low angles, skyline views and promotional mall interiors dominate. The underused frame is a human-scale section where original concrete circulation and current retail behavior visibly share one axis."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT"
+          ],
+          "answer": "Late side light or blue-hour balance can separate concrete depth, glazed/commercial insertions and moving figures; uncontrolled signage or black voids would erase the relation."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT",
+            "SRC-LOC-CENTROCIVICO-REALPLAZA"
+          ],
+          "answer": "Test public exterior threshold into podium, eye-level central passage and a lawful opposite-side layer. Start 50 mm for flow/device relation; use 35 mm for the section or 85 mm from distance to stack concrete, retail and people."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CENTROCIVICO-REALPLAZA"
+          ],
+          "answer": "Verify same-day access and photography policy, use only public permitted positions, avoid security infrastructure and identifiable minors, observe 15 minutes and cap the wait at 25 minutes."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT",
+            "SRC-LOC-CENTROCIVICO-REALPLAZA"
+          ],
+          "answer": "The frame passes when old circulation structure visibly channels today's crossing, waiting and consumption. A tower portrait or generic busy mall scene fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Public exterior diagonal through podium entrance toward central passage",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s, protect exterior highlights",
+          "expected_action": "Clear interval reveals entry, void and level sequence",
+          "light": "Soft morning or bright overcast",
+          "edge_guards": "Exclude clipped tower, dominant ads and security hardware",
+          "wait_trigger": "Central axis briefly clears",
+          "kill_trigger": "Reads as isolated brutalist façade",
+          "access_ethics": "Public exterior only unless permission confirmed",
+          "fallback": "Opposite-side entrance section"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-CENTROCIVICO-REALPLAZA"
           ],
-          "label": "B · HABITAR",
+          "position": "Permitted passage edge facing crossing and waiting zones",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "One flow crosses while another waits or ascends",
+          "light": "Balanced interior/daylight",
+          "edge_guards": "Separate figures from signs, escalator rails and columns",
+          "wait_trigger": "Contrasting verbs occupy two structural bands",
+          "kill_trigger": "Crowd is unstructured visual noise",
+          "access_ethics": "Confirm mall photography policy; avoid faces/minors",
+          "fallback": "Back-facing commuters crossing one concrete bay"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: torre brutalista en contrapicado o skyline. Busca la relación definida por: ¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Human-scale side threshold excluding most of tower",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian moves between old concrete edge and retail insertion",
+          "light": "Garúa daylight",
+          "edge_guards": "No skyline, centered tower or decorative store display",
+          "wait_trigger": "Body bridges old/new seam",
+          "kill_trigger": "Needs archival image to explain reuse",
+          "access_ethics": "Do not obstruct doorway or security line",
+          "fallback": "Empty old/new material seam with route trace"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "35 mm prioritario · 50 mm para eje de paso · 85 mm si se puede apilar brutalismo + retail + personas",
-          "plan": "fin de tarde/blue hour para distinguir concreto, señalética comercial y flujo humano sin perder detalle",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Lawful distant angle across deep concrete bay and lit commercial edge",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s, retain neon and concrete detail",
+          "expected_action": "Figure crosses shadow boundary",
+          "light": "Blue hour or late side light",
+          "edge_guards": "Retain structural bay and current insertion",
+          "wait_trigger": "Figure separates from both tonal fields",
+          "kill_trigger": "Becomes mood-only night architecture",
+          "access_ethics": "Public permitted position",
+          "fallback": "Unoccupied concrete/glass light contrast"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT",
+            "SRC-LOC-CENTROCIVICO-REALPLAZA"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "35 mm prioritario · 50 mm para eje de paso · 85 mm si se puede apilar brutalismo + retail + personas",
-          "plan": "Commuters salen del Metropolitano mientras compradores cruzan el antiguo eje/plaza y la torre brutalista queda como testigo vertical.",
-          "gate": "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?"
+          "position": "Far oblique public edge combining original entrance, central flow and commercial destination",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Crossing, waiting and ascent align across three depth layers",
+          "light": "Late afternoon into blue hour",
+          "edge_guards": "Tower remains contextual; signs do not dominate",
+          "wait_trigger": "Three verbs align with distinct spatial devices",
+          "kill_trigger": "Caption must explain civic-to-commercial mutation",
+          "access_ethics": "Current permission and non-identifiable subjects required",
+          "fallback": "Two-layer crossing/waiting relation"
         }
       },
       "visual_reference_families": [
@@ -16560,9 +16803,9 @@
         }
       ],
       "composition_questions": [
-        "¿Puede una sola fotografía mostrar que el proyecto sí consiguió vitalidad urbana, aunque bajo un contrato social distinto al imaginado?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one frame show the original civic circulation still producing public intensity under a commercial program, without the tower becoming a detached icon?",
+        "Which retail sign, escalator overlap, security barrier or blown exterior opening would make present use read as visual noise?",
+        "Does moving to a podium-to-threshold section reveal civic/commercial continuity better than widening from 50 mm to 35 mm?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -16630,12 +16873,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-CENTROCIVICO-CAMMP"
+        "SRC-LOC-CENTROCIVICO-CAMMP",
+        "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT",
+        "SRC-LOC-CENTROCIVICO-REALPLAZA"
       ],
       "contradictions": [
-        "Historical project evidence does not verify current Real Plaza access or use conditions."
+        "Award and reuse narratives describe intended success; they cannot prove that civic-to-commercial transformation reads in one frame today.",
+        "Historical project evidence does not verify current Real Plaza access or use conditions.",
+        "The current operator verifies opening and program but not professional photography permission, pedestrian peaks or access to every architectural level."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },

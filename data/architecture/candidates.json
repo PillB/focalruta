@@ -57,7 +57,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 4,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "huaca-santa-cruz",
@@ -237,7 +237,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "casa-museo-marina-nunez-del-prado",
@@ -697,7 +697,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "agrupamiento-chabuca-granda",
