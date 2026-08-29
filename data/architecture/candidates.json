@@ -66,8 +66,8 @@
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
-    "visual_reference_count": 2,
-    "verification_complete": false
+    "visual_reference_count": 3,
+    "verification_complete": true
   },
   {
     "canonical_id": "conjunto-habitacional-palomino",
@@ -427,7 +427,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
@@ -497,7 +497,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
