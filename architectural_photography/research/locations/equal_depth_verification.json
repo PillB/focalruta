@@ -8440,95 +8440,172 @@
       "canonical_id": "mirador-catalina-recavarren",
       "name": "Mirador Catalina Recavarren",
       "district": "Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-BARRANCO-ATRACTIVOS"
-          ]
+            "SRC-LOC-RECAVARREN-INVENTORY",
+            "SRC-LOC-RECAVARREN-PDLC"
+          ],
+          "answer": "Catalina Recavarren is a 1988 public overlook built at Barranco's cliff edge, linked to hospitality uses and historically documented lower circulation."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-BARRANCO-ATRACTIVOS"
-          ]
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "answer": "Terrace, rail, seating and lower circumferential path organize pausing, viewing and movement at different elevations along the coastal section."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-PROJECT",
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "answer": "People look, sit, meet, photograph and use adjacent venues while municipal recovery may alter the edge; same-day access and works are mandatory checks."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "answer": "Look, sit, meet, photograph, descend, pass and dine are credible. The decisive relation is upper observing occurring above or beside lower movement."
         },
         "architectural_causality": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-BARRANCO-ATRACTIVOS"
-          ]
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "answer": "Cliff edge, terrace rail, seating, former infrastructure residue and lower path separate stationary viewing from longitudinal coastal movement."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-PDLC"
+          ],
+          "answer": "Sunset horizon, romantic couple and empty panorama dominate. The underused frame turns the overlook itself into a section connecting observers, lower path and city/coast layers."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "answer": "Garúa suppresses the cliché horizon and reveals rail/terrace/path geometry; side light can separate cliff depth but sunset alone is not a mechanism."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "answer": "Verify upper side-on rail, accessible lower/adjacent path and distant Ermita/funicular-layer viewpoint. Start 50 mm for observer/path, 35 mm for full section and 85 mm only if both levels remain legible."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-PROJECT"
+          ],
+          "answer": "Verify recovery works, rail/path safety and lawful lower access, avoid identifiable couples and unstable edges, cap sunset waiting and fall back to garúa/meaningful absence if two-level action is impossible."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "answer": "The frame passes when built cliff infrastructure visibly separates or connects observing and moving. Sunset, romance, ocean panorama or caption-dependent funicular history fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "position": "Verified safe side angle aligning upper terrace, cliff edge and visible lower path",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals two-level section",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude awnings, blown horizon and clipped rail",
+          "wait_trigger": "Both levels clear",
+          "kill_trigger": "Lower path or depth is invisible",
+          "access_ethics": "Stable public edge only",
+          "fallback": "50 mm rail/cliff relation"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "position": "Safe upper side angle toward lawful lower movement corridor",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult observes above as another passes below",
+          "light": "Bright overcast",
+          "edge_guards": "Separate figures from rail and cliff",
+          "wait_trigger": "Upper pause/lower movement align",
+          "kill_trigger": "People only add scale",
+          "access_ethics": "No identifiable couples",
+          "fallback": "Back-facing observers and walker"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "position": "Lawful lower/side path looking across underside/edge, away from sunset rail",
+          "camera_height": "1.0 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Upper silhouette and lower passer overlap sectionally",
+          "light": "Garúa daylight",
+          "edge_guards": "No sun disc or ocean panorama dominates",
+          "wait_trigger": "Two levels connect",
+          "kill_trigger": "Becomes generic coastal walkway",
+          "access_ethics": "Only if path officially open/safe",
+          "fallback": "Upper oblique empty section"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-INVENTORY"
+          ],
+          "position": "Distant safe angle across terrace slab/rail, cliff material and lower path",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Shadow crosses upper/lower edge",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain both circulation levels",
+          "wait_trigger": "Light reveals section",
+          "kill_trigger": "Reads as railing/cliff detail",
+          "access_ethics": "Stable public position",
+          "fallback": "Garúa tonal section"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RECAVARREN-INVENTORY",
+            "SRC-LOC-RECAVARREN-PROJECT"
+          ],
+          "position": "Verified public oblique combining terrace observers, lower movement and Barranco/coast layer",
+          "camera_height": "1.5 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Looking, passing and pausing align",
+          "light": "Soft early evening without blown sunset",
+          "edge_guards": "Keep all layers distinct",
+          "wait_trigger": "Built cliff relation reads unaided",
+          "kill_trigger": "Sunset/caption rescues image",
+          "access_ethics": "Current works, safety and privacy",
+          "fallback": "Two-state observer/path relation"
         }
       },
       "visual_reference_families": [
@@ -8582,9 +8659,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Mirador Catalina Recavarren puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the overlook terrace, lower path and a pair of observers make Barranco's cliff section visible instead of merely presenting the sunset?",
+        "Which railing, pub awning, vegetation, crowd or blown horizon would disconnect upper viewing from lower coastal movement?",
+        "Does moving below/side-on to the cliff edge reveal observer-over-path causality better than changing focal length from the sunset rail?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -8662,10 +8739,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-BARRANCO-ATRACTIVOS"
+        "SRC-LOC-BARRANCO-ATRACTIVOS",
+        "SRC-LOC-RECAVARREN-INVENTORY",
+        "SRC-LOC-RECAVARREN-PDLC",
+        "SRC-LOC-RECAVARREN-PROJECT"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A municipal recovery project is documented, but available evidence does not prove completion, current barriers or lower-path access.",
+        "Older inventory descriptions establish a lower path and hospitality use, while wear and subsequent intervention may have changed every feasible camera position."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -8673,95 +8756,172 @@
       "canonical_id": "parque-municipal-y-entorno-civico",
       "name": "Parque Municipal y entorno cívico",
       "district": "Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-BARRANCO-ATRACTIVOS"
-          ]
+            "SRC-LOC-PQBARRANCO-ENSEMBLE"
+          ],
+          "answer": "Parque Municipal is Barranco's historic civic core, structured by park paths and public buildings including the former town hall/current library and parish church."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-BARRANCO-ATRACTIVOS"
-          ]
+            "SRC-LOC-PQBARRANCO-ENSEMBLE"
+          ],
+          "answer": "A central public landscape distributed residents among municipal, religious and social functions, with façades and paths forming a civic room."
         },
         "current_life": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-BARRANCO-ATRACTIVOS"
-          ]
+            "SRC-LOC-PQBARRANCO-CIAM",
+            "SRC-LOC-PQBARRANCO-CULTURE"
+          ],
+          "answer": "People cross, wait, read, socialize and receive services while the park periodically hosts free culture; exact visible activity must be observed, not scheduled from generic programs."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-CIAM"
+          ],
+          "answer": "Cross, sit, read, meet, practice, learn, perform and watch are credible. The strongest repeatable verb is crossing or waiting between civic destinations."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-ENSEMBLE"
+          ],
+          "answer": "Path intersections, benches, porticoes and facing civic façades distribute bodies and convert open park space into a shared institutional threshold."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-CULTURE"
+          ],
+          "answer": "Library-church panorama, fountain/park postcard and event-stage coverage dominate. The underused frame links ordinary service movement to two civic thresholds."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-ENSEMBLE"
+          ],
+          "answer": "Garúa can unify mismatched façades and reduce tourist color; low light can turn path geometry and portico shadows into a legible civic network."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-ENSEMBLE"
+          ],
+          "answer": "Test central path junction, library-portico diagonal and church/library cross-axis. Start 35 mm for civic room, 50 mm for person/path/destination and 85 mm only where two thresholds remain linked."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-CIAM"
+          ],
+          "answer": "Observe ordinary use before relying on events, avoid identifiable children/older adults without consent, keep paths and services clear and fall back to meaningful absence if no causal action emerges."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-ENSEMBLE",
+            "SRC-LOC-PQBARRANCO-CIAM"
+          ],
+          "answer": "The frame passes when park geometry visibly distributes current civic life. Pretty ensemble, event crowd or tourist scale without a destination relationship fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-ENSEMBLE"
+          ],
+          "position": "Public path junction aligning library portico, park route and second civic façade",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals civic-room geometry",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude vendor tents, cars and clipped façades",
+          "wait_trigger": "Main path clears",
+          "kill_trigger": "Reads as generic plaza",
+          "access_ethics": "Public path",
+          "fallback": "50 mm path/portico structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-CIAM"
+          ],
+          "position": "Public side of path between library/social-service edge and park center",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult crosses toward service as another waits/reads",
+          "light": "Bright overcast",
+          "edge_guards": "Separate actions from benches and doors",
+          "wait_trigger": "Movement and destination align",
+          "kill_trigger": "People only animate park",
+          "access_ethics": "Privacy and no vulnerable close-ups",
+          "fallback": "Back-facing adults at threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-ENSEMBLE"
+          ],
+          "position": "Low oblique beside non-iconic path edge looking through portico toward second civic use",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure turns between paths and doorway",
+          "light": "Garúa daylight",
+          "edge_guards": "No fountain or centered façade",
+          "wait_trigger": "Turn follows spatial device",
+          "kill_trigger": "Becomes generic street scene",
+          "access_ethics": "Keep path open",
+          "fallback": "Empty path/threshold relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-ENSEMBLE"
+          ],
+          "position": "Distant public angle across path shadow, portico and façade plane",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Single silhouette crosses portico light",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain path and second destination",
+          "wait_trigger": "Shadow reveals distribution",
+          "kill_trigger": "Reads as façade detail",
+          "access_ethics": "Public edge",
+          "fallback": "Garúa tonal proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PQBARRANCO-CIAM",
+            "SRC-LOC-PQBARRANCO-ENSEMBLE"
+          ],
+          "position": "Public diagonal combining park crossing, waiting/reading and civic entry",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Crossing, waiting and entering align",
+          "light": "Soft afternoon",
+          "edge_guards": "Keep three civic states distinct",
+          "wait_trigger": "Civic network reads unaided",
+          "kill_trigger": "Caption must explain service uses",
+          "access_ethics": "Privacy first",
+          "fallback": "Two-state path/entry relation"
         }
       },
       "visual_reference_families": [
@@ -8815,9 +8975,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Parque Municipal y entorno cívico puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can everyday movement between park paths, former town-hall library and current social/cultural service make Barranco's civic ensemble read as active infrastructure?",
+        "Which vendor canopy, tourist group, parked vehicle or temporary stage would sever the park path from its civic destination?",
+        "Does moving to a path/threshold diagonal reveal civic distribution better than widening the familiar library-church panorama?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -8895,10 +9055,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-BARRANCO-ATRACTIVOS"
+        "SRC-LOC-BARRANCO-ATRACTIVOS",
+        "SRC-LOC-PQBARRANCO-CIAM",
+        "SRC-LOC-PQBARRANCO-CULTURE",
+        "SRC-LOC-PQBARRANCO-ENSEMBLE"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "CIAM documents high daily service use across two district sites, but it does not prove that any named workshop is visible outdoors in Parque Municipal.",
+        "Free cultural programming proves episodic stage capacity, not a current event window or permission to photograph performers."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -16702,91 +16868,172 @@
       "canonical_id": "la-ermita-de-barranco",
       "name": "La Ermita de Barranco",
       "district": "Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-ERMITA-BARRANCO"
-          ]
+            "SRC-LOC-ERMITA-WORKS-2026",
+            "SRC-LOC-ERMITA-SCOPE-2026"
+          ],
+          "answer": "La Ermita is Barranco's eighteenth-century foundational church, currently closed and under a formally contracted 480-day restoration begun in June 2026."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ERMITA-SCOPE-2026"
+          ],
+          "answer": "Church nave, roof, walls, towers and domes formed a worship and district-origin landmark connected to the descent/coastal route."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-ERMITA-WORKS-2026"
+          ],
+          "answer": "Its present program is conservation work, inspection, protection and public detour—not worship or open tourism; exact work visibility needs same-day confirmation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ERMITA-WORKS-2026"
+          ],
+          "answer": "Secure, inspect, shore, remove, restore, pass and observe are credible. Meaningful absence of worship is visible only if closure and work devices explain it."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ERMITA-SCOPE-2026"
+          ],
+          "answer": "Damaged roof/walls and work perimeter determine supports, access closure, pedestrian detour and which historic layers remain visible."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ERMITA-WORKS-2026"
+          ],
+          "answer": "Romantic ruin, frontal yellow façade and restoration-launch ceremony dominate. The underused frame isolates a real material intervention and its effect on current passage."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ERMITA-SCOPE-2026"
+          ],
+          "answer": "Garúa can join old plaster, exposed material and temporary supports; side light can reveal repaired/unrepaired seams without aestheticizing decay."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ERMITA-WORKS-2026"
+          ],
+          "answer": "From lawful public edges test work-gate diagonal, side wall/roof seam and passage-to-closed-entry relation. Start 50 mm for work/device, 35 mm for church/detour and 85 mm for safe distant material layering."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ERMITA-WORKS-2026"
+          ],
+          "answer": "Never enter the work zone or obstruct crews, verify barriers and visible operations, avoid identifiable workers without approval and kill the scene if only opaque hoarding or ceremonial signage remains."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ERMITA-WORKS-2026",
+            "SRC-LOC-ERMITA-SCOPE-2026"
+          ],
+          "answer": "The frame passes when original fabric visibly forces present conservation or detour. Picturesque ruin, future-promise caption or generic construction documentation fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ERMITA-SCOPE-2026"
+          ],
+          "position": "Lawful public diagonal aligning closed entry, visible wall/roof intervention and detour edge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals old/work/public layers",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude banners, vehicles and clipped tower",
+          "wait_trigger": "Public edge clears",
+          "kill_trigger": "Opaque hoarding hides causal fabric",
+          "access_ethics": "Outside work perimeter",
+          "fallback": "50 mm wall/support seam"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ERMITA-WORKS-2026"
+          ],
+          "position": "Safe public side of work gate or visible intervention",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/1000 s",
+          "expected_action": "Authorized worker/inspection occurs as pedestrian follows detour",
+          "light": "Bright overcast",
+          "edge_guards": "Separate work and passage",
+          "wait_trigger": "Conservation and detour align",
+          "kill_trigger": "Worker is only documentary subject",
+          "access_ethics": "No worker identification without approval",
+          "fallback": "Pedestrian passes closed threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ERMITA-WORKS-2026"
+          ],
+          "position": "Low lawful angle along temporary perimeter toward material seam, away from façade center",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Passer rounds barrier shaped by church edge",
+          "light": "Garúa daylight",
+          "edge_guards": "No romantic ruin or launch banner",
+          "wait_trigger": "Detour visibly follows closure",
+          "kill_trigger": "Becomes generic construction barrier",
+          "access_ethics": "Public pavement only",
+          "fallback": "Empty barrier/fabric relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ERMITA-SCOPE-2026"
+          ],
+          "position": "Distant safe angle across repaired/unrepaired wall, support and roof edge",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Worker/passenger shadow crosses intervention seam",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain church and temporary device",
+          "wait_trigger": "Material phases separate",
+          "kill_trigger": "Reads as decay texture",
+          "access_ethics": "No work-zone entry",
+          "fallback": "Garúa material-phase proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ERMITA-WORKS-2026",
+            "SRC-LOC-ERMITA-SCOPE-2026"
+          ],
+          "position": "Lawful oblique combining historic fabric, active/visible conservation and redirected public movement",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/1000 s",
+          "expected_action": "Restoring/inspecting, passing and observing align",
+          "light": "Soft afternoon",
+          "edge_guards": "Keep three temporal states distinct",
+          "wait_trigger": "Restoration reads without future promise",
+          "kill_trigger": "Caption must explain project scope",
+          "access_ethics": "Safety and worker privacy",
+          "fallback": "Two-state closure/detour relation"
         }
       },
       "visual_reference_families": [
@@ -16840,9 +17087,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en La Ermita de Barranco puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a visible conservation operation show how the damaged eighteenth-century church currently reorganizes passage and attention without romanticizing ruin?",
+        "Which scaffold screen, ceremony banner, tourist cluster or clipped tower would hide the exact roof/wall/access intervention?",
+        "Does moving along the lawful work perimeter reveal old fabric–temporary support–public route causality better than widening the closed façade?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -16920,12 +17167,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-ERMITA-BARRANCO"
+        "SRC-LOC-ERMITA-BARRANCO",
+        "SRC-LOC-ERMITA-SCOPE-2026",
+        "SRC-LOC-ERMITA-WORKS-2026"
       ],
       "contradictions": [
-        "Current restoration and access status was not established by the municipal attractions page."
+        "Current restoration and access status was not established by the municipal attractions page.",
+        "Future accessible ramp and restored cultural/tourist use are project outcomes, not current use and must not rescue the present frame.",
+        "Official sources verify a 480-day restoration launched June 2026, but the visible construction phase, barriers and work cadence can change daily."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
