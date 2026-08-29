@@ -7157,93 +7157,173 @@
       "canonical_id": "biblioteca-nacional-del-peru",
       "name": "Biblioteca Nacional del Perú",
       "district": "San Borja",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-BNP-HOURS"
-          ]
+            "SRC-LOC-BNP-2026-DESIGN"
+          ],
+          "answer": "The Biblioteca Nacional's San Borja headquarters opened in 2006 and remains an operating national institution for preservation, reading, research and cultural access."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BNP-2026-DESIGN"
+          ],
+          "answer": "A monumental civic hall distributes users toward exhibition, reading, research and preservation functions, making controlled public access part of the building's order."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-BNP-HOURS"
-          ]
+            "SRC-LOC-BNP-READING",
+            "SRC-LOC-BNP-2026-DESIGN"
+          ],
+          "answer": "Readers study, consult collections and use an outdoor terrace while exhibitions and guided routes activate the hall; exact access on the visit date must be checked."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BNP-READING"
+          ],
+          "answer": "Enter, register, orient, climb, read, consult, study and pause are current. The strongest verb is crossing from monumental collective space into focused reading."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BNP-2026-DESIGN",
+            "SRC-LOC-BNP-READING"
+          ],
+          "answer": "Hall, controlled thresholds, stairs, galleries, reading rooms and terrace progressively convert civic arrival into concentrated knowledge work."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BNP-2026-DESIGN"
+          ],
+          "answer": "Frontal monumentality and empty lateral mass dominate. The underrepresented relation joins a real reader's route to the interior hierarchy and terrace edge."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BNP-2026-DESIGN"
+          ],
+          "answer": "Diffuse hall light can separate deep thresholds and concrete/stone planes; terrace daylight can stage the transition from enclosed archive to public horizon."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BNP-READING"
+          ],
+          "answer": "Test public hall diagonal, approved reading-room threshold and terrace approach. Start 35 mm for spatial sequence, 50 mm for reader/device causality and 85 mm only across an authorized layered axis."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BNP-READING"
+          ],
+          "answer": "Confirm current entry and photography rules, never photograph collection material or identifiable readers without consent, remain outside circulation and use exterior fallback if interior work is declined."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BNP-2026-DESIGN",
+            "SRC-LOC-BNP-READING"
+          ],
+          "answer": "The frame passes only if institutional architecture visibly turns public arrival into reading or study. Monumental façade, exhibition documentation or generic reader scale fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BNP-2026-DESIGN"
+          ],
+          "position": "Authorized public-hall diagonal aligning entrance, vertical circulation and deeper threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/125 s, ISO as required",
+          "expected_action": "Clear interval reveals distribution hierarchy",
+          "light": "Diffuse daytime hall light",
+          "edge_guards": "Exclude security clutter, clipped stairs and bright exit signs",
+          "wait_trigger": "Primary axis clears",
+          "kill_trigger": "Reads only as oversized lobby",
+          "access_ethics": "Public area and current rules only",
+          "fallback": "Exterior lateral mass/entry joint"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BNP-READING"
+          ],
+          "position": "Approved side of reading-room or terrace threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6–8, 1/250 s",
+          "expected_action": "Reader passes from collective route into focused study plane",
+          "light": "Soft interior-to-daylight transition",
+          "edge_guards": "Separate figure from door and furniture",
+          "wait_trigger": "Transition and seated study align",
+          "kill_trigger": "Person merely supplies scale",
+          "access_ethics": "No readable documents or identifiable faces",
+          "fallback": "Back-facing adult at terrace threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BNP-READING"
+          ],
+          "position": "Approved lateral interior edge looking from study circulation toward terrace, away from front façade",
+          "camera_height": "1.1 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Reader crosses a compressed sequence of threshold, table and outdoor edge",
+          "light": "Bright overcast",
+          "edge_guards": "No institutional logo or exhibition panel dominates",
+          "wait_trigger": "Three depth planes remain legible",
+          "kill_trigger": "Becomes generic modern-library interior",
+          "access_ethics": "Obey staff direction",
+          "fallback": "Empty threshold-to-terrace structure"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BNP-2026-DESIGN"
+          ],
+          "position": "Public/approved side angle across deep opening and wall plane",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Single silhouette crosses one light band",
+          "light": "Low lateral daylight",
+          "edge_guards": "Retain opening depth and destination",
+          "wait_trigger": "Light separates planes",
+          "kill_trigger": "Reads as abstract wall detail",
+          "access_ethics": "No flash or restricted collections",
+          "fallback": "Exterior side-light proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BNP-2026-DESIGN",
+            "SRC-LOC-BNP-READING"
+          ],
+          "position": "Approved hall edge combining arrival, ascent and reading/terrace destination",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Entering, orienting and studying align",
+          "light": "Soft afternoon",
+          "edge_guards": "Keep all three states distinct",
+          "wait_trigger": "Route reads without labels",
+          "kill_trigger": "Caption must explain public knowledge access",
+          "access_ethics": "Privacy and current permission",
+          "fallback": "Two-state hall-to-study transition"
         }
       },
       "visual_reference_families": [
@@ -7297,9 +7377,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Biblioteca Nacional del Perú puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a reader's movement from civic hall toward study room or terrace make the building's promise of public knowledge access visible?",
+        "Which security barrier, display panel, bright doorway or overlapping visitor would break the hall–threshold–destination sequence?",
+        "Does moving from the emblematic front to a lateral interior/terrace threshold reveal knowledge circulation better than widening the façade?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -7377,10 +7457,15 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-BNP-HOURS"
+        "SRC-LOC-BNP-2026-DESIGN",
+        "SRC-LOC-BNP-HOURS",
+        "SRC-LOC-BNP-READING"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Published reading and terrace services do not establish architectural-photography permission or a predictable occupancy density.",
+        "The 2026 anniversary exhibition proves active institutional interpretation but not its availability on a future visit."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -10429,95 +10514,174 @@
       "canonical_id": "bosque-el-olivar",
       "name": "Bosque El Olivar",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-OLIVAR-ECOSYSTEM"
-          ]
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "answer": "Bosque El Olivar is a protected San Isidro urban forest and civic landscape with more than 1,600 olive trees, lagoon, paths, bridge and community facilities."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
-        },
-        "current_life": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-OLIVAR-ECOSYSTEM"
-          ]
+            "SRC-LOC-OLIVAR-ECOSYSTEM",
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "answer": "The inherited grove was preserved and equipped as connected ecological, walking and cultural public space rather than an isolated garden object."
+        },
+        "current_life": {
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-CARE-2026",
+            "SRC-LOC-OLIVAR-TREES-2026"
+          ],
+          "answer": "People walk, meet and learn while municipal teams clean the lagoon, prune, conserve habitat and interpret heritage trees; exact activity cadence remains field evidence."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-CARE-2026",
+            "SRC-LOC-OLIVAR-TREES-2026"
+          ],
+          "answer": "Walk, sit, read, guide, observe, clean, prune and protect are credible. Care labor most strongly contradicts the illusion of untouched nature."
         },
         "architectural_causality": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-OLIVAR-ECOSYSTEM"
-          ]
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "answer": "Promenade, path junctions, benches, bridge, lagoon edge and cultural buildings channel movement and make the living grove usable as public infrastructure."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-TREES-2026"
+          ],
+          "answer": "Lagoon panoramas, wedding portraits and isolated ancient trunks dominate. The underused frame connects maintenance or learning to the designed public edge."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-CARE-2026"
+          ],
+          "answer": "Garúa simplifies foliage while filtered light separates rough trunks, water edge and path; hard noon produces clutter unless shadows reveal the circulation structure."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "answer": "Test lagoon-maintenance edge, Constancio Bollar promenade junction and heritage-tree/path alignment. Start 35 mm for civic landscape, 50 mm for care/device and 85 mm only for distant layers retaining path context."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-CARE-2026"
+          ],
+          "answer": "Visit without assuming work or tours, protect habitat and path flow, avoid nesting wildlife and identifiable children, and cap event waiting at 20 minutes before using meaningful absence."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-CARE-2026",
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "answer": "The frame passes when designed edges and present care make the old grove's civic life visible. Beautiful trees, reflections or portraits without causal infrastructure fail."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "position": "Public diagonal aligning promenade, bridge/lagoon edge and mature trunks",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals landscape circulation",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude cars, portrait crews and clipped trunks",
+          "wait_trigger": "Primary path clears",
+          "kill_trigger": "Reads as generic park",
+          "access_ethics": "Remain on path",
+          "fallback": "Path-junction structural proof"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-CARE-2026"
+          ],
+          "position": "Respectful public distance across lagoon/path maintenance interface",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Care worker acts while walker uses the maintained edge",
+          "light": "Bright overcast",
+          "edge_guards": "Separate both actions from vegetation",
+          "wait_trigger": "Care and use align",
+          "kill_trigger": "Worker becomes documentary subject without architecture",
+          "access_ethics": "No interference; consent if identifiable",
+          "fallback": "Walker at visibly maintained bridge/bench"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-TREES-2026"
+          ],
+          "position": "Low lawful path angle placing heritage trunk between route marker/edge and current walker",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker rounds trunk along constrained path",
+          "light": "Soft winter daylight",
+          "edge_guards": "No isolated tree portrait or lagoon postcard",
+          "wait_trigger": "Body and route reveal scale/time",
+          "kill_trigger": "Needs heritage-age caption",
+          "access_ethics": "Do not step on roots",
+          "fallback": "Empty root/path/bench relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-CARE-2026"
+          ],
+          "position": "Distant path angle across rough trunk, maintained water edge and bridge",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Single figure crosses filtered light",
+          "light": "Low filtered sun",
+          "edge_guards": "Retain path and water-edge devices",
+          "wait_trigger": "Light separates three materials",
+          "kill_trigger": "Becomes bark/reflection detail",
+          "access_ethics": "No habitat intrusion",
+          "fallback": "Garúa texture/edge proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-CARE-2026",
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "position": "Public oblique combining centenary trunk, maintained civic edge and two user states",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Caring, walking and pausing align",
+          "light": "Soft morning",
+          "edge_guards": "No decorative panorama dominates",
+          "wait_trigger": "Care and daily use share one designed edge",
+          "kill_trigger": "Caption must explain stewardship",
+          "access_ethics": "Privacy and habitat first",
+          "fallback": "Two-state walker/bench relation"
         }
       },
       "visual_reference_families": [
@@ -10571,9 +10735,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Bosque El Olivar puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a maintained path, bridge or lagoon edge show that centuries-old vegetation functions as designed civic infrastructure rather than picturesque nature?",
+        "Which parked car, wedding portrait, branch overlap or blown water reflection would hide the path–care–community relationship?",
+        "Does moving to the maintenance/path edge reveal stewardship and daily circulation better than changing focal length from the iconic lagoon panorama?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -10651,10 +10815,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-OLIVAR-ECOSYSTEM"
+        "SRC-LOC-OLIVAR-CARE-2026",
+        "SRC-LOC-OLIVAR-ECOSYSTEM",
+        "SRC-LOC-OLIVAR-FURNITURE-2026",
+        "SRC-LOC-OLIVAR-TREES-2026"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Municipal language calls maintenance permanent, but no repeatable worker schedule supports a route promise.",
+        "The 2026 heritage-tree launch proves a route concept, not permanent guides, signs or group activity."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -19445,105 +19615,173 @@
       "canonical_id": "damero-de-lima-interseccion-como-objeto",
       "name": "Damero de Lima · intersección como objeto",
       "district": "Lima",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
             "SRC-LOC-DAMERO-MINCETUR"
-          ]
+          ],
+          "answer": "The Damero is Lima's historic orthogonal block and street system; the scene unit is one verified intersection, not the entire center or Plaza Mayor."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
             "SRC-LOC-DAMERO-MINCETUR"
-          ]
+          ],
+          "answer": "Perpendicular streets, repeated blocks and axial routes organized movement, parcels, institutions, commerce and the civic center through a legible grid."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-DAMERO-TRAFFIC-2026",
+            "SRC-LOC-DAMERO-C40"
+          ],
+          "answer": "Walking, deliveries, commerce, transit and controlled vehicle access still negotiate the grid; temporary restrictions demonstrate that intersection behavior changes with operation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-DAMERO-C40"
+          ],
+          "answer": "Cross, wait, turn, sell, deliver, drive and police are credible. The decisive event is perpendicular release of flows that makes the grid visible at street level."
         },
         "architectural_causality": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-DAMERO-MINCETUR"
-          ]
+            "SRC-LOC-DAMERO-MINCETUR",
+            "SRC-LOC-DAMERO-C40"
+          ],
+          "answer": "Corner lines, repeated façades, crosswalks, controlled entries and long vanishing axes channel bodies into alternating orthogonal movements."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-DAMERO-CABLES"
+          ],
+          "answer": "Plaza monuments, balconies and elevated grid diagrams dominate. The underused frame tests a cleaned or changing intersection where ground flows reveal the plan."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-DAMERO-CABLES"
+          ],
+          "answer": "Garúa can suppress signage and cable clutter; brief sun can cast orthogonal façade/corner shadows, but light is useful only when two street axes remain legible."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-DAMERO-C40"
+          ],
+          "answer": "Scout all four lawful corners and any safe setback before choosing the crossing. Start 35 mm for both axes, 50 mm when an axial endpoint strengthens order and reject 85 mm if it erases the perpendicular street."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-DAMERO-TRAFFIC-2026"
+          ],
+          "answer": "Verify current traffic restrictions, works, crowd and safe stopping point; never enter carriageway or block commerce, avoid identifiable vulnerable people and cap one signal-cycle test at 20 minutes."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-DAMERO-MINCETUR",
+            "SRC-LOC-DAMERO-C40"
+          ],
+          "answer": "The frame passes only if perpendicular built lines visibly cause present crossing/turning. Heritage façades, dense street life or a map-dependent argument fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W04"
+            "SRC-LOC-DAMERO-MINCETUR"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Safest verified corner/setback aligning two perpendicular street axes and repeated façades",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Brief clear signal interval reveals both axes",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude dominant sign, parked van and clipped corner",
+          "wait_trigger": "Intersection clears",
+          "kill_trigger": "Grid requires map explanation",
+          "access_ethics": "Sidewalk only",
+          "fallback": "50 mm single-axis endpoint plus visible cross street"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W04"
+            "SRC-LOC-DAMERO-C40"
           ],
-          "label": "B · HABITAR",
-          "lens": "50 mm",
-          "plan": "Cambio de semáforo/flujo peatonal que produzca diagonales humanas dentro de una arquitectura ortogonal.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "position": "Verified wide sidewalk corner facing perpendicular crosswalk/turning lines",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/1000 s",
+          "expected_action": "Pedestrians cross one axis as delivery/turning movement occupies the other",
+          "light": "Bright overcast",
+          "edge_guards": "Separate flows from street furniture",
+          "wait_trigger": "Perpendicular movements align",
+          "kill_trigger": "Crowd becomes chaos without grid",
+          "access_ethics": "No obstruction or vulnerable close-ups",
+          "fallback": "Two back-facing pedestrian streams"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W04"
+            "SRC-LOC-DAMERO-CABLES"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: Plaza Mayor monumental o vista aérea imposible con nuestro kit. Busca la relación definida por: ¿Puede una intersección a nivel de calle hacer visible el damero mediante cuatro corrientes humanas y una perspectiva axial?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Non-monumental cleaned intersection edge with long façade lines and visible cross street",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure turns ninety degrees at corner",
+          "light": "Garúa daylight",
+          "edge_guards": "No balcony/monument becomes subject",
+          "wait_trigger": "Turn visibly follows corner",
+          "kill_trigger": "Becomes generic street photography",
+          "access_ethics": "Keep storefront access clear",
+          "fallback": "Empty corner/axis relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W04"
+            "SRC-LOC-DAMERO-CABLES"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "35 mm desde esquina segura · 50 mm si un eje termina en hito · evitar necesidad de dron",
-          "plan": "mañana/mediodía para sombras ortogonales o garúa para lectura limpia",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Safe corner where lateral sun or cleared sky reveals two façade planes",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/1000 s",
+          "expected_action": "Shadow/body crosses the ninety-degree seam",
+          "light": "Low directional sun",
+          "edge_guards": "Retain both street openings",
+          "wait_trigger": "Orthogonal shadow aligns with crossing",
+          "kill_trigger": "Reads as façade abstraction only",
+          "access_ethics": "Sidewalk/setback only",
+          "fallback": "Garúa geometry proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W04"
+            "SRC-LOC-DAMERO-C40",
+            "SRC-LOC-DAMERO-TRAFFIC-2026"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "35 mm desde esquina segura · 50 mm si un eje termina en hito · evitar necesidad de dron",
-          "plan": "Cambio de semáforo/flujo peatonal que produzca diagonales humanas dentro de una arquitectura ortogonal.",
-          "gate": "¿Puede una intersección a nivel de calle hacer visible el damero mediante cuatro corrientes humanas y una perspectiva axial?"
+          "position": "Verified setback showing controlled entry, perpendicular axes and active corner",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/1000 s",
+          "expected_action": "Waiting, crossing and turning occupy distinct grid planes",
+          "light": "Soft morning",
+          "edge_guards": "Preserve axial depth and clear corner",
+          "wait_trigger": "Three states align within one signal cycle",
+          "kill_trigger": "Caption/map must rescue the damero idea",
+          "access_ethics": "Current operation and public safety first",
+          "fallback": "Two-state cross/turn relation"
         }
       },
       "visual_reference_families": [
@@ -19597,9 +19835,9 @@
         }
       ],
       "composition_questions": [
-        "¿Puede una intersección a nivel de calle hacer visible el damero mediante cuatro corrientes humanas y una perspectiva axial?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one safe ground-level intersection reveal the orthogonal grid through axial depth and perpendicular human/vehicle flows without a map?",
+        "Which vendor canopy, parked vehicle, crowd overlap or remaining cable field would collapse the four-direction reading?",
+        "Does changing corners or camera height expose crossing geometry more clearly than using a wider lens from the first corner?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -19667,10 +19905,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-DAMERO-MINCETUR"
+        "SRC-LOC-DAMERO-C40",
+        "SRC-LOC-DAMERO-CABLES",
+        "SRC-LOC-DAMERO-MINCETUR",
+        "SRC-LOC-DAMERO-TRAFFIC-2026"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Cable removal covers many blocks but cannot be generalized to every axis; the final crossing and safe standing point remain unselected.",
+        "The June 2026 restoration of regular traffic proves reversibility, not the current operation of any chosen intersection."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
