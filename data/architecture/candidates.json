@@ -317,7 +317,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "mirador-catalina-recavarren",
@@ -407,7 +407,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "bosque-el-olivar",
@@ -677,7 +677,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "centro-cultural-ccori-wasi",

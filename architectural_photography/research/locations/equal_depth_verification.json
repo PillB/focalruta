@@ -7767,95 +7767,173 @@
       "canonical_id": "gran-teatro-nacional",
       "name": "Gran Teatro Nacional",
       "district": "San Borja",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-GTN-2026"
-          ]
+            "SRC-LOC-GTN-2026",
+            "SRC-LOC-GTN-PROGRAM-2026"
+          ],
+          "answer": "Gran Teatro Nacional is an active national performing-arts venue at Javier Prado Este 2225, San Borja, with La Cultura station less than 100 m away."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GTN-2026"
+          ],
+          "answer": "An external public terrace, glazed foyer/performance volume and technical/backstage system separate civic arrival, audience preparation and production work while keeping them connected."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-GTN-2026"
-          ]
+            "SRC-LOC-GTN-PROGRAM-2026"
+          ],
+          "answer": "The official calendar verifies continuous 2026 music, dance, opera, rehearsal/montage and public programming, followed by an announced December maintenance period."
         },
         "human_verbs_or_meaningful_absence": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-GTN-2026"
-          ]
+            "SRC-LOC-GTN-PROGRAM-2026",
+            "SRC-LOC-GTN-VISIT-2026"
+          ],
+          "answer": "Arrive, cross, queue, wait, enter, rehearse, guide and perform are evidenced. The public scene should link station-to-terrace arrival with waiting and entry."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GTN-2026"
+          ],
+          "answer": "Terrace, broad approach, transparent foyer and controlled doors collect dispersed transit arrivals and convert them into staged audience movement."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GTN-2026",
+            "SRC-LOC-GTN-PROGRAM-2026"
+          ],
+          "answer": "Frontal glazed-façade overviews, empty night architecture and stage imagery dominate. The underused frame treats the terrace as transit-to-culture infrastructure at human scale."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GTN-2026"
+          ],
+          "answer": "Blue-hour balance can reveal glass, interior audience light and exterior terrace depth; daylight side light can separate approach planes without signage dominating."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GTN-PROGRAM-2026"
+          ],
+          "answer": "Test lawful station-side approach, terrace edge and oblique entrance line. Start 50 mm for arrival/wait/entry, 35 mm for full transit section and 85 mm from distance for layered figures against foyer."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GTN-PROGRAM-2026",
+            "SRC-LOC-GTN-VISIT-2026"
+          ],
+          "answer": "Choose a verified event, arrive 30 minutes before doors, stay outside security/queue lines, avoid identifiable children and use backstage only through registered permission."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-GTN-PROGRAM-2026"
+          ],
+          "answer": "The frame passes when architecture visibly turns urban transit into collective cultural arrival. A façade portrait, random queue or performance image fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-GTN-2026"
+          ],
+          "position": "Public station-side diagonal aligning approach, terrace and foyer doors",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals three-part arrival sequence",
+          "light": "Soft late afternoon",
+          "edge_guards": "Exclude vehicles, clipped canopy and dominant posters",
+          "wait_trigger": "Approach briefly clears",
+          "kill_trigger": "Reads as frontal cultural-building overview",
+          "access_ethics": "Public exterior only",
+          "fallback": "Terrace-edge structure proof"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-GTN-PROGRAM-2026"
+          ],
+          "position": "Public terrace side facing arrival and entrance",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Transit arrivals cross while audience waits and doors receive",
+          "light": "Bright overcast or blue hour",
+          "edge_guards": "Separate crossing, waiting and entering figures",
+          "wait_trigger": "Three verbs align",
+          "kill_trigger": "Crowd becomes unstructured",
+          "access_ethics": "Avoid faces/minors and security line",
+          "fallback": "Back-facing adults in two linked bands"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-GTN-PROGRAM-2026"
+          ],
+          "position": "Low oblique approach excluding most of iconic façade",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "One arrival crosses terrace seam toward lit foyer",
+          "light": "Garúa daylight",
+          "edge_guards": "No centered glazing or theater sign",
+          "wait_trigger": "Body bridges exterior and interior bands",
+          "kill_trigger": "Becomes event-arrival snapshot",
+          "access_ethics": "Do not obstruct route",
+          "fallback": "Empty approach/foyer seam"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-GTN-2026"
+          ],
+          "position": "Distant public angle across terrace edge and glazed foyer",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s, retain interior light",
+          "expected_action": "Silhouette crosses reflected/interior layer",
+          "light": "Blue hour",
+          "edge_guards": "Retain terrace plane and door destination",
+          "wait_trigger": "Figure separates from reflections",
+          "kill_trigger": "Reads as glass-light abstraction",
+          "access_ethics": "Public edge",
+          "fallback": "Unoccupied exterior/interior light proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-GTN-PROGRAM-2026"
+          ],
+          "position": "Far oblique public edge combining station approach, audience terrace and foyer entry",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Arriving, waiting and entering align",
+          "light": "Blue hour before a verified event",
+          "edge_guards": "Keep transit origin and theater destination distinct",
+          "wait_trigger": "Three audience states align",
+          "kill_trigger": "Caption must explain transit-to-culture relation",
+          "access_ethics": "No queue interference",
+          "fallback": "Two-state arrival/entry relation"
         }
       },
       "visual_reference_families": [
@@ -7909,9 +7987,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Gran Teatro Nacional puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the public terrace visibly transform transit arrivals into an audience before the façade becomes an isolated cultural icon?",
+        "Which barrier, vehicle, poster, column overlap or dense queue would sever station-origin, terrace and entrance destination?",
+        "Does moving to the oblique station-to-terrace path reveal civic gathering better than widening from a frontal plaza position?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -7989,10 +8067,15 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-GTN-2026"
+        "SRC-LOC-GTN-2026",
+        "SRC-LOC-GTN-PROGRAM-2026",
+        "SRC-LOC-GTN-VISIT-2026"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A dense 2026 event calendar verifies active occupation but not audience density, exterior queue configuration or photography policy for a chosen performance.",
+        "Backstage and rehearsal spaces are accessible only through specific registered visits; public program evidence cannot authorize those positions."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -9946,97 +10029,173 @@
       "canonical_id": "museo-larco-jardines",
       "name": "Museo Larco + jardines",
       "district": "Pueblo Libre",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LARCO-VISIT-2026-B"
-          ]
+            "SRC-LOC-LARCO-CURRENT-2026",
+            "SRC-LOC-LARCO-HISTORY"
+          ],
+          "answer": "Museo Larco operates in an adapted eighteenth-century Pueblo Libre house whose fabric incorporates recovered railings, doors, columns, beams and corbels."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-LARCO-VISIT-2026"
-          ]
+            "SRC-LOC-LARCO-HISTORY"
+          ],
+          "answer": "Domestic courtyards, rooms and gardens were reassembled/adapted to receive collection display and visitor circulation, making fragments part of a new institutional whole."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LARCO-VISIT-2026-B"
-          ]
+            "SRC-LOC-LARCO-CURRENT-2026"
+          ],
+          "answer": "The museum currently operates rooms, visible storage, gardens, café and mediated activities; access and photography follow explicit current rules."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-LARCO-VISIT-2026-B"
-          ]
+            "SRC-LOC-LARCO-CURRENT-2026"
+          ],
+          "answer": "Enter, cross, look, compare, pause, learn and dine are current. The decisive verb is a visitor moving from planted courtyard through a recovered threshold into collection space."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCO-HISTORY"
+          ],
+          "answer": "Courtyards, gardens, reused doors/columns and room thresholds pace movement from exterior relief to concentrated viewing."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCO-HISTORY",
+            "SRC-LOC-LARCO-CURRENT-2026"
+          ],
+          "answer": "Bougainvillea/white-wall postcards, empty courtyard views and artifact close-ups dominate. The underused frame links a specific salvaged element to present visitor transition."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCO-HISTORY"
+          ],
+          "answer": "Soft courtyard light can separate vegetation, white walls and dark reused timber/metal; hard midday contrast may erase the fragment/whole relation."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCO-CURRENT-2026"
+          ],
+          "answer": "With permission test garden-to-door junction, oblique courtyard edge and room threshold. Start 50 mm for visitor/fragment, 35 mm for garden-house depth and 85 mm from a lawful distance for layered material transition."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCO-CURRENT-2026"
+          ],
+          "answer": "Request professional authorization in advance, use no tripod/flash, do not stage a session or obstruct visitors, protect minors and leave if the intended workflow is not approved."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCO-HISTORY",
+            "SRC-LOC-LARCO-CURRENT-2026"
+          ],
+          "answer": "The frame passes when a reused architectural element visibly channels contemporary discovery. A floral postcard, artifact portrait or café lifestyle image fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCO-HISTORY"
+          ],
+          "position": "Authorized oblique courtyard edge aligning garden, reused threshold and interior room",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals fragment-to-whole sequence",
+          "light": "Soft morning",
+          "edge_guards": "Control flowers, café furniture and bright walls",
+          "wait_trigger": "Threshold clears",
+          "kill_trigger": "Reads as picturesque hacienda",
+          "access_ethics": "Advance authorization; no tripod",
+          "fallback": "Lawful visitor-scale structure proof"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCO-CURRENT-2026"
+          ],
+          "position": "Authorized side of garden-to-gallery threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6–8, 1/500 s",
+          "expected_action": "Visitor pauses at fragment then enters gallery",
+          "light": "Bright overcast",
+          "edge_guards": "Separate person, reused element and destination",
+          "wait_trigger": "Look/pause/enter aligns",
+          "kill_trigger": "Visitor only adds scale",
+          "access_ethics": "No staging or identifiable minors",
+          "fallback": "Back-facing adult crossing threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCO-HISTORY"
+          ],
+          "position": "Low side angle behind one recovered element, away from central flower view",
+          "camera_height": "0.8 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure moves between fragment and adapted room",
+          "light": "Garúa daylight",
+          "edge_guards": "No centered bougainvillea or café scene",
+          "wait_trigger": "Body bridges old element/new route",
+          "kill_trigger": "Needs provenance caption",
+          "access_ethics": "Remain in visitor route",
+          "fallback": "Empty fragment/threshold relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCO-HISTORY"
+          ],
+          "position": "Authorized distant line across timber/metal fragment and white wall depth",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/5.6, 1/250 s, protect white wall",
+          "expected_action": "Hand or shadow crosses material seam",
+          "light": "Soft lateral courtyard light",
+          "edge_guards": "Retain doorway context",
+          "wait_trigger": "Gesture separates from fragment",
+          "kill_trigger": "Reads as decorative detail",
+          "access_ethics": "No contact with fabric",
+          "fallback": "Unoccupied material proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCO-HISTORY",
+            "SRC-LOC-LARCO-CURRENT-2026"
+          ],
+          "position": "Authorized oblique route combining garden pause, recovered doorway and gallery entry",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Looking, crossing and entering align",
+          "light": "Soft late afternoon",
+          "edge_guards": "No floral mass or object display dominates",
+          "wait_trigger": "Three visitor states align",
+          "kill_trigger": "Caption must explain recovered-element reuse",
+          "access_ethics": "Professional authorization and no-session rule",
+          "fallback": "Two-state pause/entry relation"
         }
       },
       "visual_reference_families": [
@@ -10090,9 +10249,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Museo Larco + jardines puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a visitor's route reveal how recovered architectural fragments and an adapted house produce a contemporary museum rather than a picturesque colonial backdrop?",
+        "Which bougainvillea mass, café table, display sign or visitor overlap would hide the transition between garden, threshold and collection route?",
+        "Does moving from postcard courtyard center to a fragment/doorway junction reveal adaptation more clearly than changing focal length?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -10170,11 +10329,16 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-LARCO-CURRENT-2026",
+        "SRC-LOC-LARCO-HISTORY",
         "SRC-LOC-LARCO-VISIT-2026",
         "SRC-LOC-LARCO-VISIT-2026-B"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Current rules allow non-professional photography but prohibit photo sessions and tripods; professional work requires museum authorization at least three business days ahead.",
+        "Official garden imagery cannot verify current bloom, quiet conditions or whether salvaged architectural fragments read in one frame."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -16292,95 +16456,175 @@
       "canonical_id": "larcomar-acantilado",
       "name": "Larcomar + acantilado",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LARCOMAR-2026"
-          ]
+            "SRC-LOC-LARCOMAR-2026",
+            "SRC-LOC-LARCOMAR-ADENDA-2026"
+          ],
+          "answer": "Larcomar operates beneath/within Parque Salazar's cliff-top land under a current municipal surface-right agreement covering park, cliff and subsurface."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-2026",
+            "SRC-LOC-LARCOMAR-MIRADOR"
+          ],
+          "answer": "The complex excavates rather than crowns the cliff, stacking park-level public movement, void-facing commercial rooms and coastal outlook in a vertical section."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LARCOMAR-2026"
-          ]
+            "SRC-LOC-LARCOMAR-ADENDA-2026"
+          ],
+          "answer": "The commercial complex remains operating in 2026, while the agreement requires same-year cliff maintenance/reinforcement and ornamental recovery at Parque Salazar."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-2026",
+            "SRC-LOC-LARCOMAR-MIRADOR"
+          ],
+          "answer": "Walk, overlook, descend, shop, dine, wait and photograph are credible. The decisive relation layers a park walker above a descending/void-facing occupant below."
         },
         "architectural_causality": {
           "status": "CORROBORATED",
           "source_ids": [
             "SRC-LOC-LARCOMAR-2026"
-          ]
+          ],
+          "answer": "Excavated terraces, stairs, retaining edges and suspended rooms convert topographic drop into separated but visually connected movement levels."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-MIRADOR",
+            "SRC-LOC-LARCOMAR-2026"
+          ],
+          "answer": "Sunset/ocean panoramas, tourist overlooks and mall interiors dominate. The underused frame uses an external profile to show park, cliff engineering and occupied void together."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-MIRADOR"
+          ],
+          "answer": "Garúa can simplify sea/sky and reveal retaining planes; late side light can articulate excavation depth but must not reduce the image to sunset atmosphere."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-MIRADOR"
+          ],
+          "answer": "Verify external Mirador-2/profile, park-level edge and lawful internal descent. Start 50 mm for two-level occupation, 35 mm for complete section and 85 mm from external distance for stacked park/cliff/room layers."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-ADENDA-2026"
+          ],
+          "answer": "Check same-day works and closures, never cross barriers or stop on unsafe lower roads, avoid identifiable children and abandon any profile whose safe public position is unavailable."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-MIRADOR",
+            "SRC-LOC-LARCOMAR-ADENDA-2026"
+          ],
+          "answer": "The frame passes when occupied architecture visibly negotiates public park and unstable cliff section. A sunset, shopping or ocean-view image fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-MIRADOR"
+          ],
+          "position": "Verified external public mirador showing park cap, cliff profile and excavated terraces",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals vertical section",
+          "light": "Bright overcast/garúa",
+          "edge_guards": "Exclude dominant horizon, railings and works barriers",
+          "wait_trigger": "Profile clears of groups",
+          "kill_trigger": "Reads as ocean panorama",
+          "access_ethics": "Public mirador only",
+          "fallback": "Park-level section edge"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-2026"
+          ],
+          "position": "Verified lawful oblique profile combining upper path and lower occupied terrace",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker crosses above while person descends or pauses below",
+          "light": "Bright overcast",
+          "edge_guards": "Separate levels and figures from railings",
+          "wait_trigger": "Two levels activate simultaneously",
+          "kill_trigger": "People only add scale",
+          "access_ethics": "No unsafe roadside position",
+          "fallback": "Back-facing figures on two lawful levels"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-MIRADOR"
+          ],
+          "position": "External side profile excluding sunset-facing central overlook",
+          "camera_height": "1.1 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure crosses top edge as lower room remains occupied",
+          "light": "Garúa daylight",
+          "edge_guards": "No centered ocean or selfie cluster",
+          "wait_trigger": "Upper/lower activity aligns",
+          "kill_trigger": "Becomes tourist overlook",
+          "access_ethics": "Stay behind public edge",
+          "fallback": "Empty engineered cliff section"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-MIRADOR"
+          ],
+          "position": "Distant public profile across retaining plane and projecting room",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s, protect sky",
+          "expected_action": "Figure shadow crosses retaining seam",
+          "light": "Low side light without saturated sunset",
+          "edge_guards": "Retain cliff material and occupied volume",
+          "wait_trigger": "Light separates excavation layers",
+          "kill_trigger": "Reads as abstract engineering detail",
+          "access_ethics": "Public stable platform only",
+          "fallback": "Garúa material proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LARCOMAR-MIRADOR",
+            "SRC-LOC-LARCOMAR-ADENDA-2026"
+          ],
+          "position": "Verified external oblique position combining park walker, cliff reinforcement/edge and occupied terrace",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walking, descending and overlooking align across three levels",
+          "light": "Soft late afternoon or garúa",
+          "edge_guards": "Works and signage remain context, not obstruction",
+          "wait_trigger": "Three levels become legible",
+          "kill_trigger": "Caption must explain excavation or current maintenance",
+          "access_ethics": "Respect barriers and closures",
+          "fallback": "Two-level park/terrace relation"
         }
       },
       "visual_reference_families": [
@@ -16434,9 +16678,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Larcomar + acantilado puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one frame show the cliff excavation simultaneously carrying park-level walking and suspended commercial occupation without becoming a sunset panorama?",
+        "Which railing, sign, planter, construction barrier or horizon overlap would flatten the vertical section?",
+        "Does moving to an external mirador or lower oblique profile reveal excavation/occupation better than widening from inside the mall?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -16514,10 +16758,15 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-LARCOMAR-2026"
+        "SRC-LOC-LARCOMAR-2026",
+        "SRC-LOC-LARCOMAR-ADENDA-2026",
+        "SRC-LOC-LARCOMAR-MIRADOR"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Historical temporary closure evidence cannot be treated as a current defect, and operator activity cannot prove every mirador/terrace is open.",
+        "The 2026 agreement confirms operation but also schedules cliff-slope maintenance/reinforcement, so access, sightlines and edge condition must be checked on the visit date."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
