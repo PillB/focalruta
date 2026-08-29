@@ -2222,95 +2222,173 @@
       "canonical_id": "quinta-de-los-libertadores-mnaahp",
       "name": "Quinta de los Libertadores + MNAAHP",
       "district": "Pueblo Libre",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LIBERTADORES-MINCETUR-2025"
-          ]
+            "SRC-LOC-LIBERTADORES-MINCETUR-2025",
+            "SRC-LOC-QUINTA-PUEBLOLIBRE"
+          ],
+          "answer": "Quinta de los Libertadores is the raised historic Pueblo Libre residence occupied by San Martín and Bolívar and used as the MNAAHP Independence hall/visitor site."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-LIBERTADORES-MINCETUR-2025"
-          ]
+            "SRC-LOC-QUINTA-PUEBLOLIBRE"
+          ],
+          "answer": "A double stair lifts visitors to a screened gallery and main rooms, organizing formal arrival, rest, reception and governance above the garden."
         },
         "current_life": {
-          "status": "VERIFIED",
+          "status": "CORROBORATED",
           "source_ids": [
+            "SRC-LOC-QUINTA-CULTURA",
             "SRC-LOC-LIBERTADORES-MINCETUR-2025"
-          ]
+          ],
+          "answer": "Government sources document museum visitation and group reservation; current hours, exhibit state and photography rules require direct confirmation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUINTA-CULTURA"
+          ],
+          "answer": "Approach, climb, enter, guide, observe, learn and wait are credible. The decisive relation is a visitor ascending from garden level toward the raised historical/museum sequence."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUINTA-PUEBLOLIBRE"
+          ],
+          "answer": "Double stairs, elevation above grade, veranda/gallery and aligned room thresholds ritualize approach and separate garden/public arrival from interior reception."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUINTA-PUEBLOLIBRE"
+          ],
+          "answer": "Empty heritage façade, period-room object and romantic night garden dominate. The underused frame makes ascent through the raised threshold the story."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUINTA-PUEBLOLIBRE"
+          ],
+          "answer": "Soft daylight reveals quincha surfaces, stair symmetry and veranda depth; hard frontal light or decorative night illumination flattens the transition."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUINTA-PUEBLOLIBRE"
+          ],
+          "answer": "With permission test garden diagonal to one stair, veranda end toward rooms and interior threshold. Start 50 mm for ascent/device, 35 mm for garden-house section and 85 mm for layered visitor/gallery from distance."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUINTA-CULTURA"
+          ],
+          "answer": "Reverify opening/reservation and photography policy, remain with visitor route, avoid flash/objects and identifiable children, and use garden-only fallback if interior work is declined."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-QUINTA-PUEBLOLIBRE",
+            "SRC-LOC-QUINTA-CULTURA"
+          ],
+          "answer": "The frame passes when raised domestic/state architecture visibly choreographs present learning. A famous-house façade or object display without movement fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUINTA-PUEBLOLIBRE"
+          ],
+          "position": "Authorized garden diagonal aligning one stair, raised veranda and room threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals vertical arrival sequence",
+          "light": "Soft morning",
+          "edge_guards": "Control plants, railings and clipped façade",
+          "wait_trigger": "Stair/veranda clears",
+          "kill_trigger": "Reads as generic heritage house",
+          "access_ethics": "Open visitor area only",
+          "fallback": "Public garden structural proof"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUINTA-CULTURA"
+          ],
+          "position": "Authorized side of stair facing veranda destination",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Visitor ascends while guide/waiting visitor occupies gallery",
+          "light": "Bright overcast",
+          "edge_guards": "Separate figures from rails and doors",
+          "wait_trigger": "Climb and reception align",
+          "kill_trigger": "People only add scale",
+          "access_ethics": "Consent/privacy and no obstruction",
+          "fallback": "Back-facing adult ascending"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUINTA-PUEBLOLIBRE"
+          ],
+          "position": "Low side of one stair looking under/along veranda, away from frontal symmetry",
+          "camera_height": "0.8 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure moves from garden shadow into raised gallery",
+          "light": "Garúa daylight",
+          "edge_guards": "No centered façade or period object",
+          "wait_trigger": "Body bridges levels",
+          "kill_trigger": "Needs historical caption",
+          "access_ethics": "Stay on visitor path",
+          "fallback": "Empty stair/gallery transition"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUINTA-PUEBLOLIBRE"
+          ],
+          "position": "Authorized distant angle across stair, quincha wall and veranda screen",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Visitor shadow crosses material seam",
+          "light": "Low side light",
+          "edge_guards": "Retain stair and threshold context",
+          "wait_trigger": "Shadow separates wall planes",
+          "kill_trigger": "Reads as heritage texture detail",
+          "access_ethics": "No contact/flash",
+          "fallback": "Unoccupied material-depth proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-QUINTA-PUEBLOLIBRE",
+            "SRC-LOC-QUINTA-CULTURA"
+          ],
+          "position": "Authorized garden edge combining approach, stair ascent and guided gallery entry",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Approaching, climbing and learning align",
+          "light": "Soft late afternoon",
+          "edge_guards": "Keep all levels distinct",
+          "wait_trigger": "Three visitor states align",
+          "kill_trigger": "Caption must explain house-to-museum continuity",
+          "access_ethics": "Current permission and visitor privacy",
+          "fallback": "Two-state climb/gallery relation"
         }
       },
       "visual_reference_families": [
@@ -2364,9 +2442,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Quinta de los Libertadores + MNAAHP puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the double stair, raised gallery and room threshold visibly transform state-house arrival into a contemporary museum route?",
+        "Which garden planting, display case, visitor overlap or bright doorway would disconnect approach from raised veranda and interior destination?",
+        "Does moving from frontal façade center to the stair/gallery diagonal reveal inhabitation more clearly than widening the whole house?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -2444,10 +2522,15 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-LIBERTADORES-MINCETUR-2025"
+        "SRC-LOC-LIBERTADORES-MINCETUR-2025",
+        "SRC-LOC-QUINTA-CULTURA",
+        "SRC-LOC-QUINTA-PUEBLOLIBRE"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Historical political occupation is well documented but cannot rescue a frame whose raised-house and visitor sequence are not visually legible.",
+        "Published government hours/reservation guidance must be reverified before route use and does not establish interior photography conditions."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -13678,95 +13761,170 @@
       "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
       "name": "Puente de los Suspiros + Bajada de Baños",
       "district": "Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
             "SRC-LOC-SUSPIROS-BARRANCO"
-          ]
+          ],
+          "answer": "Puente de los Suspiros crosses the older Bajada de Baños ravine route in Barranco, joining upper neighborhood edges above a persistent descent toward the coast."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
             "SRC-LOC-SUSPIROS-BARRANCO"
-          ]
+          ],
+          "answer": "The timber crossing links opposite upper sides while the Bajada preserves longitudinal descent, creating two perpendicular movement systems at different levels."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-CURRENT"
+          ],
+          "answer": "The municipality presents both as active attractions and pedestrian routes; exact crowd, commerce and repair conditions remain same-day checks."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-CURRENT"
+          ],
+          "answer": "Cross, descend, climb, pause, meet, sell and look are credible. The decisive relation is one body crossing above while another follows the constrained descent below."
         },
         "architectural_causality": {
           "status": "CORROBORATED",
           "source_ids": [
             "SRC-LOC-SUSPIROS-BARRANCO"
-          ]
+          ],
+          "answer": "Bridge deck, ravine walls, narrow path, stairs and openings separate transverse connection from longitudinal topographic flow."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-CURRENT"
+          ],
+          "answer": "Centered bridge portraits, romantic couples and picturesque descent views dominate. The underused frame works below/oblique to show two simultaneous movement systems."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-BARRANCO"
+          ],
+          "answer": "Garúa can simplify saturated color/clutter and emphasize timber-over-ravine depth; lateral light can separate bridge deck, walls and descending figures."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-CURRENT"
+          ],
+          "answer": "Verify lower oblique beside Bajada, upper side edge and distant descent alignment. Start 50 mm for crossing/descending relation, 35 mm for full section and 85 mm from distance only if both routes remain legible."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-CURRENT"
+          ],
+          "answer": "Visit early or in garúa, verify repairs and safe standing area, never obstruct the narrow corridor, avoid identifiable children/couples and cap waiting at 20 minutes."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-BARRANCO"
+          ],
+          "answer": "The frame passes when architecture/topography visibly produces crossing over descent. An iconic bridge, romance ritual or vendor scene without the section fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-BARRANCO"
+          ],
+          "position": "Verified lower oblique beside Bajada showing bridge deck over descending corridor",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Brief clear interval reveals perpendicular routes",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude awnings, signs and clipped bridge ends",
+          "wait_trigger": "Both routes clear",
+          "kill_trigger": "Bridge and path read as unrelated",
+          "access_ethics": "Stand outside flow",
+          "fallback": "Upper side structural section"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-CURRENT"
+          ],
+          "position": "Safe lower side angle facing bridge and descent",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "One adult crosses above while another descends below",
+          "light": "Bright overcast",
+          "edge_guards": "Separate both figures from rails and walls",
+          "wait_trigger": "Two perpendicular movements align",
+          "kill_trigger": "Figures only add scale",
+          "access_ethics": "No obstruction or identifiable children",
+          "fallback": "Back-facing adults on both routes"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-CURRENT"
+          ],
+          "position": "Within lawful descent edge looking across underside, not frontal bridge face",
+          "camera_height": "0.9 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Descending figure passes under crossing shadow",
+          "light": "Garúa daylight",
+          "edge_guards": "No romantic couple or centered bridge",
+          "wait_trigger": "Shadow/body connect two levels",
+          "kill_trigger": "Becomes generic alley scene",
+          "access_ethics": "Keep route free",
+          "fallback": "Empty underside/descent relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-BARRANCO"
+          ],
+          "position": "Distant side angle across timber deck and textured ravine wall",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Foot/shadow crosses timber as lower wall remains visible",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain deck, gap and wall",
+          "wait_trigger": "Shadow separates levels",
+          "kill_trigger": "Reads as timber detail",
+          "access_ethics": "Stable public edge only",
+          "fallback": "Garúa material proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SUSPIROS-BARRANCO",
+            "SRC-LOC-SUSPIROS-CURRENT"
+          ],
+          "position": "Far oblique safe edge layering upper crossing, lower descent and coastal opening",
+          "camera_height": "1.5 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Crossing, descending and pausing align",
+          "light": "Soft early morning",
+          "edge_guards": "Keep three layers uncluttered",
+          "wait_trigger": "Three movement states align",
+          "kill_trigger": "Caption must explain topographic system",
+          "access_ethics": "Do not block vendors/pedestrians",
+          "fallback": "Two-level crossing/descent relation"
         }
       },
       "visual_reference_families": [
@@ -13820,9 +13978,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Puente de los Suspiros + Bajada de Baños puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can simultaneous crossing above and descending below make the bridge legible as one layer in a topographic movement system?",
+        "Which vendor awning, portrait queue, vegetation overlap or clipped path would sever bridge from Bajada?",
+        "Does moving below/alongside the bridge reveal crossing-over-descent causality better than changing focal length from the iconic frontal viewpoint?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -13900,10 +14058,14 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-SUSPIROS-BARRANCO"
+        "SRC-LOC-SUSPIROS-BARRANCO",
+        "SRC-LOC-SUSPIROS-CURRENT"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "The former funicular is documentary context only; it must be rejected as a scene mechanism unless physical residue is visible without caption.",
+        "The municipal attraction record verifies identity and historical route but not current repair state, vendor density, crowd cadence or every stopping position."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -13911,95 +14073,175 @@
       "canonical_id": "country-club-lima-hotel",
       "name": "Country Club Lima Hotel",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-COUNTRYCLUB-2026"
-          ]
+            "SRC-LOC-COUNTRYCLUB-CURRENT"
+          ],
+          "answer": "Country Club Lima Hotel is an operating 1927 San Isidro hotel whose gardens historically connected to golf and polo and whose spaces continue to change."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-COUNTRYCLUB-2026"
-          ]
+            "SRC-LOC-COUNTRYCLUB-CURRENT"
+          ],
+          "answer": "The formal central arrival, wings, gardens and club/hotel rooms organized lodging, sport and elite social gathering while anchoring surrounding urbanization."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-COUNTRYCLUB-2026"
-          ]
+            "SRC-LOC-COUNTRYCLUB-CURRENT",
+            "SRC-LOC-COUNTRYCLUB-PERROQUET"
+          ],
+          "answer": "The hotel, public restaurant and event spaces actively receive guests and diners; exact non-guest circulation and photography conditions require confirmation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-PERROQUET",
+            "SRC-LOC-COUNTRYCLUB-ART"
+          ],
+          "answer": "Arrive, receive, carry, check in, dine, meet and look are current. The decisive relation is guest/service passage through an art-bearing hospitality threshold."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-CURRENT"
+          ],
+          "answer": "Central stairs, entry court, lobby axes, wings and garden thresholds turn arrival into a graduated social ritual and distribute hotel functions."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-CURRENT",
+            "SRC-LOC-COUNTRYCLUB-ART"
+          ],
+          "answer": "Empty symmetrical façade, luxury lobby and artwork detail dominate. The underused frame links current service/arrival to the formal threshold and living-gallery circulation."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-CURRENT"
+          ],
+          "answer": "Soft daylight can articulate entry depth and historic surfaces; low interior light can separate artwork and moving figures without turning the hotel into ambience."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-CURRENT",
+            "SRC-LOC-COUNTRYCLUB-PERROQUET"
+          ],
+          "answer": "With approval test public exterior stair, lobby/restaurant threshold and assigned gallery edge. Start 50 mm for person/device, 35 mm for entry depth and 85 mm only from a lawful distant position for layered service/art."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-PERROQUET"
+          ],
+          "answer": "Request hotel approval, use a restaurant reservation only for ordinary dining access, avoid guest faces/rooms and staff disruption, and fall back to public exterior if deliberate photography is declined."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-CURRENT",
+            "SRC-LOC-COUNTRYCLUB-ART"
+          ],
+          "answer": "The frame passes when formal hotel architecture visibly channels present hospitality and cultural display. Luxury décor, façade symmetry or celebrity history alone fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-CURRENT"
+          ],
+          "position": "Lawful public exterior diagonal aligning entry court, stairs and central door",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals arrival hierarchy",
+          "light": "Soft morning",
+          "edge_guards": "Exclude vehicles, clipped wings and dominant landscaping",
+          "wait_trigger": "Entry court clears",
+          "kill_trigger": "Reads as generic heritage hotel",
+          "access_ethics": "Public exterior only unless approved",
+          "fallback": "Normal-lens stair/door relation"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-PERROQUET"
+          ],
+          "position": "Approved public restaurant/lobby threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6–8, 1/250 s",
+          "expected_action": "Guest arrives as staff receives or carries through deeper plane",
+          "light": "Soft mixed daylight",
+          "edge_guards": "Separate people from door, artwork and furniture",
+          "wait_trigger": "Arrival and service align",
+          "kill_trigger": "Architecture becomes luxury backdrop",
+          "access_ethics": "Approval; no identifiable guests or staging",
+          "fallback": "Back-facing staff at public threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-ART"
+          ],
+          "position": "Approved side of living-gallery circulation away from symmetrical lobby center",
+          "camera_height": "1.1 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Guest crosses between hospitality route and artwork",
+          "light": "Bright interior/daylight",
+          "edge_guards": "No isolated artwork or décor vignette",
+          "wait_trigger": "Figure links route and display",
+          "kill_trigger": "Becomes hotel advertisement",
+          "access_ethics": "No guest identification",
+          "fallback": "Empty circulation/art spatial relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-ART"
+          ],
+          "position": "Approved distant angle across historic opening and art-bearing wall",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Staff silhouette crosses one light band",
+          "light": "Soft lateral interior light",
+          "edge_guards": "Retain doorway depth and circulation",
+          "wait_trigger": "Figure separates from artwork",
+          "kill_trigger": "Reads as decorative art detail",
+          "access_ethics": "No flash or private rooms",
+          "fallback": "Unoccupied light/material proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-COUNTRYCLUB-CURRENT",
+            "SRC-LOC-COUNTRYCLUB-ART"
+          ],
+          "position": "Approved oblique line connecting exterior arrival, reception and living-gallery route",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Arriving, receiving and looking align",
+          "light": "Soft late afternoon",
+          "edge_guards": "No logo or furniture dominates",
+          "wait_trigger": "Three hospitality states align",
+          "kill_trigger": "Caption must explain hotel/gallery adaptation",
+          "access_ethics": "Explicit permission and privacy",
+          "fallback": "Two-state arrival/reception relation"
         }
       },
       "visual_reference_families": [
@@ -14053,9 +14295,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Country Club Lima Hotel puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can present arrival or service movement make the 1927 hotel's social threshold and living-gallery adaptation legible without becoming luxury promotion?",
+        "Which vehicle, doorman overlap, artwork, furniture or guest cluster would hide the entry–hall–gallery sequence?",
+        "Does moving between exterior stair, lobby threshold and restaurant/public edge reveal hospitality causality better than widening a symmetrical frontal view?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -14133,10 +14375,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-COUNTRYCLUB-2026"
+        "SRC-LOC-COUNTRYCLUB-2026",
+        "SRC-LOC-COUNTRYCLUB-ART",
+        "SRC-LOC-COUNTRYCLUB-CURRENT",
+        "SRC-LOC-COUNTRYCLUB-PERROQUET"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Operator history describes former golf/polo relationships that may no longer read spatially in one current frame.",
+        "Restaurant hours establish a public hospitality threshold but not unrestricted access to guest, gallery or garden areas and not architectural-photography permission."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
