@@ -8930,95 +8930,176 @@
       "canonical_id": "casa-raul-porras-barrenechea",
       "name": "Casa Raúl Porras Barrenechea",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
+            "SRC-LOC-PORRAS-VISITOR",
             "SRC-LOC-PORRAS-MIRAFLORES-2023"
-          ]
+          ],
+          "answer": "The Colina 398 house is both the UNMSM Raúl Porras Barrenechea research institute and house museum, preserving domestic rooms, archive, library and collections."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
             "SRC-LOC-PORRAS-MIRAFLORES-2023"
-          ]
+          ],
+          "answer": "The house organized receiving, conversation, study and library work through hall, main room, office and study—a domestic-intellectual sequence rather than a purpose-built museum."
         },
         "current_life": {
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-PORRAS-2026-VISITS",
+            "SRC-LOC-PORRAS-VISITOR"
+          ],
+          "answer": "It currently operates as research institute and reserved house museum, with guided visits announced during 2026; exact dates and photo conditions require booking confirmation."
+        },
+        "human_verbs_or_meaningful_absence": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PORRAS-2026-VISITS",
+            "SRC-LOC-PORRAS-VISITOR"
+          ],
+          "answer": "Arrive, guide, read, research, consult, observe and remember are credible. The decisive relation is a visitor or researcher moving from receiving room toward active study/library space."
+        },
+        "architectural_causality": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PORRAS-2026-VISITS"
+          ],
+          "answer": "Successive domestic doorways and room hierarchy graduate public reception into concentrated study, allowing the old home to support both interpretation and research."
+        },
+        "visual_forensic_saturation": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PORRAS-MIRAFLORES-2023",
+            "SRC-LOC-PORRAS-VISITOR"
+          ],
+          "answer": "Quiet façade, memorabilia and empty period-room views dominate. The underused frame links a present act of research/guiding across two domestic rooms."
+        },
+        "light_material_geometry": {
           "status": "CORROBORATED",
           "source_ids": [
             "SRC-LOC-PORRAS-MIRAFLORES-2023"
-          ]
-        },
-        "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
-        },
-        "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
-        },
-        "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
-        },
-        "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          ],
+          "answer": "Soft window light can distinguish successive rooms, paper/archive surfaces and restored fabric; dramatic darkness would turn research into mausoleum atmosphere."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PORRAS-2026-VISITS"
+          ],
+          "answer": "With booking approval test street threshold, hall-to-study doorway and study-to-library relation. Start 50 mm for guide/researcher and threshold, 35 mm for two-room depth and 85 mm for a lawful detail retaining spatial context."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PORRAS-VISITOR",
+            "SRC-LOC-PORRAS-2026-VISITS"
+          ],
+          "answer": "Reserve first and confirm photography, remain with the guide, protect archives and visitor privacy, avoid flash/staging and use façade-only fallback if interior photography is declined."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PORRAS-2026-VISITS",
+            "SRC-LOC-PORRAS-VISITOR"
+          ],
+          "answer": "The frame passes when domestic architecture visibly channels present inquiry or interpretation. A portrait of furniture, books or façade without a spatial verb fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PORRAS-2026-VISITS"
+          ],
+          "position": "Authorized hall edge aligning main room, study and library threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/125 s minimum, ISO as needed",
+          "expected_action": "Clear interval reveals domestic-to-study sequence",
+          "light": "Soft window daylight",
+          "edge_guards": "Avoid clipped cases, glare and isolated memorabilia",
+          "wait_trigger": "Doorways clear",
+          "kill_trigger": "Reads as generic house museum",
+          "access_ethics": "Reservation and photo approval required",
+          "fallback": "Public street threshold"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PORRAS-2026-VISITS"
+          ],
+          "position": "Assigned side of hall-to-study threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Guide speaks as visitor/researcher enters deeper study space",
+          "light": "Soft daylight",
+          "edge_guards": "Separate figures from portraits and door frames",
+          "wait_trigger": "Interpretation and movement align",
+          "kill_trigger": "People only animate static display",
+          "access_ethics": "Consent; no flash or staging",
+          "fallback": "Back-facing guide crossing threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PORRAS-VISITOR"
+          ],
+          "position": "Authorized study-side angle looking back toward receiving rooms",
+          "camera_height": "1.1 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Researcher carries notes from public room into study",
+          "light": "Bright overcast window light",
+          "edge_guards": "No centered portrait or memorabilia close-up",
+          "wait_trigger": "Body bridges domestic and research zones",
+          "kill_trigger": "Becomes personality shrine",
+          "access_ethics": "Protect documents and privacy",
+          "fallback": "Empty reverse room sequence"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PORRAS-MIRAFLORES-2023"
+          ],
+          "position": "Authorized distant angle across doorway, desk and archive edge",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/5.6, 1/125 s, no flash",
+          "expected_action": "Hand turns a permitted page within spatial context",
+          "light": "Soft lateral window light",
+          "edge_guards": "Retain doorway and desk; avoid legible private documents",
+          "wait_trigger": "Gesture enters light band",
+          "kill_trigger": "Reads as book/detail still life",
+          "access_ethics": "Only permitted materials; no document capture",
+          "fallback": "Unoccupied desk/doorway light proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PORRAS-2026-VISITS",
+            "SRC-LOC-PORRAS-VISITOR"
+          ],
+          "position": "Authorized oblique line linking entry hall, guide and active study/library destination",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6–8, 1/250 s",
+          "expected_action": "Arrival, interpretation and research align across three rooms",
+          "light": "Soft daytime",
+          "edge_guards": "No display dominates or faces overlap",
+          "wait_trigger": "Three verbs align",
+          "kill_trigger": "Caption must explain home-to-institute continuity",
+          "access_ethics": "Booking, consent and no-flash rules",
+          "fallback": "Two-layer guide/research relation"
         }
       },
       "visual_reference_families": [
@@ -9072,9 +9153,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Casa Raúl Porras Barrenechea puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the domestic room sequence visibly transform from private study into contemporary research and guided public memory?",
+        "Which display case, portrait, doorway overlap or visitor cluster would make intellectual work read as static commemoration?",
+        "Does moving from hall to study/library threshold reveal past-to-present continuity better than widening inside a single period room?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -9152,10 +9233,15 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-PORRAS-MIRAFLORES-2023"
+        "SRC-LOC-PORRAS-2026-VISITS",
+        "SRC-LOC-PORRAS-MIRAFLORES-2023",
+        "SRC-LOC-PORRAS-VISITOR"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Municipal sources announce guided visits during 2026 but require current booking; they do not establish walk-in access or interior-photography permission.",
+        "The restored sequence and collections are documented, but current researcher/visitor density is not predictable from published material."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -12417,95 +12503,175 @@
       "canonical_id": "casa-hacienda-moreyra",
       "name": "Casa-Hacienda Moreyra",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-MOREYRA-PDLC"
-          ]
+            "SRC-LOC-MOREYRA-OFFICIAL",
+            "SRC-LOC-MOREYRA-OPERATOR"
+          ],
+          "answer": "Casa-Hacienda Moreyra survives in San Isidro as historic estate fabric currently occupied by Astrid y Gastón restaurant and private events."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-MOREYRA-PDLC"
-          ]
+            "SRC-LOC-MOREYRA-OFFICIAL"
+          ],
+          "answer": "The house combined rural residence, agricultural administration, chapel/service fabric and estate thresholds before surrounding land became modern San Isidro."
         },
         "current_life": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-MOREYRA-PDLC"
-          ]
+            "SRC-LOC-MOREYRA-OPERATOR"
+          ],
+          "answer": "The operator currently serves Tue–Sat 13:00–22:30 and Sun 12:00–15:30 and hosts reserved events; access remains hospitality-based rather than open heritage visitation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OPERATOR"
+          ],
+          "answer": "Arrive, receive, cook, carry, serve, dine and celebrate are current. The strongest relation is service movement crossing an inherited threshold while guests occupy the adapted room/patio edge."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OFFICIAL",
+            "SRC-LOC-MOREYRA-PDLC"
+          ],
+          "answer": "Stairs, thick thresholds, patios, connected rooms and former service zones structure arrival and redistribute current hospitality work."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OFFICIAL",
+            "SRC-LOC-MOREYRA-PDLC"
+          ],
+          "answer": "Polished empty dining rooms, illuminated façade and heritage-estate portraits dominate. The underused frame makes staff/guest routes reveal adaptive reuse without food or décor carrying the image."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OFFICIAL"
+          ],
+          "answer": "Doorway daylight and patio shade can separate thick historic fabric from lighter contemporary insertions; night illumination risks luxury-postcard treatment."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OFFICIAL",
+            "SRC-LOC-MOREYRA-OPERATOR"
+          ],
+          "answer": "Only with venue approval test exterior stair/threshold, patio edge and adapted service junction. Start 50 mm for old-device/current-action, 35 mm for patio sequence and 85 mm from an assigned distant position for layered service."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OPERATOR"
+          ],
+          "answer": "Request explicit venue permission, avoid peak service obstruction and identifiable guests, do not stage staff, use the assigned position and abandon the interior concept if approval is absent."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OFFICIAL",
+            "SRC-LOC-MOREYRA-OPERATOR"
+          ],
+          "answer": "The frame passes when inherited estate circulation visibly channels contemporary hospitality. A luxury façade, plated dish or atmospheric dining room fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OFFICIAL"
+          ],
+          "position": "Authorized exterior angle aligning stair, thick threshold and patio depth",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals inherited sequence",
+          "light": "Soft morning",
+          "edge_guards": "Exclude logo, vehicles and decorative table settings",
+          "wait_trigger": "Arrival path clears",
+          "kill_trigger": "Reads as generic colonial house",
+          "access_ethics": "Venue approval or lawful public exterior only",
+          "fallback": "Public-edge threshold study"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OPERATOR"
+          ],
+          "position": "Assigned side of service/guest threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6–8, 1/250 s",
+          "expected_action": "Server carries through threshold while guest arrival occupies deeper plane",
+          "light": "Soft patio daylight",
+          "edge_guards": "Separate staff, guest and doorway",
+          "wait_trigger": "Two linked hospitality verbs align",
+          "kill_trigger": "Architecture becomes décor",
+          "access_ethics": "Permission; no identifiable guests; no staging",
+          "fallback": "Back-facing staff crossing empty threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OFFICIAL"
+          ],
+          "position": "Authorized low patio edge across service route, away from frontal façade",
+          "camera_height": "0.8 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Staff movement bridges old wall and current insertion",
+          "light": "Garúa or patio shade",
+          "edge_guards": "No food, chandelier or centered heritage façade",
+          "wait_trigger": "Body clears both edges",
+          "kill_trigger": "Becomes hospitality advertisement",
+          "access_ethics": "Assigned route-safe position",
+          "fallback": "Empty old/new threshold relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OFFICIAL"
+          ],
+          "position": "Authorized distant angle through one thick opening",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/5.6, 1/250 s, protect doorway light",
+          "expected_action": "Hand or figure crosses material seam",
+          "light": "Late side light",
+          "edge_guards": "Retain wall depth and contemporary route",
+          "wait_trigger": "Figure separates within opening",
+          "kill_trigger": "Reads as decorative texture",
+          "access_ethics": "No private-event guests",
+          "fallback": "Unoccupied material-depth proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MOREYRA-OFFICIAL",
+            "SRC-LOC-MOREYRA-OPERATOR"
+          ],
+          "position": "Authorized oblique line combining arrival stair, patio and service destination",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Arrival, carrying and receiving align across three inherited spaces",
+          "light": "Soft late afternoon",
+          "edge_guards": "No dominant branding or food",
+          "wait_trigger": "Three verbs align",
+          "kill_trigger": "Caption must explain hacienda-to-restaurant reuse",
+          "access_ethics": "Venue permission and privacy required",
+          "fallback": "Two-layer staff route"
         }
       },
       "visual_reference_families": [
@@ -12559,9 +12725,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Casa-Hacienda Moreyra puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can contemporary service movement visibly reuse the former hacienda's residence–patio–administrative sequence without becoming restaurant promotion?",
+        "Which table setting, logo, guest overlap or ornamental planting would hide the old threshold and current service path?",
+        "Does moving between exterior stair, patio edge and adapted service junction reveal reuse more clearly than selecting a wider lens from a dining room?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -12639,10 +12805,15 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-MOREYRA-OFFICIAL",
+        "SRC-LOC-MOREYRA-OPERATOR",
         "SRC-LOC-MOREYRA-PDLC"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Professional reuse imagery is curated and cannot prove current room arrangement, unstaged service flow or public exterior positions after hours.",
+        "The restaurant operator verifies current hours and event use but not permission for architectural photography or access beyond a reservation."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -19316,105 +19487,174 @@
       "canonical_id": "aulario-104-universidad-ricardo-palma",
       "name": "Aulario 104 · Universidad Ricardo Palma",
       "district": "Santiago de Surco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
+            "SRC-LOC-AULARIO-INTERVIEW",
             "SRC-LOC-AULARIO-URP"
-          ]
+          ],
+          "answer": "Aulario 104 is a six-level, approximately 313 m classroom building by Juvenal Baracco and Enrique Bonilla at Universidad Ricardo Palma, executed 2009–2011."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-AULARIO-URP"
-          ]
+            "SRC-LOC-AULARIO-INTERVIEW"
+          ],
+          "answer": "Its long bar, split grades, double-height zones and open deambulatory organize 104 classrooms while acting as a transverse pedestrian connector across campus."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AULARIO-URP-2026"
+          ],
+          "answer": "URP is actively receiving and orienting students in semester 2026-II through faculty routes; exact Aulario flow, timetable and visitor access need direct institutional confirmation."
         },
         "human_verbs_or_meaningful_absence": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-AULARIO-URP"
-          ]
+            "SRC-LOC-AULARIO-URP-2026",
+            "SRC-LOC-AULARIO-INTERVIEW"
+          ],
+          "answer": "Cross, climb, descend, wait, meet, enter and study are credible. The decisive relation combines opposite movement with a paused student at the classroom threshold."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AULARIO-INTERVIEW"
+          ],
+          "answer": "Repeated bays, open circulation, level changes, bridges and classroom doors separate through-flow from pause while reconnecting campus levels."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AULARIO-INTERVIEW",
+            "SRC-LOC-AULARIO-URP"
+          ],
+          "answer": "Empty vanishing-point views, award exteriors and diagrammatic sections dominate. The underused frame compresses one circulation junction where different learning rhythms are spatially legible."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AULARIO-INTERVIEW"
+          ],
+          "answer": "Lateral light can measure repeated modules and split-grade depth; garúa can preserve students as primary contrast without turning the building into a shadow spectacle."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AULARIO-INTERVIEW"
+          ],
+          "answer": "With authorization test deambulatory junction, lower split grade and opposite side of a double-height bay. Start 50 mm for movement/threshold, 35 mm for section and 85 mm only from a lawful distance to stack bridges and bodies."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AULARIO-URP-2026"
+          ],
+          "answer": "Confirm campus access and photography policy, avoid classes and identifiable students without consent, observe 15 minutes outside circulation lines and leave if security or staff declines."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AULARIO-INTERVIEW",
+            "SRC-LOC-AULARIO-URP-2026"
+          ],
+          "answer": "The frame passes when architectural rhythm visibly separates crossing, waiting and entering. An empty long perspective or generic student crowd fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W18"
+            "SRC-LOC-AULARIO-INTERVIEW"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Authorized oblique junction showing repeated bay, split grade and classroom edge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Brief clear interval reveals circulation section",
+          "light": "Soft morning",
+          "edge_guards": "Avoid clipped rails, signs and endless empty axis",
+          "wait_trigger": "One bay clears",
+          "kill_trigger": "Reads only as long corridor",
+          "access_ethics": "Institutional authorization required",
+          "fallback": "Exterior public-edge structural view"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W18"
+            "SRC-LOC-AULARIO-URP-2026"
           ],
-          "label": "B · HABITAR",
+          "position": "Authorized side of a classroom/deambulatory junction",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Dos flujos de estudiantes cruzan en sentidos opuestos bajo el deambulatorio, uno detenido en un umbral de aula.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Two flows cross while one student pauses at a threshold",
+          "light": "Bright overcast",
+          "edge_guards": "Separate three actions from columns and rails",
+          "wait_trigger": "Opposing flows and pause align",
+          "kill_trigger": "People become undifferentiated crowd",
+          "access_ethics": "No class disruption or identifiable minors",
+          "fallback": "Back-facing adult students crossing two bands"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W18"
+            "SRC-LOC-AULARIO-INTERVIEW"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: gran perspectiva vacía del largo edificio. Busca la relación definida por: ¿Cómo fotografiar 313 metros de arquitectura sin fotografiar longitud, sino el ritmo humano que la vuelve eje?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Authorized lower split-grade angle across—not along—the long axis",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Student ascends while another crosses above",
+          "light": "Garúa daylight",
+          "edge_guards": "Exclude vanishing-point hero view",
+          "wait_trigger": "Bodies occupy two grades",
+          "kill_trigger": "Needs section drawing to explain levels",
+          "access_ethics": "Stay outside movement line",
+          "fallback": "Empty two-grade structure"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W18"
+            "SRC-LOC-AULARIO-INTERVIEW"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "35 mm para eje y capas · 50 mm para ritmos repetidos · 85 mm para apilar puentes/cuerpos",
-          "plan": "luz lateral o garúa; las sombras repetidas deben medir el módulo, no ocultar personas",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Authorized distant side across two repeated bays",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure crosses alternating light bands",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain bay depth and classroom edge",
+          "wait_trigger": "Body separates in one lit module",
+          "kill_trigger": "Reads as pattern-only abstraction",
+          "access_ethics": "No surveillance into classrooms",
+          "fallback": "Unoccupied rhythm proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W18"
+            "SRC-LOC-AULARIO-INTERVIEW",
+            "SRC-LOC-AULARIO-URP-2026"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "35 mm para eje y capas · 50 mm para ritmos repetidos · 85 mm para apilar puentes/cuerpos",
-          "plan": "Dos flujos de estudiantes cruzan en sentidos opuestos bajo el deambulatorio, uno detenido en un umbral de aula.",
-          "gate": "¿Cómo fotografiar 313 metros de arquitectura sin fotografiar longitud, sino el ritmo humano que la vuelve eje?"
+          "position": "Authorized oblique section combining lower path, bridge and classroom threshold",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Crossing, ascending and entering align across three layers",
+          "light": "Soft late afternoon",
+          "edge_guards": "Keep all actions distinct",
+          "wait_trigger": "Three verbs align",
+          "kill_trigger": "Caption must explain building-as-connector",
+          "access_ethics": "Institutional permission; do not disrupt study",
+          "fallback": "Two-layer crossing/entering relation"
         }
       },
       "visual_reference_families": [
@@ -19468,9 +19708,9 @@
         }
       ],
       "composition_questions": [
-        "¿Cómo fotografiar 313 metros de arquitectura sin fotografiar longitud, sino el ritmo humano que la vuelve eje?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can opposing student movements and a pause at one classroom threshold make the 313 m bar read as learning infrastructure rather than monumental length?",
+        "Which column overlap, sign, railing or dense group would collapse the separate moving and waiting bands?",
+        "Does moving to the split-grade or double-height junction reveal circulation causality better than widening along the endless axis?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -19538,12 +19778,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-AULARIO-URP"
+        "SRC-LOC-AULARIO-INTERVIEW",
+        "SRC-LOC-AULARIO-URP",
+        "SRC-LOC-AULARIO-URP-2026"
       ],
       "contradictions": [
+        "Architectural sources document a 313 m educational bar and circulation concept but do not prove the same flow density at every hour.",
+        "Current URP sources verify an active 2026 semester and guided campus movement but not visitor access to Aulario 104 or permission for deliberate photography.",
         "Institutional history verifies design and student use but not current visitor access."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
