@@ -23609,106 +23609,177 @@
       "canonical_id": "jiron-trujillo-puente-de-piedra",
       "name": "Jirón Trujillo + Puente de Piedra",
       "district": "Rímac",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-TRUJILLO-UNRESOLVED"
-          ]
+            "SRC-LOC-TRUJILLO-MOBILITY-2025",
+            "SRC-LOC-TRUJILLO-UNESCO"
+          ],
+          "answer": "Jirón Trujillo is a lived historic Rímac axis connected to renewed inclusive-mobility infrastructure; Puente de Piedra continues the cross-river route, with exact current condition requiring field verification."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRUJILLO-BRIDGE",
+            "SRC-LOC-TRUJILLO-UNESCO"
+          ],
+          "answer": "Historic street and masonry bridge organized movement between Rímac and central Lima across the river; the axis later accumulated industrial and metropolitan transport layers."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRUJILLO-MOBILITY-2025"
+          ],
+          "answer": "People walk, cycle, drive, maintain, cross and connect to newer mobility infrastructure; bridge stopping, density and barriers require direct observation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRUJILLO-MOBILITY-2025",
+            "SRC-LOC-TRUJILLO-UNESCO"
+          ],
+          "answer": "Walk, cycle, cross, clean, maintain, wait and merge are evidenced/credible. An empty bridge section may reveal layered infrastructure only with safe contemporary movement cues."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRUJILLO-BRIDGE",
+            "SRC-LOC-TRUJILLO-MOBILITY-2025"
+          ],
+          "answer": "Historic alignment, bridge deck/railings, river/expressway section and renewed paths compress several eras of movement into one crossing."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRUJILLO-UNESCO",
+            "SRC-LOC-TRUJILLO-BRIDGE"
+          ],
+          "answer": "Bridge elevation, churchward street vista and municipal before/after dominate. The underused relation is a safe ground-level section where current travel reveals temporal layering."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRUJILLO-BRIDGE"
+          ],
+          "answer": "Garúa can separate stone/iron, river/expressway and pedestrian layers; lateral light can clarify bridge section. Skyline or patina without movement causality fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRUJILLO-MOBILITY-2025",
+            "SRC-LOC-TRUJILLO-BRIDGE"
+          ],
+          "answer": "Test safe bridge-approach section, Jirón Trujillo axis and river/transport reverse. Start 35 mm for layered crossing, 50 mm for merge and avoid 85 mm skyline isolation."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-TRUJILLO-MOBILITY-2025"
+          ],
+          "answer": "Verify railings, works and safe stopping; never step into traffic or block narrow paths, protect vendors/residents, cap waits and reject any angle needing unsafe river/expressway access."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRUJILLO-MOBILITY-2025",
+            "SRC-LOC-TRUJILLO-BRIDGE"
+          ],
+          "answer": "Passes when inherited crossing architecture visibly channels several present mobility systems. Historic vista, bridge portrait or caption-built route fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W14"
+            "SRC-LOC-TRUJILLO-BRIDGE"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Safe public bridge approach holding street axis, deck/railing and river/transport section",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Clear interval reveals layered crossing",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude skyline and clipped railing",
+          "wait_trigger": "Three mobility layers separate",
+          "kill_trigger": "Combined axis cannot fit safely",
+          "access_ethics": "Public safe stopping only",
+          "fallback": "50 mm approach structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W14"
+            "SRC-LOC-TRUJILLO-MOBILITY-2025"
           ],
-          "label": "B · HABITAR",
+          "position": "Safe path junction where walkers/cyclists merge toward bridge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Persona cruza el umbral puente/jirón mientras dos escalas de fachada y dos densidades humanas se leen en profundidad.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/5.6, 1/800 s",
+          "expected_action": "Walk, cycle and merge occupy layers",
+          "light": "Soft daylight",
+          "edge_guards": "No faces, plates or vendor dominance",
+          "wait_trigger": "Infrastructure changes trajectory",
+          "kill_trigger": "Action could occur anywhere",
+          "access_ethics": "Do not obstruct narrow path",
+          "fallback": "Anonymous single crossing"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W14"
+            "SRC-LOC-TRUJILLO-UNESCO"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: Puente de Piedra o iglesia en vista monumental. Busca la relación definida por: ¿En qué punto exacto del cruce cambia la experiencia del peatón y cómo puede una persona convertirse en esa bisagra?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Public reverse from lived street toward bridge/renewed mobility, avoiding church skyline",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Resident movement intersects visitor/cycle flow",
+          "light": "Bright overcast",
+          "edge_guards": "No monument-centered vista",
+          "wait_trigger": "Lived heritage reads",
+          "kill_trigger": "Route requires multiple frames",
+          "access_ethics": "Privacy-first public space",
+          "fallback": "Street/bridge threshold"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W14"
+            "SRC-LOC-TRUJILLO-BRIDGE"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "50 mm líder · 85 mm para apilar eje/puente/peatón · 35 mm si la geometría del cruce manda",
-          "plan": "mañana o tarde; sombras laterales útiles para la secuencia de veredas y portales",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Safe oblique where stone/iron shadow meets pedestrian/cycle path",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/800 s",
+          "expected_action": "Figure crosses structural shadow",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain river/transport cue",
+          "wait_trigger": "Light explains temporal section",
+          "kill_trigger": "Becomes bridge texture",
+          "access_ethics": "No unsafe edge approach",
+          "fallback": "Garúa tonal layers"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W14"
+            "SRC-LOC-TRUJILLO-MOBILITY-2025",
+            "SRC-LOC-TRUJILLO-BRIDGE"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "50 mm líder · 85 mm para apilar eje/puente/peatón · 35 mm si la geometría del cruce manda",
-          "plan": "Persona cruza el umbral puente/jirón mientras dos escalas de fachada y dos densidades humanas se leen en profundidad.",
-          "gate": "¿En qué punto exacto del cruce cambia la experiencia del peatón y cómo puede una persona convertirse en esa bisagra?"
+          "position": "Safe diagonal joining historic street approach, bridge and current mobility layers",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Approach, merge and cross occupy layers",
+          "light": "Late soft daylight",
+          "edge_guards": "One crossing relation primary",
+          "wait_trigger": "Temporal mobility reads unaided",
+          "kill_trigger": "Caption joins separate places",
+          "access_ethics": "Safety/privacy hard gates",
+          "fallback": "Two-zone approach/bridge story"
         }
       },
       "visual_reference_families": [
@@ -23762,9 +23833,9 @@
         }
       ],
       "composition_questions": [
-        "¿En qué punto exacto del cruce cambia la experiencia del peatón y cómo puede una persona convertirse en esa bisagra?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one safe bridge/street position show historic Rímac alignment channeling today’s walking, cycling and metropolitan crossing?",
+        "Which skyline, bridge elevation, church façade, traffic or municipal-renewal detail turns the frame into heritage/infrastructure documentation?",
+        "Does one 35 mm public position connect Jirón Trujillo, bridge section and current movement, or must the combined candidate be split?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -23832,12 +23903,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-TRUJILLO-BRIDGE",
+        "SRC-LOC-TRUJILLO-MOBILITY-2025",
+        "SRC-LOC-TRUJILLO-UNESCO",
         "SRC-LOC-TRUJILLO-UNRESOLVED"
       ],
       "contradictions": [
-        "Candidate-specific current authoritative evidence was not established in this pass."
+        "Bridge structure/current safety rests partly on a secondary record and requires primary same-day verification.",
+        "Candidate-specific current authoritative evidence was not established in this pass.",
+        "Current authoritative evidence verifies the renewed mobility axis beginning at Jirón Trujillo, not the 2026 condition of every historic-street segment or Puente de Piedra.",
+        "The combined street/bridge label must resolve to one visible crossing section, not a multi-frame heritage route."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -24154,108 +24231,174 @@
       "canonical_id": "jiron-de-la-union",
       "name": "Jirón de la Unión",
       "district": "Lima",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-UNION-2026"
-          ]
+            "SRC-LOC-UNION-MINCETUR-2026",
+            "SRC-LOC-UNION-BNP-2026"
+          ],
+          "answer": "Jirón de la Unión is a current nine-block pedestrian-commercial cultural spine whose present uses include walking, commerce, worship, performance and guided memory."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-UNION-MINCETUR-2026"
+          ],
+          "answer": "A continuous central-city street linked major civic/religious nodes and concentrated commerce, sociability and procession along repeated urban thresholds."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-UNION-2026"
-          ]
+            "SRC-LOC-UNION-MINCETUR-2026",
+            "SRC-LOC-UNION-BNP-2026"
+          ],
+          "answer": "People walk, shop, sell, perform, worship, listen and locate vanished addresses; exact block rhythms and future events remain field-dependent."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-UNION-BNP-2026"
+          ],
+          "answer": "Walk, browse, sell, queue, listen, perform, remember and cross are evidenced. An absent cultural address can work only if collective attention or spatial residue is visible."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UNION-MINCETUR-2026"
+          ],
+          "answer": "Pedestrian continuity, narrow street section, repeated portals and civic-node approaches compress and redirect commerce, procession and memory."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UNION-MINCETUR-2026",
+            "SRC-LOC-UNION-BNP-2026"
+          ],
+          "answer": "Centered vanishing-point crowd, façade and street-performance coverage dominate. The underused relation is one lateral threshold where present use exposes continuity or loss."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UNION-MINCETUR-2026"
+          ],
+          "answer": "Garúa can unify signage/façades and emphasize figure-ground; low light can reveal portal rhythm. Neon/commercial atmosphere without architectural cause fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UNION-MINCETUR-2026"
+          ],
+          "answer": "At one selected block test lateral portal, cross-street section and reverse crowd flow. Start 35 mm for street/threshold, 50 mm for action and avoid 85 mm crowd compression without context."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-UNION-BNP-2026"
+          ],
+          "answer": "Select one sourced block, verify crowd/security and events, protect vendors/worshippers/children, do not obstruct the pedestrian spine and leave if density prevents clean edges."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UNION-MINCETUR-2026",
+            "SRC-LOC-UNION-BNP-2026"
+          ],
+          "answer": "Passes when one block's pedestrian architecture makes commerce, memory or civic action legible without corridor history. Generic crowd, façade or caption-led nostalgia fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W02"
+            "SRC-LOC-UNION-MINCETUR-2026"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "One selected cross-street/portal edge holding pedestrian section and repeated thresholds",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals spine hierarchy",
+          "light": "Garúa morning",
+          "edge_guards": "Avoid centered vanishing point and sign clutter",
+          "wait_trigger": "Street/portal layers separate",
+          "kill_trigger": "No single block selected",
+          "access_ethics": "Public edge; do not obstruct",
+          "fallback": "50 mm threshold structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W02"
+            "SRC-LOC-UNION-MINCETUR-2026"
           ],
-          "label": "B · HABITAR",
+          "position": "Lateral public threshold where walking turns into shopping/worship/entry",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "85 mm comprime cornisa/portal histórico, señal contemporánea y peatón cuyo gesto conecta ambos planos.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Adult approaches, pauses and enters",
+          "light": "Soft daylight",
+          "edge_guards": "No face, vendor or brand dominance",
+          "wait_trigger": "Portal changes pedestrian flow",
+          "kill_trigger": "Crowd only supplies scale",
+          "access_ethics": "Consent for close subjects",
+          "fallback": "Anonymous crossing"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W02"
+            "SRC-LOC-UNION-BNP-2026"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: telefoto de balcones o calle llena hacia Plaza San Martín. Busca la relación definida por: ¿Qué detalle de uso contemporáneo contradice o completa una fachada de otra época sin que ninguna de las dos capas domine?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Public side/reverse view at one remembered/lost address, avoiding axial vista",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Group/individual attention pauses against present commerce",
+          "light": "Bright overcast",
+          "edge_guards": "No tour-guide spectacle",
+          "wait_trigger": "Presence/absence reads spatially",
+          "kill_trigger": "Caption alone explains lost site",
+          "access_ethics": "No staged nostalgia",
+          "fallback": "Current threshold/use conflict"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W02"
+            "SRC-LOC-UNION-MINCETUR-2026"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "85 mm o 50 mm; 35 mm solo para una intersección donde el damero sea la tesis",
-          "plan": "garúa/luz plana puede ayudar a color y capas; noche solo si la señalética es significado, no decoración",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Lateral public angle where portal/façade shadow crosses pedestrian stream",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Figure crosses repeated shadow/threshold",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain street-use cue",
+          "wait_trigger": "Light explains linear rhythm",
+          "kill_trigger": "Becomes façade pattern",
+          "access_ethics": "Public flow priority",
+          "fallback": "Garúa figure-ground"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W06",
-            "W02"
+            "SRC-LOC-UNION-MINCETUR-2026",
+            "SRC-LOC-UNION-BNP-2026"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "85 mm o 50 mm; 35 mm solo para una intersección donde el damero sea la tesis",
-          "plan": "85 mm comprime cornisa/portal histórico, señal contemporánea y peatón cuyo gesto conecta ambos planos.",
-          "gate": "¿Qué detalle de uso contemporáneo contradice o completa una fachada de otra época sin que ninguna de las dos capas domine?"
+          "position": "One public diagonal joining spine approach, selected threshold and present action/memory",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Approach, pause and enter/listen occupy layers",
+          "light": "Late soft daylight",
+          "edge_guards": "One block/verb primary",
+          "wait_trigger": "Continuity or loss reads unaided",
+          "kill_trigger": "Nine-block caption required",
+          "access_ethics": "Crowd/privacy hard gates",
+          "fallback": "Two-zone threshold story"
         }
       },
       "visual_reference_families": [
@@ -24309,9 +24452,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué detalle de uso contemporáneo contradice o completa una fachada de otra época sin que ninguna de las dos capas domine?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Which one block or threshold makes the pedestrian spine visibly transform commerce, memory or civic performance into a present spatial relation?",
+        "Which centered vanishing point, dense crowd, heritage façade, street performer or shopping sign produces the standard Jirón de la Unión image?",
+        "Does a side/reverse camera position reveal a meaningful threshold or absence before the caption explains the lost address/event?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -24379,10 +24522,17 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-UNION-2026"
+        "SRC-LOC-UNION-2026",
+        "SRC-LOC-UNION-BNP-2026",
+        "SRC-LOC-UNION-MINCETUR-2026",
+        "SRC-LOC-UNION-MML-2026"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A 2026 guided walk and parade are completed events, not recurring route windows.",
+        "Commercial density and storefronts vary block by block and require same-day observation.",
+        "The official inventory describes a nine-block spine; one photograph must select one block/threshold and cannot inherit the whole corridor's history."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -25311,105 +25461,176 @@
       "canonical_id": "cantagallo-comunidad-shipibo-konibo",
       "name": "Cantagallo · comunidad Shipibo-Konibo",
       "district": "Rímac",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CANTAGALLO-2026"
-          ]
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026",
+            "SRC-LOC-CANTAGALLO-WOMEN-2026"
+          ],
+          "answer": "Cantagallo remains an active Shipibo-Konibo urban community in Rímac with verified 2026 intercultural civic and women-led productive programs; access is community-governed."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANTAGALLO-HOUSING-HISTORY"
+          ],
+          "answer": "Self-organized settlement and proposed housing/public-space systems respond to migration, fire and community continuity; no unbuilt proposal is described as existing architecture."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CANTAGALLO-2026"
-          ]
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026",
+            "SRC-LOC-CANTAGALLO-WOMEN-2026"
+          ],
+          "answer": "Community members organize, make, teach, sing, meet, receive services and exercise governance; these acts are not photographable without participant-led collaboration."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026",
+            "SRC-LOC-CANTAGALLO-WOMEN-2026"
+          ],
+          "answer": "Organize, make, teach, meet, advise, care, sing and govern are evidenced. Meaningful absence is valid only if participants select it and social structure remains legible."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026"
+          ],
+          "answer": "A collaboratively selected community room, work surface, route or care/service threshold may organize collective action; no outsider may preselect a vulnerable domestic scene."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANTAGALLO-WOMEN-2026",
+            "SRC-LOC-CANTAGALLO-HOUSING-HISTORY"
+          ],
+          "answer": "Official delegation, artisan portrait, Kené texture and vulnerability overview dominate. The acceptable alternative is community-authored spatial agency, not visual rarity."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANTAGALLO-WOMEN-2026"
+          ],
+          "answer": "Light/material choices follow participant-selected space and activity; Kené, improvised material or risk cannot be isolated as exotic formal texture."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026"
+          ],
+          "answer": "Participants choose the space and acceptable positions first. Start 35/50 mm within the agreed relation; 85 mm hidden-distance observation is prohibited."
         },
         "moment_logistics_ethics": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CANTAGALLO-2026"
-          ]
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026",
+            "SRC-LOC-CANTAGALLO-WOMEN-2026"
+          ],
+          "answer": "Secure community/participant collaboration, explain competition use, permit withdrawal and final approval, compensate/credit as agreed, protect minors/locations and stop immediately without consent."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026",
+            "SRC-LOC-CANTAGALLO-WOMEN-2026"
+          ],
+          "answer": "Passes only when community-approved architecture visibly enables collective agency and participants endorse the frame/submission. Outsider discovery, vulnerability or pattern extraction fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W12"
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Community-selected public/collective space showing agreed route, threshold and gathering order",
+          "camera_height": "Participant-approved, approximately 1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/320 s",
+          "expected_action": "Agreed empty interval or participant-led use reveals structure",
+          "light": "Available soft daylight",
+          "edge_guards": "Exclude private homes, identifiers and exotic detail",
+          "wait_trigger": "Participants confirm spatial reading",
+          "kill_trigger": "No collaboration/approval",
+          "access_ethics": "Written/recorded community and participant consent",
+          "fallback": "No photograph"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W12"
+            "SRC-LOC-CANTAGALLO-WOMEN-2026"
           ],
-          "label": "B · HABITAR",
+          "position": "Participant-selected productive/civic threshold with agreed framing",
+          "camera_height": "Participant-approved, approximately 1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Solo con consentimiento y colaboración explícita; idealmente una actividad elegida por las propias personas retratadas.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Participants choose a making/meeting/care verb",
+          "light": "Available daylight",
+          "edge_guards": "No staged indigeneity, minors or product extraction",
+          "wait_trigger": "Participants say architecture changes action",
+          "kill_trigger": "Consent withdrawn or verb becomes performance for outsider",
+          "access_ethics": "Co-authorship and final-use approval",
+          "fallback": "No photograph"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W12"
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: kené como textura exótica frente a concreto. Busca la relación definida por: ¿Puede existir una fotografía que la comunidad reconozca como verdadera y digna, donde arquitectura e infraestructura expliquen una relación urbana sin convertir a nadie en “tema”?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Community-chosen reverse/side view that centers governance or service architecture rather than outsider overview",
+          "camera_height": "Participant-approved",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/400 s",
+          "expected_action": "Agreed civic/service interaction",
+          "light": "Bright overcast",
+          "edge_guards": "No Kené extraction, poverty cue or official delegation pose",
+          "wait_trigger": "Community agency reads",
+          "kill_trigger": "Image depends on rarity/vulnerability",
+          "access_ethics": "No telephoto; collaborative consent",
+          "fallback": "No photograph"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W12"
+            "SRC-LOC-CANTAGALLO-WOMEN-2026"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "35/50 mm documental; evitar 85 mm escondido o distancia voyeurista",
-          "plan": "la luz es secundaria a consentimiento/contexto",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Participant-selected space where light reveals an agreed architectural device supporting work/care",
+          "camera_height": "Participant-approved",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/320 s",
+          "expected_action": "Agreed participant action crosses device/light",
+          "light": "Available lateral/soft light",
+          "edge_guards": "Material never isolated as exotic texture",
+          "wait_trigger": "Participants affirm meaning",
+          "kill_trigger": "Formal beauty eclipses agency",
+          "access_ethics": "Co-authored framing and approval",
+          "fallback": "No photograph"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W12"
+            "SRC-LOC-CANTAGALLO-JUSTICE-2026",
+            "SRC-LOC-CANTAGALLO-WOMEN-2026"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "35/50 mm documental; evitar 85 mm escondido o distancia voyeurista",
-          "plan": "Solo con consentimiento y colaboración explícita; idealmente una actividad elegida por las propias personas retratadas.",
-          "gate": "¿Puede existir una fotografía que la comunidad reconozca como verdadera y digna, donde arquitectura e infraestructura expliquen una relación urbana sin convertir a nadie en “tema”?"
+          "position": "Community-selected diagonal joining collective approach, architectural device and participant-led action",
+          "camera_height": "Participant-approved, approximately 1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/400 s",
+          "expected_action": "Participants choose approach, exchange and collective verb",
+          "light": "Available soft daylight",
+          "edge_guards": "Agency primary; protect identity/location as agreed",
+          "wait_trigger": "Participants approve meaning and submission",
+          "kill_trigger": "Any consent, safety or representation concern",
+          "access_ethics": "Community collaboration, withdrawal and final approval hard gates",
+          "fallback": "No photograph"
         }
       },
       "visual_reference_families": [
@@ -25463,9 +25684,9 @@
         }
       ],
       "composition_questions": [
-        "¿Puede existir una fotografía que la comunidad reconozca como verdadera y digna, donde arquitectura e infraestructura expliquen una relación urbana sin convertir a nadie en “tema”?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "With community co-authorship, which collectively chosen space visibly enables a present civic, productive or care verb on the community’s own terms?",
+        "Which official-visit pose, exoticized pattern, poverty/risk cue or outsider overview extracts identity rather than showing architectural agency?",
+        "Would participants recognize the frame’s purpose, choose its position/use and approve its submission without needing the photographer’s caption to justify it?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -25533,12 +25754,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-CANTAGALLO-2026"
+        "SRC-LOC-CANTAGALLO-2026",
+        "SRC-LOC-CANTAGALLO-HOUSING-HISTORY",
+        "SRC-LOC-CANTAGALLO-JUSTICE-2026",
+        "SRC-LOC-CANTAGALLO-WOMEN-2026"
       ],
       "contradictions": [
-        "Current community presence is verified, but field eligibility remains false without explicit community collaboration and consent."
+        "Current community presence and collective programs are verified, but no independent photography access or consent is established.",
+        "Current community presence is verified, but field eligibility remains false without explicit community collaboration and consent.",
+        "Historical contamination/risk and housing proposals cannot be presented as current measurements or completed solutions.",
+        "No collaboration/consent means no photograph; hidden telephoto, exoticized Kené and vulnerability imagery are prohibited fallbacks."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     }

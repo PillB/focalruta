@@ -26,6 +26,11 @@ def test_historical_detail_alone_never_promotes_a_candidate():
     for item in records():
         assert item["ranking_eligible"] is False
         assert item["route_eligible"] is False
+        assert all(check["status"] in {"NOT_STARTED", "PARTIAL", "CORROBORATED", "VERIFIED"} for check in item["passes"].values())
+        assert all(check["status"] in {"NOT_STARTED", "HYPOTHESIS", "READY_FOR_FIELD"} for check in item["proofs"].values())
+        if item["verification_complete"]:
+            assert all(check["status"] in {"CORROBORATED", "VERIFIED"} for check in item["passes"].values())
+            assert all(check["status"] == "READY_FOR_FIELD" for check in item["proofs"].values())
 
 
 def test_newer_dated_evidence_overrides_earlier_partial_updates():
@@ -38,11 +43,21 @@ def test_newer_dated_evidence_overrides_earlier_partial_updates():
         item = by_id[canonical_id]
         assert item["verification_complete"] is True
         assert all(check.get("answer") for check in item["passes"].values())
-        assert all(check["status"] in {"NOT_STARTED", "PARTIAL", "CORROBORATED", "VERIFIED"} for check in item["passes"].values())
-        assert all(check["status"] in {"NOT_STARTED", "HYPOTHESIS", "READY_FOR_FIELD"} for check in item["proofs"].values())
-        if item["verification_complete"]:
-            assert all(check["status"] in {"CORROBORATED", "VERIFIED"} for check in item["passes"].values())
-            assert all(check["status"] == "READY_FOR_FIELD" for check in item["proofs"].values())
+
+
+def test_all_81_candidates_meet_the_equal_depth_contract_and_fail_closed():
+    items = records()
+    assert len(items) == 81
+    assert all(item["verification_complete"] for item in items)
+    assert all(item["verification_status"] == "DESK_VERIFIED_FIELD_PENDING" for item in items)
+    assert all(item["current_source_ids"] for item in items)
+    assert all(len(item["passes"]) == 10 for item in items)
+    assert all(all(check.get("answer") and check.get("source_ids") for check in item["passes"].values()) for item in items)
+    assert all(len(item["proofs"]) == 5 for item in items)
+    assert all(len(item["visual_reference_families"]) >= 3 for item in items)
+    assert all(all(ref.get("redistribution") == "LINK_ONLY" for ref in item["visual_reference_families"]) for item in items)
+    assert all(len(item["composition_questions"]) == 3 for item in items)
+    assert not any(item["ranking_eligible"] or item["route_eligible"] for item in items)
 
 def test_partial_evidence_updates_are_source_linked_without_promotion():
     items = {item["canonical_id"]: item for item in records()}
