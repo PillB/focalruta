@@ -7715,93 +7715,177 @@
       "canonical_id": "casa-museo-marina-nunez-del-prado",
       "name": "Casa Museo Marina Núñez del Prado",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-NUNEZ-PRADO-MSI"
-          ]
+            "SRC-LOC-MARINA-CURRENT-2026",
+            "SRC-LOC-MARINA-TOUR-2026"
+          ],
+          "answer": "The protected neocolonial house became Marina Núñez del Prado's residence and workshop in the 1970s and now operates as a municipal-managed museum, collection, garden and research/cultural space with preregistered visits."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026"
+          ],
+          "answer": "A domestic house and garden were adapted to living, sculpture work and collection, using rooms, thresholds and planted exterior as a continuum rather than a neutral exhibition box."
         },
         "current_life": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-NUNEZ-PRADO-MSI"
-          ]
+            "SRC-LOC-MARINA-CURRENT-2026",
+            "SRC-LOC-MARINA-TOUR-2026"
+          ],
+          "answer": "Guided interpretation, exhibitions, contemplation, preservation and research animate the house and garden; specific visits are preregistered and completed events do not guarantee same-day entry."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-MARINA-TOUR-2026"
+          ],
+          "answer": "Enter, look, listen, circle, compare, pause, research and move house-to-garden are evidenced. Empty thresholds and sculpture sightlines can carry the absent artist/workshop relation."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026",
+            "SRC-LOC-MARINA-OLIVE-2026"
+          ],
+          "answer": "House openings, garden paths, sculpture placement and the Olivar edge stage movement between domestic enclosure, artistic objects and living landscape."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026",
+            "SRC-LOC-MARINA-TOUR-2026"
+          ],
+          "answer": "House exterior, serene sculpture garden and guided-tour documentation dominate. The underused relation is a threshold sequence joining former workshop, garden interpretation and surrounding grove."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026"
+          ],
+          "answer": "Filtered olive light can connect stone/bronze, stucco and foliage; interiors demand stable exposure, but isolated sculpture texture or staged lighting fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026"
+          ],
+          "answer": "If authorized, test house-to-garden doorway, garden-to-grove edge and reverse workshop sightline. Start 35 mm for sequence, 50 mm for visitor turn and 85 mm only when thresholds remain visible."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026",
+            "SRC-LOC-MARINA-TOUR-2026"
+          ],
+          "answer": "Register or confirm access and photography, protect collection and paths, never touch/rearrange works, avoid identifiable visitors, and kill all interior proofs when permission is absent."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026",
+            "SRC-LOC-MARINA-OLIVE-2026"
+          ],
+          "answer": "Passes when house, garden and living grove visibly shape current encounter with artistic work. Sculpture documentation or museum nostalgia without spatial sequence fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026"
+          ],
+          "position": "Authorized doorway aligning domestic room, sculpture path and garden edge",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/125 s, ISO as required",
+          "expected_action": "Clear interval reveals three-zone sequence",
+          "light": "Filtered daylight",
+          "edge_guards": "Exclude clipped works and dominant labels",
+          "wait_trigger": "House, path and grove separate",
+          "kill_trigger": "No authorized access",
+          "access_ethics": "Museum permission; no object movement",
+          "fallback": "Public exterior/grove threshold"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MARINA-TOUR-2026"
+          ],
+          "position": "Authorized garden path where guide/visitor turns between house and sculpture",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Consenting adult pauses then turns toward workshop/house",
+          "light": "Soft garden light",
+          "edge_guards": "Separate person from sculpture silhouette",
+          "wait_trigger": "Interpretive turn follows path",
+          "kill_trigger": "Visitor only supplies scale",
+          "access_ethics": "Tour and participant consent",
+          "fallback": "Meaningful empty threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MARINA-OLIVE-2026"
+          ],
+          "position": "Permitted garden edge looking through house threshold toward patrimonial grove rather than at sculpture frontally",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/160 s",
+          "expected_action": "Door movement or shadow links interior and grove",
+          "light": "Overcast filtered light",
+          "edge_guards": "No isolated artwork portrait",
+          "wait_trigger": "Nature/work relation reads",
+          "kill_trigger": "Grove is only backdrop",
+          "access_ethics": "Stay on route",
+          "fallback": "Public grove-to-house view"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026"
+          ],
+          "position": "Authorized oblique holding bronze/stone, worn threshold and filtered foliage",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Incidental visitor shadow crosses threshold",
+          "light": "Raking filtered sun",
+          "edge_guards": "Retain doorway and path cue",
+          "wait_trigger": "Materials reveal use sequence",
+          "kill_trigger": "Becomes sculpture detail",
+          "access_ethics": "Non-contact",
+          "fallback": "50 mm soft-light sequence"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MARINA-CURRENT-2026",
+            "SRC-LOC-MARINA-TOUR-2026",
+            "SRC-LOC-MARINA-OLIVE-2026"
+          ],
+          "position": "Authorized diagonal joining former residence/workshop, sculpture garden and Olivar edge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/5.6, 1/200 s",
+          "expected_action": "Entering, pausing and looking occupy three zones",
+          "light": "Late filtered daylight",
+          "edge_guards": "Art remains contextual and architecture causal",
+          "wait_trigger": "Life–work–nature relation reads unaided",
+          "kill_trigger": "Caption rescues biography",
+          "access_ethics": "Authorization hard gate",
+          "fallback": "Two-zone public-edge story"
         }
       },
       "visual_reference_families": [
@@ -7855,9 +7939,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Casa Museo Marina Núñez del Prado puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a doorway, sculpture garden and Olivar edge visibly connect inherited house, artistic work and current interpretation without an artwork becoming the entire subject?",
+        "Which sculpture overlap, display reflection, vegetation or narrow doorway breaks the house–garden–grove sequence?",
+        "Does a permitted garden position reveal how nature shaped movement between residence and workshop, or must the interior hypothesis be killed without authorization?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -7935,12 +8019,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-MARINA-CURRENT-2026",
+        "SRC-LOC-MARINA-OLIVE-2026",
+        "SRC-LOC-MARINA-TOUR-2026",
         "SRC-LOC-NUNEZ-PRADO-MSI"
       ],
       "contradictions": [
-        "Municipal operation evidence is stale for present access."
+        "Municipal operation evidence is stale for present access.",
+        "The current campaign publishes museum attention information while guided visits require preregistration; walk-in access and photography permission must be confirmed rather than inferred.",
+        "The neocolonial house predates its use as Marina Núñez del Prado's residence/workshop; the scene must distinguish inherited domestic architecture from later artistic occupation.",
+        "The patrimonial olive beside the museum supports landscape continuity but cannot be attributed to the sculptor's design or use without stronger evidence."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -7948,95 +8038,175 @@
       "canonical_id": "parque-tradiciones-ricardo-palma",
       "name": "Parque Tradiciones / Ricardo Palma",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-TRADICIONES-MIRAFLORES"
-          ]
+            "SRC-LOC-TRADICIONES-PARKS",
+            "SRC-LOC-TRADICIONES-PLAY-2026"
+          ],
+          "answer": "Parque Tradiciones is an active Miraflores park with fountain, seated Ricardo Palma sculpture and a 120 m² children's area reopened after maintenance in July 2026."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PARKS",
+            "SRC-LOC-TRADICIONES-ROUTE"
+          ],
+          "answer": "Landscape paths, planted relief, fountain, play and the writer seated like a neighbor turn literary commemoration into everyday park circulation rather than a distant pedestal ritual."
         },
         "current_life": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-TRADICIONES-MIRAFLORES"
-          ]
+            "SRC-LOC-TRADICIONES-PLAY-2026",
+            "SRC-LOC-TRADICIONES-PARKS"
+          ],
+          "answer": "Families, children, walkers and resting neighbors use renewed recreational infrastructure; exact density and adult-only privacy-safe moments require observation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PLAY-2026"
+          ],
+          "answer": "Walk, sit, read, accompany, play, wait, circle and pass are credible. A temporarily empty bench/path relation can retain social expectation without photographing children."
         },
         "architectural_causality": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-TRADICIONES-MIRAFLORES"
-          ]
+            "SRC-LOC-TRADICIONES-PARKS"
+          ],
+          "answer": "Paths, bench-scale sculpture, fountain, planted edges and play zone distribute commemoration and recreation across a shared neighborhood landscape."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PARKS",
+            "SRC-LOC-TRADICIONES-ROUTE"
+          ],
+          "answer": "Clean statue portrait and posed bench companion dominate. The underused relation is the sculpture functioning incidentally within a current circulation/play/rest system."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PARKS"
+          ],
+          "answer": "Soft garúa can organize green relief and paths; lateral light can connect bronze, bench and moving shadows, but sunset sentiment or sculpture detail alone fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PARKS"
+          ],
+          "answer": "Test path-to-bench diagonal, planted mound reverse view and play-edge/commemoration seam. Start 35 mm for landscape system, 50 mm for adult pause and 85 mm only if multiple zones remain causal."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PLAY-2026"
+          ],
+          "answer": "Remain on paths, avoid identifiable children and staged statue interaction, do not block recreation, and use adult/empty-space fallbacks when family privacy cannot be protected."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PARKS",
+            "SRC-LOC-TRADICIONES-PLAY-2026"
+          ],
+          "answer": "Passes when literary commemoration is visibly absorbed into ordinary inhabitation through park design. A statue portrait, child spectacle or caption-dependent Palma reference fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PARKS"
+          ],
+          "position": "Public path aligning planted mound, bench/statue, fountain and circulation split",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals park hierarchy",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude cars, signs and dominant play equipment",
+          "wait_trigger": "Three zones separate",
+          "kill_trigger": "Statue is isolated",
+          "access_ethics": "Path only",
+          "fallback": "50 mm path/bench structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PLAY-2026"
+          ],
+          "position": "Public path where consenting/anonymous adult waits between bench and renewed play edge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult sits or reads while others pass beyond",
+          "light": "Soft daylight",
+          "edge_guards": "No identifiable children",
+          "wait_trigger": "Rest and movement coexist",
+          "kill_trigger": "Statue interaction is staged",
+          "access_ethics": "Privacy-first",
+          "fallback": "Empty bench and passing adult"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PARKS"
+          ],
+          "position": "Behind/side of seated figure looking into shared path rather than toward its face",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker shares the statue's implied gaze",
+          "light": "Bright overcast",
+          "edge_guards": "No selfie or frontal portrait",
+          "wait_trigger": "Writer becomes neighbor-scale device",
+          "kill_trigger": "Gimmick dominates",
+          "access_ethics": "No covert close portrait",
+          "fallback": "Meaningful empty shared gaze"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PARKS"
+          ],
+          "position": "Public oblique holding bronze, bench, path wear and planted shadow",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Anonymous shadow crosses bench/path",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain circulation and landscape",
+          "wait_trigger": "Material connects commemoration/use",
+          "kill_trigger": "Becomes bronze detail",
+          "access_ethics": "Public path",
+          "fallback": "50 mm garúa layering"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-TRADICIONES-PARKS",
+            "SRC-LOC-TRADICIONES-PLAY-2026"
+          ],
+          "position": "Public diagonal joining approach, neighbor-scale memorial and renewed recreation zone",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Passing, resting and accompanying occupy three zones",
+          "light": "Late soft daylight",
+          "edge_guards": "Children non-identifying; statue subordinate",
+          "wait_trigger": "Memory becomes daily life unaided",
+          "kill_trigger": "Caption supplies literary meaning",
+          "access_ethics": "Family privacy hard gate",
+          "fallback": "Two-zone path/bench story"
         }
       },
       "visual_reference_families": [
@@ -8090,9 +8260,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Parque Tradiciones / Ricardo Palma puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can mound, path, bench/statue and renewed play edge show literature embedded in ordinary neighborhood recreation rather than a posed monument encounter?",
+        "Which playground equipment, parked vehicle, traffic edge, tree overlap or posing visitor destroys the park's spatial hierarchy?",
+        "Does moving behind or beside the seated figure reveal shared-neighbor circulation, or does the statue remain a caption-dependent novelty?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -8170,10 +8340,17 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-TRADICIONES-MIRAFLORES"
+        "SRC-LOC-TRADICIONES-MIRAFLORES",
+        "SRC-LOC-TRADICIONES-PARKS",
+        "SRC-LOC-TRADICIONES-PLAY-2026",
+        "SRC-LOC-TRADICIONES-ROUTE"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "The July 2026 play-area reopening proves current infrastructure, not daily child density or an appropriate photography window.",
+        "The park commemorates Ricardo Palma through a deliberately neighbor-like seated statue, but interactions with it can become a tourist gimmick rather than architecture.",
+        "The wider Palma route is multi-site; one park frame cannot claim to represent the entire literary geography."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -8497,95 +8674,177 @@
       "canonical_id": "centro-de-convenciones-estacion-la-cultura",
       "name": "Centro de Convenciones / estación La Cultura",
       "district": "San Borja",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LACULTURA-GTN"
-          ]
+            "SRC-LOC-LACULTURA-MTC-2026",
+            "SRC-LOC-LACULTURA-DLPS"
+          ],
+          "answer": "La Cultura is an operating elevated Line 1 station whose visible structural/vertical circulation handled 7.6 million trips in the first five months of 2026."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-DLPS"
+          ],
+          "answer": "Columns, elevated platform, street entrance, stairs and controlled access lift passengers from the civic/cultural district into rapid transit while preserving road activity below."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LACULTURA-GTN"
-          ]
+            "SRC-LOC-LACULTURA-MTC-2026",
+            "SRC-LOC-LACULTURA-TOTEM-2025"
+          ],
+          "answer": "Very high passenger demand, bus transfer decisions and street/platform circulation animate the node; future Line 4 interchange remains planned rather than present."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-MTC-2026",
+            "SRC-LOC-LACULTURA-TOTEM-2025"
+          ],
+          "answer": "Arrive, consult, queue, tap, ascend, descend, transfer, wait and disperse are evidenced. A brief empty stair between waves can expose the architecture's capacity."
         },
         "architectural_causality": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-LACULTURA-GTN"
-          ]
+            "SRC-LOC-LACULTURA-DLPS"
+          ],
+          "answer": "Viaduct columns, stairs, rails, gates and platform height funnel street movement into controlled vertical sequences; the information totem adds a present transfer decision point."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-DLPS",
+            "SRC-LOC-LACULTURA-MTC-2026"
+          ],
+          "answer": "Station overview, turnstile crowd and closure-news entrance dominate. The underused relation is a street-level decision becoming ascent and platform flow through the visible section."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-DLPS"
+          ],
+          "answer": "Hard sun can project viaduct/column rhythm and silhouettes; garúa can clarify layers, while blue-hour glow risks generic transit spectacle unless transfers remain visible."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-DLPS"
+          ],
+          "answer": "Test legal street-to-stair diagonal, public turnstile-side approach and opposite-side viaduct section. Start 35 mm for street/ascent/platform, 50 mm for decision gesture and 85 mm only if multiple levels remain linked."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-MTC-2026"
+          ],
+          "answer": "Stay outside controlled lines unless authorized, never block gates/stairs, hide cards/screens/faces, avoid peak crush, obey security and use public exterior fallback when interior photography is refused."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-MTC-2026",
+            "SRC-LOC-LACULTURA-DLPS"
+          ],
+          "answer": "Passes when the elevated station visibly converts civic-district movement into vertical transit. A train/viaduct hero shot, crowd density or forced LCC backdrop fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-DLPS"
+          ],
+          "position": "Legal public diagonal aligning street entry, stair and elevated platform",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Brief gap reveals vertical section",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude traffic mergers and clipped platform",
+          "wait_trigger": "Three levels separate",
+          "kill_trigger": "Reads as generic viaduct",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm column/stair structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-MTC-2026",
+            "SRC-LOC-LACULTURA-TOTEM-2025"
+          ],
+          "position": "Public transfer decision point between bus information and station approach",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult consults, turns and joins ascent flow",
+          "light": "Soft weekday daylight",
+          "edge_guards": "Hide screens/cards and separate bodies",
+          "wait_trigger": "Decision visibly changes route",
+          "kill_trigger": "Crowd could be anywhere",
+          "access_ethics": "No identifiable close portraits",
+          "fallback": "Anonymous approach split"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-DLPS"
+          ],
+          "position": "Low public side view through columns toward stairs rather than train/platform hero angle",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Descending and street-crossing flows intersect across levels",
+          "light": "Bright overcast",
+          "edge_guards": "No unsafe roadway stance",
+          "wait_trigger": "Vertical transfer reads",
+          "kill_trigger": "Columns become abstraction",
+          "access_ethics": "Behind curb/barrier",
+          "fallback": "Empty stair between waves"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-DLPS"
+          ],
+          "position": "Legal opposite-side compression of columns, stair rail and platform edge",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/800 s",
+          "expected_action": "Passenger silhouettes occupy stair and platform",
+          "light": "Low hard sun",
+          "edge_guards": "Retain street datum",
+          "wait_trigger": "Shadow reveals structural funnel",
+          "kill_trigger": "Becomes infrastructure pattern",
+          "access_ethics": "Public edge",
+          "fallback": "50 mm garúa layering"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LACULTURA-MTC-2026",
+            "SRC-LOC-LACULTURA-DLPS",
+            "SRC-LOC-LACULTURA-TOTEM-2025"
+          ],
+          "position": "Public diagonal joining bus/sidewalk decision, controlled entry and elevated ascent",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Consulting, queuing and ascending occupy three zones",
+          "light": "Late weekday daylight",
+          "edge_guards": "Station architecture remains causal",
+          "wait_trigger": "Street-to-rail transformation reads unaided",
+          "kill_trigger": "Caption supplies civic-node relation",
+          "access_ethics": "Safety/security hard gate",
+          "fallback": "Two-zone street/ascent story"
         }
       },
       "visual_reference_families": [
@@ -8639,9 +8898,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Centro de Convenciones / estación La Cultura puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can elevated structure, stairs/turnstiles and street-level bus information visibly transform civic-district arrivals into vertical rail flow?",
+        "Which column, railing, vehicle, vendor, sign or crowd overlap obscures the split between street choice and station ascent?",
+        "Does a public-side position reveal station causality without forcing the convention center into frame, or does security/crowding make the relationship unreadable?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -8719,10 +8978,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-LACULTURA-GTN"
+        "SRC-LOC-LACULTURA-DLPS",
+        "SRC-LOC-LACULTURA-GTN",
+        "SRC-LOC-LACULTURA-INTERCHANGE-2026",
+        "SRC-LOC-LACULTURA-MTC-2026",
+        "SRC-LOC-LACULTURA-TOTEM-2025"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Future Line 4 interchange plans are not current infrastructure and cannot be shown as operating.",
+        "High aggregate ridership proves demand but not a specific minute, entrance flow or safe photography position.",
+        "The canonical label mentions Centro de Convenciones, but the strongest independently legible scene is the La Cultura station/civic-district threshold; the nearby convention building must not be forced into one frame."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
