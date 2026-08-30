@@ -5040,91 +5040,173 @@
       "canonical_id": "quinta-leuro-y-quintas-historicas",
       "name": "Quinta Leuro y quintas históricas",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-QUINTA-LEURO-PDTL-2030"
-          ]
+            "SRC-LOC-LEURO-PDTL-2025",
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "answer": "Quinta Leuro is a protected Miraflores residential ensemble at 840-844 Avenida Miraflores/28 de Julio, with varied dwellings, gardens, connecting paths and retained historic details; architect attribution remains disputed across municipal records."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "answer": "Differently sized dwellings share planted passages, stairs and small exterior gardens, mediating between avenue-facing houses and smaller inner homes while preserving individual variation within a collective order."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA",
+            "SRC-LOC-LEURO-PDTL-2025"
+          ],
+          "answer": "The ensemble remains conserved with renovations and appears to retain residential/hospitality occupation, but current resident rhythms, internal access and photography permission require direct verification."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "answer": "Enter, return, unlock, climb, tend, pause, greet and pass are credible only when directly observed. Empty paired thresholds can instead carry meaningful domestic expectation without exposing residents."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "answer": "The narrow shared path, garden buffers, paired stairs, arches and differentiated front/inner houses channel movement from commercial avenue to progressively private domestic thresholds."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "answer": "Picturesque courtyard, isolated colourful house and ornament catalogue recur. The underrepresented relation is the collective route distributing distinct inhabited thresholds while screening avenue intensity."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "answer": "Soft garúa can unify red floors, timber, stucco and vegetation; lateral light can articulate arches and stairs, but decorative colour alone cannot substitute for the shared-dwelling mechanism."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "answer": "Test public avenue threshold, permission-controlled central path and a stair/path tangent. Start 35 mm for route and multiple homes, 50 mm for threshold action and 85 mm only if spatial distribution remains visible."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "answer": "Treat inner paths as residential/private until permission is explicit, avoid doors/windows and identifiable residents, never block access, and use the public threshold fallback if entry is refused."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LEURO-PDTL-2025",
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "answer": "Passes when one collective passage visibly negotiates contemporary domestic life and commercial-city pressure. Heritage prettiness, disputed authorship or an isolated façade fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "position": "Permission-controlled path aligning avenue threshold, shared garden and paired dwelling stairs",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals public-to-private sequence",
+          "light": "Garúa morning",
+          "edge_guards": "Keep doors oblique and exclude parked vehicles",
+          "wait_trigger": "Three depth thresholds separate",
+          "kill_trigger": "Only decorative façades read",
+          "access_ethics": "Enter only with resident/operator permission",
+          "fallback": "Public gate framing the shared route"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "position": "Permitted side of shared path where two dwelling routes diverge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Consenting adult turns toward one stair as another passes",
+          "light": "Soft afternoon",
+          "edge_guards": "No faces, windows or doorway surveillance",
+          "wait_trigger": "Divergent domestic routes become legible",
+          "kill_trigger": "Person provides scale only",
+          "access_ethics": "Consent and resident circulation first",
+          "fallback": "Meaningful absence at paired thresholds"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "position": "Public avenue edge looking through entrance toward calm planted interior",
+          "camera_height": "1.1 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/320 s",
+          "expected_action": "Figure crosses commercial edge into screened passage",
+          "light": "Bright overcast",
+          "edge_guards": "Retain avenue/interior contrast without signage dominance",
+          "wait_trigger": "Two urban speeds read",
+          "kill_trigger": "Gate blocks the collective system",
+          "access_ethics": "Public pavement only",
+          "fallback": "Empty threshold contrast"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "position": "Permitted oblique along red floor, timber rail and successive arches",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Incidental shadow or resident trace crosses material sequence",
+          "light": "Low lateral light",
+          "edge_guards": "Retain two thresholds; avoid ornament close-up",
+          "wait_trigger": "Material wear maps the route",
+          "kill_trigger": "Becomes decorative detail",
+          "access_ethics": "No private threshold intrusion",
+          "fallback": "35 mm garúa material sequence"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LEURO-PDTL-2025",
+            "SRC-LOC-LEURO-VISITA"
+          ],
+          "position": "Permitted diagonal joining commercial entrance, collective path and differentiated homes",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Entering, passing and climbing occupy successive zones",
+          "light": "Late soft daylight",
+          "edge_guards": "Architecture stays causal; residents remain non-identifying",
+          "wait_trigger": "Collective dwelling reads before heritage label",
+          "kill_trigger": "Caption must explain the quinta",
+          "access_ethics": "Permission and privacy hard gate",
+          "fallback": "Public-edge two-zone story"
         }
       },
       "visual_reference_families": [
@@ -5178,9 +5260,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Quinta Leuro y quintas históricas puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one shared path or stair sequence visibly distribute present domestic thresholds, making collective dwelling—not decorative façades—the subject?",
+        "Which gate, parked vehicle, vegetation overlap or private doorway turns the passage into picturesque clutter or violates resident privacy?",
+        "Does a public-edge or permitted interior position show how the calm collective court resists the commercial avenue, or must the scene be killed when that relation is invisible?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -5258,10 +5340,17 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-LEURO-PDLC-2020",
+        "SRC-LOC-LEURO-PDTL-2025",
+        "SRC-LOC-LEURO-VISITA",
         "SRC-LOC-QUINTA-LEURO-PDTL-2030"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Municipal sources conflict on architect attribution: the stronger heritage table names Lidio Mongilardi while other municipal-derived tourism tables have named Javier Prado; authorship is excluded from the scene claim pending primary resolution.",
+        "The canonical label groups historic quintas, but evidence for Quinta Leuro cannot be generalized to Quinta Prado, Quinta Reducto or other complexes.",
+        "Tourism copy describes conserved paths and residential details but does not establish unrestricted entry, photography permission or daily resident activity."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -5269,93 +5358,173 @@
       "canonical_id": "estacion-restos-del-funicular-de-barranco",
       "name": "Estación / restos del Funicular de Barranco",
       "district": "Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-FUNICULAR-BARRANCO"
-          ]
+            "SRC-LOC-FUNICULAR-ATRACTIVOS",
+            "SRC-LOC-FUNICULAR-TURISMO"
+          ],
+          "answer": "Barranco's funicular opened hydraulically in 1896, reopened electrically in 1930 and later became inoperative; the station remains a listed tourism resource, while restoration, museum completion and visible track condition are unresolved."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-FUNICULAR-BARRANCO"
-          ]
+            "SRC-LOC-FUNICULAR-ATRACTIVOS"
+          ],
+          "answer": "A double-track inclined system joined the upper district to the bath/coastal descent, using station, passage, machinery and slope alignment to overcome the cliff."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-TURISMO",
+            "SRC-LOC-FUNICULAR-ATRACTIVOS"
+          ],
+          "answer": "The station persists within Barranco's tourism landscape while surrounding pedestrian and road movement continues; operation, interior visitation and completed museum use are not verified."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-TURISMO"
+          ],
+          "answer": "Walk, descend, climb, pass, wait, look and detour are credible on current public routes. Meaningful absence may make the unused transport threshold stronger than a generic passerby."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-ATRACTIVOS"
+          ],
+          "answer": "Station aperture, linear passage, retaining edges and slope alignment once concentrated vertical movement; their present obstruction or redundancy can expose a changed mobility contract."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-ATRACTIVOS"
+          ],
+          "answer": "Station exterior, picturesque passage and restoration documentation dominate. The underused frame joins surviving alignment to present-day descent rather than isolating the station."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-ATRACTIVOS"
+          ],
+          "answer": "Raking light can expose rails, retaining surfaces and incline; garúa can unify obsolete fabric and active passage, but decay-as-texture without mobility meaning fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-ATRACTIVOS"
+          ],
+          "answer": "Test upper public station edge, legal passage tangent and lower sightline back up the slope. Start 35 mm for station/alignment, 50 mm for old/new route crossing and 85 mm only if incline remains legible."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-TURISMO"
+          ],
+          "answer": "Verify closures and structural safety on arrival, remain behind barriers, do not enter ruins or works, avoid blocking narrow passages and abandon the track proof when no safe public sightline exists."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-ATRACTIVOS",
+            "SRC-LOC-FUNICULAR-TURISMO"
+          ],
+          "answer": "Passes when obsolete vertical transport visibly confronts or channels current movement. A station portrait, invented museum claim or ruin aesthetic without slope causality fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-ATRACTIVOS"
+          ],
+          "position": "Legal upper public edge aligning station aperture, passage and falling grade",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals transport alignment",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude signage and unrelated façades",
+          "wait_trigger": "Station and slope connect",
+          "kill_trigger": "Alignment is screened or unsafe",
+          "access_ethics": "Behind all closures",
+          "fallback": "50 mm passage geometry"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-TURISMO"
+          ],
+          "position": "Public junction where present walkers choose stairs/path beside obsolete station",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "One person descends while another climbs",
+          "light": "Bright overcast",
+          "edge_guards": "Separate figures from barriers",
+          "wait_trigger": "Current effort contrasts with former mechanism",
+          "kill_trigger": "Station is merely background",
+          "access_ethics": "No obstruction or covert close portrait",
+          "fallback": "Single anonymous figure on active route"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-ATRACTIVOS"
+          ],
+          "position": "Legal lower sightline looking uphill through passage toward station rather than frontal façade",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker crosses the inherited alignment",
+          "light": "Soft daylight",
+          "edge_guards": "No Bridge-of-Sighs postcard elements",
+          "wait_trigger": "Obsolete/current paths overlap",
+          "kill_trigger": "Track residue is not visible",
+          "access_ethics": "Public route and safe footing",
+          "fallback": "Upper reverse view"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-ATRACTIVOS"
+          ],
+          "position": "Safe public oblique compressing retaining edge, surviving metal/track trace and active path",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Shadow or distant figure marks incline",
+          "light": "Low raking sun",
+          "edge_guards": "Retain slope direction and station cue",
+          "wait_trigger": "Wear describes former motion",
+          "kill_trigger": "Becomes ruin texture",
+          "access_ethics": "No barrier crossing",
+          "fallback": "Garúa tonal alignment"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FUNICULAR-ATRACTIVOS",
+            "SRC-LOC-FUNICULAR-TURISMO"
+          ],
+          "position": "Safest public diagonal joining station, obsolete incline and current descent route",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Climbing, pausing and descending occupy old/new routes",
+          "light": "Late afternoon",
+          "edge_guards": "Keep slope causality dominant",
+          "wait_trigger": "Mobility transformation reads unaided",
+          "kill_trigger": "Caption must explain the funicular",
+          "access_ethics": "Closure and structural-safety hard gate",
+          "fallback": "Kill scene and retain research note"
         }
       },
       "visual_reference_families": [
@@ -5409,9 +5578,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Estación / restos del Funicular de Barranco puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can station, passage or surviving alignment visibly explain how the cliff descent once moved bodies, while a present route contradicts or inherits it?",
+        "Which wall, closure, vegetation, vehicle or tourist clutter severs the station from the slope and makes the frame a heritage-object portrait?",
+        "Does changing height along a legal public route reveal obsolete infrastructure against current descent, or does invisibility of track and machinery kill the concept?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -5489,10 +5658,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-FUNICULAR-BARRANCO"
+        "SRC-LOC-FUNICULAR-ATRACTIVOS",
+        "SRC-LOC-FUNICULAR-BARRANCO",
+        "SRC-LOC-FUNICULAR-TURISMO"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Historic machinery and alignment may be too screened or fragmented to make obsolete slope transport legible in one frame.",
+        "Listing the station as a tourism resource does not prove interior access, safe track visibility or current conservation.",
+        "Municipal language describes restoration efforts and a projected museum but supplies no completion or opening evidence; the site must not be presented as an operating funicular or museum."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -5500,93 +5675,182 @@
       "canonical_id": "reducto-2-casa-museo-caceres",
       "name": "Reducto Nº 2 / Casa Museo Cáceres",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-REDUCTO-MIRAFLORES"
-          ]
+            "SRC-LOC-REDUCTO-PARKS",
+            "SRC-LOC-REDUCTO-MINCETUR"
+          ],
+          "answer": "Reducto Nº2 is a conserved national historic battlefield landscape containing memorial elements, artillery, rail artifacts and a station replica housing the Andrés Avelino Cáceres museum."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-REDUCTO-MIRAFLORES"
-          ]
+            "SRC-LOC-REDUCTO-PARKS",
+            "SRC-LOC-REDUCTO-MINCETUR"
+          ],
+          "answer": "The defensive earthwork and battlefield terrain were later composed as commemorative park and museum landscape, using lawn, paths, memorial objects and station-form enclosure to stage national memory."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-CINEMA-2026",
+            "SRC-LOC-REDUCTO-VOTE-2026",
+            "SRC-LOC-REDUCTO-MINCETUR"
+          ],
+          "answer": "Museum visits, park use, civic ceremonies, outdoor cinema and neighborhood voting show active commemorative and ordinary civic occupation; named 2026 events are completed evidence only."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-CINEMA-2026",
+            "SRC-LOC-REDUCTO-VOTE-2026"
+          ],
+          "answer": "Enter, cross, vote, gather, watch, rehearse, commemorate, sit and disperse are evidenced. A cleared lawn after assembly can also retain social expectation through arranged paths and memorial edges."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-PARKS",
+            "SRC-LOC-REDUCTO-MINCETUR"
+          ],
+          "answer": "Earthwork edges, open lawn, paths, museum threshold and rail artifacts convert battlefield ground into a sequence for assembly, interpretation and civic ritual."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-MINCETUR"
+          ],
+          "answer": "Locomotive portrait, monument catalogue, green park overview and patriotic ceremony recur. The underused relation is a contemporary civic action spatially organized by memorial terrain and museum threshold."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-MINCETUR"
+          ],
+          "answer": "Low light can reveal earthwork relief and long civic axes; garúa can bind lawn, station and rail artifacts, but heroic silhouettes or military-object texture alone fail."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-MINCETUR",
+            "SRC-LOC-REDUCTO-GAPS-2025"
+          ],
+          "answer": "Test public earthwork-to-lawn edge, museum/rail tangent and event-arrival path. Start 35 mm for terrain/use, 50 mm for threshold action and 85 mm only if compressed layers retain causal paths."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-MINCETUR",
+            "SRC-LOC-REDUCTO-GAPS-2025"
+          ],
+          "answer": "Confirm museum/event access and path condition, avoid identifiable children and solemn ceremonies as spectacle, do not climb historic elements, and use ordinary adult park occupation when no authorized event exists."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-PARKS",
+            "SRC-LOC-REDUCTO-CINEMA-2026",
+            "SRC-LOC-REDUCTO-VOTE-2026"
+          ],
+          "answer": "Passes when memorial landscape visibly enables a current civic verb. A locomotive postcard, generic event crowd or caption-dependent battle story fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-MINCETUR"
+          ],
+          "position": "Public earthwork edge aligning defensive relief, lawn axis and station-form museum",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals memorial sequence",
+          "light": "Garúa morning",
+          "edge_guards": "Keep locomotive and monuments subordinate",
+          "wait_trigger": "Ground, path and museum separate",
+          "kill_trigger": "Reads as ordinary park",
+          "access_ethics": "Stay on paths",
+          "fallback": "50 mm earthwork/museum structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-CINEMA-2026",
+            "SRC-LOC-REDUCTO-VOTE-2026"
+          ],
+          "position": "Authorized/public lawn edge where adult civic participants enter from museum/path axis",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adults arrive, pause and distribute across assembly space",
+          "light": "Soft daylight",
+          "edge_guards": "Separate gestures from monuments and banners",
+          "wait_trigger": "Civic verb follows the landscape axis",
+          "kill_trigger": "Crowd could be anywhere",
+          "access_ethics": "No identifiable children or intrusive ceremony framing",
+          "fallback": "Ordinary adult park crossing"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-PARKS"
+          ],
+          "position": "Low public tangent from earthwork through daily path toward museum threshold",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker crosses former defensive ground toward present museum/park use",
+          "light": "Bright overcast",
+          "edge_guards": "Exclude centered locomotive and heroic monument",
+          "wait_trigger": "Daily movement contradicts memorial stillness",
+          "kill_trigger": "Battlefield layer disappears",
+          "access_ethics": "Path edge only",
+          "fallback": "Meaningful empty path"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-MINCETUR"
+          ],
+          "position": "Public oblique compressing earthwork texture, rail artifact and station replica",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Single adult figure crosses between material eras",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain open-lawn path and avoid object catalogue",
+          "wait_trigger": "Terrain and artifacts form one temporal section",
+          "kill_trigger": "Becomes military nostalgia",
+          "access_ethics": "No climbing or staged action",
+          "fallback": "Garúa tonal layering"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-REDUCTO-PARKS",
+            "SRC-LOC-REDUCTO-CINEMA-2026",
+            "SRC-LOC-REDUCTO-VOTE-2026"
+          ],
+          "position": "Public/authorized diagonal combining historic ground, civic gathering zone and museum threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Arriving, gathering and entering occupy three zones",
+          "light": "Late afternoon",
+          "edge_guards": "Keep memorial objects contextual, not dominant",
+          "wait_trigger": "Battlefield-to-civic transformation reads unaided",
+          "kill_trigger": "Caption supplies the historical relation",
+          "access_ethics": "Event permission and participant dignity",
+          "fallback": "Two-zone daily-use/museum relation"
         }
       },
       "visual_reference_families": [
@@ -5640,9 +5904,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Reducto Nº 2 / Casa Museo Cáceres puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can earthwork, lawn axis, station-form museum or rail artifact visibly organize a present civic act rather than serve as patriotic scenery?",
+        "Which monument, locomotive, banner, crowd overlap or weak path breaks the relation between battlefield memory and contemporary assembly?",
+        "Does a lower public position make people occupy the historic landscape's spatial devices, or would a default ceremony/locomotive view need its caption to work?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -5720,10 +5984,19 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-REDUCTO-MIRAFLORES"
+        "SRC-LOC-REDUCTO-CINEMA-2026",
+        "SRC-LOC-REDUCTO-GAPS-2025",
+        "SRC-LOC-REDUCTO-MINCETUR",
+        "SRC-LOC-REDUCTO-MIRAFLORES",
+        "SRC-LOC-REDUCTO-PARKS",
+        "SRC-LOC-REDUCTO-VOTE-2026"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Cinema and voting prove 2026 civic reuse but are completed events, not recurring access windows.",
+        "Municipal diagnosis reports path and interpretation gaps despite the tourism inventory's good-conservation rating; operational legibility remains a field test.",
+        "The station-form museum is a replica within a genuine battlefield landscape; the frame must not imply that the building itself survives from the 1881 battle."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
