@@ -326,91 +326,174 @@
       "canonical_id": "torres-de-limatambo-supermanzana",
       "name": "Torres de Limatambo / supermanzana",
       "district": "San Borja",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-LIMATAMBO-PUCP"
-          ]
+            "SRC-LOC-LIMATAMBO-ENACE",
+            "SRC-LOC-LIMATAMBO-POLIDEPORTIVO"
+          ],
+          "answer": "Torres de Limatambo is a large ENACE multifamily complex conceived with housing and extensive community, commercial, educational, sport and park equipment; a named municipal sports facility remains active."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-ENACE"
+          ],
+          "answer": "The superblock contract joined dense dwellings with internal open space and proximate daily facilities, allowing residents to circulate, meet and recreate away from the surrounding arterial roads."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-POLIDEPORTIVO",
+            "SRC-LOC-LIMATAMBO-SCHOOL-2026"
+          ],
+          "answer": "Residence, entry/exit, walking, commerce and sport are credible; current municipal hours corroborate recurring recreation, while event crowds and access through residential sectors are not assumed."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-POLIDEPORTIVO"
+          ],
+          "answer": "Enter, exit, cross, wait, shop, play, train, supervise and return are credible. The strongest repeatable verb is crossing between dwelling and a daily facility through the designed open-space network."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-ENACE",
+            "SRC-LOC-LIMATAMBO-PUBLICSPACE"
+          ],
+          "answer": "Tower spacing, low-rise edges, internal paths and distributed equipment channel movement and create alternating public, communal and private thresholds."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-ENACE"
+          ],
+          "answer": "Twin-tower gate views and distant landscaped overviews dominate. The underrepresented relationship is a ground-level sequence where daily movement links different building scales and programs."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-ENACE"
+          ],
+          "answer": "Garúa can unify heterogeneous alterations and emphasize block spacing; low lateral light can reveal tower/low-rise depth but may exaggerate the iconic skyline at the expense of lived ground."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-PUBLICSPACE"
+          ],
+          "answer": "Test a public perimeter-to-path diagonal, the polideportivo approach and a commerce/housing threshold. Start 35 mm for system depth, 50 mm for route/destination and 85 mm only if both housing and shared use remain connected."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-POLIDEPORTIVO"
+          ],
+          "answer": "Remain on clearly public routes, do not photograph into homes, avoid identifiable children and residents in vulnerable contexts, verify gates and facility rules, and retreat immediately when resident privacy conflicts with the hypothesis."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-ENACE",
+            "SRC-LOC-LIMATAMBO-PUBLICSPACE"
+          ],
+          "answer": "The frame passes when a superblock device visibly connects current dwelling and shared use. Towers as skyline, residents as scale or an event crowd without spatial continuity fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-ENACE"
+          ],
+          "position": "Clearly public perimeter where low-rise block, internal path and one tower layer without a gate dominating",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals scale hierarchy",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude tower centering, parked-car wall and clipped paths",
+          "wait_trigger": "Three spatial layers separate",
+          "kill_trigger": "Only the towers read",
+          "access_ethics": "Public edge; no residential entry",
+          "fallback": "50 mm low-rise/path structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-POLIDEPORTIVO"
+          ],
+          "position": "Public approach between housing edge and polideportivo access",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Resident crosses toward sport as another returns",
+          "light": "Bright overcast",
+          "edge_guards": "Separate bodies from gates and vehicles",
+          "wait_trigger": "Opposed movements share route",
+          "kill_trigger": "Facility and housing do not connect visually",
+          "access_ethics": "No identifiable children; obey facility boundary",
+          "fallback": "Adults walking at exterior threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-PUBLICSPACE"
+          ],
+          "position": "Side-on public path showing an altered open-space edge against the original block rhythm",
+          "camera_height": "1.1 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure diverts around later enclosure or construction",
+          "light": "Garúa daylight",
+          "edge_guards": "No twin-tower symmetry",
+          "wait_trigger": "Deviation makes change legible",
+          "kill_trigger": "Alteration cannot be distinguished",
+          "access_ethics": "Public route only",
+          "fallback": "Empty route obstruction"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-ENACE"
+          ],
+          "position": "Distant public angle compressing tower façade, low block and shaded path",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Single figure crosses a lit/shaded threshold",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain ground destination and avoid pure façade pattern",
+          "wait_trigger": "Light describes depth",
+          "kill_trigger": "Becomes tower abstraction",
+          "access_ethics": "Public edge",
+          "fallback": "Garúa tonal layering"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-LIMATAMBO-ENACE",
+            "SRC-LOC-LIMATAMBO-POLIDEPORTIVO"
+          ],
+          "position": "Public diagonal joining dwelling exit, internal route and active shared facility",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Leaving, crossing and arriving occupy three zones",
+          "light": "Soft afternoon",
+          "edge_guards": "Keep zones distinct and towers subordinate",
+          "wait_trigger": "Daily-life circuit reads unaided",
+          "kill_trigger": "Caption must explain superblock",
+          "access_ethics": "Privacy-first wide framing",
+          "fallback": "Two-zone home/shared-use relation"
         }
       },
       "visual_reference_families": [
@@ -464,9 +547,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Torres de Limatambo / supermanzana puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a pedestrian route visibly connect tower, low-rise block and daily facility so the superblock reads as a mixed system rather than twin icons?",
+        "Which gate, parked car, advertisement, tree overlap or distant scale break makes housing and shared-space action appear unrelated?",
+        "Does moving from the frontal gate to a public perimeter diagonal reveal a real sequence of dwelling, commerce and recreation without intruding on residential privacy?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -544,10 +627,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-LIMATAMBO-PUCP"
+        "SRC-LOC-LIMATAMBO-ENACE",
+        "SRC-LOC-LIMATAMBO-POLIDEPORTIVO",
+        "SRC-LOC-LIMATAMBO-PUBLICSPACE",
+        "SRC-LOC-LIMATAMBO-PUCP",
+        "SRC-LOC-LIMATAMBO-SCHOOL-2026"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A 2026 education fair proves episodic civic occupation, not everyday density or a future event window.",
+        "The historical plan combines housing, commerce, schools, sport and park space, while later public-space research warns that construction can reduce original open areas; fieldwork must distinguish design contract from present form.",
+        "The municipal polideportivo is currently active but is not evidence that every superblock path, courtyard or tower threshold is publicly accessible."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -1208,91 +1299,175 @@
       "canonical_id": "museo-de-la-electricidad-tranvia",
       "name": "Museo de la Electricidad & Tranvía",
       "district": "Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-ELECTRICIDAD-UNRESOLVED"
-          ]
+            "SRC-LOC-ELECTRICIDAD-OPERATOR",
+            "SRC-LOC-ELECTRICIDAD-BARRANCO"
+          ],
+          "answer": "The Electroperú museum occupies an adapted former collection office, reopened in July 2024, and links exhibition rooms, sculpture patio and restored exterior Vagón del Recuerdo."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR"
+          ],
+          "answer": "A service/collection building was converted into an educational sequence, while the restored tram externalizes electricity history into the avenue and former transit corridor."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR",
+            "SRC-LOC-ELECTRICIDAD-BARRANCO"
+          ],
+          "answer": "Visitors enter, learn, interact and move among rooms and patio during free opening hours. Current tram movement, passenger boarding and Monday access are unresolved."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR"
+          ],
+          "answer": "Enter, gather, learn, point, test, compare, wait and cross are credible. Boarding or riding is excluded unless observed and authorized on the day."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR",
+            "SRC-LOC-ELECTRICIDAD-CULTURE-GUIDE"
+          ],
+          "answer": "Doorway, patio, rails and tram boarding edge sequence visitors from street to industrial object to interactive knowledge, making circulation itself the heritage mechanism."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-CULTURE-GUIDE"
+          ],
+          "answer": "Frontal parked-tram, station sign and nostalgic night views dominate. The underused relationship is the side threshold where current pedestrian/learner flow crosses obsolete rail infrastructure."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR"
+          ],
+          "answer": "Soft daylight separates painted metal, rail and stucco without romanticizing age; wet garúa can reveal rail traces, while warm night light risks nostalgia without present use."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR",
+            "SRC-LOC-ELECTRICIDAD-CULTURE-GUIDE"
+          ],
+          "answer": "Test street-to-door sequence, track/boarding tangent and patio-to-room threshold if permitted. Start 35 mm for street/museum/tram, 50 mm for learner/object relation and 85 mm only for material detail with route context."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR",
+            "SRC-LOC-ELECTRICIDAD-BARRANCO"
+          ],
+          "answer": "Confirm weekday and photography policy, keep street/door circulation clear, avoid identifiable schoolchildren, treat the tram as static unless operation is observed, and use the public street fallback if interior permission is denied."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR"
+          ],
+          "answer": "The frame passes when reused building, rail/tram artifact and current learning or street movement form one readable transformation. Nostalgic object documentation alone fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR"
+          ],
+          "position": "Public avenue edge aligning rail, tram side and adapted museum entrance",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals heritage sequence",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude sign dominance, parked cars and clipped rails",
+          "wait_trigger": "Three elements separate",
+          "kill_trigger": "Reads as parked tram",
+          "access_ethics": "Public sidewalk; keep doorway clear",
+          "fallback": "50 mm rail/door structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR"
+          ],
+          "position": "Visitor side of entrance where street, threshold and first exhibit/patio remain visible if allowed",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Adult visitor enters, points or compares tram and interior display",
+          "light": "Open shade",
+          "edge_guards": "Avoid schoolchild faces and doorway mergers",
+          "wait_trigger": "Learning gesture follows route",
+          "kill_trigger": "Visitor merely supplies scale",
+          "access_ethics": "Confirm photography; no identifiable minors",
+          "fallback": "Adults entering from public edge"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-CULTURE-GUIDE"
+          ],
+          "position": "Track tangent from public sidewalk looking past tram edge toward contemporary avenue movement",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian crosses old rail axis",
+          "light": "Overcast daylight",
+          "edge_guards": "No centered tram or station sign",
+          "wait_trigger": "Old/new mobility axes intersect",
+          "kill_trigger": "Rails are invisible or relation feels accidental",
+          "access_ethics": "Stay outside roadway and rail enclosure",
+          "fallback": "Empty rail/street threshold"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR"
+          ],
+          "position": "Public close-oblique showing tram metal, rail and adapted façade together",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/320 s",
+          "expected_action": "Hand or reflection marks present contact without staging",
+          "light": "Soft raking daylight",
+          "edge_guards": "Retain doorway or track cue",
+          "wait_trigger": "Material eras separate",
+          "kill_trigger": "Becomes vehicle detail",
+          "access_ethics": "Do not touch artifacts",
+          "fallback": "Wet rail and façade trace"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ELECTRICIDAD-OPERATOR",
+            "SRC-LOC-ELECTRICIDAD-BARRANCO"
+          ],
+          "position": "Public oblique combining present avenue crossing, static tram/rail and museum entry",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian crosses while visitor enters and tram anchors obsolete mobility",
+          "light": "Soft afternoon",
+          "edge_guards": "Keep actions separated and tram subordinate",
+          "wait_trigger": "Past/present sequence reads unaided",
+          "kill_trigger": "Caption must explain tram history",
+          "access_ethics": "Public-space privacy and traffic safety",
+          "fallback": "Two-state street/entry transformation"
         }
       },
       "visual_reference_families": [
@@ -1346,9 +1521,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Museo de la Electricidad & Tranvía puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the former collection-office threshold, exterior tram and present learner movement form one energy-history sequence rather than a parked-vehicle portrait?",
+        "Which sign, tree, parked car, barrier or visitor overlap prevents rail, doorway and action from reading as connected infrastructure?",
+        "Does moving from the frontal tram view to the boarding/street edge reveal a useful tension between obsolete mobility and today's pedestrian avenue even if the tram is static?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -1426,12 +1601,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-ELECTRICIDAD-BARRANCO",
+        "SRC-LOC-ELECTRICIDAD-CULTURE-GUIDE",
+        "SRC-LOC-ELECTRICIDAD-OPERATOR",
         "SRC-LOC-ELECTRICIDAD-UNRESOLVED"
       ],
       "contradictions": [
-        "Historical inclusion does not establish current operation, tram presence or access."
+        "Current sources verify the reopened museum and exterior tram as collection elements, but none verifies that the tram currently moves along Pedro de Osma.",
+        "Electroperú lists Monday-Saturday hours while Barranco lists Tuesday-Saturday; the extra Monday opening must be verified directly before routing.",
+        "Historical inclusion does not establish current operation, tram presence or access.",
+        "Historical ride schedules and maintenance reports cannot be promoted to 2026 service evidence."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -2096,93 +2277,175 @@
       "canonical_id": "conjunto-habitacional-palomino",
       "name": "Conjunto Habitacional Palomino",
       "district": "Lima",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-PALOMINO-PUCP"
-          ]
+            "SRC-LOC-PALOMINO-CAMMP"
+          ],
+          "answer": "Palomino is a 1965-1967 social-housing estate on Avenida Venezuela whose repeated T module forms curved blocks and routes around shared open space and incorporated archaeological remains; it remains residential."
         },
         "original_spatial_contract": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-PALOMINO-PUCP"
-          ]
+            "SRC-LOC-PALOMINO-CAMMP",
+            "SRC-LOC-PALOMINO-PUBLICSPACE"
+          ],
+          "answer": "Housing, recreation and circulation were intended as a self-contained urban cell: modular repetition produces differentiated courtyards and curved pedestrian sequences rather than isolated slab blocks."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP",
+            "SRC-LOC-LIMATAMBO-PUBLICSPACE"
+          ],
+          "answer": "Residence, walking, waiting, play, care, maintenance and informal adaptation are credible, but no specific current activity window or unrestricted internal access is established."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-PUBLICSPACE"
+          ],
+          "answer": "Enter, exit, turn, cross, meet, watch, play, maintain and adapt are credible. The strongest repeatable verb is turning/disappearing as curved block geometry changes mutual visibility."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP",
+            "SRC-LOC-PALOMINO-BNP"
+          ],
+          "answer": "T-shaped modules, curved alignments, external circulation and shared lawns bend paths and create variable enclosures, while weak hierarchy can also make movement uncertain."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP"
+          ],
+          "answer": "Aerial masterplan, empty green court and formal block-rhythm images dominate. The underrepresented relationship is a current resident action caused by a specific curve, threshold or later adaptation."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP"
+          ],
+          "answer": "Garúa reduces heterogeneous paint/additions and clarifies curved massing; lateral light can separate repeated façades and external circulation but must not turn inhabited homes into anonymous pattern."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP",
+            "SRC-LOC-PALOMINO-BNP"
+          ],
+          "answer": "Test a clearly public entrance-to-curve view, a path tangent between blocks and an exterior-circulation overlap. Start 35 mm for enclosure, 50 mm for turn/threshold and 85 mm only when shared-space context remains."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP"
+          ],
+          "answer": "Verify public access and resident tolerance, never aim into dwellings, avoid identifiable children and vulnerable residents, do not treat adaptations as spectacle, and kill any proof that requires entering communal/private territory without permission."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP",
+            "SRC-LOC-PALOMINO-BNP"
+          ],
+          "answer": "The frame passes when modular curvature visibly channels a current action or exposes meaningful navigational ambiguity. Empty modernist form, resident-as-scale or aerial-plan imitation fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP"
+          ],
+          "position": "Clearly public entrance or perimeter where two curved blocks and shared path overlap",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals changing enclosure",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude window intrusion, vehicle wall and clipped curve ends",
+          "wait_trigger": "Blocks separate into readable layers",
+          "kill_trigger": "Curve is not visible from public ground",
+          "access_ethics": "Public edge only",
+          "fallback": "50 mm block/path relation"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-PUBLICSPACE"
+          ],
+          "position": "Publicly accessible path tangent where a curve hides and reveals the next threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult resident turns, appears or meets another at curve",
+          "light": "Bright overcast",
+          "edge_guards": "Separate figures from doors/windows and laundry",
+          "wait_trigger": "Action changes because of curve",
+          "kill_trigger": "Resident only supplies scale",
+          "access_ethics": "No stalking or identifiable children",
+          "fallback": "Back-facing adult crossing shared edge"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-BNP"
+          ],
+          "position": "Public junction where two similar curved routes create documented orientation ambiguity",
+          "camera_height": "1.1 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Person pauses, checks direction or reverses",
+          "light": "Garúa daylight",
+          "edge_guards": "Avoid mocking confusion or isolating resident identity",
+          "wait_trigger": "Navigational choice is spatially legible",
+          "kill_trigger": "Ambiguity exists only in caption",
+          "access_ethics": "Respectful distance",
+          "fallback": "Empty branching-route proof"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP"
+          ],
+          "position": "Public distant angle across repeated façade, external circulation and curved lawn edge",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Single figure crosses or uses external circulation",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain shared-space cue and avoid peering into homes",
+          "wait_trigger": "Light reveals module/route",
+          "kill_trigger": "Becomes anonymous façade pattern",
+          "access_ethics": "No private-window focus",
+          "fallback": "Garúa material layering"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALOMINO-CAMMP",
+            "SRC-LOC-PALOMINO-BNP"
+          ],
+          "position": "Public oblique joining arrival, curved shared route and dwelling threshold",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Arriving, turning and entering occupy three distinct zones",
+          "light": "Soft afternoon",
+          "edge_guards": "Keep home privacy intact and curve readable",
+          "wait_trigger": "Collective-housing circuit reads unaided",
+          "kill_trigger": "Caption must explain spatial system",
+          "access_ethics": "Privacy-first wide framing",
+          "fallback": "Two-zone turn/threshold relation"
         }
       },
       "visual_reference_families": [
@@ -2236,9 +2499,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Conjunto Habitacional Palomino puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a curved T-block route visibly make residents turn, meet or disappear while preserving the dwelling/shared-space boundary?",
+        "Which fence, vehicle, addition, laundry overlap or path ambiguity prevents the modular curve from organizing the human action?",
+        "Does following one public route through successive overlaps reveal productive spatial variety, or confirm the documented disorientation and kill the scene?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -2316,10 +2579,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-LIMATAMBO-PUBLICSPACE",
+        "SRC-LOC-PALOMINO-BNP",
+        "SRC-LOC-PALOMINO-CAMMP",
+        "SRC-LOC-PALOMINO-PUBLICSPACE",
         "SRC-LOC-PALOMINO-PUCP"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Academic proposals to rehabilitate public space are not evidence that interventions were built or that paths are freely accessible to non-residents.",
+        "CAMMP reports current residential use and good conservation, while later project literature identifies deteriorated or under-equipped public spaces; conservation cannot be generalized across the entire 17.5-hectare estate.",
+        "The curved plan creates variety and identity but the BNP analysis also finds difficult orientation and weak hierarchy; this tension is a field question, not a flaw to erase."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
