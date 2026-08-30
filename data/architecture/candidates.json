@@ -397,7 +397,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "museo-larco-jardines",
@@ -447,7 +447,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "casa-emilio-harth-terre",
@@ -457,7 +457,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "parque-de-la-felicidad",

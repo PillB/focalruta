@@ -12506,93 +12506,175 @@
       "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
       "name": "Palacio Municipal y de la Cultura · San Isidro",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PALACIO-SI-PDLC"
-          ]
+            "SRC-LOC-PALSI-AGENDA-2026",
+            "SRC-LOC-PALSI-RESTORATION"
+          ],
+          "answer": "The restored 1934 Casa Consistorial at Los Incas 270 operates in 2026 as Palacio Municipal y de la Cultura, hosting repeated council sessions and cultural programs."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALSI-RESTORATION"
+          ],
+          "answer": "A municipal house organized representative entry, offices and civic rooms; restoration adapted those rooms and their Olivar edge into cultural equipment while retaining institutional hierarchy."
         },
         "current_life": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PALACIO-SI-PDLC"
-          ]
+            "SRC-LOC-PALSI-AGENDA-2026",
+            "SRC-LOC-PALSI-EXHIBITION-2026"
+          ],
+          "answer": "Councillors, registered participants, staff, visitors and exhibition audiences enter, deliberate, view and depart; named shows are completed and session access remains controlled."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-PALSI-AGENDA-2026",
+            "SRC-LOC-PALSI-EXHIBITION-2026"
+          ],
+          "answer": "Register, arrive, enter, deliberate, present, view, discuss and exit are evidenced. A cleared representative threshold between sessions can express institutional readiness."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALSI-RESTORATION"
+          ],
+          "answer": "Olivar approach, façade hierarchy, entrance, halls and adapted rooms sequence public arrival from landscape into either civic deliberation or cultural display."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALSI-RESTORATION",
+            "SRC-LOC-PALSI-EXHIBITION-2026"
+          ],
+          "answer": "Pristine restoration exterior and event gallery coverage dominate. The underused relation is controlled civic/cultural arrival through the same inherited threshold."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALSI-RESTORATION"
+          ],
+          "answer": "Filtered Olivar light can articulate old/new material and entry depth; controlled interior light can reveal occupancy, but heritage polish without a public verb fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALSI-RESTORATION"
+          ],
+          "answer": "Test public grove-to-entry diagonal, registered foyer threshold and permitted room-to-landscape reverse. Start 35 mm for sequence, 50 mm for arrival and 85 mm only with threshold context."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALSI-AGENDA-2026"
+          ],
+          "answer": "Confirm registration and photography, never photograph documents/QR/screens, avoid disrupting sessions or visitors, obey security and use public exterior fallback when interior access is denied."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PALSI-AGENDA-2026",
+            "SRC-LOC-PALSI-EXHIBITION-2026"
+          ],
+          "answer": "Passes when restored civic architecture visibly governs a present deliberative or cultural act. A façade portrait or caption-built dual use fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALSI-RESTORATION"
+          ],
+          "position": "Public Olivar path aligning landscape approach, representative entry and restored volume",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/320 s",
+          "expected_action": "Clear interval reveals civic sequence",
+          "light": "Filtered garúa daylight",
+          "edge_guards": "Exclude cars, banners and clipped trees",
+          "wait_trigger": "Landscape, threshold and volume separate",
+          "kill_trigger": "Reads as restored house only",
+          "access_ethics": "Public approach",
+          "fallback": "50 mm entry structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALSI-AGENDA-2026"
+          ],
+          "position": "Registered/public threshold where participants arrive and staff direct entry",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Adults register, wait and enter",
+          "light": "Soft ambient light",
+          "edge_guards": "Hide QR, documents and faces",
+          "wait_trigger": "Institutional sequence reads",
+          "kill_trigger": "Security choreography dominates",
+          "access_ethics": "Registration/permission",
+          "fallback": "Exterior arrival"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALSI-EXHIBITION-2026"
+          ],
+          "position": "Permitted side doorway/foyer view linking gallery movement back to civic façade/park",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/5.6, 1/160 s",
+          "expected_action": "Visitor turns between adapted room and exit",
+          "light": "Window/ambient light",
+          "edge_guards": "No artwork reproduction as subject",
+          "wait_trigger": "Adaptive use reads",
+          "kill_trigger": "Only exhibition decor appears",
+          "access_ethics": "Photography permission",
+          "fallback": "Empty adapted threshold"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALSI-RESTORATION"
+          ],
+          "position": "Public/authorized oblique holding historic wall, restored opening and moving shadow",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/400 s",
+          "expected_action": "Participant shadow crosses old/new seam",
+          "light": "Low filtered sun",
+          "edge_guards": "Retain entry/park cue",
+          "wait_trigger": "Material reveals adaptation",
+          "kill_trigger": "Becomes restoration detail",
+          "access_ethics": "No restricted-room entry",
+          "fallback": "50 mm garúa layers"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PALSI-AGENDA-2026",
+            "SRC-LOC-PALSI-RESTORATION"
+          ],
+          "position": "Public/registered diagonal joining Olivar approach, civic threshold and occupied hall",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Approaching, waiting and entering occupy three zones",
+          "light": "Late soft daylight",
+          "edge_guards": "One current use remains primary",
+          "wait_trigger": "Government/culture adaptation reads unaided",
+          "kill_trigger": "Caption joins separate events",
+          "access_ethics": "Security/privacy hard gates",
+          "fallback": "Two-zone public arrival"
         }
       },
       "visual_reference_families": [
@@ -12646,9 +12728,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Palacio Municipal y de la Cultura · San Isidro puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can an Olivar approach, restored threshold and real council/gallery arrival show the building switching between civic authority and cultural access?",
+        "Which security desk, banner, parked vehicle, exhibition furniture or tree overlap hides the threshold hierarchy?",
+        "Does a permitted interior/exterior position reveal shared spatial order between deliberation and display, or must one use be selected and the dual claim killed?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -12726,10 +12808,17 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-PALACIO-SI-PDLC"
+        "SRC-LOC-PALACIO-SI-PDLC",
+        "SRC-LOC-PALSI-AGENDA-2026",
+        "SRC-LOC-PALSI-EXHIBITION-2026",
+        "SRC-LOC-PALSI-RESTORATION"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A completed free exhibition proves public gallery capacity, not current exhibition access or photography permission.",
+        "Council registration/QR procedures show controlled civic access; exterior openness does not imply walk-in interior entry.",
+        "The restored 1934 Casa Consistorial supports both municipal deliberation and cultural display, but those uses may occupy different rooms/times and cannot be forced into one frame."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -14005,91 +14094,175 @@
       "canonical_id": "saenz-pena-domeyer-pasajes",
       "name": "Sáenz Peña / Domeyer / pasajes",
       "district": "Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-SAENZPENA-BARRANCO"
-          ]
+            "SRC-LOC-SAENZ-WORKS-2026",
+            "SRC-LOC-SAENZ-SURVEY"
+          ],
+          "answer": "Sáenz Peña is a documented monumental Barranco street whose Stage I public tourism-space improvement received Ministry authorization in March 2026; Domeyer and nearby passages host documented creative uses."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SAENZ-SURVEY"
+          ],
+          "answer": "Aligned historic façades, setbacks, passages, gardens/courtyards and the alameda created a residential promenade and transitions from public street to private interiors."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SAENZ-CREATIVE",
+            "SRC-LOC-SAENZ-WORKS-2026"
+          ],
+          "answer": "Walking, gallery visiting, working, eating, making and construction/navigation are credible; exact businesses, works and pedestrian peaks require direct verification."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SAENZ-CREATIVE"
+          ],
+          "answer": "Walk, enter, browse, make, display, pause, deliver and detour are documented/credible. A temporarily closed threshold can reveal reuse or works without a crowd."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SAENZ-SURVEY"
+          ],
+          "answer": "Street alignment, alameda, gates, passages, courtyards and reused rooms sequence public promenade into creative occupation; works may currently redirect that sequence."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SAENZ-SURVEY",
+            "SRC-LOC-SAENZ-CREATIVE"
+          ],
+          "answer": "Heritage elevation, lifestyle street and adaptive-reuse before/after dominate. The underused relation is a repeat-view position showing one current verb or detour caused by inherited/modified space."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SAENZ-SURVEY"
+          ],
+          "answer": "Garúa can unify heterogeneous façades and expose passage depth; lateral light can show thresholds, but colorful heritage texture without reuse causality fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SAENZ-SURVEY"
+          ],
+          "answer": "Reoccupy three official/public survey positions around one selected threshold before changing focal. Start 35 mm for alignment, 50 mm for entering/detouring and 85 mm only if passage depth remains."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SAENZ-WORKS-2026",
+            "SRC-LOC-SAENZ-CREATIVE"
+          ],
+          "answer": "Verify works and business status, remain outside barriers/private courtyards, request interior permission, avoid workers/residents as spectacle and kill any scene requiring multi-street montage."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SAENZ-WORKS-2026",
+            "SRC-LOC-SAENZ-SURVEY"
+          ],
+          "answer": "Passes when one inherited or modified public threshold visibly shapes current creative movement. Picturesque corridor, construction record or caption-joined streets fail."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SAENZ-SURVEY"
+          ],
+          "position": "Official-repeat public viewpoint aligning alameda, façade rhythm and one passage",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals public-to-private depth",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude cars, signs and barrier dominance",
+          "wait_trigger": "Alignment and passage separate",
+          "kill_trigger": "Reads as heritage street only",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm passage structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SAENZ-CREATIVE"
+          ],
+          "position": "Public threshold of a currently verified creative address",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Adult enters, delivers or displays through inherited opening",
+          "light": "Soft daylight",
+          "edge_guards": "No faces, products or brand dominance",
+          "wait_trigger": "Use follows threshold",
+          "kill_trigger": "Action could occur anywhere",
+          "access_ethics": "Operator/participant consent if close",
+          "fallback": "Anonymous passerby/door relation"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SAENZ-WORKS-2026"
+          ],
+          "position": "Safe public reverse view where authorized works/detour meet historic alignment",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian route bends around current intervention",
+          "light": "Bright overcast",
+          "edge_guards": "No worker spectacle or generic cones",
+          "wait_trigger": "Transformation affects movement",
+          "kill_trigger": "Works absent/complete without trace",
+          "access_ethics": "Obey barriers",
+          "fallback": "Reuse threshold without works"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SAENZ-SURVEY"
+          ],
+          "position": "Public oblique compressing old wall, adapted opening and passage shadow",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Anonymous figure crosses material seam",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain alameda/street cue",
+          "wait_trigger": "Material reveals reuse depth",
+          "kill_trigger": "Becomes patina detail",
+          "access_ethics": "No private interior targeting",
+          "fallback": "50 mm garúa layering"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SAENZ-WORKS-2026",
+            "SRC-LOC-SAENZ-CREATIVE"
+          ],
+          "position": "One public diagonal joining alameda approach, inherited passage and current use/detour",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Approaching, turning and entering occupy three zones",
+          "light": "Late soft daylight",
+          "edge_guards": "One address/threshold only",
+          "wait_trigger": "Heritage becomes present system unaided",
+          "kill_trigger": "Caption joins Sáenz Peña/Domeyer",
+          "access_ethics": "Access/currentity hard gates",
+          "fallback": "Two-zone passage/use story"
         }
       },
       "visual_reference_families": [
@@ -14143,9 +14316,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Sáenz Peña / Domeyer / pasajes puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one inherited alignment, passage or courtyard threshold visibly channel a current creative/public verb while authorized streetscape works alter its edge?",
+        "Which construction barrier, vehicle, vegetation, signage or tourist crowd converts the frame into a generic Barranco lifestyle image?",
+        "Does repeating an official survey position reveal meaningful present transformation, or does the multi-street label require an invalid montage?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -14223,12 +14396,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-SAENZ-CREATIVE",
+        "SRC-LOC-SAENZ-SURVEY",
+        "SRC-LOC-SAENZ-WORKS-2026",
         "SRC-LOC-SAENZPENA-BARRANCO"
       ],
       "contradictions": [
+        "Creative-district guides document businesses and galleries, but current operators, hours and interior photography conditions can change.",
+        "Stage I Alameda Sáenz Peña works received heritage authorization in March 2026, but construction start/completion and current barriers are not proven.",
+        "The canonical label combines Sáenz Peña, Domeyer and passages; one frame must select one public-space/reuse threshold rather than imply a continuous corridor.",
         "The combined passage hypothesis lacks a candidate-specific current authoritative source."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -14236,91 +14415,174 @@
       "canonical_id": "casa-emilio-harth-terre",
       "name": "Casa Emilio Harth-Terré",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-HARTH-TERRE-PDTL-2030"
-          ]
+            "SRC-LOC-HARTH-CAMMP",
+            "SRC-LOC-HARTH-HERITAGE"
+          ],
+          "answer": "Emilio Harth-Terré's 1938 private house at Aviación 500 remains recorded as housing and is officially listed as a national monument under a 1996 declaration; current physical condition is unevaluated."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "answer": "Façade, lateral entrance, doorway and first-floor plan organize a modern private dwelling whose arrival and domestic rooms are protected behind a controlled street edge."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "answer": "Residential occupation is reported; entering, leaving, receiving and screening are credible, but occupants, routines and physical changes require non-intrusive observation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "answer": "Enter, unlock, return, deliver, screen, maintain and pass are credible. A closed lateral entrance can carry meaningful domestic expectation without showing residents."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "answer": "Lateral entry, recessed doorway, façade openings and property boundary mediate the shift from public avenue to private domestic sequence."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP",
+            "SRC-LOC-HARTH-MUNICIPAL"
+          ],
+          "answer": "Isolated elevation and heritage thumbnail dominate. The underused relation is a repeat public viewpoint showing the entry sequence negotiating current street pressure."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "answer": "Lateral light can reveal recessed entry and plane hierarchy; garúa can clarify mass, but modernist geometry or deterioration speculation without inhabitation fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "answer": "Test archival-match public position, lateral-entry tangent and block-context reverse view. Start 35 mm for street/house, 50 mm for entry gesture and avoid 85 mm if it risks window surveillance."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP",
+            "SRC-LOC-HARTH-HERITAGE"
+          ],
+          "answer": "Remain on public pavement, never photograph into windows or wait on occupants, avoid address/security detail, do not claim demolition, and kill any proof requiring private access."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP",
+            "SRC-LOC-HARTH-HERITAGE"
+          ],
+          "answer": "Passes when a protected modern entry device visibly shapes current residential/street movement. Heritage elevation, threat narrative or invasive domestic observation fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "position": "Archival-match public viewpoint holding façade, lateral entrance and current block edge",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals entry hierarchy",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude plates, windows and parked cars",
+          "wait_trigger": "Street, boundary and entry separate",
+          "kill_trigger": "Only elevation reads",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm lateral-entry structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "position": "Public sidewalk with lateral entrance visible obliquely",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Consenting/anonymous adult enters or delivery pauses at boundary",
+          "light": "Soft daylight",
+          "edge_guards": "No face, key, package or interior detail",
+          "wait_trigger": "Entry device changes action",
+          "kill_trigger": "Observation becomes surveillance",
+          "access_ethics": "Consent or meaningful absence",
+          "fallback": "Closed threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "position": "Public lateral reverse view showing house against changed avenue/block fabric",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker crosses between house boundary and later development",
+          "light": "Bright overcast",
+          "edge_guards": "Avoid generic old/new skyline",
+          "wait_trigger": "Entry/street pressure reads",
+          "kill_trigger": "House identity disappears",
+          "access_ethics": "No private-window view",
+          "fallback": "Empty block-context relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP"
+          ],
+          "position": "Public oblique compressing entry recess, wall plane and sidewalk shadow",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Passing shadow traces recessed arrival",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain public boundary",
+          "wait_trigger": "Planes explain privacy",
+          "kill_trigger": "Becomes modernist abstraction",
+          "access_ethics": "No telephoto/window targeting",
+          "fallback": "Garúa tonal planes"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HARTH-CAMMP",
+            "SRC-LOC-HARTH-HERITAGE"
+          ],
+          "position": "Public diagonal joining avenue approach, protected boundary and lateral domestic entrance",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Passing, pausing and entering occupy distinct zones",
+          "light": "Late soft daylight",
+          "edge_guards": "Resident privacy dominates",
+          "wait_trigger": "1938 contract persists unaided",
+          "kill_trigger": "Caption supplies heritage/threat",
+          "access_ethics": "Privacy hard gate",
+          "fallback": "Two-zone street/entry story"
         }
       },
       "visual_reference_families": [
@@ -14374,9 +14636,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Casa Emilio Harth-Terré puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can lateral entrance, property boundary and ordinary avenue movement show how the 1938 modern house still mediates privacy and arrival amid later development?",
+        "Which parked car, hedge, wall, adjacent building or private window makes the view invasive or destroys the entry sequence?",
+        "Does matching an archival public viewpoint expose a current spatial change visible from the street, or does the house remain only a heritage elevation?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -14454,10 +14716,17 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-HARTH-CAMMP",
+        "SRC-LOC-HARTH-HERITAGE",
+        "SRC-LOC-HARTH-MUNICIPAL",
         "SRC-LOC-HARTH-TERRE-PDTL-2030"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "CAMMP labels protection as absent while official municipal records cite national-monument declaration RDN 290-96/INC; the official declaration controls, and the catalogue field is preserved as a contradiction/data-quality issue.",
+        "CAMMP records current housing and destruction threat but does not identify a dated cause or evaluate condition; neither deterioration nor imminent demolition can be asserted.",
+        "The house is private residence, so plan/interior evidence cannot justify access or telephoto observation."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
