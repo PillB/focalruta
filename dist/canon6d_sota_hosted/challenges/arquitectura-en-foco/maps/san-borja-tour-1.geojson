@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "biblioteca-nacional-del-peru",
+        "name": "Biblioteca Nacional",
+        "district": "San Borja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.005129,
+          -12.0877743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gran-teatro-nacional",
+        "name": "Teatro Nacional del Perú",
+        "district": "San Borja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0031643,
+          -12.0866273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "lima-centro-de-convenciones",
+        "name": "Centro de Convenciones de Lima",
+        "district": "San Borja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.000684,
+          -12.0863298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "huaca-san-borja",
+        "name": "Huaca San Borja",
+        "district": "San Borja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0002329,
+          -12.0841313
+        ]
+      }
+    }
+  ]
+}

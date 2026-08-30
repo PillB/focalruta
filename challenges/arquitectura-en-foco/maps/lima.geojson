@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "conjunto-habitacional-palomino",
+        "name": "Conjunto Habitacional Palomino",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0722383,
+          -12.0603412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "unidad-vecinal-3",
+        "name": "Unidad Vecinal 3",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0820644,
+          -12.0532861
+        ]
+      }
+    }
+  ]
+}

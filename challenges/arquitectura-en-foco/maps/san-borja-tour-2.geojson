@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "parque-de-la-felicidad",
+        "name": "Parque de la Felicidad",
+        "district": "San Borja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.9889841,
+          -12.1015009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "coliseo-eduardo-dibos",
+        "name": "Coliseo Eduardo Dibós",
+        "district": "San Borja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0011657,
+          -12.1109128
+        ]
+      }
+    }
+  ]
+}
