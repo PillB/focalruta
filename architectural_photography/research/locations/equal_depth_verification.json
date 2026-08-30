@@ -22687,108 +22687,171 @@
       "canonical_id": "edificio-alvarez-calderon",
       "name": "Edificio Álvarez Calderón",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-ALVAREZ-UNI"
-          ]
+            "SRC-LOC-ALVAREZ-CAMMP",
+            "SRC-LOC-ALVAREZ-PUCP-2025"
+          ],
+          "answer": "José García Bryce's 1963 Edificio Álvarez Calderón at no. 590 remains a private residential building documented through plans, archival photographs and a current CAMMP record."
         },
         "original_spatial_contract": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-ALVAREZ-UNI"
-          ]
+            "SRC-LOC-ALVAREZ-CAMMP"
+          ],
+          "answer": "A portico, articulated brick/concrete volumes, terraces, stair core and service orientation reconcile multifamily density with domestic scale and privacy."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ALVAREZ-CAMMP"
+          ],
+          "answer": "Residents enter, leave, receive, overlook, maintain and screen; actual rhythms, alterations and street-edge visibility require privacy-first field observation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ALVAREZ-CAMMP"
+          ],
+          "answer": "Enter, return, receive, wait, maintain, screen and pass are credible. A quiet portico can express collective domestic expectation without showing residents."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-ALVAREZ-CAMMP"
+          ],
+          "answer": "Portico, setback, articulated volumes and stair core mediate street-to-collective-home transition while preserving privacy and neighborhood scale."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ALVAREZ-CAMMP",
+            "SRC-LOC-ALVAREZ-PUCP-2025"
+          ],
+          "answer": "Clean frontal elevation and archival modernist praise dominate. The underused relation is the current public threshold negotiating collective domestic arrival."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ALVAREZ-CAMMP"
+          ],
+          "answer": "Lateral light can reveal brick/concrete warmth, terrace depth and portico hierarchy; abstract grids without current domestic cause fail."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ALVAREZ-CAMMP"
+          ],
+          "answer": "Test archival public repeat, portico tangent and block-context reverse. Start 35 mm for street/building, 50 mm for entry and avoid 85 mm toward windows/terraces."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-ALVAREZ-CAMMP"
+          ],
+          "answer": "Remain on public pavement, never target windows/balconies or wait on residents, hide addresses/security details, seek consent for identifiable entry gestures and kill private-access proofs."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ALVAREZ-CAMMP"
+          ],
+          "answer": "Passes when collective-housing geometry visibly shapes a current public-to-domestic transition. Modernist façade, fame or invasive resident observation fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-ALVAREZ-CAMMP"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Archival-match public view holding setback, portico and articulated volumes",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals collective entry order",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude cars, address and private windows",
+          "wait_trigger": "Street/portico/volume separate",
+          "kill_trigger": "Only façade reads",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm portico structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-ALVAREZ-CAMMP"
           ],
-          "label": "B · HABITAR",
+          "position": "Public oblique where portico mediates anonymous/consenting arrival",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Adult approaches, pauses and enters",
+          "light": "Soft daylight",
+          "edge_guards": "No face, key, package or interior",
+          "wait_trigger": "Portico changes pace",
+          "kill_trigger": "Observation becomes surveillance",
+          "access_ethics": "Consent or meaningful absence",
+          "fallback": "Empty portico"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-ALVAREZ-CAMMP"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: fachada moderna aislada, tratada como objeto de catálogo. Busca la relación definida por: ¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Public lateral reverse showing collective mass within current low-rise street",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker crosses building/neighborhood seam",
+          "light": "Bright overcast",
+          "edge_guards": "Avoid generic old/new contrast",
+          "wait_trigger": "Scale reconciliation reads",
+          "kill_trigger": "Building identity disappears",
+          "access_ethics": "No private-window view",
+          "fallback": "Portico/street relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-ALVAREZ-CAMMP"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "85 mm líder para capas · 50 mm para escala de calle · 35 mm solo si el contexto inmediato añade información",
-          "plan": "mañana o tarde lateral para leer planos y materiales sin convertirlo en abstracción pura",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Public oblique where brick, concrete and portico shadow overlap",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Passing shadow crosses material seam",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain public entry cue",
+          "wait_trigger": "Material explains domestic scale",
+          "kill_trigger": "Becomes modernist texture",
+          "access_ethics": "No telephoto",
+          "fallback": "Garúa tonal planes"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W17",
-            "W18"
+            "SRC-LOC-ALVAREZ-CAMMP"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "85 mm líder para capas · 50 mm para escala de calle · 35 mm solo si el contexto inmediato añade información",
-          "plan": "Un residente entra/sale mientras el encuadre 85 mm superpone la baja masa del edificio con una verticalidad contemporánea del entorno.",
-          "gate": "¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?"
+          "position": "Public diagonal joining neighborhood approach, collective portico and residential mass",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Passing, pausing and entering occupy layers",
+          "light": "Late soft daylight",
+          "edge_guards": "Privacy and threshold primary",
+          "wait_trigger": "Density/domesticity reads unaided",
+          "kill_trigger": "Caption supplies architectural merit",
+          "access_ethics": "Privacy hard gate",
+          "fallback": "Two-zone street/portico story"
         }
       },
       "visual_reference_families": [
@@ -22842,9 +22905,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué pasa si fotografiamos el edificio no contra su pasado, sino contra la densificación contemporánea que anticipó?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the portico, brick/concrete mass and current entry gesture show how a 1963 multifamily preserved neighborhood scale while concentrating housing?",
+        "Which architectural-award framing, façade symmetry, parked car or private window turns the image into modernist cataloguing or surveillance?",
+        "Does an archival public repeat reveal a current street/entry relationship, or is resident life invisible without intrusion?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -22912,10 +22975,17 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-ALVAREZ-CAMMP",
+        "SRC-LOC-ALVAREZ-INTERVENTION",
+        "SRC-LOC-ALVAREZ-PUCP-2025",
         "SRC-LOC-ALVAREZ-UNI"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A professional intervention is listed without explicit scope/date and cannot be presented as verified transformation.",
+        "CAMMP records current residential use and good conservation, but its assessment date is not a 2026 condition survey.",
+        "The building is private housing; plans and archives never authorize access or observation into dwellings."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -22923,115 +22993,172 @@
       "canonical_id": "quinta-heeren-restauracion-2026",
       "name": "Quinta Heeren · restauración 2026",
       "district": "Lima",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-HEEREN-2026"
-          ]
+            "SRC-LOC-HEEREN-ACQUISITION-2025",
+            "SRC-LOC-HEEREN-CONSTRAINTS"
+          ],
+          "answer": "MML completed acquisition of the large Barrios Altos Quinta Heeren in October 2025 through Prolima; current restoration phase and access remain unresolved."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
+          ],
+          "answer": "A gated landscaped residential enclave organized villas and internal circulation apart from the surrounding city; exact accessible elements require current survey."
         },
         "current_life": {
-          "status": "VERIFIED",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-HEEREN-2026"
-          ]
+            "SRC-LOC-HEEREN-ACQUISITION-2025",
+            "SRC-LOC-HEEREN-RESTORATION-2026"
+          ],
+          "answer": "Municipal custody, assessment and proposed recovery replace former private control; actual workers, residents, stabilization and public programs are unverified."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
+          ],
+          "answer": "Guard, inspect, document, stabilize, pass, wait and look are credible. Closure can be meaningful only when the internal order and present public claim remain visible."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
+          ],
+          "answer": "Enclosure, gate and internal axis separate the large historic enclave from dense Barrios Altos streets; acquisition may begin changing that threshold."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HEEREN-RESTORATION-2026"
+          ],
+          "answer": "Abandoned mansion, decay and restoration announcement dominate. The underused relation is the closed historic urban system meeting ordinary street life and public ownership."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
+          ],
+          "answer": "Garúa can unify wall/gate/street layers; low light can expose depth through a legal opening. Ruin texture or romantic decay without civic transition fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
+          ],
+          "answer": "Test public gate-axis view, enclosure tangent and neighborhood reverse. Start 35 mm for city/enclave, 50 mm for threshold and avoid telephoto into restricted interiors."
         },
         "moment_logistics_ethics": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-HEEREN-2026"
-          ]
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
+          ],
+          "answer": "Verify barriers/works with Prolima, never enter or photograph workers/residents without permission, avoid instability and ghost/decay sensationalism, and default to public edge."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
+          ],
+          "answer": "Passes when enclosure and internal order visibly meet current public ownership/street life. Ruin beauty, announced restoration or historical caption fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W02",
-            "W09",
-            "W18"
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Public gate-axis view holding enclosure, internal depth and street edge",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals enclave order",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude ruin fragments and signage dominance",
+          "wait_trigger": "Street/gate/axis separate",
+          "kill_trigger": "Interior order invisible",
+          "access_ethics": "Public pavement only",
+          "fallback": "50 mm gate structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W02",
-            "W09",
-            "W18"
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
           ],
-          "label": "B · HABITAR",
+          "position": "Public edge where ordinary pedestrians pass the municipally controlled gate",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Pass, pause and look occur at threshold",
+          "light": "Soft daylight",
+          "edge_guards": "No faces, guards or residents",
+          "wait_trigger": "Closure/public claim changes behavior",
+          "kill_trigger": "People merely supply scale",
+          "access_ethics": "Privacy-first",
+          "fallback": "Meaningful empty gate"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W02",
-            "W09",
-            "W18"
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: postal romántica de quinta abandonada o fotografía “después” perfectamente restaurada. Busca la relación definida por: ¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Public reverse from dense neighborhood street toward enclosure/internal axis",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Local movement crosses historic enclave boundary",
+          "light": "Bright overcast",
+          "edge_guards": "No picturesque villa/decay detail",
+          "wait_trigger": "City/enclave conflict reads",
+          "kill_trigger": "Acquisition is caption-only",
+          "access_ethics": "No restricted view",
+          "fallback": "Wall/street relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W02",
-            "W09",
-            "W18"
+            "SRC-LOC-HEEREN-ACQUISITION-2025"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "50 mm líder · 85 mm para trabajador+detalle+profundidad · 35 mm si acceso permite patio completo",
-          "plan": "luz de obra real; evitar teatralizar la decadencia",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Public oblique where gate/enclosure shadow reveals internal depth",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Passing shadow crosses threshold",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain current street cue",
+          "wait_trigger": "Light explains exclusion/depth",
+          "kill_trigger": "Becomes decay texture",
+          "access_ethics": "No telephoto intrusion",
+          "fallback": "Garúa tonal layering"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W02",
-            "W09",
-            "W18"
+            "SRC-LOC-HEEREN-ACQUISITION-2025",
+            "SRC-LOC-HEEREN-RESTORATION-2026"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "50 mm líder · 85 mm para trabajador+detalle+profundidad · 35 mm si acceso permite patio completo",
-          "plan": "Trabajador o gesto de restauración pequeño contra una secuencia de arcos/patio, preservando suficiente material antiguo para leer el antes.",
-          "gate": "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?"
+          "position": "Public diagonal joining Barrios Altos movement, acquired gate and historic internal axis",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Passing, pausing and controlled entry/absence occupy layers",
+          "light": "Late soft daylight",
+          "edge_guards": "Public transition primary",
+          "wait_trigger": "Private enclave/public claim reads unaided",
+          "kill_trigger": "Caption supplies restoration",
+          "access_ethics": "Access/safety/privacy hard gates",
+          "fallback": "Two-zone street/gate story"
         }
       },
       "visual_reference_families": [
@@ -23085,9 +23212,9 @@
         }
       ],
       "composition_questions": [
-        "¿Puede el andamio ser el verbo de la foto: una ciudad literalmente sosteniendo aquello que decidió no perder?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the public enclosure, visible internal axis and current acquisition/restoration trace show a private elite quinta becoming contested civic heritage?",
+        "Which ruin texture, ghost story, construction worker or picturesque façade turns the frame into decay/restoration reportage?",
+        "Does a legal public-edge position reveal old internal order meeting present city movement, or is entry essential and therefore unavailable?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -23155,12 +23282,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-HEEREN-2026"
+        "SRC-LOC-HEEREN-2026",
+        "SRC-LOC-HEEREN-ACQUISITION-2025",
+        "SRC-LOC-HEEREN-CONSTRAINTS",
+        "SRC-LOC-HEEREN-RESTORATION-2026"
       ],
       "contradictions": [
+        "2026 restoration reporting is preserved as corroborated bibliographic evidence, not verified site status.",
+        "Future public/cultural use cannot be presented as current inhabitation.",
+        "Municipal acquisition is verified, but restoration start, phase, completion and public access are not established by a current primary works record.",
         "Restoration and announced future public use do not establish present public access."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -23168,106 +23301,172 @@
       "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
       "name": "Transecto de ciudad compacta · Pueblo Libre/Lince/Surquillo",
       "district": "Lima",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-TRANSECT-UNRESOLVED"
-          ]
+            "SRC-LOC-TRANSECT-ZONING",
+            "SRC-LOC-TRANSECT-LINCE-2026"
+          ],
+          "answer": "Official zoning history and a 2026 Lince decision verify active land-use pressure; the named three-district transect remains a comparative research construct until one block is selected."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRANSECT-ZONING"
+          ],
+          "answer": "Fine-grained residential plots, neighborhood commerce and district streets historically distributed domestic/service life at low-to-medium density; exact block contract must be researched after selection."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRANSECT-LINCE-2026"
+          ],
+          "answer": "Residents, workers, deliveries and pedestrians negotiate redevelopment and zoning pressure; no verb is attributed to all three districts."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRANSECT-LINCE-2026"
+          ],
+          "answer": "Enter, deliver, wait, cross, park, sell and contest are plausible at a selected block. Generic city movement is insufficient until directly observed."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRANSECT-ZONING"
+          ],
+          "answer": "Plot width, setbacks, tower podiums, retained houses and mixed-use thresholds can redirect sidewalk/service behavior, but only one verified device may anchor the final scene."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRANSECT-ZONING"
+          ],
+          "answer": "Old-house/new-tower contrast and skyline transects dominate. The underused relation is one ground-level threshold where density change visibly alters a daily verb."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRANSECT-ZONING"
+          ],
+          "answer": "Garúa can unify heterogeneous fabric; low light can expose setback/plot seams. Visual contrast without causal current use fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRANSECT-LINCE-2026"
+          ],
+          "answer": "At one selected block test frontage tangent, opposite-side section and corner reverse. Start 35 mm for plot/mass/use, 50 mm for threshold and reject telephoto skyline comparison."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-TRANSECT-LINCE-2026"
+          ],
+          "answer": "Select and source one block, verify current works/access, stay public, protect residents and workers, avoid windows/construction risk, and kill the candidate if multiple districts/frames are required."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-TRANSECT-ZONING",
+            "SRC-LOC-TRANSECT-LINCE-2026"
+          ],
+          "answer": "Passes only when one exact block makes density transformation change one present verb. A three-district route, collage or generic old/new contrast fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W13",
-            "W19"
+            "SRC-LOC-TRANSECT-ZONING"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Opposite public sidewalk at one preselected block holding old plot, new mass and shared ground edge",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals plot/setback transformation",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude skyline and unrelated blocks",
+          "wait_trigger": "Three spatial generations separate",
+          "kill_trigger": "No single block selected",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm one-threshold structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W13",
-            "W19"
+            "SRC-LOC-TRANSECT-LINCE-2026"
           ],
-          "label": "B · HABITAR",
+          "position": "Public block position where changed threshold affects delivery/entry/waiting",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Una vereda activa conecta una bodega, una puerta residencial y un edificio nuevo, con al menos dos verbos humanos distintos.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Adult changes route at old/new frontage seam",
+          "light": "Soft daylight",
+          "edge_guards": "No faces, plates or windows",
+          "wait_trigger": "Built change causes verb",
+          "kill_trigger": "Action could occur anywhere",
+          "access_ethics": "Privacy-first",
+          "fallback": "Meaningful empty threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W13",
-            "W19"
+            "SRC-LOC-TRANSECT-ZONING"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: ninguno fuerte; el riesgo inverso es que parezca una calle cualquiera. Busca la relación definida por: ¿Puede una secuencia de tres o cuatro fachadas demostrar densidad, comercio y vida peatonal sin necesitar un landmark?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Public corner reverse emphasizing ground/sidewalk rather than tower crown",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian negotiates setback/plot discontinuity",
+          "light": "Bright overcast",
+          "edge_guards": "No tower-versus-house cliché",
+          "wait_trigger": "Compact-city mechanism reads",
+          "kill_trigger": "Requires multi-district comparison",
+          "access_ethics": "One public block only",
+          "fallback": "Ground seam without figure"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W13",
-            "W19"
+            "SRC-LOC-TRANSECT-ZONING"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "50 mm para ritmo de fachadas · 85 mm para apilar lotes · 35 mm si la vereda y profundidad son la idea",
-          "plan": "luz cotidiana; no esperar “bonito” clima",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Public oblique where old wall/new podium shadow crosses sidewalk",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Figure crosses density seam",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain threshold/use context",
+          "wait_trigger": "Light explains transformation",
+          "kill_trigger": "Becomes material contrast",
+          "access_ethics": "No window targeting",
+          "fallback": "Garúa tonal section"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W13",
-            "W19"
+            "SRC-LOC-TRANSECT-ZONING",
+            "SRC-LOC-TRANSECT-LINCE-2026"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "50 mm para ritmo de fachadas · 85 mm para apilar lotes · 35 mm si la vereda y profundidad son la idea",
-          "plan": "Una vereda activa conecta una bodega, una puerta residencial y un edificio nuevo, con al menos dos verbos humanos distintos.",
-          "gate": "¿Puede una secuencia de tres o cuatro fachadas demostrar densidad, comercio y vida peatonal sin necesitar un landmark?"
+          "position": "One public diagonal joining retained plot, new mass and altered daily route",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Approach, detour and entry/delivery occupy layers",
+          "light": "Late soft daylight",
+          "edge_guards": "One block and verb only",
+          "wait_trigger": "Density change reads unaided",
+          "kill_trigger": "Transect essay/caption required",
+          "access_ethics": "Privacy/safety/currentity hard gates",
+          "fallback": "Reject research construct"
         }
       },
       "visual_reference_families": [
@@ -23321,9 +23520,9 @@
         }
       ],
       "composition_questions": [
-        "¿Puede una secuencia de tres o cuatro fachadas demostrar densidad, comercio y vida peatonal sin necesitar un landmark?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Which single block makes a zoning/density transition visibly channel one present sidewalk, threshold or service verb?",
+        "Which tower-versus-house cliché, traffic, signage or multi-frame comparison substitutes generic densification for architectural causality?",
+        "Can one public 35 mm position hold old plot grain, new mass and one changed human route, or must the transect be rejected as an essay?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -23391,12 +23590,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-TRANSECT-UNRESOLVED"
+        "SRC-LOC-TRANSECT-LINCE-2026",
+        "SRC-LOC-TRANSECT-PLANMET",
+        "SRC-LOC-TRANSECT-UNRESOLVED",
+        "SRC-LOC-TRANSECT-ZONING"
       ],
       "contradictions": [
-        "A composite transect cannot inherit verification from one segment; all component edges remain unverified."
+        "A composite transect cannot inherit verification from one segment; all component edges remain unverified.",
+        "District zoning documents do not prove built form, resident behavior or safe camera positions on the shoot date.",
+        "One Lince zoning dispute proves current pressure at one address, not a general condition across Pueblo Libre, Lince and Surquillo.",
+        "The three-district transect is a research method, not a one-frame candidate; it must collapse to one exact block before field promotion."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
