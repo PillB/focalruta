@@ -4825,91 +4825,177 @@
       "canonical_id": "huaca-san-borja",
       "name": "Huaca San Borja",
       "district": "San Borja",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-HUACA-SB-UNRESOLVED"
-          ]
+            "SRC-LOC-HUACA-SB-CULTURA-2026",
+            "SRC-LOC-HUACA-SB-GACETA"
+          ],
+          "answer": "Huaca San Borja is a stepped, slightly trapezoidal tapia platform with multiple occupation periods and a 2026 record of mediated heritage activity; routine admission remains unresolved."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-GACETA"
+          ],
+          "answer": "The elevated platform, perimeter walls, recintos, passages and level changes organized controlled movement and occupation; later conservation sought to insert the monument into community cultural life."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-CULTURA-2026",
+            "SRC-LOC-HUACA-SB-ACADEMIC"
+          ],
+          "answer": "The monument supports occasional guided education and heritage-protection activity while ordinary neighborhood and institutional movement surrounds it; daily opening is not proven."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-CULTURA-2026"
+          ],
+          "answer": "Walk, circle, peer, learn, guide, protect, cross and wait are credible. Outside events, an empty guarded threshold can express the gap between conserved heritage and nearby communities."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-GACETA",
+            "SRC-LOC-HUACA-SB-ACADEMIC"
+          ],
+          "answer": "Elevation, perimeter wall, entrances and urban-edge discontinuities control visibility and access, making the huaca an active boundary between adjacent residential and institutional fabrics."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-CULTURA-2026",
+            "SRC-LOC-HUACA-SB-ACADEMIC"
+          ],
+          "answer": "Aerial ancient/modern contrast and empty mound overview dominate. The underused relation is a ground-level threshold or perimeter movement visibly shaped by the archaeological edge."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-GACETA"
+          ],
+          "answer": "Low lateral light can reveal tapia steps and enclosure; garúa can equalize monument and city, but material texture or skyline contrast without a boundary verb fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-GACETA",
+            "SRC-LOC-HUACA-SB-ACADEMIC"
+          ],
+          "answer": "Test three legal edges: residential/perimeter, institutional backdrop and authorized activity threshold. Start 35 mm for boundary context, 50 mm for guided/edge action and 85 mm only if both monument and urban actor remain causal."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-CULTURA-2026",
+            "SRC-LOC-HUACA-SB-ACADEMIC"
+          ],
+          "answer": "Verify admission and event authorization directly, stay outside closed fences, avoid identifiable children and vulnerable-neighborhood framing, and kill all internal proofs without sanctioned access."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-CULTURA-2026",
+            "SRC-LOC-HUACA-SB-ACADEMIC"
+          ],
+          "answer": "Passes when archaeological form visibly governs present access, education or neighborhood movement. A ruin/tower contrast or event documentation without spatial agency fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-GACETA"
+          ],
+          "position": "Legal perimeter corner aligning tapia steps, wall and present street edge",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals enclosure and urban boundary",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude fence dominance and clipped mound",
+          "wait_trigger": "Three spatial layers separate",
+          "kill_trigger": "Only ruin and skyline read",
+          "access_ethics": "Public pavement only",
+          "fallback": "50 mm wall/entrance structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-CULTURA-2026"
+          ],
+          "position": "Authorized mediation threshold or public edge with guided route visible",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Guide and consenting adults pause where platform redirects movement",
+          "light": "Soft daylight",
+          "edge_guards": "Separate figures from shelters/fence",
+          "wait_trigger": "Learning action follows architecture",
+          "kill_trigger": "Event could occur anywhere",
+          "access_ethics": "Authorization; no identifiable children",
+          "fallback": "Adults looking from public edge"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-ACADEMIC"
+          ],
+          "position": "Low public residential-edge tangent emphasizing wall interruption rather than skyline",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian changes path along archaeological boundary",
+          "light": "Bright overcast",
+          "edge_guards": "Avoid aerial-style ancient/modern cliché",
+          "wait_trigger": "Detour is visible",
+          "kill_trigger": "Boundary relation disappears",
+          "access_ethics": "Non-surveillance framing",
+          "fallback": "Meaningful empty detour"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-GACETA"
+          ],
+          "position": "Public oblique compressing stepped tapia, perimeter seam and contemporary edge",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Anonymous figure crosses shadow boundary",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain street/perimeter cue",
+          "wait_trigger": "Material relief explains separation",
+          "kill_trigger": "Becomes adobe texture study",
+          "access_ethics": "Public edge",
+          "fallback": "50 mm garúa tonal relation"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-HUACA-SB-CULTURA-2026",
+            "SRC-LOC-HUACA-SB-ACADEMIC"
+          ],
+          "position": "Legal diagonal joining neighborhood path, archaeological threshold and institutional backdrop",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Circling, pausing and guided entry occupy distinct zones",
+          "light": "Late soft daylight",
+          "edge_guards": "Communities remain dignified and non-tokenized",
+          "wait_trigger": "Access contradiction reads unaided",
+          "kill_trigger": "Caption explains social context",
+          "access_ethics": "Permission and dignity hard gates",
+          "fallback": "Two-zone public-edge story"
         }
       },
       "visual_reference_families": [
@@ -4944,12 +5030,28 @@
           "proves": "A ground frame can hold material difference and the contemporary residential edge.",
           "cannot_prove": "Current access, visitor gestures or the best light direction.",
           "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HUACASANBORJA-03",
+          "page_url": "https://www.gob.pe/institucion/cultura/noticias/1389063-ministerio-de-cultura-reunio-a-cerca-de-mil-personas-en-jornadas-de-promocion-y-proteccion-del-patrimonio-cultural-en-lima-y-canete",
+          "image_url": "https://www.gob.pe/institucion/cultura/noticias/1389063-ministerio-de-cultura-reunio-a-cerca-de-mil-personas-en-jornadas-de-promocion-y-proteccion-del-patrimonio-cultural-en-lima-y-canete",
+          "publisher": "Ministerio de Cultura",
+          "viewpoint_family": "HERITAGE_MEDIATION_AND_COMMUNITY_ACTIVITY",
+          "likely_camera_height": "mixed official event viewpoints",
+          "fov_class": "mixed",
+          "light_weather": "daylight",
+          "people_activity": "guided heritage education and citizen-protection activity",
+          "edge_background": "archaeological fabric, participants and interpretation activity",
+          "cliche_cluster": "official heritage-event documentation",
+          "proves": "A May 2026 ministry activity establishes that the huaca can host mediated public participation rather than functioning only as an isolated ruin.",
+          "cannot_prove": "Daily public admission, repeatable event timing, present perimeter visibility or stable individual gallery asset URLs.",
+          "redistribution": "LINK_ONLY"
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Huaca San Borja puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a public perimeter or authorized internal position show how the tapia platform still separates, joins or redirects present neighborhood and institutional movement?",
+        "Which fence, shelter, parked vehicle, tower overlap or empty foreground makes the huaca a detached ruin rather than an active urban boundary?",
+        "Does changing to a lower ground position reveal material and circulation causality, or does the absence of ordinary access kill the interior concept?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -5027,12 +5129,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-HUACA-SB-ACADEMIC",
+        "SRC-LOC-HUACA-SB-CULTURA-2026",
+        "SRC-LOC-HUACA-SB-GACETA",
         "SRC-LOC-HUACA-SB-UNRESOLVED"
       ],
       "contradictions": [
+        "A prior academic record describes closure and no ordinary admission, while a May 2026 Ministry activity proves episodic mediated entry; neither establishes daily public access.",
+        "Aerial references reveal the urban enclosure but do not correspond to a legal ground viewpoint.",
+        "Institutional towers and contrasting neighborhoods surround the huaca, but one frame must not reduce either community to visual contrast or imply a unified relationship across all edges.",
         "The last authoritative access record found is stale and suspended admission; verify before any field plan."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -6321,93 +6429,176 @@
       "canonical_id": "santisima-cruz-del-viajero",
       "name": "Santísima Cruz del Viajero",
       "district": "Pueblo Libre",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CRUZ-VIAJERO-RUTA"
-          ]
+            "SRC-LOC-CRUZ-RUTA",
+            "SRC-LOC-CRUZ-INVENTORY"
+          ],
+          "answer": "The open Pueblo Libre plazuela contains a colonial cross associated with travelers between Lima and Callao, relocated into its present park setting in 1947."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CRUZ-INVENTORY"
+          ],
+          "answer": "The cross marked a departure/protection point for agricultural and interurban travelers, turning a route junction into a pause before continuing toward Callao or Lima."
         },
         "current_life": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-CRUZ-VIAJERO-RUTA"
-          ]
+            "SRC-LOC-CRUZ-RUTA",
+            "SRC-LOC-CRUZ-GREEN"
+          ],
+          "answer": "It now functions as an open landscaped neighborhood waypoint amid avenue traffic, walking and recreation; current devotional and peak movement patterns require observation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CRUZ-INVENTORY",
+            "SRC-LOC-CRUZ-GREEN"
+          ],
+          "answer": "Cross, wait, turn, walk, drive, pause, leave flowers and rest are credible. Offerings without a person can provide meaningful residue if the movement system remains visible."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CRUZ-INVENTORY"
+          ],
+          "answer": "The cross base, fenced/planted island, paths and road junction still create a pause and orientation point, even as motor traffic replaces horse/mule travel."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CRUZ-RUTA",
+            "SRC-LOC-CRUZ-INVENTORY"
+          ],
+          "answer": "Isolated monument, roadside documentation and park sign recur. The underused relation joins devotional residue, safe pedestrian movement and contemporary traffic around the historic waypoint."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CRUZ-INVENTORY"
+          ],
+          "answer": "Raking light can separate cross, tiled base and moving traffic; garúa can suppress clutter, but romantic backlight or flowers alone cannot carry the route transformation."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CRUZ-RUTA"
+          ],
+          "answer": "Test three safe public positions: park-path diagonal, avenue-side tangent and route-axis reverse view. Start 35 mm for waypoint/traffic, 50 mm for pause/turn and 85 mm only across a safe distance with route context."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CRUZ-RUTA",
+            "SRC-LOC-CRUZ-GREEN"
+          ],
+          "answer": "Use crossings and paths only, never stand in the median/roadway, do not stage offerings or worship, avoid identifiable devotional participants and abandon angles requiring unsafe traffic exposure."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CRUZ-INVENTORY",
+            "SRC-LOC-CRUZ-RUTA"
+          ],
+          "answer": "Passes when the old journey pause visibly organizes or contradicts current movement. An isolated cross, flowers-only detail or traffic backdrop without orientation fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CRUZ-RUTA"
+          ],
+          "position": "Safe park-path diagonal aligning cross, plazuela edge and two movement axes",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals waypoint geometry",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude signs, parked cars and clipped base",
+          "wait_trigger": "Cross anchors both axes",
+          "kill_trigger": "Reads as isolated monument",
+          "access_ethics": "Path only",
+          "fallback": "50 mm cross/path structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CRUZ-GREEN"
+          ],
+          "position": "Public path where walkers turn around the planted cross enclosure",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "One adult pauses as another continues toward avenue",
+          "light": "Soft daylight",
+          "edge_guards": "Separate gestures from fence/lamp",
+          "wait_trigger": "Pause and continuation coexist",
+          "kill_trigger": "People merely add scale",
+          "access_ethics": "No intrusive devotional portrait",
+          "fallback": "Ordinary walking/turning"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CRUZ-INVENTORY"
+          ],
+          "position": "Safe avenue-side tangent placing present traffic beyond cross and path",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Pedestrian crosses frame while vehicles stream behind",
+          "light": "Bright overcast",
+          "edge_guards": "No roadway position or vehicle mergers",
+          "wait_trigger": "Old and current travel separate",
+          "kill_trigger": "Traffic overwhelms waypoint",
+          "access_ethics": "Behind curb/barrier",
+          "fallback": "Empty traffic/cross relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CRUZ-INVENTORY"
+          ],
+          "position": "Park-side oblique compressing worn base, offerings and moving avenue",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Anonymous passerby shadow crosses base",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain path and traffic, avoid flower still life",
+          "wait_trigger": "Material residue and movement connect",
+          "kill_trigger": "Becomes devotional object study",
+          "access_ethics": "Do not touch offerings",
+          "fallback": "50 mm garúa layering"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CRUZ-RUTA",
+            "SRC-LOC-CRUZ-INVENTORY"
+          ],
+          "position": "Safe diagonal joining approach path, cross pause and onward avenue flow",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Approaching, pausing and continuing occupy three zones",
+          "light": "Late afternoon",
+          "edge_guards": "Cross remains causal, not decorative",
+          "wait_trigger": "Traveler contract transforms visibly",
+          "kill_trigger": "Caption supplies route history",
+          "access_ethics": "Traffic safety hard gate",
+          "fallback": "Two-zone pause/flow relation"
         }
       },
       "visual_reference_families": [
@@ -6461,9 +6652,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Santísima Cruz del Viajero puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the cross, planted plazuela and current avenue movement show how a traveler-protection threshold became a traffic-era waypoint?",
+        "Which fence, sign, parked car, lamp or building overlap isolates the cross as devotional décor instead of connecting it to movement?",
+        "Does a safe diagonal across the park reveal old route and present flow in one frame, or does traffic make the relation visually and physically impossible?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -6541,10 +6732,17 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-CRUZ-GREEN",
+        "SRC-LOC-CRUZ-INVENTORY",
+        "SRC-LOC-CRUZ-RUTA",
         "SRC-LOC-CRUZ-VIAJERO-RUTA"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Flowers or offerings can indicate use but cannot establish who placed them or when.",
+        "Municipal open status and landscape-recovery listing do not prove devotional frequency, pedestrian density or present lighting condition.",
+        "The cross marked a colonial Lima–Callao journey but was repositioned within a 1947 plazuela; the current scene is transformed infrastructure, not an untouched route marker."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -6552,93 +6750,179 @@
       "canonical_id": "torres-centro-empresarial-camino-real",
       "name": "Torres / Centro Empresarial Camino Real",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CAMINOREAL-PDLC"
-          ]
+            "SRC-LOC-CAMINO-CENTENARIO-2024",
+            "SRC-LOC-CAMINO-SUSTAINABILITY",
+            "SRC-LOC-CAMINO-2025Q3"
+          ],
+          "answer": "Torres Camino Real are three operating office towers—El Pilar, Central and Real—renovated through 2024 with new glass façades, lobbies, lifts, lounges and direct avenue access; commercial-podium relaunch is still prospective."
         },
         "original_spatial_contract": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-CAMINOREAL-PDLC"
-          ]
+            "SRC-LOC-CAMINO-HISTORY",
+            "SRC-LOC-CAMINO-CENTENARIO-2024"
+          ],
+          "answer": "A multi-tower office and commercial podium system concentrated work, shopping and shared circulation; the contemporary renovation prioritizes independent office access and flexible workplace services."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024",
+            "SRC-LOC-CAMINO-2025Q3"
+          ],
+          "answer": "Office tenants, workers, suppliers, food services and shared lounges remain active, while the commercial center awaits a future relaunch; exact podium access and 2026 construction state require field checks."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024",
+            "SRC-LOC-CAMINO-SUSTAINABILITY"
+          ],
+          "answer": "Arrive, badge, enter, deliver, ascend, meet, eat, exit and bypass are credible. An empty podium threshold beneath active tower arrivals may carry a stronger transformation than a crowd."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024",
+            "SRC-LOC-CAMINO-SUSTAINABILITY"
+          ],
+          "answer": "Direct avenue entrances, independent access, renewed lobbies, vertical cores and shared podium edges split flows between active offices and unresolved retail space."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024",
+            "SRC-LOC-CAMINO-2025Q3"
+          ],
+          "answer": "Corporate aerial, polished glass façade and nostalgic dead-mall interior dominate. The underused frame is a public-ground circulation split between renovated tower entry and bypassed/closed podium."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024"
+          ],
+          "answer": "Morning/evening reflections can separate three glass skins and older podium mass; overcast suppresses corporate gloss, but façade spectacle without operational contrast fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024"
+          ],
+          "answer": "Test public Camino Real avenue access, podium/tower seam and legal opposite-side compression. Start 35 mm for access split, 50 mm for worker/bypass action and 85 mm only if podium and multiple towers remain linked."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024",
+            "SRC-LOC-CAMINO-2025Q3"
+          ],
+          "answer": "Verify construction and public boundaries, do not photograph badges/screens or obstruct workers, seek permission for lobbies/podium interiors, and kill the dead-mall claim if current field evidence contradicts it."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024",
+            "SRC-LOC-CAMINO-2025Q3"
+          ],
+          "answer": "Passes when architecture visibly routes active office life around or through an unresolved commercial base. Glass-tower heroism, nostalgia or an unsupported abandonment claim fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024"
+          ],
+          "position": "Public avenue edge aligning direct entrance, podium seam and at least two towers",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals access hierarchy",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude cars, logos and clipped tower tops",
+          "wait_trigger": "Podium and towers remain connected",
+          "kill_trigger": "Reads as generic skyline",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm entrance/podium structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CAMINO-SUSTAINABILITY"
+          ],
+          "position": "Public direct-access threshold where workers and suppliers split",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Workers badge/enter while supplier or pedestrian bypasses podium",
+          "light": "Soft weekday daylight",
+          "edge_guards": "Hide badges, screens and faces",
+          "wait_trigger": "Different routes read",
+          "kill_trigger": "People only animate lobby",
+          "access_ethics": "No surveillance framing",
+          "fallback": "Anonymous exterior arrival split"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CAMINO-2025Q3"
+          ],
+          "position": "Public podium-to-tower seam looking across bypass route rather than upward",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian skirts unresolved retail edge toward renewed office entrance",
+          "light": "Bright overcast",
+          "edge_guards": "No corporate hero reflection",
+          "wait_trigger": "Two operational speeds coexist",
+          "kill_trigger": "Podium is fully active or invisible",
+          "access_ethics": "Respect barriers",
+          "fallback": "Empty seam as meaningful absence"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024"
+          ],
+          "position": "Legal opposite-side oblique compressing older podium mass and renovated glass skins",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Small worker stream crosses material boundary",
+          "light": "Low lateral sun or blue-hour interior glow",
+          "edge_guards": "Retain ground access and avoid reflection abstraction",
+          "wait_trigger": "Transformation layers separate",
+          "kill_trigger": "Becomes glass pattern",
+          "access_ethics": "Public edge",
+          "fallback": "50 mm overcast material seam"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CAMINO-CENTENARIO-2024",
+            "SRC-LOC-CAMINO-2025Q3"
+          ],
+          "position": "Public diagonal joining avenue arrival, renewed tower access and unresolved podium edge",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Arriving, entering and bypassing occupy three zones",
+          "light": "Late weekday afternoon",
+          "edge_guards": "Architecture routes action; logos subordinate",
+          "wait_trigger": "Partial renewal reads unaided",
+          "kill_trigger": "Caption supplies dead-mall history",
+          "access_ethics": "No private interior or badge detail",
+          "fallback": "Two-zone renewed-entry/podium relation"
         }
       },
       "visual_reference_families": [
@@ -6692,9 +6976,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Torres / Centro Empresarial Camino Real puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can direct avenue access, renewed lobbies and three working towers visibly contrast with or bypass the unresolved commercial podium in one frame?",
+        "Which glass reflection, security barrier, vehicle, landscaping edge or tower overlap hides the podium-to-office circulation mechanism?",
+        "Does moving from skyline view to a public ground threshold reveal different operational speeds, or is the dead-mall/active-office claim no longer visually true?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -6772,10 +7056,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-CAMINO-2025Q3",
+        "SRC-LOC-CAMINO-CENTENARIO-2024",
+        "SRC-LOC-CAMINO-HISTORY",
+        "SRC-LOC-CAMINO-SUSTAINABILITY",
         "SRC-LOC-CAMINOREAL-PDLC"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "New glass façades obscure the original concrete-era identity, so historical recognition cannot substitute for a visible present transformation.",
+        "Owner material documents operational success and design upgrades but is promotional and cannot prove public access, ordinary worker behavior or urban benefit.",
+        "The three office towers completed a major renovation, while the associated commercial center's relaunch remains prospective; they must not be presented as one uniformly renewed complex."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },

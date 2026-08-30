@@ -156,8 +156,8 @@
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
-    "visual_reference_count": 2,
-    "verification_complete": false
+    "visual_reference_count": 3,
+    "verification_complete": true
   },
   {
     "canonical_id": "quinta-leuro-y-quintas-historicas",
@@ -207,7 +207,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "torres-centro-empresarial-camino-real",
@@ -217,7 +217,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "lugar-de-la-memoria-lum",
