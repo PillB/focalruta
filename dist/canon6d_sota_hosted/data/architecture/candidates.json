@@ -97,7 +97,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "parque-virginia-candamo",
@@ -106,8 +106,8 @@
     "evidence_status": "HISTORICAL_ONLY",
     "ranking_eligible": false,
     "requires_current_verification": true,
-    "visual_reference_count": 2,
-    "verification_complete": false
+    "visual_reference_count": 3,
+    "verification_complete": true
   },
   {
     "canonical_id": "unidad-vecinal-3",
@@ -117,7 +117,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "unidad-vecinal-matute-complejo-deportivo",

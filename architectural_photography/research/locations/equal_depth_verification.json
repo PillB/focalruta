@@ -2914,93 +2914,173 @@
       "canonical_id": "plaza-a-la-bandera",
       "name": "Plaza a la Bandera",
       "district": "Pueblo Libre",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
             "SRC-LOC-BANDERA-CORRIDOR"
-          ]
+          ],
+          "answer": "Plaza a la Bandera is a recognized Pueblo Libre civic node and part of the municipal historical/archaeological corridor."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CIVIC"
+          ],
+          "answer": "A monumental central axis, open apron, steps and perimeter approaches create a ceremonial room for collective national commemoration and district gathering."
         },
         "current_life": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-BANDERA-CORRIDOR"
-          ]
+            "SRC-LOC-BANDERA-PROGRAM-2025",
+            "SRC-LOC-BANDERA-CIVIC"
+          ],
+          "answer": "People cross, wait, circulate and periodically assemble for ceremonies or programs; exact events and everyday density require direct observation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR"
+          ],
+          "answer": "Cross, wait, approach, ascend, gather, salute, watch and disperse are credible. Crossing or dispersing across the civic axis is more repeatable than ceremony."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CIVIC"
+          ],
+          "answer": "Steps, radial/axial paving and the elevated flag focus channel approach, orientation and assembly while surrounding roads constrain entry."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR"
+          ],
+          "answer": "Centered flag/monument panoramas and ceremony coverage dominate. The underused relation is a lateral everyday crossing made monumental by scale and paving."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR"
+          ],
+          "answer": "Garúa can reduce patriotic color spectacle and emphasize paving/step geometry; low sun can clarify axial shadows but risks a generic monument silhouette."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR"
+          ],
+          "answer": "Test lateral pedestrian entry, step tangent and opposite perimeter alignment. Start 35 mm for plaza/road/figure, 50 mm for crossing/axis and 85 mm only if civic scale remains legible."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR",
+            "SRC-LOC-BANDERA-PROGRAM-2025"
+          ],
+          "answer": "Use designated crossings and public apron, never stand in traffic, verify barriers/events, avoid exploiting ceremonial participants and fall back to ordinary circulation."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR",
+            "SRC-LOC-BANDERA-CIVIC"
+          ],
+          "answer": "Passes only when plaza geometry changes movement or assembly. Flag recognition, patriotic symbolism or isolated person-as-scale fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR"
+          ],
+          "position": "Public lateral approach aligning steps, paving axis and opposite edge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals civic room",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude traffic clutter and centered flag dominance",
+          "wait_trigger": "Paving and steps separate",
+          "kill_trigger": "Reads only as monument",
+          "access_ethics": "Public crossing/apron",
+          "fallback": "50 mm step-axis structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR"
+          ],
+          "position": "Safe public edge where pedestrian crossing meets first plaza step",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian leaves street and changes pace/direction on axis",
+          "light": "Bright overcast",
+          "edge_guards": "Separate figure from poles and vehicles",
+          "wait_trigger": "Transition is visible",
+          "kill_trigger": "Person merely supplies scale",
+          "access_ethics": "Traffic-safe public position",
+          "fallback": "Pair waiting/crossing"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR"
+          ],
+          "position": "Low side tangent across radial paving, with flag peripheral",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure cuts across ceremonial axis",
+          "light": "Garúa daylight",
+          "edge_guards": "No centered monument or staged salute",
+          "wait_trigger": "Everyday path contradicts formal axis",
+          "kill_trigger": "Angle is merely unusual",
+          "access_ethics": "Do not obstruct route",
+          "fallback": "Empty crossing trace"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CIVIC"
+          ],
+          "position": "Distant safe edge compressing steps, paving and one silhouette",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Figure crosses step shadow",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain plaza depth",
+          "wait_trigger": "Shadow reveals axis",
+          "kill_trigger": "Becomes pattern-only",
+          "access_ethics": "Public edge",
+          "fallback": "Garúa tonal proof"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BANDERA-CORRIDOR",
+            "SRC-LOC-BANDERA-CIVIC"
+          ],
+          "position": "Public oblique linking street arrival, civic crossing and elevated focus",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Arriving, crossing and waiting occupy three zones",
+          "light": "Soft afternoon",
+          "edge_guards": "Flag remains context, not subject",
+          "wait_trigger": "Civic transition reads unaided",
+          "kill_trigger": "Caption supplies meaning",
+          "access_ethics": "Traffic and crowd safety",
+          "fallback": "Two-zone arrival/crossing"
         }
       },
       "visual_reference_families": [
@@ -3054,9 +3134,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Plaza a la Bandera puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can steps, radial paving or perimeter crossings visibly convert an ordinary pedestrian into civic scale before the flag becomes the subject?",
+        "Which traffic lane, barrier, parked vehicle, pole or ceremony staging severs the person from the plaza's spatial axis?",
+        "Does moving to a lateral crossing reveal plaza-as-connector better than the default centered monument view?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -3134,10 +3214,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-BANDERA-CORRIDOR"
+        "SRC-LOC-BANDERA-CIVIC",
+        "SRC-LOC-BANDERA-CORRIDOR",
+        "SRC-LOC-BANDERA-PROGRAM-2025"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Municipal sources establish civic ceremonies and events but not an everyday schedule; ordinary crossing must be the repeatable fallback.",
+        "The monumental flag axis is visually dominant, yet recognition alone does not show how the plaza organizes current public life.",
+        "Tourism-corridor inclusion proves network position, not pedestrian continuity, traffic safety or a clean one-frame connection."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -3145,93 +3231,173 @@
       "canonical_id": "parque-virginia-candamo",
       "name": "Parque Virginia Candamo",
       "district": "Pueblo Libre",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
-          "source_ids": [
-            "SRC-LOC-CANDAMO-EMPRENDE-2026"
-          ]
-        },
-        "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
-        },
-        "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-CANDAMO-EMPRENDE-2026"
-          ]
+            "SRC-LOC-CANDAMO-REOPENING",
+            "SRC-LOC-CANDAMO-GREEN-2025"
+          ],
+          "answer": "Virginia Candamo is a 6,591.40-square-metre maintained public park redesigned with circular paths, landscaping, LED lighting, older-adult gym, Confucius monument and Chinese pergola."
+        },
+        "original_spatial_contract": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING"
+          ],
+          "answer": "The redesign joined neighborhood recreation and older-adult exercise with a Chinese-Peruvian commemorative landscape structured by paths, pergola and planted rooms."
+        },
+        "current_life": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-GREEN-2025"
+          ],
+          "answer": "Walking, sitting, exercising, accompanying and landscape care are credible; current equipment use, lighting and programmed activity require field confirmation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING"
+          ],
+          "answer": "Walk, exercise, rest, meet, supervise, maintain, pass through and shelter are credible. A path-mediated meeting or exercise/rest contrast is stronger than posing at the monument."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING"
+          ],
+          "answer": "Circular paths distribute movement among gym, pergola and lawns; shaded enclosure and equipment invite different speeds and age groups to share the park."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING"
+          ],
+          "answer": "Aerial redesign and colorful inauguration/Confucius imagery dominate. The underused relation is ordinary movement and care across two differently programmed park rooms."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING",
+            "SRC-LOC-CANDAMO-GREEN-2025"
+          ],
+          "answer": "Garúa can balance bright commemorative elements with vegetation and reveal path circles; night LED claims are stale until observed."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING"
+          ],
+          "answer": "Test path tangent between gym/pergola, residential-edge-to-center diagonal and care-work layer. Start 35 mm for program relation, 50 mm for encounter and 85 mm only for material/use without cultural-object isolation."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-GREEN-2025"
+          ],
+          "answer": "Use public paths, avoid identifiable children/older adults without consent, do not exoticize cultural symbols, verify equipment/lighting and keep exercise routes clear."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING",
+            "SRC-LOC-CANDAMO-GREEN-2025"
+          ],
+          "answer": "Passes when the redesigned path/program system visibly enables intergenerational use or care. Pagoda/Confucius portrait, color spectacle or generic park activity fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING"
+          ],
+          "position": "Public path tangent linking circular route, pergola edge and gym zone",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals program sequence",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude monument centering and parked-car edge",
+          "wait_trigger": "Three zones separate",
+          "kill_trigger": "Reads as generic park",
+          "access_ethics": "Public path",
+          "fallback": "50 mm path/pergola structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING"
+          ],
+          "position": "Outside gym zone looking toward shaded pergola across circular path",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult exercises while another rests or crosses",
+          "light": "Bright overcast",
+          "edge_guards": "Separate bodies/equipment",
+          "wait_trigger": "Different speeds align",
+          "kill_trigger": "Users merely provide scale",
+          "access_ethics": "No intrusive older-adult close-ups",
+          "fallback": "Back-facing walkers"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-GREEN-2025"
+          ],
+          "position": "Residential-side public entry through maintenance/planting edge toward program rooms",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker or caretaker moves between planted and built elements",
+          "light": "Garúa daylight",
+          "edge_guards": "No pagoda portrait",
+          "wait_trigger": "Care/use follows path",
+          "kill_trigger": "Cultural elements become decoration",
+          "access_ethics": "Respect workers/users",
+          "fallback": "Empty maintained threshold"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING"
+          ],
+          "position": "Public oblique across pergola structure, planting and one contact point",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Hand/body uses shade or equipment",
+          "light": "Soft lateral daylight",
+          "edge_guards": "Retain path context",
+          "wait_trigger": "Material and use align",
+          "kill_trigger": "Becomes decorative detail",
+          "access_ethics": "Non-identifying distance",
+          "fallback": "Garúa material trace"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CANDAMO-REOPENING",
+            "SRC-LOC-CANDAMO-GREEN-2025"
+          ],
+          "position": "Public diagonal combining entry, exercise, crossing and shaded rest",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Entering, exercising and resting occupy three zones",
+          "light": "Soft afternoon",
+          "edge_guards": "Keep cultural symbols contextual",
+          "wait_trigger": "Shared park contract reads unaided",
+          "kill_trigger": "Caption must explain redesign",
+          "access_ethics": "Privacy-first wide frame",
+          "fallback": "Two-zone exercise/rest"
         }
       },
       "visual_reference_families": [
@@ -3266,12 +3432,28 @@
           "proves": "The redesign embeds a specific Chinese-Peruvian commemorative layer and event use.",
           "cannot_prove": "Ordinary-day inhabitation, stable individual asset URLs or current event frequency.",
           "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CANDAMO-03",
+          "page_url": "https://cdn.www.gob.pe/uploads/document/file/7431347/6331499-ord-n-624-mdpl-2024-con-la-publicacion-del-peruano-1.pdf",
+          "image_url": "https://cdn.www.gob.pe/uploads/document/file/7431347/6331499-ord-n-624-mdpl-2024-con-la-publicacion-del-peruano-1.pdf",
+          "publisher": "Municipalidad Distrital de Pueblo Libre / Diario Oficial El Peruano",
+          "viewpoint_family": "MAINTAINED_GREEN_INFRASTRUCTURE_AND_ORDINARY_USE",
+          "likely_camera_height": "public-path eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "ordinary daylight or garúa",
+          "people_activity": "walking, exercising, sitting and municipal landscape care are hypotheses for direct observation",
+          "edge_background": "6,591.40-square-metre maintained park, paths, gym/pergola elements and surrounding residential edge",
+          "cliche_cluster": "generic neighborhood-green-space record",
+          "proves": "The municipal 2025 service-cost record keeps Virginia Candamo in the active maintained green-space inventory at a specified scale, supporting a care-and-daily-use family distinct from ceremony or aerial form.",
+          "cannot_prove": "Current equipment condition, exact maintenance timing, user density, unobstructed sightlines or a decisive action.",
+          "redistribution": "LINK_ONLY"
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Parque Virginia Candamo puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the pergola, gym and circular paths visibly support intergenerational use rather than form a colorful cultural-object portrait?",
+        "Which lantern, tree, fence, parked car or overlapping equipment prevents a user's route from reading through the redesigned park?",
+        "Does moving from the aerial/ceremonial center to a path tangent reveal everyday care and encounter without exoticizing the Chinese-Peruvian layer?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -3349,10 +3531,16 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-CANDAMO-EMPRENDE-2026"
+        "SRC-LOC-CANDAMO-EMPRENDE-2026",
+        "SRC-LOC-CANDAMO-GREEN-2025",
+        "SRC-LOC-CANDAMO-REOPENING"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Chinese-Peruvian symbolism is meaningful context, but monument/pagoda color alone risks decorative exoticism rather than current inhabitation.",
+        "The 2019 redesign documents equipment and commemorative elements but cannot prove their 2026 condition.",
+        "The 2025 maintenance ledger proves continuing municipal service and scale, not exact care timing or user density."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -3360,108 +3548,177 @@
       "canonical_id": "unidad-vecinal-3",
       "name": "Unidad Vecinal Nº3",
       "district": "Lima",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-UV3-2026"
-          ]
+            "SRC-LOC-UV3-CAMMP",
+            "SRC-LOC-UV3-POLICY"
+          ],
+          "answer": "UV3 is a 1945-1949 modern social-housing unit of roughly 1,112-1,115 dwellings organized around central commercial, civic, educational, religious and recreational facilities with pedestrian/traffic separation."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UV3-CAMMP"
+          ],
+          "answer": "Compact housing preserved extensive shared green/recreation space; internal pedestrian routes, perimeter traffic, cul-de-sacs and green belt were intended to protect daily family/community life."
         },
         "current_life": {
-          "status": "VERIFIED",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-UV3-2026"
-          ]
+            "SRC-LOC-UV3-CURRENT-2023",
+            "SRC-LOC-UV3-APPROPRIATION"
+          ],
+          "answer": "Residence, crossing, commerce, play, care and adaptation continue, while narrowed paths, deteriorated equipment, lighting, waste/maintenance and safety issues reshape use."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UV3-CURRENT-2023"
+          ],
+          "answer": "Enter, exit, walk, detour, meet, play, shop, maintain and appropriate are credible. Detouring around an extension or continuing through a surviving pedestrian axis can make transformation legible."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UV3-CAMMP",
+            "SRC-LOC-UV3-CURRENT-2023"
+          ],
+          "answer": "Pedestrian spines, cul-de-sacs, central facilities and block/open-space proportions originally direct safe movement; later extensions and enclosures can narrow or contradict that contract."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UV3-CAMMP"
+          ],
+          "answer": "Masterplan diagrams, historic green-space panoramas and typical-block documentation dominate. The underused frame is a precise original-device/current-adaptation conflict at human height."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UV3-CAMMP",
+            "SRC-LOC-UV3-CURRENT-2023"
+          ],
+          "answer": "Garúa can unify modifications and clarify path width/block rhythm; lateral light can expose additions and thresholds but must not aestheticize deterioration."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UV3-CAMMP",
+            "SRC-LOC-UV3-CURRENT-2023"
+          ],
+          "answer": "Test public perimeter-to-pedestrian axis, cul-de-sac transition and central-service approach. Start 35 mm for contract/change, 50 mm for detour/threshold and 85 mm only if shared-space context survives."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UV3-CURRENT-2023"
+          ],
+          "answer": "Verify public access and safety, do not photograph into homes, avoid identifiable children/vulnerable residents, never frame poverty or deterioration as rarity, and retreat if resident privacy conflicts."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-UV3-CAMMP",
+            "SRC-LOC-UV3-CURRENT-2023"
+          ],
+          "answer": "Passes when an original device visibly enables, channels or is contradicted by present action. Historic-modernist nostalgia, decay texture or residents-as-scale fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W19"
+            "SRC-LOC-UV3-CAMMP"
           ],
-          "label": "A · ESTRUCTURA",
-          "lens": "35 / 50",
-          "plan": "Primero demuestra la lógica espacial sin depender de un evento humano; usa la geometría descrita en el contrato original.",
-          "gate": "¿La arquitectura explica su orden por sí sola?"
+          "position": "Clearly public edge aligning block, pedestrian route and central/open-space destination",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals original hierarchy",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude private windows and vehicle wall",
+          "wait_trigger": "Route/destination separate",
+          "kill_trigger": "Only block façade reads",
+          "access_ethics": "Public edge only",
+          "fallback": "50 mm route/open-space structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W19"
+            "SRC-LOC-UV3-CURRENT-2023"
           ],
-          "label": "B · HABITAR",
+          "position": "Public path where later extension narrows movement toward a shared destination",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
           "lens": "50 mm",
-          "plan": "Niño/vecino cruza un área libre original mientras una modificación doméstica, vehículo o cerramiento evidencia la segunda vida del plan.",
-          "gate": "¿El verbo humano cambia el significado y no solo da escala?"
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult detours, passes or yields at narrowed route",
+          "light": "Bright overcast",
+          "edge_guards": "Separate person from home entrance",
+          "wait_trigger": "Adaptation changes motion",
+          "kill_trigger": "Person merely supplies scale",
+          "access_ethics": "Privacy-first; no vulnerable close-ups",
+          "fallback": "Empty width/obstruction proof"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W19"
+            "SRC-LOC-UV3-APPROPRIATION"
           ],
-          "label": "C · ANTI-POSTAL",
-          "lens": "85 o posición alternativa",
-          "plan": "Ataca el cliché: bloques modernos vacíos o nostalgia de archivo. Busca la relación definida por: ¿Dónde se ve hoy, en un solo frame, la distancia entre la “ciudad risueña” diseñada para caminar y la ciudad real que sus habitantes han tenido que adaptar?",
-          "gate": "¿Es difícil que un visitante casual produzca esta imagen por accidente?"
+          "position": "Side-on public threshold where original cul-de-sac/pedestrian separation meets current enclosure",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Resident crosses between protected and vehicle-dominated zones",
+          "light": "Garúa daylight",
+          "edge_guards": "No decay fetish or private interior",
+          "wait_trigger": "Contract/appropriation conflict reads",
+          "kill_trigger": "Change requires archival caption",
+          "access_ethics": "Respect residents and boundaries",
+          "fallback": "Material trace of transformed edge"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W19"
+            "SRC-LOC-UV3-CAMMP",
+            "SRC-LOC-UV3-CURRENT-2023"
           ],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "35 mm para espacio entre bloques · 50 mm para relación habitante-modificación · 85 mm para capas repetidas",
-          "plan": "garúa o lateral suave que mantenga lectura documental; sol duro solo si revela barreras/circulaciones",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "position": "Distant public angle across original block rhythm, addition and shared path",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Single figure traverses original/added threshold",
+          "light": "Soft lateral sun",
+          "edge_guards": "Retain path and avoid private-window focus",
+          "wait_trigger": "Material eras separate",
+          "kill_trigger": "Becomes deterioration detail",
+          "access_ethics": "No surveillance-like framing",
+          "fallback": "Garúa tonal comparison"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
+          "status": "READY_FOR_FIELD",
           "source_ids": [
-            "W01",
-            "W19"
+            "SRC-LOC-UV3-CAMMP",
+            "SRC-LOC-UV3-CURRENT-2023"
           ],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "35 mm para espacio entre bloques · 50 mm para relación habitante-modificación · 85 mm para capas repetidas",
-          "plan": "Niño/vecino cruza un área libre original mientras una modificación doméstica, vehículo o cerramiento evidencia la segunda vida del plan.",
-          "gate": "¿Dónde se ve hoy, en un solo frame, la distancia entre la “ciudad risueña” diseñada para caminar y la ciudad real que sus habitantes han tenido que adaptar?"
+          "position": "Public diagonal combining dwelling exit, altered pedestrian route and shared destination",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Exiting, detouring and arriving occupy three zones",
+          "light": "Soft afternoon",
+          "edge_guards": "Keep residents small/non-identifying and devices clear",
+          "wait_trigger": "Original contract/current contradiction reads unaided",
+          "kill_trigger": "Caption rescues meaning",
+          "access_ethics": "Privacy and safety first",
+          "fallback": "Two-zone route contradiction"
         }
       },
       "visual_reference_families": [
@@ -3515,9 +3772,9 @@
         }
       ],
       "composition_questions": [
-        "¿Dónde se ve hoy, en un solo frame, la distancia entre la “ciudad risueña” diseñada para caminar y la ciudad real que sus habitantes han tenido que adaptar?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one frame show how an original pedestrian/service device still enables or is contradicted by a present resident route?",
+        "Which dwelling extension, fence, waste point, vehicle or vegetation overlap hides whether the original open-space hierarchy survives?",
+        "Does moving from block portrait to a path/cul-de-sac threshold reveal transformation without treating residents or deterioration as spectacle?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -3585,10 +3842,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-UV3-2026"
+        "SRC-LOC-UV3-2026",
+        "SRC-LOC-UV3-APPROPRIATION",
+        "SRC-LOC-UV3-CAMMP",
+        "SRC-LOC-UV3-CURRENT-2023",
+        "SRC-LOC-UV3-POLICY"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "CAMMP records current housing and poor conservation but conditions can vary substantially across the 25.6-hectare estate.",
+        "Resident appropriation may sustain place attachment while also reducing planned public space; neither preservation nor decline should be assumed uniformly.",
+        "The original 88% open-space/pedestrian ideal conflicts with documented narrowing, deterioration, modification and safety problems."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },

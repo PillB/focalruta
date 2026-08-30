@@ -1,0 +1,28 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-29-23",
+  "retrieved_at": "2026-08-29T22:30:00-05:00",
+  "method": "One current official LINK_ONLY service-record family closes candidate-specific visual coverage for Parque Virginia Candamo without redistributing source imagery or duplicating its aerial redesign and inauguration families.",
+  "candidate_updates": [
+    {
+      "canonical_id": "parque-virginia-candamo",
+      "reference_families": [
+        {
+          "reference_id": "VR-CANDAMO-03",
+          "page_url": "https://cdn.www.gob.pe/uploads/document/file/7431347/6331499-ord-n-624-mdpl-2024-con-la-publicacion-del-peruano-1.pdf",
+          "image_url": "https://cdn.www.gob.pe/uploads/document/file/7431347/6331499-ord-n-624-mdpl-2024-con-la-publicacion-del-peruano-1.pdf",
+          "publisher": "Municipalidad Distrital de Pueblo Libre / Diario Oficial El Peruano",
+          "viewpoint_family": "MAINTAINED_GREEN_INFRASTRUCTURE_AND_ORDINARY_USE",
+          "likely_camera_height": "public-path eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "ordinary daylight or garúa",
+          "people_activity": "walking, exercising, sitting and municipal landscape care are hypotheses for direct observation",
+          "edge_background": "6,591.40-square-metre maintained park, paths, gym/pergola elements and surrounding residential edge",
+          "cliche_cluster": "generic neighborhood-green-space record",
+          "proves": "The municipal 2025 service-cost record keeps Virginia Candamo in the active maintained green-space inventory at a specified scale, supporting a care-and-daily-use family distinct from ceremony or aerial form.",
+          "cannot_prove": "Current equipment condition, exact maintenance timing, user density, unobstructed sightlines or a decisive action.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}
