@@ -14734,91 +14734,177 @@
       "canonical_id": "parque-de-la-felicidad",
       "name": "Parque de la Felicidad",
       "district": "San Borja",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-FELICIDAD-UNRESOLVED"
-          ]
+            "SRC-LOC-FELICIDAD-SUMAQ-2026",
+            "SRC-LOC-FELICIDAD-PLANET-2026"
+          ],
+          "answer": "Parque de la Felicidad is an active San Borja public park documented as host of repeated 2026 environmental/civic events; its precise built components and ordinary condition require field confirmation."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-COMPENDIUM"
+          ],
+          "answer": "A municipal green/recreation system combines paths and landscape elements to support crossing, play, pause and gathering; historic inventory does not prove every present component."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-SUMAQ-2026",
+            "SRC-LOC-FELICIDAD-PLANET-2026"
+          ],
+          "answer": "In verified events people exhibit, buy, diagnose plants, meet, listen and gather through a lighting transition; normal-day walking, play and maintenance remain field observations."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-SUMAQ-2026",
+            "SRC-LOC-FELICIDAD-PLANET-2026"
+          ],
+          "answer": "Exhibit, browse, advise, gather, cross, pause and observe are evidenced. Empty amphitheater/path capacity can carry meaningful expectation only when spatial distribution remains legible."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-COMPENDIUM",
+            "SRC-LOC-FELICIDAD-SUMAQ-2026"
+          ],
+          "answer": "Paths, water edge, bridge, lawns and gathering surfaces can separate movement from pause and transform landscape into civic infrastructure; exact causal device must be selected on site."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-SUMAQ-2026",
+            "SRC-LOC-FELICIDAD-COMPENDIUM"
+          ],
+          "answer": "Lake/bridge reflection and colorful fair coverage dominate. The underused relation is a ground-level route where landscape geometry visibly assigns crossing, exchange and gathering."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-PLANET-2026"
+          ],
+          "answer": "Late-day transition can separate water, bridge/path and occupied gathering areas; garúa can simplify the same layers. Attractive reflection without spatial causality fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-SUMAQ-2026"
+          ],
+          "answer": "Test path-level water/bridge tangent, amphitheater-to-path reverse and low edge-to-gathering diagonal. Start 35 mm for system, 50 mm for one exchange and 85 mm only if route context survives."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-SUMAQ-2026",
+            "SRC-LOC-FELICIDAD-PLANET-2026"
+          ],
+          "answer": "Verify maintenance, hours and event authorization same day; avoid identifying children, blocking paths or turning vendors into spectacle; completed events are never route promises."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-SUMAQ-2026",
+            "SRC-LOC-FELICIDAD-COMPENDIUM"
+          ],
+          "answer": "Passes when landscape architecture visibly converts environmental/social activity into ordered crossing and gathering. Scenic water, bridge portrait or event crowd alone fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-COMPENDIUM"
+          ],
+          "position": "Public path tangent holding water edge, crossing device and gathering surface",
+          "camera_height": "1.1 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals movement/pause zones",
+          "light": "Bright garúa",
+          "edge_guards": "Exclude decorative clutter and clipped bridge",
+          "wait_trigger": "Three spatial layers separate",
+          "kill_trigger": "Reads as ornamental park",
+          "access_ethics": "Public path; do not obstruct",
+          "fallback": "50 mm path-water structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-SUMAQ-2026"
+          ],
+          "position": "Public diagonal where path feeds a verified gathering/exchange zone",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Adults cross, pause and exchange across distinct zones",
+          "light": "Soft daylight",
+          "edge_guards": "Avoid faces, children and product dominance",
+          "wait_trigger": "Architecture changes the verb",
+          "kill_trigger": "Event furniture alone organizes scene",
+          "access_ethics": "Consent for close identifiable subjects",
+          "fallback": "Anonymous crossing sequence"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-PLANET-2026"
+          ],
+          "position": "Low reverse view from gathering edge toward path and water rather than bridge frontal",
+          "camera_height": "0.8 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/400 s",
+          "expected_action": "Figure moves from civic program to ordinary path",
+          "light": "Blue-hour transition",
+          "edge_guards": "No perfect reflection or stage branding",
+          "wait_trigger": "Temporary and permanent systems interlock",
+          "kill_trigger": "Only atmosphere reads",
+          "access_ethics": "Stay outside event operations",
+          "fallback": "Empty route after event"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-PLANET-2026"
+          ],
+          "position": "Public oblique where low light traces path, water edge and one crossing",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s, ISO as required",
+          "expected_action": "Walker shadow/outline crosses ordered edge",
+          "light": "Late low sun or blue hour",
+          "edge_guards": "Retain two spatial devices",
+          "wait_trigger": "Light explains depth",
+          "kill_trigger": "Becomes reflection study",
+          "access_ethics": "No flash toward users",
+          "fallback": "Garúa tonal layering"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FELICIDAD-SUMAQ-2026",
+            "SRC-LOC-FELICIDAD-PLANET-2026"
+          ],
+          "position": "Public diagonal joining approach, water/crossing and gathering zone",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Approach, crossing and exchange occupy three layers",
+          "light": "Late soft daylight",
+          "edge_guards": "One activity remains primary",
+          "wait_trigger": "Park becomes civic ecological system unaided",
+          "kill_trigger": "Caption/event title rescues image",
+          "access_ethics": "Public-space privacy hard gate",
+          "fallback": "Two-zone ordinary-use story"
         }
       },
       "visual_reference_families": [
@@ -14872,9 +14958,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Parque de la Felicidad puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can lagoon, bridge, amphitheater or path visibly distribute one ordinary or programmed environmental verb instead of supplying picturesque scenery?",
+        "Which reflection, ornamental bridge, temporary stall, crowd or residential edge makes the frame generic event/park coverage?",
+        "Does a low path-level position reveal how water, crossing and gathering zones cause movement, or is the event carrying all meaning?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -14952,12 +15038,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-FELICIDAD-COMPENDIUM",
+        "SRC-LOC-FELICIDAD-PLANET-2026",
+        "SRC-LOC-FELICIDAD-SUMAQ-2026",
         "SRC-LOC-FELICIDAD-UNRESOLVED"
       ],
       "contradictions": [
-        "No candidate-specific authoritative current evidence was located; route eligibility remains false."
+        "Map claims of continuous opening are non-authoritative and remain VERIFY_BEFORE_ROUTE.",
+        "No candidate-specific authoritative current evidence was located; route eligibility remains false.",
+        "The municipal compendium is historical and cannot establish current bridge, lagoon, playground, amphitheater or maintenance condition.",
+        "Two 2026 municipal programs prove periodic civic and ecological occupation, not routine daily density or a future event window."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -14965,93 +15057,177 @@
       "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
       "name": "Ministerio de Cultura / Museo de la Nación",
       "district": "San Borja",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-MINCULT-GTN-2026"
-          ]
+            "SRC-LOC-MINCUL-RURAQ-2026",
+            "SRC-LOC-MINCUL-FORMER-MUSEUM"
+          ],
+          "answer": "The San Borja building is the Ministry of Culture central headquarters in what was the Museo de la Nación and remains capable of large public cultural events."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MINCUL-FORMER-MUSEUM"
+          ],
+          "answer": "Monumental halls, ramps/floors and controlled thresholds were organized for national-scale collection display and public circulation before administrative conversion."
         },
         "current_life": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-MINCULT-GTN-2026"
-          ]
+            "SRC-LOC-MINCUL-RURAQ-2026",
+            "SRC-LOC-MINCUL-CARAL-2026"
+          ],
+          "answer": "Staff administer and work while periodic makers, visitors and heritage displays occupy selected halls/floors; exact public program and access are date-dependent."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026",
+            "SRC-LOC-MINCUL-CARAL-2026"
+          ],
+          "answer": "Make, display, sell, teach, browse, queue, work and encounter are evidenced. Empty monumental circulation between events can reveal the mismatch between public-museum scale and controlled administration."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026",
+            "SRC-LOC-MINCUL-FORMER-MUSEUM"
+          ],
+          "answer": "Large halls, ramps/floors and entry controls distribute dense temporary exchange or restrict ordinary public movement, making reuse itself spatially visible."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026",
+            "SRC-LOC-MINCUL-CARAL-2026"
+          ],
+          "answer": "Monumental façade and event-stand coverage dominate. The underused relation is inherited museum-scale circulation meeting current administrative security or intergenerational making."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026"
+          ],
+          "answer": "High-volume interior light can separate concrete/structure, circulation and temporary occupation; exterior hard light risks mere monumentality. Human-use geometry must remain primary."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026"
+          ],
+          "answer": "Test authorized hall diagonal, controlled entrance queue and second-floor public/office threshold. Start 35 mm for inherited volume, 50 mm for exchange and avoid 85 mm if context or privacy is lost."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026",
+            "SRC-LOC-MINCUL-CARAL-2026"
+          ],
+          "answer": "Confirm event/display occurrence and written photography permission, obey security, avoid documents/screens/artwork reproduction and never infer open museum access from a completed event."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026",
+            "SRC-LOC-MINCUL-FORMER-MUSEUM"
+          ],
+          "answer": "Passes when former national-museum circulation visibly governs current administration or cultural exchange. Monumental façade, craft-market documentation or historical caption fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MINCUL-FORMER-MUSEUM"
+          ],
+          "position": "Authorized/public threshold aligning entry control, monumental void and ramp/floor sequence",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals inherited circulation",
+          "light": "Ambient institutional light",
+          "edge_guards": "Exclude adjacent landmarks and banners",
+          "wait_trigger": "Volume and control separate",
+          "kill_trigger": "Reads as generic ministry",
+          "access_ethics": "Security authorization",
+          "fallback": "Public exterior threshold"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026"
+          ],
+          "position": "Authorized hall edge where maker/visitor exchange follows structural bay or ramp",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Maker demonstrates while visitor crosses/pauses",
+          "light": "Interior ambient",
+          "edge_guards": "No product/artwork close-up or identifiable child",
+          "wait_trigger": "Volume changes exchange",
+          "kill_trigger": "Stand layout alone causes action",
+          "access_ethics": "Organizer/participant permission",
+          "fallback": "Anonymous circulation"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MINCUL-CARAL-2026"
+          ],
+          "position": "Permitted second-floor threshold joining office control and small public display",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/5.6, 1/200 s",
+          "expected_action": "Worker and visitor negotiate same inherited corridor",
+          "light": "Window/ambient light",
+          "edge_guards": "No screen, document or object reproduction",
+          "wait_trigger": "Administrative/public contradiction reads",
+          "kill_trigger": "Display unavailable or corridor generic",
+          "access_ethics": "Explicit floor/photography permission",
+          "fallback": "Ground-floor controlled threshold"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026"
+          ],
+          "position": "Authorized oblique where structural surface, ramp shadow and temporary occupation overlap",
+          "camera_height": "1.1 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/200 s, ISO as required",
+          "expected_action": "Figure crosses monumental shadow band",
+          "light": "Directional interior/daylight",
+          "edge_guards": "Retain event/use cue",
+          "wait_trigger": "Light explains inherited scale",
+          "kill_trigger": "Becomes brutalist abstraction",
+          "access_ethics": "No restricted-zone entry",
+          "fallback": "Exterior threshold shadow"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MINCUL-RURAQ-2026",
+            "SRC-LOC-MINCUL-FORMER-MUSEUM"
+          ],
+          "position": "Authorized diagonal joining controlled entrance, former-museum circulation and present exchange",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Queue, making and movement occupy distinct zones",
+          "light": "Soft institutional daylight",
+          "edge_guards": "One current program remains primary",
+          "wait_trigger": "Conversion reads without historical caption",
+          "kill_trigger": "Event spectacle overwhelms architecture",
+          "access_ethics": "Permission/security hard gates",
+          "fallback": "Exterior control/public-arrival relation"
         }
       },
       "visual_reference_families": [
@@ -15105,9 +15281,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Ministerio de Cultura / Museo de la Nación puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the former museum's monumental circulation visibly reorganize a present maker market, monthly display or administrative/public encounter?",
+        "Which stand grid, banner, security barrier, neighboring landmark or crowd erases the inherited institutional volume?",
+        "Does a permitted ramp/hall/threshold position make former-museum-to-ministry transformation legible in one frame, or is the story available only in the caption?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -15185,12 +15361,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-MINCUL-CARAL-2026",
+        "SRC-LOC-MINCUL-FORMER-MUSEUM",
+        "SRC-LOC-MINCUL-RURAQ-2026",
         "SRC-LOC-MINCULT-GTN-2026"
       ],
       "contradictions": [
-        "Campus activity is current; Museo de la Nacion exhibition/access status is unresolved."
+        "Administrative security and adjacent GTN/BNP/LCC flows may prevent interior or threshold photography.",
+        "Campus activity is current; Museo de la Nacion exhibition/access status is unresolved.",
+        "Ruraq Maki is a completed periodic event and the monthly Caral display must be confirmed for the date; neither supplies a permanent public-access window.",
+        "The canonical name retains Museo de la Nación history, but current official language identifies the structure as the Ministry's central headquarters/what was the museum; ordinary museum operation must not be claimed."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -15832,93 +16014,175 @@
       "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
       "name": "Museo Pedro de Osma y Av. Pedro de Osma",
       "district": "Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PEDRO-OSMA-VISIT"
-          ]
+            "SRC-LOC-OSMA-VISIT-2026",
+            "SRC-LOC-OSMA-MUSEUM"
+          ],
+          "answer": "The active Museo Pedro de Osma occupies an early-twentieth-century residence and gardens at Av. Pedro de Osma 421, with current published hours and strict interior photography prohibition."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OSMA-MUSEUM"
+          ],
+          "answer": "A private eclectic residence used garden setback, gate, paths, stained glass and rooms to stage a gradual avenue-to-domestic arrival."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PEDRO-OSMA-VISIT"
-          ]
+            "SRC-LOC-OSMA-VISIT-2026",
+            "SRC-LOC-OSMA-PROGRAM-2026"
+          ],
+          "answer": "Visitors arrive, buy admission, join mediated routes, study and attend programs; interior photography remains prohibited and event access does not imply photographic permission."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OSMA-VISIT-2026"
+          ],
+          "answer": "Approach, queue, enter, mediate, learn, exit and walk the avenue are evidenced. A closed/quiet garden threshold may show controlled public expectation without photographing inside."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OSMA-MUSEUM",
+            "SRC-LOC-OSMA-VISIT-2026"
+          ],
+          "answer": "Avenue, gate, garden path, house entrance and mediated interior route convert a former private arrival sequence into regulated museum access."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OSMA-MUSEUM",
+            "SRC-LOC-OSMA-PROGRAM-2026"
+          ],
+          "answer": "Ornate façade, stained glass, collection and garden beauty dominate. The underused relation is the public avenue meeting a layered but controlled cultural threshold."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OSMA-MUSEUM"
+          ],
+          "answer": "Filtered garden light can separate gate, path and house planes; low sun can articulate threshold depth. Ornamental detail without conversion/use fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OSMA-VISIT-2026"
+          ],
+          "answer": "Test public avenue-to-gate diagonal, side-street garden-depth tangent and exit-facing reverse. Start 35 mm for layered approach, 50 mm for arrival and use 85 mm only without looking through private/interior openings."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OSMA-VISIT-2026"
+          ],
+          "answer": "Default to public exterior; do not photograph inside under current rules, request explicit professional/competition authorization for any exception, avoid faces and never block the gate or accessible route."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OSMA-VISIT-2026",
+            "SRC-LOC-OSMA-MUSEUM"
+          ],
+          "answer": "Passes when the inherited residential threshold visibly channels contemporary public museum arrival from the avenue. Mansion portrait, interior rule breach or caption-built neighborhood route fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OSMA-MUSEUM"
+          ],
+          "position": "Public avenue diagonal holding curb, gate, garden depth and house entrance",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals private-to-public sequence",
+          "light": "Bright garúa",
+          "edge_guards": "Exclude cars, clipped gate and ornamental close-up",
+          "wait_trigger": "Four depth planes separate",
+          "kill_trigger": "Reads as mansion portrait",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm gate/path structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OSMA-VISIT-2026"
+          ],
+          "position": "Public exterior where visitors transition from avenue to museum gate",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Adults approach, pause and enter through distinct layers",
+          "light": "Soft daylight",
+          "edge_guards": "No faces, tickets or staff close-up",
+          "wait_trigger": "Gate changes pace/direction",
+          "kill_trigger": "Queue hides architecture",
+          "access_ethics": "Exterior only; preserve accessible route",
+          "fallback": "Anonymous single arrival"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OSMA-VISIT-2026"
+          ],
+          "position": "Public side/reverse angle connecting avenue movement to garden setback, not frontal façade",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker passes as visitor turns inward",
+          "light": "Overcast morning",
+          "edge_guards": "Avoid tourist signage and collection imagery",
+          "wait_trigger": "Street and controlled garden conflict reads",
+          "kill_trigger": "House disappears behind foliage",
+          "access_ethics": "No view through interior windows",
+          "fallback": "Gate-shadow meaningful absence"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OSMA-MUSEUM"
+          ],
+          "position": "Public oblique where gate shadow, garden path and façade plane overlap",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Arriving figure crosses gate shadow",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain avenue cue",
+          "wait_trigger": "Light explains controlled depth",
+          "kill_trigger": "Becomes ornate texture",
+          "access_ethics": "Exterior; no interior photography",
+          "fallback": "Garúa tonal layers"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OSMA-VISIT-2026",
+            "SRC-LOC-OSMA-MUSEUM"
+          ],
+          "position": "Public diagonal joining avenue flow, museum gate, garden and former residence",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Passing, pausing and entering occupy separate zones",
+          "light": "Late soft daylight",
+          "edge_guards": "Museum conversion remains primary",
+          "wait_trigger": "Private house/public culture reads unaided",
+          "kill_trigger": "Caption or interior image required",
+          "access_ethics": "Current photography prohibition is hard gate",
+          "fallback": "Two-zone avenue/gate story"
         }
       },
       "visual_reference_families": [
@@ -15972,9 +16236,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Museo Pedro de Osma y Av. Pedro de Osma puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the avenue approach, garden setback and museum gate show a former private residence becoming a controlled public cultural threshold?",
+        "Which traffic, parked vehicle, ornate façade detail, garden foliage or visitor queue reduces the image to Barranco heritage tourism?",
+        "Does a public exterior position reveal avenue-to-garden-to-house depth with a real arrival verb, or would interior access be doing all narrative work?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -16052,10 +16316,17 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-OSMA-MUSEUM",
+        "SRC-LOC-OSMA-PROGRAM-2026",
+        "SRC-LOC-OSMA-VISIT-2026",
         "SRC-LOC-PEDRO-OSMA-VISIT"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Current programs prove active institutional life but do not make event participants or interiors photographable without separate permission.",
+        "The canonical label joins house and avenue, yet one frame must prove their spatial relation rather than depend on a walking-route caption.",
+        "The museum is currently open Tuesday-Sunday, but its visitor rules prohibit interior photography; paid admission does not authorize a competition photograph."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
