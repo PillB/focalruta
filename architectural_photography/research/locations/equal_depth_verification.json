@@ -11220,95 +11220,179 @@
       "canonical_id": "puente-villena-bajada-balta-costa-verde",
       "name": "Puente Villena / Bajada Balta / Costa Verde",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-VILLENA-RECOVERY"
-          ]
+            "SRC-LOC-VILLENA-PANELS-2026",
+            "SRC-LOC-VILLENA-LIGHT-2026",
+            "SRC-LOC-BALTA-WORKS-2026"
+          ],
+          "answer": "Villena is a heavily used, newly lit/resurfaced coastal bridge with completed transparent safety panels; nearby Bajada Balta bridge infrastructure entered major maintenance in June 2026."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
-        },
-        "current_life": {
-          "status": "PARTIAL",
-          "source_ids": [
-            "SRC-LOC-VILLENA-RECOVERY"
-          ]
-        },
-        "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
-        },
-        "architectural_causality": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-VILLENA-RECOVERY"
-          ]
+            "SRC-LOC-VILLENA-PANELS-2026",
+            "SRC-LOC-BALTA-WORKS-2026"
+          ],
+          "answer": "Bridge decks span ravines and connect malecones while Balta descent infrastructure negotiates the cliff, distributing vehicles, pedestrians and micromobility between upper city and coast."
+        },
+        "current_life": {
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-VILLENA-LIGHT-2026",
+            "SRC-LOC-VILLENA-PANELS-2026"
+          ],
+          "answer": "Walking, running, cycling, driving, looking and crossing continue day/night; Balta works and panel reflections require immediate field checks."
+        },
+        "human_verbs_or_meaningful_absence": {
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-VILLENA-LIGHT-2026"
+          ],
+          "answer": "Cross, run, ride, look, descend, climb, carry and wait are credible. A clear deck interval can expose safety infrastructure and level change without a crowd."
+        },
+        "architectural_causality": {
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-VILLENA-PANELS-2026",
+            "SRC-LOC-BALTA-WORKS-2026"
+          ],
+          "answer": "Deck, transparent edge, ravine span, stairs/bridge and lighting channel horizontal crossing and vertical descent while controlling risk at the coastal cliff."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-VILLENA-PANELS-2026"
+          ],
+          "answer": "Sunset ocean view, illuminated symmetry and bridge portrait dominate. The underused relation is a current safety edge or descent device visibly changing how a user crosses levels."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-VILLENA-PANELS-2026",
+            "SRC-LOC-VILLENA-LIGHT-2026"
+          ],
+          "answer": "Garúa can reveal panel condensation/reflection and cliff depth; LED/night light can show continuous use, but coastal spectacle without movement causality fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-VILLENA-PANELS-2026",
+            "SRC-LOC-BALTA-WORKS-2026"
+          ],
+          "answer": "Test safe deck-edge diagonal, ravine-side public path and legal Balta reverse view. Start 35 mm for section, 50 mm for crossing/carrying and 85 mm only when deck/descent context remains."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-BALTA-WORKS-2026"
+          ],
+          "answer": "Check barriers/works/wind first, never stand in traffic or lean equipment on safety panels, keep cycling/running paths clear and abandon angles requiring unsafe cliff exposure."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-VILLENA-PANELS-2026",
+            "SRC-LOC-BALTA-WORKS-2026"
+          ],
+          "answer": "Passes when crossing/descent infrastructure visibly transforms a present coastal movement. Ocean sunset, bridge symmetry or three-site captioning fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-VILLENA-PANELS-2026"
+          ],
+          "position": "Safe public deck approach aligning span, transparent edge and ravine depth",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Clear interval reveals crossing section",
+          "light": "Garúa morning",
+          "edge_guards": "Avoid panel glare, cars and clipped deck",
+          "wait_trigger": "Deck, edge and depth separate",
+          "kill_trigger": "Ocean becomes subject",
+          "access_ethics": "Pedestrian zone only",
+          "fallback": "50 mm edge/span structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-VILLENA-LIGHT-2026"
+          ],
+          "position": "Safe bridge approach where walkers and cyclists choose lanes",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/800 s",
+          "expected_action": "Walker and cyclist cross in separated paths",
+          "light": "Soft daylight",
+          "edge_guards": "No face/vehicle mergers",
+          "wait_trigger": "Safety layout directs bodies",
+          "kill_trigger": "Users merely add scale",
+          "access_ethics": "Do not block flow",
+          "fallback": "Anonymous runner/walker split"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-BALTA-WORKS-2026"
+          ],
+          "position": "Legal Balta path/bridge reverse view toward upper level, avoiding ocean horizon",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Person climbs or carries bicycle through maintained descent",
+          "light": "Bright overcast",
+          "edge_guards": "No unsafe stairs/work zone",
+          "wait_trigger": "Effort and level change read",
+          "kill_trigger": "Works block relation or action is absent",
+          "access_ethics": "Obey closures",
+          "fallback": "Empty maintained descent"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-VILLENA-PANELS-2026",
+            "SRC-LOC-VILLENA-LIGHT-2026"
+          ],
+          "position": "Safe oblique compressing panel, metal frame, deck and moving silhouette",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/800 s",
+          "expected_action": "Figure crosses panel/reflection boundary",
+          "light": "Blue hour LED or lateral sun",
+          "edge_guards": "Retain ravine/deck cue",
+          "wait_trigger": "Retrofit changes visibility",
+          "kill_trigger": "Becomes abstract reflection",
+          "access_ethics": "No panel contact",
+          "fallback": "50 mm garúa layers"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-VILLENA-PANELS-2026",
+            "SRC-LOC-BALTA-WORKS-2026"
+          ],
+          "position": "Safest public diagonal combining approach, protected crossing and visible descent/ravine",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Approaching, crossing and descending occupy distinct zones",
+          "light": "Late soft daylight",
+          "edge_guards": "One infrastructure relation only",
+          "wait_trigger": "Upper-city/coast movement reads unaided",
+          "kill_trigger": "Caption joins separate sites",
+          "access_ethics": "Wind/traffic/closure hard gates",
+          "fallback": "Two-zone crossing/depth story"
         }
       },
       "visual_reference_families": [
@@ -11362,9 +11446,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Puente Villena / Bajada Balta / Costa Verde puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can bridge deck, protected edge and ravine/descent visibly organize walking, cycling or carrying a bicycle between upper city and coast rather than provide a scenic ocean backdrop?",
+        "Which panel reflection, barrier, vehicle, crowd overlap or construction element breaks the vertical/crossing relationship?",
+        "Does moving to a safe path or lower reverse angle reveal effort and level change, or is the selected Villena/Balta/Costa Verde connection impossible in one frame?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -11442,10 +11526,17 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-BALTA-WORKS-2026",
+        "SRC-LOC-VILLENA-LIGHT-2026",
+        "SRC-LOC-VILLENA-PANELS-2026",
         "SRC-LOC-VILLENA-RECOVERY"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "New transparent panels improve safety but may add reflection, glare and visual obstruction that invalidate older reference angles.",
+        "The candidate groups Villena, Bajada Balta and Costa Verde, yet one frame must select one legible vertical/crossing relationship rather than claim the entire coastal system.",
+        "Villena's transparent-edge works are complete, but Bajada Balta bridge maintenance began June 30 and current completion/barriers are unknown."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -11772,95 +11863,174 @@
       "canonical_id": "casa-hacienda-orbea",
       "name": "Casa Hacienda Orbea",
       "district": "Pueblo Libre",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-ORBEA-CLOSED"
-          ]
+            "SRC-LOC-ORBEA-CLOSED-CURRENT",
+            "SRC-LOC-ORBEA-INVENTORY"
+          ],
+          "answer": "Casa Hacienda Orbea is a protected private eighteenth-century hacienda complex in Pueblo Libre whose current municipal tourism status is closed."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ORBEA-INVENTORY"
+          ],
+          "answer": "Patios, stairs, upper corridors, seed terrace, oratory, oil bodega, orchard, worker housing, pond, well and service yards joined elite domestic, devotional and agricultural production."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-ORBEA-CLOSED"
-          ]
+            "SRC-LOC-ORBEA-CLOSED-CURRENT"
+          ],
+          "answer": "The private property persists as a closed heritage enclosure within contemporary Pueblo Libre; resident/maintenance activity and internal condition are unknown."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ORBEA-INVENTORY"
+          ],
+          "answer": "Historically store, press, dry, pray, cultivate, carry and inhabit are documented; currently pass, skirt, maintain and guard are only field hypotheses. Closure itself can be meaningful absence."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ORBEA-INVENTORY",
+            "SRC-LOC-ORBEA-CULTURA"
+          ],
+          "answer": "Perimeter enclosure and gate separate the former integrated productive/domestic interior from the surrounding urban street; internal patios/corridors would organize work only if authorized."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ORBEA-INVENTORY"
+          ],
+          "answer": "Heritage inventory and empty colonial courtyard dominate. The underused relation is the large closed agrarian residue pressing against current neighborhood movement."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ORBEA-INVENTORY"
+          ],
+          "answer": "Raking light can reveal wall/gate depth and material continuity; decay texture, barred-door drama or imagined courtyard light fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ORBEA-CLOSED-CURRENT"
+          ],
+          "answer": "Test three public perimeter positions before seeking owner coordination: gate tangent, wall-length diagonal and street reverse view. Start 35 mm for enclosure/city, 50 mm for threshold action and 85 mm only with spatial context."
         },
         "moment_logistics_ethics": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-ORBEA-CLOSED"
-          ]
+            "SRC-LOC-ORBEA-CLOSED-CURRENT",
+            "SRC-LOC-ORBEA-INVENTORY"
+          ],
+          "answer": "Treat property as closed/private, never enter or photograph over walls, seek explicit owner authorization for any interior, avoid residents and kill all internal proofs when permission is absent."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-ORBEA-CLOSED-CURRENT",
+            "SRC-LOC-ORBEA-CULTURA"
+          ],
+          "answer": "Passes only if public enclosure/current street or authorized productive sequence reads without historical rescue. A gate portrait, trespass view or colonial nostalgia fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ORBEA-CLOSED-CURRENT"
+          ],
+          "position": "Public street diagonal holding wall length, gate depth and contemporary block edge",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals enclosure scale",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude cars and private windows",
+          "wait_trigger": "Wall, gate and city separate",
+          "kill_trigger": "Only a blank façade reads",
+          "access_ethics": "Public pavement only",
+          "fallback": "50 mm gate/wall structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ORBEA-CLOSED-CURRENT"
+          ],
+          "position": "Public sidewalk where ordinary passers skirt the closed gate",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adults pass, pause or turn without entering",
+          "light": "Soft daylight",
+          "edge_guards": "No resident surveillance",
+          "wait_trigger": "Closure redirects movement",
+          "kill_trigger": "Person only adds scale",
+          "access_ethics": "Anonymous public flow",
+          "fallback": "Meaningful empty threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ORBEA-CULTURA"
+          ],
+          "position": "Public reverse view from contemporary street fabric toward long hacienda enclosure",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Current neighborhood circulation crosses former agrarian edge",
+          "light": "Bright overcast",
+          "edge_guards": "No peeking over wall",
+          "wait_trigger": "Urban/agrarian scale conflict reads",
+          "kill_trigger": "Heritage identity invisible",
+          "access_ethics": "Public space only",
+          "fallback": "Kill public-edge concept"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ORBEA-INVENTORY"
+          ],
+          "position": "Public oblique compressing wall wear, gate reveal and street paving",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Passing shadow traces enclosure",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain gate/street cues",
+          "wait_trigger": "Material records boundary",
+          "kill_trigger": "Becomes decay texture",
+          "access_ethics": "No wall contact",
+          "fallback": "50 mm garúa layers"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-ORBEA-CLOSED-CURRENT",
+            "SRC-LOC-ORBEA-INVENTORY"
+          ],
+          "position": "Public diagonal joining contemporary approach, closed gate and surviving enclosure",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Approaching, skirting and departing occupy three zones",
+          "light": "Late soft daylight",
+          "edge_guards": "No invented interior meaning",
+          "wait_trigger": "Closed agrarian residue reads unaided",
+          "kill_trigger": "Caption supplies productive history",
+          "access_ethics": "Closure/private-property hard gate",
+          "fallback": "Kill candidate pending authorization"
         }
       },
       "visual_reference_families": [
@@ -11914,9 +12084,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Casa Hacienda Orbea puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the public wall/gate and surrounding city reveal the surviving agrarian enclosure's scale or prior productive order without inventing an interior view?",
+        "Which vehicle, blank wall, vegetation or private threshold makes the scene merely an inaccessible façade?",
+        "If owner-authorized entry is unavailable, does a public-edge relation still carry the old hacienda/current city contradiction, or must the candidate be killed?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -11994,12 +12164,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-ORBEA-CLOSED"
+        "SRC-LOC-ORBEA-CLOSED",
+        "SRC-LOC-ORBEA-CLOSED-CURRENT",
+        "SRC-LOC-ORBEA-CULTURA",
+        "SRC-LOC-ORBEA-INVENTORY"
       ],
       "contradictions": [
-        "Current municipal tourism route marks the property closed; exterior-only research remains possible but route eligibility is false."
+        "Current municipal route marks Orbea closed, while an older inventory says entry by prior coordination; closed status controls unless explicit owner authorization supersedes it.",
+        "Current municipal tourism route marks the property closed; exterior-only research remains possible but route eligibility is false.",
+        "Good-condition claims in the historical inventory are stale and cannot describe August 2026 conservation.",
+        "The rich internal productive/domestic sequence is documented but may be invisible from public space."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -12007,91 +12183,177 @@
       "canonical_id": "calle-choquehuanca-basadre-residencial",
       "name": "Calle Choquehuanca / Basadre residencial",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-CHOQUEHUANCA-UNRESOLVED"
-          ]
+            "SRC-LOC-CHOQUE-1424",
+            "SRC-LOC-BASADRE-VERTICE",
+            "SRC-LOC-SANISIDRO-CURRENT-HISTORY"
+          ],
+          "answer": "Choquehuanca 1424 and a Basadre multifamily building are verified designer-documented projects within a district where houses, multifamily buildings and financial growth coexist; the corridor relationship remains field-selective."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424",
+            "SRC-LOC-BASADRE-VERTICE"
+          ],
+          "answer": "One project preserves house-like low-rise scale through permeable enclosure/screens and semibasement; the other uses deep-site void/second façade to bring light and ventilation behind avenue frontage."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-SANISIDRO-CURRENT-HISTORY"
+          ],
+          "answer": "Residential entry, balcony/screen adjustment, deliveries, walking and coexistence with business-district pressure are credible, but selected-building occupation must be directly observed."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424"
+          ],
+          "answer": "Enter, unlock, screen, overlook, ventilate, deliver, walk and return are architecturally credible. Closed screens and empty balconies can carry privacy expectation without exposing residents."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424",
+            "SRC-LOC-BASADRE-VERTICE"
+          ],
+          "answer": "Permeable enclosure, wooden screens, balcony depth, semibasement edge and internal void mediate privacy, climate, daylight and density between street and dwelling."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424",
+            "SRC-LOC-BASADRE-VERTICE"
+          ],
+          "answer": "Empty commissioned façade and generic old/new skyline dominate. The underused relation is a current public-edge gesture caused by a privacy/depth device."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424"
+          ],
+          "answer": "Lateral light can reveal screen depth and permeable concrete; garúa can suppress luxury gloss, but geometric façade abstraction without inhabitation fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424",
+            "SRC-LOC-BASADRE-VERTICE"
+          ],
+          "answer": "Audit at least three public positions around one selected project: frontal scale, oblique threshold and block-context reverse. Start 35 mm for context, 50 mm for threshold gesture and 85 mm only without surveillance."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424"
+          ],
+          "answer": "Remain on public pavement, never aim into windows/internal voids, avoid identifiable residents/security routines, do not wait as surveillance and kill any scene requiring private access or telephoto intrusion."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424",
+            "SRC-LOC-SANISIDRO-CURRENT-HISTORY"
+          ],
+          "answer": "Passes when one privacy/density device visibly changes present residential action within its block. A façade catalogue, two-project montage or generic old/new contrast fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424"
+          ],
+          "position": "Public oblique aligning permeable enclosure, semibasement edge and neighboring scale",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals street-to-home depth",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude windows, plates and parked cars",
+          "wait_trigger": "Three depth planes separate",
+          "kill_trigger": "Only façade pattern reads",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm threshold structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424"
+          ],
+          "position": "Public approach where consenting/anonymous adult enters through screened threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Adult opens/enters as screen mediates visibility",
+          "light": "Soft daylight",
+          "edge_guards": "No face, key or interior detail",
+          "wait_trigger": "Privacy device changes gesture",
+          "kill_trigger": "Action becomes surveillance",
+          "access_ethics": "Consent or anonymous distance",
+          "fallback": "Closed-screen meaningful absence"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-SANISIDRO-CURRENT-HISTORY"
+          ],
+          "position": "Public block-context reverse view showing house-like scale against current multifamily street",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Walker crosses scale transition",
+          "light": "Bright overcast",
+          "edge_guards": "Avoid skyline cliché and private windows",
+          "wait_trigger": "One block transition reads",
+          "kill_trigger": "Named projects require montage",
+          "access_ethics": "Non-intrusive public view",
+          "fallback": "Kill corridor hypothesis; retain single project"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424"
+          ],
+          "position": "Public tangent compressing concrete permeability, wood screens and balcony shadow",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Anonymous shadow or screen change records inhabitation",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain street/threshold context",
+          "wait_trigger": "Material performs privacy",
+          "kill_trigger": "Becomes façade abstraction",
+          "access_ethics": "No window targeting",
+          "fallback": "50 mm garúa layers"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-CHOQUE-1424",
+            "SRC-LOC-SANISIDRO-CURRENT-HISTORY"
+          ],
+          "position": "Public diagonal joining sidewalk approach, privacy threshold and surrounding residential scale",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Approaching, entering and passing occupy three zones",
+          "light": "Late soft daylight",
+          "edge_guards": "Resident dignity and device causality first",
+          "wait_trigger": "Density/privacy negotiation reads unaided",
+          "kill_trigger": "Caption explains district change",
+          "access_ethics": "Privacy hard gate",
+          "fallback": "Two-zone threshold/block relation"
         }
       },
       "visual_reference_families": [
@@ -12145,9 +12407,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Calle Choquehuanca / Basadre residencial puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can one public street position show a current resident negotiating permeable screen, balcony, semibasement or house-like scale as the district densifies?",
+        "Which parked vehicle, guard wall, tree, neighboring tower or private window makes the frame invasive or reduces housing to façade pattern?",
+        "Does moving along the corridor expose a genuine low-rise/multifamily threshold, or are the named projects too spatially separate for one scene?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -12225,12 +12487,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-CHOQUEHUANCA-UNRESOLVED"
+        "SRC-LOC-BASADRE-VERTICE",
+        "SRC-LOC-CHOQUE-1424",
+        "SRC-LOC-CHOQUEHUANCA-UNRESOLVED",
+        "SRC-LOC-SANISIDRO-CURRENT-HISTORY"
       ],
       "contradictions": [
-        "Street-level residential relationship remains a hypothesis rather than a verified candidate identity."
+        "Designer images are commissioned and usually empty; current occupation, screen positions and street conditions require field evidence.",
+        "Internal voids and secondary façades may not be visible from public ground and cannot be inferred into a photograph.",
+        "Street-level residential relationship remains a hypothesis rather than a verified candidate identity.",
+        "Two verified projects demonstrate different residential mechanisms, but neither establishes the entire Choquehuanca/Basadre corridor as a single coherent scene."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
