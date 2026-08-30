@@ -105,8 +105,11 @@ def apply_historical_hypotheses(records):
 
 def apply_evidence(records):
     by_id = {item["canonical_id"]: item for item in records}
-    for evidence_path in sorted(EVIDENCE_DIR.glob(EVIDENCE_GLOB)):
+    evidence_documents = []
+    for evidence_path in EVIDENCE_DIR.glob(EVIDENCE_GLOB):
         evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+        evidence_documents.append((evidence.get("retrieved_at", ""), evidence_path.name, evidence))
+    for _, _, evidence in sorted(evidence_documents):
         for update in evidence["candidate_updates"]:
             target = by_id[update["canonical_id"]]
             target["verification_status"] = "IN_PROGRESS"

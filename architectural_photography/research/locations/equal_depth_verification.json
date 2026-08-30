@@ -18245,91 +18245,173 @@
       "canonical_id": "pentagonito-y-bordes-civicos",
       "name": "Pentagonito y bordes cívicos",
       "district": "San Borja",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PENTAGONITO-UNRESOLVED"
-          ]
+            "SRC-LOC-PENTAGONITO-RACE-2026",
+            "SRC-LOC-PENTAGONITO-CANCEL-2026"
+          ],
+          "answer": "The Pentagonito's public Parque Olímpico/perimeter supports 2026 civic recreation, but event occurrence is variable and the military interior remains controlled."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-CIVIC"
+          ],
+          "answer": "A secured defense enclosure establishes a hard boundary; the surrounding park/path system converts that edge into metropolitan walking, running and cycling infrastructure."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-RACE-2026",
+            "SRC-LOC-PENTAGONITO-CANCEL-2026"
+          ],
+          "answer": "People run, accompany, encourage and gather during verified events; ordinary exercise density and exact public positions require same-day observation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-RACE-2026"
+          ],
+          "answer": "Run, walk, accompany, encourage, gather, cycle and patrol are credible/evidenced. An empty perimeter path may express latent civic capacity without exposing security."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-CIVIC"
+          ],
+          "answer": "Fence/setback, continuous path and park nodes channel linear recreation while preserving exclusion; this dual edge is the candidate's causal subject."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-RACE-2026"
+          ],
+          "answer": "Race start/finish and green-loop exercise dominate. The underused relation is a low public tangent where civic bodies trace a secure boundary without showing sensitive detail."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-CIVIC"
+          ],
+          "answer": "Garúa can simplify fence/path/tree layers; low light can project repetitive boundary rhythm. Military hardware or athletic spectacle without spatial cause fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-CIVIC"
+          ],
+          "answer": "Test public fence/path tangent, park-node reverse and crossing-to-loop diagonal. Start 35 mm for edge system, 50 mm for movement and avoid 85 mm toward controlled areas."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-CANCEL-2026"
+          ],
+          "answer": "Confirm events directly, remain on public routes, never photograph gates, guards, cameras or military operations, avoid identifiable vulnerable participants and kill sensitive angles."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-RACE-2026",
+            "SRC-LOC-PENTAGONITO-CIVIC"
+          ],
+          "answer": "Passes when one boundary device visibly excludes military access while enabling civic movement. Race spectacle, greenery or security imagery fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-CIVIC"
+          ],
+          "position": "Public path tangent holding boundary, setback and recreational lane",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Clear interval reveals parallel systems",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude gates, cameras and military detail",
+          "wait_trigger": "Fence/path/park layers separate",
+          "kill_trigger": "Reads as generic fence",
+          "access_ethics": "Public perimeter only",
+          "fallback": "50 mm boundary rhythm"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-RACE-2026"
+          ],
+          "position": "Public loop edge where runners/walkers follow boundary curve",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/800 s",
+          "expected_action": "Adults run, accompany and encourage in layers",
+          "light": "Soft morning light",
+          "edge_guards": "No vulnerable faces or race branding",
+          "wait_trigger": "Boundary controls motion",
+          "kill_trigger": "Action could occur anywhere",
+          "access_ethics": "Consent for identifiable subjects",
+          "fallback": "Anonymous ordinary exercise"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-CIVIC"
+          ],
+          "position": "Public low reverse from civic park toward boundary/path, avoiding military landmark",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Walker turns from park node into perimeter loop",
+          "light": "Bright overcast",
+          "edge_guards": "No military iconography",
+          "wait_trigger": "Exclusion/enabling edge reads",
+          "kill_trigger": "Security is caption-only",
+          "access_ethics": "No surveillance-like framing",
+          "fallback": "Park/path junction"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-CIVIC"
+          ],
+          "position": "Public oblique where boundary rhythm shadows recreational path",
+          "camera_height": "1.1 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/800 s",
+          "expected_action": "Runner crosses repeated shadow",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain park cue; hide security devices",
+          "wait_trigger": "Light explains boundary",
+          "kill_trigger": "Becomes abstract fence",
+          "access_ethics": "Public path only",
+          "fallback": "Garúa tonal repetition"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-PENTAGONITO-RACE-2026",
+            "SRC-LOC-PENTAGONITO-CIVIC"
+          ],
+          "position": "Public diagonal joining park approach, secure edge and moving civic loop",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/800 s",
+          "expected_action": "Approach, turn and run occupy three zones",
+          "light": "Morning garúa",
+          "edge_guards": "One civic verb primary; no sensitive detail",
+          "wait_trigger": "Secure/civic duality reads unaided",
+          "kill_trigger": "Caption explains Pentagonito",
+          "access_ethics": "Security/privacy hard gates",
+          "fallback": "Two-zone boundary/use story"
         }
       },
       "visual_reference_families": [
@@ -18383,9 +18465,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Pentagonito y bordes cívicos puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the secure perimeter, public path and inclusive recreation show one edge simultaneously excluding and enabling civic life?",
+        "Which race branding, military detail, crowd or generic greenery turns the frame into event or security documentation?",
+        "Does a public tangent reveal fence/path/body causality without surveillance, or is the contradiction only caption knowledge?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -18463,12 +18545,18 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-PENTAGONITO-CANCEL-2026",
+        "SRC-LOC-PENTAGONITO-CIVIC",
+        "SRC-LOC-PENTAGONITO-RACE-2026",
         "SRC-LOC-PENTAGONITO-UNRESOLVED"
       ],
       "contradictions": [
-        "Candidate-specific current authoritative evidence was not located; route eligibility remains false."
+        "A June 2026 race proves episodic use, while a July cancellation proves advertised events are not guaranteed route windows.",
+        "Candidate-specific current authoritative evidence was not located; route eligibility remains false.",
+        "Historical mass cycling evidence does not prove current weekly cadence or an unobstructed one-frame military/civic relation.",
+        "The military enclosure is secure and sensitive; public perimeter use never authorizes photographing security infrastructure."
       ],
-      "verification_complete": false,
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -18801,93 +18889,176 @@
       "canonical_id": "casa-museo-ricardo-palma",
       "name": "Casa Museo Ricardo Palma",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PALMA-CULTURE"
-          ]
+            "SRC-LOC-RPALMA-CURRENT",
+            "SRC-LOC-RPALMA-SERVICE"
+          ],
+          "answer": "Casa Museo Ricardo Palma is a municipal historic house at General Suárez 189 currently marked in maintenance/closed despite retained administrative visit-service categories."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT"
+          ],
+          "answer": "A compact early-twentieth-century ranch house organized Palma's late domestic and writing life through small street threshold, rooms and garden/patio sequence."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-PALMA-CULTURE"
-          ]
+            "SRC-LOC-RPALMA-CURRENT",
+            "SRC-LOC-RPALMA-DAMAGE"
+          ],
+          "answer": "Public visiting is suspended; maintenance, monitoring and an expectant closed threshold replace routine museum circulation. Past damage is not assumed current."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT",
+            "SRC-LOC-RPALMA-DAMAGE"
+          ],
+          "answer": "Maintain, inspect, repair, pass, wait and look are evidenced/credible. Closure is meaningful absence only when house scale and blocked public role remain visible."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT",
+            "SRC-LOC-RPALMA-DAMAGE"
+          ],
+          "answer": "Small domestic envelope and threshold mediate a museum that is currently inaccessible while adjacent urban mass can expose heritage vulnerability."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT",
+            "SRC-LOC-RPALMA-DAMAGE"
+          ],
+          "answer": "Writer's desk, period rooms and neat façade dominate. The underused relation is public closure and scale pressure visible from General Suárez."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RPALMA-DAMAGE"
+          ],
+          "answer": "Raking light can distinguish modest wall/threshold from newer mass; garúa can expose scale quietly. Crack/damage detail without verified currentity fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT"
+          ],
+          "answer": "Test public frontal-repeat, oblique threshold and block-scale reverse. Start 35 mm for house/context, 50 mm for closure device and avoid 85 mm through windows."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT"
+          ],
+          "answer": "Treat closed as closed, never enter or photograph through windows, avoid claiming active damage, verify reopening directly and use only public positions until authorized."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT",
+            "SRC-LOC-RPALMA-DAMAGE"
+          ],
+          "answer": "Passes when a small literary home visibly confronts current closure or urban pressure. Façade, desk nostalgia or unsupported damage narrative fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT"
+          ],
+          "position": "Public street view holding compact house, threshold and adjacent block scale",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval reveals domestic scale",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude cars, windows and signage dominance",
+          "wait_trigger": "House/context hierarchy reads",
+          "kill_trigger": "Only façade reads",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm closed threshold"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT"
+          ],
+          "position": "Public oblique where pedestrians pass the closed museum entry",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/500 s",
+          "expected_action": "Passerby slows/looks while gate remains closed",
+          "light": "Soft daylight",
+          "edge_guards": "No faces or window views",
+          "wait_trigger": "Closure changes behavior",
+          "kill_trigger": "Action is staged or indifferent",
+          "access_ethics": "No waiting on residents",
+          "fallback": "Meaningful empty threshold"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RPALMA-DAMAGE"
+          ],
+          "position": "Public lateral repeat showing old house against verified present neighboring mass",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Pedestrian crosses scale seam",
+          "light": "Bright overcast",
+          "edge_guards": "No speculative crack close-up",
+          "wait_trigger": "Urban pressure is visible",
+          "kill_trigger": "Damage/history requires caption",
+          "access_ethics": "Public edge only",
+          "fallback": "Threshold/adjacent-wall relation"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RPALMA-DAMAGE"
+          ],
+          "position": "Public oblique where old wall, gate and newer mass receive lateral light",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Passing shadow crosses scale/material seam",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain closed-entry cue",
+          "wait_trigger": "Light explains vulnerability",
+          "kill_trigger": "Becomes decay texture",
+          "access_ethics": "No window targeting",
+          "fallback": "Garúa tonal contrast"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-RPALMA-CURRENT",
+            "SRC-LOC-RPALMA-DAMAGE"
+          ],
+          "position": "Public diagonal joining street movement, closed domestic threshold and later urban edge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Passing, pausing and exclusion occupy layers",
+          "light": "Late soft daylight",
+          "edge_guards": "Closure/scale primary",
+          "wait_trigger": "Literary house's present condition reads unaided",
+          "kill_trigger": "Caption supplies author/damage",
+          "access_ethics": "Closure/privacy hard gates",
+          "fallback": "Two-zone house/street story"
         }
       },
       "visual_reference_families": [
@@ -18941,9 +19112,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Casa Museo Ricardo Palma puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the closed domestic threshold and changed General Suárez edge show a literary home under present urban pressure without entering?",
+        "Which writer icon, period-room cliché, construction machinery or façade symmetry turns the frame into heritage/damage documentation?",
+        "Does a public repeat position reveal small-house versus adjacent-development scale in one frame, or is the conflict no longer visible?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -19021,10 +19192,17 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-PALMA-CULTURE"
+        "SRC-LOC-PALMA-CULTURE",
+        "SRC-LOC-RPALMA-CURRENT",
+        "SRC-LOC-RPALMA-DAMAGE",
+        "SRC-LOC-RPALMA-SERVICE"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Documented adjacent-construction damage and repair are historical and cannot be described as ongoing in 2026.",
+        "Interior museography and period-room references cannot justify entry or a route while closure persists.",
+        "The operator currently marks the museum in maintenance/closed; a standing fee/service schedule does not prove reopening."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -19032,95 +19210,174 @@
       "canonical_id": "ovalo-de-miraflores",
       "name": "Óvalo de Miraflores",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-OVALO-2026"
-          ]
+            "SRC-LOC-OVALO-REOPEN-2026",
+            "SRC-LOC-OVALO-BEFORE"
+          ],
+          "answer": "The Óvalo Central's 1963 fountain reopened 26 May 2026 after more than fifteen years abandoned, with new water/light infrastructure and renewed pedestrian edges."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OVALO-BEFORE",
+            "SRC-LOC-OVALO-URBAN"
+          ],
+          "answer": "A central ornamental fountain and traffic circle marked the convergence of radial commercial, civic and pedestrian corridors."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-OVALO-2026"
-          ]
+            "SRC-LOC-OVALO-REOPEN-2026"
+          ],
+          "answer": "Drivers circulate while pedestrians cross, wait, watch and meet around renewed edges; post-novelty density and actual crossing behavior require observation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OVALO-REOPEN-2026"
+          ],
+          "answer": "Drive, cross, wait, turn, watch, meet and photograph are evidenced/credible. A temporarily empty center can expose infrastructure only if safe edge movement remains."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OVALO-REOPEN-2026",
+            "SRC-LOC-OVALO-URBAN"
+          ],
+          "answer": "Roundabout lanes, crossings, fountain edge and radial avenues channel conflicting vehicle and pedestrian trajectories around a renewed but largely non-occupiable center."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OVALO-REOPEN-2026"
+          ],
+          "answer": "Illuminated water, aerial overview and traffic-light trail dominate. The underused relation is a safe ground-level crossing decision caused by the renewed center."
         },
         "light_material_geometry": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-OVALO-2026"
-          ]
+            "SRC-LOC-OVALO-REOPEN-2026"
+          ],
+          "answer": "Blue hour can balance water/light, road and bodies; daytime hard light can show crossing geometry. Spectacle lighting without mobility causality fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OVALO-URBAN"
+          ],
+          "answer": "Test legal corner-to-center diagonal, radial-avenue compression and Parque Central reverse. Start 35 mm for node, 50 mm for crossing and never enter unsafe central lanes for an aerial-like view."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OVALO-REOPEN-2026"
+          ],
+          "answer": "Use legal sidewalks/crossings, verify operation and barriers, never stand in traffic or encourage unsafe behavior, avoid identifiable close-ups and cap waiting at signal cycles."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OVALO-REOPEN-2026",
+            "SRC-LOC-OVALO-BEFORE"
+          ],
+          "answer": "Passes when renewed central infrastructure visibly changes present pedestrian/traffic negotiation. Fountain spectacle, light trails or before/after caption fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OVALO-URBAN"
+          ],
+          "position": "Legal corner viewpoint holding radial avenue, crossing, fountain and opposite edge",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Signal pause reveals node geometry",
+          "light": "Bright overcast",
+          "edge_guards": "Exclude sky, signs and clipped crossing",
+          "wait_trigger": "Four systems separate",
+          "kill_trigger": "Fountain alone dominates",
+          "access_ethics": "Sidewalk only",
+          "fallback": "50 mm crossing/fountain relation"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OVALO-REOPEN-2026"
+          ],
+          "position": "Legal curb-back position aligned with active crossing and renewed center",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/800 s",
+          "expected_action": "Pedestrians wait, cross and turn across signal phases",
+          "light": "Soft late daylight",
+          "edge_guards": "No faces or traffic dominance",
+          "wait_trigger": "Center changes decision",
+          "kill_trigger": "People merely supply scale",
+          "access_ethics": "Never obstruct curb/accessibility path",
+          "fallback": "Anonymous single crossing"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OVALO-BEFORE"
+          ],
+          "position": "Public reverse from ordinary commercial edge toward old footprint/new system",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Walker navigates new edge rather than watches show",
+          "light": "Garúa afternoon",
+          "edge_guards": "No colored-water hero view",
+          "wait_trigger": "Transformation affects route",
+          "kill_trigger": "Before condition is caption-only",
+          "access_ethics": "Legal sidewalk",
+          "fallback": "Crossing-edge detail with context"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OVALO-REOPEN-2026"
+          ],
+          "position": "Public corner where water/light, crossing markings and one figure align",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s, ISO as required",
+          "expected_action": "Crossing figure enters illuminated mist/edge",
+          "light": "Blue hour after verified operation",
+          "edge_guards": "Retain road and crossing context",
+          "wait_trigger": "Light explains new boundary",
+          "kill_trigger": "Becomes fountain spectacle",
+          "access_ethics": "No tripod obstruction",
+          "fallback": "Daytime shadow geometry"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OVALO-REOPEN-2026",
+            "SRC-LOC-OVALO-URBAN"
+          ],
+          "position": "Legal diagonal joining radial arrival, signal crossing, renewed center and opposite destination",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Waiting, crossing and turning occupy layers",
+          "light": "Late soft daylight/blue hour",
+          "edge_guards": "Mobility conflict primary",
+          "wait_trigger": "Renewal changes inhabitation unaided",
+          "kill_trigger": "Caption supplies abandonment/reopening",
+          "access_ethics": "Traffic-safety hard gate",
+          "fallback": "Two-zone crossing/center story"
         }
       },
       "visual_reference_families": [
@@ -19174,9 +19431,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Óvalo de Miraflores puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can renewed fountain edges and crossings visibly reorganize pedestrian decisions inside the high-volume traffic node?",
+        "Which colored-water spectacle, traffic streak, monument or promotional aerial effect turns the image into municipal landmark advertising?",
+        "Does a legal public crossing position show old footprint, new system and present movement together, or would unsafe central access be required?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -19254,10 +19511,17 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-OVALO-2026"
+        "SRC-LOC-OVALO-2026",
+        "SRC-LOC-OVALO-BEFORE",
+        "SRC-LOC-OVALO-REOPEN-2026",
+        "SRC-LOC-OVALO-URBAN"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A 1963 origin and fifteen-year abandonment support temporal context but do not themselves create a one-frame present story.",
+        "The central island may be inaccessible/unsafe; promotional aerial viewpoints cannot become field positions.",
+        "The fountain reopened in May 2026, but show schedule, novelty crowd and ongoing water/light operation require same-day verification."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },

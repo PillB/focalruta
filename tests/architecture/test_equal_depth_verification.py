@@ -26,6 +26,18 @@ def test_historical_detail_alone_never_promotes_a_candidate():
     for item in records():
         assert item["ranking_eligible"] is False
         assert item["route_eligible"] is False
+
+
+def test_newer_dated_evidence_overrides_earlier_partial_updates():
+    by_id = {item["canonical_id"]: item for item in records()}
+    for canonical_id in (
+        "pentagonito-y-bordes-civicos",
+        "casa-museo-ricardo-palma",
+        "ovalo-de-miraflores",
+    ):
+        item = by_id[canonical_id]
+        assert item["verification_complete"] is True
+        assert all(check.get("answer") for check in item["passes"].values())
         assert all(check["status"] in {"NOT_STARTED", "PARTIAL", "CORROBORATED", "VERIFIED"} for check in item["passes"].values())
         assert all(check["status"] in {"NOT_STARTED", "HYPOTHESIS", "READY_FOR_FIELD"} for check in item["proofs"].values())
         if item["verification_complete"]:
