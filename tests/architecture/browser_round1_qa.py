@@ -23,6 +23,12 @@ def inspect_viewport(browser, width: int, height: int) -> dict:
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
     page.on("requestfailed", lambda request: failed.append(request.url))
     response = page.goto(URL, wait_until="networkidle", timeout=60_000)
+    page.select_option("#ranking-scenario", "r2")
+    page.select_option("#ranking-limit", "all")
+    all_count = page.locator("#ranking-cards .scene:visible").count()
+    first_r2 = page.locator("#ranking-cards .scene:visible .rank-number").first.text_content()
+    page.select_option("#ranking-limit", "5")
+    top_five_count = page.locator("#ranking-cards .scene:visible").count()
     page.screenshot(path=OUT / f"rules-{width}x{height}.png", full_page=True)
     page.keyboard.press("Tab")
     result = {
@@ -34,6 +40,9 @@ def inspect_viewport(browser, width: int, height: int) -> dict:
         "failed_resources": failed,
         "focus_reached": page.evaluate("document.activeElement !== document.body"),
         "firewall_count": page.locator("#ai-firewall").count(),
+        "ranking_all_count": all_count,
+        "ranking_r2_first": first_r2,
+        "ranking_top_five_count": top_five_count,
     }
     page.close()
     return result
@@ -48,17 +57,16 @@ def passed(row: dict) -> bool:
         and not row["failed_resources"]
         and row["focus_reached"]
         and row["firewall_count"] == 1
+        and row["ranking_all_count"] == 81
+        and row["ranking_r2_first"] == "#1"
+        and row["ranking_top_five_count"] == 5
     )
 
 
 def run() -> bool:
     OUT.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(
-            headless=True,
-            executable_path="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-            args=["--no-sandbox"],
-        )
+        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
         rows = [inspect_viewport(browser, width, height) for width, height in VIEWPORTS]
         report = {"url": URL, "passed": all(map(passed, rows)), "records": rows}
         (OUT / "browser_qa.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

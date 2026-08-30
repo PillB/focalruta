@@ -1,0 +1,2265 @@
+{
+  "model_version": "architecture-ranking-v1.1.0",
+  "candidate_count": 81,
+  "rows": [
+    {
+      "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+      "name": "Parque 3 de Octubre + Skatepark Muros Libres",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 92.0,
+        "theme_coherence_proxy": 94.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 88.0,
+        "anti_postal_originality": 86.5,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 90.0,
+        "light_material_geometry": 83.0,
+        "decisive_moment": 97.5,
+        "technical_feasibility": 95.0,
+        "access_permission": 82.6,
+        "evidence_confidence": 78.0,
+        "juror_public_work_intersection": 86.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PARQUE3-JUNE-2026",
+        "SRC-LOC-PARQUE3-PROGRAM",
+        "SRC-LOC-PARQUE3-TOURISM",
+        "SRC-LOC-PARQUE3-USE-2019"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "torres-de-limatambo-supermanzana",
+      "name": "Torres de Limatambo / supermanzana",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 91.667,
+        "theme_coherence_proxy": 94.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 82.5,
+        "inhabitation_strength": 95.0,
+        "temporal_transformation": 90.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 95.0,
+        "technical_feasibility": 95.0,
+        "access_permission": 84.4,
+        "evidence_confidence": 78.0,
+        "juror_public_work_intersection": 93.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LIMATAMBO-ENACE",
+        "SRC-LOC-LIMATAMBO-POLIDEPORTIVO",
+        "SRC-LOC-LIMATAMBO-PUBLICSPACE",
+        "SRC-LOC-LIMATAMBO-PUCP",
+        "SRC-LOC-LIMATAMBO-SCHOOL-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "residencial-san-felipe",
+      "name": "Residencial San Felipe",
+      "district": "Jesús María",
+      "criteria": {
+        "creative_aesthetic_proxy": 93.0,
+        "theme_coherence_proxy": 94.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 95.0,
+        "anti_postal_originality": 79.0,
+        "inhabitation_strength": 97.0,
+        "temporal_transformation": 88.0,
+        "light_material_geometry": 86.5,
+        "decisive_moment": 96.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 73.0,
+        "evidence_confidence": 78.0,
+        "juror_public_work_intersection": 95.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-SANFELIPE-ARCHDAILY",
+        "SRC-LOC-SANFELIPE-KAHATT",
+        "SRC-LOC-SANFELIPE-PUCP"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 1
+    },
+    {
+      "canonical_id": "previ-lima",
+      "name": "PREVI Lima",
+      "district": "Los Olivos",
+      "criteria": {
+        "creative_aesthetic_proxy": 96.0,
+        "theme_coherence_proxy": 100.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 88.0,
+        "anti_postal_originality": 95.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 100.0,
+        "light_material_geometry": 83.0,
+        "decisive_moment": 100.0,
+        "technical_feasibility": 62.0,
+        "access_permission": 43.0,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 96.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PREVI-MDLO-2026",
+        "SRC-LOC-PREVI-PUCP-2021",
+        "SRC-LOC-PREVI-PUCP-2026",
+        "SRC-LOC-PREVI-WILEY"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "museo-de-la-electricidad-tranvia",
+      "name": "Museo de la Electricidad & Tranvía",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 87.0,
+        "theme_coherence_proxy": 91.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 80.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 90.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 90.5,
+        "technical_feasibility": 90.0,
+        "access_permission": 61.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 94.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-ELECTRICIDAD-BARRANCO",
+        "SRC-LOC-ELECTRICIDAD-CULTURE-GUIDE",
+        "SRC-LOC-ELECTRICIDAD-OPERATOR",
+        "SRC-LOC-ELECTRICIDAD-UNRESOLVED"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "parque-de-las-americas",
+      "name": "Parque de las Américas",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 86.667,
+        "theme_coherence_proxy": 92.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 82.0,
+        "anti_postal_originality": 80.5,
+        "inhabitation_strength": 95.0,
+        "temporal_transformation": 90.0,
+        "light_material_geometry": 80.0,
+        "decisive_moment": 93.5,
+        "technical_feasibility": 95.0,
+        "access_permission": 82.6,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 87.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-AMERICAS-BIRDS",
+        "SRC-LOC-AMERICAS-CORRIDOR",
+        "SRC-LOC-AMERICAS-PROGRAM",
+        "SRC-LOC-AMERICAS-TOURISM",
+        "SRC-LOC-AMERICAS-ZEROWASTE-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "huaca-santa-cruz",
+      "name": "Huaca Santa Cruz",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 88.667,
+        "theme_coherence_proxy": 91.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 95.0,
+        "anti_postal_originality": 80.0,
+        "inhabitation_strength": 80.0,
+        "temporal_transformation": 100.0,
+        "light_material_geometry": 86.5,
+        "decisive_moment": 85.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 75.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 95.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-SANTACRUZ-CIVIC-2026",
+        "SRC-LOC-SANTACRUZ-CULTURA",
+        "SRC-LOC-SANTACRUZ-IDENTITY",
+        "SRC-LOC-SANTACRUZ-RENEWAL"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "conjunto-habitacional-palomino",
+      "name": "Conjunto Habitacional Palomino",
+      "district": "Lima",
+      "criteria": {
+        "creative_aesthetic_proxy": 94.0,
+        "theme_coherence_proxy": 91.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 92.0,
+        "anti_postal_originality": 92.5,
+        "inhabitation_strength": 94.0,
+        "temporal_transformation": 80.0,
+        "light_material_geometry": 85.0,
+        "decisive_moment": 94.5,
+        "technical_feasibility": 60.0,
+        "access_permission": 26.0,
+        "evidence_confidence": 78.0,
+        "juror_public_work_intersection": 92.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LIMATAMBO-PUBLICSPACE",
+        "SRC-LOC-PALOMINO-BNP",
+        "SRC-LOC-PALOMINO-CAMMP",
+        "SRC-LOC-PALOMINO-PUBLICSPACE",
+        "SRC-LOC-PALOMINO-PUCP"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "quinta-de-los-libertadores-mnaahp",
+      "name": "Quinta de los Libertadores + MNAAHP",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 85.0,
+        "theme_coherence_proxy": 90.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 88.0,
+        "anti_postal_originality": 67.5,
+        "inhabitation_strength": 88.0,
+        "temporal_transformation": 85.0,
+        "light_material_geometry": 83.0,
+        "decisive_moment": 90.0,
+        "technical_feasibility": 90.0,
+        "access_permission": 77.6,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LIBERTADORES-MINCETUR-2025",
+        "SRC-LOC-QUINTA-CULTURA",
+        "SRC-LOC-QUINTA-PUEBLOLIBRE"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "plaza-a-la-bandera",
+      "name": "Plaza a la Bandera",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 86.333,
+        "theme_coherence_proxy": 86.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 91.0,
+        "anti_postal_originality": 69.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 78.0,
+        "light_material_geometry": 84.5,
+        "decisive_moment": 90.0,
+        "technical_feasibility": 92.0,
+        "access_permission": 79.6,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 87.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-BANDERA-CIVIC",
+        "SRC-LOC-BANDERA-CORRIDOR",
+        "SRC-LOC-BANDERA-PROGRAM-2025"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "parque-virginia-candamo",
+      "name": "Parque Virginia Candamo",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 87.333,
+        "theme_coherence_proxy": 84.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 83.0,
+        "anti_postal_originality": 84.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 70.0,
+        "light_material_geometry": 80.5,
+        "decisive_moment": 90.5,
+        "technical_feasibility": 93.0,
+        "access_permission": 80.6,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 84.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-CANDAMO-EMPRENDE-2026",
+        "SRC-LOC-CANDAMO-GREEN-2025",
+        "SRC-LOC-CANDAMO-REOPENING"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "unidad-vecinal-3",
+      "name": "Unidad Vecinal Nº3",
+      "district": "Lima",
+      "criteria": {
+        "creative_aesthetic_proxy": 92.833,
+        "theme_coherence_proxy": 91.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 87.0,
+        "anti_postal_originality": 88.75,
+        "inhabitation_strength": 97.5,
+        "temporal_transformation": 75.0,
+        "light_material_geometry": 82.5,
+        "decisive_moment": 97.0,
+        "technical_feasibility": 70.0,
+        "access_permission": 55.5,
+        "evidence_confidence": 78.0,
+        "juror_public_work_intersection": 90.5
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-UV3-2026",
+        "SRC-LOC-UV3-APPROPRIATION",
+        "SRC-LOC-UV3-CAMMP",
+        "SRC-LOC-UV3-CURRENT-2023",
+        "SRC-LOC-UV3-POLICY"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+      "name": "Unidad Vecinal Matute + complejo deportivo",
+      "district": "La Victoria",
+      "criteria": {
+        "creative_aesthetic_proxy": 89.333,
+        "theme_coherence_proxy": 96.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 85.0,
+        "anti_postal_originality": 85.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 100.0,
+        "light_material_geometry": 81.5,
+        "decisive_moment": 96.5,
+        "technical_feasibility": 65.0,
+        "access_permission": 50.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 87.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-MATUTE-2026",
+        "SRC-LOC-MATUTE-CAMMP-I",
+        "SRC-LOC-MATUTE-CAMMP-II",
+        "SRC-LOC-MATUTE-SPORT-2026",
+        "SRC-LOC-MATUTE-ZONE"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "lima-centro-de-convenciones",
+      "name": "Lima Centro de Convenciones",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 80.667,
+        "theme_coherence_proxy": 91.75,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 95.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 90.0,
+        "light_material_geometry": 86.5,
+        "decisive_moment": 93.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 66.4,
+        "evidence_confidence": 89.0,
+        "juror_public_work_intersection": 91.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LCC-ACTIVE-2026",
+        "SRC-LOC-LCC-IDOM",
+        "SRC-LOC-LCC-JULY-2026",
+        "SRC-LOC-LCC-PROINVERSION-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "casa-museo-julia-codesido",
+      "name": "Casa Museo Julia Codesido",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 92.667,
+        "theme_coherence_proxy": 90.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 86.0,
+        "inhabitation_strength": 80.0,
+        "temporal_transformation": 95.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 88.0,
+        "technical_feasibility": 55.0,
+        "access_permission": 34.6,
+        "evidence_confidence": 78.0,
+        "juror_public_work_intersection": 92.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-CODESIDO-FOUNDATION",
+        "SRC-LOC-CODESIDO-MPL",
+        "SRC-LOC-CODESIDO-MUNICIPAL",
+        "SRC-LOC-CODESIDO-TVPERU"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "huaca-san-borja",
+      "name": "Huaca San Borja",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 86.333,
+        "theme_coherence_proxy": 80.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 80.0,
+        "inhabitation_strength": 80.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 84.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 56.4,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 91.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-HUACA-SB-ACADEMIC",
+        "SRC-LOC-HUACA-SB-CULTURA-2026",
+        "SRC-LOC-HUACA-SB-GACETA",
+        "SRC-LOC-HUACA-SB-UNRESOLVED"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "quinta-leuro-y-quintas-historicas",
+      "name": "Quinta Leuro y quintas históricas",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 85.333,
+        "theme_coherence_proxy": 83.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 80.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 70.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 88.0,
+        "technical_feasibility": 75.0,
+        "access_permission": 56.6,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 94.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LEURO-PDLC-2020",
+        "SRC-LOC-LEURO-PDTL-2025",
+        "SRC-LOC-LEURO-VISITA",
+        "SRC-LOC-QUINTA-LEURO-PDTL-2030"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "estacion-restos-del-funicular-de-barranco",
+      "name": "Estación / restos del Funicular de Barranco",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 87.667,
+        "theme_coherence_proxy": 79.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 95.0,
+        "anti_postal_originality": 80.0,
+        "inhabitation_strength": 80.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 86.5,
+        "decisive_moment": 84.0,
+        "technical_feasibility": 70.0,
+        "access_permission": 41.0,
+        "evidence_confidence": 78.0,
+        "juror_public_work_intersection": 95.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-FUNICULAR-ATRACTIVOS",
+        "SRC-LOC-FUNICULAR-BARRANCO",
+        "SRC-LOC-FUNICULAR-TURISMO"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "reducto-2-casa-museo-caceres",
+      "name": "Reducto Nº 2 / Casa Museo Cáceres",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 76.0,
+        "theme_coherence_proxy": 84.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 80.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 89.0,
+        "technical_feasibility": 95.0,
+        "access_permission": 94.6,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 94.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-REDUCTO-CINEMA-2026",
+        "SRC-LOC-REDUCTO-GAPS-2025",
+        "SRC-LOC-REDUCTO-MINCETUR",
+        "SRC-LOC-REDUCTO-MIRAFLORES",
+        "SRC-LOC-REDUCTO-PARKS",
+        "SRC-LOC-REDUCTO-VOTE-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "biblioteca-municipal-de-barranco",
+      "name": "Biblioteca Municipal de Barranco",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 77.667,
+        "theme_coherence_proxy": 82.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 91.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 56.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-BIBBARRANCO-CENTURY",
+        "SRC-LOC-BIBBARRANCO-COWORK",
+        "SRC-LOC-BIBBARRANCO-CURRENT",
+        "SRC-LOC-BIBLIOTECA-BARRANCO"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "santisima-cruz-del-viajero",
+      "name": "Santísima Cruz del Viajero",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 88.0,
+        "theme_coherence_proxy": 79.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 82.0,
+        "anti_postal_originality": 85.5,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 65.0,
+        "light_material_geometry": 80.0,
+        "decisive_moment": 80.5,
+        "technical_feasibility": 92.0,
+        "access_permission": 89.6,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 86.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-CRUZ-GREEN",
+        "SRC-LOC-CRUZ-INVENTORY",
+        "SRC-LOC-CRUZ-RUTA",
+        "SRC-LOC-CRUZ-VIAJERO-RUTA"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "torres-centro-empresarial-camino-real",
+      "name": "Torres / Centro Empresarial Camino Real",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 82.0,
+        "theme_coherence_proxy": 84.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 95.0,
+        "anti_postal_originality": 70.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 100.0,
+        "light_material_geometry": 86.5,
+        "decisive_moment": 75.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 57.0,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 92.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-CAMINO-2025Q3",
+        "SRC-LOC-CAMINO-CENTENARIO-2024",
+        "SRC-LOC-CAMINO-HISTORY",
+        "SRC-LOC-CAMINO-SUSTAINABILITY",
+        "SRC-LOC-CAMINOREAL-PDLC"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "lugar-de-la-memoria-lum",
+      "name": "Lugar de la Memoria (LUM)",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 80.667,
+        "theme_coherence_proxy": 81.75,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 100.0,
+        "anti_postal_originality": 50.0,
+        "inhabitation_strength": 80.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 89.0,
+        "decisive_moment": 86.0,
+        "technical_feasibility": 75.0,
+        "access_permission": 64.6,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 98.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LUM-AGENDA-2026-08",
+        "SRC-LOC-LUM-ARCHDAILY",
+        "SRC-LOC-LUM-ARCHITECTS"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 1
+    },
+    {
+      "canonical_id": "antigua-taberna-queirolo",
+      "name": "Antigua Taberna Queirolo",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 79.333,
+        "theme_coherence_proxy": 82.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 85.0,
+        "anti_postal_originality": 52.5,
+        "inhabitation_strength": 95.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 81.5,
+        "decisive_moment": 91.5,
+        "technical_feasibility": 80.0,
+        "access_permission": 59.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 81.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-QUEIROLO-CURRENT",
+        "SRC-LOC-QUEIROLO-HISTORY",
+        "SRC-LOC-QUEIROLO-INVENTORY-2024"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "casa-museo-marina-nunez-del-prado",
+      "name": "Casa Museo Marina Núñez del Prado",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 78.0,
+        "theme_coherence_proxy": 77.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 70.0,
+        "inhabitation_strength": 80.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 82.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 57.0,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 91.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-MARINA-CURRENT-2026",
+        "SRC-LOC-MARINA-OLIVE-2026",
+        "SRC-LOC-MARINA-TOUR-2026",
+        "SRC-LOC-NUNEZ-PRADO-MSI"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "parque-tradiciones-ricardo-palma",
+      "name": "Parque Tradiciones / Ricardo Palma",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 76.0,
+        "theme_coherence_proxy": 79.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 70.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 89.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 84.6,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-TRADICIONES-MIRAFLORES",
+        "SRC-LOC-TRADICIONES-PARKS",
+        "SRC-LOC-TRADICIONES-PLAY-2026",
+        "SRC-LOC-TRADICIONES-ROUTE"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+      "name": "Plaza de los Libertadores + Santa María Magdalena",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 76.333,
+        "theme_coherence_proxy": 86.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 86.0,
+        "anti_postal_originality": 47.5,
+        "inhabitation_strength": 92.0,
+        "temporal_transformation": 80.0,
+        "light_material_geometry": 82.0,
+        "decisive_moment": 90.0,
+        "technical_feasibility": 92.0,
+        "access_permission": 79.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 85.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LIBERTADORES-2026",
+        "SRC-LOC-LIBERTADORES-JUNE-2026",
+        "SRC-LOC-LIBERTADORES-REYES-2026",
+        "SRC-LOC-LIBERTADORES-ROUTE"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+      "name": "Centro de Convenciones / estación La Cultura",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 75.0,
+        "theme_coherence_proxy": 77.75,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 87.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 84.4,
+        "evidence_confidence": 89.0,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LACULTURA-DLPS",
+        "SRC-LOC-LACULTURA-GTN",
+        "SRC-LOC-LACULTURA-INTERCHANGE-2026",
+        "SRC-LOC-LACULTURA-MTC-2026",
+        "SRC-LOC-LACULTURA-TOTEM-2025"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "biblioteca-nacional-del-peru",
+      "name": "Biblioteca Nacional del Perú",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 71.667,
+        "theme_coherence_proxy": 85.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 100.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 82.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 66.4,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-BNP-2026-DESIGN",
+        "SRC-LOC-BNP-HOURS",
+        "SRC-LOC-BNP-READING"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+      "name": "Biblioteca Municipal y borde lagunas del Olivar",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 72.667,
+        "theme_coherence_proxy": 76.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 84.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 75.0,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-OLIVAR-FURNITURE-2026",
+        "SRC-LOC-OLIVAR-LAGOON-2026",
+        "SRC-LOC-OLIVAR-LIB-PDLC",
+        "SRC-LOC-OLIVAR-READING-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+      "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 72.333,
+        "theme_coherence_proxy": 76.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 83.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 75.0,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-FINANCE-ATU-2026",
+        "SRC-LOC-FINANCE-BOARDING-2026",
+        "SRC-LOC-FINANCE-ELECTRIC-2026",
+        "SRC-LOC-FINANCIAL-PDLC"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "gran-teatro-nacional",
+      "name": "Gran Teatro Nacional",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 71.333,
+        "theme_coherence_proxy": 92.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 40.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 100.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 92.0,
+        "technical_feasibility": 80.0,
+        "access_permission": 51.4,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-GTN-2026",
+        "SRC-LOC-GTN-PROGRAM-2026",
+        "SRC-LOC-GTN-VISIT-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "mirador-catalina-recavarren",
+      "name": "Mirador Catalina Recavarren",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 70.667,
+        "theme_coherence_proxy": 81.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 50.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 91.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 74.0,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-BARRANCO-ATRACTIVOS",
+        "SRC-LOC-RECAVARREN-INVENTORY",
+        "SRC-LOC-RECAVARREN-PDLC",
+        "SRC-LOC-RECAVARREN-PROJECT"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "parque-municipal-y-entorno-civico",
+      "name": "Parque Municipal y entorno cívico",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 72.0,
+        "theme_coherence_proxy": 78.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 88.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 66.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-BARRANCO-ATRACTIVOS",
+        "SRC-LOC-PQBARRANCO-CIAM",
+        "SRC-LOC-PQBARRANCO-CULTURE",
+        "SRC-LOC-PQBARRANCO-ENSEMBLE"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "mac-lima-parque-espejo-de-agua",
+      "name": "MAC Lima + parque / espejo de agua",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 72.0,
+        "theme_coherence_proxy": 85.5,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 50.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 90.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 88.0,
+        "technical_feasibility": 80.0,
+        "access_permission": 69.0,
+        "evidence_confidence": 89.0,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-MAC-2026",
+        "SRC-LOC-MAC-ABOUT-2026",
+        "SRC-LOC-MAC-GUIDE",
+        "SRC-LOC-MAC-NIGHT-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "puente-villena-bajada-balta-costa-verde",
+      "name": "Puente Villena / Bajada Balta / Costa Verde",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 76.0,
+        "theme_coherence_proxy": 71.5,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 74.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 84.6,
+        "evidence_confidence": 86.8,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-BALTA-WORKS-2026",
+        "SRC-LOC-VILLENA-LIGHT-2026",
+        "SRC-LOC-VILLENA-PANELS-2026",
+        "SRC-LOC-VILLENA-RECOVERY"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "casa-raul-porras-barrenechea",
+      "name": "Casa Raúl Porras Barrenechea",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 75.0,
+        "theme_coherence_proxy": 80.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 70.0,
+        "inhabitation_strength": 80.0,
+        "temporal_transformation": 90.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 77.5,
+        "technical_feasibility": 60.0,
+        "access_permission": 41.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PORRAS-2026-VISITS",
+        "SRC-LOC-PORRAS-MIRAFLORES-2023",
+        "SRC-LOC-PORRAS-VISITOR"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "casa-hacienda-orbea",
+      "name": "Casa Hacienda Orbea",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 93.333,
+        "theme_coherence_proxy": 73.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 92.0,
+        "anti_postal_originality": 92.5,
+        "inhabitation_strength": 40.0,
+        "temporal_transformation": 70.0,
+        "light_material_geometry": 85.0,
+        "decisive_moment": 66.5,
+        "technical_feasibility": 35.0,
+        "access_permission": 4.6,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-ORBEA-CLOSED",
+        "SRC-LOC-ORBEA-CLOSED-CURRENT",
+        "SRC-LOC-ORBEA-CULTURA",
+        "SRC-LOC-ORBEA-INVENTORY"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "calle-choquehuanca-basadre-residencial",
+      "name": "Calle Choquehuanca / Basadre residencial",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 72.667,
+        "theme_coherence_proxy": 71.75,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 74.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 75.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-BASADRE-VERTICE",
+        "SRC-LOC-CHOQUE-1424",
+        "SRC-LOC-CHOQUEHUANCA-UNRESOLVED",
+        "SRC-LOC-SANISIDRO-CURRENT-HISTORY"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+      "name": "Palacio Municipal y de la Cultura · San Isidro",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 71.667,
+        "theme_coherence_proxy": 75.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 82.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 67.0,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PALACIO-SI-PDLC",
+        "SRC-LOC-PALSI-AGENDA-2026",
+        "SRC-LOC-PALSI-EXHIBITION-2026",
+        "SRC-LOC-PALSI-RESTORATION"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "museo-larco-jardines",
+      "name": "Museo Larco + jardines",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 69.333,
+        "theme_coherence_proxy": 78.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 93.0,
+        "anti_postal_originality": 25.0,
+        "inhabitation_strength": 85.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 85.5,
+        "decisive_moment": 85.0,
+        "technical_feasibility": 80.0,
+        "access_permission": 49.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LARCO-CURRENT-2026",
+        "SRC-LOC-LARCO-HISTORY",
+        "SRC-LOC-LARCO-VISIT-2026",
+        "SRC-LOC-LARCO-VISIT-2026-B"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "bosque-el-olivar",
+      "name": "Bosque El Olivar",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 61.667,
+        "theme_coherence_proxy": 83.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 20.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 92.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 85.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-OLIVAR-CARE-2026",
+        "SRC-LOC-OLIVAR-ECOSYSTEM",
+        "SRC-LOC-OLIVAR-FURNITURE-2026",
+        "SRC-LOC-OLIVAR-TREES-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "huaca-huallamarca",
+      "name": "Huaca Huallamarca",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 67.0,
+        "theme_coherence_proxy": 79.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 20.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 80.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 75.0,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-HUALLAMARCA-2026",
+        "SRC-LOC-HUALLAMARCA-CURRENT",
+        "SRC-LOC-HUALLAMARCA-PROMPERU"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+      "name": "Calle Porta y casonas frente a verticalización",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 75.333,
+        "theme_coherence_proxy": 70.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 70.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 73.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 74.6,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PORTA-CONSERVATION",
+        "SRC-LOC-PORTA-MIRAFLORES",
+        "SRC-LOC-PORTA-MUNICIPAL",
+        "SRC-LOC-PORTA-POI-2025",
+        "SRC-LOC-PORTA-STREET"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "saenz-pena-domeyer-pasajes",
+      "name": "Sáenz Peña / Domeyer / pasajes",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 72.0,
+        "theme_coherence_proxy": 70.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 73.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 56.0,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-SAENZ-CREATIVE",
+        "SRC-LOC-SAENZ-SURVEY",
+        "SRC-LOC-SAENZ-WORKS-2026",
+        "SRC-LOC-SAENZPENA-BARRANCO"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "casa-emilio-harth-terre",
+      "name": "Casa Emilio Harth-Terré",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 82.0,
+        "theme_coherence_proxy": 70.5,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 80.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 73.0,
+        "technical_feasibility": 60.0,
+        "access_permission": 59.6,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-HARTH-CAMMP",
+        "SRC-LOC-HARTH-HERITAGE",
+        "SRC-LOC-HARTH-MUNICIPAL",
+        "SRC-LOC-HARTH-TERRE-PDTL-2030"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "parque-de-la-felicidad",
+      "name": "Parque de la Felicidad",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 64.667,
+        "theme_coherence_proxy": 77.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 40.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 87.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 56.4,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-FELICIDAD-COMPENDIUM",
+        "SRC-LOC-FELICIDAD-PLANET-2026",
+        "SRC-LOC-FELICIDAD-SUMAQ-2026",
+        "SRC-LOC-FELICIDAD-UNRESOLVED"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+      "name": "Ministerio de Cultura / Museo de la Nación",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 71.667,
+        "theme_coherence_proxy": 70.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 72.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 56.4,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-MINCUL-CARAL-2026",
+        "SRC-LOC-MINCUL-FORMER-MUSEUM",
+        "SRC-LOC-MINCUL-RURAQ-2026",
+        "SRC-LOC-MINCULT-GTN-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "iglesia-santisima-cruz",
+      "name": "Iglesia Santísima Cruz",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 71.667,
+        "theme_coherence_proxy": 70.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 72.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 84.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-IGLESIA-CRUZ-BARRANCO",
+        "SRC-LOC-STCRUZ-ARCH",
+        "SRC-LOC-STCRUZ-CURRENT",
+        "SRC-LOC-STCRUZ-PDLC"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "huaca-pucllana",
+      "name": "Huaca Pucllana",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 57.667,
+        "theme_coherence_proxy": 78.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 0.0,
+        "inhabitation_strength": 80.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 81.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 66.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PUCLLANA-AGENDA-2026",
+        "SRC-LOC-PUCLLANA-MANAGEMENT",
+        "SRC-LOC-PUCLLANA-MUSEUM-2026",
+        "SRC-LOC-PUCLLANA-RESEARCH-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+      "name": "Museo Pedro de Osma y Av. Pedro de Osma",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 64.667,
+        "theme_coherence_proxy": 75.5,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 30.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 77.0,
+        "technical_feasibility": 70.0,
+        "access_permission": 51.0,
+        "evidence_confidence": 91.2,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-OSMA-MUSEUM",
+        "SRC-LOC-OSMA-PROGRAM-2026",
+        "SRC-LOC-OSMA-VISIT-2026",
+        "SRC-LOC-PEDRO-OSMA-VISIT"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "casa-hacienda-moreyra",
+      "name": "Casa-Hacienda Moreyra",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 71.333,
+        "theme_coherence_proxy": 80.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 50.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 80.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 82.0,
+        "technical_feasibility": 60.0,
+        "access_permission": 32.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-MOREYRA-OFFICIAL",
+        "SRC-LOC-MOREYRA-OPERATOR",
+        "SRC-LOC-MOREYRA-PDLC"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "torre-banco-de-la-nacion",
+      "name": "Torre Banco de la Nación",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 68.667,
+        "theme_coherence_proxy": 71.0,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 40.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 73.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 56.4,
+        "evidence_confidence": 86.8,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-BN-OPERATIONS",
+        "SRC-LOC-BN-PROJECT",
+        "SRC-LOC-BN-TOWER-2026",
+        "SRC-LOC-BN-VISITS-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "parque-maria-reiche",
+      "name": "Parque María Reiche",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 68.333,
+        "theme_coherence_proxy": 70.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 50.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 72.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 74.6,
+        "evidence_confidence": 86.8,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-REICHE-2026",
+        "SRC-LOC-REICHE-FUNCTIONAL-2026",
+        "SRC-LOC-REICHE-MAINTENANCE",
+        "SRC-LOC-REICHE-WATER-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "parroquia-nuestra-senora-del-pilar",
+      "name": "Parroquia Nuestra Señora del Pilar",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 68.0,
+        "theme_coherence_proxy": 69.75,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 50.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 72.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 57.0,
+        "evidence_confidence": 91.2,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PILAR-HISTORY",
+        "SRC-LOC-PILAR-MSI",
+        "SRC-LOC-PILAR-PASSIONIST",
+        "SRC-LOC-PILAR-SCHEDULE-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+      "name": "Puente de los Suspiros + Bajada de Baños",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 51.333,
+        "theme_coherence_proxy": 77.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 0.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 87.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 74.0,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-SUSPIROS-BARRANCO",
+        "SRC-LOC-SUSPIROS-CURRENT"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "country-club-lima-hotel",
+      "name": "Country Club Lima Hotel",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 66.0,
+        "theme_coherence_proxy": 82.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 40.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 80.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 84.0,
+        "technical_feasibility": 60.0,
+        "access_permission": 42.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-COUNTRYCLUB-2026",
+        "SRC-LOC-COUNTRYCLUB-ART",
+        "SRC-LOC-COUNTRYCLUB-CURRENT",
+        "SRC-LOC-COUNTRYCLUB-PERROQUET"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "pentagonito-y-bordes-civicos",
+      "name": "Pentagonito y bordes cívicos",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 71.667,
+        "theme_coherence_proxy": 77.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 87.5,
+        "technical_feasibility": 50.0,
+        "access_permission": 31.4,
+        "evidence_confidence": 86.8,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PENTAGONITO-CANCEL-2026",
+        "SRC-LOC-PENTAGONITO-CIVIC",
+        "SRC-LOC-PENTAGONITO-RACE-2026",
+        "SRC-LOC-PENTAGONITO-UNRESOLVED"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+      "name": "Faro La Marina + Parque Antonio Raimondi",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 52.667,
+        "theme_coherence_proxy": 76.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 0.0,
+        "inhabitation_strength": 90.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 84.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 74.6,
+        "evidence_confidence": 78.0,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-AMOR-PROGRAM-2024",
+        "SRC-LOC-FARO-ROUTES",
+        "SRC-LOC-MIRAFLORES-CAMINA-2023",
+        "SRC-LOC-MIRAFLORES-GEOPHYSICS",
+        "SRC-LOC-MIRAFLORES-PARKS"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "casa-museo-ricardo-palma",
+      "name": "Casa Museo Ricardo Palma",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 72.0,
+        "theme_coherence_proxy": 71.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 73.0,
+        "technical_feasibility": 50.0,
+        "access_permission": 21.6,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PALMA-CULTURE",
+        "SRC-LOC-RPALMA-CURRENT",
+        "SRC-LOC-RPALMA-DAMAGE",
+        "SRC-LOC-RPALMA-SERVICE"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "ovalo-de-miraflores",
+      "name": "Óvalo de Miraflores",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 65.0,
+        "theme_coherence_proxy": 70.75,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 30.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 72.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 74.6,
+        "evidence_confidence": 91.2,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-OVALO-2026",
+        "SRC-LOC-OVALO-BEFORE",
+        "SRC-LOC-OVALO-REOPEN-2026",
+        "SRC-LOC-OVALO-URBAN"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "coliseo-eduardo-dibos",
+      "name": "Coliseo Eduardo Dibós",
+      "district": "San Borja",
+      "criteria": {
+        "creative_aesthetic_proxy": 70.0,
+        "theme_coherence_proxy": 68.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 60.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 70.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 84.4,
+        "evidence_confidence": 86.8,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-DIBOS-2026",
+        "SRC-LOC-DIBOS-ACTIVATE-2026",
+        "SRC-LOC-DIBOS-IPD-FITNESS-2026",
+        "SRC-LOC-DIBOS-IPD-LABOR-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "huaca-julio-c-tello",
+      "name": "Huaca Julio C. Tello",
+      "district": "Pueblo Libre",
+      "criteria": {
+        "creative_aesthetic_proxy": 83.333,
+        "theme_coherence_proxy": 68.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 85.0,
+        "anti_postal_originality": 75.0,
+        "inhabitation_strength": 50.0,
+        "temporal_transformation": 50.0,
+        "light_material_geometry": 81.5,
+        "decisive_moment": 67.5,
+        "technical_feasibility": 25.0,
+        "access_permission": 12.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 88.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-JCTELLO-CORRIDOR",
+        "SRC-LOC-JCTELLO-CORRIDOR-CURRENT",
+        "SRC-LOC-JCTELLO-HERITAGE",
+        "SRC-LOC-JCTELLO-PROMPERU"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "palacio-municipal-virgen-milagrosa",
+      "name": "Palacio Municipal + Virgen Milagrosa",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 61.333,
+        "theme_coherence_proxy": 70.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 30.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 72.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 56.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-MIRAFLORES-ATTRACTIONS",
+        "SRC-LOC-MIRAFLORES-PALACE-PLAN",
+        "SRC-LOC-MIRAFLORES-TOURISM",
+        "SRC-LOC-PALACIO-VIRGEN-PLAN"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "la-ermita-de-barranco",
+      "name": "La Ermita de Barranco",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 62.0,
+        "theme_coherence_proxy": 80.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 30.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 100.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 73.0,
+        "technical_feasibility": 60.0,
+        "access_permission": 49.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-ERMITA-BARRANCO",
+        "SRC-LOC-ERMITA-SCOPE-2026",
+        "SRC-LOC-ERMITA-WORKS-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "parque-kennedy-gatos-civic-core",
+      "name": "Parque Kennedy / gatos / civic core",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 50.0,
+        "theme_coherence_proxy": 76.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 0.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 85.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 74.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-KENNEDY-2026",
+        "SRC-LOC-KENNEDY-MUSIC-2026",
+        "SRC-LOC-KENNEDY-PLAY-2026",
+        "SRC-LOC-MIRAFLORES-CAMINA-2023",
+        "SRC-LOC-MIRAFLORES-PARKS"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "parque-del-amor-el-beso",
+      "name": "Parque del Amor & El Beso",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 49.333,
+        "theme_coherence_proxy": 67.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 0.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 69.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 74.6,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-AMOR-PARKS",
+        "SRC-LOC-AMOR-PROGRAM-2024",
+        "SRC-LOC-MIRAFLORES-CAMINA-2023",
+        "SRC-LOC-MIRAFLORES-GEOPHYSICS",
+        "SRC-LOC-MIRAFLORES-PARKS"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "larcomar-acantilado",
+      "name": "Larcomar + acantilado",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 51.667,
+        "theme_coherence_proxy": 70.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 0.0,
+        "inhabitation_strength": 70.0,
+        "temporal_transformation": 60.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 72.5,
+        "technical_feasibility": 85.0,
+        "access_permission": 56.6,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 80.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-LARCOMAR-2026",
+        "SRC-LOC-LARCOMAR-ADENDA-2026",
+        "SRC-LOC-LARCOMAR-MIRADOR"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "centro-cultural-ccori-wasi",
+      "name": "Centro Cultural Ccori Wasi",
+      "district": "Miraflores",
+      "criteria": {
+        "creative_aesthetic_proxy": 93.333,
+        "theme_coherence_proxy": 94.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 93.0,
+        "anti_postal_originality": 83.0,
+        "inhabitation_strength": 94.0,
+        "temporal_transformation": 94.0,
+        "light_material_geometry": 85.5,
+        "decisive_moment": 95.0,
+        "technical_feasibility": 90.0,
+        "access_permission": 79.5,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 92.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-CCORI-2026-EVENT",
+        "SRC-LOC-CCORI-OFFICE",
+        "SRC-LOC-CCORI-URP"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 1
+    },
+    {
+      "canonical_id": "centro-civico-de-lima-real-plaza",
+      "name": "Centro Cívico de Lima / Real Plaza",
+      "district": "Lima",
+      "criteria": {
+        "creative_aesthetic_proxy": 95.0,
+        "theme_coherence_proxy": 94.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 95.0,
+        "anti_postal_originality": 73.5,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 85.0,
+        "light_material_geometry": 86.5,
+        "decisive_moment": 99.0,
+        "technical_feasibility": 92.0,
+        "access_permission": 62.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 93.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-CENTROCIVICO-CAMMP",
+        "SRC-LOC-CENTROCIVICO-CAMMP-PROJECT",
+        "SRC-LOC-CENTROCIVICO-REALPLAZA"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "agrupamiento-chabuca-granda",
+      "name": "Agrupamiento Chabuca Granda",
+      "district": "Rímac",
+      "criteria": {
+        "creative_aesthetic_proxy": 95.667,
+        "theme_coherence_proxy": 91.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 94.0,
+        "anti_postal_originality": 90.5,
+        "inhabitation_strength": 98.0,
+        "temporal_transformation": 75.0,
+        "light_material_geometry": 86.0,
+        "decisive_moment": 97.5,
+        "technical_feasibility": 78.0,
+        "access_permission": 65.4,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 94.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-CHABUCA-BN-1984",
+        "SRC-LOC-CHABUCA-PUCP",
+        "SRC-LOC-CHABUCA-PUCP-2024"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "edificio-alvarez-calderon",
+      "name": "Edificio Álvarez Calderón",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 96.0,
+        "theme_coherence_proxy": 86.0,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 96.0,
+        "anti_postal_originality": 93.5,
+        "inhabitation_strength": 85.0,
+        "temporal_transformation": 70.0,
+        "light_material_geometry": 87.0,
+        "decisive_moment": 90.0,
+        "technical_feasibility": 90.0,
+        "access_permission": 79.5,
+        "evidence_confidence": 86.8,
+        "juror_public_work_intersection": 94.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-ALVAREZ-CAMMP",
+        "SRC-LOC-ALVAREZ-INTERVENTION",
+        "SRC-LOC-ALVAREZ-PUCP-2025",
+        "SRC-LOC-ALVAREZ-UNI"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "quinta-heeren-restauracion-2026",
+      "name": "Quinta Heeren · restauración 2026",
+      "district": "Lima",
+      "criteria": {
+        "creative_aesthetic_proxy": 97.0,
+        "theme_coherence_proxy": 93.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 94.0,
+        "anti_postal_originality": 89.0,
+        "inhabitation_strength": 75.0,
+        "temporal_transformation": 100.0,
+        "light_material_geometry": 86.0,
+        "decisive_moment": 87.0,
+        "technical_feasibility": 58.0,
+        "access_permission": 27.2,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 97.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-HEEREN-2026",
+        "SRC-LOC-HEEREN-ACQUISITION-2025",
+        "SRC-LOC-HEEREN-CONSTRAINTS",
+        "SRC-LOC-HEEREN-RESTORATION-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+      "name": "Transecto de ciudad compacta · Pueblo Libre/Lince/Surquillo",
+      "district": "Lima",
+      "criteria": {
+        "creative_aesthetic_proxy": 91.333,
+        "theme_coherence_proxy": 90.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 82.0,
+        "anti_postal_originality": 96.5,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 75.0,
+        "light_material_geometry": 80.0,
+        "decisive_moment": 97.0,
+        "technical_feasibility": 88.0,
+        "access_permission": 76.4,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-TRANSECT-LINCE-2026",
+        "SRC-LOC-TRANSECT-PLANMET",
+        "SRC-LOC-TRANSECT-UNRESOLVED",
+        "SRC-LOC-TRANSECT-ZONING"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "jiron-trujillo-puente-de-piedra",
+      "name": "Jirón Trujillo + Puente de Piedra",
+      "district": "Rímac",
+      "criteria": {
+        "creative_aesthetic_proxy": 90.667,
+        "theme_coherence_proxy": 91.25,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 88.0,
+        "anti_postal_originality": 76.5,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 75.0,
+        "light_material_geometry": 83.0,
+        "decisive_moment": 98.0,
+        "technical_feasibility": 82.0,
+        "access_permission": 69.4,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-TRUJILLO-BRIDGE",
+        "SRC-LOC-TRUJILLO-MOBILITY-2025",
+        "SRC-LOC-TRUJILLO-UNESCO",
+        "SRC-LOC-TRUJILLO-UNRESOLVED"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    },
+    {
+      "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+      "name": "Puente de la Paz / Quebrada de Armendáriz",
+      "district": "Miraflores–Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 89.0,
+        "theme_coherence_proxy": 95.75,
+        "architecture_causality": 100.0,
+        "first_read_clarity": 92.0,
+        "anti_postal_originality": 58.5,
+        "inhabitation_strength": 98.0,
+        "temporal_transformation": 100.0,
+        "light_material_geometry": 85.0,
+        "decisive_moment": 95.5,
+        "technical_feasibility": 92.0,
+        "access_permission": 81.1,
+        "evidence_confidence": 84.6,
+        "juror_public_work_intersection": 88.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-PAZ-2026",
+        "SRC-LOC-PAZ-MAGAZINE",
+        "SRC-LOC-PAZ-MOBILITY"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 1
+    },
+    {
+      "canonical_id": "jiron-de-la-union",
+      "name": "Jirón de la Unión",
+      "district": "Lima",
+      "criteria": {
+        "creative_aesthetic_proxy": 83.333,
+        "theme_coherence_proxy": 91.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 90.0,
+        "anti_postal_originality": 42.5,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 80.0,
+        "light_material_geometry": 84.0,
+        "decisive_moment": 97.5,
+        "technical_feasibility": 95.0,
+        "access_permission": 83.0,
+        "evidence_confidence": 89.0,
+        "juror_public_work_intersection": 89.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-UNION-2026",
+        "SRC-LOC-UNION-BNP-2026",
+        "SRC-LOC-UNION-MINCETUR-2026",
+        "SRC-LOC-UNION-MML-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "damero-de-lima-interseccion-como-objeto",
+      "name": "Damero de Lima · intersección como objeto",
+      "district": "Lima",
+      "criteria": {
+        "creative_aesthetic_proxy": 88.333,
+        "theme_coherence_proxy": 85.5,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 97.0,
+        "anti_postal_originality": 52.5,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 65.0,
+        "light_material_geometry": 87.5,
+        "decisive_moment": 94.0,
+        "technical_feasibility": 85.0,
+        "access_permission": 73.0,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 88.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-DAMERO-C40",
+        "SRC-LOC-DAMERO-CABLES",
+        "SRC-LOC-DAMERO-MINCETUR",
+        "SRC-LOC-DAMERO-TRAFFIC-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "casa-garcia-bryce",
+      "name": "Casa García Bryce",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 94.667,
+        "theme_coherence_proxy": 84.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 94.0,
+        "anti_postal_originality": 93.5,
+        "inhabitation_strength": 75.0,
+        "temporal_transformation": 80.0,
+        "light_material_geometry": 86.0,
+        "decisive_moment": 84.0,
+        "technical_feasibility": 55.0,
+        "access_permission": 44.5,
+        "evidence_confidence": 82.4,
+        "juror_public_work_intersection": 95.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-GARCIABRYCE-2025",
+        "SRC-LOC-GARCIABRYCE-CAMMP",
+        "SRC-LOC-GARCIABRYCE-PUCP-EVENT"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "aulario-104-universidad-ricardo-palma",
+      "name": "Aulario 104 · Universidad Ricardo Palma",
+      "district": "Santiago de Surco",
+      "criteria": {
+        "creative_aesthetic_proxy": 92.0,
+        "theme_coherence_proxy": 87.0,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 95.0,
+        "anti_postal_originality": 85.0,
+        "inhabitation_strength": 97.0,
+        "temporal_transformation": 70.0,
+        "light_material_geometry": 86.5,
+        "decisive_moment": 94.0,
+        "technical_feasibility": 58.0,
+        "access_permission": 28.4,
+        "evidence_confidence": 80.2,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-AULARIO-INTERVIEW",
+        "SRC-LOC-AULARIO-URP",
+        "SRC-LOC-AULARIO-URP-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 3
+    },
+    {
+      "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+      "name": "Cantagallo · comunidad Shipibo-Konibo",
+      "district": "Rímac",
+      "criteria": {
+        "creative_aesthetic_proxy": 91.667,
+        "theme_coherence_proxy": 96.75,
+        "architecture_causality": 78.0,
+        "first_read_clarity": 80.0,
+        "anti_postal_originality": 94.0,
+        "inhabitation_strength": 100.0,
+        "temporal_transformation": 95.0,
+        "light_material_geometry": 79.0,
+        "decisive_moment": 98.5,
+        "technical_feasibility": 25.0,
+        "access_permission": 0.0,
+        "evidence_confidence": 86.8,
+        "juror_public_work_intersection": 90.0
+      },
+      "evidence_source_ids": [
+        "SRC-LOC-CANTAGALLO-2026",
+        "SRC-LOC-CANTAGALLO-HOUSING-HISTORY",
+        "SRC-LOC-CANTAGALLO-JUSTICE-2026",
+        "SRC-LOC-CANTAGALLO-WOMEN-2026"
+      ],
+      "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+      "contradiction_count": 4
+    }
+  ]
+}

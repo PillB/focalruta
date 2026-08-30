@@ -32,3 +32,6 @@
 | P28 | context compaction loses tasks | regressions | reread + state + handoff |
 | P29 | implementer self-grades | false PASS | independent validator/real execution |
 | P30 | merge before gates | production risk | isolated branch/PR; merge only after gates |
+| P31 | arbitrary internal weights read as objective truth | false precision | proxy labels, authored-weight validation, four scenarios, fixed-seed sensitivity and interval display |
+| P32 | field rank optimizes ease while discarding photographic upside | wasted shooting time | combine strategic value, causality, feasibility, access and evidence; keep route rank separate |
+| P33 | historical Master order leaks into new result | circular confirmation | prohibit all historical rank fields in model/matrix and test source isolation |

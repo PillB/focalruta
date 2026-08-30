@@ -84,7 +84,9 @@ def test_field_run_is_local_persistent_and_portable():
 def test_no_js_fallback_contains_queue_protocol_and_rules():
     page = text(CHALLENGE)
     noscript = page.split("<noscript>", 1)[1].split("</noscript>", 1)[0]
-    assert "Escenas en verificación" in noscript
+    assert "Ranking sin JavaScript" in noscript
+    assert "81 tarjetas" in noscript
+    assert "filtros Top N requieren JavaScript" in noscript
     assert "CONTRATO vs USO" in noscript
     assert "5–25 MB" in noscript
 

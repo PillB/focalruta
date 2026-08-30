@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:8765/challenges/arquitectura-en-foco/index.html",
+  "url": "http://127.0.0.1:8766/challenges/arquitectura-en-foco/",
   "passed": true,
   "records": [
     {
@@ -13,7 +13,10 @@
       "console_errors": [],
       "failed_resources": [],
       "focus_reached": true,
-      "firewall_count": 1
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
     },
     {
       "viewport": [
@@ -26,7 +29,10 @@
       "console_errors": [],
       "failed_resources": [],
       "focus_reached": true,
-      "firewall_count": 1
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
     },
     {
       "viewport": [
@@ -39,7 +45,10 @@
       "console_errors": [],
       "failed_resources": [],
       "focus_reached": true,
-      "firewall_count": 1
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
     },
     {
       "viewport": [
@@ -52,7 +61,10 @@
       "console_errors": [],
       "failed_resources": [],
       "focus_reached": true,
-      "firewall_count": 1
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
     },
     {
       "viewport": [
@@ -65,7 +77,10 @@
       "console_errors": [],
       "failed_resources": [],
       "focus_reached": true,
-      "firewall_count": 1
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
     },
     {
       "viewport": [
@@ -78,7 +93,10 @@
       "console_errors": [],
       "failed_resources": [],
       "focus_reached": true,
-      "firewall_count": 1
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
     }
   ]
 }
