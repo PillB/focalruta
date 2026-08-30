@@ -15482,91 +15482,179 @@
       "canonical_id": "faro-la-marina-parque-antonio-raimondi",
       "name": "Faro La Marina + Parque Antonio Raimondi",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-FARO-ROUTES"
-          ]
+            "SRC-LOC-MIRAFLORES-CAMINA-2023",
+            "SRC-LOC-MIRAFLORES-PARKS",
+            "SRC-LOC-MIRAFLORES-GEOPHYSICS"
+          ],
+          "answer": "Faro La Marina and Parque Antonio Raimondi are distinct but adjacent nodes in Miraflores's cliff-edge malecón chain; desk evidence supports system proximity, while exact one-frame continuity remains a field test."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023",
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "answer": "A linear coastal park network combines landmark orientation, paths, lawns, recreation and cliff outlook, distributing movement parallel to the edge while opening intervals toward sea and sky."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMOR-PROGRAM-2024",
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "People walk, run, pause, exercise, gather, picnic and observe coastal activity. Programmed gatherings are episodic and airborne activity requires same-day verification."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMOR-PROGRAM-2024",
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "Walk, run, pause, stretch, gather, picnic, look, launch or land are credible, but launch/land is not assumed. The repeatable verb is changing pace or direction where the path meets an overlook/open lawn."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS",
+            "SRC-LOC-MIRAFLORES-GEOPHYSICS"
+          ],
+          "answer": "The linear path, cliff setback, open lawn and lighthouse vertical orient bodies, create wind exposure and alternate transit with pause; the frame must show at least two of these devices acting together."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS",
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "Centered lighthouse, sunset silhouette, ocean panorama and paraglider alignment dominate. The underused relationship is lateral: a person changes pace between linear path, open wind field and landmark orientation."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-GEOPHYSICS"
+          ],
+          "answer": "Garúa compresses sea and sky into a tonal field that can emphasize lighthouse vertical, path line and wind-bent vegetation; clear sunset increases cliché and edge contrast."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "Test along-path compression, a lawn/path/vertical diagonal and an overlook return angle. Begin 35 mm for the coastal system, 50 mm for pace transition and 85 mm only where path, figure and lighthouse stay connected."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMOR-PROGRAM-2024",
+            "SRC-LOC-MIRAFLORES-GEOPHYSICS"
+          ],
+          "answer": "Stay on public paths, respect cliff barriers and active sport zones, verify wind/access on arrival, never enter launch/landing areas for alignment, and use a ground-only fallback when airborne activity is absent."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023",
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "answer": "The frame passes when linear park geometry and coastal exposure visibly alter current movement or pause. A lighthouse, sunset or paraglider coincidence without that causal system fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "position": "Public malecón path where its line, open lawn and lighthouse vertical remain separated",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Clear interval reveals transit/pause system",
+          "light": "Garúa morning",
+          "edge_guards": "Avoid centered lighthouse, clipped path and horizon through lamp tops",
+          "wait_trigger": "Geometry clears",
+          "kill_trigger": "Reads as lighthouse postcard",
+          "access_ethics": "Remain behind barriers on public path",
+          "fallback": "50 mm path/lawn structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-AMOR-PROGRAM-2024"
+          ],
+          "position": "Side of path at transition from narrow movement corridor to open Raimondi lawn",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Runner or walker changes pace while another pauses toward the coast",
+          "light": "Bright overcast",
+          "edge_guards": "Separate figures from lighthouse and railing",
+          "wait_trigger": "Two speeds occupy distinct zones",
+          "kill_trigger": "Figures merely provide scale",
+          "access_ethics": "Do not obstruct exercise route",
+          "fallback": "Single walker turning at overlook"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "position": "Lateral return angle from Raimondi toward the Faro through path and wind-shaped planting",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Figure crosses between vegetation and landmark axis",
+          "light": "Dense garúa",
+          "edge_guards": "No sunset, airborne spectacle or centered beacon",
+          "wait_trigger": "Wind and movement share direction",
+          "kill_trigger": "Unusual angle remains merely scenic",
+          "access_ethics": "Public lawn/path edge only",
+          "fallback": "Meaningful absence with wind trace"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-GEOPHYSICS"
+          ],
+          "position": "Distant public path compressing lighthouse surface, mist, vegetation and one figure",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/800 s",
+          "expected_action": "Figure braces, leans or pauses in visible wind",
+          "light": "Garúa with soft backlight",
+          "edge_guards": "Retain path/lawn cue and avoid isolated silhouette",
+          "wait_trigger": "Atmosphere reveals exposure",
+          "kill_trigger": "Becomes generic beacon study",
+          "access_ethics": "Public path; no unsafe cliff approach",
+          "fallback": "Vegetation/wall material under mist"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023",
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "position": "Oblique public view linking linear arrival, open wind field and lighthouse orientation",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Walker arrives, runner traverses and observer pauses across three zones",
+          "light": "Soft coastal afternoon",
+          "edge_guards": "Keep all zones legible; ocean secondary",
+          "wait_trigger": "Movement sequence reads before landmark name",
+          "kill_trigger": "Caption must explain Faro–Raimondi continuity",
+          "access_ethics": "Respect barriers and sport lanes",
+          "fallback": "Two-zone traverse/pause relation"
         }
       },
       "visual_reference_families": [
@@ -15620,9 +15708,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Faro La Marina + Parque Antonio Raimondi puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can path, lawn and lighthouse vertical visibly coordinate ground movement with coastal wind rather than produce a landmark silhouette?",
+        "Which railing, lamp, tree, vehicle or airborne overlap makes the lighthouse and human verb appear coincidental instead of structurally linked?",
+        "Does moving along the malecón reveal the Faro–Raimondi transition as one public system, or should the idea be killed as two adjacent postcards?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -15700,10 +15788,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-FARO-ROUTES"
+        "SRC-LOC-AMOR-PROGRAM-2024",
+        "SRC-LOC-FARO-ROUTES",
+        "SRC-LOC-MIRAFLORES-CAMINA-2023",
+        "SRC-LOC-MIRAFLORES-GEOPHYSICS",
+        "SRC-LOC-MIRAFLORES-PARKS"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A lighthouse silhouette against sunset or paraglider is highly saturated and fails unless ground circulation, cliff edge or wind-driven use remains causal.",
+        "Municipal sources support walking, recreation and episodic programmed use; they do not establish a current paragliding launch window or live wind safety.",
+        "The candidate name joins Faro La Marina and Parque Antonio Raimondi, but a field frame must prove a continuous spatial relationship rather than assume adjacent landmarks form one scene."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -17184,93 +17280,177 @@
       "canonical_id": "parque-kennedy-gatos-civic-core",
       "name": "Parque Kennedy / gatos / civic core",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-KENNEDY-2026"
-          ]
+            "SRC-LOC-KENNEDY-PLAY-2026",
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "Parque Kennedy is part of the 25,000-square-metre Parque Central civic landscape; its Chabuca Granda amphitheatre and recently reopened playground provide documented cultural and family-use infrastructure."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023",
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "answer": "Linked paths, lawns, amphitheatre, benches and perimeter streets form a central civic room intended to distribute pedestrians and host recreation, meeting and culture."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-KENNEDY-2026"
-          ]
+            "SRC-LOC-KENNEDY-PLAY-2026",
+            "SRC-LOC-KENNEDY-MUSIC-2026"
+          ],
+          "answer": "Current life includes family play and accompaniment on renewed infrastructure, daily crossing and waiting, and episodic large public events; only the first two are assumed repeatable."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-KENNEDY-PLAY-2026",
+            "SRC-LOC-KENNEDY-MUSIC-2026"
+          ],
+          "answer": "Cross, wait, meet, sit, play, supervise, perform, watch and care are credible. Crossing toward a civic edge or supervising across the playground boundary is stronger than merely petting a cat."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "Radial/branching paths, the amphitheatre edge, benches and the playground enclosure concentrate and separate actions, letting architecture visibly produce convergence and oversight."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS",
+            "SRC-LOC-KENNEDY-PLAY-2026"
+          ],
+          "answer": "Cat close-ups, crowded park panoramas and church/park establishing views dominate. The underrepresented relationship is care or waiting organized across a boundary and connected to the wider civic flow."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "Garúa simplifies foliage and signage while evening edge light can separate path crossings, amphitheatre steps and benches; strong mixed lighting risks turning the scene into visual noise."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "Test an amphitheatre-edge diagonal, a playground-boundary sightline and a perimeter-to-path junction. Start 35 mm for civic distribution, 50 mm for supervision/threshold and 85 mm only if layers remain causally connected."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-KENNEDY-PLAY-2026",
+            "SRC-LOC-KENNEDY-MUSIC-2026"
+          ],
+          "answer": "Observe ordinary circulation before using an event, avoid identifiable children and vulnerable people, do not obstruct paths, and abandon any frame in which cats or crowd novelty replace spatial meaning."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-KENNEDY-PLAY-2026",
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "The frame passes only when a park device visibly causes convergence, supervision or civic transition. Recognition, cuteness or activity without architectural causality fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "position": "Public amphitheatre edge looking through a path junction toward a second civic edge",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Brief clearing reveals how paths and steps distribute bodies",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude kiosks, clipped church towers and dominant cat foregrounds",
+          "wait_trigger": "Path layers separate",
+          "kill_trigger": "Reads as generic green park",
+          "access_ethics": "Public circulation; keep exits clear",
+          "fallback": "50 mm steps/path structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-KENNEDY-PLAY-2026"
+          ],
+          "position": "Outside renewed playground boundary with bench, enclosure and path in one line",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Adult supervises while another user crosses beyond",
+          "light": "Bright overcast",
+          "edge_guards": "Avoid identifiable child faces and fence mergers",
+          "wait_trigger": "Oversight and crossing separate",
+          "kill_trigger": "Child becomes spectacle or architecture disappears",
+          "access_ethics": "No identifiable children without consent",
+          "fallback": "Adults waiting at bench/path edge"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "position": "Low public path edge aimed across amphitheatre circulation rather than toward cats or church",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure changes level or direction at a designed edge",
+          "light": "Soft late afternoon",
+          "edge_guards": "No cat foreground, landmark centering or vendor signage",
+          "wait_trigger": "Turn aligns with step geometry",
+          "kill_trigger": "Novel angle lacks civic meaning",
+          "access_ethics": "Remain outside active path",
+          "fallback": "Empty level-change geometry"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "position": "Across amphitheatre steps or bench rhythm from a public side path",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "One silhouette crosses repeated step/bench shadows",
+          "light": "Low lateral sun",
+          "edge_guards": "Retain path destination and avoid isolated pattern",
+          "wait_trigger": "Shadow describes level change",
+          "kill_trigger": "Becomes decorative geometry",
+          "access_ethics": "Public path",
+          "fallback": "Garúa tonal repetition"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-KENNEDY-PLAY-2026",
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "position": "Perimeter-to-center diagonal combining arrival, waiting and supervised recreation",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Arriving figure, waiting adult and play boundary form three civic states",
+          "light": "Overcast afternoon",
+          "edge_guards": "Keep actions distinct and cats incidental",
+          "wait_trigger": "Civic sequence reads before place name",
+          "kill_trigger": "Caption must explain the relationships",
+          "access_ethics": "Privacy-first wide framing",
+          "fallback": "Two-state arrival/waiting relation"
         }
       },
       "visual_reference_families": [
@@ -17324,9 +17504,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Parque Kennedy / gatos / civic core puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can a path, bench or amphitheatre edge visibly organize meeting, waiting and crossing before a cat becomes the subject?",
+        "Which kiosk, parked vehicle, event barrier or crowd overlap breaks the causal line between civic threshold and action?",
+        "Does changing from the familiar park overview to an edge-to-center diagonal make the central park function as a distributor rather than a backdrop?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -17404,10 +17584,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-KENNEDY-2026"
+        "SRC-LOC-KENNEDY-2026",
+        "SRC-LOC-KENNEDY-MUSIC-2026",
+        "SRC-LOC-KENNEDY-PLAY-2026",
+        "SRC-LOC-MIRAFLORES-CAMINA-2023",
+        "SRC-LOC-MIRAFLORES-PARKS"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A 2026 concert proves event capacity, not a current or repeatable shooting window; ordinary use must carry the frame unless a dated event is reverified.",
+        "Kennedy is routinely represented through cats and generic bustle, but current municipal evidence supports a broader civic system of play, accompaniment, performance and crossing.",
+        "The renewed playground is current, but identifiable children require privacy-sensitive framing and cannot be used merely as visual decoration."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -17415,95 +17603,175 @@
       "canonical_id": "parque-del-amor-el-beso",
       "name": "Parque del Amor & El Beso",
       "district": "Miraflores",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-AMOR-PARKS"
-          ]
+            "SRC-LOC-MIRAFLORES-CAMINA-2023",
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "answer": "Parque del Amor is a designed cliff-edge public ensemble inaugurated in 1993, centered on Víctor Delfín's El Beso but also structured by curved mosaic walls, terraces, planting and coastal outlook."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "answer": "Curved seating walls and outlook terraces transform the cliff edge into semi-enclosed social rooms that mediate city approach, intimate pause and ocean view."
         },
         "current_life": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-AMOR-PARKS"
-          ]
+            "SRC-LOC-AMOR-PROGRAM-2024",
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "Visitors meet, sit, talk, photograph, exercise, watch the coast and pass through the malecón chain. Calendar events are possible but not assumed current."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMOR-PROGRAM-2024"
+          ],
+          "answer": "Approach, sit, lean, talk, exercise, photograph, wait, look and depart are credible. The strongest verb is turning from cityward movement into a wall-defined shared or solitary pause."
         },
         "architectural_causality": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-AMOR-PARKS"
-          ]
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "answer": "Curved walls bend movement, create back-to-back social territories, frame the horizon and determine where bodies sit, face and encounter one another."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS",
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "El Beso with couple/sunset, frontal mosaic inscriptions and ocean panorama dominate. The underrepresented frame works from behind or tangent to the wall, where simultaneous social orientations reveal its spatial agency."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-GEOPHYSICS",
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "answer": "Garúa can suppress sunset cliché and emphasize mosaic texture, curved silhouette and cliff atmosphere; low lateral light can separate wall arcs but risks generic romance."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "answer": "Test city-to-wall approach, tangent along the curved bench and back-to-back wall territories. Begin 35 mm for city/alcove/coast, 50 mm for paired orientations and 85 mm only for layered curves with context retained."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-AMOR-PROGRAM-2024",
+            "SRC-LOC-MIRAFLORES-CAMINA-2023"
+          ],
+          "answer": "Use public paths, avoid intrusive intimate close-ups, do not stage strangers or block narrow overlooks, and verify crowd/wind conditions on arrival; meaningful absence is preferable to manufactured romance."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "answer": "The frame passes when wall geometry visibly produces differing orientations or degrees of intimacy. A recognizable sculpture, couple or sunset with no spatial cause fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "position": "City-side public approach where two wall arcs overlap with a controlled slice of horizon",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Clear interval exposes nested social rooms",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude centered El Beso, horizon tangencies and clipped wall ends",
+          "wait_trigger": "Arcs read independently",
+          "kill_trigger": "Reads as decorative garden",
+          "access_ethics": "Public path",
+          "fallback": "50 mm wall-to-terrace structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-AMOR-PROGRAM-2024"
+          ],
+          "position": "Tangent to curved bench with both ocean-facing and city-facing seats visible",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "One person looks outward while another turns inward or departs",
+          "light": "Bright overcast",
+          "edge_guards": "Separate heads from rail/horizon and avoid intimate close-ups",
+          "wait_trigger": "Opposed orientations become legible",
+          "kill_trigger": "People merely provide scale",
+          "access_ethics": "Respect intimate space; no stalking gestures",
+          "fallback": "Solitary pause plus passing figure"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "position": "Behind a non-iconic wall segment looking from city threshold through a seated alcove to coast",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Figure enters, turns and disappears along the curve",
+          "light": "Garúa daylight",
+          "edge_guards": "No sculpture, sunset or legible slogan dominance",
+          "wait_trigger": "Turn follows wall radius",
+          "kill_trigger": "Angle is novel but causality unclear",
+          "access_ethics": "Do not lean into occupied alcoves",
+          "fallback": "Empty layered threshold"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS"
+          ],
+          "position": "Public tangent isolating mosaic relief, wall crest and one human contact point",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Hand, shoulder or silhouette follows the wall curve",
+          "light": "Soft garúa or low raking light",
+          "edge_guards": "Retain enough radius to prove seating function",
+          "wait_trigger": "Material and use align",
+          "kill_trigger": "Becomes texture-only abstraction",
+          "access_ethics": "Non-identifying detail",
+          "fallback": "Empty wet mosaic/material trace"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MIRAFLORES-PARKS",
+            "SRC-LOC-AMOR-PROGRAM-2024"
+          ],
+          "position": "Oblique public view combining city arrival, wall-defined pause and coastal attention",
+          "camera_height": "1.5 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Arriving, sitting and looking outward occupy three wall-controlled zones",
+          "light": "Overcast late afternoon",
+          "edge_guards": "Keep zones distinct; El Beso peripheral or absent",
+          "wait_trigger": "Spatial sequence reads without title",
+          "kill_trigger": "Romance or landmark recognition carries meaning",
+          "access_ethics": "Wide, respectful public-space framing",
+          "fallback": "Two-zone arrival/pause relation"
         }
       },
       "visual_reference_families": [
@@ -17557,9 +17825,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Parque del Amor & El Beso puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can the curved mosaic wall visibly alternate privacy, meeting and ocean-facing attention without El Beso carrying the frame?",
+        "Which tourist cluster, phone, railing overlap or horizon tangent destroys the separation between bodies and the park's curved spatial sequence?",
+        "Does stepping behind or beside the wall reveal a threshold between city, intimate alcove and cliff horizon that the frontal sculpture view suppresses?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -17637,10 +17905,18 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-AMOR-PARKS"
+        "SRC-LOC-AMOR-PARKS",
+        "SRC-LOC-AMOR-PROGRAM-2024",
+        "SRC-LOC-MIRAFLORES-CAMINA-2023",
+        "SRC-LOC-MIRAFLORES-GEOPHYSICS",
+        "SRC-LOC-MIRAFLORES-PARKS"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "A 2024 group-exercise activity proves spatial capacity, not a recurring 2026 timetable.",
+        "Romantic gestures are probable but ethically and visually weak when hunted as stereotypes or staged by the photographer.",
+        "The official identity foregrounds El Beso and the ocean, but the viable scene must show how curved walls, terraces and cliff edge organize present occupation rather than repeat the landmark postcard."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
