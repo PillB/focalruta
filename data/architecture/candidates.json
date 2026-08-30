@@ -297,7 +297,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
@@ -307,7 +307,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "gran-teatro-nacional",
@@ -347,7 +347,7 @@
     "ranking_eligible": false,
     "requires_current_verification": true,
     "visual_reference_count": 3,
-    "verification_complete": false
+    "verification_complete": true
   },
   {
     "canonical_id": "puente-villena-bajada-balta-costa-verde",

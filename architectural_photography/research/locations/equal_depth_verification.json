@@ -9313,93 +9313,175 @@
       "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
       "name": "Biblioteca Municipal y borde lagunas del Olivar",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-OLIVAR-LIB-PDLC"
-          ]
+            "SRC-LOC-OLIVAR-READING-2026",
+            "SRC-LOC-OLIVAR-LAGOON-2026"
+          ],
+          "answer": "The active Centro Cultural/Biblioteca Municipal sits within the maintained El Olivar landscape near its central lagoon, which receives permanent conservation work in 2026."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "answer": "Library/cultural rooms, accessible approach, bridge, benches, lagoon and historic grove distribute indoor learning and outdoor pause through a civic-natural edge."
         },
         "current_life": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-READING-2026",
+            "SRC-LOC-OLIVAR-LAGOON-2026"
+          ],
+          "answer": "Weekly reading dialogue, library use, walking, sitting, ecological maintenance and wildlife observation are current, but their same-frame overlap must be field-proven."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-READING-2026",
+            "SRC-LOC-OLIVAR-LAGOON-2026"
+          ],
+          "answer": "Read, meet, enter, cross, sit, clean, observe and pause are evidenced. An empty maintained bridge/bench between program waves can express public expectation."
         },
         "architectural_causality": {
-          "status": "PARTIAL",
+          "status": "CORROBORATED",
           "source_ids": [
-            "SRC-LOC-OLIVAR-LIB-PDLC"
-          ]
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "answer": "Ramp, steps, bridge, benches, water edge and tree canopy stage transitions between cultural enclosure and shared ecological landscape."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-LAGOON-2026"
+          ],
+          "answer": "Quiet façade and lagoon reflection dominate. The underused relation is an accessible cultural threshold visibly linked to reading, crossing or lagoon care."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-LAGOON-2026"
+          ],
+          "answer": "Filtered light and garúa can join white façade, ramp, water and olive trunks; reflection, birds or foliage alone cannot carry architectural causality."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "answer": "Test library-ramp-to-lagoon, bridge-to-entry and water-edge reverse views. Start 35 mm for system, 50 mm for reader/crossing and 85 mm only if threshold and lagoon remain connected."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-READING-2026",
+            "SRC-LOC-OLIVAR-LAGOON-2026"
+          ],
+          "answer": "Confirm library/event access, remain off planted/water edges, avoid identifiable children and nesting wildlife disturbance, and never stage a reader outdoors."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-READING-2026",
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "answer": "Passes when library threshold and maintained landscape visibly cause a current cultural/ecological verb. A reflection postcard or generic reader fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-FURNITURE-2026"
+          ],
+          "position": "Public bridge/path tangent aligning lagoon edge, accessible ramp and library entrance",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/250 s",
+          "expected_action": "Clear interval reveals civic-natural sequence",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude glare and foliage blockage",
+          "wait_trigger": "Water, path and doorway separate",
+          "kill_trigger": "Library is only backdrop",
+          "access_ethics": "Stay on paths",
+          "fallback": "50 mm ramp/lagoon structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-READING-2026"
+          ],
+          "position": "Public approach where consenting adult reader exits toward bridge/bench",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Adult exits, pauses and turns toward landscape",
+          "light": "Soft daylight",
+          "edge_guards": "Separate figure from doorway/trees",
+          "wait_trigger": "Cultural use extends outdoors",
+          "kill_trigger": "Reader is staged or generic",
+          "access_ethics": "Consent; no children",
+          "fallback": "Anonymous crossing"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-LAGOON-2026"
+          ],
+          "position": "Library-side ramp looking through bridge/lagoon rather than across reflection",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/320 s",
+          "expected_action": "Walker crosses maintained edge",
+          "light": "Bright overcast",
+          "edge_guards": "No centered reflection or bird spectacle",
+          "wait_trigger": "Maintenance/circulation reads",
+          "kill_trigger": "Water becomes scenery",
+          "access_ethics": "Path only",
+          "fallback": "Meaningful empty bridge"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-LAGOON-2026"
+          ],
+          "position": "Public oblique compressing ramp rail, water edge, olive trunks and façade",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Shadow or cleaner/walker trace crosses layers",
+          "light": "Filtered lateral light",
+          "edge_guards": "Retain doorway and path",
+          "wait_trigger": "Materials map transition",
+          "kill_trigger": "Becomes foliage/reflection study",
+          "access_ethics": "Do not disturb maintenance/wildlife",
+          "fallback": "50 mm garúa layers"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-OLIVAR-READING-2026",
+            "SRC-LOC-OLIVAR-LAGOON-2026"
+          ],
+          "position": "Public diagonal joining library arrival, bridge/bench and maintained lagoon",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/320 s",
+          "expected_action": "Entering, reading/pausing and crossing occupy three zones",
+          "light": "Late soft daylight",
+          "edge_guards": "Ecology and culture balanced",
+          "wait_trigger": "Indoor/outdoor public life reads unaided",
+          "kill_trigger": "Caption supplies the connection",
+          "access_ethics": "Privacy/ecology hard gates",
+          "fallback": "Two-zone threshold/lagoon relation"
         }
       },
       "visual_reference_families": [
@@ -9453,9 +9535,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Biblioteca Municipal y borde lagunas del Olivar puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can ramp/doorway, lagoon edge and a real reading or maintenance verb show culture and ecology as one public system rather than a reflection postcard?",
+        "Which foliage, water glare, parked vehicle, bird cluster or façade crop severs the library from the maintained lagoon edge?",
+        "Does moving from the obvious waterside view to the ramp/bridge tangent reveal exchange between indoor reading and outdoor community life, or is the relation only geographic?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -9533,10 +9615,17 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-OLIVAR-LIB-PDLC"
+        "SRC-LOC-OLIVAR-FURNITURE-2026",
+        "SRC-LOC-OLIVAR-LAGOON-2026",
+        "SRC-LOC-OLIVAR-LIB-PDLC",
+        "SRC-LOC-OLIVAR-READING-2026"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Current library/cultural activity and lagoon maintenance are verified separately, but no source proves that readers routinely occupy the lagoon sightline in one frame.",
+        "The picturesque reflection view can obscure the library's cultural role and reduce maintained ecological infrastructure to scenery.",
+        "Weekly reading-club activity proves program continuity but not a specific outdoor session or route window."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -9544,93 +9633,175 @@
       "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
       "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
       "district": "San Isidro",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
-          "status": "CORROBORATED",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-FINANCIAL-PDLC"
-          ]
+            "SRC-LOC-FINANCE-ATU-2026",
+            "SRC-LOC-FINANCE-ELECTRIC-2026"
+          ],
+          "answer": "The active financial district is served by expanded Canaval y Moreyra/Andrés Reyes Metropolitano infrastructure and 2026 municipal electric-bus routes amid dense office streets."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026"
+          ],
+          "answer": "Office towers, sidewalks, expressway trench, bridges, vestibules and adjacent stations concentrate regional commuters and distribute them into the business district."
         },
         "current_life": {
-          "status": "PARTIAL",
+          "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-FINANCIAL-PDLC"
-          ]
+            "SRC-LOC-FINANCE-ATU-2026",
+            "SRC-LOC-FINANCE-BOARDING-2026",
+            "SRC-LOC-FINANCE-ELECTRIC-2026"
+          ],
+          "answer": "Workers queue, transfer, cross, enter towers and use formal buses; additional boarding and modernization respond to continuing peak pressure but completion must be checked."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026",
+            "SRC-LOC-FINANCE-ELECTRIC-2026"
+          ],
+          "answer": "Exit, queue, climb, cross, transfer, consult, enter, deliver and wait are evidenced. A brief cleared connector can reveal designed capacity between waves."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026"
+          ],
+          "answer": "Vestibules, station pair, expressway trench, bridge and office-frontage sidewalks funnel large commuter streams through limited vertical and lateral connections."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026"
+          ],
+          "answer": "Glass-tower canyon and rush-hour crowd dominate. The underused relation is the section from trench/vestibule through bridge/sidewalk into office thresholds, including any still-visible comfort conflict."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026"
+          ],
+          "answer": "Hard sun can articulate trench, bridge and tower shadows; garúa can suppress glass spectacle, but reflection or crowd density without transfer causality fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026"
+          ],
+          "answer": "Test legal vestibule exit, public bridge/sidewalk tangent and office-threshold reverse view. Start 35 mm for section, 50 mm for transfer gesture and 85 mm only when multiple systems remain linked."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FINANCE-BOARDING-2026"
+          ],
+          "answer": "Check works/barriers first, never block peak flows or stand in roadways, conceal cards/screens/faces, obey transit security and use lower-density edges if crowding makes photography unsafe."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026",
+            "SRC-LOC-FINANCE-ELECTRIC-2026"
+          ],
+          "answer": "Passes when transit/public-realm architecture visibly turns office demand into a current movement hierarchy. Tower spectacle, anonymous crowd or obsolete comfort claim fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026"
+          ],
+          "position": "Legal public connector aligning trench, expanded vestibule and office-street exit",
+          "camera_height": "1.3 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Brief gap reveals transfer section",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude ads, vehicles and clipped rails",
+          "wait_trigger": "Three levels separate",
+          "kill_trigger": "Reads as tower canyon",
+          "access_ethics": "Public route only",
+          "fallback": "50 mm vestibule/sidewalk structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026"
+          ],
+          "position": "Public station exit where commuter stream splits toward two office streets",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Adults exit, choose and diverge",
+          "light": "Soft weekday daylight",
+          "edge_guards": "Hide cards/faces and separate flows",
+          "wait_trigger": "Split follows built edge",
+          "kill_trigger": "Crowd could be anywhere",
+          "access_ethics": "No surveillance framing",
+          "fallback": "Anonymous two-way flow"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ELECTRIC-2026"
+          ],
+          "position": "Safe sidewalk tangent linking station approach, electric-bus route and tower entry",
+          "camera_height": "1.0 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/800 s",
+          "expected_action": "Transfer between systems becomes visible",
+          "light": "Bright overcast",
+          "edge_guards": "No roadway stance or bus hero shot",
+          "wait_trigger": "Multimodal choice reads",
+          "kill_trigger": "Bus and station are coincidental",
+          "access_ethics": "Behind curb/barrier",
+          "fallback": "Pedestrian-only transfer seam"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026"
+          ],
+          "position": "Legal oblique compressing concrete trench, rail, sidewalk and glass frontage",
+          "camera_height": "1.2 m",
+          "orientation": "Vertical",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/1000 s",
+          "expected_action": "Workers cross shadow boundaries across levels",
+          "light": "Low hard sun",
+          "edge_guards": "Retain station datum",
+          "wait_trigger": "Material section directs flow",
+          "kill_trigger": "Becomes geometry abstraction",
+          "access_ethics": "Public edge",
+          "fallback": "50 mm garúa layers"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-FINANCE-ATU-2026",
+            "SRC-LOC-FINANCE-ELECTRIC-2026"
+          ],
+          "position": "Legal diagonal joining station exit, sidewalk transfer and office threshold",
+          "camera_height": "1.4 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/640 s",
+          "expected_action": "Exiting, transferring and entering occupy three zones",
+          "light": "Late weekday daylight",
+          "edge_guards": "Architecture stays causal; skyline subordinate",
+          "wait_trigger": "Workday mobility reads unaided",
+          "kill_trigger": "Caption explains financial district",
+          "access_ethics": "Safety/privacy hard gates",
+          "fallback": "Two-zone station/office relation"
         }
       },
       "visual_reference_families": [
@@ -9684,9 +9855,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en Centro Financiero (Canaval y Moreyra / Rivera Navarrete) puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can expanded station access, expressway trench and office-street flow visibly convert tower-district workers into multimodal pedestrians rather than a skyline crowd?",
+        "Which railing, vehicle, vendor, advertising panel, construction barrier or tower reflection destroys the station-to-sidewalk continuity?",
+        "Does a legal ground/bridge position reveal improved capacity alongside remaining comfort gaps, or has the current intervention invalidated the old contradiction?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -9764,10 +9935,17 @@
         ]
       },
       "current_source_ids": [
+        "SRC-LOC-FINANCE-ATU-2026",
+        "SRC-LOC-FINANCE-BOARDING-2026",
+        "SRC-LOC-FINANCE-ELECTRIC-2026",
         "SRC-LOC-FINANCIAL-PDLC"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Completed Canaval y Moreyra/Andrés Reyes capacity works are verified, while planned intermediate boarding and broader modernization may still be incomplete.",
+        "Historic pedestrian-space recovery and academic comfort deficits predate 2026; current sidewalk quality and exact intervention footprint require field revalidation.",
+        "Municipal electric buses traverse the financial zone but no source proves a repeatable transfer at the selected station edge."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
@@ -10723,93 +10901,174 @@
       "canonical_id": "mac-lima-parque-espejo-de-agua",
       "name": "MAC Lima + parque / espejo de agua",
       "district": "Barranco",
-      "verification_status": "IN_PROGRESS",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
       "passes": {
         "source_truth": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-MAC-2026"
-          ]
+            "SRC-LOC-MAC-ABOUT-2026",
+            "SRC-LOC-MAC-NIGHT-2026"
+          ],
+          "answer": "MAC Lima is an active contemporary-art museum composed of three industrial-type gallery volumes with terrace, park and two designed water mirrors, supporting mediation and public programs."
         },
         "original_spatial_contract": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026"
+          ],
+          "answer": "Gallery volumes, terrace, garden, perimeter paths and water mirrors extend exhibition encounter into an open civic landscape rather than isolating art indoors."
         },
         "current_life": {
           "status": "VERIFIED",
           "source_ids": [
-            "SRC-LOC-MAC-2026"
-          ]
+            "SRC-LOC-MAC-ABOUT-2026",
+            "SRC-LOC-MAC-NIGHT-2026"
+          ],
+          "answer": "Visitors exhibit, learn, make, gather and move between galleries and outdoor areas; exact current program, photography policy and water condition require same-day confirmation."
         },
         "human_verbs_or_meaningful_absence": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-MAC-NIGHT-2026"
+          ],
+          "answer": "Enter, look, mediate, draw, assemble, cross, sit, make and disperse are evidenced. An empty terrace reflected between programs can express institutional readiness."
         },
         "architectural_causality": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "VERIFIED",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026"
+          ],
+          "answer": "Three volumes, glazed thresholds, terrace, paths and water edges distribute visitors between contained galleries and shared outdoor cultural space."
         },
         "visual_forensic_saturation": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026"
+          ],
+          "answer": "Museum/park overview, site plan and event documentation dominate. The underused relation is a path-level visitor transition changed by the mirror/terrace geometry."
         },
         "light_material_geometry": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026"
+          ],
+          "answer": "Garúa can connect concrete/glass, water and lawn; low light can double occupied thresholds, but perfect reflection or empty modernism alone fails."
         },
         "position_then_optics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026"
+          ],
+          "answer": "Test public park-to-terrace tangent, mirror-edge diagonal and gallery-to-landscape reverse view if permitted. Start 35 mm for system, 50 mm for mediation action and 85 mm only with threshold context."
         },
         "moment_logistics_ethics": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MAC-NIGHT-2026",
+            "SRC-LOC-MAC-GUIDE"
+          ],
+          "answer": "Recheck hours, admission, event/photography rules and basin condition, remain on paths, avoid identifiable children and artworks-as-reproduction, and do not stage reflection gestures."
         },
         "one_frame_contest_test": {
-          "status": "NOT_STARTED",
-          "source_ids": []
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026",
+            "SRC-LOC-MAC-NIGHT-2026"
+          ],
+          "answer": "Passes when museum architecture and water/park edge visibly cause current cultural encounter. Reflection postcard, art documentation or event crowd without spatial agency fails."
         }
       },
       "proofs": {
         "A_STRUCTURE": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "A · ESTRUCTURA",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La estructura se entiende sin depender del evento humano?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026"
+          ],
+          "position": "Public park path aligning two gallery volumes, terrace and water edge",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/320 s",
+          "expected_action": "Clear interval reveals museum–park hierarchy",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude cars, glare and clipped basin",
+          "wait_trigger": "Volumes, terrace and water separate",
+          "kill_trigger": "Basin empty/blocked or only façade reads",
+          "access_ethics": "Public paths",
+          "fallback": "50 mm terrace/volume structure"
         },
         "B_HABITAR": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "B · HABITAR",
-          "lens": "",
-          "plan": "",
-          "gate": "¿El verbo humano cambia el significado y no solo aporta escala?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MAC-NIGHT-2026"
+          ],
+          "position": "Authorized/public terrace threshold beside mirror path",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/5.6, 1/250 s",
+          "expected_action": "Adults leave mediation activity and disperse into park",
+          "light": "Soft event/daylight",
+          "edge_guards": "Separate figures from artworks/reflections",
+          "wait_trigger": "Indoor program becomes outdoor occupation",
+          "kill_trigger": "Crowd could be anywhere",
+          "access_ethics": "Event rules; no children",
+          "fallback": "Ordinary adult visitor crossing"
         },
         "C_ANTI_POSTAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "C · ANTI-POSTAL",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026"
+          ],
+          "position": "Low path tangent along mirror toward offset gallery threshold, avoiding symmetric reflection",
+          "camera_height": "0.9 m",
+          "orientation": "Vertical",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, 1/400 s",
+          "expected_action": "Visitor changes direction at water edge",
+          "light": "Bright overcast",
+          "edge_guards": "No centered façade/reflection",
+          "wait_trigger": "Basin redirects movement",
+          "kill_trigger": "Water is decorative only",
+          "access_ethics": "Stay behind edge",
+          "fallback": "Empty redirected path"
         },
         "D_LIGHT_MATERIAL": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "D · LUZ / MATERIAL",
-          "lens": "",
-          "plan": "",
-          "gate": "¿La luz o el material revela arquitectura y no solo atmósfera?"
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026"
+          ],
+          "position": "Public oblique compressing concrete/glass volume, occupied threshold and partial water surface",
+          "camera_height": "1.2 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, 1/500 s",
+          "expected_action": "Silhouette crosses reflected threshold",
+          "light": "Blue hour/internal glow or soft lateral sun",
+          "edge_guards": "Retain path and terrace",
+          "wait_trigger": "Material transition directs figure",
+          "kill_trigger": "Becomes perfect-reflection study",
+          "access_ethics": "No staged action",
+          "fallback": "50 mm garúa material layers"
         },
         "E_ONE_FRAME_STORY": {
-          "status": "HYPOTHESIS",
-          "source_ids": [],
-          "label": "E · HISTORIA EN UN CUADRO",
-          "lens": "",
-          "plan": "",
-          "gate": ""
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-LOC-MAC-ABOUT-2026",
+            "SRC-LOC-MAC-NIGHT-2026"
+          ],
+          "position": "Public/authorized diagonal joining gallery exit, terrace gathering and park/mirror circulation",
+          "camera_height": "1.4 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/5.6, 1/320 s",
+          "expected_action": "Exiting, gathering and crossing occupy three zones",
+          "light": "Late afternoon transition",
+          "edge_guards": "Art and reflection subordinate to spatial use",
+          "wait_trigger": "Museum extends into city unaided",
+          "kill_trigger": "Caption explains event",
+          "access_ethics": "Permission/privacy hard gates",
+          "fallback": "Two-zone threshold/park story"
         }
       },
       "visual_reference_families": [
@@ -10863,9 +11122,9 @@
         }
       ],
       "composition_questions": [
-        "¿Qué relación arquitectónica específica en MAC Lima + parque / espejo de agua puede leerse sin pie de foto?",
-        "¿Qué borde, fondo o superposición destruiría la lectura principal?",
-        "¿Qué cambia realmente al mover la cámara antes de cambiar focal?"
+        "Can gallery volumes, terrace, water mirror and a current mediation/gathering verb read as one museum–park system rather than a reflective building portrait?",
+        "Which empty basin, fence, event furniture, glare, parked vehicle or crowd overlap breaks the threshold-to-water relationship?",
+        "Does moving to a path-level tangent reveal how the industrial volumes organize public outdoor life, or is the mirror only decorative foreground?"
       ],
       "historical_hypothesis": {
         "status": "HISTORICAL_ONLY",
@@ -10943,10 +11202,17 @@
         ]
       },
       "current_source_ids": [
-        "SRC-LOC-MAC-2026"
+        "SRC-LOC-MAC-2026",
+        "SRC-LOC-MAC-ABOUT-2026",
+        "SRC-LOC-MAC-GUIDE",
+        "SRC-LOC-MAC-NIGHT-2026"
       ],
-      "contradictions": [],
-      "verification_complete": false,
+      "contradictions": [
+        "Institutional sources are authoritative for program/design intent but promotional for visitor experience; ground visibility must be independently tested.",
+        "Noche de los Museos proves intensive occupation but is completed and partly preregistered; it is not a future route window.",
+        "The published site plan verifies two water mirrors, but their August 2026 water/maintenance condition is not established."
+      ],
+      "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
     },
