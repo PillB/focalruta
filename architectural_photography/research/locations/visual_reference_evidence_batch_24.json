@@ -1,0 +1,28 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-29-24",
+  "retrieved_at": "2026-08-29T22:25:00-05:00",
+  "method": "One official LINK_ONLY condition family closes candidate-specific visual coverage for Casa Museo Julia Codesido without redistributing imagery or implying current public access.",
+  "candidate_updates": [
+    {
+      "canonical_id": "casa-museo-julia-codesido",
+      "reference_families": [
+        {
+          "reference_id": "VR-CODESIDO-03",
+          "page_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2023/04/FICHA-2.pdf",
+          "image_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2023/04/FICHA-2.pdf",
+          "publisher": "Municipalidad Distrital de Pueblo Libre",
+          "viewpoint_family": "ARTIST_HOUSE_WORKSHOP_AND_REPORTED_CONDITION",
+          "likely_camera_height": "municipal inventory eye level",
+          "fov_class": "mixed house/interior documentation",
+          "light_weather": "daylight and interior ambient light",
+          "people_activity": "artist work is historical; current visiting and guided interpretation require direct confirmation",
+          "edge_background": "domestic rooms, garden and the workshop where Codesido worked",
+          "cliche_cluster": "preserved artist-house room",
+          "proves": "The municipal resource record identifies the workshop as a distinct spatial component and reports the house in good condition, supporting a work/domestic sequence beyond a generic façade.",
+          "cannot_prove": "2026 opening hours, booking, photography permission, current room arrangement or observable visitor activity.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}
