@@ -4953,6 +4953,7 @@ img{max-width:100%;height:auto}
 #shot-modal>div{max-height:min(88vh,calc(100dvh - 28px));overflow:auto;-webkit-overflow-scrolling:touch}
 @media(max-width:640px){
  body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+ #architecture-challenge a{margin-bottom:calc(60px + env(safe-area-inset-bottom))}
  nav.glass .max-w-7xl{padding-left:10px;padding-right:10px}
  nav.glass .flex.items-center.space-x-1{max-width:58vw;scrollbar-width:none;-webkit-overflow-scrolling:touch}
  nav.glass .flex.items-center.space-x-1::-webkit-scrollbar{display:none}

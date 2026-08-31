@@ -12,6 +12,18 @@ For Arquitectura en Foco work, read these files at the start and end of every ma
 
 Raw chats, exports, prompt archives, and unredacted historical conversations are private local inputs. Never stage, commit, package, cache, or deploy them.
 
+## Expert-rejection gate
+
+For every feature and every material decision, research what a leading expert in the relevant field would judge correct. Prefer authoritative specifications, primary research, maintainers, professional standards, and the preponderance of reproducible evidence. Record the benchmark and ask: **why would that expert reject the current choice?** If a supported rejection is known, do not ship that choice.
+
+Optimize for methodological and scientific correctness, state-of-the-art techniques where they are feasible and validated, usability, intuitiveness, and quality-of-life behavior—not for the cheapest interpretation of the stated constraints. Validate against the evidence-backed benchmark or feasible ideal. Claims of “perfect” or “production-ready” require feature-by-feature evidence and are prohibited while a known expert rejection remains.
+
+Every trade-off must be stated to the user and recorded in the round handoff; never absorb a compromise silently. Keep legal research outside this project unless a directly applicable competition rule changes product or submission behavior.
+
+When a task or gate depends on an unstable, unavailable, rate-limited, or usage-limited service, agent, or API, stop the run and surface the issue after the first confirmed availability failure. Preserve the last verified artifact; do not keep retrying or downgrade silently.
+
+For macOS instructions, never present `⌘⌥Q` (Command–Option–Q) as a harmless application shortcut: it closes the program. State destructive or session-ending keyboard effects before asking a user to press them.
+
 ## Test contract
 
 Every implementation task must name its requirement IDs and have executable RED and GREEN evidence. A round cannot close until its task tests, the architecture verifier, privacy scan, and existing FocalRuta release gate pass. Browser-facing rounds must also execute the required viewport, keyboard, focus, reduced-motion, offline, save/reload, resource, console, and overflow checks.
@@ -27,6 +39,8 @@ Every implementation task must name its requirement IDs and have executable RED 
 | 6 Integration | source/generated/hosted/standalone parity, nav discovery, service worker, regression, browser/accessibility and privacy-build tests |
 
 Tests must fail for the intended missing behavior before implementation. Do not use comments, fixture-only assertions, placeholder data, fabricated transcripts, or generated PASS files as proof.
+
+Tautological tests are prohibited. A test must observe externally meaningful behavior, an independent invariant, a boundary case, or a transformation result; it may not merely search for the implementation string it just required unless the artifact itself is the contract under test. Every task and every round must map requirement IDs to at least one executable RED test and independent GREEN evidence.
 
 ## Debugging research escalation
 

@@ -4,30 +4,15 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "lugar-de-la-memoria-lum",
-        "name": "Lugar de la Memoria",
+        "id": "parque-tradiciones-ricardo-palma",
+        "name": "Parque Las Tradiciones",
         "district": "Miraflores"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.0536918,
-          -12.1100511
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "parque-maria-reiche",
-        "name": "Parque María Reiche",
-        "district": "Miraflores"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.0493238,
-          -12.1147278
+          -77.0213252,
+          -12.1217046
         ]
       }
     }

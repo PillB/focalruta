@@ -6,6 +6,7 @@ import itertools
 import json
 import os
 import subprocess
+from html import escape
 from tempfile import TemporaryDirectory
 import urllib.parse
 import urllib.request
@@ -30,6 +31,9 @@ EXCLUDED = {
 }
 MAX_WALKING_LEG_M = 1000
 MAX_EXACT_STOPS = 8
+FORCE_SINGLETONS = {
+    "parque-tradiciones-ricardo-palma": "OSM pedestrian route to its nearest cluster exits the Miraflores administrative polygon",
+}
 
 
 def get_json(url: str) -> dict | list:
@@ -209,14 +213,36 @@ def search_url(point: dict) -> str:
 def write_geojson(layer: dict, district_slug: str, output_dir: Path) -> str:
     path = output_dir / f"{district_slug}.geojson"
     features = [{"type": "Feature", "properties": {"id": stop["canonical_id"], "name": stop["name"], "district": stop["district"]}, "geometry": {"type": "Point", "coordinates": [stop["longitude"], stop["latitude"]]}} for stop in layer["stops"]]
+    features.extend(
+        {
+            "type": "Feature",
+            "properties": {
+                "from": leg["from"],
+                "to": leg["to"],
+                "road_distance_m": leg["road_distance_m"],
+                "source_retrieved_at": leg["source_retrieved_at"],
+            },
+            "geometry": leg["geometry"],
+        }
+        for leg in layer["legs"]
+    )
     path.write_text(json.dumps({"type": "FeatureCollection", "features": features}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return str(path.relative_to(ROOT))
 
 
 def write_kml(layer: dict, district_slug: str, output_dir: Path) -> str:
     path = output_dir / f"{district_slug}.kml"
-    places = "".join(f'<Placemark><name>{stop["name"]}</name><Point><coordinates>{stop["longitude"]},{stop["latitude"]},0</coordinates></Point></Placemark>' for stop in layer["stops"])
-    path.write_text(f'<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>{layer["district"]}</name>{places}</Document></kml>\n', encoding="utf-8")
+    places = "".join(f'<Placemark><name>{escape(stop["name"])}</name><Point><coordinates>{stop["longitude"]},{stop["latitude"]},0</coordinates></Point></Placemark>' for stop in layer["stops"])
+    lines = "".join(
+        f'<Placemark><name>{escape(leg["from"])} → {escape(leg["to"])}</name><styleUrl>#walking-route</styleUrl>'
+        f'<ExtendedData><Data name="road_distance_m"><value>{leg["road_distance_m"]}</value></Data></ExtendedData>'
+        f'<LineString><tessellate>1</tessellate><altitudeMode>clampToGround</altitudeMode><coordinates>'
+        + " ".join(f"{longitude},{latitude},0" for longitude, latitude in leg["geometry"]["coordinates"])
+        + "</coordinates></LineString></Placemark>"
+        for leg in layer["legs"]
+    )
+    style = '<Style id="walking-route"><LineStyle><color>ff326bb8</color><width>5</width></LineStyle></Style>'
+    path.write_text(f'<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>{escape(layer["district"])}</name>{style}{places}{lines}</Document></kml>\n', encoding="utf-8")
     return str(path.relative_to(ROOT))
 
 
@@ -228,9 +254,12 @@ def build_layer(district: str, points: list[dict], retrieved_at: str, boundary: 
     for first, second in zip(ordered, ordered[1:]):
         route = get_json(leg_url(first, second))["routes"][0]
         legs.append({"from": first["canonical_id"], "to": second["canonical_id"], "road_distance_m": route["distance"], "road_duration_s": route["duration"], "geometry": route["geometry"], "source_retrieved_at": retrieved_at, "eta_label": "snapshot estimate"})
+    if any(not geometry_contains(boundary["geojson"], {"longitude": point[0], "latitude": point[1]}) for leg in legs for point in leg["geometry"]["coordinates"]):
+        raise ValueError("route geometry exits its stated district")
     layer = {
         "district": district,
         "containment_status": "VERIFIED",
+        "route_geometry_containment_status": "VERIFIED",
         "boundary_osm_id": boundary["osm_id"],
         "stops": ordered,
         "legs": legs,
@@ -250,9 +279,11 @@ def build_district_layers(district: str, points: list[dict], retrieved_at: str, 
     results = get_json(boundary_url(district))
     boundary = next(item for item in results if item["category"] == "boundary" and item["type"] == "administrative" and item["geojson"]["type"] in {"Polygon", "MultiPolygon"})
     contained = [point for point in points if geometry_contains(boundary["geojson"], point)]
-    matrix = [[0.0]] if len(contained) == 1 else get_json(matrix_url(contained))["distances"]
-    index_groups = [path for component in bounded_components(matrix) for path in exact_path_cover(matrix, component)]
-    groups = [[contained[index] for index in group] for group in index_groups]
+    singleton_groups = [[point] for point in contained if point["canonical_id"] in FORCE_SINGLETONS]
+    routable = [point for point in contained if point["canonical_id"] not in FORCE_SINGLETONS]
+    matrix = [[0.0]] if len(routable) == 1 else get_json(matrix_url(routable))["distances"]
+    index_groups = [path for component in bounded_components(matrix) for path in exact_path_cover(matrix, component)] if routable else []
+    groups = [[routable[index] for index in group] for group in index_groups] + singleton_groups
     suffixes = [f"-tour-{index}" if len(groups) > 1 else "" for index in range(1, len(groups) + 1)]
     return [build_layer(district, group, retrieved_at, boundary, suffix, output_dir) for group, suffix in zip(groups, suffixes)]
 

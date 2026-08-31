@@ -24,3 +24,18 @@ def test_pages_workflow_uses_node24_action_generations():
     assert "actions/deploy-pages@v5" in workflow
     assert "@v4" not in workflow
     assert "upload-pages-artifact@v3" not in workflow
+
+
+def test_agent_contract_requires_expert_rejection_and_fail_fast_evidence():
+    contract = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    required = (
+        "Expert-rejection gate",
+        "methodological and scientific correctness",
+        "Tautological tests are prohibited",
+        "stop the run and surface the issue",
+        "⌘⌥Q",
+        "Every trade-off",
+    )
+    assert all(phrase in contract for phrase in required)
+    claude = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
+    assert str(ROOT / "AGENTS.md") in claude

@@ -1,6 +1,10 @@
 import json
+import hashlib
 from pathlib import Path
+import subprocess
+import sys
 from urllib.parse import parse_qs, urlparse
+from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -77,12 +81,34 @@ def test_every_layer_is_district_pure_and_every_stop_is_contained():
     for layer in routes["district_layers"]:
         assert layer["district"]
         assert layer["containment_status"] == "VERIFIED"
+        assert layer["route_geometry_containment_status"] == "VERIFIED"
         assert layer["stops"]
         for stop in layer["stops"]:
             assert stop["district"] == layer["district"]
             assert stop["point_in_district"] is True
             assert -12.6 < stop["latitude"] < -11.5
             assert -77.3 < stop["longitude"] < -76.5
+
+
+def test_known_miraflores_boundary_exit_is_split_not_published():
+    routes = load_routes()
+    traditions = [
+        layer
+        for layer in routes["district_layers"]
+        if any(stop["canonical_id"] == "parque-tradiciones-ricardo-palma" for stop in layer["stops"])
+    ]
+    assert len(traditions) == 1
+    assert len(traditions[0]["stops"]) == 1
+    assert not traditions[0]["legs"]
+
+
+def test_snapshot_boundary_repair_is_idempotent():
+    command = [sys.executable, str(ROOT / "scripts/repair_architecture_route_snapshot.py")]
+    subprocess.run(command, cwd=ROOT, check=True, capture_output=True, text=True)
+    first = hashlib.sha256(ROUTES.read_bytes()).hexdigest()
+    subprocess.run(command, cwd=ROOT, check=True, capture_output=True, text=True)
+    second = hashlib.sha256(ROUTES.read_bytes()).hexdigest()
+    assert first == second
 
 
 def test_iphone_links_use_google_walking_contract_without_truncation():
@@ -118,14 +144,30 @@ def test_generated_page_discloses_long_transfers():
     assert "sepárala si la calle intermedia no aporta" in page
 
 
+def test_repaired_subpath_is_not_presented_as_a_new_exact_minimum():
+    page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
+    assert "Subruta contenida de una solución exacta anterior" in page
+    assert "no se presenta como un nuevo mínimo exacto" in page
+    routes = load_routes()
+    repaired = [layer for layer in routes["district_layers"] if layer["optimization"]["method"] == "verified_subpath_from_exact_parent"]
+    assert len(repaired) == 1
+    assert repaired[0]["optimization"]["exact_minimum_distance_m"] is None
+
+
 def test_small_tours_are_checked_by_exact_permutation():
     routes = load_routes()
     for layer in routes["district_layers"]:
         if len(layer["stops"]) <= 9:
             optimization = layer["optimization"]
-            assert optimization["method"] == "exact_permutation"
-            assert optimization["permutations_evaluated"] >= 1
-            assert optimization["selected_distance_m"] == optimization["exact_minimum_distance_m"]
+            if optimization["method"] == "exact_permutation":
+                assert optimization["permutations_evaluated"] >= 1
+                assert optimization["selected_distance_m"] == optimization["exact_minimum_distance_m"]
+            elif optimization["method"] == "singleton":
+                assert optimization["selected_distance_m"] == 0
+            else:
+                assert optimization["method"] == "verified_subpath_from_exact_parent"
+                assert optimization["exact_minimum_distance_m"] is None
+                assert optimization["optimization_limitation"]
 
 
 def test_downloads_and_eli5_iphone_help_exist():
@@ -136,6 +178,35 @@ def test_downloads_and_eli5_iphone_help_exist():
     for layer in routes["district_layers"]:
         assert (ROOT / layer["kml_path"]).exists()
         assert (ROOT / layer["geojson_path"]).exists()
+
+
+def test_iphone_help_explains_direct_link_and_kml_failure_recovery():
+    help_text = (ROOT / "challenges/arquitectura-en-foco/iphone-maps.html").read_text(encoding="utf-8")
+    assert "Si el enlace no abre" in help_text
+    assert "mantén pulsado" in help_text
+    assert "Archivos" in help_text
+    assert "no se importa directamente" in help_text
+
+
+def test_download_layers_include_road_conforming_lines_not_only_pins():
+    namespace = {"kml": "http://www.opengis.net/kml/2.2"}
+    for layer in load_routes()["district_layers"]:
+        geojson = json.loads((ROOT / layer["geojson_path"]).read_text(encoding="utf-8"))
+        line_features = [feature for feature in geojson["features"] if feature["geometry"]["type"] == "LineString"]
+        assert len(line_features) == len(layer["legs"])
+        for feature, leg in zip(line_features, layer["legs"]):
+            assert feature["geometry"] == leg["geometry"]
+            assert feature["properties"]["road_distance_m"] == leg["road_distance_m"]
+        kml_root = ElementTree.parse(ROOT / layer["kml_path"]).getroot()
+        assert len(kml_root.findall(".//kml:LineString", namespace)) == len(layer["legs"])
+
+
+def test_each_multistop_route_card_has_accessible_road_shape_preview():
+    page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
+    expected = sum(bool(layer["legs"]) for layer in load_routes()["district_layers"])
+    assert page.count('class="route-preview"') == expected
+    assert page.count('role="img" aria-label="Trazado peatonal') == expected
+    assert "La línea sigue la geometría peatonal OSM capturada" in page
 
 
 def test_route_ui_exposes_district_filter_and_singleton_map_links():
