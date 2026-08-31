@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "aulario-104-universidad-ricardo-palma",
+        "name": "Universidad Ricardo Palma",
+        "district": "Santiago de Surco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.9800955,
+          -12.1322779
+        ]
+      }
+    }
+  ]
+}

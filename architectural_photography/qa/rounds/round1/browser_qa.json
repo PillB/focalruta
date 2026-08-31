@@ -1,0 +1,102 @@
+{
+  "url": "http://127.0.0.1:8766/challenges/arquitectura-en-foco/",
+  "passed": true,
+  "records": [
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "focus_reached": true,
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
+    },
+    {
+      "viewport": [
+        430,
+        932
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "focus_reached": true,
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "focus_reached": true,
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
+    },
+    {
+      "viewport": [
+        932,
+        430
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "focus_reached": true,
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
+    },
+    {
+      "viewport": [
+        820,
+        1000
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "focus_reached": true,
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
+    },
+    {
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "focus_reached": true,
+      "firewall_count": 1,
+      "ranking_all_count": 81,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
+    }
+  ]
+}

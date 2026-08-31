@@ -1,0 +1,4884 @@
+{
+  "run_id": "2026-08-30-r4-v2",
+  "model_version": "architecture-ranking-v1.0.1",
+  "generated_at": "2026-08-30T12:00:00-05:00",
+  "candidate_count": 81,
+  "seed": 20260830,
+  "samples_per_scenario": 2000,
+  "official_proxy_label": "INTERNAL_PROXY",
+  "calibrated_winning_probability": false,
+  "scenario_rankings": {
+    "R0": [
+      {
+        "rank": 1,
+        "canonical_id": "previ-lima",
+        "score": 94.133
+      },
+      {
+        "rank": 2,
+        "canonical_id": "centro-civico-de-lima-real-plaza",
+        "score": 91.481
+      },
+      {
+        "rank": 3,
+        "canonical_id": "edificio-alvarez-calderon",
+        "score": 91.322
+      },
+      {
+        "rank": 4,
+        "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+        "score": 91.284
+      },
+      {
+        "rank": 5,
+        "canonical_id": "centro-cultural-ccori-wasi",
+        "score": 91.226
+      },
+      {
+        "rank": 6,
+        "canonical_id": "agrupamiento-chabuca-granda",
+        "score": 91.066
+      },
+      {
+        "rank": 7,
+        "canonical_id": "quinta-heeren-restauracion-2026",
+        "score": 91.031
+      },
+      {
+        "rank": 8,
+        "canonical_id": "residencial-san-felipe",
+        "score": 90.9
+      },
+      {
+        "rank": 9,
+        "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+        "score": 90.745
+      },
+      {
+        "rank": 10,
+        "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+        "score": 90.557
+      },
+      {
+        "rank": 11,
+        "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+        "score": 90.146
+      },
+      {
+        "rank": 12,
+        "canonical_id": "torres-de-limatambo-supermanzana",
+        "score": 90.105
+      },
+      {
+        "rank": 13,
+        "canonical_id": "conjunto-habitacional-palomino",
+        "score": 90.055
+      },
+      {
+        "rank": 14,
+        "canonical_id": "unidad-vecinal-3",
+        "score": 89.172
+      },
+      {
+        "rank": 15,
+        "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+        "score": 88.781
+      },
+      {
+        "rank": 16,
+        "canonical_id": "casa-museo-julia-codesido",
+        "score": 88.495
+      },
+      {
+        "rank": 17,
+        "canonical_id": "jiron-trujillo-puente-de-piedra",
+        "score": 88.211
+      },
+      {
+        "rank": 18,
+        "canonical_id": "huaca-santa-cruz",
+        "score": 87.966
+      },
+      {
+        "rank": 19,
+        "canonical_id": "aulario-104-universidad-ricardo-palma",
+        "score": 87.858
+      },
+      {
+        "rank": 20,
+        "canonical_id": "lima-centro-de-convenciones",
+        "score": 87.73
+      },
+      {
+        "rank": 21,
+        "canonical_id": "casa-garcia-bryce",
+        "score": 87.426
+      },
+      {
+        "rank": 22,
+        "canonical_id": "museo-de-la-electricidad-tranvia",
+        "score": 87.336
+      },
+      {
+        "rank": 23,
+        "canonical_id": "parque-de-las-americas",
+        "score": 87.173
+      },
+      {
+        "rank": 24,
+        "canonical_id": "quinta-de-los-libertadores-mnaahp",
+        "score": 85.183
+      },
+      {
+        "rank": 25,
+        "canonical_id": "damero-de-lima-interseccion-como-objeto",
+        "score": 84.841
+      },
+      {
+        "rank": 26,
+        "canonical_id": "plaza-a-la-bandera",
+        "score": 84.803
+      },
+      {
+        "rank": 27,
+        "canonical_id": "jiron-de-la-union",
+        "score": 84.675
+      },
+      {
+        "rank": 28,
+        "canonical_id": "parque-virginia-candamo",
+        "score": 84.483
+      },
+      {
+        "rank": 29,
+        "canonical_id": "quinta-leuro-y-quintas-historicas",
+        "score": 83.603
+      },
+      {
+        "rank": 30,
+        "canonical_id": "estacion-restos-del-funicular-de-barranco",
+        "score": 82.695
+      },
+      {
+        "rank": 31,
+        "canonical_id": "torres-centro-empresarial-camino-real",
+        "score": 82.659
+      },
+      {
+        "rank": 32,
+        "canonical_id": "lugar-de-la-memoria-lum",
+        "score": 82.424
+      },
+      {
+        "rank": 33,
+        "canonical_id": "huaca-san-borja",
+        "score": 82.326
+      },
+      {
+        "rank": 34,
+        "canonical_id": "mac-lima-parque-espejo-de-agua",
+        "score": 81.965
+      },
+      {
+        "rank": 35,
+        "canonical_id": "santisima-cruz-del-viajero",
+        "score": 81.678
+      },
+      {
+        "rank": 36,
+        "canonical_id": "gran-teatro-nacional",
+        "score": 81.421
+      },
+      {
+        "rank": 37,
+        "canonical_id": "reducto-2-casa-museo-caceres",
+        "score": 80.989
+      },
+      {
+        "rank": 38,
+        "canonical_id": "casa-hacienda-orbea",
+        "score": 80.734
+      },
+      {
+        "rank": 39,
+        "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+        "score": 80.296
+      },
+      {
+        "rank": 40,
+        "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+        "score": 80.28
+      },
+      {
+        "rank": 41,
+        "canonical_id": "biblioteca-municipal-de-barranco",
+        "score": 80.136
+      },
+      {
+        "rank": 42,
+        "canonical_id": "antigua-taberna-queirolo",
+        "score": 79.416
+      },
+      {
+        "rank": 43,
+        "canonical_id": "casa-emilio-harth-terre",
+        "score": 79.349
+      },
+      {
+        "rank": 44,
+        "canonical_id": "biblioteca-nacional-del-peru",
+        "score": 78.881
+      },
+      {
+        "rank": 45,
+        "canonical_id": "parque-tradiciones-ricardo-palma",
+        "score": 78.519
+      },
+      {
+        "rank": 46,
+        "canonical_id": "casa-raul-porras-barrenechea",
+        "score": 77.956
+      },
+      {
+        "rank": 47,
+        "canonical_id": "casa-museo-marina-nunez-del-prado",
+        "score": 77.359
+      },
+      {
+        "rank": 48,
+        "canonical_id": "puente-villena-bajada-balta-costa-verde",
+        "score": 76.902
+      },
+      {
+        "rank": 49,
+        "canonical_id": "casa-hacienda-moreyra",
+        "score": 76.696
+      },
+      {
+        "rank": 50,
+        "canonical_id": "mirador-catalina-recavarren",
+        "score": 76.293
+      },
+      {
+        "rank": 51,
+        "canonical_id": "parque-municipal-y-entorno-civico",
+        "score": 76.291
+      },
+      {
+        "rank": 52,
+        "canonical_id": "pentagonito-y-bordes-civicos",
+        "score": 75.672
+      },
+      {
+        "rank": 53,
+        "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+        "score": 75.494
+      },
+      {
+        "rank": 54,
+        "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+        "score": 75.309
+      },
+      {
+        "rank": 55,
+        "canonical_id": "calle-choquehuanca-basadre-residencial",
+        "score": 74.961
+      },
+      {
+        "rank": 56,
+        "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+        "score": 74.639
+      },
+      {
+        "rank": 57,
+        "canonical_id": "huaca-julio-c-tello",
+        "score": 74.446
+      },
+      {
+        "rank": 58,
+        "canonical_id": "country-club-lima-hotel",
+        "score": 74.186
+      },
+      {
+        "rank": 59,
+        "canonical_id": "museo-larco-jardines",
+        "score": 73.891
+      },
+      {
+        "rank": 60,
+        "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+        "score": 73.733
+      },
+      {
+        "rank": 61,
+        "canonical_id": "torre-banco-de-la-nacion",
+        "score": 73.332
+      },
+      {
+        "rank": 62,
+        "canonical_id": "parque-de-la-felicidad",
+        "score": 72.529
+      },
+      {
+        "rank": 63,
+        "canonical_id": "parroquia-nuestra-senora-del-pilar",
+        "score": 72.453
+      },
+      {
+        "rank": 64,
+        "canonical_id": "bosque-el-olivar",
+        "score": 72.381
+      },
+      {
+        "rank": 65,
+        "canonical_id": "casa-museo-ricardo-palma",
+        "score": 72.149
+      },
+      {
+        "rank": 66,
+        "canonical_id": "saenz-pena-domeyer-pasajes",
+        "score": 72.133
+      },
+      {
+        "rank": 67,
+        "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+        "score": 72.014
+      },
+      {
+        "rank": 68,
+        "canonical_id": "huaca-huallamarca",
+        "score": 72.008
+      },
+      {
+        "rank": 69,
+        "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+        "score": 71.928
+      },
+      {
+        "rank": 70,
+        "canonical_id": "iglesia-santisima-cruz",
+        "score": 71.906
+      },
+      {
+        "rank": 71,
+        "canonical_id": "ovalo-de-miraflores",
+        "score": 71.613
+      },
+      {
+        "rank": 72,
+        "canonical_id": "la-ermita-de-barranco",
+        "score": 71.391
+      },
+      {
+        "rank": 73,
+        "canonical_id": "coliseo-eduardo-dibos",
+        "score": 70.972
+      },
+      {
+        "rank": 74,
+        "canonical_id": "parque-maria-reiche",
+        "score": 70.372
+      },
+      {
+        "rank": 75,
+        "canonical_id": "huaca-pucllana",
+        "score": 68.286
+      },
+      {
+        "rank": 76,
+        "canonical_id": "palacio-municipal-virgen-milagrosa",
+        "score": 66.996
+      },
+      {
+        "rank": 77,
+        "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+        "score": 66.288
+      },
+      {
+        "rank": 78,
+        "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+        "score": 65.72
+      },
+      {
+        "rank": 79,
+        "canonical_id": "parque-kennedy-gatos-civic-core",
+        "score": 65.431
+      },
+      {
+        "rank": 80,
+        "canonical_id": "larcomar-acantilado",
+        "score": 62.531
+      },
+      {
+        "rank": 81,
+        "canonical_id": "parque-del-amor-el-beso",
+        "score": 60.753
+      }
+    ],
+    "R1": [
+      {
+        "rank": 1,
+        "canonical_id": "previ-lima",
+        "score": 92.734
+      },
+      {
+        "rank": 2,
+        "canonical_id": "edificio-alvarez-calderon",
+        "score": 91.836
+      },
+      {
+        "rank": 3,
+        "canonical_id": "agrupamiento-chabuca-granda",
+        "score": 89.801
+      },
+      {
+        "rank": 4,
+        "canonical_id": "quinta-heeren-restauracion-2026",
+        "score": 89.563
+      },
+      {
+        "rank": 5,
+        "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+        "score": 89.559
+      },
+      {
+        "rank": 6,
+        "canonical_id": "conjunto-habitacional-palomino",
+        "score": 89.315
+      },
+      {
+        "rank": 7,
+        "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+        "score": 89.15
+      },
+      {
+        "rank": 8,
+        "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+        "score": 88.9
+      },
+      {
+        "rank": 9,
+        "canonical_id": "centro-cultural-ccori-wasi",
+        "score": 88.74
+      },
+      {
+        "rank": 10,
+        "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+        "score": 88.045
+      },
+      {
+        "rank": 11,
+        "canonical_id": "unidad-vecinal-3",
+        "score": 87.814
+      },
+      {
+        "rank": 12,
+        "canonical_id": "casa-garcia-bryce",
+        "score": 87.776
+      },
+      {
+        "rank": 13,
+        "canonical_id": "torres-de-limatambo-supermanzana",
+        "score": 87.723
+      },
+      {
+        "rank": 14,
+        "canonical_id": "residencial-san-felipe",
+        "score": 87.63
+      },
+      {
+        "rank": 15,
+        "canonical_id": "casa-museo-julia-codesido",
+        "score": 87.033
+      },
+      {
+        "rank": 16,
+        "canonical_id": "centro-civico-de-lima-real-plaza",
+        "score": 86.988
+      },
+      {
+        "rank": 17,
+        "canonical_id": "aulario-104-universidad-ricardo-palma",
+        "score": 86.364
+      },
+      {
+        "rank": 18,
+        "canonical_id": "huaca-santa-cruz",
+        "score": 86.041
+      },
+      {
+        "rank": 19,
+        "canonical_id": "museo-de-la-electricidad-tranvia",
+        "score": 85.378
+      },
+      {
+        "rank": 20,
+        "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+        "score": 85.177
+      },
+      {
+        "rank": 21,
+        "canonical_id": "parque-de-las-americas",
+        "score": 85.112
+      },
+      {
+        "rank": 22,
+        "canonical_id": "jiron-trujillo-puente-de-piedra",
+        "score": 84.926
+      },
+      {
+        "rank": 23,
+        "canonical_id": "parque-virginia-candamo",
+        "score": 83.731
+      },
+      {
+        "rank": 24,
+        "canonical_id": "lima-centro-de-convenciones",
+        "score": 83.088
+      },
+      {
+        "rank": 25,
+        "canonical_id": "casa-hacienda-orbea",
+        "score": 82.569
+      },
+      {
+        "rank": 26,
+        "canonical_id": "quinta-leuro-y-quintas-historicas",
+        "score": 82.486
+      },
+      {
+        "rank": 27,
+        "canonical_id": "santisima-cruz-del-viajero",
+        "score": 81.929
+      },
+      {
+        "rank": 28,
+        "canonical_id": "estacion-restos-del-funicular-de-barranco",
+        "score": 81.783
+      },
+      {
+        "rank": 29,
+        "canonical_id": "huaca-san-borja",
+        "score": 81.5
+      },
+      {
+        "rank": 30,
+        "canonical_id": "plaza-a-la-bandera",
+        "score": 81.356
+      },
+      {
+        "rank": 31,
+        "canonical_id": "quinta-de-los-libertadores-mnaahp",
+        "score": 81.244
+      },
+      {
+        "rank": 32,
+        "canonical_id": "casa-emilio-harth-terre",
+        "score": 80.552
+      },
+      {
+        "rank": 33,
+        "canonical_id": "torres-centro-empresarial-camino-real",
+        "score": 80.522
+      },
+      {
+        "rank": 34,
+        "canonical_id": "damero-de-lima-interseccion-como-objeto",
+        "score": 78.12
+      },
+      {
+        "rank": 35,
+        "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+        "score": 77.56
+      },
+      {
+        "rank": 36,
+        "canonical_id": "reducto-2-casa-museo-caceres",
+        "score": 77.207
+      },
+      {
+        "rank": 37,
+        "canonical_id": "mac-lima-parque-espejo-de-agua",
+        "score": 77.09
+      },
+      {
+        "rank": 38,
+        "canonical_id": "lugar-de-la-memoria-lum",
+        "score": 77.035
+      },
+      {
+        "rank": 39,
+        "canonical_id": "parque-tradiciones-ricardo-palma",
+        "score": 76.777
+      },
+      {
+        "rank": 40,
+        "canonical_id": "casa-raul-porras-barrenechea",
+        "score": 76.558
+      },
+      {
+        "rank": 41,
+        "canonical_id": "biblioteca-municipal-de-barranco",
+        "score": 76.166
+      },
+      {
+        "rank": 42,
+        "canonical_id": "jiron-de-la-union",
+        "score": 76.102
+      },
+      {
+        "rank": 43,
+        "canonical_id": "casa-museo-marina-nunez-del-prado",
+        "score": 75.887
+      },
+      {
+        "rank": 44,
+        "canonical_id": "biblioteca-nacional-del-peru",
+        "score": 75.571
+      },
+      {
+        "rank": 45,
+        "canonical_id": "puente-villena-bajada-balta-costa-verde",
+        "score": 75.121
+      },
+      {
+        "rank": 46,
+        "canonical_id": "huaca-julio-c-tello",
+        "score": 74.275
+      },
+      {
+        "rank": 47,
+        "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+        "score": 73.935
+      },
+      {
+        "rank": 48,
+        "canonical_id": "antigua-taberna-queirolo",
+        "score": 73.93
+      },
+      {
+        "rank": 49,
+        "canonical_id": "gran-teatro-nacional",
+        "score": 73.57
+      },
+      {
+        "rank": 50,
+        "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+        "score": 73.416
+      },
+      {
+        "rank": 51,
+        "canonical_id": "calle-choquehuanca-basadre-residencial",
+        "score": 73.411
+      },
+      {
+        "rank": 52,
+        "canonical_id": "parque-municipal-y-entorno-civico",
+        "score": 73.288
+      },
+      {
+        "rank": 53,
+        "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+        "score": 72.715
+      },
+      {
+        "rank": 54,
+        "canonical_id": "pentagonito-y-bordes-civicos",
+        "score": 72.639
+      },
+      {
+        "rank": 55,
+        "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+        "score": 72.594
+      },
+      {
+        "rank": 56,
+        "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+        "score": 72.17
+      },
+      {
+        "rank": 57,
+        "canonical_id": "casa-hacienda-moreyra",
+        "score": 71.975
+      },
+      {
+        "rank": 58,
+        "canonical_id": "mirador-catalina-recavarren",
+        "score": 71.222
+      },
+      {
+        "rank": 59,
+        "canonical_id": "saenz-pena-domeyer-pasajes",
+        "score": 70.349
+      },
+      {
+        "rank": 60,
+        "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+        "score": 70.315
+      },
+      {
+        "rank": 61,
+        "canonical_id": "iglesia-santisima-cruz",
+        "score": 70.226
+      },
+      {
+        "rank": 62,
+        "canonical_id": "casa-museo-ricardo-palma",
+        "score": 70.092
+      },
+      {
+        "rank": 63,
+        "canonical_id": "parroquia-nuestra-senora-del-pilar",
+        "score": 69.854
+      },
+      {
+        "rank": 64,
+        "canonical_id": "coliseo-eduardo-dibos",
+        "score": 69.661
+      },
+      {
+        "rank": 65,
+        "canonical_id": "torre-banco-de-la-nacion",
+        "score": 68.744
+      },
+      {
+        "rank": 66,
+        "canonical_id": "country-club-lima-hotel",
+        "score": 67.908
+      },
+      {
+        "rank": 67,
+        "canonical_id": "parque-maria-reiche",
+        "score": 67.248
+      },
+      {
+        "rank": 68,
+        "canonical_id": "parque-de-la-felicidad",
+        "score": 66.82
+      },
+      {
+        "rank": 69,
+        "canonical_id": "ovalo-de-miraflores",
+        "score": 65.644
+      },
+      {
+        "rank": 70,
+        "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+        "score": 65.297
+      },
+      {
+        "rank": 71,
+        "canonical_id": "museo-larco-jardines",
+        "score": 65.015
+      },
+      {
+        "rank": 72,
+        "canonical_id": "la-ermita-de-barranco",
+        "score": 64.263
+      },
+      {
+        "rank": 73,
+        "canonical_id": "bosque-el-olivar",
+        "score": 62.611
+      },
+      {
+        "rank": 74,
+        "canonical_id": "huaca-huallamarca",
+        "score": 62.524
+      },
+      {
+        "rank": 75,
+        "canonical_id": "palacio-municipal-virgen-milagrosa",
+        "score": 60.95
+      },
+      {
+        "rank": 76,
+        "canonical_id": "huaca-pucllana",
+        "score": 56.136
+      },
+      {
+        "rank": 77,
+        "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+        "score": 54.601
+      },
+      {
+        "rank": 78,
+        "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+        "score": 54.138
+      },
+      {
+        "rank": 79,
+        "canonical_id": "parque-kennedy-gatos-civic-core",
+        "score": 54.068
+      },
+      {
+        "rank": 80,
+        "canonical_id": "larcomar-acantilado",
+        "score": 51.961
+      },
+      {
+        "rank": 81,
+        "canonical_id": "parque-del-amor-el-beso",
+        "score": 50.796
+      }
+    ],
+    "R2": [
+      {
+        "rank": 1,
+        "canonical_id": "previ-lima",
+        "score": 93.323
+      },
+      {
+        "rank": 2,
+        "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+        "score": 93.091
+      },
+      {
+        "rank": 3,
+        "canonical_id": "centro-civico-de-lima-real-plaza",
+        "score": 91.356
+      },
+      {
+        "rank": 4,
+        "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+        "score": 90.897
+      },
+      {
+        "rank": 5,
+        "canonical_id": "lima-centro-de-convenciones",
+        "score": 90.843
+      },
+      {
+        "rank": 6,
+        "canonical_id": "edificio-alvarez-calderon",
+        "score": 90.767
+      },
+      {
+        "rank": 7,
+        "canonical_id": "residencial-san-felipe",
+        "score": 90.558
+      },
+      {
+        "rank": 8,
+        "canonical_id": "agrupamiento-chabuca-granda",
+        "score": 90.514
+      },
+      {
+        "rank": 9,
+        "canonical_id": "centro-cultural-ccori-wasi",
+        "score": 90.496
+      },
+      {
+        "rank": 10,
+        "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+        "score": 90.423
+      },
+      {
+        "rank": 11,
+        "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+        "score": 90.29
+      },
+      {
+        "rank": 12,
+        "canonical_id": "torres-de-limatambo-supermanzana",
+        "score": 89.75
+      },
+      {
+        "rank": 13,
+        "canonical_id": "conjunto-habitacional-palomino",
+        "score": 89.128
+      },
+      {
+        "rank": 14,
+        "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+        "score": 89.101
+      },
+      {
+        "rank": 15,
+        "canonical_id": "unidad-vecinal-3",
+        "score": 88.92
+      },
+      {
+        "rank": 16,
+        "canonical_id": "jiron-trujillo-puente-de-piedra",
+        "score": 88.706
+      },
+      {
+        "rank": 17,
+        "canonical_id": "aulario-104-universidad-ricardo-palma",
+        "score": 87.773
+      },
+      {
+        "rank": 18,
+        "canonical_id": "parque-de-las-americas",
+        "score": 87.566
+      },
+      {
+        "rank": 19,
+        "canonical_id": "quinta-heeren-restauracion-2026",
+        "score": 87.466
+      },
+      {
+        "rank": 20,
+        "canonical_id": "museo-de-la-electricidad-tranvia",
+        "score": 87.074
+      },
+      {
+        "rank": 21,
+        "canonical_id": "mac-lima-parque-espejo-de-agua",
+        "score": 86.525
+      },
+      {
+        "rank": 22,
+        "canonical_id": "jiron-de-la-union",
+        "score": 86.437
+      },
+      {
+        "rank": 23,
+        "canonical_id": "huaca-santa-cruz",
+        "score": 86.279
+      },
+      {
+        "rank": 24,
+        "canonical_id": "casa-museo-julia-codesido",
+        "score": 86.2
+      },
+      {
+        "rank": 25,
+        "canonical_id": "damero-de-lima-interseccion-como-objeto",
+        "score": 86.046
+      },
+      {
+        "rank": 26,
+        "canonical_id": "quinta-de-los-libertadores-mnaahp",
+        "score": 85.088
+      },
+      {
+        "rank": 27,
+        "canonical_id": "plaza-a-la-bandera",
+        "score": 84.958
+      },
+      {
+        "rank": 28,
+        "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+        "score": 84.708
+      },
+      {
+        "rank": 29,
+        "canonical_id": "gran-teatro-nacional",
+        "score": 84.501
+      },
+      {
+        "rank": 30,
+        "canonical_id": "parque-virginia-candamo",
+        "score": 84.49
+      },
+      {
+        "rank": 31,
+        "canonical_id": "casa-garcia-bryce",
+        "score": 84.436
+      },
+      {
+        "rank": 32,
+        "canonical_id": "quinta-leuro-y-quintas-historicas",
+        "score": 83.818
+      },
+      {
+        "rank": 33,
+        "canonical_id": "reducto-2-casa-museo-caceres",
+        "score": 83.779
+      },
+      {
+        "rank": 34,
+        "canonical_id": "lugar-de-la-memoria-lum",
+        "score": 83.599
+      },
+      {
+        "rank": 35,
+        "canonical_id": "biblioteca-municipal-de-barranco",
+        "score": 82.724
+      },
+      {
+        "rank": 36,
+        "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+        "score": 82.111
+      },
+      {
+        "rank": 37,
+        "canonical_id": "estacion-restos-del-funicular-de-barranco",
+        "score": 81.54
+      },
+      {
+        "rank": 38,
+        "canonical_id": "parque-tradiciones-ricardo-palma",
+        "score": 81.369
+      },
+      {
+        "rank": 39,
+        "canonical_id": "huaca-san-borja",
+        "score": 81.368
+      },
+      {
+        "rank": 40,
+        "canonical_id": "antigua-taberna-queirolo",
+        "score": 81.328
+      },
+      {
+        "rank": 41,
+        "canonical_id": "biblioteca-nacional-del-peru",
+        "score": 80.964
+      },
+      {
+        "rank": 42,
+        "canonical_id": "torres-centro-empresarial-camino-real",
+        "score": 80.962
+      },
+      {
+        "rank": 43,
+        "canonical_id": "mirador-catalina-recavarren",
+        "score": 79.893
+      },
+      {
+        "rank": 44,
+        "canonical_id": "parque-municipal-y-entorno-civico",
+        "score": 79.786
+      },
+      {
+        "rank": 45,
+        "canonical_id": "santisima-cruz-del-viajero",
+        "score": 79.43
+      },
+      {
+        "rank": 46,
+        "canonical_id": "casa-emilio-harth-terre",
+        "score": 79.384
+      },
+      {
+        "rank": 47,
+        "canonical_id": "pentagonito-y-bordes-civicos",
+        "score": 79.075
+      },
+      {
+        "rank": 48,
+        "canonical_id": "casa-hacienda-moreyra",
+        "score": 78.946
+      },
+      {
+        "rank": 49,
+        "canonical_id": "casa-raul-porras-barrenechea",
+        "score": 78.419
+      },
+      {
+        "rank": 50,
+        "canonical_id": "puente-villena-bajada-balta-costa-verde",
+        "score": 77.937
+      },
+      {
+        "rank": 51,
+        "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+        "score": 77.789
+      },
+      {
+        "rank": 52,
+        "canonical_id": "casa-museo-marina-nunez-del-prado",
+        "score": 77.704
+      },
+      {
+        "rank": 53,
+        "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+        "score": 77.646
+      },
+      {
+        "rank": 54,
+        "canonical_id": "bosque-el-olivar",
+        "score": 77.274
+      },
+      {
+        "rank": 55,
+        "canonical_id": "parque-de-la-felicidad",
+        "score": 77.169
+      },
+      {
+        "rank": 56,
+        "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+        "score": 77.142
+      },
+      {
+        "rank": 57,
+        "canonical_id": "country-club-lima-hotel",
+        "score": 77.136
+      },
+      {
+        "rank": 58,
+        "canonical_id": "calle-choquehuanca-basadre-residencial",
+        "score": 76.426
+      },
+      {
+        "rank": 59,
+        "canonical_id": "museo-larco-jardines",
+        "score": 76.191
+      },
+      {
+        "rank": 60,
+        "canonical_id": "torre-banco-de-la-nacion",
+        "score": 75.452
+      },
+      {
+        "rank": 61,
+        "canonical_id": "parroquia-nuestra-senora-del-pilar",
+        "score": 74.668
+      },
+      {
+        "rank": 62,
+        "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+        "score": 74.383
+      },
+      {
+        "rank": 63,
+        "canonical_id": "ovalo-de-miraflores",
+        "score": 74.276
+      },
+      {
+        "rank": 64,
+        "canonical_id": "casa-hacienda-orbea",
+        "score": 74.181
+      },
+      {
+        "rank": 65,
+        "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+        "score": 73.523
+      },
+      {
+        "rank": 66,
+        "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+        "score": 72.868
+      },
+      {
+        "rank": 67,
+        "canonical_id": "huaca-huallamarca",
+        "score": 72.811
+      },
+      {
+        "rank": 68,
+        "canonical_id": "la-ermita-de-barranco",
+        "score": 72.636
+      },
+      {
+        "rank": 69,
+        "canonical_id": "saenz-pena-domeyer-pasajes",
+        "score": 72.423
+      },
+      {
+        "rank": 70,
+        "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+        "score": 72.347
+      },
+      {
+        "rank": 71,
+        "canonical_id": "iglesia-santisima-cruz",
+        "score": 72.259
+      },
+      {
+        "rank": 72,
+        "canonical_id": "parque-kennedy-gatos-civic-core",
+        "score": 72.221
+      },
+      {
+        "rank": 73,
+        "canonical_id": "casa-museo-ricardo-palma",
+        "score": 72.184
+      },
+      {
+        "rank": 74,
+        "canonical_id": "huaca-pucllana",
+        "score": 71.604
+      },
+      {
+        "rank": 75,
+        "canonical_id": "coliseo-eduardo-dibos",
+        "score": 71.557
+      },
+      {
+        "rank": 76,
+        "canonical_id": "parque-maria-reiche",
+        "score": 71.224
+      },
+      {
+        "rank": 77,
+        "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+        "score": 71.035
+      },
+      {
+        "rank": 78,
+        "canonical_id": "huaca-julio-c-tello",
+        "score": 70.548
+      },
+      {
+        "rank": 79,
+        "canonical_id": "palacio-municipal-virgen-milagrosa",
+        "score": 68.871
+      },
+      {
+        "rank": 80,
+        "canonical_id": "larcomar-acantilado",
+        "score": 65.824
+      },
+      {
+        "rank": 81,
+        "canonical_id": "parque-del-amor-el-beso",
+        "score": 64.463
+      }
+    ],
+    "R3": [
+      {
+        "rank": 1,
+        "canonical_id": "edificio-alvarez-calderon",
+        "score": 91.613
+      },
+      {
+        "rank": 2,
+        "canonical_id": "centro-civico-de-lima-real-plaza",
+        "score": 90.169
+      },
+      {
+        "rank": 3,
+        "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+        "score": 89.821
+      },
+      {
+        "rank": 4,
+        "canonical_id": "centro-cultural-ccori-wasi",
+        "score": 89.761
+      },
+      {
+        "rank": 5,
+        "canonical_id": "agrupamiento-chabuca-granda",
+        "score": 89.407
+      },
+      {
+        "rank": 6,
+        "canonical_id": "previ-lima",
+        "score": 89.347
+      },
+      {
+        "rank": 7,
+        "canonical_id": "residencial-san-felipe",
+        "score": 89.32
+      },
+      {
+        "rank": 8,
+        "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+        "score": 89.135
+      },
+      {
+        "rank": 9,
+        "canonical_id": "torres-de-limatambo-supermanzana",
+        "score": 88.863
+      },
+      {
+        "rank": 10,
+        "canonical_id": "lima-centro-de-convenciones",
+        "score": 87.698
+      },
+      {
+        "rank": 11,
+        "canonical_id": "quinta-heeren-restauracion-2026",
+        "score": 87.604
+      },
+      {
+        "rank": 12,
+        "canonical_id": "huaca-santa-cruz",
+        "score": 87.347
+      },
+      {
+        "rank": 13,
+        "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+        "score": 87.136
+      },
+      {
+        "rank": 14,
+        "canonical_id": "conjunto-habitacional-palomino",
+        "score": 87.1
+      },
+      {
+        "rank": 15,
+        "canonical_id": "museo-de-la-electricidad-tranvia",
+        "score": 86.729
+      },
+      {
+        "rank": 16,
+        "canonical_id": "jiron-trujillo-puente-de-piedra",
+        "score": 86.542
+      },
+      {
+        "rank": 17,
+        "canonical_id": "unidad-vecinal-3",
+        "score": 86.454
+      },
+      {
+        "rank": 18,
+        "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+        "score": 86.261
+      },
+      {
+        "rank": 19,
+        "canonical_id": "aulario-104-universidad-ricardo-palma",
+        "score": 85.907
+      },
+      {
+        "rank": 20,
+        "canonical_id": "parque-de-las-americas",
+        "score": 85.815
+      },
+      {
+        "rank": 21,
+        "canonical_id": "casa-garcia-bryce",
+        "score": 85.397
+      },
+      {
+        "rank": 22,
+        "canonical_id": "damero-de-lima-interseccion-como-objeto",
+        "score": 85.161
+      },
+      {
+        "rank": 23,
+        "canonical_id": "casa-museo-julia-codesido",
+        "score": 85.068
+      },
+      {
+        "rank": 24,
+        "canonical_id": "plaza-a-la-bandera",
+        "score": 85.054
+      },
+      {
+        "rank": 25,
+        "canonical_id": "quinta-de-los-libertadores-mnaahp",
+        "score": 84.582
+      },
+      {
+        "rank": 26,
+        "canonical_id": "jiron-de-la-union",
+        "score": 84.457
+      },
+      {
+        "rank": 27,
+        "canonical_id": "parque-virginia-candamo",
+        "score": 84.324
+      },
+      {
+        "rank": 28,
+        "canonical_id": "lugar-de-la-memoria-lum",
+        "score": 83.939
+      },
+      {
+        "rank": 29,
+        "canonical_id": "torres-centro-empresarial-camino-real",
+        "score": 83.581
+      },
+      {
+        "rank": 30,
+        "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+        "score": 83.541
+      },
+      {
+        "rank": 31,
+        "canonical_id": "quinta-leuro-y-quintas-historicas",
+        "score": 83.439
+      },
+      {
+        "rank": 32,
+        "canonical_id": "huaca-san-borja",
+        "score": 83.291
+      },
+      {
+        "rank": 33,
+        "canonical_id": "estacion-restos-del-funicular-de-barranco",
+        "score": 83.143
+      },
+      {
+        "rank": 34,
+        "canonical_id": "reducto-2-casa-museo-caceres",
+        "score": 82.616
+      },
+      {
+        "rank": 35,
+        "canonical_id": "mac-lima-parque-espejo-de-agua",
+        "score": 82.615
+      },
+      {
+        "rank": 36,
+        "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+        "score": 82.435
+      },
+      {
+        "rank": 37,
+        "canonical_id": "santisima-cruz-del-viajero",
+        "score": 82.227
+      },
+      {
+        "rank": 38,
+        "canonical_id": "biblioteca-municipal-de-barranco",
+        "score": 81.337
+      },
+      {
+        "rank": 39,
+        "canonical_id": "gran-teatro-nacional",
+        "score": 80.831
+      },
+      {
+        "rank": 40,
+        "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+        "score": 80.766
+      },
+      {
+        "rank": 41,
+        "canonical_id": "casa-emilio-harth-terre",
+        "score": 80.511
+      },
+      {
+        "rank": 42,
+        "canonical_id": "puente-villena-bajada-balta-costa-verde",
+        "score": 79.953
+      },
+      {
+        "rank": 43,
+        "canonical_id": "antigua-taberna-queirolo",
+        "score": 79.581
+      },
+      {
+        "rank": 44,
+        "canonical_id": "parque-tradiciones-ricardo-palma",
+        "score": 79.306
+      },
+      {
+        "rank": 45,
+        "canonical_id": "casa-hacienda-orbea",
+        "score": 79.223
+      },
+      {
+        "rank": 46,
+        "canonical_id": "biblioteca-nacional-del-peru",
+        "score": 78.787
+      },
+      {
+        "rank": 47,
+        "canonical_id": "casa-museo-marina-nunez-del-prado",
+        "score": 78.446
+      },
+      {
+        "rank": 48,
+        "canonical_id": "parque-municipal-y-entorno-civico",
+        "score": 77.499
+      },
+      {
+        "rank": 49,
+        "canonical_id": "calle-choquehuanca-basadre-residencial",
+        "score": 77.172
+      },
+      {
+        "rank": 50,
+        "canonical_id": "mirador-catalina-recavarren",
+        "score": 77.065
+      },
+      {
+        "rank": 51,
+        "canonical_id": "torre-banco-de-la-nacion",
+        "score": 76.976
+      },
+      {
+        "rank": 52,
+        "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+        "score": 76.949
+      },
+      {
+        "rank": 53,
+        "canonical_id": "casa-hacienda-moreyra",
+        "score": 76.891
+      },
+      {
+        "rank": 54,
+        "canonical_id": "casa-raul-porras-barrenechea",
+        "score": 76.869
+      },
+      {
+        "rank": 55,
+        "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+        "score": 76.828
+      },
+      {
+        "rank": 56,
+        "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+        "score": 76.424
+      },
+      {
+        "rank": 57,
+        "canonical_id": "museo-larco-jardines",
+        "score": 76.191
+      },
+      {
+        "rank": 58,
+        "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+        "score": 75.899
+      },
+      {
+        "rank": 59,
+        "canonical_id": "ovalo-de-miraflores",
+        "score": 75.642
+      },
+      {
+        "rank": 60,
+        "canonical_id": "parroquia-nuestra-senora-del-pilar",
+        "score": 75.467
+      },
+      {
+        "rank": 61,
+        "canonical_id": "pentagonito-y-bordes-civicos",
+        "score": 74.826
+      },
+      {
+        "rank": 62,
+        "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+        "score": 74.564
+      },
+      {
+        "rank": 63,
+        "canonical_id": "saenz-pena-domeyer-pasajes",
+        "score": 74.532
+      },
+      {
+        "rank": 64,
+        "canonical_id": "parque-de-la-felicidad",
+        "score": 74.479
+      },
+      {
+        "rank": 65,
+        "canonical_id": "huaca-huallamarca",
+        "score": 74.457
+      },
+      {
+        "rank": 66,
+        "canonical_id": "iglesia-santisima-cruz",
+        "score": 74.447
+      },
+      {
+        "rank": 67,
+        "canonical_id": "coliseo-eduardo-dibos",
+        "score": 73.953
+      },
+      {
+        "rank": 68,
+        "canonical_id": "bosque-el-olivar",
+        "score": 73.567
+      },
+      {
+        "rank": 69,
+        "canonical_id": "country-club-lima-hotel",
+        "score": 73.504
+      },
+      {
+        "rank": 70,
+        "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+        "score": 73.345
+      },
+      {
+        "rank": 71,
+        "canonical_id": "parque-maria-reiche",
+        "score": 73.235
+      },
+      {
+        "rank": 72,
+        "canonical_id": "huaca-julio-c-tello",
+        "score": 73.061
+      },
+      {
+        "rank": 73,
+        "canonical_id": "casa-museo-ricardo-palma",
+        "score": 72.221
+      },
+      {
+        "rank": 74,
+        "canonical_id": "huaca-pucllana",
+        "score": 71.477
+      },
+      {
+        "rank": 75,
+        "canonical_id": "la-ermita-de-barranco",
+        "score": 71.074
+      },
+      {
+        "rank": 76,
+        "canonical_id": "palacio-municipal-virgen-milagrosa",
+        "score": 70.266
+      },
+      {
+        "rank": 77,
+        "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+        "score": 68.979
+      },
+      {
+        "rank": 78,
+        "canonical_id": "parque-kennedy-gatos-civic-core",
+        "score": 68.489
+      },
+      {
+        "rank": 79,
+        "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+        "score": 68.478
+      },
+      {
+        "rank": 80,
+        "canonical_id": "larcomar-acantilado",
+        "score": 66.367
+      },
+      {
+        "rank": 81,
+        "canonical_id": "parque-del-amor-el-beso",
+        "score": 65.199
+      }
+    ]
+  },
+  "field_ranking": [
+    {
+      "rank": 1,
+      "canonical_id": "reducto-2-casa-museo-caceres",
+      "score": 91.1
+    },
+    {
+      "rank": 2,
+      "canonical_id": "jiron-de-la-union",
+      "score": 89.35
+    },
+    {
+      "rank": 3,
+      "canonical_id": "torres-de-limatambo-supermanzana",
+      "score": 87.32
+    },
+    {
+      "rank": 4,
+      "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+      "score": 86.93
+    },
+    {
+      "rank": 5,
+      "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+      "score": 86.9
+    },
+    {
+      "rank": 6,
+      "canonical_id": "parque-de-las-americas",
+      "score": 86.67
+    },
+    {
+      "rank": 7,
+      "canonical_id": "santisima-cruz-del-viajero",
+      "score": 86.57
+    },
+    {
+      "rank": 8,
+      "canonical_id": "edificio-alvarez-calderon",
+      "score": 85.91
+    },
+    {
+      "rank": 9,
+      "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+      "score": 85.77
+    },
+    {
+      "rank": 10,
+      "canonical_id": "centro-cultural-ccori-wasi",
+      "score": 85.38
+    },
+    {
+      "rank": 11,
+      "canonical_id": "parque-virginia-candamo",
+      "score": 85.22
+    },
+    {
+      "rank": 12,
+      "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+      "score": 85.16
+    },
+    {
+      "rank": 13,
+      "canonical_id": "plaza-a-la-bandera",
+      "score": 84.97
+    },
+    {
+      "rank": 14,
+      "canonical_id": "bosque-el-olivar",
+      "score": 84.63
+    },
+    {
+      "rank": 15,
+      "canonical_id": "parque-tradiciones-ricardo-palma",
+      "score": 84.6
+    },
+    {
+      "rank": 16,
+      "canonical_id": "puente-villena-bajada-balta-costa-verde",
+      "score": 84.04
+    },
+    {
+      "rank": 17,
+      "canonical_id": "quinta-de-los-libertadores-mnaahp",
+      "score": 83.62
+    },
+    {
+      "rank": 18,
+      "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+      "score": 83.5
+    },
+    {
+      "rank": 19,
+      "canonical_id": "coliseo-eduardo-dibos",
+      "score": 83.08
+    },
+    {
+      "rank": 20,
+      "canonical_id": "iglesia-santisima-cruz",
+      "score": 82.33
+    },
+    {
+      "rank": 21,
+      "canonical_id": "damero-de-lima-interseccion-como-objeto",
+      "score": 82.03
+    },
+    {
+      "rank": 22,
+      "canonical_id": "ovalo-de-miraflores",
+      "score": 81.77
+    },
+    {
+      "rank": 23,
+      "canonical_id": "huaca-santa-cruz",
+      "score": 81.68
+    },
+    {
+      "rank": 24,
+      "canonical_id": "residencial-san-felipe",
+      "score": 81.3
+    },
+    {
+      "rank": 25,
+      "canonical_id": "centro-civico-de-lima-real-plaza",
+      "score": 81.23
+    },
+    {
+      "rank": 26,
+      "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+      "score": 81.22
+    },
+    {
+      "rank": 27,
+      "canonical_id": "lima-centro-de-convenciones",
+      "score": 81.22
+    },
+    {
+      "rank": 28,
+      "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+      "score": 81.17
+    },
+    {
+      "rank": 29,
+      "canonical_id": "parque-kennedy-gatos-civic-core",
+      "score": 80.76
+    },
+    {
+      "rank": 30,
+      "canonical_id": "mirador-catalina-recavarren",
+      "score": 80.74
+    },
+    {
+      "rank": 31,
+      "canonical_id": "huaca-huallamarca",
+      "score": 80.49
+    },
+    {
+      "rank": 32,
+      "canonical_id": "parque-maria-reiche",
+      "score": 80.39
+    },
+    {
+      "rank": 33,
+      "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+      "score": 80.34
+    },
+    {
+      "rank": 34,
+      "canonical_id": "jiron-trujillo-puente-de-piedra",
+      "score": 80.0
+    },
+    {
+      "rank": 35,
+      "canonical_id": "calle-choquehuanca-basadre-residencial",
+      "score": 79.78
+    },
+    {
+      "rank": 36,
+      "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+      "score": 79.78
+    },
+    {
+      "rank": 37,
+      "canonical_id": "mac-lima-parque-espejo-de-agua",
+      "score": 79.7
+    },
+    {
+      "rank": 38,
+      "canonical_id": "museo-de-la-electricidad-tranvia",
+      "score": 79.23
+    },
+    {
+      "rank": 39,
+      "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+      "score": 79.12
+    },
+    {
+      "rank": 40,
+      "canonical_id": "parque-del-amor-el-beso",
+      "score": 78.72
+    },
+    {
+      "rank": 41,
+      "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+      "score": 78.67
+    },
+    {
+      "rank": 42,
+      "canonical_id": "huaca-pucllana",
+      "score": 78.51
+    },
+    {
+      "rank": 43,
+      "canonical_id": "parque-municipal-y-entorno-civico",
+      "score": 78.48
+    },
+    {
+      "rank": 44,
+      "canonical_id": "biblioteca-nacional-del-peru",
+      "score": 78.05
+    },
+    {
+      "rank": 45,
+      "canonical_id": "agrupamiento-chabuca-granda",
+      "score": 77.85
+    },
+    {
+      "rank": 46,
+      "canonical_id": "biblioteca-municipal-de-barranco",
+      "score": 76.33
+    },
+    {
+      "rank": 47,
+      "canonical_id": "lugar-de-la-memoria-lum",
+      "score": 76.3
+    },
+    {
+      "rank": 48,
+      "canonical_id": "parque-de-la-felicidad",
+      "score": 75.94
+    },
+    {
+      "rank": 49,
+      "canonical_id": "parroquia-nuestra-senora-del-pilar",
+      "score": 75.94
+    },
+    {
+      "rank": 50,
+      "canonical_id": "huaca-san-borja",
+      "score": 75.75
+    },
+    {
+      "rank": 51,
+      "canonical_id": "torres-centro-empresarial-camino-real",
+      "score": 75.72
+    },
+    {
+      "rank": 52,
+      "canonical_id": "antigua-taberna-queirolo",
+      "score": 75.66
+    },
+    {
+      "rank": 53,
+      "canonical_id": "casa-museo-marina-nunez-del-prado",
+      "score": 75.62
+    },
+    {
+      "rank": 54,
+      "canonical_id": "torre-banco-de-la-nacion",
+      "score": 75.48
+    },
+    {
+      "rank": 55,
+      "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+      "score": 74.49
+    },
+    {
+      "rank": 56,
+      "canonical_id": "larcomar-acantilado",
+      "score": 74.11
+    },
+    {
+      "rank": 57,
+      "canonical_id": "palacio-municipal-virgen-milagrosa",
+      "score": 74.06
+    },
+    {
+      "rank": 58,
+      "canonical_id": "saenz-pena-domeyer-pasajes",
+      "score": 73.54
+    },
+    {
+      "rank": 59,
+      "canonical_id": "gran-teatro-nacional",
+      "score": 73.5
+    },
+    {
+      "rank": 60,
+      "canonical_id": "quinta-leuro-y-quintas-historicas",
+      "score": 72.72
+    },
+    {
+      "rank": 61,
+      "canonical_id": "museo-larco-jardines",
+      "score": 72.41
+    },
+    {
+      "rank": 62,
+      "canonical_id": "unidad-vecinal-3",
+      "score": 71.2
+    },
+    {
+      "rank": 63,
+      "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+      "score": 70.14
+    },
+    {
+      "rank": 64,
+      "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+      "score": 68.96
+    },
+    {
+      "rank": 65,
+      "canonical_id": "casa-emilio-harth-terre",
+      "score": 68.5
+    },
+    {
+      "rank": 66,
+      "canonical_id": "estacion-restos-del-funicular-de-barranco",
+      "score": 65.95
+    },
+    {
+      "rank": 67,
+      "canonical_id": "previ-lima",
+      "score": 65.84
+    },
+    {
+      "rank": 68,
+      "canonical_id": "la-ermita-de-barranco",
+      "score": 64.38
+    },
+    {
+      "rank": 69,
+      "canonical_id": "country-club-lima-hotel",
+      "score": 63.38
+    },
+    {
+      "rank": 70,
+      "canonical_id": "casa-garcia-bryce",
+      "score": 63.33
+    },
+    {
+      "rank": 71,
+      "canonical_id": "casa-raul-porras-barrenechea",
+      "score": 62.61
+    },
+    {
+      "rank": 72,
+      "canonical_id": "casa-hacienda-moreyra",
+      "score": 60.68
+    },
+    {
+      "rank": 73,
+      "canonical_id": "aulario-104-universidad-ricardo-palma",
+      "score": 60.01
+    },
+    {
+      "rank": 74,
+      "canonical_id": "casa-museo-julia-codesido",
+      "score": 59.68
+    },
+    {
+      "rank": 75,
+      "canonical_id": "conjunto-habitacional-palomino",
+      "score": 59.35
+    },
+    {
+      "rank": 76,
+      "canonical_id": "quinta-heeren-restauracion-2026",
+      "score": 59.34
+    },
+    {
+      "rank": 77,
+      "canonical_id": "pentagonito-y-bordes-civicos",
+      "score": 58.43
+    },
+    {
+      "rank": 78,
+      "canonical_id": "casa-museo-ricardo-palma",
+      "score": 53.6
+    },
+    {
+      "rank": 79,
+      "canonical_id": "casa-hacienda-orbea",
+      "score": 43.95
+    },
+    {
+      "rank": 80,
+      "canonical_id": "huaca-julio-c-tello",
+      "score": 42.66
+    },
+    {
+      "rank": 81,
+      "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+      "score": 42.61
+    }
+  ],
+  "results": [
+    {
+      "canonical_id": "previ-lima",
+      "name": "PREVI Lima",
+      "district": "Los Olivos",
+      "scenario_ranks": {
+        "R0": 1,
+        "R1": 1,
+        "R2": 1,
+        "R3": 6
+      },
+      "scenario_scores": {
+        "R0": 94.133,
+        "R1": 92.734,
+        "R2": 93.323,
+        "R3": 89.347
+      },
+      "rank_distribution": {
+        "min": 1,
+        "p10": 1,
+        "p50": 1,
+        "p90": 7,
+        "max": 10
+      },
+      "rank_spread": 9,
+      "pareto_front": true,
+      "evidence_confidence": 0.802,
+      "field_rank": 67,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Published transformations span different prototype houses; no one dwelling may be used as a universal PREVI example.",
+      "field_failure": "Caption must explain which part grew",
+      "required_scene": "Resident uses an added threshold while neighbor crosses original pedestrian path",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 1
+    },
+    {
+      "canonical_id": "edificio-alvarez-calderon",
+      "name": "Edificio Álvarez Calderón",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 3,
+        "R1": 2,
+        "R2": 6,
+        "R3": 1
+      },
+      "scenario_scores": {
+        "R0": 91.322,
+        "R1": 91.836,
+        "R2": 90.767,
+        "R3": 91.613
+      },
+      "rank_distribution": {
+        "min": 1,
+        "p10": 1,
+        "p50": 2,
+        "p90": 9,
+        "max": 12
+      },
+      "rank_spread": 11,
+      "pareto_front": true,
+      "evidence_confidence": 0.868,
+      "field_rank": 8,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A professional intervention is listed without explicit scope/date and cannot be presented as verified transformation.",
+      "field_failure": "Caption supplies architectural merit",
+      "required_scene": "Passing, pausing and entering occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 2
+    },
+    {
+      "canonical_id": "centro-civico-de-lima-real-plaza",
+      "name": "Centro Cívico de Lima / Real Plaza",
+      "district": "Lima",
+      "scenario_ranks": {
+        "R0": 2,
+        "R1": 16,
+        "R2": 3,
+        "R3": 2
+      },
+      "scenario_scores": {
+        "R0": 91.481,
+        "R1": 86.988,
+        "R2": 91.356,
+        "R3": 90.169
+      },
+      "rank_distribution": {
+        "min": 2,
+        "p10": 2,
+        "p50": 3,
+        "p90": 16,
+        "max": 17
+      },
+      "rank_spread": 15,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 25,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Award and reuse narratives describe intended success; they cannot prove that civic-to-commercial transformation reads in one frame today.",
+      "field_failure": "Caption must explain civic-to-commercial mutation",
+      "required_scene": "Crossing, waiting and ascent align across three depth layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 3
+    },
+    {
+      "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+      "name": "Puente de la Paz / Quebrada de Armendáriz",
+      "district": "Miraflores–Barranco",
+      "scenario_ranks": {
+        "R0": 4,
+        "R1": 20,
+        "R2": 2,
+        "R3": 3
+      },
+      "scenario_scores": {
+        "R0": 91.284,
+        "R1": 85.177,
+        "R2": 93.091,
+        "R3": 89.821
+      },
+      "rank_distribution": {
+        "min": 1,
+        "p10": 2,
+        "p50": 4,
+        "p90": 21,
+        "max": 24
+      },
+      "rank_spread": 23,
+      "pareto_front": true,
+      "evidence_confidence": 0.846,
+      "field_rank": 5,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Opening-period crowds prove possible behaviors but not normal-day density or present operating restrictions; direct verification remains mandatory before routing.",
+      "field_failure": "Any layer requires caption or merges visually",
+      "required_scene": "Runner, stopped viewer and vehicle occupy three causal layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 4
+    },
+    {
+      "canonical_id": "agrupamiento-chabuca-granda",
+      "name": "Agrupamiento Chabuca Granda",
+      "district": "Rímac",
+      "scenario_ranks": {
+        "R0": 6,
+        "R1": 3,
+        "R2": 8,
+        "R3": 5
+      },
+      "scenario_scores": {
+        "R0": 91.066,
+        "R1": 89.801,
+        "R2": 90.514,
+        "R3": 89.407
+      },
+      "rank_distribution": {
+        "min": 3,
+        "p10": 3,
+        "p50": 6,
+        "p90": 9,
+        "max": 11
+      },
+      "rank_spread": 8,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 45,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current academic work treats Chabuca Granda as a living housing precedent but does not verify which of the original fourteen shops remain active.",
+      "field_failure": "Caption is needed to explain typological continuity",
+      "required_scene": "Buying/returning and greeting occur across two threshold depths",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 5
+    },
+    {
+      "canonical_id": "centro-cultural-ccori-wasi",
+      "name": "Centro Cultural Ccori Wasi",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 5,
+        "R1": 9,
+        "R2": 9,
+        "R3": 4
+      },
+      "scenario_scores": {
+        "R0": 91.226,
+        "R1": 88.74,
+        "R2": 90.496,
+        "R3": 89.761
+      },
+      "rank_distribution": {
+        "min": 2,
+        "p10": 3,
+        "p50": 6,
+        "p90": 9,
+        "max": 11
+      },
+      "rank_spread": 9,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 10,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A July 2026 exhibition proves recent occupation but cannot establish the next installation, quiet hours or unrestricted photography.",
+      "field_failure": "Chronology is invisible without caption",
+      "required_scene": "One arrival crosses while a second act of looking occurs deeper inside",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 6
+    },
+    {
+      "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+      "name": "Parque 3 de Octubre + Skatepark Muros Libres",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 9,
+        "R1": 8,
+        "R2": 4,
+        "R3": 8
+      },
+      "scenario_scores": {
+        "R0": 90.745,
+        "R1": 88.9,
+        "R2": 90.897,
+        "R3": 89.135
+      },
+      "rank_distribution": {
+        "min": 4,
+        "p10": 4,
+        "p50": 8,
+        "p90": 9,
+        "max": 10
+      },
+      "rank_spread": 6,
+      "pareto_front": false,
+      "evidence_confidence": 0.78,
+      "field_rank": 4,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "June 2026 civic programming confirms current park use but not routine skate activity, obstacle condition or safe camera position.",
+      "field_failure": "Caption is needed to explain designed sequence",
+      "required_scene": "Waiting rider launches as another lands",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 7
+    },
+    {
+      "canonical_id": "residencial-san-felipe",
+      "name": "Residencial San Felipe",
+      "district": "Jesús María",
+      "scenario_ranks": {
+        "R0": 8,
+        "R1": 14,
+        "R2": 7,
+        "R3": 7
+      },
+      "scenario_scores": {
+        "R0": 90.9,
+        "R1": 87.63,
+        "R2": 90.558,
+        "R3": 89.32
+      },
+      "rank_distribution": {
+        "min": 5,
+        "p10": 6,
+        "p50": 8,
+        "p90": 14,
+        "max": 15
+      },
+      "rank_spread": 10,
+      "pareto_front": false,
+      "evidence_confidence": 0.78,
+      "field_rank": 24,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Academic and professional sources establish continued inhabitation but do not verify 2026 access to every elevated passage or current resident tolerance for photography.",
+      "field_failure": "Traditional-city claim needs caption",
+      "required_scene": "Two residents move on different levels toward shared destination",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 8
+    },
+    {
+      "canonical_id": "quinta-heeren-restauracion-2026",
+      "name": "Quinta Heeren · restauración 2026",
+      "district": "Lima",
+      "scenario_ranks": {
+        "R0": 7,
+        "R1": 4,
+        "R2": 19,
+        "R3": 11
+      },
+      "scenario_scores": {
+        "R0": 91.031,
+        "R1": 89.563,
+        "R2": 87.466,
+        "R3": 87.604
+      },
+      "rank_distribution": {
+        "min": 2,
+        "p10": 4,
+        "p50": 10,
+        "p90": 19,
+        "max": 23
+      },
+      "rank_spread": 21,
+      "pareto_front": true,
+      "evidence_confidence": 0.824,
+      "field_rank": 76,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "2026 restoration reporting is preserved as corroborated bibliographic evidence, not verified site status.",
+      "field_failure": "Caption supplies restoration",
+      "required_scene": "Passing, pausing and controlled entry/absence occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 9
+    },
+    {
+      "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+      "name": "Cantagallo · comunidad Shipibo-Konibo",
+      "district": "Rímac",
+      "scenario_ranks": {
+        "R0": 10,
+        "R1": 5,
+        "R2": 11,
+        "R3": 30
+      },
+      "scenario_scores": {
+        "R0": 90.557,
+        "R1": 89.559,
+        "R2": 90.29,
+        "R3": 83.541
+      },
+      "rank_distribution": {
+        "min": 3,
+        "p10": 4,
+        "p50": 10,
+        "p90": 31,
+        "max": 37
+      },
+      "rank_spread": 34,
+      "pareto_front": false,
+      "evidence_confidence": 0.868,
+      "field_rank": 81,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current community presence and collective programs are verified, but no independent photography access or consent is established.",
+      "field_failure": "Any consent, safety or representation concern",
+      "required_scene": "Participants choose approach, exchange and collective verb",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 10
+    },
+    {
+      "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+      "name": "Unidad Vecinal Matute + complejo deportivo",
+      "district": "La Victoria",
+      "scenario_ranks": {
+        "R0": 11,
+        "R1": 10,
+        "R2": 10,
+        "R3": 18
+      },
+      "scenario_scores": {
+        "R0": 90.146,
+        "R1": 88.045,
+        "R2": 90.423,
+        "R3": 86.261
+      },
+      "rank_distribution": {
+        "min": 5,
+        "p10": 9,
+        "p50": 11,
+        "p90": 18,
+        "max": 20
+      },
+      "rank_spread": 15,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 64,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Matute I and II use different spatial scales and authorship; one frame cannot generalize mechanisms across both stages.",
+      "field_failure": "Caption rescues old/new relation",
+      "required_scene": "Exiting, crossing and entering occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 11
+    },
+    {
+      "canonical_id": "torres-de-limatambo-supermanzana",
+      "name": "Torres de Limatambo / supermanzana",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 12,
+        "R1": 13,
+        "R2": 12,
+        "R3": 9
+      },
+      "scenario_scores": {
+        "R0": 90.105,
+        "R1": 87.723,
+        "R2": 89.75,
+        "R3": 88.863
+      },
+      "rank_distribution": {
+        "min": 7,
+        "p10": 9,
+        "p50": 12,
+        "p90": 13,
+        "max": 14
+      },
+      "rank_spread": 7,
+      "pareto_front": false,
+      "evidence_confidence": 0.78,
+      "field_rank": 3,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A 2026 education fair proves episodic civic occupation, not everyday density or a future event window.",
+      "field_failure": "Caption must explain superblock",
+      "required_scene": "Leaving, crossing and arriving occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 12
+    },
+    {
+      "canonical_id": "conjunto-habitacional-palomino",
+      "name": "Conjunto Habitacional Palomino",
+      "district": "Lima",
+      "scenario_ranks": {
+        "R0": 13,
+        "R1": 6,
+        "R2": 13,
+        "R3": 14
+      },
+      "scenario_scores": {
+        "R0": 90.055,
+        "R1": 89.315,
+        "R2": 89.128,
+        "R3": 87.1
+      },
+      "rank_distribution": {
+        "min": 4,
+        "p10": 6,
+        "p50": 13,
+        "p90": 14,
+        "max": 16
+      },
+      "rank_spread": 12,
+      "pareto_front": false,
+      "evidence_confidence": 0.78,
+      "field_rank": 75,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Academic proposals to rehabilitate public space are not evidence that interventions were built or that paths are freely accessible to non-residents.",
+      "field_failure": "Caption must explain spatial system",
+      "required_scene": "Arriving, turning and entering occupy three distinct zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 13
+    },
+    {
+      "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+      "name": "Transecto de ciudad compacta · Pueblo Libre/Lince/Surquillo",
+      "district": "Lima",
+      "scenario_ranks": {
+        "R0": 15,
+        "R1": 7,
+        "R2": 14,
+        "R3": 13
+      },
+      "scenario_scores": {
+        "R0": 88.781,
+        "R1": 89.15,
+        "R2": 89.101,
+        "R3": 87.136
+      },
+      "rank_distribution": {
+        "min": 4,
+        "p10": 7,
+        "p50": 13,
+        "p90": 15,
+        "max": 17
+      },
+      "rank_spread": 13,
+      "pareto_front": true,
+      "evidence_confidence": 0.824,
+      "field_rank": 18,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A composite transect cannot inherit verification from one segment; all component edges remain unverified.",
+      "field_failure": "Transect essay/caption required",
+      "required_scene": "Approach, detour and entry/delivery occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 14
+    },
+    {
+      "canonical_id": "unidad-vecinal-3",
+      "name": "Unidad Vecinal Nº3",
+      "district": "Lima",
+      "scenario_ranks": {
+        "R0": 14,
+        "R1": 11,
+        "R2": 15,
+        "R3": 17
+      },
+      "scenario_scores": {
+        "R0": 89.172,
+        "R1": 87.814,
+        "R2": 88.92,
+        "R3": 86.454
+      },
+      "rank_distribution": {
+        "min": 10,
+        "p10": 12,
+        "p50": 14,
+        "p90": 17,
+        "max": 19
+      },
+      "rank_spread": 9,
+      "pareto_front": false,
+      "evidence_confidence": 0.78,
+      "field_rank": 62,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "CAMMP records current housing and poor conservation but conditions can vary substantially across the 25.6-hectare estate.",
+      "field_failure": "Caption rescues meaning",
+      "required_scene": "Exiting, detouring and arriving occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 15
+    },
+    {
+      "canonical_id": "lima-centro-de-convenciones",
+      "name": "Lima Centro de Convenciones",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 20,
+        "R1": 24,
+        "R2": 5,
+        "R3": 10
+      },
+      "scenario_scores": {
+        "R0": 87.73,
+        "R1": 83.088,
+        "R2": 90.843,
+        "R3": 87.698
+      },
+      "rank_distribution": {
+        "min": 3,
+        "p10": 5,
+        "p50": 15,
+        "p90": 24,
+        "max": 29
+      },
+      "rank_spread": 26,
+      "pareto_front": true,
+      "evidence_confidence": 0.89,
+      "field_rank": 27,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Dense 2026 events prove current use, not public entry without registration or a future schedule.",
+      "field_failure": "Caption explains circulation",
+      "required_scene": "Arriving, queuing and ascending occupy three strata",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 16
+    },
+    {
+      "canonical_id": "jiron-trujillo-puente-de-piedra",
+      "name": "Jirón Trujillo + Puente de Piedra",
+      "district": "Rímac",
+      "scenario_ranks": {
+        "R0": 17,
+        "R1": 22,
+        "R2": 16,
+        "R3": 16
+      },
+      "scenario_scores": {
+        "R0": 88.211,
+        "R1": 84.926,
+        "R2": 88.706,
+        "R3": 86.542
+      },
+      "rank_distribution": {
+        "min": 14,
+        "p10": 16,
+        "p50": 17,
+        "p90": 22,
+        "max": 22
+      },
+      "rank_spread": 8,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 34,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Bridge structure/current safety rests partly on a secondary record and requires primary same-day verification.",
+      "field_failure": "Caption joins separate places",
+      "required_scene": "Approach, merge and cross occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 17
+    },
+    {
+      "canonical_id": "aulario-104-universidad-ricardo-palma",
+      "name": "Aulario 104 · Universidad Ricardo Palma",
+      "district": "Santiago de Surco",
+      "scenario_ranks": {
+        "R0": 19,
+        "R1": 17,
+        "R2": 17,
+        "R3": 19
+      },
+      "scenario_scores": {
+        "R0": 87.858,
+        "R1": 86.364,
+        "R2": 87.773,
+        "R3": 85.907
+      },
+      "rank_distribution": {
+        "min": 16,
+        "p10": 17,
+        "p50": 18,
+        "p90": 20,
+        "max": 23
+      },
+      "rank_spread": 7,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 73,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Architectural sources document a 313 m educational bar and circulation concept but do not prove the same flow density at every hour.",
+      "field_failure": "Caption must explain building-as-connector",
+      "required_scene": "Crossing, ascending and entering align across three layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 18
+    },
+    {
+      "canonical_id": "huaca-santa-cruz",
+      "name": "Huaca Santa Cruz",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 18,
+        "R1": 18,
+        "R2": 23,
+        "R3": 12
+      },
+      "scenario_scores": {
+        "R0": 87.966,
+        "R1": 86.041,
+        "R2": 86.279,
+        "R3": 87.347
+      },
+      "rank_distribution": {
+        "min": 10,
+        "p10": 12,
+        "p50": 18,
+        "p90": 23,
+        "max": 26
+      },
+      "rank_spread": 16,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 23,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "New fence and lighting are verified in 2025, but present night operation, lawful stopping points and interior route remain unverified.",
+      "field_failure": "Exceptional ceremony must rescue the idea",
+      "required_scene": "Passing, waiting/learning and gathering align if genuinely present",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 19
+    },
+    {
+      "canonical_id": "museo-de-la-electricidad-tranvia",
+      "name": "Museo de la Electricidad & Tranvía",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 22,
+        "R1": 19,
+        "R2": 20,
+        "R3": 15
+      },
+      "scenario_scores": {
+        "R0": 87.336,
+        "R1": 85.378,
+        "R2": 87.074,
+        "R3": 86.729
+      },
+      "rank_distribution": {
+        "min": 12,
+        "p10": 15,
+        "p50": 20,
+        "p90": 22,
+        "max": 23
+      },
+      "rank_spread": 11,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 38,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current sources verify the reopened museum and exterior tram as collection elements, but none verifies that the tram currently moves along Pedro de Osma.",
+      "field_failure": "Caption must explain tram history",
+      "required_scene": "Pedestrian crosses while visitor enters and tram anchors obsolete mobility",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 20
+    },
+    {
+      "canonical_id": "parque-de-las-americas",
+      "name": "Parque de las Américas",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 23,
+        "R1": 21,
+        "R2": 18,
+        "R3": 20
+      },
+      "scenario_scores": {
+        "R0": 87.173,
+        "R1": 85.112,
+        "R2": 87.566,
+        "R3": 85.815
+      },
+      "rank_distribution": {
+        "min": 17,
+        "p10": 18,
+        "p50": 20,
+        "p90": 23,
+        "max": 23
+      },
+      "rank_spread": 6,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 6,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Ceremonial and programmed uses are periodic and cannot be presented as daily activity.",
+      "field_failure": "Meaning depends on knowing the park name",
+      "required_scene": "Ordinary crossing intersects a small collective-care activity",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 21
+    },
+    {
+      "canonical_id": "casa-museo-julia-codesido",
+      "name": "Casa Museo Julia Codesido",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 16,
+        "R1": 15,
+        "R2": 24,
+        "R3": 23
+      },
+      "scenario_scores": {
+        "R0": 88.495,
+        "R1": 87.033,
+        "R2": 86.2,
+        "R3": 85.068
+      },
+      "rank_distribution": {
+        "min": 14,
+        "p10": 15,
+        "p50": 21,
+        "p90": 25,
+        "max": 28
+      },
+      "rank_spread": 14,
+      "pareto_front": false,
+      "evidence_confidence": 0.78,
+      "field_rank": 74,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A 2022 broadcast walkthrough proves spatial sequence historically, not 2026 access or visitor activity.",
+      "field_failure": "No permission or caption dependence",
+      "required_scene": "Entering, pausing and interpreting occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 22
+    },
+    {
+      "canonical_id": "casa-garcia-bryce",
+      "name": "Casa García Bryce",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 21,
+        "R1": 12,
+        "R2": 31,
+        "R3": 21
+      },
+      "scenario_scores": {
+        "R0": 87.426,
+        "R1": 87.776,
+        "R2": 84.436,
+        "R3": 85.397
+      },
+      "rank_distribution": {
+        "min": 9,
+        "p10": 11,
+        "p50": 21,
+        "p90": 31,
+        "max": 35
+      },
+      "rank_spread": 26,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 70,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "CAMMP records current dwelling use and good condition but its evaluation date is not a same-day access guarantee.",
+      "field_failure": "No explicit authorization or caption must rescue domestic/public tension",
+      "required_scene": "Visitor arrival and guided observation align across threshold layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 23
+    },
+    {
+      "canonical_id": "damero-de-lima-interseccion-como-objeto",
+      "name": "Damero de Lima · intersección como objeto",
+      "district": "Lima",
+      "scenario_ranks": {
+        "R0": 25,
+        "R1": 34,
+        "R2": 25,
+        "R3": 22
+      },
+      "scenario_scores": {
+        "R0": 84.841,
+        "R1": 78.12,
+        "R2": 86.046,
+        "R3": 85.161
+      },
+      "rank_distribution": {
+        "min": 18,
+        "p10": 22,
+        "p50": 25,
+        "p90": 34,
+        "max": 37
+      },
+      "rank_spread": 19,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 21,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Cable removal covers many blocks but cannot be generalized to every axis; the final crossing and safe standing point remain unselected.",
+      "field_failure": "Caption/map must rescue the damero idea",
+      "required_scene": "Waiting, crossing and turning occupy distinct grid planes",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 24
+    },
+    {
+      "canonical_id": "quinta-de-los-libertadores-mnaahp",
+      "name": "Quinta de los Libertadores + MNAAHP",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 24,
+        "R1": 31,
+        "R2": 26,
+        "R3": 25
+      },
+      "scenario_scores": {
+        "R0": 85.183,
+        "R1": 81.244,
+        "R2": 85.088,
+        "R3": 84.582
+      },
+      "rank_distribution": {
+        "min": 22,
+        "p10": 24,
+        "p50": 26,
+        "p90": 31,
+        "max": 32
+      },
+      "rank_spread": 10,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 17,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Historical political occupation is well documented but cannot rescue a frame whose raised-house and visitor sequence are not visually legible.",
+      "field_failure": "Caption must explain house-to-museum continuity",
+      "required_scene": "Approaching, climbing and learning align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 25
+    },
+    {
+      "canonical_id": "plaza-a-la-bandera",
+      "name": "Plaza a la Bandera",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 26,
+        "R1": 30,
+        "R2": 27,
+        "R3": 24
+      },
+      "scenario_scores": {
+        "R0": 84.803,
+        "R1": 81.356,
+        "R2": 84.958,
+        "R3": 85.054
+      },
+      "rank_distribution": {
+        "min": 20,
+        "p10": 23,
+        "p50": 27,
+        "p90": 30,
+        "max": 31
+      },
+      "rank_spread": 11,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 13,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Municipal sources establish civic ceremonies and events but not an everyday schedule; ordinary crossing must be the repeatable fallback.",
+      "field_failure": "Caption supplies meaning",
+      "required_scene": "Arriving, crossing and waiting occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 26
+    },
+    {
+      "canonical_id": "parque-virginia-candamo",
+      "name": "Parque Virginia Candamo",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 28,
+        "R1": 23,
+        "R2": 30,
+        "R3": 27
+      },
+      "scenario_scores": {
+        "R0": 84.483,
+        "R1": 83.731,
+        "R2": 84.49,
+        "R3": 84.324
+      },
+      "rank_distribution": {
+        "min": 22,
+        "p10": 23,
+        "p50": 27,
+        "p90": 30,
+        "max": 32
+      },
+      "rank_spread": 10,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 11,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Chinese-Peruvian symbolism is meaningful context, but monument/pagoda color alone risks decorative exoticism rather than current inhabitation.",
+      "field_failure": "Caption must explain redesign",
+      "required_scene": "Entering, exercising and resting occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 27
+    },
+    {
+      "canonical_id": "jiron-de-la-union",
+      "name": "Jirón de la Unión",
+      "district": "Lima",
+      "scenario_ranks": {
+        "R0": 27,
+        "R1": 42,
+        "R2": 22,
+        "R3": 26
+      },
+      "scenario_scores": {
+        "R0": 84.675,
+        "R1": 76.102,
+        "R2": 86.437,
+        "R3": 84.457
+      },
+      "rank_distribution": {
+        "min": 19,
+        "p10": 22,
+        "p50": 27,
+        "p90": 43,
+        "max": 46
+      },
+      "rank_spread": 27,
+      "pareto_front": false,
+      "evidence_confidence": 0.89,
+      "field_rank": 2,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A 2026 guided walk and parade are completed events, not recurring route windows.",
+      "field_failure": "Nine-block caption required",
+      "required_scene": "Approach, pause and enter/listen occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 28
+    },
+    {
+      "canonical_id": "quinta-leuro-y-quintas-historicas",
+      "name": "Quinta Leuro y quintas históricas",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 29,
+        "R1": 26,
+        "R2": 32,
+        "R3": 31
+      },
+      "scenario_scores": {
+        "R0": 83.603,
+        "R1": 82.486,
+        "R2": 83.818,
+        "R3": 83.439
+      },
+      "rank_distribution": {
+        "min": 24,
+        "p10": 25,
+        "p50": 29,
+        "p90": 33,
+        "max": 34
+      },
+      "rank_spread": 10,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 60,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Municipal sources conflict on architect attribution: the stronger heritage table names Lidio Mongilardi while other municipal-derived tourism tables have named Javier Prado; authorship is excluded from the scene claim pending primary resolution.",
+      "field_failure": "Caption must explain the quinta",
+      "required_scene": "Entering, passing and climbing occupy successive zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 29
+    },
+    {
+      "canonical_id": "estacion-restos-del-funicular-de-barranco",
+      "name": "Estación / restos del Funicular de Barranco",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 30,
+        "R1": 28,
+        "R2": 37,
+        "R3": 33
+      },
+      "scenario_scores": {
+        "R0": 82.695,
+        "R1": 81.783,
+        "R2": 81.54,
+        "R3": 83.143
+      },
+      "rank_distribution": {
+        "min": 26,
+        "p10": 28,
+        "p50": 32,
+        "p90": 38,
+        "max": 41
+      },
+      "rank_spread": 15,
+      "pareto_front": false,
+      "evidence_confidence": 0.78,
+      "field_rank": 66,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Historic machinery and alignment may be too screened or fragmented to make obsolete slope transport legible in one frame.",
+      "field_failure": "Caption must explain the funicular",
+      "required_scene": "Climbing, pausing and descending occupy old/new routes",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 30
+    },
+    {
+      "canonical_id": "huaca-san-borja",
+      "name": "Huaca San Borja",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 33,
+        "R1": 29,
+        "R2": 39,
+        "R3": 32
+      },
+      "scenario_scores": {
+        "R0": 82.326,
+        "R1": 81.5,
+        "R2": 81.368,
+        "R3": 83.291
+      },
+      "rank_distribution": {
+        "min": 28,
+        "p10": 29,
+        "p50": 32,
+        "p90": 40,
+        "max": 42
+      },
+      "rank_spread": 14,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 50,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A prior academic record describes closure and no ordinary admission, while a May 2026 Ministry activity proves episodic mediated entry; neither establishes daily public access.",
+      "field_failure": "Caption explains social context",
+      "required_scene": "Circling, pausing and guided entry occupy distinct zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 31
+    },
+    {
+      "canonical_id": "torres-centro-empresarial-camino-real",
+      "name": "Torres / Centro Empresarial Camino Real",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 31,
+        "R1": 33,
+        "R2": 42,
+        "R3": 29
+      },
+      "scenario_scores": {
+        "R0": 82.659,
+        "R1": 80.522,
+        "R2": 80.962,
+        "R3": 83.581
+      },
+      "rank_distribution": {
+        "min": 28,
+        "p10": 29,
+        "p50": 32,
+        "p90": 42,
+        "max": 45
+      },
+      "rank_spread": 17,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 51,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "New glass façades obscure the original concrete-era identity, so historical recognition cannot substitute for a visible present transformation.",
+      "field_failure": "Caption supplies dead-mall history",
+      "required_scene": "Arriving, entering and bypassing occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 32
+    },
+    {
+      "canonical_id": "lugar-de-la-memoria-lum",
+      "name": "Lugar de la Memoria (LUM)",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 32,
+        "R1": 38,
+        "R2": 34,
+        "R3": 28
+      },
+      "scenario_scores": {
+        "R0": 82.424,
+        "R1": 77.035,
+        "R2": 83.599,
+        "R3": 83.939
+      },
+      "rank_distribution": {
+        "min": 22,
+        "p10": 28,
+        "p50": 33,
+        "p90": 38,
+        "max": 43
+      },
+      "rank_spread": 21,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 47,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "The published architectural sequence establishes design intent but not current roof access or ordinary visitor density; verify both before routing.",
+      "field_failure": "Requires caption to connect museum and city",
+      "required_scene": "Visitor exits interpretive route and turns back toward city",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 33
+    },
+    {
+      "canonical_id": "mac-lima-parque-espejo-de-agua",
+      "name": "MAC Lima + parque / espejo de agua",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 34,
+        "R1": 37,
+        "R2": 21,
+        "R3": 35
+      },
+      "scenario_scores": {
+        "R0": 81.965,
+        "R1": 77.09,
+        "R2": 86.525,
+        "R3": 82.615
+      },
+      "rank_distribution": {
+        "min": 17,
+        "p10": 21,
+        "p50": 34,
+        "p90": 38,
+        "max": 43
+      },
+      "rank_spread": 26,
+      "pareto_front": false,
+      "evidence_confidence": 0.89,
+      "field_rank": 37,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Institutional sources are authoritative for program/design intent but promotional for visitor experience; ground visibility must be independently tested.",
+      "field_failure": "Caption explains event",
+      "required_scene": "Exiting, gathering and crossing occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 34
+    },
+    {
+      "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+      "name": "Centro de Convenciones / estación La Cultura",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 40,
+        "R1": 35,
+        "R2": 28,
+        "R3": 36
+      },
+      "scenario_scores": {
+        "R0": 80.28,
+        "R1": 77.56,
+        "R2": 84.708,
+        "R3": 82.435
+      },
+      "rank_distribution": {
+        "min": 23,
+        "p10": 28,
+        "p50": 35,
+        "p90": 40,
+        "max": 42
+      },
+      "rank_spread": 19,
+      "pareto_front": false,
+      "evidence_confidence": 0.89,
+      "field_rank": 9,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Future Line 4 interchange plans are not current infrastructure and cannot be shown as operating.",
+      "field_failure": "Caption supplies civic-node relation",
+      "required_scene": "Consulting, queuing and ascending occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 35
+    },
+    {
+      "canonical_id": "reducto-2-casa-museo-caceres",
+      "name": "Reducto Nº 2 / Casa Museo Cáceres",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 37,
+        "R1": 36,
+        "R2": 33,
+        "R3": 34
+      },
+      "scenario_scores": {
+        "R0": 80.989,
+        "R1": 77.207,
+        "R2": 83.779,
+        "R3": 82.616
+      },
+      "rank_distribution": {
+        "min": 30,
+        "p10": 32,
+        "p50": 36,
+        "p90": 38,
+        "max": 39
+      },
+      "rank_spread": 9,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 1,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Cinema and voting prove 2026 civic reuse but are completed events, not recurring access windows.",
+      "field_failure": "Caption supplies the historical relation",
+      "required_scene": "Arriving, gathering and entering occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 36
+    },
+    {
+      "canonical_id": "santisima-cruz-del-viajero",
+      "name": "Santísima Cruz del Viajero",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 35,
+        "R1": 27,
+        "R2": 45,
+        "R3": 37
+      },
+      "scenario_scores": {
+        "R0": 81.678,
+        "R1": 81.929,
+        "R2": 79.43,
+        "R3": 82.227
+      },
+      "rank_distribution": {
+        "min": 25,
+        "p10": 27,
+        "p50": 36,
+        "p90": 46,
+        "max": 49
+      },
+      "rank_spread": 24,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 7,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Flowers or offerings can indicate use but cannot establish who placed them or when.",
+      "field_failure": "Caption supplies route history",
+      "required_scene": "Approaching, pausing and continuing occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 37
+    },
+    {
+      "canonical_id": "gran-teatro-nacional",
+      "name": "Gran Teatro Nacional",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 36,
+        "R1": 49,
+        "R2": 29,
+        "R3": 39
+      },
+      "scenario_scores": {
+        "R0": 81.421,
+        "R1": 73.57,
+        "R2": 84.501,
+        "R3": 80.831
+      },
+      "rank_distribution": {
+        "min": 25,
+        "p10": 29,
+        "p50": 38,
+        "p90": 51,
+        "max": 56
+      },
+      "rank_spread": 31,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 59,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A dense 2026 event calendar verifies active occupation but not audience density, exterior queue configuration or photography policy for a chosen performance.",
+      "field_failure": "Caption must explain transit-to-culture relation",
+      "required_scene": "Arriving, waiting and entering align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 38
+    },
+    {
+      "canonical_id": "biblioteca-municipal-de-barranco",
+      "name": "Biblioteca Municipal de Barranco",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 41,
+        "R1": 41,
+        "R2": 35,
+        "R3": 38
+      },
+      "scenario_scores": {
+        "R0": 80.136,
+        "R1": 76.166,
+        "R2": 82.724,
+        "R3": 81.337
+      },
+      "rank_distribution": {
+        "min": 33,
+        "p10": 35,
+        "p50": 39,
+        "p90": 42,
+        "max": 43
+      },
+      "rank_spread": 10,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 46,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Restoration and room descriptions prove spatial capacity, not predictable reader density, events or photography permission.",
+      "field_failure": "Caption must explain adaptive civic use",
+      "required_scene": "Approaching, entering and reading align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 39
+    },
+    {
+      "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+      "name": "Plaza de los Libertadores + Santa María Magdalena",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 39,
+        "R1": 47,
+        "R2": 36,
+        "R3": 40
+      },
+      "scenario_scores": {
+        "R0": 80.296,
+        "R1": 73.935,
+        "R2": 82.111,
+        "R3": 80.766
+      },
+      "rank_distribution": {
+        "min": 36,
+        "p10": 36,
+        "p50": 40,
+        "p90": 48,
+        "max": 51
+      },
+      "rank_spread": 15,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 12,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "2026 ceremonies prove episodic church-to-plaza movement, not ordinary daily density.",
+      "field_failure": "Caption is needed to connect church and plaza",
+      "required_scene": "Exit, crossing and reception occur in three layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 40
+    },
+    {
+      "canonical_id": "casa-emilio-harth-terre",
+      "name": "Casa Emilio Harth-Terré",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 43,
+        "R1": 32,
+        "R2": 46,
+        "R3": 41
+      },
+      "scenario_scores": {
+        "R0": 79.349,
+        "R1": 80.552,
+        "R2": 79.384,
+        "R3": 80.511
+      },
+      "rank_distribution": {
+        "min": 29,
+        "p10": 32,
+        "p50": 41,
+        "p90": 46,
+        "max": 53
+      },
+      "rank_spread": 24,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 65,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "CAMMP labels protection as absent while official municipal records cite national-monument declaration RDN 290-96/INC; the official declaration controls, and the catalogue field is preserved as a contradiction/data-quality issue.",
+      "field_failure": "Caption supplies heritage/threat",
+      "required_scene": "Passing, pausing and entering occupy distinct zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 41
+    },
+    {
+      "canonical_id": "parque-tradiciones-ricardo-palma",
+      "name": "Parque Tradiciones / Ricardo Palma",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 45,
+        "R1": 39,
+        "R2": 38,
+        "R3": 44
+      },
+      "scenario_scores": {
+        "R0": 78.519,
+        "R1": 76.777,
+        "R2": 81.369,
+        "R3": 79.306
+      },
+      "rank_distribution": {
+        "min": 34,
+        "p10": 37,
+        "p50": 42,
+        "p90": 45,
+        "max": 45
+      },
+      "rank_spread": 11,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 15,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "The July 2026 play-area reopening proves current infrastructure, not daily child density or an appropriate photography window.",
+      "field_failure": "Caption supplies literary meaning",
+      "required_scene": "Passing, resting and accompanying occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 42
+    },
+    {
+      "canonical_id": "casa-hacienda-orbea",
+      "name": "Casa Hacienda Orbea",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 38,
+        "R1": 25,
+        "R2": 64,
+        "R3": 45
+      },
+      "scenario_scores": {
+        "R0": 80.734,
+        "R1": 82.569,
+        "R2": 74.181,
+        "R3": 79.223
+      },
+      "rank_distribution": {
+        "min": 22,
+        "p10": 25,
+        "p50": 42,
+        "p90": 64,
+        "max": 75
+      },
+      "rank_spread": 53,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 79,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current municipal route marks Orbea closed, while an older inventory says entry by prior coordination; closed status controls unless explicit owner authorization supersedes it.",
+      "field_failure": "Caption supplies productive history",
+      "required_scene": "Approaching, skirting and departing occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 43
+    },
+    {
+      "canonical_id": "antigua-taberna-queirolo",
+      "name": "Antigua Taberna Queirolo",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 42,
+        "R1": 48,
+        "R2": 40,
+        "R3": 43
+      },
+      "scenario_scores": {
+        "R0": 79.416,
+        "R1": 73.93,
+        "R2": 81.328,
+        "R3": 79.581
+      },
+      "rank_distribution": {
+        "min": 37,
+        "p10": 39,
+        "p50": 43,
+        "p90": 48,
+        "max": 50
+      },
+      "rank_spread": 13,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 52,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Published interior images do not establish current furniture layout, crowd density or permission for deliberate photography during service.",
+      "field_failure": "Caption is needed to explain pulpería-to-tavern continuity",
+      "required_scene": "Arrival, service and conversation occur in three depth layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 44
+    },
+    {
+      "canonical_id": "biblioteca-nacional-del-peru",
+      "name": "Biblioteca Nacional del Perú",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 44,
+        "R1": 44,
+        "R2": 41,
+        "R3": 46
+      },
+      "scenario_scores": {
+        "R0": 78.881,
+        "R1": 75.571,
+        "R2": 80.964,
+        "R3": 78.787
+      },
+      "rank_distribution": {
+        "min": 37,
+        "p10": 41,
+        "p50": 44,
+        "p90": 46,
+        "max": 47
+      },
+      "rank_spread": 10,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 44,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Published reading and terrace services do not establish architectural-photography permission or a predictable occupancy density.",
+      "field_failure": "Caption must explain public knowledge access",
+      "required_scene": "Entering, orienting and studying align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 45
+    },
+    {
+      "canonical_id": "puente-villena-bajada-balta-costa-verde",
+      "name": "Puente Villena / Bajada Balta / Costa Verde",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 48,
+        "R1": 45,
+        "R2": 50,
+        "R3": 42
+      },
+      "scenario_scores": {
+        "R0": 76.902,
+        "R1": 75.121,
+        "R2": 77.937,
+        "R3": 79.953
+      },
+      "rank_distribution": {
+        "min": 40,
+        "p10": 42,
+        "p50": 47,
+        "p90": 51,
+        "max": 57
+      },
+      "rank_spread": 17,
+      "pareto_front": false,
+      "evidence_confidence": 0.868,
+      "field_rank": 16,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "New transparent panels improve safety but may add reflection, glare and visual obstruction that invalidate older reference angles.",
+      "field_failure": "Caption joins separate sites",
+      "required_scene": "Approaching, crossing and descending occupy distinct zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 46
+    },
+    {
+      "canonical_id": "casa-museo-marina-nunez-del-prado",
+      "name": "Casa Museo Marina Núñez del Prado",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 47,
+        "R1": 43,
+        "R2": 52,
+        "R3": 47
+      },
+      "scenario_scores": {
+        "R0": 77.359,
+        "R1": 75.887,
+        "R2": 77.704,
+        "R3": 78.446
+      },
+      "rank_distribution": {
+        "min": 39,
+        "p10": 42,
+        "p50": 47,
+        "p90": 52,
+        "max": 57
+      },
+      "rank_spread": 18,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 53,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Municipal operation evidence is stale for present access.",
+      "field_failure": "Caption rescues biography",
+      "required_scene": "Entering, pausing and looking occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 47
+    },
+    {
+      "canonical_id": "casa-raul-porras-barrenechea",
+      "name": "Casa Raúl Porras Barrenechea",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 46,
+        "R1": 40,
+        "R2": 49,
+        "R3": 54
+      },
+      "scenario_scores": {
+        "R0": 77.956,
+        "R1": 76.558,
+        "R2": 78.419,
+        "R3": 76.869
+      },
+      "rank_distribution": {
+        "min": 35,
+        "p10": 40,
+        "p50": 47,
+        "p90": 54,
+        "max": 58
+      },
+      "rank_spread": 23,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 71,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Municipal sources announce guided visits during 2026 but require current booking; they do not establish walk-in access or interior-photography permission.",
+      "field_failure": "Caption must explain home-to-institute continuity",
+      "required_scene": "Arrival, interpretation and research align across three rooms",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 48
+    },
+    {
+      "canonical_id": "parque-municipal-y-entorno-civico",
+      "name": "Parque Municipal y entorno cívico",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 51,
+        "R1": 52,
+        "R2": 44,
+        "R3": 48
+      },
+      "scenario_scores": {
+        "R0": 76.291,
+        "R1": 73.288,
+        "R2": 79.786,
+        "R3": 77.499
+      },
+      "rank_distribution": {
+        "min": 42,
+        "p10": 44,
+        "p50": 49,
+        "p90": 51,
+        "max": 52
+      },
+      "rank_spread": 10,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 43,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "CIAM documents high daily service use across two district sites, but it does not prove that any named workshop is visible outdoors in Parque Municipal.",
+      "field_failure": "Caption must explain service uses",
+      "required_scene": "Crossing, waiting and entering align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 49
+    },
+    {
+      "canonical_id": "casa-hacienda-moreyra",
+      "name": "Casa-Hacienda Moreyra",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 49,
+        "R1": 57,
+        "R2": 48,
+        "R3": 53
+      },
+      "scenario_scores": {
+        "R0": 76.696,
+        "R1": 71.975,
+        "R2": 78.946,
+        "R3": 76.891
+      },
+      "rank_distribution": {
+        "min": 45,
+        "p10": 47,
+        "p50": 49,
+        "p90": 57,
+        "max": 57
+      },
+      "rank_spread": 12,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 72,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Professional reuse imagery is curated and cannot prove current room arrangement, unstaged service flow or public exterior positions after hours.",
+      "field_failure": "Caption must explain hacienda-to-restaurant reuse",
+      "required_scene": "Arrival, carrying and receiving align across three inherited spaces",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 50
+    },
+    {
+      "canonical_id": "mirador-catalina-recavarren",
+      "name": "Mirador Catalina Recavarren",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 50,
+        "R1": 58,
+        "R2": 43,
+        "R3": 50
+      },
+      "scenario_scores": {
+        "R0": 76.293,
+        "R1": 71.222,
+        "R2": 79.893,
+        "R3": 77.065
+      },
+      "rank_distribution": {
+        "min": 42,
+        "p10": 43,
+        "p50": 51,
+        "p90": 58,
+        "max": 61
+      },
+      "rank_spread": 19,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 30,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A municipal recovery project is documented, but available evidence does not prove completion, current barriers or lower-path access.",
+      "field_failure": "Sunset/caption rescues image",
+      "required_scene": "Looking, passing and pausing align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 51
+    },
+    {
+      "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+      "name": "Biblioteca Municipal y borde lagunas del Olivar",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 53,
+        "R1": 53,
+        "R2": 51,
+        "R3": 52
+      },
+      "scenario_scores": {
+        "R0": 75.494,
+        "R1": 72.715,
+        "R2": 77.789,
+        "R3": 76.949
+      },
+      "rank_distribution": {
+        "min": 49,
+        "p10": 50,
+        "p50": 53,
+        "p90": 53,
+        "max": 55
+      },
+      "rank_spread": 6,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 26,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current library/cultural activity and lagoon maintenance are verified separately, but no source proves that readers routinely occupy the lagoon sightline in one frame.",
+      "field_failure": "Caption supplies the connection",
+      "required_scene": "Entering, reading/pausing and crossing occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 52
+    },
+    {
+      "canonical_id": "pentagonito-y-bordes-civicos",
+      "name": "Pentagonito y bordes cívicos",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 52,
+        "R1": 54,
+        "R2": 47,
+        "R3": 61
+      },
+      "scenario_scores": {
+        "R0": 75.672,
+        "R1": 72.639,
+        "R2": 79.075,
+        "R3": 74.826
+      },
+      "rank_distribution": {
+        "min": 44,
+        "p10": 46,
+        "p50": 53,
+        "p90": 61,
+        "max": 67
+      },
+      "rank_spread": 23,
+      "pareto_front": false,
+      "evidence_confidence": 0.868,
+      "field_rank": 77,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A June 2026 race proves episodic use, while a July cancellation proves advertised events are not guaranteed route windows.",
+      "field_failure": "Caption explains Pentagonito",
+      "required_scene": "Approach, turn and run occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 53
+    },
+    {
+      "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+      "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 54,
+        "R1": 55,
+        "R2": 53,
+        "R3": 55
+      },
+      "scenario_scores": {
+        "R0": 75.309,
+        "R1": 72.594,
+        "R2": 77.646,
+        "R3": 76.828
+      },
+      "rank_distribution": {
+        "min": 51,
+        "p10": 52,
+        "p50": 54,
+        "p90": 55,
+        "max": 57
+      },
+      "rank_spread": 6,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 28,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Completed Canaval y Moreyra/Andrés Reyes capacity works are verified, while planned intermediate boarding and broader modernization may still be incomplete.",
+      "field_failure": "Caption explains financial district",
+      "required_scene": "Exiting, transferring and entering occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 54
+    },
+    {
+      "canonical_id": "calle-choquehuanca-basadre-residencial",
+      "name": "Calle Choquehuanca / Basadre residencial",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 55,
+        "R1": 51,
+        "R2": 58,
+        "R3": 49
+      },
+      "scenario_scores": {
+        "R0": 74.961,
+        "R1": 73.411,
+        "R2": 76.426,
+        "R3": 77.172
+      },
+      "rank_distribution": {
+        "min": 46,
+        "p10": 49,
+        "p50": 54,
+        "p90": 58,
+        "max": 60
+      },
+      "rank_spread": 14,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 35,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Designer images are commissioned and usually empty; current occupation, screen positions and street conditions require field evidence.",
+      "field_failure": "Caption explains district change",
+      "required_scene": "Approaching, entering and passing occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 55
+    },
+    {
+      "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+      "name": "Palacio Municipal y de la Cultura · San Isidro",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 56,
+        "R1": 56,
+        "R2": 56,
+        "R3": 56
+      },
+      "scenario_scores": {
+        "R0": 74.639,
+        "R1": 72.17,
+        "R2": 77.142,
+        "R3": 76.424
+      },
+      "rank_distribution": {
+        "min": 53,
+        "p10": 55,
+        "p50": 56,
+        "p90": 57,
+        "max": 58
+      },
+      "rank_spread": 5,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 41,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A completed free exhibition proves public gallery capacity, not current exhibition access or photography permission.",
+      "field_failure": "Caption joins separate events",
+      "required_scene": "Approaching, waiting and entering occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 56
+    },
+    {
+      "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+      "name": "Calle Porta y casonas frente a verticalización",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 60,
+        "R1": 50,
+        "R2": 65,
+        "R3": 58
+      },
+      "scenario_scores": {
+        "R0": 73.733,
+        "R1": 73.416,
+        "R2": 73.523,
+        "R3": 75.899
+      },
+      "rank_distribution": {
+        "min": 47,
+        "p10": 50,
+        "p50": 59,
+        "p90": 65,
+        "max": 69
+      },
+      "rank_spread": 22,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 39,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Municipal history describes old houses overwhelmed by large buildings but does not inventory which houses survive in August 2026.",
+      "field_failure": "Caption/archival image must explain transformation",
+      "required_scene": "Entering, walking and overlooking/service movement align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 57
+    },
+    {
+      "canonical_id": "museo-larco-jardines",
+      "name": "Museo Larco + jardines",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 59,
+        "R1": 71,
+        "R2": 59,
+        "R3": 57
+      },
+      "scenario_scores": {
+        "R0": 73.891,
+        "R1": 65.015,
+        "R2": 76.191,
+        "R3": 76.191
+      },
+      "rank_distribution": {
+        "min": 51,
+        "p10": 57,
+        "p50": 59,
+        "p90": 71,
+        "max": 72
+      },
+      "rank_spread": 21,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 61,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current rules allow non-professional photography but prohibit photo sessions and tripods; professional work requires museum authorization at least three business days ahead.",
+      "field_failure": "Caption must explain recovered-element reuse",
+      "required_scene": "Looking, crossing and entering align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 58
+    },
+    {
+      "canonical_id": "torre-banco-de-la-nacion",
+      "name": "Torre Banco de la Nación",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 61,
+        "R1": 65,
+        "R2": 60,
+        "R3": 51
+      },
+      "scenario_scores": {
+        "R0": 73.332,
+        "R1": 68.744,
+        "R2": 75.452,
+        "R3": 76.976
+      },
+      "rank_distribution": {
+        "min": 47,
+        "p10": 51,
+        "p50": 60,
+        "p90": 65,
+        "max": 66
+      },
+      "rank_spread": 19,
+      "pareto_front": false,
+      "evidence_confidence": 0.868,
+      "field_rank": 54,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Height and landmark status establish identity but add no competition value.",
+      "field_failure": "Caption supplies function",
+      "required_scene": "Crossing, waiting and entering occupy layered zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 59
+    },
+    {
+      "canonical_id": "parroquia-nuestra-senora-del-pilar",
+      "name": "Parroquia Nuestra Señora del Pilar",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 63,
+        "R1": 63,
+        "R2": 61,
+        "R3": 60
+      },
+      "scenario_scores": {
+        "R0": 72.453,
+        "R1": 69.854,
+        "R2": 74.668,
+        "R3": 75.467
+      },
+      "rank_distribution": {
+        "min": 57,
+        "p10": 59,
+        "p50": 62,
+        "p90": 64,
+        "max": 69
+      },
+      "rank_spread": 12,
+      "pareto_front": false,
+      "evidence_confidence": 0.912,
+      "field_rank": 49,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current Mass schedules establish recurring worship but not attendance density or photography permission.",
+      "field_failure": "Caption supplies history",
+      "required_scene": "Passing, arriving and entering occupy distinct zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 60
+    },
+    {
+      "canonical_id": "parque-de-la-felicidad",
+      "name": "Parque de la Felicidad",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 62,
+        "R1": 68,
+        "R2": 55,
+        "R3": 64
+      },
+      "scenario_scores": {
+        "R0": 72.529,
+        "R1": 66.82,
+        "R2": 77.169,
+        "R3": 74.479
+      },
+      "rank_distribution": {
+        "min": 50,
+        "p10": 55,
+        "p50": 63,
+        "p90": 68,
+        "max": 69
+      },
+      "rank_spread": 19,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 48,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Map claims of continuous opening are non-authoritative and remain VERIFY_BEFORE_ROUTE.",
+      "field_failure": "Caption/event title rescues image",
+      "required_scene": "Approach, crossing and exchange occupy three layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 61
+    },
+    {
+      "canonical_id": "huaca-julio-c-tello",
+      "name": "Huaca Julio C. Tello",
+      "district": "Pueblo Libre",
+      "scenario_ranks": {
+        "R0": 57,
+        "R1": 46,
+        "R2": 78,
+        "R3": 72
+      },
+      "scenario_scores": {
+        "R0": 74.446,
+        "R1": 74.275,
+        "R2": 70.548,
+        "R3": 73.061
+      },
+      "rank_distribution": {
+        "min": 42,
+        "p10": 46,
+        "p50": 63,
+        "p90": 78,
+        "max": 79
+      },
+      "rank_spread": 37,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 80,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "The municipal corridor marks the site open but supplies no authoritative hours, staffing or interior-route detail.",
+      "field_failure": "Caption supplies significance",
+      "required_scene": "Approach, turn and continue occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 62
+    },
+    {
+      "canonical_id": "saenz-pena-domeyer-pasajes",
+      "name": "Sáenz Peña / Domeyer / pasajes",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 66,
+        "R1": 59,
+        "R2": 69,
+        "R3": 63
+      },
+      "scenario_scores": {
+        "R0": 72.133,
+        "R1": 70.349,
+        "R2": 72.423,
+        "R3": 74.532
+      },
+      "rank_distribution": {
+        "min": 58,
+        "p10": 59,
+        "p50": 64,
+        "p90": 69,
+        "max": 72
+      },
+      "rank_spread": 14,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 58,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Creative-district guides document businesses and galleries, but current operators, hours and interior photography conditions can change.",
+      "field_failure": "Caption joins Sáenz Peña/Domeyer",
+      "required_scene": "Approaching, turning and entering occupy three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 63
+    },
+    {
+      "canonical_id": "country-club-lima-hotel",
+      "name": "Country Club Lima Hotel",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 58,
+        "R1": 66,
+        "R2": 57,
+        "R3": 69
+      },
+      "scenario_scores": {
+        "R0": 74.186,
+        "R1": 67.908,
+        "R2": 77.136,
+        "R3": 73.504
+      },
+      "rank_distribution": {
+        "min": 51,
+        "p10": 55,
+        "p50": 65,
+        "p90": 69,
+        "max": 72
+      },
+      "rank_spread": 21,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 69,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Operator history describes former golf/polo relationships that may no longer read spatially in one current frame.",
+      "field_failure": "Caption must explain hotel/gallery adaptation",
+      "required_scene": "Arriving, receiving and looking align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 64
+    },
+    {
+      "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+      "name": "Ministerio de Cultura / Museo de la Nación",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 67,
+        "R1": 60,
+        "R2": 70,
+        "R3": 62
+      },
+      "scenario_scores": {
+        "R0": 72.014,
+        "R1": 70.315,
+        "R2": 72.347,
+        "R3": 74.564
+      },
+      "rank_distribution": {
+        "min": 58,
+        "p10": 60,
+        "p50": 65,
+        "p90": 71,
+        "max": 73
+      },
+      "rank_spread": 15,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 55,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Administrative security and adjacent GTN/BNP/LCC flows may prevent interior or threshold photography.",
+      "field_failure": "Event spectacle overwhelms architecture",
+      "required_scene": "Queue, making and movement occupy distinct zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 65
+    },
+    {
+      "canonical_id": "ovalo-de-miraflores",
+      "name": "Óvalo de Miraflores",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 71,
+        "R1": 69,
+        "R2": 63,
+        "R3": 59
+      },
+      "scenario_scores": {
+        "R0": 71.613,
+        "R1": 65.644,
+        "R2": 74.276,
+        "R3": 75.642
+      },
+      "rank_distribution": {
+        "min": 52,
+        "p10": 59,
+        "p50": 65,
+        "p90": 71,
+        "max": 73
+      },
+      "rank_spread": 21,
+      "pareto_front": false,
+      "evidence_confidence": 0.912,
+      "field_rank": 22,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A 1963 origin and fifteen-year abandonment support temporal context but do not themselves create a one-frame present story.",
+      "field_failure": "Caption supplies abandonment/reopening",
+      "required_scene": "Waiting, crossing and turning occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 66
+    },
+    {
+      "canonical_id": "iglesia-santisima-cruz",
+      "name": "Iglesia Santísima Cruz",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 70,
+        "R1": 61,
+        "R2": 71,
+        "R3": 66
+      },
+      "scenario_scores": {
+        "R0": 71.906,
+        "R1": 70.226,
+        "R2": 72.259,
+        "R3": 74.447
+      },
+      "rank_distribution": {
+        "min": 60,
+        "p10": 61,
+        "p50": 66,
+        "p90": 72,
+        "max": 75
+      },
+      "rank_spread": 15,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 20,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current parish identity is corroborated, but no authoritative current mass schedule or photography policy was found; both require direct contact.",
+      "field_failure": "Caption must explain parish life",
+      "required_scene": "Crossing, pausing and entering align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 67
+    },
+    {
+      "canonical_id": "huaca-huallamarca",
+      "name": "Huaca Huallamarca",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 68,
+        "R1": 74,
+        "R2": 67,
+        "R3": 65
+      },
+      "scenario_scores": {
+        "R0": 72.008,
+        "R1": 62.524,
+        "R2": 72.811,
+        "R3": 74.457
+      },
+      "rank_distribution": {
+        "min": 60,
+        "p10": 63,
+        "p50": 67,
+        "p90": 74,
+        "max": 74
+      },
+      "rank_spread": 14,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 31,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current administration is verified but public hours/access are not.",
+      "field_failure": "Caption must explain ramp reconstruction",
+      "required_scene": "Approaching, climbing and examining align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 68
+    },
+    {
+      "canonical_id": "bosque-el-olivar",
+      "name": "Bosque El Olivar",
+      "district": "San Isidro",
+      "scenario_ranks": {
+        "R0": 64,
+        "R1": 73,
+        "R2": 54,
+        "R3": 68
+      },
+      "scenario_scores": {
+        "R0": 72.381,
+        "R1": 62.611,
+        "R2": 77.274,
+        "R3": 73.567
+      },
+      "rank_distribution": {
+        "min": 47,
+        "p10": 54,
+        "p50": 68,
+        "p90": 73,
+        "max": 74
+      },
+      "rank_spread": 27,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 14,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Municipal language calls maintenance permanent, but no repeatable worker schedule supports a route promise.",
+      "field_failure": "Caption must explain stewardship",
+      "required_scene": "Caring, walking and pausing align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 69
+    },
+    {
+      "canonical_id": "casa-museo-ricardo-palma",
+      "name": "Casa Museo Ricardo Palma",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 65,
+        "R1": 62,
+        "R2": 73,
+        "R3": 73
+      },
+      "scenario_scores": {
+        "R0": 72.149,
+        "R1": 70.092,
+        "R2": 72.184,
+        "R3": 72.221
+      },
+      "rank_distribution": {
+        "min": 61,
+        "p10": 62,
+        "p50": 69,
+        "p90": 73,
+        "max": 75
+      },
+      "rank_spread": 14,
+      "pareto_front": false,
+      "evidence_confidence": 0.846,
+      "field_rank": 78,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Documented adjacent-construction damage and repair are historical and cannot be described as ongoing in 2026.",
+      "field_failure": "Caption supplies author/damage",
+      "required_scene": "Passing, pausing and exclusion occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 70
+    },
+    {
+      "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+      "name": "Museo Pedro de Osma y Av. Pedro de Osma",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 69,
+        "R1": 70,
+        "R2": 62,
+        "R3": 70
+      },
+      "scenario_scores": {
+        "R0": 71.928,
+        "R1": 65.297,
+        "R2": 74.383,
+        "R3": 73.345
+      },
+      "rank_distribution": {
+        "min": 61,
+        "p10": 62,
+        "p50": 70,
+        "p90": 71,
+        "max": 73
+      },
+      "rank_spread": 12,
+      "pareto_front": false,
+      "evidence_confidence": 0.912,
+      "field_rank": 63,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current programs prove active institutional life but do not make event participants or interiors photographable without separate permission.",
+      "field_failure": "Caption or interior image required",
+      "required_scene": "Passing, pausing and entering occupy separate zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 71
+    },
+    {
+      "canonical_id": "coliseo-eduardo-dibos",
+      "name": "Coliseo Eduardo Dibós",
+      "district": "San Borja",
+      "scenario_ranks": {
+        "R0": 73,
+        "R1": 64,
+        "R2": 75,
+        "R3": 67
+      },
+      "scenario_scores": {
+        "R0": 70.972,
+        "R1": 69.661,
+        "R2": 71.557,
+        "R3": 73.953
+      },
+      "rank_distribution": {
+        "min": 63,
+        "p10": 64,
+        "p50": 70,
+        "p90": 75,
+        "max": 76
+      },
+      "rank_spread": 13,
+      "pareto_front": false,
+      "evidence_confidence": 0.868,
+      "field_rank": 19,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Multiple completed 2026 events prove active capacity but not a future event window or walk-in access.",
+      "field_failure": "Caption/event supplies meaning",
+      "required_scene": "Queue, turn and assemble occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 72
+    },
+    {
+      "canonical_id": "la-ermita-de-barranco",
+      "name": "La Ermita de Barranco",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 72,
+        "R1": 72,
+        "R2": 68,
+        "R3": 75
+      },
+      "scenario_scores": {
+        "R0": 71.391,
+        "R1": 64.263,
+        "R2": 72.636,
+        "R3": 71.074
+      },
+      "rank_distribution": {
+        "min": 64,
+        "p10": 67,
+        "p50": 72,
+        "p90": 75,
+        "max": 75
+      },
+      "rank_spread": 11,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 68,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Current restoration and access status was not established by the municipal attractions page.",
+      "field_failure": "Caption must explain project scope",
+      "required_scene": "Restoring/inspecting, passing and observing align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 73
+    },
+    {
+      "canonical_id": "parque-maria-reiche",
+      "name": "Parque María Reiche",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 74,
+        "R1": 67,
+        "R2": 76,
+        "R3": 71
+      },
+      "scenario_scores": {
+        "R0": 70.372,
+        "R1": 67.248,
+        "R2": 71.224,
+        "R3": 73.235
+      },
+      "rank_distribution": {
+        "min": 66,
+        "p10": 67,
+        "p50": 73,
+        "p90": 77,
+        "max": 77
+      },
+      "rank_spread": 11,
+      "pareto_front": false,
+      "evidence_confidence": 0.868,
+      "field_rank": 32,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A recurring 2026 Monday class was announced, but continuation and exact location must be confirmed before route.",
+      "field_failure": "Caption explains Nazca/PTAR",
+      "required_scene": "Exercise, crossing and maintenance/observation occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 74
+    },
+    {
+      "canonical_id": "huaca-pucllana",
+      "name": "Huaca Pucllana",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 75,
+        "R1": 76,
+        "R2": 74,
+        "R3": 74
+      },
+      "scenario_scores": {
+        "R0": 68.286,
+        "R1": 56.136,
+        "R2": 71.604,
+        "R3": 71.477
+      },
+      "rank_distribution": {
+        "min": 68,
+        "p10": 74,
+        "p50": 75,
+        "p90": 76,
+        "max": 77
+      },
+      "rank_spread": 9,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 42,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Published day/night visit descriptions do not establish professional-photography permission, access to every pyramid level or current crowd cadence.",
+      "field_failure": "Caption must explain research continuity",
+      "required_scene": "Investigating, guiding and climbing align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 75
+    },
+    {
+      "canonical_id": "palacio-municipal-virgen-milagrosa",
+      "name": "Palacio Municipal + Virgen Milagrosa",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 76,
+        "R1": 75,
+        "R2": 79,
+        "R3": 76
+      },
+      "scenario_scores": {
+        "R0": 66.996,
+        "R1": 60.95,
+        "R2": 68.871,
+        "R3": 70.266
+      },
+      "rank_distribution": {
+        "min": 75,
+        "p10": 75,
+        "p50": 76,
+        "p90": 79,
+        "max": 79
+      },
+      "rank_spread": 4,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 57,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Official sources verify identities and functions but not a shared event or synchronized access window.",
+      "field_failure": "Caption or montage required",
+      "required_scene": "Approach, choice and entry occupy layers",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 76
+    },
+    {
+      "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+      "name": "Puente de los Suspiros + Bajada de Baños",
+      "district": "Barranco",
+      "scenario_ranks": {
+        "R0": 77,
+        "R1": 77,
+        "R2": 66,
+        "R3": 77
+      },
+      "scenario_scores": {
+        "R0": 66.288,
+        "R1": 54.601,
+        "R2": 72.868,
+        "R3": 68.979
+      },
+      "rank_distribution": {
+        "min": 61,
+        "p10": 66,
+        "p50": 77,
+        "p90": 77,
+        "max": 77
+      },
+      "rank_spread": 16,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 33,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "The former funicular is documentary context only; it must be rejected as a scene mechanism unless physical residue is visible without caption.",
+      "field_failure": "Caption must explain topographic system",
+      "required_scene": "Crossing, descending and pausing align",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 77
+    },
+    {
+      "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+      "name": "Faro La Marina + Parque Antonio Raimondi",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 78,
+        "R1": 78,
+        "R2": 77,
+        "R3": 79
+      },
+      "scenario_scores": {
+        "R0": 65.72,
+        "R1": 54.138,
+        "R2": 71.035,
+        "R3": 68.478
+      },
+      "rank_distribution": {
+        "min": 70,
+        "p10": 77,
+        "p50": 78,
+        "p90": 79,
+        "max": 79
+      },
+      "rank_spread": 9,
+      "pareto_front": false,
+      "evidence_confidence": 0.78,
+      "field_rank": 36,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A lighthouse silhouette against sunset or paraglider is highly saturated and fails unless ground circulation, cliff edge or wind-driven use remains causal.",
+      "field_failure": "Caption must explain Faro–Raimondi continuity",
+      "required_scene": "Walker arrives, runner traverses and observer pauses across three zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 78
+    },
+    {
+      "canonical_id": "parque-kennedy-gatos-civic-core",
+      "name": "Parque Kennedy / gatos / civic core",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 79,
+        "R1": 79,
+        "R2": 72,
+        "R3": 78
+      },
+      "scenario_scores": {
+        "R0": 65.431,
+        "R1": 54.068,
+        "R2": 72.221,
+        "R3": 68.489
+      },
+      "rank_distribution": {
+        "min": 64,
+        "p10": 69,
+        "p50": 79,
+        "p90": 79,
+        "max": 79
+      },
+      "rank_spread": 15,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 29,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A 2026 concert proves event capacity, not a current or repeatable shooting window; ordinary use must carry the frame unless a dated event is reverified.",
+      "field_failure": "Caption must explain the relationships",
+      "required_scene": "Arriving figure, waiting adult and play boundary form three civic states",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 79
+    },
+    {
+      "canonical_id": "larcomar-acantilado",
+      "name": "Larcomar + acantilado",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 80,
+        "R1": 80,
+        "R2": 80,
+        "R3": 80
+      },
+      "scenario_scores": {
+        "R0": 62.531,
+        "R1": 51.961,
+        "R2": 65.824,
+        "R3": 66.367
+      },
+      "rank_distribution": {
+        "min": 80,
+        "p10": 80,
+        "p50": 80,
+        "p90": 80,
+        "max": 80
+      },
+      "rank_spread": 0,
+      "pareto_front": false,
+      "evidence_confidence": 0.824,
+      "field_rank": 56,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "Historical temporary closure evidence cannot be treated as a current defect, and operator activity cannot prove every mirador/terrace is open.",
+      "field_failure": "Caption must explain excavation or current maintenance",
+      "required_scene": "Walking, descending and overlooking align across three levels",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 80
+    },
+    {
+      "canonical_id": "parque-del-amor-el-beso",
+      "name": "Parque del Amor & El Beso",
+      "district": "Miraflores",
+      "scenario_ranks": {
+        "R0": 81,
+        "R1": 81,
+        "R2": 81,
+        "R3": 81
+      },
+      "scenario_scores": {
+        "R0": 60.753,
+        "R1": 50.796,
+        "R2": 64.463,
+        "R3": 65.199
+      },
+      "rank_distribution": {
+        "min": 81,
+        "p10": 81,
+        "p50": 81,
+        "p90": 81,
+        "max": 81
+      },
+      "rank_spread": 0,
+      "pareto_front": false,
+      "evidence_confidence": 0.802,
+      "field_rank": 40,
+      "ranking_eligible": true,
+      "route_eligible": false,
+      "strongest_counterargument": "A 2024 group-exercise activity proves spatial capacity, not a recurring 2026 timetable.",
+      "field_failure": "Romance or landmark recognition carries meaning",
+      "required_scene": "Arriving, sitting and looking outward occupy three wall-controlled zones",
+      "evidence_that_moves_rank": "Field proof that confirms or contradicts the E one-frame story, access and decisive-moment assumptions.",
+      "robust_rank": 81
+    }
+  ]
+}

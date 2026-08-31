@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-08-27T00:00:00-05:00",
+  "questions": [
+    {
+      "id": "OQ-001",
+      "question": "Can the current official PDF, live form, and public competition page be reverified and snapshotted?",
+      "status": "RESOLVED_2026-08-27",
+      "blocks": ["ROUND_1_RELEASE"]
+    },
+    {
+      "id": "OQ-002",
+      "question": "Does the user own and intend to use a Canon 5D Mark II, or is that only historical context?",
+      "status": "OPEN_NONBLOCKING",
+      "default": "Retain Canon EOS 6D Mark I as canonical; do not add inferred gear"
+    },
+    {
+      "id": "OQ-003",
+      "question": "Can headless browser QA complete outside the managed sandbox after the interrupted run?",
+      "status": "RESOLVED_CUSTOM_BASELINE_CAPTURE",
+      "blocks": ["ROUND_0_BASELINE"]
+    }
+  ]
+}

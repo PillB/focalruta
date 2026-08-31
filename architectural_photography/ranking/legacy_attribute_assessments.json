@@ -1,0 +1,1221 @@
+{
+  "assessment_version": "legacy-attributes-sanitized-v1.0.0",
+  "privacy": "GENERATED_PUBLIC_NO_RAW_CONVERSATION_NO_HISTORICAL_RANKS",
+  "records": [
+    {
+      "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+      "attributes": {
+        "brief": 9.4,
+        "story": 9.5,
+        "novelty": 9.3,
+        "saturation": 2.0,
+        "lived": 10.0,
+        "formal": 8.8,
+        "feasibility": 9.5,
+        "judge": 8.6,
+        "ephemeris": 9.0,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "torres-de-limatambo-supermanzana",
+      "attributes": {
+        "brief": 9.6,
+        "story": 9.5,
+        "novelty": 9.0,
+        "saturation": 2.5,
+        "lived": 9.5,
+        "formal": 9.0,
+        "feasibility": 9.5,
+        "judge": 9.3,
+        "ephemeris": 9.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "residencial-san-felipe",
+      "attributes": {
+        "brief": 9.7,
+        "story": 9.6,
+        "novelty": 8.8,
+        "saturation": 3.0,
+        "lived": 9.7,
+        "formal": 9.5,
+        "feasibility": 8.5,
+        "judge": 9.5,
+        "ephemeris": 8.8,
+        "travel": 1.0
+      }
+    },
+    {
+      "canonical_id": "previ-lima",
+      "attributes": {
+        "brief": 10.0,
+        "story": 10.0,
+        "novelty": 10.0,
+        "saturation": 1.0,
+        "lived": 10.0,
+        "formal": 8.8,
+        "feasibility": 6.2,
+        "judge": 9.6,
+        "ephemeris": 10.0,
+        "travel": 4.5
+      }
+    },
+    {
+      "canonical_id": "museo-de-la-electricidad-tranvia",
+      "attributes": {
+        "brief": 9.3,
+        "story": 9.1,
+        "novelty": 8.0,
+        "saturation": 2.0,
+        "lived": 9.0,
+        "formal": 9.0,
+        "feasibility": 9.0,
+        "judge": 9.4,
+        "ephemeris": 9.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "parque-de-las-americas",
+      "attributes": {
+        "brief": 9.2,
+        "story": 9.2,
+        "novelty": 8.6,
+        "saturation": 2.5,
+        "lived": 9.5,
+        "formal": 8.2,
+        "feasibility": 9.5,
+        "judge": 8.7,
+        "ephemeris": 9.0,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "huaca-santa-cruz",
+      "attributes": {
+        "brief": 9.3,
+        "story": 9.1,
+        "novelty": 8.0,
+        "saturation": 2.0,
+        "lived": 8.0,
+        "formal": 9.5,
+        "feasibility": 8.5,
+        "judge": 9.5,
+        "ephemeris": 10.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "conjunto-habitacional-palomino",
+      "attributes": {
+        "brief": 9.6,
+        "story": 9.5,
+        "novelty": 9.5,
+        "saturation": 1.0,
+        "lived": 9.4,
+        "formal": 9.2,
+        "feasibility": 6.0,
+        "judge": 9.2,
+        "ephemeris": 8.0,
+        "travel": 3.0
+      }
+    },
+    {
+      "canonical_id": "quinta-de-los-libertadores-mnaahp",
+      "attributes": {
+        "brief": 9.5,
+        "story": 9.2,
+        "novelty": 7.5,
+        "saturation": 4.0,
+        "lived": 8.8,
+        "formal": 8.8,
+        "feasibility": 9.0,
+        "judge": 9.0,
+        "ephemeris": 8.5,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "plaza-a-la-bandera",
+      "attributes": {
+        "brief": 8.8,
+        "story": 9.0,
+        "novelty": 7.8,
+        "saturation": 4.0,
+        "lived": 9.0,
+        "formal": 9.1,
+        "feasibility": 9.2,
+        "judge": 8.7,
+        "ephemeris": 7.8,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "parque-virginia-candamo",
+      "attributes": {
+        "brief": 8.8,
+        "story": 9.1,
+        "novelty": 8.8,
+        "saturation": 2.0,
+        "lived": 9.0,
+        "formal": 8.3,
+        "feasibility": 9.3,
+        "judge": 8.4,
+        "ephemeris": 7.0,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "unidad-vecinal-3",
+      "attributes": {
+        "brief": 9.6,
+        "story": 9.649999999999999,
+        "novelty": 9.5,
+        "saturation": 1.75,
+        "lived": 9.75,
+        "formal": 8.7,
+        "feasibility": 7.0,
+        "judge": 9.05,
+        "ephemeris": 7.5,
+        "travel": 2.25
+      }
+    },
+    {
+      "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+      "attributes": {
+        "brief": 9.3,
+        "story": 9.3,
+        "novelty": 9.0,
+        "saturation": 2.0,
+        "lived": 10.0,
+        "formal": 8.5,
+        "feasibility": 6.5,
+        "judge": 8.7,
+        "ephemeris": 10.0,
+        "travel": 2.2
+      }
+    },
+    {
+      "canonical_id": "lima-centro-de-convenciones",
+      "attributes": {
+        "brief": 9.0,
+        "story": 8.7,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 10.0,
+        "formal": 9.5,
+        "feasibility": 8.5,
+        "judge": 9.1,
+        "ephemeris": 9.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "casa-museo-julia-codesido",
+      "attributes": {
+        "brief": 9.2,
+        "story": 9.6,
+        "novelty": 9.2,
+        "saturation": 2.0,
+        "lived": 8.0,
+        "formal": 9.0,
+        "feasibility": 5.5,
+        "judge": 9.2,
+        "ephemeris": 9.5,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "huaca-san-borja",
+      "attributes": {
+        "brief": 9.2,
+        "story": 8.9,
+        "novelty": 8.0,
+        "saturation": 2.0,
+        "lived": 8.0,
+        "formal": 9.0,
+        "feasibility": 8.5,
+        "judge": 9.1,
+        "ephemeris": 6.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "quinta-leuro-y-quintas-historicas",
+      "attributes": {
+        "brief": 8.6,
+        "story": 8.6,
+        "novelty": 8.0,
+        "saturation": 2.0,
+        "lived": 9.0,
+        "formal": 9.0,
+        "feasibility": 7.5,
+        "judge": 9.4,
+        "ephemeris": 7.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "estacion-restos-del-funicular-de-barranco",
+      "attributes": {
+        "brief": 8.9,
+        "story": 8.8,
+        "novelty": 8.0,
+        "saturation": 2.0,
+        "lived": 8.0,
+        "formal": 9.5,
+        "feasibility": 7.0,
+        "judge": 9.5,
+        "ephemeris": 6.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "reducto-2-casa-museo-caceres",
+      "attributes": {
+        "brief": 7.8,
+        "story": 7.8,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 10.0,
+        "formal": 9.0,
+        "feasibility": 9.5,
+        "judge": 9.4,
+        "ephemeris": 8.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "biblioteca-municipal-de-barranco",
+      "attributes": {
+        "brief": 8.5,
+        "story": 8.3,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 10.0,
+        "formal": 9.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "santisima-cruz-del-viajero",
+      "attributes": {
+        "brief": 9.1,
+        "story": 9.1,
+        "novelty": 9.1,
+        "saturation": 2.0,
+        "lived": 7.0,
+        "formal": 8.2,
+        "feasibility": 9.2,
+        "judge": 8.6,
+        "ephemeris": 6.5,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "torres-centro-empresarial-camino-real",
+      "attributes": {
+        "brief": 8.6,
+        "story": 8.1,
+        "novelty": 7.0,
+        "saturation": 3.0,
+        "lived": 7.0,
+        "formal": 9.5,
+        "feasibility": 8.5,
+        "judge": 9.2,
+        "ephemeris": 10.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "lugar-de-la-memoria-lum",
+      "attributes": {
+        "brief": 9.5,
+        "story": 9.2,
+        "novelty": 5.0,
+        "saturation": 5.0,
+        "lived": 8.0,
+        "formal": 10.0,
+        "feasibility": 7.5,
+        "judge": 9.8,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "antigua-taberna-queirolo",
+      "attributes": {
+        "brief": 8.5,
+        "story": 8.8,
+        "novelty": 6.5,
+        "saturation": 6.0,
+        "lived": 9.5,
+        "formal": 8.5,
+        "feasibility": 8.0,
+        "judge": 8.1,
+        "ephemeris": 6.0,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "casa-museo-marina-nunez-del-prado",
+      "attributes": {
+        "brief": 8.5,
+        "story": 8.4,
+        "novelty": 7.0,
+        "saturation": 3.0,
+        "lived": 8.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 9.1,
+        "ephemeris": 6.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "parque-tradiciones-ricardo-palma",
+      "attributes": {
+        "brief": 8.0,
+        "story": 7.8,
+        "novelty": 7.0,
+        "saturation": 3.0,
+        "lived": 10.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+      "attributes": {
+        "brief": 8.7,
+        "story": 8.8,
+        "novelty": 5.5,
+        "saturation": 6.0,
+        "lived": 9.2,
+        "formal": 8.6,
+        "feasibility": 9.2,
+        "judge": 8.5,
+        "ephemeris": 8.0,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+      "attributes": {
+        "brief": 7.6,
+        "story": 7.5,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 10.0,
+        "formal": 9.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "biblioteca-nacional-del-peru",
+      "attributes": {
+        "brief": 7.6,
+        "story": 7.5,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 9.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 10.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+      "attributes": {
+        "brief": 7.9,
+        "story": 7.8,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 9.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+      "attributes": {
+        "brief": 7.9,
+        "story": 7.7,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 9.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "gran-teatro-nacional",
+      "attributes": {
+        "brief": 8.7,
+        "story": 8.4,
+        "novelty": 4.0,
+        "saturation": 6.0,
+        "lived": 10.0,
+        "formal": 9.0,
+        "feasibility": 8.0,
+        "judge": 8.0,
+        "ephemeris": 10.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "mirador-catalina-recavarren",
+      "attributes": {
+        "brief": 8.4,
+        "story": 8.2,
+        "novelty": 5.0,
+        "saturation": 5.0,
+        "lived": 10.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "parque-municipal-y-entorno-civico",
+      "attributes": {
+        "brief": 7.7,
+        "story": 7.6,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 10.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "mac-lima-parque-espejo-de-agua",
+      "attributes": {
+        "brief": 7.6,
+        "story": 7.6,
+        "novelty": 5.0,
+        "saturation": 5.0,
+        "lived": 10.0,
+        "formal": 9.0,
+        "feasibility": 8.0,
+        "judge": 8.0,
+        "ephemeris": 9.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "puente-villena-bajada-balta-costa-verde",
+      "attributes": {
+        "brief": 7.8,
+        "story": 7.8,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 7.0,
+        "formal": 9.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "casa-raul-porras-barrenechea",
+      "attributes": {
+        "brief": 7.7,
+        "story": 7.5,
+        "novelty": 7.0,
+        "saturation": 3.0,
+        "lived": 8.0,
+        "formal": 8.0,
+        "feasibility": 6.0,
+        "judge": 9.0,
+        "ephemeris": 9.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "casa-hacienda-orbea",
+      "attributes": {
+        "brief": 9.0,
+        "story": 9.3,
+        "novelty": 9.5,
+        "saturation": 1.0,
+        "lived": 4.0,
+        "formal": 9.2,
+        "feasibility": 3.5,
+        "judge": 9.0,
+        "ephemeris": 7.0,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "calle-choquehuanca-basadre-residencial",
+      "attributes": {
+        "brief": 7.9,
+        "story": 7.8,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+      "attributes": {
+        "brief": 7.5,
+        "story": 7.5,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 9.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "museo-larco-jardines",
+      "attributes": {
+        "brief": 8.4,
+        "story": 8.5,
+        "novelty": 3.0,
+        "saturation": 8.0,
+        "lived": 8.5,
+        "formal": 9.3,
+        "feasibility": 8.0,
+        "judge": 9.0,
+        "ephemeris": 6.0,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "bosque-el-olivar",
+      "attributes": {
+        "brief": 8.8,
+        "story": 8.5,
+        "novelty": 2.0,
+        "saturation": 8.0,
+        "lived": 10.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "huaca-huallamarca",
+      "attributes": {
+        "brief": 9.6,
+        "story": 9.1,
+        "novelty": 2.0,
+        "saturation": 8.0,
+        "lived": 7.0,
+        "formal": 9.0,
+        "feasibility": 8.5,
+        "judge": 9.0,
+        "ephemeris": 6.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+      "attributes": {
+        "brief": 7.6,
+        "story": 7.6,
+        "novelty": 7.0,
+        "saturation": 3.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "saenz-pena-domeyer-pasajes",
+      "attributes": {
+        "brief": 7.6,
+        "story": 7.6,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "casa-emilio-harth-terre",
+      "attributes": {
+        "brief": 7.6,
+        "story": 7.6,
+        "novelty": 8.0,
+        "saturation": 2.0,
+        "lived": 7.0,
+        "formal": 9.0,
+        "feasibility": 6.0,
+        "judge": 9.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "parque-de-la-felicidad",
+      "attributes": {
+        "brief": 7.4,
+        "story": 7.4,
+        "novelty": 4.0,
+        "saturation": 6.0,
+        "lived": 10.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+      "attributes": {
+        "brief": 7.6,
+        "story": 7.5,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "iglesia-santisima-cruz",
+      "attributes": {
+        "brief": 7.5,
+        "story": 7.5,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "huaca-pucllana",
+      "attributes": {
+        "brief": 9.1,
+        "story": 8.3,
+        "novelty": 0.0,
+        "saturation": 10.0,
+        "lived": 8.0,
+        "formal": 9.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+      "attributes": {
+        "brief": 8.8,
+        "story": 8.4,
+        "novelty": 3.0,
+        "saturation": 7.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 7.0,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "casa-hacienda-moreyra",
+      "attributes": {
+        "brief": 7.6,
+        "story": 7.4,
+        "novelty": 5.0,
+        "saturation": 5.0,
+        "lived": 9.0,
+        "formal": 9.0,
+        "feasibility": 6.0,
+        "judge": 8.0,
+        "ephemeris": 8.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "torre-banco-de-la-nacion",
+      "attributes": {
+        "brief": 7.8,
+        "story": 7.6,
+        "novelty": 4.0,
+        "saturation": 6.0,
+        "lived": 7.0,
+        "formal": 9.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "parque-maria-reiche",
+      "attributes": {
+        "brief": 7.5,
+        "story": 7.5,
+        "novelty": 5.0,
+        "saturation": 5.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "parroquia-nuestra-senora-del-pilar",
+      "attributes": {
+        "brief": 7.5,
+        "story": 7.4,
+        "novelty": 5.0,
+        "saturation": 5.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+      "attributes": {
+        "brief": 7.7,
+        "story": 7.4,
+        "novelty": 0.0,
+        "saturation": 10.0,
+        "lived": 10.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "country-club-lima-hotel",
+      "attributes": {
+        "brief": 8.0,
+        "story": 7.8,
+        "novelty": 4.0,
+        "saturation": 6.0,
+        "lived": 9.0,
+        "formal": 8.0,
+        "feasibility": 6.0,
+        "judge": 8.0,
+        "ephemeris": 8.0,
+        "travel": 0.0
+      }
+    },
+    {
+      "canonical_id": "pentagonito-y-bordes-civicos",
+      "attributes": {
+        "brief": 7.5,
+        "story": 7.5,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 10.0,
+        "formal": 8.0,
+        "feasibility": 5.0,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+      "attributes": {
+        "brief": 7.8,
+        "story": 7.8,
+        "novelty": 0.0,
+        "saturation": 10.0,
+        "lived": 9.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "casa-museo-ricardo-palma",
+      "attributes": {
+        "brief": 8.0,
+        "story": 7.6,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 5.0,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "ovalo-de-miraflores",
+      "attributes": {
+        "brief": 7.8,
+        "story": 7.5,
+        "novelty": 3.0,
+        "saturation": 7.0,
+        "lived": 7.0,
+        "formal": 9.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "coliseo-eduardo-dibos",
+      "attributes": {
+        "brief": 7.4,
+        "story": 7.0,
+        "novelty": 6.0,
+        "saturation": 4.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.3
+      }
+    },
+    {
+      "canonical_id": "huaca-julio-c-tello",
+      "attributes": {
+        "brief": 9.0,
+        "story": 8.5,
+        "novelty": 8.0,
+        "saturation": 3.0,
+        "lived": 5.0,
+        "formal": 8.5,
+        "feasibility": 2.5,
+        "judge": 8.8,
+        "ephemeris": 5.0,
+        "travel": 1.2
+      }
+    },
+    {
+      "canonical_id": "palacio-municipal-virgen-milagrosa",
+      "attributes": {
+        "brief": 7.6,
+        "story": 7.4,
+        "novelty": 3.0,
+        "saturation": 7.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "la-ermita-de-barranco",
+      "attributes": {
+        "brief": 7.7,
+        "story": 7.6,
+        "novelty": 3.0,
+        "saturation": 7.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 6.0,
+        "judge": 8.0,
+        "ephemeris": 10.0,
+        "travel": 0.5
+      }
+    },
+    {
+      "canonical_id": "parque-kennedy-gatos-civic-core",
+      "attributes": {
+        "brief": 7.5,
+        "story": 7.0,
+        "novelty": 0.0,
+        "saturation": 10.0,
+        "lived": 10.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "parque-del-amor-el-beso",
+      "attributes": {
+        "brief": 7.2,
+        "story": 6.8,
+        "novelty": 0.0,
+        "saturation": 10.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "larcomar-acantilado",
+      "attributes": {
+        "brief": 7.8,
+        "story": 7.5,
+        "novelty": 0.0,
+        "saturation": 10.0,
+        "lived": 7.0,
+        "formal": 8.0,
+        "feasibility": 8.5,
+        "judge": 8.0,
+        "ephemeris": 6.0,
+        "travel": 0.2
+      }
+    },
+    {
+      "canonical_id": "centro-cultural-ccori-wasi",
+      "attributes": {
+        "brief": 9.5,
+        "story": 9.6,
+        "novelty": 9.1,
+        "saturation": 2.5,
+        "lived": 9.4,
+        "formal": 9.3,
+        "feasibility": 9.0,
+        "judge": 9.2,
+        "ephemeris": 9.4,
+        "travel": 0.25
+      }
+    },
+    {
+      "canonical_id": "centro-civico-de-lima-real-plaza",
+      "attributes": {
+        "brief": 9.6,
+        "story": 9.8,
+        "novelty": 9.2,
+        "saturation": 4.5,
+        "lived": 10.0,
+        "formal": 9.5,
+        "feasibility": 9.2,
+        "judge": 9.3,
+        "ephemeris": 8.5,
+        "travel": 1.0
+      }
+    },
+    {
+      "canonical_id": "agrupamiento-chabuca-granda",
+      "attributes": {
+        "brief": 9.6,
+        "story": 9.7,
+        "novelty": 9.6,
+        "saturation": 1.5,
+        "lived": 9.8,
+        "formal": 9.4,
+        "feasibility": 7.8,
+        "judge": 9.4,
+        "ephemeris": 7.5,
+        "travel": 1.3
+      }
+    },
+    {
+      "canonical_id": "edificio-alvarez-calderon",
+      "attributes": {
+        "brief": 9.4,
+        "story": 9.5,
+        "novelty": 9.7,
+        "saturation": 1.0,
+        "lived": 8.5,
+        "formal": 9.6,
+        "feasibility": 9.0,
+        "judge": 9.4,
+        "ephemeris": 7.0,
+        "travel": 0.25
+      }
+    },
+    {
+      "canonical_id": "quinta-heeren-restauracion-2026",
+      "attributes": {
+        "brief": 9.8,
+        "story": 9.9,
+        "novelty": 9.8,
+        "saturation": 2.0,
+        "lived": 7.5,
+        "formal": 9.4,
+        "feasibility": 5.8,
+        "judge": 9.7,
+        "ephemeris": 10.0,
+        "travel": 1.4
+      }
+    },
+    {
+      "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+      "attributes": {
+        "brief": 9.2,
+        "story": 9.4,
+        "novelty": 9.8,
+        "saturation": 0.5,
+        "lived": 10.0,
+        "formal": 8.2,
+        "feasibility": 8.8,
+        "judge": 9.0,
+        "ephemeris": 7.5,
+        "travel": 0.8
+      }
+    },
+    {
+      "canonical_id": "jiron-trujillo-puente-de-piedra",
+      "attributes": {
+        "brief": 9.4,
+        "story": 9.6,
+        "novelty": 8.8,
+        "saturation": 3.5,
+        "lived": 10.0,
+        "formal": 8.8,
+        "feasibility": 8.2,
+        "judge": 9.0,
+        "ephemeris": 7.5,
+        "travel": 1.3
+      }
+    },
+    {
+      "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+      "attributes": {
+        "brief": 9.2,
+        "story": 9.3,
+        "novelty": 8.2,
+        "saturation": 6.5,
+        "lived": 9.8,
+        "formal": 9.2,
+        "feasibility": 9.2,
+        "judge": 8.8,
+        "ephemeris": 10.0,
+        "travel": 0.45
+      }
+    },
+    {
+      "canonical_id": "jiron-de-la-union",
+      "attributes": {
+        "brief": 9.2,
+        "story": 9.5,
+        "novelty": 6.5,
+        "saturation": 8.0,
+        "lived": 10.0,
+        "formal": 9.0,
+        "feasibility": 9.5,
+        "judge": 8.9,
+        "ephemeris": 8.0,
+        "travel": 1.0
+      }
+    },
+    {
+      "canonical_id": "damero-de-lima-interseccion-como-objeto",
+      "attributes": {
+        "brief": 8.9,
+        "story": 8.8,
+        "novelty": 8.0,
+        "saturation": 7.5,
+        "lived": 10.0,
+        "formal": 9.7,
+        "feasibility": 8.5,
+        "judge": 8.8,
+        "ephemeris": 6.5,
+        "travel": 1.0
+      }
+    },
+    {
+      "canonical_id": "casa-garcia-bryce",
+      "attributes": {
+        "brief": 9.1,
+        "story": 9.3,
+        "novelty": 9.7,
+        "saturation": 1.0,
+        "lived": 7.5,
+        "formal": 9.4,
+        "feasibility": 5.5,
+        "judge": 9.5,
+        "ephemeris": 8.0,
+        "travel": 0.25
+      }
+    },
+    {
+      "canonical_id": "aulario-104-universidad-ricardo-palma",
+      "attributes": {
+        "brief": 9.0,
+        "story": 9.1,
+        "novelty": 9.0,
+        "saturation": 2.0,
+        "lived": 9.7,
+        "formal": 9.5,
+        "feasibility": 5.8,
+        "judge": 9.0,
+        "ephemeris": 7.0,
+        "travel": 0.8
+      }
+    },
+    {
+      "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+      "attributes": {
+        "brief": 9.5,
+        "story": 9.7,
+        "novelty": 9.8,
+        "saturation": 1.0,
+        "lived": 10.0,
+        "formal": 8.0,
+        "feasibility": 2.5,
+        "judge": 9.0,
+        "ephemeris": 9.5,
+        "travel": 1.4
+      }
+    }
+  ]
+}

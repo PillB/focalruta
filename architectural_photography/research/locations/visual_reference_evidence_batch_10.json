@@ -1,0 +1,219 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-10",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "parque-del-amor-el-beso",
+      "reference_families": [
+        {
+          "reference_id": "VR-AMOR-01",
+          "page_url": "https://www.miraflores.gob.pe/la-ciudad/parques/",
+          "image_url": "https://www.miraflores.gob.pe/la-ciudad/parques/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "SCULPTURE_MOSAIC_WALL_AND_ROTUNDA",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "walking, sitting, meeting and looking toward the coast",
+          "edge_background": "El Beso, curved mosaic walls, heart gardens and cliff horizon",
+          "cliche_cluster": "couple-and-sunset monument postcard",
+          "proves": "The official inventory identifies a designed ensemble rather than an isolated sculpture, allowing the curved wall and rotunda to channel bodies and sightlines.",
+          "cannot_prove": "A non-staged decisive gesture, current crowd density or least saturated viewpoint.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-AMOR-02",
+          "page_url": "https://www.miraflores.gob.pe/municipalidad-de-miraflores-embellece-el-parque-del-amor-para-celebrar-el-dia-de-san-valentin/",
+          "image_url": "https://www.miraflores.gob.pe/municipalidad-de-miraflores-embellece-el-parque-del-amor-para-celebrar-el-dia-de-san-valentin/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "MAINTAINED_LANDSCAPE_AND_SEASONAL_OCCUPATION",
+          "likely_camera_height": "municipal coverage eye level",
+          "fov_class": "mixed",
+          "light_weather": "summer daylight",
+          "people_activity": "couples, families and friends gathering around a calendar event",
+          "edge_background": "restored sculpture, planted hearts, palms and maintained furniture",
+          "cliche_cluster": "Valentine promotional imagery",
+          "proves": "The park's appearance and occupation are actively produced through maintenance and seasonal programming, not fixed scenic givens.",
+          "cannot_prove": "August planting, present surface condition or authentic non-event gesture.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-AMOR-03",
+          "page_url": "https://www.miraflores.gob.pe/municipio-realiza-labores-de-limpieza-y-desinfeccion-de-mas-de-30-monumentos-emblematicos-del-distrito/",
+          "image_url": "https://www.miraflores.gob.pe/municipio-realiza-labores-de-limpieza-y-desinfeccion-de-mas-de-30-monumentos-emblematicos-del-distrito/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "CARE_WORK_AND_MONUMENT_AS_INFRASTRUCTURE",
+          "likely_camera_height": "ground-level work documentation",
+          "fov_class": "normal",
+          "light_weather": "daylight",
+          "people_activity": "washing, maintaining and moving through public space",
+          "edge_background": "sculpture surface, maintenance tools and park circulation",
+          "cliche_cluster": "municipal maintenance coverage",
+          "proves": "Care labor offers a real inhabitation mechanism that contradicts the monument's apparently effortless postcard condition.",
+          "cannot_prove": "Repeatable maintenance timing or public permission near active work.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "larcomar-acantilado",
+      "reference_families": [
+        {
+          "reference_id": "VR-LARCOMAR-01",
+          "page_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=3285",
+          "image_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=3285",
+          "publisher": "MINCETUR · Inventario Nacional de Recursos Turísticos",
+          "viewpoint_family": "EXCAVATED_CLIFF_AND_SUSPENDED_INTERIORS",
+          "likely_camera_height": "cliff-top and lower-road mixed views",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "shopping, eating, circulating and viewing",
+          "edge_background": "excavated cliff edge, void-facing rooms and Pacific coast",
+          "cliche_cluster": "sunset shopping-center panorama",
+          "proves": "The official inventory describes the complex as an excavation whose occupied spaces project over the void, making section and gravity its core mechanism.",
+          "cannot_prove": "Current lower-cliff visibility, safe stopping point or strongest human-scale section.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LARCOMAR-02",
+          "page_url": "https://www.miraflores.gob.pe/mirador-pergola-2/",
+          "image_url": "https://www.miraflores.gob.pe/mirador-pergola-2/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "EXTERNAL_MIRADOR_AND_CLIFF_PROFILE",
+          "likely_camera_height": "elevated public mirador",
+          "fov_class": "wide",
+          "light_weather": "daylight/coastal haze",
+          "people_activity": "looking, walking and pausing",
+          "edge_background": "upper cliff, commercial excavation and coastline",
+          "cliche_cluster": "tourist-overlook panorama",
+          "proves": "A municipal viewpoint documents the complex from outside its commercial circulation, enabling a profile-based reading of engineering and topography.",
+          "cannot_prove": "Exact present sightline, crowd occlusion or sunset quality.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LARCOMAR-03",
+          "page_url": "https://andina.pe/agencia/galeria-miraflores-clausuran-temporalmente-larcomar-deficiencias-infraestructura-y-seguridad-26142.aspx",
+          "image_url": "https://andina.pe/agencia/galeria-miraflores-clausuran-temporalmente-larcomar-deficiencias-infraestructura-y-seguridad-26142.aspx",
+          "publisher": "Agencia Andina",
+          "viewpoint_family": "CLOSED_THRESHOLD_AND_OPERATIONAL_CONTRADICTION",
+          "likely_camera_height": "news eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "security control and interrupted entry",
+          "edge_background": "entrance barriers, commercial threshold and public park cover",
+          "cliche_cluster": "closure news coverage",
+          "proves": "A documented temporary closure shows that the invitation-to-consume spatial contract can reverse into exclusion when infrastructure fails.",
+          "cannot_prove": "Any current closure or defect; access must be reverified rather than inferred from historical news.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+      "reference_families": [
+        {
+          "reference_id": "VR-FARO-01",
+          "page_url": "https://www.miraflores.gob.pe/los-servicios/cultura-y-turismo/turismo/atractivos-turisticos/",
+          "image_url": "https://www.miraflores.gob.pe/los-servicios/cultura-y-turismo/turismo/atractivos-turisticos/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "LIGHTHOUSE_SPORT_AND_PARAGLIDING_FIELD",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "daylight/coastal wind",
+          "people_activity": "playing, exercising, training pets, walking and paragliding",
+          "edge_background": "lighthouse, open lawn, playground, fountains and airborne gliders",
+          "cliche_cluster": "lighthouse-and-paraglider postcard",
+          "proves": "The official description establishes Raimondi as a multi-use field where the lighthouse competes with everyday recreation and aerial activity.",
+          "cannot_prove": "Current launch permission, wind window or exact alignment between ground and airborne verbs.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FARO-02",
+          "page_url": "https://www.miraflores.gob.pe/wp-content/uploads/2021/10/FOLLETO-TURISMO-2021.pdf",
+          "image_url": "https://www.miraflores.gob.pe/wp-content/uploads/2021/10/FOLLETO-TURISMO-2021.pdf",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "MALECON_CHAIN_AND_COASTAL_SEQUENCE",
+          "likely_camera_height": "pedestrian route eye level",
+          "fov_class": "wide/mixed",
+          "light_weather": "daylight/garúa",
+          "people_activity": "walking and moving between cliff parks",
+          "edge_background": "five-kilometre malecón chain, cliff vegetation and ocean",
+          "cliche_cluster": "coastal route brochure",
+          "proves": "The lighthouse is one node in a continuous park system, supporting a route/threshold frame rather than an isolated landmark portrait.",
+          "cannot_prove": "Current path works, exact pedestrian cadence or visual separation from adjacent parks.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FARO-03",
+          "page_url": "https://www.miraflores.gob.pe/la-ciudad/parques/",
+          "image_url": "https://www.miraflores.gob.pe/la-ciudad/parques/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "OPEN_LAWN_MEANINGFUL_ABSENCE_AND_SCALE",
+          "likely_camera_height": "standing/low eye level",
+          "fov_class": "wide",
+          "light_weather": "garúa or directional coastal light",
+          "people_activity": "variable; absence can expose wind, scale and park order",
+          "edge_background": "lawn, lighthouse vertical, cliff edge and sky",
+          "cliche_cluster": "clean landmark silhouette",
+          "proves": "The park inventory supports testing a people-free formal frame when social expectation remains legible through paths and recreational infrastructure.",
+          "cannot_prove": "That meaningful absence will survive without becoming a generic lighthouse image.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "parque-kennedy-gatos-civic-core",
+      "reference_families": [
+        {
+          "reference_id": "VR-KENNEDY-01",
+          "page_url": "https://www.miraflores.gob.pe/la-ciudad/parques/",
+          "image_url": "https://www.miraflores.gob.pe/la-ciudad/parques/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "ROTUNDA_AMPHITHEATER_AND_CIVIC_CONVERGENCE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "day/evening",
+          "people_activity": "meeting, sitting, watching performances and crossing",
+          "edge_background": "rotunda, Chabuca Granda amphitheater, paths and surrounding civic façades",
+          "cliche_cluster": "busy central-park overview",
+          "proves": "The official description identifies an open cultural center whose geometry supports repeated convergence and performance rather than merely ornamental park space.",
+          "cannot_prove": "Exact performance schedule, crowd hierarchy or a clean background.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-KENNEDY-02",
+          "page_url": "https://www.miraflores.gob.pe/juegos-infantiles-de-los-parques-kennedy-y-tradiciones-peruanas-reabren-sus-puertas/",
+          "image_url": "https://www.miraflores.gob.pe/juegos-infantiles-de-los-parques-kennedy-y-tradiciones-peruanas-reabren-sus-puertas/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "REOPENED_PLAYGROUND_AND_FAMILY_EDGE",
+          "likely_camera_height": "adult/child mixed eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "playing, accompanying, sitting and supervising",
+          "edge_background": "300-square-metre play area, new benches and park paths",
+          "cliche_cluster": "municipal playground reopening",
+          "proves": "July 2026 evidence confirms an actively maintained family-use layer distinct from the park's cat-tourism stereotype.",
+          "cannot_prove": "Daily occupancy, consent-safe child photography or relation to the civic core in one frame.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-KENNEDY-03",
+          "page_url": "https://www.miraflores.gob.pe/gatofest-4ta-edicion-un-fin-de-semana-solidario-para-los-gatitos-del-parque-kennedy/",
+          "image_url": "https://www.miraflores.gob.pe/gatofest-4ta-edicion-un-fin-de-semana-solidario-para-los-gatitos-del-parque-kennedy/",
+          "publisher": "Municipalidad de Miraflores",
+          "viewpoint_family": "CAT_CARE_NETWORK_AND_EVENT_OCCUPATION",
+          "likely_camera_height": "standing/low eye level",
+          "fov_class": "normal",
+          "light_weather": "event daylight",
+          "people_activity": "feeding, caring, adopting, conversing and organizing",
+          "edge_background": "cats, caregivers, event stalls and park circulation",
+          "cliche_cluster": "cute-cat tourism image",
+          "proves": "The cats are embedded in an organized care network, providing a stronger present-day civic verb than using them as decorative foreground.",
+          "cannot_prove": "Current cat count, event recurrence or a one-frame architectural cause without careful position.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}

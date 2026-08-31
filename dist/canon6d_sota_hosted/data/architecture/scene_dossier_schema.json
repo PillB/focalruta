@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://focalruta.local/schemas/architecture-scene-dossier.json",
+  "title": "FocalRuta Arquitectura en Foco scene dossier",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "scene_id",
+    "canonical_candidate_id",
+    "name",
+    "district",
+    "evidence_status",
+    "current_source_ids",
+    "access_status",
+    "access_last_verified_at",
+    "passes",
+    "proofs",
+    "strongest_counterargument",
+    "kill_condition",
+    "evidence_that_moves_rank",
+    "ranking_eligible",
+    "route_eligible"
+  ],
+  "properties": {
+    "scene_id": {"type": "string", "minLength": 1},
+    "canonical_candidate_id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "district": {"type": "string", "minLength": 1},
+    "evidence_status": {
+      "type": "string",
+      "enum": ["RESEARCH_QUEUE", "DOSSIER_PARTIAL", "DOSSIER_VERIFIED"]
+    },
+    "current_source_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "access_status": {"type": "string", "enum": ["OPEN", "MANAGED", "UNKNOWN", "CLOSED"]},
+    "access_last_verified_at": {"type": "string", "format": "date"},
+    "passes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_truth",
+        "original_spatial_contract",
+        "current_life",
+        "human_verbs_or_meaningful_absence",
+        "architectural_causality",
+        "visual_forensic_saturation",
+        "light_material_geometry",
+        "position_then_optics",
+        "moment_logistics_ethics",
+        "one_frame_contest_test"
+      ],
+      "properties": {
+        "source_truth": {"$ref": "#/$defs/evidence_pass"},
+        "original_spatial_contract": {"$ref": "#/$defs/evidence_pass"},
+        "current_life": {"$ref": "#/$defs/evidence_pass"},
+        "human_verbs_or_meaningful_absence": {"$ref": "#/$defs/evidence_pass"},
+        "architectural_causality": {"$ref": "#/$defs/evidence_pass"},
+        "visual_forensic_saturation": {"$ref": "#/$defs/evidence_pass"},
+        "light_material_geometry": {"$ref": "#/$defs/evidence_pass"},
+        "position_then_optics": {"$ref": "#/$defs/evidence_pass"},
+        "moment_logistics_ethics": {"$ref": "#/$defs/evidence_pass"},
+        "one_frame_contest_test": {"$ref": "#/$defs/evidence_pass"}
+      }
+    },
+    "proofs": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"$ref": "#/$defs/proof"}
+    },
+    "strongest_counterargument": {"type": "string", "minLength": 1},
+    "kill_condition": {"type": "string", "minLength": 1},
+    "evidence_that_moves_rank": {"type": "string", "minLength": 1},
+    "ranking_eligible": {"const": false},
+    "route_eligible": {"const": false}
+  },
+  "$defs": {
+    "evidence_pass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "source_ids", "evidence_status", "confidence", "contradictions"],
+      "properties": {
+        "summary": {"type": "string", "minLength": 1},
+        "source_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "evidence_status": {
+          "type": "string",
+          "enum": ["VERIFIED", "CORROBORATED", "PARTIAL", "INFERRED", "HYPOTHESIS", "CONTRADICTED", "STALE", "UNRESOLVED"]
+        },
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "contradictions": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "proof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proof_type",
+        "position",
+        "camera_height",
+        "orientation",
+        "focal",
+        "exposure_intent",
+        "expected_action",
+        "light_condition",
+        "edge_guards",
+        "wait_trigger",
+        "kill_trigger",
+        "access_ethics",
+        "fallback"
+      ],
+      "properties": {
+        "proof_type": {"type": "string", "enum": ["A_STRUCTURE", "B_HABITAR", "C_ANTI_POSTAL", "D_LIGHT_MATERIAL", "E_ONE_FRAME_STORY"]},
+        "position": {"type": "string", "minLength": 1},
+        "camera_height": {"type": "string", "minLength": 1},
+        "orientation": {"type": "string", "minLength": 1},
+        "focal": {"type": "string", "minLength": 1},
+        "exposure_intent": {"type": "string", "minLength": 1},
+        "expected_action": {"type": "string", "minLength": 1},
+        "light_condition": {"type": "string", "minLength": 1},
+        "edge_guards": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "wait_trigger": {"type": "string", "minLength": 1},
+        "kill_trigger": {"type": "string", "minLength": 1},
+        "access_ethics": {"type": "string", "minLength": 1},
+        "fallback": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

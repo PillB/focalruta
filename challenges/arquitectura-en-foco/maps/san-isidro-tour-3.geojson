@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "huaca-santa-cruz",
+        "name": "Huaca Santa Cruz",
+        "district": "San Isidro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.048338,
+          -12.104444
+        ]
+      }
+    }
+  ]
+}

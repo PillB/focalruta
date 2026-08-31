@@ -1,0 +1,44 @@
+{
+  "model_version": "architecture-ranking-v1.1.0",
+  "official_proxy_label": "INTERNAL_PROXY",
+  "calibrated_winning_probability": false,
+  "method": "LINEAR_ADDITIVE_VALUE_MODEL_WITH_SENSITIVITY",
+  "decision_unit": "SCENE_RELATIONSHIP_MOMENT",
+  "scale": {"minimum": 0, "maximum": 100, "meaning": "comparative planning judgment, not an official score or winning probability"},
+  "benchmark_sources": [
+    {"source_id": "MCDA-UK-2023", "url": "https://analysisfunction.civilservice.gov.uk/policy-store/an-introductory-guide-to-mcda/", "use": "criteria ranges, normalized weights, sensitivity and transparent review"},
+    {"source_id": "MCDA-UK-2009", "url": "https://www.gov.uk/government/publications/multi-criteria-analysis-manual-for-making-government-policy", "use": "scenario and weight sensitivity practice"},
+    {"source_id": "MCDA-ROBUST-2022", "url": "https://doi.org/10.1016/j.procs.2022.09.522", "use": "rank-robustness and rank-reversal caution"}
+  ],
+  "assessment_provenance": {
+    "base_attributes": "User-supplied Master82 criterion elicitation, canonicalized by identity and never by historical rank.",
+    "current_adjustment": "The 2026 equal-depth pass status, current source set and explicit access/ethics contradictions alter confidence and field feasibility.",
+    "tradeoff": "The base preference elicitation was not produced by a formal stakeholder swing-weight workshop; scenario and bounded sensitivity outputs therefore carry more decision weight than small score differences."
+  },
+  "prohibited_features": ["historical_rank", "masterRank", "R0Rank", "R1Rank", "R2Rank", "R3Rank", "robustIndex", "fame"],
+  "criteria": {
+    "creative_aesthetic_proxy": {"layer": "OFFICIAL_PROXY", "direction": "MAXIMIZE"},
+    "theme_coherence_proxy": {"layer": "OFFICIAL_PROXY", "direction": "MAXIMIZE"},
+    "architecture_causality": {"layer": "DIAGNOSTIC", "direction": "MAXIMIZE"},
+    "first_read_clarity": {"layer": "DIAGNOSTIC", "direction": "MAXIMIZE"},
+    "anti_postal_originality": {"layer": "DIAGNOSTIC", "direction": "MAXIMIZE"},
+    "inhabitation_strength": {"layer": "DIAGNOSTIC", "direction": "MAXIMIZE"},
+    "temporal_transformation": {"layer": "DIAGNOSTIC", "direction": "MAXIMIZE"},
+    "light_material_geometry": {"layer": "DIAGNOSTIC", "direction": "MAXIMIZE"},
+    "decisive_moment": {"layer": "DIAGNOSTIC", "direction": "MAXIMIZE"},
+    "technical_feasibility": {"layer": "DIAGNOSTIC", "direction": "MAXIMIZE"},
+    "access_permission": {"layer": "FIELD_ONLY", "direction": "MAXIMIZE"},
+    "evidence_confidence": {"layer": "DIAGNOSTIC", "direction": "MAXIMIZE"},
+    "juror_public_work_intersection": {"layer": "LOW_WEIGHT_ROBUSTNESS_ONLY", "direction": "MAXIMIZE"}
+  },
+  "scenarios": {
+    "R0": {"label": "Balanced official proxy", "weights": {"creative_aesthetic_proxy": 0.30, "theme_coherence_proxy": 0.30, "architecture_causality": 0.10, "first_read_clarity": 0.08, "anti_postal_originality": 0.06, "inhabitation_strength": 0.05, "temporal_transformation": 0.03, "light_material_geometry": 0.03, "decisive_moment": 0.02, "technical_feasibility": 0.01, "evidence_confidence": 0.015, "juror_public_work_intersection": 0.005}},
+    "R1": {"label": "Anti-postal and novelty", "weights": {"creative_aesthetic_proxy": 0.20, "theme_coherence_proxy": 0.18, "architecture_causality": 0.12, "first_read_clarity": 0.08, "anti_postal_originality": 0.24, "inhabitation_strength": 0.04, "temporal_transformation": 0.04, "light_material_geometry": 0.04, "decisive_moment": 0.02, "technical_feasibility": 0.015, "evidence_confidence": 0.02, "juror_public_work_intersection": 0.005}},
+    "R2": {"label": "Inhabitation and one-frame story", "weights": {"creative_aesthetic_proxy": 0.18, "theme_coherence_proxy": 0.22, "architecture_causality": 0.16, "first_read_clarity": 0.08, "anti_postal_originality": 0.05, "inhabitation_strength": 0.16, "temporal_transformation": 0.04, "light_material_geometry": 0.02, "decisive_moment": 0.055, "technical_feasibility": 0.015, "evidence_confidence": 0.015, "juror_public_work_intersection": 0.005}},
+    "R3": {"label": "Formal, light and field feasibility", "weights": {"creative_aesthetic_proxy": 0.20, "theme_coherence_proxy": 0.16, "architecture_causality": 0.10, "first_read_clarity": 0.14, "anti_postal_originality": 0.07, "inhabitation_strength": 0.04, "temporal_transformation": 0.02, "light_material_geometry": 0.12, "decisive_moment": 0.03, "technical_feasibility": 0.075, "evidence_confidence": 0.035, "juror_public_work_intersection": 0.01}}
+  },
+  "field_weights": {"creative_aesthetic_proxy": 0.15, "theme_coherence_proxy": 0.15, "architecture_causality": 0.10, "technical_feasibility": 0.20, "access_permission": 0.20, "evidence_confidence": 0.10, "decisive_moment": 0.05, "light_material_geometry": 0.05},
+  "pareto_objectives": ["creative_aesthetic_proxy", "theme_coherence_proxy", "architecture_causality", "anti_postal_originality"],
+  "sensitivity": {"seed": 20260830, "samples": 2000, "weight_multiplier_min": 0.80, "weight_multiplier_max": 1.20, "normalization": "RENORMALIZE_TO_ONE", "distribution": "UNIFORM_BOUNDED_PLAUSIBLE_NOT_PROBABILISTIC"},
+  "route_gate": "FALSE_UNTIL_CURRENT_ACCESS_WINDOWS_COORDINATES_TRAVEL_AND_FALLBACKS_PASS_ROUND_5"
+}

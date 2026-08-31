@@ -1,0 +1,219 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-19",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+      "reference_families": [
+        {
+          "reference_id": "VR-FINAN-01",
+          "page_url": "https://msi.gob.pe/portal/2017/01/18/comunicado-recuperando-espacios-publicos-para-las-personas-en-el-centro-financiero/",
+          "image_url": "https://msi.gob.pe/portal/2017/01/18/comunicado-recuperando-espacios-publicos-para-las-personas-en-el-centro-financiero/",
+          "publisher": "Municipalidad Distrital de San Isidro",
+          "viewpoint_family": "PARKING_TO_PEDESTRIAN_PUBLIC_REALM",
+          "likely_camera_height": "street eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "walking, sitting and occupying space formerly used by parked cars",
+          "edge_background": "office towers, widened pedestrian areas and traffic lanes",
+          "cliche_cluster": "glass-tower canyon",
+          "proves": "The municipality documents a deliberate conversion of more than 1000 m² from parking to people-oriented public space.",
+          "cannot_prove": "Current maintenance, present crowd distribution or the exact intervention footprint.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FINAN-02",
+          "page_url": "https://www.senace.gob.pe/wp-content/uploads/filebase/participacion_ciudadana/2107-2017.pdf",
+          "image_url": "https://www.senace.gob.pe/wp-content/uploads/filebase/participacion_ciudadana/2107-2017.pdf",
+          "publisher": "SENACE / Protransporte",
+          "viewpoint_family": "OVERLOADED_TRANSIT_NODE_AND_NEW_STATION_LINK",
+          "likely_camera_height": "station, bridge and plan level",
+          "fov_class": "site-wide/section",
+          "light_weather": "day/night infrastructure light",
+          "people_activity": "transferring, queuing and crossing between Canaval y Moreyra and Andrés Reyes",
+          "edge_background": "Vía Expresa trench, station entries, pedestrian bridge and tower district",
+          "cliche_cluster": "rush-hour transport crowd",
+          "proves": "The environmental assessment establishes station-capacity pressure and an intended public-space/accessibility response.",
+          "cannot_prove": "The completed present condition or actual crowd safety from a selected viewpoint.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FINAN-03",
+          "page_url": "https://tesis.pucp.edu.pe/items/34861d0b-60d5-4c05-b1d8-494f9cf0fe76/full",
+          "image_url": "https://tesis.pucp.edu.pe/items/34861d0b-60d5-4c05-b1d8-494f9cf0fe76/full",
+          "publisher": "Pontificia Universidad Católica del Perú",
+          "viewpoint_family": "PEDESTRIAN_CONTINUITY_AND_COMFORT_FAILURE_ACROSS_EXPRESSWAY",
+          "likely_camera_height": "pedestrian analytical survey level",
+          "fov_class": "street-long/section",
+          "light_weather": "mixed survey conditions",
+          "people_activity": "crossing, waiting and navigating incomplete sidewalk continuity",
+          "edge_background": "fast road, ramps, sidewalks, station and office frontage",
+          "cliche_cluster": "technical mobility documentation",
+          "proves": "Academic field analysis finds only partial habitability and continuing comfort/safety deficits, countering a celebratory skyline narrative.",
+          "cannot_prove": "Whether conditions changed after the survey; field revalidation is mandatory.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "huaca-julio-c-tello",
+      "reference_families": [
+        {
+          "reference_id": "VR-JCTELLO-01",
+          "page_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2023/04/FICHA-7.pdf",
+          "image_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2023/04/FICHA-7.pdf",
+          "publisher": "Municipalidad Distrital de Pueblo Libre",
+          "viewpoint_family": "SMALL_ARCHAEOLOGICAL_MONUMENT_INSIDE_RESIDENTIAL_STREETS",
+          "likely_camera_height": "street and inventory level",
+          "fov_class": "wide/normal/detail",
+          "light_weather": "daylight",
+          "people_activity": "walking around and observing a fenced archaeological remnant",
+          "edge_background": "adobe structure, Río Moche/Río Huaura streets and surrounding homes",
+          "cliche_cluster": "isolated huaca mound",
+          "proves": "The municipal inventory resolves identity and location and records a 1972 intervention with 1998 remodeling.",
+          "cannot_prove": "Current opening, conservation or visibility through the perimeter.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-JCTELLO-02",
+          "page_url": "https://www.gob.pe/85701-corredor-turistico-historico-y-arqueologico-de-pueblo-libre",
+          "image_url": "https://www.gob.pe/85701-corredor-turistico-historico-y-arqueologico-de-pueblo-libre",
+          "publisher": "Municipalidad Distrital de Pueblo Libre · Gob.pe",
+          "viewpoint_family": "HUACA_AS_NODE_IN_WALKABLE_HISTORY_ARCHAEOLOGY_CORRIDOR",
+          "likely_camera_height": "walking-tour eye level",
+          "fov_class": "route/site-wide",
+          "light_weather": "daylight",
+          "people_activity": "walking between archaeological and historic sites",
+          "edge_background": "huaca perimeter, neighborhood route and other Pueblo Libre heritage nodes",
+          "cliche_cluster": "tourism-route checkpoint",
+          "proves": "Current municipal orientation places the huaca within a broader pedestrian interpretation corridor rather than as an isolated object.",
+          "cannot_prove": "Actual wayfinding, recurring guided activity or route accessibility.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-JCTELLO-03",
+          "page_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=",
+          "image_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=",
+          "publisher": "MINCETUR · Inventario Nacional de Recursos Turísticos",
+          "viewpoint_family": "OFFICIAL_RESOURCE_RECORD_AND_PERIMETER_CONDITION",
+          "likely_camera_height": "inventory eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "visiting or passing the monument edge",
+          "edge_background": "archaeological material, protective enclosure and street fabric",
+          "cliche_cluster": "resource-inventory overview",
+          "proves": "The national inventory is a discovery locator for official identity and visitor-condition verification.",
+          "cannot_prove": "A stable candidate-specific record from this generic locator; it remains weak evidence and cannot support promotion.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "agrupamiento-chabuca-granda",
+      "reference_families": [
+        {
+          "reference_id": "VR-CHABUCA-01",
+          "page_url": "https://www.fau.unlp.edu.ar/web2018/wp-content/uploads/2022/11/libro-vivienda-y-ciudad-baja.pdf",
+          "image_url": "https://www.fau.unlp.edu.ar/web2018/wp-content/uploads/2022/11/libro-vivienda-y-ciudad-baja.pdf",
+          "publisher": "Universidad Nacional de La Plata",
+          "viewpoint_family": "HOUSING_BLOCK_COMPLETES_HISTORIC_URBAN_MORPHOLOGY",
+          "likely_camera_height": "architectural survey level",
+          "fov_class": "site-wide/plan/wide",
+          "light_weather": "daylight",
+          "people_activity": "living, crossing and using the block as a fragment of the Alameda fabric",
+          "edge_background": "completed block edge, Alameda de los Descalzos and neighboring historic morphology",
+          "cliche_cluster": "formal housing-complex overview",
+          "proves": "Comparative housing research identifies the project as a deliberate completion of the existing block rather than a freestanding object.",
+          "cannot_prove": "Current resident use or access to internal common spaces.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CHABUCA-02",
+          "page_url": "https://redfundamentos.com/menu-script/index.php/rita/article/download/38/39/58",
+          "image_url": "https://redfundamentos.com/menu-script/index.php/rita/article/download/38/39/58",
+          "publisher": "RITA · Redfundamentos",
+          "viewpoint_family": "FORTY_EIGHT_HOMES_FOURTEEN_SHOPS_AND_TRANSITIONAL_PUBLIC_SPACE",
+          "likely_camera_height": "street/courtyard analytical level",
+          "fov_class": "wide/normal/plan",
+          "light_weather": "daylight",
+          "people_activity": "living, selling, entering and transitioning from city to dwelling",
+          "edge_background": "commercial ground edge, shared spaces and reinterpretation of republican architecture",
+          "cliche_cluster": "typological architecture study",
+          "proves": "The scholarly source documents the mixed housing/commercial program and transitional spatial sequence.",
+          "cannot_prove": "Which shops remain active or current maintenance and resident consent.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CHABUCA-03",
+          "page_url": "https://repositorio.pucp.edu.pe/items/488225e8-ae32-44c8-a530-ae5da8d3e083",
+          "image_url": "https://repositorio.pucp.edu.pe/items/488225e8-ae32-44c8-a530-ae5da8d3e083",
+          "publisher": "Pontificia Universidad Católica del Perú",
+          "viewpoint_family": "TRADITIONAL_LIMA_TYPOLOGY_DENSIFIED_FOR_COLLECTIVE_LIFE",
+          "likely_camera_height": "research documentation level",
+          "fov_class": "courtyard/street wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "meeting and building belonging in common spaces",
+          "edge_background": "dense housing, shared thresholds and Rímac historic context",
+          "cliche_cluster": "community-courtyard narrative",
+          "proves": "The research frames the design mechanism as densification of traditional Lima types through common spaces intended for interaction.",
+          "cannot_prove": "That present residents use the spaces as intended; current-life observation is decisive.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "edificio-alvarez-calderon",
+      "reference_families": [
+        {
+          "reference_id": "VR-ALVAREZ-01",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/edificio-departamentos-alvarez-calderon/",
+          "image_url": "https://cammp.ulima.edu.pe/edificios/edificio-departamentos-alvarez-calderon/",
+          "publisher": "Universidad de Lima · Catálogo Arquitectura Movimiento Moderno Perú",
+          "viewpoint_family": "ARCHIVAL_MODERN_APARTMENT_BUILDING_AND_CURRENT_ENVELOPE",
+          "likely_camera_height": "street and archival documentation level",
+          "fov_class": "wide/normal/detail/plan",
+          "light_weather": "daylight",
+          "people_activity": "residential entry, balcony occupation and street passage",
+          "edge_background": "modern façade, balconies, entry and surrounding San Isidro fabric",
+          "cliche_cluster": "canonical modernist façade",
+          "proves": "The academic catalogue resolves the building identity and preserves archival visual evidence for repeat-view comparison.",
+          "cannot_prove": "Current resident behavior, interior access or conservation condition without field inspection.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-ALVAREZ-02",
+          "page_url": "https://galeria-arquitectura.pucp.edu.pe/exposicion/garcia-bryce/edificio-alvarezcalderon/",
+          "image_url": "https://galeria-arquitectura.pucp.edu.pe/exposicion/garcia-bryce/edificio-alvarezcalderon/",
+          "publisher": "Pontificia Universidad Católica del Perú · Galería de Arquitectura",
+          "viewpoint_family": "GARCIA_BRYCE_PROJECT_ARCHIVE_AND_1963_RECOGNITION",
+          "likely_camera_height": "professional architectural documentation",
+          "fov_class": "wide/normal/detail",
+          "light_weather": "daylight",
+          "people_activity": "domestic occupation implied, not directly evidenced",
+          "edge_background": "Álvarez Calderón street façade and period neighborhood context",
+          "cliche_cluster": "award-history hero image",
+          "proves": "The architect archive corroborates authorship, address and 1963 recognition.",
+          "cannot_prove": "Competition value today; award status supplies no score and cannot replace a present human/urban mechanism.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-ALVAREZ-03",
+          "page_url": "https://www.cc17.pe/proyectos/roosevelt",
+          "image_url": "https://www.cc17.pe/proyectos/roosevelt",
+          "publisher": "CC17 Arquitectura",
+          "viewpoint_family": "CONTEMPORARY_BOULEVARD_CONNECTION_ON_SAME_STREET",
+          "likely_camera_height": "professional street and courtyard level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "moving between Álvarez Calderón and Boulevard Roosevelt through a newer building",
+          "edge_background": "historic modern apartment fabric, contemporary project and cross-block passage",
+          "cliche_cluster": "new luxury-project portfolio",
+          "proves": "A current nearby project supplies a concrete street-scale comparison: newer architecture explicitly links two fronts rather than repeating the older apartment typology.",
+          "cannot_prove": "Direct visual adjacency to building 590 or public access through the new project.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}

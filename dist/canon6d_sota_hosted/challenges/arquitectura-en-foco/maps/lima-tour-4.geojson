@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jiron-de-la-union",
+        "name": "Jirón de la Unión",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0361916,
+          -12.0539567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "damero-de-lima-interseccion-como-objeto",
+        "name": "El Damero",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0317356,
+          -12.0487645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "estacion-desamparados",
+        "name": "Estación de Desamparados",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0286907,
+          -12.0443045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "casa-fernandini-1913",
+        "name": "Casa Fernandini",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0351457,
+          -12.0450471
+        ]
+      }
+    }
+  ]
+}

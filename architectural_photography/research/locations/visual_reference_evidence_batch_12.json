@@ -1,0 +1,219 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-12",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+      "reference_families": [
+        {
+          "reference_id": "VR-MINCUL-01",
+          "page_url": "https://www.gob.pe/institucion/cultura/campa%C3%B1as/143116-ruraq-maki-20-anos-compartiendo-tradicion",
+          "image_url": "https://www.gob.pe/institucion/cultura/campa%C3%B1as/143116-ruraq-maki-20-anos-compartiendo-tradicion",
+          "publisher": "Ministerio de Cultura · Gob.pe",
+          "viewpoint_family": "MONUMENTAL_HALL_AS_LIVING_MARKET",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "interior institutional light",
+          "people_activity": "making, exhibiting, selling, meeting and transmitting knowledge",
+          "edge_background": "large former-museum interiors, stands, ramps and circulation",
+          "cliche_cluster": "institutional fair coverage",
+          "proves": "July 2026 Ruraq Maki verifies dense contemporary occupation that converts monumental institutional volume into an intergenerational exchange system.",
+          "cannot_prove": "Comparable occupation outside the event, photography conditions or a clean one-frame hierarchy.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MINCUL-02",
+          "page_url": "https://www.gob.pe/institucion/caral/noticias/1351184-obras-maestras-del-arte-caralino-se-exhibiran-cada-mes-en-el-ministerio-de-cultura",
+          "image_url": "https://www.gob.pe/institucion/caral/noticias/1351184-obras-maestras-del-arte-caralino-se-exhibiran-cada-mes-en-el-ministerio-de-cultura",
+          "publisher": "Zona Arqueológica Caral · Gob.pe",
+          "viewpoint_family": "SECOND_FLOOR_OFFICE_EXHIBITION_THRESHOLD",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "interior light",
+          "people_activity": "working, visiting and encountering rotating heritage objects",
+          "edge_background": "second-floor office entry and free monthly display",
+          "cliche_cluster": "object-in-government-building documentation",
+          "proves": "A 2026 monthly exhibition inserts public cultural access into an administrative floor, creating a precise office/public contradiction.",
+          "cannot_prove": "Ongoing display on the shoot date, camera access or broader spatial legibility.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MINCUL-03",
+          "page_url": "https://www.gob.pe/institucion/cultura/noticias/1155276-ministerio-de-cultura-realizara-mas-de-100-actividades-culturales-en-los-museos-por-el-mes-internacional-de-los-museos-2025",
+          "image_url": "https://www.gob.pe/institucion/cultura/noticias/1155276-ministerio-de-cultura-realizara-mas-de-100-actividades-culturales-en-los-museos-por-el-mes-internacional-de-los-museos-2025",
+          "publisher": "Ministerio de Cultura · Gob.pe",
+          "viewpoint_family": "CENTRAL_SEAT_CULTURAL_PROGRAM_AND_QUEUE",
+          "likely_camera_height": "event eye level",
+          "fov_class": "mixed",
+          "light_weather": "day/interior",
+          "people_activity": "queuing, entering, learning and participating",
+          "edge_background": "sede central thresholds and event rooms",
+          "cliche_cluster": "public-program event coverage",
+          "proves": "The central building repeatedly hosts public cultural programming despite its administrative role, supporting threshold and queue studies.",
+          "cannot_prove": "2026 recurrence of the same program or visual distinction from adjacent GTN/BNP flows.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "torre-banco-de-la-nacion",
+      "reference_families": [
+        {
+          "reference_id": "VR-BN-01",
+          "page_url": "https://www.bn.com.pe/transparenciabn/nueva-sede-bn.asp",
+          "image_url": "https://www.bn.com.pe/transparenciabn/nueva-sede-bn.asp",
+          "publisher": "Banco de la Nación",
+          "viewpoint_family": "CONSTRUCTION_TO_CORPORATE_TOWER_SEQUENCE",
+          "likely_camera_height": "street/aerial construction documentation",
+          "fov_class": "wide/mixed",
+          "light_weather": "daylight",
+          "people_activity": "constructing and institutional working",
+          "edge_background": "tower core, podium, Javier Prado and La Arqueología intersection",
+          "cliche_cluster": "tallest-building hero view",
+          "proves": "The bank's project archive supports a temporal construction-to-operation reading rather than treating height as merit.",
+          "cannot_prove": "Current public access, façade reflection timing or worker visibility.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BN-02",
+          "page_url": "https://www.cip.org.pe/publicaciones/revista-digital/revista-digital-ingenieria-nacional-edicion-16.pdf",
+          "image_url": "https://www.cip.org.pe/publicaciones/revista-digital/revista-digital-ingenieria-nacional-edicion-16.pdf",
+          "publisher": "Colegio de Ingenieros del Perú",
+          "viewpoint_family": "TOWER_CONVENTION_CENTER_AND_CIVIC_ENCLAVE",
+          "likely_camera_height": "aerial/elevated and street views",
+          "fov_class": "site-wide",
+          "light_weather": "daylight",
+          "people_activity": "commuting and institutional arrival implied",
+          "edge_background": "BN tower, convention center, Museo de la Nación, BNP, GTN and metro station",
+          "cliche_cluster": "megaproject aerial overview",
+          "proves": "The professional source documents the tower as one component of a larger cultural-financial enclave, making inter-building scale and circulation the stronger scene.",
+          "cannot_prove": "Current pedestrian desire lines, open viewpoints or a single-frame causal relationship.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BN-03",
+          "page_url": "https://commons.wikimedia.org/wiki/Category%3ATorre_Banco_de_la_Naci%C3%B3n?uselang=es",
+          "image_url": "https://commons.wikimedia.org/wiki/Category%3ATorre_Banco_de_la_Naci%C3%B3n?uselang=es",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "REPEATED_PUBLIC_SILHOUETTES_AND_SATURATION",
+          "likely_camera_height": "mixed public viewpoints",
+          "fov_class": "wide/telephoto",
+          "light_weather": "day/night mixed",
+          "people_activity": "generally absent or subordinate",
+          "edge_background": "tower silhouette, civic neighbors and skyline",
+          "cliche_cluster": "isolated glass-tower monument",
+          "proves": "The multi-image category exposes the repeated silhouette cluster that an anti-postal scene must escape.",
+          "cannot_prove": "Population-level saturation, current access or authors' camera settings.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "pentagonito-y-bordes-civicos",
+      "reference_families": [
+        {
+          "reference_id": "VR-PENTAGONITO-01",
+          "page_url": "https://www.gob.pe/institucion/munilapunta/noticias/1406115-corre-conmigo-5k",
+          "image_url": "https://www.gob.pe/institucion/munilapunta/noticias/1406115-corre-conmigo-5k",
+          "publisher": "Municipalidad de La Punta · Gob.pe / event organizer signal",
+          "viewpoint_family": "PERIMETER_RUN_AND_INCLUSIVE_OCCUPATION",
+          "likely_camera_height": "runner/pedestrian eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "morning daylight",
+          "people_activity": "running, accompanying, encouraging and gathering",
+          "edge_background": "Parque Olímpico, military perimeter and civic path",
+          "cliche_cluster": "charity-race event coverage",
+          "proves": "A June 2026 inclusive 5K verifies that the secure military edge also functions as metropolitan civic/recreational infrastructure.",
+          "cannot_prove": "Weekly cadence, unrestricted perimeter positions or a visible military/civic contradiction in one frame.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PENTAGONITO-02",
+          "page_url": "https://ayuda.teleticket.com.pe/helpcenter/article/5k-inabif-movimientos-que-transforman",
+          "image_url": "https://ayuda.teleticket.com.pe/helpcenter/article/5k-inabif-movimientos-que-transforman",
+          "publisher": "Teleticket",
+          "viewpoint_family": "CANCELLED_EVENT_AND_SCHEDULE_UNCERTAINTY",
+          "likely_camera_height": "operational notice",
+          "fov_class": "not applicable",
+          "light_weather": "not applicable",
+          "people_activity": "planned running cancelled",
+          "edge_background": "event-dependent park occupation",
+          "cliche_cluster": "promotional event assumption",
+          "proves": "A July 2026 cancellation demonstrates why advertised occupation cannot be treated as guaranteed route evidence.",
+          "cannot_prove": "Physical park condition or other daily uses.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PENTAGONITO-03",
+          "page_url": "https://pagos.teleticket.com.pe/Landing/ListadoEventosTodos",
+          "image_url": "https://pagos.teleticket.com.pe/Landing/ListadoEventosTodos",
+          "publisher": "Teleticket",
+          "viewpoint_family": "FUTURE_RACE_CALENDAR_AND_TEMPORARY_CIVIC_FIELD",
+          "likely_camera_height": "event listing",
+          "fov_class": "unknown",
+          "light_weather": "event dependent",
+          "people_activity": "running, assembling and temporary route occupation",
+          "edge_background": "Pentagonito public perimeter and event infrastructure",
+          "cliche_cluster": "race-calendar discovery signal",
+          "proves": "The venue continues to attract scheduled mass-running use, but only as a discovery signal requiring organizer confirmation.",
+          "cannot_prove": "Event occurrence, route geometry, access or visual quality; VERIFY_BEFORE_ROUTE.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "coliseo-eduardo-dibos",
+      "reference_families": [
+        {
+          "reference_id": "VR-DIBOS-01",
+          "page_url": "https://www.gob.pe/institucion/ipd/noticias/1338288-programa-activate-con-el-ipd-llego-al-coliseo-dibos-de-san-borja-con-sesiones-de-bailes-aerobicos-y-ejercicios-recreativos",
+          "image_url": "https://www.gob.pe/institucion/ipd/noticias/1338288-programa-activate-con-el-ipd-llego-al-coliseo-dibos-de-san-borja-con-sesiones-de-bailes-aerobicos-y-ejercicios-recreativos",
+          "publisher": "Instituto Peruano del Deporte · Gob.pe",
+          "viewpoint_family": "EXTERIOR_EXERCISE_AND_BUILDING_EDGE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "morning daylight",
+          "people_activity": "dancing, exercising and gathering outdoors",
+          "edge_background": "arena exterior, forecourt and neighborhood edge",
+          "cliche_cluster": "fitness-program coverage",
+          "proves": "January 2026 evidence shows the arena's exterior functioning as daily community exercise space, not only event overflow.",
+          "cannot_prove": "Continuation beyond summer or a position that makes the arena causally legible.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-DIBOS-02",
+          "page_url": "https://www.gob.pe/institucion/minedu/noticias/1412436-minedu-ruraykuna-2026-es-la-gran-fiesta-escolar-que-llena-lima-de-musica-y-alegria",
+          "image_url": "https://www.gob.pe/institucion/minedu/noticias/1412436-minedu-ruraykuna-2026-es-la-gran-fiesta-escolar-que-llena-lima-de-musica-y-alegria",
+          "publisher": "Ministerio de Educación · Gob.pe",
+          "viewpoint_family": "MASS_STUDENT_ARRIVAL_AND_ARENA_INTERIOR",
+          "likely_camera_height": "audience/event eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "interior and morning arrival",
+          "people_activity": "performing, assembling, watching and supporting",
+          "edge_background": "arena bowl, entries, bands and stands",
+          "cliche_cluster": "large school-event coverage",
+          "proves": "A June 2026 free event with more than 1,000 students verifies metropolitan-scale collective occupation and arrival pressure.",
+          "cannot_prove": "Repeatability, camera permission or a clean architectural hierarchy during crowds.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-DIBOS-03",
+          "page_url": "https://bolivarianos2025.ticketmaster.pe/page/dibos",
+          "image_url": "https://bolivarianos2025.ticketmaster.pe/page/dibos",
+          "publisher": "Juegos Bolivarianos / Ticketmaster",
+          "viewpoint_family": "SPORT_CONFIGURATION_AND_SPECTATOR_SECTION",
+          "likely_camera_height": "venue documentation and spectator level",
+          "fov_class": "wide",
+          "light_weather": "interior arena light",
+          "people_activity": "competing, entering, watching and circulating",
+          "edge_background": "court, seating bowl, concourse and entrances",
+          "cliche_cluster": "empty/full sports venue overview",
+          "proves": "Venue documentation supplies a sport-specific spatial family distinct from exterior exercise and cultural mass events.",
+          "cannot_prove": "2026 configuration, public access without a ticket or competition-photo permission.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}

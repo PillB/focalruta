@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "unidad-vecinal-matute-complejo-deportivo",
+        "name": "Unidad Vecinal Matute",
+        "district": "La Victoria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0231999,
+          -12.0731313
+        ]
+      }
+    }
+  ]
+}

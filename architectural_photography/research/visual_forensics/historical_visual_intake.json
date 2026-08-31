@@ -1,0 +1,826 @@
+{
+  "ledger_id": "HISTORICAL-VISUAL-INTAKE-2026-08-28",
+  "status": "DISCOVERY_ONLY_NOT_VERIFICATION_EVIDENCE",
+  "candidate_count": 81,
+  "records": [
+    {
+      "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
+      "references": []
+    },
+    {
+      "canonical_id": "torres-de-limatambo-supermanzana",
+      "references": []
+    },
+    {
+      "canonical_id": "residencial-san-felipe",
+      "references": []
+    },
+    {
+      "canonical_id": "previ-lima",
+      "references": []
+    },
+    {
+      "canonical_id": "museo-de-la-electricidad-tranvia",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Museo de la Electricidad & Tranvía de Barranco",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8d43535d864481ad4f5044391f206e7476cb5ace.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "parque-de-las-americas",
+      "references": []
+    },
+    {
+      "canonical_id": "huaca-santa-cruz",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Huaca Santa Cruz",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2dd2fdfa714f7b595ddd92596a96b3dde4963104.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "conjunto-habitacional-palomino",
+      "references": []
+    },
+    {
+      "canonical_id": "quinta-de-los-libertadores-mnaahp",
+      "references": []
+    },
+    {
+      "canonical_id": "plaza-a-la-bandera",
+      "references": []
+    },
+    {
+      "canonical_id": "parque-virginia-candamo",
+      "references": []
+    },
+    {
+      "canonical_id": "unidad-vecinal-3",
+      "references": []
+    },
+    {
+      "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
+      "references": []
+    },
+    {
+      "canonical_id": "lima-centro-de-convenciones",
+      "references": [
+        {
+          "historical_dataset": "storyData",
+          "historical_name": "Lima Centro de Convenciones",
+          "image_url": "https://redlara.com/Congreso-Lima2025/images/venue1.jpg",
+          "host": "redlara.com",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "casa-museo-julia-codesido",
+      "references": []
+    },
+    {
+      "canonical_id": "huaca-san-borja",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Huaca San Borja",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Huaca_San_Borja_Archaeological_site_-_overview.jpg",
+          "host": "upload.wikimedia.org",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "quinta-leuro-y-quintas-historicas",
+      "references": [
+        {
+          "historical_dataset": "storyData",
+          "historical_name": "Quinta Leuro y quintas históricas",
+          "image_url": "https://visitamiraflores.com/wp-content/uploads/2025/03/thumb-quinta-leuro.jpg",
+          "host": "visitamiraflores.com",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "estacion-restos-del-funicular-de-barranco",
+      "references": []
+    },
+    {
+      "canonical_id": "reducto-2-casa-museo-caceres",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Parque Reducto N° 2 & Museo Andrés Avelino Cáceres",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ca09ab5f292603593b2d5e28bb3f64bae783386d.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "biblioteca-municipal-de-barranco",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Biblioteca Municipal de Barranco",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Barranco_09.jpg/1280px-Barranco_09.jpg",
+          "host": "upload.wikimedia.org",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "santisima-cruz-del-viajero",
+      "references": []
+    },
+    {
+      "canonical_id": "torres-centro-empresarial-camino-real",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Torres de Camino Real",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b32e610afb33ee8871363f0428d260a8aaa4be29.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "lugar-de-la-memoria-lum",
+      "references": [
+        {
+          "historical_dataset": "storyData",
+          "historical_name": "Lugar de la Memoria (LUM)",
+          "image_url": "https://lum.cultura.pe/sites/default/files/styles/full_image/public/actividades/imagen/lum_abre_de_noche_3.jpg?itok=gOXqqk2E",
+          "host": "lum.cultura.pe",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "antigua-taberna-queirolo",
+      "references": []
+    },
+    {
+      "canonical_id": "casa-museo-marina-nunez-del-prado",
+      "references": [
+        {
+          "historical_dataset": "storyData",
+          "historical_name": "Casa Museo Marina Núñez del Prado",
+          "image_url": "https://elcomercio.pe/resizer/v2/YI44ERX37JATJIOGBND25MDKR4.jpg?auth=7a6d30970dcc910cc596057d959e759594d0350f175386e9e5254d4010f1fe90&height=800&quality=75&smart=true&width=1300",
+          "host": "elcomercio.pe",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "parque-tradiciones-ricardo-palma",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Parque Tradiciones (Ricardo Palma Park)",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Parque_Tradiciones_%28escultura_Ricardo_Palma%29_Miraflores_Lima_Per%C3%BA.jpg",
+          "host": "upload.wikimedia.org",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
+      "references": []
+    },
+    {
+      "canonical_id": "centro-de-convenciones-estacion-la-cultura",
+      "references": []
+    },
+    {
+      "canonical_id": "biblioteca-nacional-del-peru",
+      "references": []
+    },
+    {
+      "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
+      "references": []
+    },
+    {
+      "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+      "references": []
+    },
+    {
+      "canonical_id": "gran-teatro-nacional",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Gran Teatro Nacional",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d10f42e45baffc0889279e132a27f250f86e1d31.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "mirador-catalina-recavarren",
+      "references": []
+    },
+    {
+      "canonical_id": "parque-municipal-y-entorno-civico",
+      "references": []
+    },
+    {
+      "canonical_id": "mac-lima-parque-espejo-de-agua",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Museo de Arte Contemporáneo (MAC)",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Museo_de_Arte_Contempor%C3%A1neo_en_Lima.jpg",
+          "host": "upload.wikimedia.org",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "puente-villena-bajada-balta-costa-verde",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Puente Villena Rey",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/71cdf05cd85ad28845aa52ac418cd658cd1a776f.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "casa-raul-porras-barrenechea",
+      "references": []
+    },
+    {
+      "canonical_id": "casa-hacienda-orbea",
+      "references": []
+    },
+    {
+      "canonical_id": "calle-choquehuanca-basadre-residencial",
+      "references": []
+    },
+    {
+      "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
+      "references": []
+    },
+    {
+      "canonical_id": "museo-larco-jardines",
+      "references": []
+    },
+    {
+      "canonical_id": "bosque-el-olivar",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Bosque El Olivar",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/c5bfdff75c42b111e8ec5ae618b1cd39836ff121.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "huaca-huallamarca",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Huaca Huallamarca",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9fa6971b2da87eb1f93ce647b289ca08a9a3d868.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+      "references": []
+    },
+    {
+      "canonical_id": "saenz-pena-domeyer-pasajes",
+      "references": []
+    },
+    {
+      "canonical_id": "casa-emilio-harth-terre",
+      "references": []
+    },
+    {
+      "canonical_id": "parque-de-la-felicidad",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Parque de la Felicidad",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3fc8cfc966a49236f5817ef604cf7eac82e62ffc.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Centro Cultural de la Nación complex",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a96f2a0427cbcfb7ab03634a8bb6de76bdecb39b.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "iglesia-santisima-cruz",
+      "references": []
+    },
+    {
+      "canonical_id": "huaca-pucllana",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Huaca Pucllana",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Huaca_Pucllana_Miraflores.jpg",
+          "host": "upload.wikimedia.org",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+      "references": []
+    },
+    {
+      "canonical_id": "casa-hacienda-moreyra",
+      "references": [
+        {
+          "historical_dataset": "storyData",
+          "historical_name": "Casa-Hacienda Moreyra",
+          "image_url": "https://www.viajaraperu.com/wp-content/uploads/2025/05/casa-hacienda-moreyra-elegancia-colonial-en-astrid-gaston-760x500.jpg",
+          "host": "www.viajaraperu.com",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "torre-banco-de-la-nacion",
+      "references": []
+    },
+    {
+      "canonical_id": "parque-maria-reiche",
+      "references": []
+    },
+    {
+      "canonical_id": "parroquia-nuestra-senora-del-pilar",
+      "references": [
+        {
+          "historical_dataset": "storyData",
+          "historical_name": "Parroquia Nuestra Señora del Pilar",
+          "image_url": "https://i0.wp.com/misionerosdigitales.com/wp-content/uploads/2019/06/Exterior-Noche.jpg?quality=89&resize=768%2C1024&ssl=1",
+          "host": "i0.wp.com",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Puente de los Suspiros",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Puente_de_los_Suspiros.JPG",
+          "host": "upload.wikimedia.org",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        },
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Bajada de Baños",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3a9cd3d6fb7fdef9b9166d443689158f0dced22d.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "country-club-lima-hotel",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Country Club Lima Hotel",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a4bb0c5f2b0fd8a774262121d54bfcca25605489.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "pentagonito-y-bordes-civicos",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Cuartel General del Ejército (Pentagonito)",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/cf1a2a301fde210d6340010213b0061799d72c16.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "faro-la-marina-parque-antonio-raimondi",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Faro La Marina (Miraflores Lighthouse)",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/89dc27ca1fd8642407b4adcfe8d61e87b5bb53f7.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "casa-museo-ricardo-palma",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Casa Museo Ricardo Palma",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/823d1fd4f48aea2a527491cf9d0fac1d5ce76bda.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "ovalo-de-miraflores",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Óvalo de Miraflores",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/67b927bbc0b1edcc7d9e94603b222d884d7f6d10.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "coliseo-eduardo-dibos",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Coliseo Eduardo Dibós",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6ddb600af5340e6d19b340aca0e7b8e92bb49557.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "huaca-julio-c-tello",
+      "references": []
+    },
+    {
+      "canonical_id": "palacio-municipal-virgen-milagrosa",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Palacio Municipal de Miraflores",
+          "image_url": "https://images.contentstack.io/v3/assets/blt06f605a34f1194ff/blt9c84613c060b7465/67a8a36d286df04b38f34332/BCC-2024-EXPLORER-LIMA-LANDMARKS-HEADER-MOBILE.jpg",
+          "host": "images.contentstack.io",
+          "provenance_status": "DIRECT_HOST_UNVERIFIED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        },
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Iglesia Virgen Milagrosa",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4382f08d2828bbd1c8cf6c0b992146e67074fff8.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "la-ermita-de-barranco",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "La Ermita de Barranco",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/44ec5df13157cd24d7d739ccf4d4d01face9d687.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "parque-kennedy-gatos-civic-core",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Parque Kennedy (Parque de los Gatos)",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e73a425b21be84d5aa6c5dec76258aa6cc5e2092.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "parque-del-amor-el-beso",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Parque del Amor & El Beso",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/beafa8b5890a54ddfdeff0642df15b7ba5747335.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "larcomar-acantilado",
+      "references": [
+        {
+          "historical_dataset": "deep40Data",
+          "historical_name": "Malecón de Miraflores & Larcomar",
+          "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/aadcca72a34799f543d991441bcda63c66316feb.jpg",
+          "host": "pplx-res.cloudinary.com",
+          "provenance_status": "PROXY_UNRESOLVED",
+          "rights_status": "UNRESOLVED",
+          "visual_evidence_eligible": false,
+          "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+        }
+      ]
+    },
+    {
+      "canonical_id": "centro-cultural-ccori-wasi",
+      "references": []
+    },
+    {
+      "canonical_id": "centro-civico-de-lima-real-plaza",
+      "references": []
+    },
+    {
+      "canonical_id": "agrupamiento-chabuca-granda",
+      "references": []
+    },
+    {
+      "canonical_id": "edificio-alvarez-calderon",
+      "references": []
+    },
+    {
+      "canonical_id": "quinta-heeren-restauracion-2026",
+      "references": []
+    },
+    {
+      "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
+      "references": []
+    },
+    {
+      "canonical_id": "jiron-trujillo-puente-de-piedra",
+      "references": []
+    },
+    {
+      "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
+      "references": []
+    },
+    {
+      "canonical_id": "jiron-de-la-union",
+      "references": []
+    },
+    {
+      "canonical_id": "damero-de-lima-interseccion-como-objeto",
+      "references": []
+    },
+    {
+      "canonical_id": "casa-garcia-bryce",
+      "references": []
+    },
+    {
+      "canonical_id": "aulario-104-universidad-ricardo-palma",
+      "references": []
+    },
+    {
+      "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+      "references": []
+    }
+  ],
+  "unmatched_or_out_of_scope": [
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Torre Interbank & Financial Skyline",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b0d117485f95a0757988c6e95bbef38004e50e56.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Biblioteca Comunitaria La Molina",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/26800083301d3abc1f5a26fd1cd9004534c00445.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Plaza Biblioteca San Juan (La Molina)",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d19b207195e5a4f1ccc918859e777d7874b02bb.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Museo Pedro de Osma",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2931ad103efd2196f3bc5464c791fa96cf3e909a.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "MATE - Museo Mario Testino",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a764ae46f85507fea4c3093b9dc0328c0cda55de.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Parque Zoológico Huachipa (La Molina area)",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e5a118d67b11c315b21a6dbc4a5089753c67389c.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Biblioteca Municipal de Barranco (Detail Study)",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/45015705c244b9daf0f1bdad2b85413a009e1c8f.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Templo Mormón La Molina",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/74e7a0e54724a2fe9a30f0322be8f4797efc9212.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Larcomar",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/bd6559875ba072512c0e96d0ea5598e177ff7fd4.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Parque de la Amistad (Surco border)",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0b5e2077eddb255aaa0872a0d64de22ddc60798c.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    },
+    {
+      "historical_dataset": "deep40Data",
+      "historical_name": "Universidad Nacional Agraria La Molina (UNALM) Campus",
+      "image_url": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/31db8d796d34d61e845b416508eef718341b07cc.jpg",
+      "host": "pplx-res.cloudinary.com",
+      "provenance_status": "PROXY_UNRESOLVED",
+      "rights_status": "UNRESOLVED",
+      "visual_evidence_eligible": false,
+      "reason": "Historical image lead lacks verified author/page/date/rights and viewpoint analysis."
+    }
+  ]
+}

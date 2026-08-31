@@ -1,0 +1,219 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-13",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "mirador-catalina-recavarren",
+      "reference_families": [
+        {
+          "reference_id": "VR-RECAVARREN-01",
+          "page_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=6815",
+          "image_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=6815",
+          "publisher": "MINCETUR · Inventario Nacional de Recursos Turísticos",
+          "viewpoint_family": "CLIFF_EDGE_TERRACE_AND_LOWER_PATH",
+          "likely_camera_height": "standing and lower-path eye level",
+          "fov_class": "wide",
+          "light_weather": "coastal daylight/garúa",
+          "people_activity": "looking, sitting, meeting and dining",
+          "edge_background": "terrace, 2019 lower pedestrian path, pubs, cliff and ocean",
+          "cliche_cluster": "romantic sunset overlook",
+          "proves": "The inventory documents a built overlook plus a lower circumferential path, enabling section and observer-observed relationships rather than only the view outward.",
+          "cannot_prove": "Current lower-path access, crowd cadence or unobstructed coast.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-RECAVARREN-02",
+          "page_url": "https://www.miraflores.gob.pe/wp-content/uploads/2022/03/03.-CAP%C3%8DTULO-II-II.7-y-II.8-FINAL-93-pg.pdf",
+          "image_url": "https://www.miraflores.gob.pe/wp-content/uploads/2022/03/03.-CAP%C3%8DTULO-II-II.7-y-II.8-FINAL-93-pg.pdf",
+          "publisher": "Autoridad del Proyecto Costa Verde · Plan Maestro 2022–2032",
+          "viewpoint_family": "MIRADOR_FUNicular_AND_COASTAL_SYSTEM",
+          "likely_camera_height": "standing/elevated comparison",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "standing and sitting at the overlook",
+          "edge_background": "mirador terrace, former funicular station, Ermita and Costa Verde",
+          "cliche_cluster": "coastal heritage pair",
+          "proves": "The metropolitan plan visually places the occupied mirador beside the funicular residue and behind the Ermita, validating a layered infrastructure scene.",
+          "cannot_prove": "That all layers fit legibly in one public frame or current funicular access.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-RECAVARREN-03",
+          "page_url": "https://commons.wikimedia.org/wiki/Category%3ABarranco_District",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Com%C3%BAn%20pero%20m%C3%A1gico%20atardecer%20en%20el%20Mirador%20Catalina.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "SUNSET_CLICHE_AND_PUBLIC_SATURATION",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "clear sunset",
+          "people_activity": "variable/secondary",
+          "edge_background": "sunset horizon and mirador edge",
+          "cliche_cluster": "explicitly titled magical sunset",
+          "proves": "A highly conventional sunset reference identifies the default cluster that should be rejected unless human/section causality transforms it.",
+          "cannot_prove": "Population-level saturation or current physical condition.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "parque-municipal-y-entorno-civico",
+      "reference_families": [
+        {
+          "reference_id": "VR-PQBARRANCO-01",
+          "page_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "image_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "publisher": "Municipalidad de Barranco",
+          "viewpoint_family": "NEOCLASSICAL_LIBRARY_PARK_AND_CIVIC_FRONT",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "reading, crossing, waiting and meeting",
+          "edge_background": "former municipal library, park paths, church and civic façades",
+          "cliche_cluster": "historic civic-square panorama",
+          "proves": "The municipal source documents a former town hall converted to a 26,000-volume library, giving the ensemble a concrete government-to-learning transformation.",
+          "cannot_prove": "Current interior access, exact reader spillover or uncluttered ensemble view.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PQBARRANCO-02",
+          "page_url": "https://munibarranco.gob.pe/portal/cultura-en-parques-y-plazas/",
+          "image_url": "https://munibarranco.gob.pe/portal/cultura-en-parques-y-plazas/",
+          "publisher": "Municipalidad de Barranco",
+          "viewpoint_family": "FREE_CULTURE_AND_TEMPORARY_PUBLIC_STAGE",
+          "likely_camera_height": "audience/event eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "day/evening event light",
+          "people_activity": "performing, watching, learning and gathering",
+          "edge_background": "park, library front and temporary cultural infrastructure",
+          "cliche_cluster": "municipal event coverage",
+          "proves": "The park is explicitly programmed as a free conventional/non-conventional cultural venue, allowing architecture and temporary occupation to be compared.",
+          "cannot_prove": "Current event dates, attendance or photography permission for performers.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PQBARRANCO-03",
+          "page_url": "https://munibarranco.gob.pe/portal/ciam/",
+          "image_url": "https://munibarranco.gob.pe/portal/ciam/",
+          "publisher": "Municipalidad de Barranco",
+          "viewpoint_family": "OLDER_ADULT_DAILY_CIVIC_USE",
+          "likely_camera_height": "standing/seated eye level",
+          "fov_class": "normal/wide-normal",
+          "light_weather": "daylight/interior edge",
+          "people_activity": "practicing tai chi, dancing, learning, receiving care and socializing",
+          "edge_background": "park civic facilities and workshop spaces",
+          "cliche_cluster": "social-program documentation",
+          "proves": "A current municipal service reports 150–200 daily attendances and 28 workshops, supplying credible everyday verbs beyond tourism.",
+          "cannot_prove": "Which activities occur visibly in the park, consent or precise timing.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "la-ermita-de-barranco",
+      "reference_families": [
+        {
+          "reference_id": "VR-ERMITA-01",
+          "page_url": "https://www.gob.pe/institucion/uicet/noticias/1402114-uicet-suscribe-acta-de-entrega-de-terreno-para-la-restauracion-de-la-ermita-de-barranco",
+          "image_url": "https://www.gob.pe/institucion/uicet/noticias/1402114-uicet-suscribe-acta-de-entrega-de-terreno-para-la-restauracion-de-la-ermita-de-barranco",
+          "publisher": "UICET · Gob.pe",
+          "viewpoint_family": "HANDOVER_CONSTRUCTION_THRESHOLD_AND_CLOSED_HERITAGE",
+          "likely_camera_height": "street/work-site eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "winter daylight",
+          "people_activity": "handing over, inspecting, securing and preparing work",
+          "edge_background": "closed church, keys, work perimeter and Pasaje La Ermita",
+          "cliche_cluster": "restoration launch ceremony",
+          "proves": "June 2026 evidence confirms active restoration and a 480-day works horizon, making closure and construction the current truth.",
+          "cannot_prove": "Daily visible work, exact barriers or public shooting position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-ERMITA-02",
+          "page_url": "https://www.gob.pe/institucion/mincetur/noticias/1408649-mincetur-y-municipalidad-de-barranco-inician-recuperacion-de-historica-ermita-con-una-inversion-de-mas-de-s-12-millones",
+          "image_url": "https://www.gob.pe/institucion/mincetur/noticias/1408649-mincetur-y-municipalidad-de-barranco-inician-recuperacion-de-historica-ermita-con-una-inversion-de-mas-de-s-12-millones",
+          "publisher": "MINCETUR · Gob.pe",
+          "viewpoint_family": "ROOF_WALL_TOWER_AND_ACCESSIBILITY_TRANSFORMATION",
+          "likely_camera_height": "street and ceremonial eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "restoring, coordinating and observing",
+          "edge_background": "damaged roof, walls, towers, domes and future accessible ramp",
+          "cliche_cluster": "institutional restoration announcement",
+          "proves": "The defined intervention components provide specific material changes to monitor instead of vaguely photographing decay.",
+          "cannot_prove": "Construction phase on a future visit or visibility behind scaffolding.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-ERMITA-03",
+          "page_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=3318",
+          "image_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=3318",
+          "publisher": "MINCETUR · Inventario Nacional de Recursos Turísticos",
+          "viewpoint_family": "PRE_WORK_DAMAGE_AND_CLOSED_STATE_BASELINE",
+          "likely_camera_height": "street eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "tourists passing outside; interior unavailable",
+          "edge_background": "degraded lateral walls, façade and surrounding route",
+          "cliche_cluster": "romantic ruined-church portrait",
+          "proves": "The pre-work inventory records closure and regular condition, providing a baseline against which 2026 change can be evaluated.",
+          "cannot_prove": "Current damage after works began or safe proximity.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "iglesia-santisima-cruz",
+      "reference_families": [
+        {
+          "reference_id": "VR-STCRUZ-01",
+          "page_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "image_url": "https://munibarranco.gob.pe/portal/atractivos-turisticos/",
+          "publisher": "Municipalidad de Barranco",
+          "viewpoint_family": "NEOBAROQUE_FACADE_AND_CROSS_LATIN_PLAN",
+          "likely_camera_height": "street/interior eye level",
+          "fov_class": "wide/normal",
+          "light_weather": "day/interior ambient",
+          "people_activity": "entering, worshipping and gathering",
+          "edge_background": "five saint niches, central and lateral naves, barrel vault and exterior oratories",
+          "cliche_cluster": "symmetrical church façade",
+          "proves": "The municipal architectural description establishes distinct exterior and interior orders and two external oratories that can mediate ritual at the civic edge.",
+          "cannot_prove": "Current mass cadence, interior photography permission or strongest threshold view.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-STCRUZ-02",
+          "page_url": "https://www.arzobispadodelima.org/actividades/directorio-parroquias-arquidiocesis-lima/",
+          "image_url": "https://www.arzobispadodelima.org/actividades/directorio-parroquias-arquidiocesis-lima/",
+          "publisher": "Arzobispado de Lima",
+          "viewpoint_family": "CURRENT_PARISH_AND_LITURGICAL_THRESHOLD",
+          "likely_camera_height": "directory/visitor locator",
+          "fov_class": "unknown",
+          "light_weather": "schedule dependent",
+          "people_activity": "praying, attending services and organizing parish life",
+          "edge_background": "active parish threshold and Barranco civic core",
+          "cliche_cluster": "directory identity record",
+          "proves": "The archdiocesan directory corroborates current parish identity and a direct verification channel for schedules and photography conditions.",
+          "cannot_prove": "Specific service times, attendance or visual arrangement; verify directly.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-STCRUZ-03",
+          "page_url": "https://cdn.www.gob.pe/uploads/document/file/5317490/4769149-pdlc-md-barranco-final-al-20-10-2023_compressed.pdf",
+          "image_url": "https://cdn.www.gob.pe/uploads/document/file/5317490/4769149-pdlc-md-barranco-final-al-20-10-2023_compressed.pdf",
+          "publisher": "Municipalidad de Barranco · PDLC 2024–2034",
+          "viewpoint_family": "REPLACEMENT_CHURCH_AND_CIVIC_CONTINUITY",
+          "likely_camera_height": "municipal documentation",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight",
+          "people_activity": "civic and religious use implied",
+          "edge_background": "newer church facing civic park within the historic district",
+          "cliche_cluster": "heritage-plan illustration",
+          "proves": "The district plan preserves the causal history: Santísima Cruz was built because the old Ermita was damaged, enabling a replacement-versus-restoration relation.",
+          "cannot_prove": "Both churches in one meaningful frame or current ritual overlap.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}

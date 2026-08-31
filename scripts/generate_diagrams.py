@@ -361,65 +361,80 @@ def draw_distance_marker(ax, x1, y1, x2, y2, label, color=None):
                                 edgecolor="none", alpha=0.92))
 
 
+def _overlay_tercios(ax, x, y, width, height):
+    for i in [1, 2]:
+        ax.plot([x - width/2 + i*width/3, x - width/2 + i*width/3],
+                [y - height/2, y + height/2], color=PALETTE["rule3"],
+                linewidth=0.7, linestyle="--", alpha=0.55, zorder=3)
+        ax.plot([x - width/2, x + width/2],
+                [y - height/2 + i*height/3, y - height/2 + i*height/3],
+                color=PALETTE["rule3"], linewidth=0.7, linestyle="--", alpha=0.55, zorder=3)
+    for i in [1, 2]:
+        for j in [1, 2]:
+            ax.plot(x - width/2 + i*width/3, y - height/2 + j*height/3,
+                    marker="o", color=PALETTE["rule3"], markersize=4, alpha=0.7, zorder=4)
+
+
+def _overlay_simetria(ax, x, y, _width, height):
+    ax.plot([x, x], [y - height/2, y + height/2], color=PALETTE["compose"],
+            linewidth=1.0, linestyle=":", alpha=0.7, zorder=3)
+
+
+def _overlay_perspectiva(ax, x, y, width, height):
+    for sign in [-1, 1]:
+        ax.plot([x, x + sign*width/2], [y, y + height/2], color=PALETTE["compose"],
+                linewidth=0.8, linestyle="--", alpha=0.5, zorder=3)
+
+
+def _overlay_enmarcado(ax, x, y, width, height):
+    ax.add_patch(Rectangle((x - width/4, y - height/4), width/2, height/2,
+                           facecolor="none", edgecolor=PALETTE["compose"],
+                           linewidth=1.5, linestyle="-", alpha=0.6, zorder=3))
+
+
+def _overlay_espacio_neg(ax, x, y, width, _height):
+    ax.text(x + width/3, y, "ESPACIO\nNEGATIVO", ha="center", va="center",
+            fontsize=8, color=PALETTE["compose"], fontweight="bold", alpha=0.7, zorder=4,
+            bbox=dict(boxstyle="round,pad=0.3", facecolor="white",
+                      edgecolor=PALETTE["compose"], linewidth=0.6, alpha=0.5))
+
+
+def _overlay_punto_interes(ax, x, y, _width, _height):
+    ax.plot(x, y, marker="+", color=PALETTE["rule3"], markersize=18,
+            mew=2, alpha=0.7, zorder=4)
+
+
+def _overlay_minimalismo(ax, x, y, _width, _height):
+    ax.add_patch(Circle((x, y), 0.6, facecolor="none", edgecolor=PALETTE["compose"],
+                        linewidth=1.0, linestyle=":", alpha=0.6, zorder=3))
+
+
+def _overlay_capas(ax, x, y, width, _height):
+    for offset, label in [(0.5, "FG"), (0, "MID"), (-0.5, "BG")]:
+        ax.plot([x - width/3, x + width/3], [y + offset, y + offset],
+                color=PALETTE["compose"], linewidth=0.7, linestyle="--", alpha=0.5, zorder=3)
+        ax.text(x - width/3 - 0.1, y + offset, label, fontsize=6.5,
+                color=PALETTE["compose"], fontweight="bold", alpha=0.8,
+                ha="right", va="center", zorder=4)
+
+
+COMPOSITION_OVERLAYS = {
+    "tercios": _overlay_tercios,
+    "simetria": _overlay_simetria,
+    "perspectiva": _overlay_perspectiva,
+    "enmarcado": _overlay_enmarcado,
+    "espacio_neg": _overlay_espacio_neg,
+    "punto_interes": _overlay_punto_interes,
+    "minimalismo": _overlay_minimalismo,
+    "capas": _overlay_capas,
+}
+
+
 def draw_composition_overlay(ax, x_center, y_subject, width_m, height_m, rule_key):
     """Draw subtle overlay lines indicating composition rule."""
-    if rule_key == "tercios":
-        # Rule of thirds grid
-        for i in [1, 2]:
-            ax.plot([x_center - width_m/2 + i*width_m/3, x_center - width_m/2 + i*width_m/3],
-                    [y_subject - height_m/2, y_subject + height_m/2],
-                    color=PALETTE["rule3"], linewidth=0.7, linestyle="--", alpha=0.55, zorder=3)
-            ax.plot([x_center - width_m/2, x_center + width_m/2],
-                    [y_subject - height_m/2 + i*height_m/3, y_subject - height_m/2 + i*height_m/3],
-                    color=PALETTE["rule3"], linewidth=0.7, linestyle="--", alpha=0.55, zorder=3)
-        # Power points
-        for i in [1, 2]:
-            for j in [1, 2]:
-                ax.plot(x_center - width_m/2 + i*width_m/3,
-                        y_subject - height_m/2 + j*height_m/3,
-                        marker="o", color=PALETTE["rule3"], markersize=4, alpha=0.7, zorder=4)
-    elif rule_key == "simetria":
-        ax.plot([x_center, x_center], [y_subject - height_m/2, y_subject + height_m/2],
-                color=PALETTE["compose"], linewidth=1.0, linestyle=":", alpha=0.7, zorder=3)
-    elif rule_key == "perspectiva":
-        # Convergence lines
-        for sign in [-1, 1]:
-            ax.plot([x_center, x_center + sign*width_m/2],
-                    [y_subject, y_subject + height_m/2],
-                    color=PALETTE["compose"], linewidth=0.8, linestyle="--", alpha=0.5, zorder=3)
-    elif rule_key == "enmarcado":
-        # Frame rectangle
-        rect = Rectangle((x_center - width_m/4, y_subject - height_m/4),
-                         width_m/2, height_m/2,
-                         facecolor="none", edgecolor=PALETTE["compose"],
-                         linewidth=1.5, linestyle="-", alpha=0.6, zorder=3)
-        ax.add_patch(rect)
-    elif rule_key == "espacio_neg":
-        # Hatched area showing negative space
-        ax.text(x_center + width_m/3, y_subject, "ESPACIO\nNEGATIVO",
-                ha="center", va="center", fontsize=8, color=PALETTE["compose"],
-                fontweight="bold", alpha=0.7, zorder=4,
-                bbox=dict(boxstyle="round,pad=0.3", facecolor="white",
-                          edgecolor=PALETTE["compose"], linewidth=0.6, alpha=0.5))
-    elif rule_key == "punto_interes":
-        # Target on subject
-        ax.plot(x_center, y_subject, marker="+", color=PALETTE["rule3"],
-                markersize=18, mew=2, alpha=0.7, zorder=4)
-    elif rule_key == "minimalismo":
-        # Dotted circle around subject
-        circle = Circle((x_center, y_subject), 0.6, facecolor="none",
-                        edgecolor=PALETTE["compose"], linewidth=1.0,
-                        linestyle=":", alpha=0.6, zorder=3)
-        ax.add_patch(circle)
-    elif rule_key == "capas":
-        # Three horizontal layer lines
-        for offset, label in [(0.5, "FG"), (0, "MID"), (-0.5, "BG")]:
-            ax.plot([x_center - width_m/3, x_center + width_m/3],
-                    [y_subject + offset, y_subject + offset],
-                    color=PALETTE["compose"], linewidth=0.7, linestyle="--", alpha=0.5, zorder=3)
-            ax.text(x_center - width_m/3 - 0.1, y_subject + offset, label,
-                    fontsize=6.5, color=PALETTE["compose"], fontweight="bold", alpha=0.8,
-                    ha="right", va="center", zorder=4)
+    renderer = COMPOSITION_OVERLAYS.get(rule_key)
+    if renderer:
+        renderer(ax, x_center, y_subject, width_m, height_m)
 
 
 def draw_fov_cone(ax, camera_xy, subject_distance_m, h_fov_deg, bg_distance_m):
@@ -769,6 +784,73 @@ def draw_camera_side(ax, x, y, angle_tilt_deg, color=None, height_label=""):
                 bbox=dict(boxstyle="round,pad=0.2", facecolor="white", edgecolor=color, linewidth=0.6))
 
 
+def _side_angle_tilt(angle):
+    return {"picado": -20, "contrapicado": 20, "nadir": 90, "cenital": -90}.get(angle, 0)
+
+
+def _draw_side_background(ax, shot, bg_x):
+    notes = shot.get("scene_notes", "")
+    if "horizonte" in notes.lower() or "mar" in notes.lower():
+        ax.plot([bg_x - 2, bg_x + 2], [1.5, 1.5], color=PALETTE["fov_line"], linewidth=2.5, alpha=0.7, zorder=2)
+        for x in np.arange(bg_x - 2, bg_x + 2, 0.3):
+            ax.plot([x, x + 0.15], [1.3, 1.4], color=PALETTE["fov_line"], linewidth=0.6, alpha=0.5, zorder=2)
+        label, label_y = "HORIZONTE / MAR", 1.7
+    elif "Plaza" in notes or "arquitect" in notes.lower() or "Jirón" in notes:
+        for i, height in enumerate([2.0, 2.5, 2.2, 2.8, 2.4]):
+            bx = bg_x - 1 + i * 0.6
+            ax.add_patch(Rectangle((bx, 0), 0.55, height, facecolor=PALETTE["bg_layer"],
+                                   edgecolor=PALETTE["bg_layer"], alpha=0.4, zorder=2))
+        label, label_y = "FACHADAS", 3.1
+    else:
+        for i in range(5):
+            tx = bg_x - 1.5 + i * 0.6
+            ax.add_patch(Circle((tx, 1.7), 0.30, facecolor=PALETTE["bg_layer"],
+                                edgecolor=PALETTE["bg_layer"], alpha=0.4, zorder=2))
+            ax.plot([tx, tx], [1.4, 0], color=PALETTE["bg_layer"], linewidth=1.5, zorder=2)
+        label, label_y = "FONDO", 2.4
+    ax.text(bg_x, label_y, label, fontsize=8, color=PALETTE["muted"], ha="center",
+            fontweight="bold", zorder=5,
+            bbox=dict(boxstyle="round,pad=0.2", facecolor="white",
+                      edgecolor=PALETTE["soft"], linewidth=0.6))
+
+
+def _draw_side_subject(ax, shot, variant, sd):
+    subj_x = 0 if shot["angle"] in ("nadir", "cenital") else sd
+    effective = effective_subject_variant(shot, variant)
+    if effective == "human":
+        draw_human_side(ax, subj_x, 0, shot["subjects"]["human"]["pose"], PALETTE["subject"], scale=1.2)
+    elif effective == "dog":
+        draw_dog_side(ax, subj_x, 0, shot["subjects"]["dog"]["pose"], PALETTE["subject"], scale=1.2)
+    if effective is not None:
+        ax.add_patch(Circle((subj_x, 0.85), 0.55, facecolor="none",
+                            edgecolor=PALETTE["subject"], linewidth=1.2,
+                            linestyle=":", alpha=0.6, zorder=6))
+    else:
+        ax.text(subj_x, 0.75, "PERRO FUERA\nSIN SUJETO", fontsize=8,
+                color=PALETTE["warning"], ha="center", va="center",
+                fontweight="bold", zorder=8)
+    return subj_x, effective
+
+
+def _draw_side_angle_indicator(ax, cam_x, cam_y, angle_tilt, angle_label):
+    if angle_tilt != 0:
+        arc_r = 0.4
+        limits = (angle_tilt, 0) if angle_tilt < 0 else (0, angle_tilt)
+        ax.add_patch(mpatches.Arc((cam_x, cam_y), arc_r*2, arc_r*2, angle=0,
+                                 theta1=limits[0], theta2=limits[1],
+                                 color=PALETTE["warning"], linewidth=2, zorder=12))
+        label_angle = math.radians(angle_tilt/2)
+        lx = cam_x + 0.6 * math.cos(label_angle)
+        ly = cam_y + 0.6 * math.sin(label_angle)
+        text, color, align = f"{angle_label}\n{abs(angle_tilt)}°", PALETTE["warning"], "center"
+    else:
+        lx, ly = cam_x + 0.5, cam_y
+        text, color, align = f"{angle_label}\n0° (eye-level)", PALETTE["ok"], "left"
+    ax.text(lx, ly, text, fontsize=7, color=color, fontweight="bold",
+            ha=align, va="center", zorder=12,
+            bbox=dict(boxstyle="round,pad=0.2", facecolor="white", edgecolor=color, linewidth=0.6))
+
+
 def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
     """Render the 2.5D side elevation view."""
     ax = fig.add_axes(rect)
@@ -806,48 +888,11 @@ def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
     # Camera position (x=0, y=cam_h*vert_scale)
     cam_x = 0
     cam_y = cam_h * vert_scale
-    angle_tilt = 0
-    if shot["angle"] == "picado":
-        angle_tilt = -20   # above / looking down
-    elif shot["angle"] == "contrapicado":
-        angle_tilt = 20    # below / looking up
-    elif shot["angle"] == "nadir":
-        angle_tilt = 90    # camera below, looking vertically UP
-    elif shot["angle"] == "cenital":
-        angle_tilt = -90   # camera above, looking vertically DOWN
+    angle_tilt = _side_angle_tilt(shot["angle"])
 
     # Background layer (drawn first, in background)
     bg_x = bd
-    if "horizonte" in shot.get("scene_notes", "").lower() or "mar" in shot.get("scene_notes", "").lower():
-        # Sea horizon
-        ax.plot([bg_x - 2, bg_x + 2], [1.5, 1.5], color=PALETTE["fov_line"], linewidth=2.5, alpha=0.7, zorder=2)
-        # Sea hatching
-        for x in np.arange(bg_x - 2, bg_x + 2, 0.3):
-            ax.plot([x, x + 0.15], [1.3, 1.4], color=PALETTE["fov_line"], linewidth=0.6, alpha=0.5, zorder=2)
-        ax.text(bg_x, 1.7, "HORIZONTE / MAR", fontsize=8, color=PALETTE["muted"],
-                ha="center", fontweight="bold", zorder=5,
-                bbox=dict(boxstyle="round,pad=0.2", facecolor="white", edgecolor=PALETTE["soft"], linewidth=0.6))
-    elif "Plaza" in shot.get("scene_notes", "") or "arquitect" in shot.get("scene_notes", "").lower() or "Jirón" in shot.get("scene_notes", ""):
-        # Buildings
-        for i, h in enumerate([2.0, 2.5, 2.2, 2.8, 2.4]):
-            bx = bg_x - 1 + i * 0.6
-            building = Rectangle((bx, 0), 0.55, h, facecolor=PALETTE["bg_layer"],
-                                 edgecolor=PALETTE["bg_layer"], alpha=0.4, zorder=2)
-            ax.add_patch(building)
-        ax.text(bg_x, 3.1, "FACHADAS", fontsize=8, color=PALETTE["muted"],
-                ha="center", fontweight="bold", zorder=5,
-                bbox=dict(boxstyle="round,pad=0.2", facecolor="white", edgecolor=PALETTE["soft"], linewidth=0.6))
-    else:
-        # Trees or wall
-        for i in range(5):
-            tx = bg_x - 1.5 + i * 0.6
-            tree = Circle((tx, 1.7), 0.30, facecolor=PALETTE["bg_layer"],
-                          edgecolor=PALETTE["bg_layer"], alpha=0.4, zorder=2)
-            ax.add_patch(tree)
-            ax.plot([tx, tx], [1.4, 0], color=PALETTE["bg_layer"], linewidth=1.5, zorder=2)
-        ax.text(bg_x, 2.4, "FONDO", fontsize=8, color=PALETTE["muted"],
-                ha="center", fontweight="bold", zorder=5,
-                bbox=dict(boxstyle="round,pad=0.2", facecolor="white", edgecolor=PALETTE["soft"], linewidth=0.6))
+    _draw_side_background(ax, shot, bg_x)
 
     # Direction-aware vertical FoV cone. The legacy diagram always drew it
     # horizontally even for picado/contrapicado/nadir/cenital.
@@ -869,51 +914,13 @@ def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
 
     # Subject after shared field-card policy.
     # For vertical views, align the represented subject/canopy with the camera axis.
-    subj_x = 0 if shot["angle"] in ("nadir", "cenital") else sd
-    eff_variant = effective_subject_variant(shot, variant)
-    if eff_variant == "human":
-        draw_human_side(ax, subj_x, 0, shot["subjects"]["human"]["pose"], PALETTE["subject"], scale=1.2)
-    elif eff_variant == "dog":
-        draw_dog_side(ax, subj_x, 0, shot["subjects"]["dog"]["pose"], PALETTE["subject"], scale=1.2)
-    if eff_variant is not None:
-        ring = Circle((subj_x, 0.85), 0.55, facecolor="none",
-                      edgecolor=PALETTE["subject"], linewidth=1.2,
-                      linestyle=":", alpha=0.6, zorder=6)
-        ax.add_patch(ring)
-    else:
-        ax.text(subj_x, 0.75, "PERRO FUERA\nSIN SUJETO", fontsize=8, color=PALETTE["warning"],
-                ha="center", va="center", fontweight="bold", zorder=8)
+    subj_x, eff_variant = _draw_side_subject(ax, shot, variant, sd)
 
     # Camera
     draw_camera_side(ax, cam_x, cam_y, angle_tilt, height_label=f"{cam_h:.2f} m")
 
     # Angle indicator referenced to the horizontal optical axis (0°).
-    if angle_tilt != 0:
-        arc_r = 0.4
-        if angle_tilt < 0:
-            arc = mpatches.Arc((cam_x, cam_y), arc_r*2, arc_r*2,
-                               angle=0, theta1=angle_tilt, theta2=0,
-                               color=PALETTE["warning"], linewidth=2, zorder=12)
-        else:
-            arc = mpatches.Arc((cam_x, cam_y), arc_r*2, arc_r*2,
-                               angle=0, theta1=0, theta2=angle_tilt,
-                               color=PALETTE["warning"], linewidth=2, zorder=12)
-        ax.add_patch(arc)
-        label_angle = math.radians(angle_tilt/2)
-        lx = cam_x + 0.6 * math.cos(label_angle)
-        ly = cam_y + 0.6 * math.sin(label_angle)
-        ax.text(lx, ly, f"{shot['angle_label']}\n{abs(angle_tilt)}°",
-                fontsize=7, color=PALETTE["warning"], fontweight="bold",
-                ha="center", va="center", zorder=12,
-                bbox=dict(boxstyle="round,pad=0.2", facecolor="white",
-                          edgecolor=PALETTE["warning"], linewidth=0.6))
-    else:
-        # Central / eye-level — show a small horizontal indicator
-        ax.text(cam_x + 0.5, cam_y, f"{shot['angle_label']}\n0° (eye-level)",
-                fontsize=7, color=PALETTE["ok"], fontweight="bold",
-                ha="left", va="center", zorder=12,
-                bbox=dict(boxstyle="round,pad=0.2", facecolor="white",
-                          edgecolor=PALETTE["ok"], linewidth=0.6))
+    _draw_side_angle_indicator(ax, cam_x, cam_y, angle_tilt, shot["angle_label"])
 
     # Distance markers (horizontal)
     draw_distance_marker(ax, -0.5, -0.35, sd, -0.35,

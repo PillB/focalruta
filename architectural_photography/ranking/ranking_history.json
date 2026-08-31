@@ -1,0 +1,40 @@
+{
+  "runs": [
+    {
+      "run_id": "2026-08-30-r4-v2",
+      "model_version": "architecture-ranking-v1.0.1",
+      "file": "2026-08-30-r4-v2.json",
+      "sha256": "0393648df4f3e3c32efa0bae13d3c257bcc89cac0720a5b7403ab9469d6c3952"
+    },
+    {
+      "run_id": "2026-08-30-r4-v3",
+      "model_version": "architecture-ranking-v1.1.0",
+      "file": "2026-08-30-r4-v3.json",
+      "sha256": "2f8eda010c49243a0629a5cf0d9f7a2be45d9e89679ffe83f067677fe8e49ae3"
+    },
+    {
+      "run_id": "2026-08-30-r4-v4",
+      "model_version": "architecture-ranking-v1.1.0",
+      "file": "2026-08-30-r4-v4.json",
+      "sha256": "23746300f3c7d67b3c7b55e3998e4ba670c37a193c0512abd684363bd05683fd"
+    },
+    {
+      "run_id": "2026-08-30-r4-v5",
+      "model_version": "architecture-ranking-v1.1.0",
+      "file": "2026-08-30-r4-v5.json",
+      "sha256": "e692b9d2ddf1b9cbfaae1f1875c784f56caa266627c5d25258ae2b2c6cc36a7d"
+    },
+    {
+      "run_id": "2026-08-30-r4-v6",
+      "model_version": "architecture-ranking-v1.1.0",
+      "file": "2026-08-30-r4-v6.json",
+      "sha256": "87df55d3873e7d89a5179e79bee1a7b77e44ee473fa122db9d7f4fd7601819ca"
+    },
+    {
+      "run_id": "2026-08-31-r4-v7",
+      "model_version": "architecture-ranking-v1.1.0",
+      "file": "2026-08-31-r4-v7.json",
+      "sha256": "0609c12b6b4b603c668439d2e04782dba0e7772f2b85df0e721d3e6b9c8afa77"
+    }
+  ]
+}

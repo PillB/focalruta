@@ -1,0 +1,494 @@
+[
+  {
+    "historical_id": "ccori-wasi",
+    "name": "Centro Cultural Ccori Wasi",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "parque3-skate",
+    "name": "Parque 3 de Octubre + Skatepark Muros Libres",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "centro-civico-lima",
+    "name": "Centro Cívico de Lima / Real Plaza",
+    "district": "Cercado de Lima",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "limatambo",
+    "name": "Torres de Limatambo / supermanzana",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "san-felipe",
+    "name": "Residencial San Felipe",
+    "district": "Jesús María",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "previ",
+    "name": "PREVI Lima",
+    "district": "Los Olivos",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "chabuca-granda-rimac",
+    "name": "Agrupamiento Chabuca Granda",
+    "district": "Rímac",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "alvarez-calderon",
+    "name": "Edificio Álvarez Calderón",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "quinta-heeren-2026",
+    "name": "Quinta Heeren · restauración 2026",
+    "district": "Barrios Altos",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "uv3-bonilla",
+    "name": "Unidad Vecinal Nº3",
+    "district": "Cercado de Lima",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "compact-city-transect",
+    "name": "Transecto de ciudad compacta · Pueblo Libre/Lince/Surquillo",
+    "district": "Lima media",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "jiron-trujillo-rimac",
+    "name": "Jirón Trujillo + Puente de Piedra",
+    "district": "Rímac",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "parque-americas-pl",
+    "name": "Parque de las Américas",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "armendariz-puente-paz",
+    "name": "Puente de la Paz / Quebrada de Armendáriz",
+    "district": "Miraflores–Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "electricidad",
+    "name": "Museo de la Electricidad & Tranvía",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "palomino",
+    "name": "Conjunto Habitacional Palomino",
+    "district": "Cercado de Lima",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "santa-cruz",
+    "name": "Huaca Santa Cruz",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "uv3",
+    "name": "Unidad Vecinal N.º 3",
+    "district": "Cercado de Lima",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "quinta-libertadores",
+    "name": "Quinta de los Libertadores + MNAAHP",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "matute",
+    "name": "Unidad Vecinal Matute + complejo deportivo",
+    "district": "La Victoria",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "jiron-union",
+    "name": "Jirón de la Unión",
+    "district": "Cercado de Lima",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "julia-codesido",
+    "name": "Casa Museo Julia Codesido",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "damero-renacentista",
+    "name": "Damero de Lima · intersección como objeto",
+    "district": "Centro Histórico",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "plaza-bandera",
+    "name": "Plaza a la Bandera",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "lcc",
+    "name": "Lima Centro de Convenciones",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "virginia-candamo",
+    "name": "Parque Virginia Candamo",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "casa-garcia-bryce",
+    "name": "Casa García Bryce",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "aulario-104",
+    "name": "Aulario 104 · Universidad Ricardo Palma",
+    "district": "Santiago de Surco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "huaca-san-borja",
+    "name": "Huaca San Borja",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "quinta-leuro",
+    "name": "Quinta Leuro y quintas históricas",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "cruz-viajero",
+    "name": "Santísima Cruz del Viajero",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "funicular",
+    "name": "Estación / restos del Funicular de Barranco",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "lum",
+    "name": "Lugar de la Memoria (LUM)",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "camino-real",
+    "name": "Torres / Centro Empresarial Camino Real",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "reducto",
+    "name": "Reducto Nº 2 / Casa Museo Cáceres",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "cantagallo-ethical",
+    "name": "Cantagallo · comunidad Shipibo-Konibo",
+    "district": "Rímac",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "plaza-libertadores",
+    "name": "Plaza de los Libertadores + Santa María Magdalena",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "biblioteca-barranco",
+    "name": "Biblioteca Municipal de Barranco",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "queirolo",
+    "name": "Antigua Taberna Queirolo",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "marina-nunez",
+    "name": "Casa Museo Marina Núñez del Prado",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "gtn",
+    "name": "Gran Teatro Nacional",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "tradiciones",
+    "name": "Parque Tradiciones / Ricardo Palma",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "convenciones",
+    "name": "Centro de Convenciones / estación La Cultura",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "bnp",
+    "name": "Biblioteca Nacional del Perú",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "orbea",
+    "name": "Casa Hacienda Orbea",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "biblioteca-olivar",
+    "name": "Biblioteca Municipal y borde lagunas del Olivar",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "mirador-catalina",
+    "name": "Mirador Catalina Recavarren",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "mac",
+    "name": "MAC Lima + parque / espejo de agua",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "financiero",
+    "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "municipal-barranco",
+    "name": "Parque Municipal y entorno cívico",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "balta",
+    "name": "Puente Villena / Bajada Balta / Costa Verde",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "porras",
+    "name": "Casa Raúl Porras Barrenechea",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "huallamarca",
+    "name": "Huaca Huallamarca",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "museo-larco",
+    "name": "Museo Larco + jardines",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "harth-terre",
+    "name": "Casa Emilio Harth-Terré",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "olivar",
+    "name": "Bosque El Olivar",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "choquehuanca",
+    "name": "Calle Choquehuanca / Basadre residencial",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "calle-porta",
+    "name": "Calle Porta y casonas frente a verticalización",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "palacio-si",
+    "name": "Palacio Municipal y de la Cultura · San Isidro",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "saenz-pena",
+    "name": "Sáenz Peña / Domeyer / pasajes",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "pucllana",
+    "name": "Huaca Pucllana",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "moreyra",
+    "name": "Casa-Hacienda Moreyra",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "mincul",
+    "name": "Ministerio de Cultura / Museo de la Nación",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "pedro-osma",
+    "name": "Museo Pedro de Osma y Av. Pedro de Osma",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "torre-bn",
+    "name": "Torre Banco de la Nación",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "santisima-cruz",
+    "name": "Iglesia Santísima Cruz",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "felicidad",
+    "name": "Parque de la Felicidad",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "pentagonito",
+    "name": "Pentagonito y bordes cívicos",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "country-club",
+    "name": "Country Club Lima Hotel",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "huaca-julio-tello",
+    "name": "Huaca Julio C. Tello",
+    "district": "Pueblo Libre",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "maria-reiche",
+    "name": "Parque María Reiche",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "ovalo",
+    "name": "Óvalo de Miraflores",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "dibos",
+    "name": "Coliseo Eduardo Dibós",
+    "district": "San Borja",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "faro",
+    "name": "Faro La Marina + Parque Antonio Raimondi",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "pilar",
+    "name": "Parroquia Nuestra Señora del Pilar",
+    "district": "San Isidro",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "suspiros",
+    "name": "Puente de los Suspiros + Bajada de Baños",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "ricardo-palma",
+    "name": "Casa Museo Ricardo Palma",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "ermita",
+    "name": "La Ermita de Barranco",
+    "district": "Barranco",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "palacio-mira",
+    "name": "Palacio Municipal + Virgen Milagrosa",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "kennedy",
+    "name": "Parque Kennedy / gatos / civic core",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "larcomar",
+    "name": "Larcomar + acantilado",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  },
+  {
+    "historical_id": "parque-amor",
+    "name": "Parque del Amor & El Beso",
+    "district": "Miraflores",
+    "source_run": "Master82"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "run_id": "STYLE-DISCOVERY-2026-08-30-A",
+  "scope": "Lima Metropolitana only",
+  "question": "Which modern, Art Nouveau or strongly geometric building adds a distinct one-frame relationship rather than a famous-object duplicate?",
+  "public_derivative": "data/architecture/style_discoveries.json",
+  "result": "Six source-backed discovery records; zero automatic ranking or route promotions.",
+  "rejections": [
+    "Edificio Giacoletti is not admitted because the historic building was destroyed; it cannot support a current building scene.",
+    "Height, novelty and resemblance to Sydney are discovery signals, not scoring features.",
+    "Private interiors and uncertain current access remain hard admission gates."
+  ]
+}

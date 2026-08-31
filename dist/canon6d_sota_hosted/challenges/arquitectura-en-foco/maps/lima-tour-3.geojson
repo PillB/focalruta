@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "quinta-heeren-restauracion-2026",
+        "name": "Quinta Heeren",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0179163,
+          -12.0499013
+        ]
+      }
+    }
+  ]
+}

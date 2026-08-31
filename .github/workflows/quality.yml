@@ -1,0 +1,28 @@
+name: Quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Install test and quality dependencies
+        run: python3 -m pip install pytest ruff==0.12.11 Pillow==11.3.0
+      - name: Enforce cyclomatic complexity ceiling
+        run: python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-complexity=10'
+      - name: Run tests
+        run: python3 -m pytest -q
+      - name: Verify architecture challenge
+        run: python3 scripts/verify_architecture.py
+      - name: Verify existing release
+        run: python3 scripts/verify_release.py

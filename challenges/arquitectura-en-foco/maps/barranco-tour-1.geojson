@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mirador-catalina-recavarren",
+        "name": "Mirador Catalina Recavarren",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0235738,
+          -12.1496829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "la-ermita-de-barranco",
+        "name": "Pasaje La Ermita",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0229075,
+          -12.1491933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "puente-de-los-suspiros-bajada-de-banos",
+        "name": "Puente de Los Suspiros",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.022591,
+          -12.1491664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "iglesia-santisima-cruz",
+        "name": "Iglesia Santísima Cruz",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0216208,
+          -12.1487936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "parque-municipal-y-entorno-civico",
+        "name": "Parque Municipal de Barranco",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0211974,
+          -12.1494807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "biblioteca-municipal-de-barranco",
+        "name": "Biblioteca Municipal",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0214626,
+          -12.1501191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "museo-de-la-electricidad-tranvia",
+        "name": "Museo de La Electricidad",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0217254,
+          -12.1504015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "museo-pedro-de-osma-y-av-pedro-de-osma",
+        "name": "Museo Pedro de Osma",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0226424,
+          -12.1546379
+        ]
+      }
+    }
+  ]
+}

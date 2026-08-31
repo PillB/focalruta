@@ -1,0 +1,203 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-02",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "conjunto-habitacional-palomino",
+      "reference_families": [
+        {
+          "reference_id": "VR-PALOMINO-01",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/conjunto-habitacional-palomino/",
+          "image_url": "https://limaparislima.wordpress.com/wp-content/uploads/2023/09/capture-decran-2023-09-20-a-16.39.24.png?w=599",
+          "publisher": "CAMMP Universidad de Lima / Limaparislima mirror",
+          "viewpoint_family": "AERIAL_CURVED_BLOCK_SYSTEM",
+          "likely_camera_height": "aerial",
+          "fov_class": "very wide",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "curved T-shaped blocks, open areas and neighborhood boundary",
+          "cliche_cluster": "modern-housing masterplan overview",
+          "proves": "The curved blocks create a repeated spatial system rather than a single façade object.",
+          "cannot_prove": "A publicly reachable camera position, present activity or current access through the estate.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PALOMINO-02",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/conjunto-habitacional-palomino/",
+          "image_url": "https://limaparislima.wordpress.com/wp-content/uploads/2023/09/capture-decran-2023-09-21-a-12.30.20.png?w=817",
+          "publisher": "CAMMP Universidad de Lima / Limaparislima mirror",
+          "viewpoint_family": "PUBLIC_SPACE_BETWEEN_HOUSING",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "lawn, paths and housing façades enclose shared open space",
+          "cliche_cluster": "empty modernist green court",
+          "proves": "Shared landscape and housing façades can be read in one ground-level relation.",
+          "cannot_prove": "Current human verbs, maintenance state outside the photographed sector or the decisive moment.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PALOMINO-03",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/conjunto-habitacional-palomino/",
+          "image_url": "https://limaparislima.wordpress.com/wp-content/uploads/2023/09/capture-decran-2023-09-20-a-17.12.57.png?w=686",
+          "publisher": "CAMMP Universidad de Lima / Limaparislima mirror",
+          "viewpoint_family": "BETWEEN_BLOCKS_AND_PATH",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "walking path bends between repeated housing blocks",
+          "cliche_cluster": "formal block rhythm",
+          "proves": "The curved circulation path changes alignment and overlap between repeated blocks.",
+          "cannot_prove": "Current pedestrian cadence, safe waiting location or whether this framing is saturated.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "huaca-santa-cruz",
+      "reference_families": [
+        {
+          "reference_id": "VR-HUACASANTACRUZ-01",
+          "page_url": "https://arqueologiadigital.cultura.pe/mapastematicos/huaca-santa-cruz-lima",
+          "image_url": "https://arqueologiadigital.cultura.pe/mapastematicos/huaca-santa-cruz-lima",
+          "publisher": "Ministerio de Cultura del Perú — Arqueología Digital",
+          "viewpoint_family": "OFFICIAL_THEMATIC_GALLERY",
+          "likely_camera_height": "multiple official gallery viewpoints",
+          "fov_class": "mixed",
+          "light_weather": "daylight in gallery images",
+          "people_activity": "not established",
+          "edge_background": "official page exposes four monument images but the crawler does not expose their asset URLs",
+          "cliche_cluster": "archaeological monument documentation",
+          "proves": "An official visual gallery exists for the San Isidro monument and contains multiple views.",
+          "cannot_prove": "Individual image authorship, exact camera positions, current visitor activity or present access.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HUACASANTACRUZ-02",
+          "page_url": "https://arqueologiadigital.cultura.pe/ortofotos/huaca-santa-cruz",
+          "image_url": "https://arqueologiadigital.cultura.pe/ortofotos/huaca-santa-cruz",
+          "publisher": "Ministerio de Cultura del Perú — Arqueología Digital",
+          "viewpoint_family": "ORTHOPHOTO_AND_3D_CONTEXT",
+          "likely_camera_height": "aerial/orthographic",
+          "fov_class": "site plan",
+          "light_weather": "not used as photographic evidence",
+          "people_activity": "not applicable",
+          "edge_background": "monument footprint and surrounding San Isidro fabric",
+          "cliche_cluster": "not a field photograph",
+          "proves": "The official orthophoto resource can support site-edge and position planning.",
+          "cannot_prove": "A feasible ground composition, light behavior or current street-level visibility.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "quinta-de-los-libertadores-mnaahp",
+      "reference_families": [
+        {
+          "reference_id": "VR-QUINTALIB-01",
+          "page_url": "https://elcomercio.pe/somos/historias/bicentenario-la-quinta-de-los-libertadores-un-recorrido-por-la-historica-casa-bicentenaria-en-pueblo-libre-fiestas-patrias-simon-bolivar-san-martin-noticia/",
+          "image_url": "https://elcomercio.pe/somos/historias/bicentenario-la-quinta-de-los-libertadores-un-recorrido-por-la-historica-casa-bicentenaria-en-pueblo-libre-fiestas-patrias-simon-bolivar-san-martin-noticia/",
+          "publisher": "El Comercio — photographs by Karen Zárate/GEC",
+          "viewpoint_family": "RESTORED_EXTERIOR_AND_HOUSE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "museum preparation documented",
+          "edge_background": "restored quincha house, garden and museum context",
+          "cliche_cluster": "heritage-house exterior",
+          "proves": "The attributed report distinguishes the restored house, garden and museum-preparation spaces.",
+          "cannot_prove": "Current 2026 display, public access or an uncrowded field position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-QUINTALIB-02",
+          "page_url": "https://elcomercio.pe/somos/historias/bicentenario-la-quinta-de-los-libertadores-un-recorrido-por-la-historica-casa-bicentenaria-en-pueblo-libre-fiestas-patrias-simon-bolivar-san-martin-noticia/",
+          "image_url": "https://elcomercio.pe/somos/historias/bicentenario-la-quinta-de-los-libertadores-un-recorrido-por-la-historica-casa-bicentenaria-en-pueblo-libre-fiestas-patrias-simon-bolivar-san-martin-noticia/",
+          "publisher": "El Comercio — photographs by Karen Zárate/GEC",
+          "viewpoint_family": "INTERIOR_MUSEOGRAPHY",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "interior ambient light",
+          "people_activity": "director and installation work documented",
+          "edge_background": "colored walls, objects and room thresholds",
+          "cliche_cluster": "period-room record",
+          "proves": "The 2021 report documents spatially distinct interior installation and threshold relationships.",
+          "cannot_prove": "Whether photography is currently feasible or whether visitor behavior supplies a stronger scene.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-QUINTALIB-03",
+          "page_url": "https://jabenito.blogspot.com/2015/12/inauguracion-de-la-quinta-de-los.html",
+          "image_url": "https://4.bp.blogspot.com/-lt-dytkMHXs/VmdboP_yJ9I/AAAAAAAAVL0/XTU17JjB7YU/s1600/Quinta%2Bde%2Blos%2BLibertadores%2BHuerta%2Bde%2Bnoche-739129.jpg",
+          "publisher": "José Antonio Benito blog",
+          "viewpoint_family": "GARDEN_AND_VERANDA_AT_NIGHT",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "night with warm architectural lighting",
+          "people_activity": "none legible",
+          "edge_background": "garden path, veranda columns and lit façade",
+          "cliche_cluster": "romantic illuminated heritage house",
+          "proves": "Night lighting separates garden, veranda and façade as spatial layers.",
+          "cannot_prove": "Current lighting schedule, public night access or original photographic metadata.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "plaza-a-la-bandera",
+      "reference_families": [
+        {
+          "reference_id": "VR-PLAZABANDERA-01",
+          "page_url": "https://commons.wikimedia.org/wiki/Category:Plaza_de_la_bandera,_Lima",
+          "image_url": "https://commons.wikimedia.org/wiki/File:Vista_aerea_de_la_Plaza_de_la_Bandera.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "AERIAL_RADIAL_ROAD_SYSTEM",
+          "likely_camera_height": "aerial",
+          "fov_class": "very wide",
+          "light_weather": "daylight",
+          "people_activity": "not individually legible",
+          "edge_background": "radial avenues, circular plaza and surrounding blocks",
+          "cliche_cluster": "formal aerial civic geometry",
+          "proves": "The plaza is also a traffic distributor whose radial roads shape the civic form.",
+          "cannot_prove": "A reachable field viewpoint or ordinary pedestrian behavior.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PLAZABANDERA-02",
+          "page_url": "https://portal.muniplibre.gob.pe/pueblo-libre-presente-en-ceremonia-por-el-199-aniversario-de-la-creacion-de-la-primera-bandera-del-peru/",
+          "image_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2019/10/6.jpg",
+          "publisher": "Municipalidad de Pueblo Libre",
+          "viewpoint_family": "CEREMONY_RING_AND_FORMATIONS",
+          "likely_camera_height": "elevated event platform",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "military formations and civic ceremony",
+          "edge_background": "flagpole, circular paving, stands and urban perimeter",
+          "cliche_cluster": "official ceremony overview",
+          "proves": "The architecture channels large ceremonial formations around the central flag.",
+          "cannot_prove": "Frequency outside official dates or a non-credentialed camera position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PLAZABANDERA-03",
+          "page_url": "https://andina.pe/agencia/noticia.aspx?id=327834",
+          "image_url": "https://portal.andina.pe/EDPfotografia2/Thumbnail/2010/11/14/000140848W.jpg",
+          "publisher": "Agencia Andina",
+          "viewpoint_family": "GROUND_CEREMONY_URBAN_BACKDROP",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "overcast daylight",
+          "people_activity": "officers and civic participants gathered",
+          "edge_background": "formations, giant flag, trees and ordinary urban buildings",
+          "cliche_cluster": "patriotic event photograph",
+          "proves": "At ground level, ceremony and ordinary urban perimeter can coexist in one frame.",
+          "cannot_prove": "Current event calendar, access position or anti-postal differentiation.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}

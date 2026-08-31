@@ -1,0 +1,67 @@
+{
+  "schema_version": "architecture-style-discovery-v1",
+  "retrieved_at": "2026-08-30T22:30:00Z",
+  "admission_rule": "Discovery only until the same ten-pass, visual-forensics, access and scene tests as the canonical universe are complete.",
+  "discoveries": [
+    {
+      "discovery_id": "utec-campus-barranco",
+      "name": "Campus UTEC",
+      "district": "Barranco",
+      "style_signal": "contemporary concrete megastructure / geometric section",
+      "why_it_might_add": "A cliff-like teaching section, terraces and circulation can show education inhabiting structure rather than another façade portrait.",
+      "source_url": "https://utec.edu.pe/noticias/inicia-construccion-de-primera-etapa-del-nuevo-campus-de-utec-en-barranco-0",
+      "source_type": "PRIMARY",
+      "status": "ADMISSION_PENDING_EQUAL_DEPTH"
+    },
+    {
+      "discovery_id": "torre-interbank",
+      "name": "Torre Interbank",
+      "district": "La Victoria",
+      "style_signal": "postmodern sculptural high-rise / inclined geometric volumes",
+      "why_it_might_add": "The curved highway response, inclined slab and suspended volume can be tested against actual pedestrian and traffic movement.",
+      "source_url": "https://interbank.pe/blog/sala-de-prensa/25-anos-torre-interbank-icono-arquitectonico",
+      "source_type": "PRIMARY_CURRENT",
+      "status": "ADMISSION_PENDING_EQUAL_DEPTH"
+    },
+    {
+      "discovery_id": "casa-fernandini-1913",
+      "name": "Casa Fernandini",
+      "district": "Lima",
+      "style_signal": "eclectic architecture with Art Nouveau interiors",
+      "why_it_might_add": "Material modernity, floral ornament, concrete construction and present cultural use could form a temporal-layering scene if access is current.",
+      "source_url": "https://www.elperuano.pe/noticia/201710-casa-fernandini-art-nouveau-en-el-corazon-de-lima",
+      "source_type": "OFFICIAL_JOURNALISM",
+      "status": "ADMISSION_PENDING_CURRENT_ACCESS"
+    },
+    {
+      "discovery_id": "estacion-desamparados",
+      "name": "Estación Desamparados / Casa de la Literatura",
+      "district": "Lima",
+      "style_signal": "Beaux-Arts civic infrastructure with Art Nouveau glasswork",
+      "why_it_might_add": "A former transport threshold now organizes readers and cultural activity; the change of verb is architectural, not decorative.",
+      "source_url": "https://www.casadelaliteratura.gob.pe/estacion-de-las-letras-la-historia-de-la-estacion-desamparados/",
+      "source_type": "PRIMARY_INSTITUTION",
+      "status": "ADMISSION_PENDING_EQUAL_DEPTH"
+    },
+    {
+      "discovery_id": "edificio-petroperu",
+      "name": "Edificio Petroperú",
+      "district": "San Isidro",
+      "style_signal": "Peruvian brutalism / monumental structural geometry",
+      "why_it_might_add": "Deep concrete frames and civic scale may support light, repetition and institutional-threshold studies without relying on skyline fame.",
+      "source_url": "https://cammp.ulima.edu.pe/autores/weberhofer-walter/",
+      "source_type": "ACADEMIC",
+      "status": "ADMISSION_PENDING_CURRENT_USE"
+    },
+    {
+      "discovery_id": "torre-begonias",
+      "name": "Torre Begonias + Paseo Begonias",
+      "district": "San Isidro",
+      "style_signal": "contemporary corporate verticality / public-realm transformation",
+      "why_it_might_add": "The useful subject is not tower height but how plaza, food, work and visitor flows change the financial-center ground plane.",
+      "source_url": "https://paseobegonias.com/en/about-us/",
+      "source_type": "PRIMARY_CURRENT",
+      "status": "ADMISSION_PENDING_EQUAL_DEPTH"
+    }
+  ]
+}

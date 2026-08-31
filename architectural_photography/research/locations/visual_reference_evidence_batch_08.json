@@ -1,0 +1,219 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-08",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "gran-teatro-nacional",
+      "reference_families": [
+        {
+          "reference_id": "VR-GTN-01",
+          "page_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=11891",
+          "image_url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=11891",
+          "publisher": "MINCETUR · Inventario Nacional de Recursos Turísticos",
+          "viewpoint_family": "EXTERNAL_TERRACE_AND_CIVIC_APPROACH",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "arrival and gathering potential; exact cadence not established",
+          "edge_background": "external public terrace, glazed mass and La Cultura civic cluster",
+          "cliche_cluster": "frontal cultural-building overview",
+          "proves": "The official inventory defines an external public terrace as one of three principal architectural zones, making arrival space part of the building rather than leftover foreground.",
+          "cannot_prove": "Current crowd rhythm, the strongest non-frontal position or unrestricted professional photography.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-GTN-02",
+          "page_url": "https://granteatronacional.pe/",
+          "image_url": "https://granteatronacional.pe/",
+          "publisher": "Gran Teatro Nacional",
+          "viewpoint_family": "ACTIVE_EVENT_ARRIVAL_AND_TRANSIT_RELATION",
+          "likely_camera_height": "official page mixed coverage",
+          "fov_class": "mixed",
+          "light_weather": "day/evening program dependent",
+          "people_activity": "audience arrival, accessible cultural participation and performance attendance",
+          "edge_background": "theater entrance, Javier Prado and La Cultura station under 100 metres away",
+          "cliche_cluster": "institutional event coverage",
+          "proves": "The current official site corroborates active programming and a close transit-to-theater threshold that can produce architecture-caused audience flow.",
+          "cannot_prove": "A specific 2026 performance exit density, exact asset persistence or a safe curbside camera position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-GTN-03",
+          "page_url": "https://publicos.granteatronacional.pe/categoria/visitas-guiadas/contenido/vgprimaria",
+          "image_url": "https://publicos.granteatronacional.pe/categoria/visitas-guiadas/contenido/vgprimaria",
+          "publisher": "GTN Públicos",
+          "viewpoint_family": "BACKSTAGE_ROUTE_AND_HUMAN_INFRASTRUCTURE",
+          "likely_camera_height": "guided-tour eye level",
+          "fov_class": "mixed interior",
+          "light_weather": "controlled interior light",
+          "people_activity": "rehearsing, preparing, guiding and operating performances",
+          "edge_background": "rehearsal rooms, dressing rooms, stage and technical circulation",
+          "cliche_cluster": "backstage institutional tour",
+          "proves": "The theater is a working spatial system whose rooms and workers enable the public spectacle, not only an iconic shell.",
+          "cannot_prove": "Public access to those positions during a field visit or permission to photograph backstage activity.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "mac-lima-parque-espejo-de-agua",
+      "reference_families": [
+        {
+          "reference_id": "VR-MAC-01",
+          "page_url": "https://maclima.pe/sobre-el-mac-lima/",
+          "image_url": "https://maclima.pe/sobre-el-mac-lima/",
+          "publisher": "MAC Lima",
+          "viewpoint_family": "INDUSTRIAL_ARCHITECTURE_TERRACE_AND_PARK",
+          "likely_camera_height": "official page mixed coverage",
+          "fov_class": "wide/normal",
+          "light_weather": "daylight and event light",
+          "people_activity": "exhibiting, meeting, participating and attending outdoor events",
+          "edge_background": "three gallery volumes, terrace, park and urban edge",
+          "cliche_cluster": "museum-and-park overview",
+          "proves": "The institution explicitly frames its industrial architecture as surrounded by an active terrace and park, supporting a building-to-public-life scene rather than an isolated object.",
+          "cannot_prove": "Current water level, repeatable gesture or the least saturated camera position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MAC-02",
+          "page_url": "https://maclima.pe/wordpress/wp-content/uploads/2021/08/Tarifario-de-Alquiler-de-Espacios-2021-MAC-Lima.pdf",
+          "image_url": "https://maclima.pe/wordpress/wp-content/uploads/2021/08/Tarifario-de-Alquiler-de-Espacios-2021-MAC-Lima.pdf",
+          "publisher": "MAC Lima",
+          "viewpoint_family": "SITE_PLAN_WATER_GARDEN_AND_BUILDING",
+          "likely_camera_height": "plan/overhead representation",
+          "fov_class": "site-wide",
+          "light_weather": "not applicable",
+          "people_activity": "event use zones documented, not a live event",
+          "edge_background": "central building, two water mirrors, garden, terrace and perimeter paths",
+          "cliche_cluster": "architectural site plan",
+          "proves": "The published plan verifies that the water mirrors and garden are structural parts of the spatial composition and identifies paths from which layered views can be tested.",
+          "cannot_prove": "2026 maintenance state, reflections, public circulation or photographic visibility from ground level.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-MAC-03",
+          "page_url": "https://maclima.pe/",
+          "image_url": "https://maclima.pe/",
+          "publisher": "MAC Lima",
+          "viewpoint_family": "CURRENT_PROGRAM_AND_OCCUPIED_PUBLIC_EDGE",
+          "likely_camera_height": "official program coverage",
+          "fov_class": "mixed",
+          "light_weather": "program dependent",
+          "people_activity": "visiting exhibitions, learning, gathering and attending events",
+          "edge_background": "museum thresholds, terrace and landscape used as program space",
+          "cliche_cluster": "current cultural-program imagery",
+          "proves": "The current institution remains active and offers time-dependent occupation that can change the meaning of the park and threshold.",
+          "cannot_prove": "A particular event's photography policy, attendance or exact 2026 field window.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "museo-larco-jardines",
+      "reference_families": [
+        {
+          "reference_id": "VR-LARCO-01",
+          "page_url": "https://www.museolarco.org/coleccion/",
+          "image_url": "https://www.museolarco.org/coleccion/",
+          "publisher": "Museo Larco",
+          "viewpoint_family": "ADAPTED_VICEREGAL_HOUSE_AND_REUSED_ELEMENTS",
+          "likely_camera_height": "archival and standing eye level",
+          "fov_class": "mixed",
+          "light_weather": "archival/daylight",
+          "people_activity": "museum occupation documented historically; no present gesture proved",
+          "edge_background": "18th-century house with salvaged railings, doors, columns, beams and corbels",
+          "cliche_cluster": "picturesque colonial museum",
+          "proves": "The official history establishes the building as an adaptation assembled partly from recovered architectural elements, creating a real old/new and whole/fragment relationship.",
+          "cannot_prove": "Which recovered element is visually legible from a public position or current visitor density.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LARCO-02",
+          "page_url": "https://www.museolarco.org/360-jardines-y-cafe-del-museo/",
+          "image_url": "https://www.museolarco.org/360-jardines-y-cafe-del-museo/",
+          "publisher": "Museo Larco",
+          "viewpoint_family": "GARDEN_COURTYARD_TERRACE_SEQUENCE",
+          "likely_camera_height": "interactive standing eye level",
+          "fov_class": "panoramic/mixed",
+          "light_weather": "daylight",
+          "people_activity": "walking, pausing and dining potential; occupancy not current evidence",
+          "edge_background": "garden, café terrace, courtyard planting and white architectural surfaces",
+          "cliche_cluster": "bougainvillea-and-white-wall postcard",
+          "proves": "The official 360-degree route allows position study across garden, café and architecture rather than relying on one promotional angle.",
+          "cannot_prove": "Current bloom, crowd behavior, exposure range or permission for a competition-oriented session.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LARCO-03",
+          "page_url": "https://www.museolarco.org/planea-tu-visita/",
+          "image_url": "https://www.museolarco.org/planea-tu-visita/",
+          "publisher": "Museo Larco",
+          "viewpoint_family": "CURRENT_VISITOR_ROUTE_AND_ACCESS_CONSTRAINTS",
+          "likely_camera_height": "visitor eye level",
+          "fov_class": "mixed",
+          "light_weather": "interior and landscaped daylight",
+          "people_activity": "entering, viewing, studying visible storage and using terraces",
+          "edge_background": "ramps, rooms, gardens, café terrace and controlled circulation",
+          "cliche_cluster": "visitor-experience documentation",
+          "proves": "The current page corroborates active routes through rooms and gardens and states that ordinary personal photography is allowed while tripods, selfie sticks and photo sessions are not.",
+          "cannot_prove": "Authorization for the intended competition workflow, a quiet window or professional-equipment interpretation; verify directly before field use.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "huaca-huallamarca",
+      "reference_families": [
+        {
+          "reference_id": "VR-HUALLAMARCA-01",
+          "page_url": "https://www.gob.pe/43126",
+          "image_url": "https://www.gob.pe/43126",
+          "publisher": "Municipalidad de San Isidro · Gob.pe",
+          "viewpoint_family": "STEPPED_PYRAMID_RAMP_AND_MODERN_CITY",
+          "likely_camera_height": "street and visitor eye level",
+          "fov_class": "wide",
+          "light_weather": "daylight",
+          "people_activity": "ascending, visiting and learning; exact flow not established",
+          "edge_background": "superposed platforms, reconstructed access ramp, museum and surrounding towers",
+          "cliche_cluster": "huaca-versus-skyscrapers panorama",
+          "proves": "The official district page identifies the ramp and three occupation phases and explicitly documents the monument's contrast with surrounding modern buildings.",
+          "cannot_prove": "Current tower occlusion, best anti-postal relation or 2026 visitor cadence.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HUALLAMARCA-02",
+          "page_url": "https://visitavirtual.cultura.pe/recorridos/MSH/museo-sitio-huallamarca/index.html",
+          "image_url": "https://visitavirtual.cultura.pe/recorridos/MSH/museo-sitio-huallamarca/index.html",
+          "publisher": "Ministerio de Cultura",
+          "viewpoint_family": "VIRTUAL_SITE_AND_MUSEUM_ROUTE",
+          "likely_camera_height": "interactive visitor eye level",
+          "fov_class": "panoramic/mixed",
+          "light_weather": "captured daylight/interior",
+          "people_activity": "visitor route implied, not a live occupancy record",
+          "edge_background": "archaeological platforms, paths and site museum collection",
+          "cliche_cluster": "heritage virtual tour",
+          "proves": "The ministry's virtual route supports advance position study and connects the outdoor monument with the museum's material evidence.",
+          "cannot_prove": "Current access, temporary closures, people density or exact field light.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HUALLAMARCA-03",
+          "page_url": "https://www.munisanisidro.gob.pe/transparencia/tema02/Memoria_Institucional_2014.pdf",
+          "image_url": "https://www.munisanisidro.gob.pe/transparencia/tema02/Memoria_Institucional_2014.pdf",
+          "publisher": "Municipalidad de San Isidro",
+          "viewpoint_family": "NIGHT_ILLUMINATION_AND_REDUCED_FORM",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide",
+          "light_weather": "night architectural illumination",
+          "people_activity": "none established",
+          "edge_background": "lit stepped adobe mass, dark sky and tree silhouette",
+          "cliche_cluster": "illuminated-monument postcard",
+          "proves": "A municipal record shows that artificial light can reduce the site to stepped mass and shadow, a materially different seeing mode from daytime urban contrast.",
+          "cannot_prove": "That the same lighting operates in 2026, public opening after dark or a safe exterior position.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "batch_id":"visual-forensics-batch-25",
+  "retrieved_at":"2026-08-29T23:59:00-05:00",
+  "candidate_updates":[
+    {
+      "canonical_id":"huaca-san-borja",
+      "reference_families":[
+        {"reference_id":"VR-HUACASANBORJA-03","page_url":"https://www.gob.pe/institucion/cultura/noticias/1389063-ministerio-de-cultura-reunio-a-cerca-de-mil-personas-en-jornadas-de-promocion-y-proteccion-del-patrimonio-cultural-en-lima-y-canete","image_url":"https://www.gob.pe/institucion/cultura/noticias/1389063-ministerio-de-cultura-reunio-a-cerca-de-mil-personas-en-jornadas-de-promocion-y-proteccion-del-patrimonio-cultural-en-lima-y-canete","publisher":"Ministerio de Cultura","viewpoint_family":"HERITAGE_MEDIATION_AND_COMMUNITY_ACTIVITY","likely_camera_height":"mixed official event viewpoints","fov_class":"mixed","light_weather":"daylight","people_activity":"guided heritage education and citizen-protection activity","edge_background":"archaeological fabric, participants and interpretation activity","cliche_cluster":"official heritage-event documentation","proves":"A May 2026 ministry activity establishes that the huaca can host mediated public participation rather than functioning only as an isolated ruin.","cannot_prove":"Daily public admission, repeatable event timing, present perimeter visibility or stable individual gallery asset URLs.","redistribution":"LINK_ONLY"}
+      ]
+    }
+  ]
+}

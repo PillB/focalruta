@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saenz-pena-domeyer-pasajes",
+        "name": "Sáenz Peña",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0247981,
+          -12.1434417
+        ]
+      }
+    }
+  ]
+}

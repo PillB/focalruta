@@ -1,0 +1,50 @@
+{
+  "source_id": "W12",
+  "title": "Cantagallo",
+  "url": "https://rpp.pe/columnistas/enriquebonilla/cantagallo-noticia-1179352",
+  "status": "REFERENCE",
+  "lesson": "Introduce una regla ética: una historia urbana no justifica fotografiar una comunidad vulnerable sin colaboración.",
+  "claim_ids": [
+    "CLM-BONILLA-12-FRAMEWORK"
+  ],
+  "candidate_added": [],
+  "candidate_merged": [],
+  "candidate_removed_or_quarantined": [
+    {
+      "candidate": "Cantagallo · comunidad Shipibo-Konibo",
+      "reason": "ETHICS_CONSENT_COLLABORATION_GATE"
+    }
+  ],
+  "canonical_count_after": 81,
+  "ranking_model_version": null,
+  "ranking_run_id": null,
+  "top5": [],
+  "delta_vs_previous": "No canonical change; historical additions remain provenance-only.",
+  "confidence": 0.65,
+  "open_questions": [
+    "Which current, primary place source verifies any derived Lima scene?",
+    "What field evidence would make the relationship legible in one frame?"
+  ],
+  "retrieved_at": "2026-08-27T17:30:00-05:00",
+  "source_access": "INDEX_ONLY",
+  "evidentiary_role": "AUTHOR_ARGUMENT_FRAMEWORK",
+  "expert_rejection": "A published source can support a conceptual lens, but it cannot verify current scene conditions, access, safety, consent, light, activity, or one-frame strength. Cantagallo cannot become an extractive photo opportunity without collaboration and consent.",
+  "historical_candidate_suggestions": [
+    "Cantagallo · comunidad Shipibo-Konibo"
+  ],
+  "historical_count_after": 77,
+  "historical_top5": [
+    "PREVI Lima",
+    "Centro Cultural Ccori Wasi",
+    "Torres de Limatambo / supermanzana",
+    "Agrupamiento Chabuca Granda",
+    "Residencial San Felipe"
+  ],
+  "geographic_scope": "IN_SCOPE_RIMAC_DISTRICT",
+  "ethical_gate": {
+    "consent_or_collaboration_required": true,
+    "hidden_telephoto_workaround_prohibited": true,
+    "exotic_texture_extraction_prohibited": true,
+    "vulnerability_as_opportunity_prohibited": true
+  }
+}

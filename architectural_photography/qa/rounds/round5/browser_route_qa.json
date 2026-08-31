@@ -1,0 +1,382 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:8766/challenges/arquitectura-en-foco/",
+  "records": [
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "district_cards": 25,
+      "iphone_help_status": 200,
+      "screenshot": "architectural_photography/qa/rounds/round5/route-390x844.png",
+      "forensic_description": "390px portrait route capture: 25 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+    },
+    {
+      "viewport": [
+        430,
+        932
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "district_cards": 25,
+      "iphone_help_status": 200,
+      "screenshot": "architectural_photography/qa/rounds/round5/route-430x932.png",
+      "forensic_description": "430px portrait route capture: 25 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "district_cards": 25,
+      "iphone_help_status": 200,
+      "screenshot": "architectural_photography/qa/rounds/round5/route-844x390.png",
+      "forensic_description": "844px landscape route capture: 25 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+    },
+    {
+      "viewport": [
+        932,
+        430
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "district_cards": 25,
+      "iphone_help_status": 200,
+      "screenshot": "architectural_photography/qa/rounds/round5/route-932x430.png",
+      "forensic_description": "932px landscape route capture: 25 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+    },
+    {
+      "viewport": [
+        820,
+        1000
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "district_cards": 25,
+      "iphone_help_status": 200,
+      "screenshot": "architectural_photography/qa/rounds/round5/route-820x1000.png",
+      "forensic_description": "820px portrait route capture: 25 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+    },
+    {
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "district_cards": 25,
+      "iphone_help_status": 200,
+      "screenshot": "architectural_photography/qa/rounds/round5/route-1440x1100.png",
+      "forensic_description": "1440px landscape route capture: 25 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+    }
+  ],
+  "route_forensics": [
+    {
+      "district": "Barranco",
+      "stops": 8,
+      "total_road_distance_m": 1192.2,
+      "longest_leg": {
+        "from": "museo-de-la-electricidad-tranvia",
+        "to": "museo-pedro-de-osma-y-av-pedro-de-osma",
+        "road_distance_m": 585.4,
+        "road_duration_s": 472.2,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": false,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "Barranco",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Barranco",
+      "stops": 2,
+      "total_road_distance_m": 406,
+      "longest_leg": {
+        "from": "utec-campus-barranco",
+        "to": "mac-lima-parque-espejo-de-agua",
+        "road_distance_m": 406,
+        "road_duration_s": 326.6,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": false,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "Jesús María",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "La Victoria",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "La Victoria",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Lima",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Lima",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Lima",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Lima",
+      "stops": 4,
+      "total_road_distance_m": 2499.9,
+      "longest_leg": {
+        "from": "estacion-desamparados",
+        "to": "casa-fernandini-1913",
+        "road_distance_m": 958.8,
+        "road_duration_s": 775,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": true,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "Miraflores",
+      "stops": 8,
+      "total_road_distance_m": 3484.9,
+      "longest_leg": {
+        "from": "puente-villena-bajada-balta-costa-verde",
+        "to": "larcomar-acantilado",
+        "road_distance_m": 854.2,
+        "road_duration_s": 683.1,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": true,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "Miraflores",
+      "stops": 5,
+      "total_road_distance_m": 1357.4,
+      "longest_leg": {
+        "from": "parque-tradiciones-ricardo-palma",
+        "to": "casa-raul-porras-barrenechea",
+        "road_distance_m": 836.2,
+        "road_duration_s": 672.8,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": true,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "Miraflores",
+      "stops": 2,
+      "total_road_distance_m": 994.6,
+      "longest_leg": {
+        "from": "lugar-de-la-memoria-lum",
+        "to": "parque-maria-reiche",
+        "road_distance_m": 994.6,
+        "road_duration_s": 795.4,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": true,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "Miraflores",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Pueblo Libre",
+      "stops": 5,
+      "total_road_distance_m": 1994.2,
+      "longest_leg": {
+        "from": "parque-virginia-candamo",
+        "to": "plaza-a-la-bandera",
+        "road_distance_m": 840.1,
+        "road_duration_s": 672.3,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": true,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "Pueblo Libre",
+      "stops": 3,
+      "total_road_distance_m": 1654.8,
+      "longest_leg": {
+        "from": "parque-de-las-americas",
+        "to": "museo-larco-jardines",
+        "road_distance_m": 875.2,
+        "road_duration_s": 702.2,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": true,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "Rímac",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Rímac",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "San Borja",
+      "stops": 2,
+      "total_road_distance_m": 742.2,
+      "longest_leg": {
+        "from": "torres-de-limatambo-supermanzana",
+        "to": "coliseo-eduardo-dibos",
+        "road_distance_m": 742.2,
+        "road_duration_s": 594.2,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": false,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "San Borja",
+      "stops": 6,
+      "total_road_distance_m": 1624.3,
+      "longest_leg": {
+        "from": "lima-centro-de-convenciones",
+        "to": "ministerio-de-cultura-museo-de-la-nacion",
+        "road_distance_m": 486.7,
+        "road_duration_s": 389.6,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": false,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "San Borja",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "San Isidro",
+      "stops": 5,
+      "total_road_distance_m": 3070.4,
+      "longest_leg": {
+        "from": "casa-museo-marina-nunez-del-prado",
+        "to": "palacio-municipal-y-de-la-cultura-san-isidro",
+        "road_distance_m": 968.8,
+        "road_duration_s": 778.7,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": true,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "San Isidro",
+      "stops": 3,
+      "total_road_distance_m": 944.4,
+      "longest_leg": {
+        "from": "calle-choquehuanca-basadre-residencial",
+        "to": "country-club-lima-hotel",
+        "road_distance_m": 491.1,
+        "road_duration_s": 397.2,
+        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": false,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "San Isidro",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Santiago de Surco",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "batch_id":"VISUAL-FORENSICS-2026-08-28-22",
+  "retrieved_at":"2026-08-28T00:00:00-05:00",
+  "method":"One new official LINK_ONLY family closes candidate-specific visual coverage for Huaca Santa Cruz without redistributing source images.",
+  "candidate_updates":[
+    {
+      "canonical_id":"huaca-santa-cruz",
+      "reference_families":[
+        {
+          "reference_id":"VR-HUACASANTACRUZ-03",
+          "page_url":"https://www.gob.pe/institucion/munisanisidro-lima/noticias/1137064-la-huaca-santa-cruz-brilla-con-una-nueva-imagen",
+          "image_url":"https://www.gob.pe/institucion/munisanisidro-lima/noticias/1137064-la-huaca-santa-cruz-brilla-con-una-nueva-imagen",
+          "publisher":"Municipalidad Distrital de San Isidro · Gob.pe",
+          "viewpoint_family":"RENEWED_PERIMETER_AND_NIGHT_ILLUMINATION",
+          "likely_camera_height":"street and public-edge eye level",
+          "fov_class":"wide/normal",
+          "light_weather":"daylight and ornamental night illumination",
+          "people_activity":"public-edge viewing and cultural visitation implied; routine density not established",
+          "edge_background":"new perimeter fence, low stepped adobe mass, surrounding residential fabric and ornamental lighting",
+          "cliche_cluster":"illuminated monument renewal coverage",
+          "proves":"A March 2025 municipal record documents a changed public edge and night condition that can support perimeter-versus-monument analysis.",
+          "cannot_prove":"Routine night access, present lighting operation, event cadence or a lawful interior route.",
+          "redistribution":"LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}

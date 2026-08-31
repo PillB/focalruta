@@ -1,0 +1,29 @@
+{
+  "source_runs": {
+    "Master68": 68,
+    "Master82": 82
+  },
+  "canonical_count": 81,
+  "merge_count": 1,
+  "quarantined_count": 0,
+  "run_deltas": {
+    "Master68_to_Master82": {
+      "retained": 68,
+      "added": 13,
+      "removed": 0
+    }
+  },
+  "merges": [
+    {
+      "run_id": "Master82",
+      "canonical_id": "unidad-vecinal-3",
+      "historical_ids": [
+        "uv3",
+        "uv3-bonilla"
+      ],
+      "reason": "SEMANTIC_IDENTITY_MATCH",
+      "count_effect": -1
+    }
+  ],
+  "quarantined": []
+}

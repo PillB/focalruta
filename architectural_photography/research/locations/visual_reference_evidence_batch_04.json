@@ -1,0 +1,187 @@
+{
+  "batch_id": "VISUAL-FORENSICS-2026-08-28-04",
+  "retrieved_at": "2026-08-28",
+  "status": "PARTIAL_LINK_ONLY",
+  "candidate_updates": [
+    {
+      "canonical_id": "parque-virginia-candamo",
+      "reference_families": [
+        {
+          "reference_id": "VR-CANDAMO-01",
+          "page_url": "https://portal.muniplibre.gob.pe/reinauguramos-nuestro-parque-candamo/",
+          "image_url": "https://portal.muniplibre.gob.pe/wp-content/uploads/2019/10/DJI_0739.jpg",
+          "publisher": "Municipalidad de Pueblo Libre",
+          "viewpoint_family": "AERIAL_REDESIGNED_PARK",
+          "likely_camera_height": "aerial",
+          "fov_class": "very wide",
+          "light_weather": "daylight",
+          "people_activity": "not individually legible",
+          "edge_background": "circular lawns, paths, pergola and surrounding residential blocks",
+          "cliche_cluster": "municipal renewal overview",
+          "proves": "The 2019 redesign introduced a legible path-and-circle system rather than generic lawn.",
+          "cannot_prove": "A reachable camera position, current planting condition or present activity rhythm.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-CANDAMO-02",
+          "page_url": "https://www.publimetro.pe/nacional/2019/10/16/pueblo-libre-asi-luce-el-parque-candamo-tras-remodelacion-fotos-noticia/",
+          "image_url": "https://www.publimetro.pe/nacional/2019/10/16/pueblo-libre-asi-luce-el-parque-candamo-tras-remodelacion-fotos-noticia/",
+          "publisher": "Publimetro Perú",
+          "viewpoint_family": "CHINESE_PERUVIAN_CIVIC_ELEMENTS",
+          "likely_camera_height": "mixed event/gallery viewpoints",
+          "fov_class": "mixed",
+          "light_weather": "daylight",
+          "people_activity": "inaugural ceremony and lion dance documented",
+          "edge_background": "Confucius monument, Chinese pergola, lanterns, benches and park landscape",
+          "cliche_cluster": "colorful inauguration coverage",
+          "proves": "The redesign embeds a specific Chinese-Peruvian commemorative layer and event use.",
+          "cannot_prove": "Ordinary-day inhabitation, stable individual asset URLs or current event frequency.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "huaca-san-borja",
+      "reference_families": [
+        {
+          "reference_id": "VR-HUACASANBORJA-01",
+          "page_url": "https://camp.ucss.edu.pe/blog/la-maquina-del-tiempo/huaca-san-borja/",
+          "image_url": "https://camp.ucss.edu.pe/wp-content/uploads/2021/01/Huaca-San-Borja.jpg",
+          "publisher": "CampUCSS",
+          "viewpoint_family": "AERIAL_ARCHAEOLOGY_IN_CITY",
+          "likely_camera_height": "aerial",
+          "fov_class": "very wide",
+          "light_weather": "daylight",
+          "people_activity": "not legible",
+          "edge_background": "adobe platform enclosed by streets, buildings and planted edges",
+          "cliche_cluster": "ancient-modern aerial contrast",
+          "proves": "The monument's urban enclosure is the dominant spatial relationship, not an isolated ruin.",
+          "cannot_prove": "A public elevated viewpoint, ground visibility or current conservation condition.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-HUACASANBORJA-02",
+          "page_url": "https://commons.wikimedia.org/wiki/File:Huaca_San_Borja_Archaeological_site_-_overview.jpg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Huaca_San_Borja_Archaeological_site_-_overview.jpg/960px-Huaca_San_Borja_Archaeological_site_-_overview.jpg.webp",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "GROUND_MOUND_AND_RESIDENTIAL_EDGE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "none legible",
+          "edge_background": "gravel foreground, adobe mound, shelter and apartment buildings",
+          "cliche_cluster": "empty archaeological overview",
+          "proves": "A ground frame can hold material difference and the contemporary residential edge.",
+          "cannot_prove": "Current access, visitor gestures or the best light direction.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "quinta-leuro-y-quintas-historicas",
+      "reference_families": [
+        {
+          "reference_id": "VR-LEURO-01",
+          "page_url": "https://visitamiraflores.com/lugares/quinta-leuro/",
+          "image_url": "https://visitamiraflores.com/wp-content/uploads/2025/03/thumb-quinta-leuro.jpg",
+          "publisher": "Municipalidad de Miraflores — Visita Miraflores",
+          "viewpoint_family": "INTERIOR_COURT_STAIRS_AND_GARDEN",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "soft daylight",
+          "people_activity": "none legible",
+          "edge_background": "paired stairs, colored façades, garden path and domestic thresholds",
+          "cliche_cluster": "picturesque heritage courtyard",
+          "proves": "Variations in stairs, façades and garden thresholds share one coherent interior court.",
+          "cannot_prove": "Resident activity, current entry conditions or least repeated framing.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LEURO-02",
+          "page_url": "https://commons.wikimedia.org/wiki/File:Quinta_Leuro.jpg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Quinta_Leuro.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "STREET_EDGE_SINGLE_HOUSE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "daylight",
+          "people_activity": "none",
+          "edge_background": "hedge, fence, pink house and mature trees",
+          "cliche_cluster": "single picturesque façade",
+          "proves": "The exterior street edge conceals much of the collective interior system.",
+          "cannot_prove": "A one-frame relation beyond façade documentation or present pedestrian use.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-LEURO-03",
+          "page_url": "https://quintasdeleuro.blogspot.com/",
+          "image_url": "https://2.bp.blogspot.com/-YTA4lX303Po/UuwJJixt5lI/AAAAAAAAufI/YltTDhQEaJs/s1600/l8.jpg",
+          "publisher": "Quintas de Leuro / Incascrapers community archive",
+          "viewpoint_family": "VARIED_HOUSE_GATE_AND_STREET",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "normal",
+          "light_weather": "daylight",
+          "people_activity": "parked car only",
+          "edge_background": "ornamented villa, gate, garden and quiet street",
+          "cliche_cluster": "heritage-house catalogue",
+          "proves": "Individual variations are visible from the street but risk fragmenting the collective-quinta story.",
+          "cannot_prove": "Current condition, image authorship beyond the host attribution or lived courtyard use.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    },
+    {
+      "canonical_id": "estacion-restos-del-funicular-de-barranco",
+      "reference_families": [
+        {
+          "reference_id": "VR-FUNICULAR-01",
+          "page_url": "https://commons.wikimedia.org/wiki/Category:Funicular_de_Barranco",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/EstacionBarranco.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "STATION_EXTERIOR",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not established",
+          "edge_background": "station envelope and surrounding passage",
+          "cliche_cluster": "heritage station record",
+          "proves": "The surviving station can be read as architecture rather than only transport history.",
+          "cannot_prove": "Current rehabilitation state or museum opening.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FUNICULAR-02",
+          "page_url": "https://commons.wikimedia.org/wiki/Category:Funicular_de_Barranco",
+          "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pasaje%20Funicular%2002.jpg",
+          "publisher": "Wikimedia Commons",
+          "viewpoint_family": "PASSAGE_AND_SLOPE",
+          "likely_camera_height": "standing eye level",
+          "fov_class": "wide-normal",
+          "light_weather": "daylight",
+          "people_activity": "not established",
+          "edge_background": "linear passage, retaining edges and slope alignment",
+          "cliche_cluster": "picturesque Barranco passage",
+          "proves": "The approach passage preserves the infrastructural alignment beyond the station object.",
+          "cannot_prove": "Current pedestrian flow, closure points or safe camera position.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FUNICULAR-03",
+          "page_url": "https://www.gob.pe/institucion/munibarranco/campa%C3%B1as/92230-funicular-de-barranco-barranco-funicular",
+          "image_url": "https://www.gob.pe/institucion/munibarranco/campa%C3%B1as/92230-funicular-de-barranco-barranco-funicular",
+          "publisher": "Municipalidad Distrital de Barranco",
+          "viewpoint_family": "REHABILITATION_GALLERY",
+          "likely_camera_height": "mixed official gallery viewpoints",
+          "fov_class": "mixed",
+          "light_weather": "mixed daylight",
+          "people_activity": "works/visitation not individually verified",
+          "edge_background": "station, passage and surviving infrastructure",
+          "cliche_cluster": "municipal heritage documentation",
+          "proves": "The municipality reported rehabilitation toward museum use and provides a five-image gallery updated March 2025.",
+          "cannot_prove": "Completion in August 2026, public opening or stable individual gallery asset URLs.",
+          "redistribution": "LINK_ONLY"
+        }
+      ]
+    }
+  ]
+}

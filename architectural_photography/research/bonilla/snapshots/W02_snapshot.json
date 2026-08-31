@@ -1,0 +1,39 @@
+{
+  "source_id": "W02",
+  "title": "Políticas de recuperación del Centro Histórico de Lima 1994–2016",
+  "url": "https://repositorio.usmp.edu.pe/handle/20.500.12727/6853?show=full",
+  "status": "VERIFIED",
+  "lesson": "Patrimonio = valor cultural + valor social; fachada recuperada sin vida residencial es una victoria incompleta.",
+  "claim_ids": [
+    "CLM-BONILLA-02-FRAMEWORK"
+  ],
+  "candidate_added": [],
+  "candidate_merged": [],
+  "candidate_removed_or_quarantined": [],
+  "canonical_count_after": 81,
+  "ranking_model_version": null,
+  "ranking_run_id": null,
+  "top5": [],
+  "delta_vs_previous": "No canonical change; historical additions remain provenance-only.",
+  "confidence": 0.9,
+  "open_questions": [
+    "Which current, primary place source verifies any derived Lima scene?",
+    "What field evidence would make the relationship legible in one frame?"
+  ],
+  "retrieved_at": "2026-08-27T17:30:00-05:00",
+  "source_access": "DIRECT_CURRENT",
+  "evidentiary_role": "CONTEXTUAL_FRAMEWORK",
+  "expert_rejection": "A published source can support a conceptual lens, but it cannot verify current scene conditions, access, safety, consent, light, activity, or one-frame strength.",
+  "historical_candidate_suggestions": [
+    "Quinta Heeren · restauración 2026",
+    "Jirón de la Unión"
+  ],
+  "historical_count_after": 72,
+  "historical_top5": [
+    "PREVI Lima",
+    "Centro Cultural Ccori Wasi",
+    "Torres de Limatambo / supermanzana",
+    "Residencial San Felipe",
+    "Parque 3 de Octubre + Skatepark Muros Libres"
+  ]
+}
