@@ -46,6 +46,10 @@ def inspect(browser, width: int, height: int) -> dict:
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
     page.on("requestfailed", lambda request: failed.append(request.url))
     response = page.goto(URL, wait_until="networkidle", timeout=60_000)
+    page.emulate_media(reduced_motion="reduce")
+    page.locator('nav a[href="#route"]').click()
+    page.wait_for_timeout(50)
+    anchor_clearance = page.evaluate("document.querySelector('#route').getBoundingClientRect().top-document.querySelector('nav').getBoundingClientRect().bottom")
     page.locator("#route").screenshot(path=OUT / f"route-{width}x{height}.png")
     boxes = [box for card in page.locator("#route .scene").all() if (box := card.bounding_box())]
     columns = len({round(box["x"]) for box in boxes})
@@ -54,6 +58,7 @@ def inspect(browser, width: int, height: int) -> dict:
         "viewport": [width, height],
         "status": response.status if response else None,
         "overflow": overflow,
+        "anchor_clearance": anchor_clearance,
         "page_errors": errors,
         "console_errors": console_errors,
         "failed_resources": failed,
@@ -73,7 +78,7 @@ def main() -> int:
         records = [inspect(browser, width, height) for width, height in VIEWPORTS]
         browser.close()
     expected_cards = len(json.loads((ROOT / "data/architecture/routes.json").read_text(encoding="utf-8"))["district_layers"])
-    passed = all(row["status"] == 200 and row["iphone_help_status"] == 200 and not row["overflow"] and not row["page_errors"] and not row["console_errors"] and not row["failed_resources"] and row["district_cards"] == expected_cards for row in records)
+    passed = all(row["status"] == 200 and row["iphone_help_status"] == 200 and not row["overflow"] and row["anchor_clearance"] >= 0 and not row["page_errors"] and not row["console_errors"] and not row["failed_resources"] and row["district_cards"] == expected_cards for row in records)
     report = {"passed": passed, "url": URL, "records": records, "route_forensics": route_forensics()}
     (OUT / "browser_route_qa.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"passed": passed, "viewports": len(records)}, indent=2))

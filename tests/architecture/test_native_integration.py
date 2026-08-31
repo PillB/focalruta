@@ -24,6 +24,7 @@ def test_challenge_has_task_navigation_and_truthful_queue_language():
     for anchor in ("#today", "#scenes", "#learn", "#field-run", "#rules"):
         assert f'href="{anchor}"' in page
     assert "87 lugares y escenas" in page
+    assert "scroll-margin-top:70px" in page
     assert "Top 3" not in page
     assert "probabilidad de ganar" not in page.lower()
 

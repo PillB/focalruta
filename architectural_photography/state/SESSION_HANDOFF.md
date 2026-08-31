@@ -1,5 +1,7 @@
 # Session handoff
 
+- Live Pages post-merge audit on 2026-08-31 found one accessibility defect after otherwise green deployment: sticky task navigation obscured hash-target headings by 62.5 CSS px on a 390×844 viewport. Follow-up branch `fix-architecture-sticky-nav` adds 70 px `scroll-margin-top`; the browser regression now measures nonnegative clearance at all six viewports (7.5–8.5 px observed).
+
 - 2026-08-31 style-scene admission: six completed dossiers (UTEC, Torre Interbank, Casa Fernandini, Estación Desamparados, Edificio Petroperú and Torre Begonias) entered the current 87-scene universe. The immutable historical reconciliation remains 81 identities (Master68 + Master82 with UV3 merged). New scenes use `2026_STYLE_DOSSIER_EXPLICIT_EVIDENCE_ASSESSMENT`; no Master82 score or historical rank is inherited.
 - Ranking run `2026-08-31-r4-v7`: 87 scenes, four scenarios, fixed-seed sensitivity and nine Pareto-front scenes. Route eligibility now derives from published route stop IDs instead of a hard-coded false value.
 - OSM refresh and route rebuild: all six new scenes resolved to their stated district; UTEC and Petroperú use official-address query anchors after generic-name queries returned no result. Exact pedestrian-road permutation and administrative polygon containment produced 66 stops in 25 district-pure layers. The hard maximum photography-stop leg was tightened from 1.5 km to 1.0 km; observed maximum is 994.6 m. Seven 0.84–0.99 km transfers remain explicitly warned rather than splitting every layer into singleton pins.
