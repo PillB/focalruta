@@ -38,4 +38,5 @@ def test_agent_contract_requires_expert_rejection_and_fail_fast_evidence():
     )
     assert all(phrase in contract for phrase in required)
     claude = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
-    assert str(ROOT / "AGENTS.md") in claude
+    assert "`AGENTS.md`" in claude
+    assert "/Users/pabloillescas/Documents/GitHub/focalruta/AGENTS.md" in claude
