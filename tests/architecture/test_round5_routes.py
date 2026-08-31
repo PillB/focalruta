@@ -107,7 +107,13 @@ def test_each_road_leg_has_source_geometry_and_no_fake_live_eta():
             assert len(leg["geometry"]["coordinates"]) >= 2
             assert leg["source_retrieved_at"]
             assert leg["eta_label"] == "snapshot estimate"
-            assert leg["road_distance_m"] <= 2500
+            assert leg["road_distance_m"] <= 1500
+
+
+def test_generated_page_discloses_long_transfers():
+    page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
+    assert "Transferencia larga:" in page
+    assert "sepárala si la calle intermedia no aporta" in page
 
 
 def test_small_tours_are_checked_by_exact_permutation():

@@ -30,21 +30,6 @@
           -12.1109128
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "parque-de-la-felicidad",
-        "name": "Parque de la Felicidad",
-        "district": "San Borja"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -76.9889841,
-          -12.1015009
-        ]
-      }
     }
   ]
 }

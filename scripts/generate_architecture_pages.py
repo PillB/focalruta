@@ -16,6 +16,7 @@ VERIFICATION_PATH = ROOT / "architectural_photography/research/locations/equal_d
 RANKING_PATH = ROOT / "data/architecture/ranking.json"
 ROUTES_PATH = ROOT / "data/architecture/routes.json"
 DISCOVERIES_PATH = ROOT / "data/architecture/style_discoveries.json"
+DISCOVERY_DOSSIERS_PATH = ROOT / "architectural_photography/research/locations/style_discovery_dossiers.json"
 OUTPUT = ROOT / "challenges/arquitectura-en-foco/index.html"
 IPHONE_HELP = ROOT / "challenges/arquitectura-en-foco/iphone-maps.html"
 
@@ -86,9 +87,17 @@ def route_cards(routes: dict) -> str:
         if not stages_html:
             stages_html = f'<li><a href="{escape(layer["google_maps_search_url"])}">Abrir punto en Google Maps</a> · sin ruta inventada</li>'
         distance = round(layer["optimization"]["selected_distance_m"] / 1000, 1)
+        longest = max(layer["legs"], key=lambda leg: leg["road_distance_m"], default=None)
+        transfer = ""
+        if longest and longest["road_distance_m"] > 800:
+            transfer = (
+                f'<p class="warning"><strong>Transferencia larga:</strong> '
+                f'{round(longest["road_distance_m"] / 1000, 1)} km entre dos paradas. '
+                f'Es una captura de red peatonal; sepárala si la calle intermedia no aporta a la historia.</p>'
+            )
         cards.append(
             f'<article class="scene" data-district="{escape(layer["district"])}"><p class="eyebrow">{escape(layer["district"])} · RED PEATONAL</p><h3>{len(layer["stops"])} paradas · {distance} km</h3>'
-            f'<p>Orden mínimo comprobado entre {layer["optimization"]["permutations_evaluated"]} permutaciones. El tiempo es una captura, no tráfico en vivo.</p><ol>{stages_html}</ol>'
+            f'<p>Orden mínimo comprobado entre {layer["optimization"]["permutations_evaluated"]} permutaciones. El tiempo es una captura, no tráfico en vivo.</p>{transfer}<ol>{stages_html}</ol>'
             f'<p><a href="maps/{escape(Path(layer["kml_path"]).name)}" download>Descargar KML</a> · <a href="maps/{escape(Path(layer["geojson_path"]).name)}" download>GeoJSON</a></p></article>'
         )
     return "".join(cards)
@@ -97,22 +106,35 @@ def route_district_options(routes: dict) -> str:
     districts = sorted({layer["district"] for layer in routes["district_layers"]})
     return "".join(f'<option value="{escape(district)}">{escape(district)}</option>' for district in districts)
 
-def discovery_cards(discoveries: dict) -> str:
-    return "".join(
-        f'<article class="scene"><p class="eyebrow">{escape(item["district"])} · RADAR</p><h3>{escape(item["name"])}</h3><p><strong>{escape(item["style_signal"])}</strong></p><p>{escape(item["why_it_might_add"])}</p><p class="status">{escape(item["status"].replace("_", " "))}</p><p><a href="{escape(item["source_url"])}">Fuente</a></p></article>'
-        for item in discoveries["discoveries"]
-    )
+def discovery_cards(discoveries: dict, dossiers: dict) -> str:
+    evidence = {item["canonical_id"]: item for item in dossiers["records"]}
+    cards = []
+    for item in discoveries["discoveries"]:
+        dossier = evidence[item["discovery_id"]]
+        question = dossier["composition_questions"][0]
+        kill = dossier["proofs"]["E_ONE_FRAME_STORY"]["kill_trigger"]
+        cards.append(
+            f'<article class="scene"><p class="eyebrow">{escape(item["district"])} · RADAR</p>'
+            f'<h3>{escape(item["name"])}</h3><p><strong>{escape(item["style_signal"])}</strong></p>'
+            f'<p>{escape(item["why_it_might_add"])}</p><p><strong>Pregunta de campo:</strong> {escape(question)}</p>'
+            f'<p class="reject"><strong>Kill:</strong> {escape(kill)}</p>'
+            f'<p class="status">Dossier completo · canonización y reranking pendientes</p>'
+            f'<p><a href="{escape(dossier["sources"][0]["url"])}">Fuente actual</a> · '
+            f'{len(dossier["visual_reference_families"])} familias multiángulo</p></article>'
+        )
+    return "".join(cards)
 
 def iphone_help_page() -> str:
     return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Mapas en iPhone · FocalRuta</title><style>{CSS}</style></head><body><header><p class="eyebrow">ELI5</p><h1>Abre tu ruta en iPhone 13 Pro</h1></header><main><section><h2>La forma fácil</h2><ol><li>Abre Arquitectura en Foco en Safari.</li><li>Busca tu distrito y toca <strong>Abrir tramo caminando</strong>.</li><li>Si tienes Google Maps, el enlace lo abre; si no, se abre en Safari.</li><li>Revisa cruces, cierres y veredas en pantalla antes de empezar. Pulsa Iniciar solo cuando estés en la primera parada.</li><li>Al terminar el tramo, vuelve a FocalRuta y abre el siguiente.</li></ol><p class="warning">Cada tramo tiene como máximo cinco paradas porque el navegador móvil admite hasta tres puntos intermedios.</p></section><section><h2>Si quieres ver capas KML</h2><ol><li>En una computadora abre Google My Maps e importa el KML del distrito.</li><li>Guarda el mapa en la misma cuenta de Google.</li><li>En tu iPhone abre Google Maps.</li><li>Toca <strong>You</strong>, luego <strong>Maps</strong>, y elige el mapa.</li></ol><p>My Maps no crea ni edita mapas en iPhone/iPad; por eso FocalRuta usa enlaces de ruta directos como flujo principal.</p></section><p><a href="index.html">Volver a Arquitectura en Foco</a></p></main></body></html>'''
 
-def render(rules: dict, learning: dict, photographers: dict, cohort: dict | None = None, candidates: list[dict] | None = None, verification: dict | None = None, ranking: dict | None = None, routes: dict | None = None, discoveries: dict | None = None) -> str:
+def render(rules: dict, learning: dict, photographers: dict, cohort: dict | None = None, candidates: list[dict] | None = None, verification: dict | None = None, ranking: dict | None = None, routes: dict | None = None, discoveries: dict | None = None, discovery_dossiers: dict | None = None) -> str:
     cohort = cohort or json.loads(COHORT_PATH.read_text(encoding="utf-8"))
     candidates = candidates or json.loads(CANONICAL_PATH.read_text(encoding="utf-8"))
     verification = verification or json.loads(VERIFICATION_PATH.read_text(encoding="utf-8"))
     ranking = ranking or json.loads(RANKING_PATH.read_text(encoding="utf-8"))
     routes = routes or json.loads(ROUTES_PATH.read_text(encoding="utf-8"))
     discoveries = discoveries or json.loads(DISCOVERIES_PATH.read_text(encoding="utf-8"))
+    discovery_dossiers = discovery_dossiers or json.loads(DISCOVERY_DOSSIERS_PATH.read_text(encoding="utf-8"))
     visual_started = sum(bool(item["visual_reference_families"]) for item in verification["records"])
     desk_verified = sum(item["verification_complete"] for item in verification["records"])
     options = "".join(f'<option value="{escape(s["canonical_id"])}">{escape(s["name"])}</option>' for s in candidates)
@@ -131,7 +153,7 @@ def render(rules: dict, learning: dict, photographers: dict, cohort: dict | None
 <section id="ranking"><p class="eyebrow">RANKING ROBUSTO · PROXY INTERNO</p><h2>Compara estabilidad, no una falsa certeza</h2><p>R0–R3 comparan valor relativo bajo preferencias internas; no predicen el resultado del concurso. Un rango estrecho indica estabilidad frente a perturbaciones plausibles de pesos; Pareto identifica escenas no dominadas en creatividad, tema, causalidad y anti-postal.</p><div class="ranking-controls"><div><label for="ranking-scenario">Escenario</label><select id="ranking-scenario"><option value="r0">R0 · balanceado</option><option value="r1">R1 · anti-postal</option><option value="r2">R2 · habitar</option><option value="r3">R3 · forma/campo</option></select></div><div><label for="ranking-limit">Mostrar Top N o todas</label><select id="ranking-limit"><option value="5">Top 5</option><option value="15" selected>Top 15</option><option value="40">Top 40</option><option value="all">Todas</option></select></div></div><p id="ranking-count-status" role="status" aria-live="polite"></p><div class="scenes" id="ranking-cards">{ranking_cards(ranking)}</div></section>
 <section id="field-priorities"><p class="eyebrow">TOP 5 DE CAMPO</p><h2>Valor fotográfico que también se puede intentar</h2><p>Este orden combina potencial, causalidad, evidencia, acceso y factibilidad. Consulta abajo qué escenas ya tienen evidencia peatonal; una escena sin ruta todavía exige verificación manual.</p><div class="scenes">{field_priority_cards(ranking)}</div></section>
 <section id="route"><p class="eyebrow">RUTAS PEATONALES · 6 ITERACIONES</p><h2>Capas puras por distrito</h2><p>Solo aparecen {routed_stops} puntos que pasaron coincidencia de identidad, polígono distrital y red peatonal. Las otras escenas siguen visibles, pero no reciben una ruta inventada. La secuencia fue comprobada por permutación exacta; Google Maps recalcula el camino al abrirlo.</p><label for="route-district">Filtrar distrito</label><select id="route-district"><option value="all">Todos</option>{route_district_options(routes)}</select><p id="route-count-status" role="status" aria-live="polite"></p><p><a href="iphone-maps.html">Cómo abrirlo en iPhone 13 Pro, paso a paso</a></p><div class="scenes" id="route-cards">{route_cards(routes)}</div></section>
-<section id="style-radar"><p class="eyebrow">RADAR · MODERNO / ART NOUVEAU / GEOMETRÍA</p><h2>Nuevos edificios que deben ganarse su lugar</h2><p>Estos seis hallazgos amplían el lenguaje visual, pero todavía no alteran el ranking ni las rutas. Primero deben completar el mismo dossier, forénsica multiángulo y prueba de una sola imagen que las 81 escenas canónicas.</p><div class="scenes">{discovery_cards(discoveries)}</div></section>
+<section id="style-radar"><p class="eyebrow">RADAR · MODERNO / ART NOUVEAU / GEOMETRÍA</p><h2>Nuevos edificios que deben ganarse su lugar</h2><p><strong>6/6 dossiers de escritorio completos.</strong> Cada hallazgo tiene diez pases, A/B/C/D/E, tres preguntas y forénsica multiángulo. Todavía no altera el ranking ni las rutas: canonización y reranking pendientes.</p><div class="scenes">{discovery_cards(discoveries, discovery_dossiers)}</div></section>
 <section id="scenes"><p class="eyebrow">UNIVERSO CANÓNICO</p><h2>Todos los lugares y escenas</h2><p>Las 81 identidades reconciliadas tienen el mismo contrato de fuentes, imágenes, composición, preguntas, diez pases y A/B/C/D/E. El ranking de escritorio ya puede compararlas; ninguna queda habilitada como ruta hasta verificar ventanas y acceso en campo.</p><label for="scene-limit">Mostrar N escenas</label><select id="scene-limit"><option value="10">10 escenas</option><option value="25">25 escenas</option><option value="40">40 escenas</option><option value="all" selected>Todas las escenas</option></select><p id="scene-count-status" role="status" aria-live="polite">Mostrando todas las escenas.</p><div class="scenes" id="scene-cards">{scene_cards(candidates, cohort, verification)}</div></section>
 <section id="learn"><p class="eyebrow">PRÁCTICA</p><h2>Aprende antes de perseguir una locación</h2><h3>Seis modos de ver</h3><ol class="modes">{modes}</ol><article class="callout"><h3>Posición antes que focal</h3><p><strong>Observa:</strong> {escape(lesson["observe"])}</p><p><strong>Prueba:</strong> {escape(lesson["try"])}</p></article><h3>Preguntas de maestros</h3><div class="scenes">{masters}</div></section>
 <section id="field-run"><p class="eyebrow">OFFLINE · GUARDADO LOCAL</p><h2>CONTRATO vs USO</h2><p>Observa diez minutos. Resume el propósito original, registra cinco verbos, encuentra tres posiciones y elige focal al final.</p><form id="field-form"><label for="field-scene">Escena</label><select id="field-scene" name="scene">{options}</select><label for="contract">Propósito original · 8 palabras</label><input id="contract" name="contract" maxlength="90"><label for="verbs">Cinco verbos observados</label><textarea id="verbs" name="verbs"></textarea><label for="device">Dispositivo arquitectónico que causa la acción</label><textarea id="device" name="device"></textarea><label for="failure">Por qué todavía falla la mejor toma</label><textarea id="failure" name="failure"></textarea><div class="actions" role="group" aria-label="Decisión de campo"><button type="button" data-decision="STAY">STAY</button><button type="button" data-decision="MOVE">MOVE</button><button type="button" data-decision="RETURN_OTHER_LIGHT">RETURN OTHER LIGHT</button></div><p id="save-status" role="status" aria-live="polite">Se guarda solo en este dispositivo.</p></form><div class="actions"><button id="export-field" type="button" class="secondary">Exportar notas</button><button id="import-field" type="button" class="secondary">Importar notas</button><button id="clear-field" type="button" class="secondary">Borrar notas</button></div><input id="import-file" type="file" accept="application/json" hidden></section>
@@ -139,7 +161,7 @@ def render(rules: dict, learning: dict, photographers: dict, cohort: dict | None
 <noscript><section><h2>Ranking sin JavaScript</h2><p>Las 81 tarjetas y sus rangos R0–R3 permanecen visibles arriba; los filtros Top N requieren JavaScript.</p><h2>CONTRATO vs USO</h2><p>Observa 10 minutos, escribe propósito en 8 palabras, anota 5 verbos, encuentra 3 posiciones, inspecciona bordes y elige focal al final.</p><h2>Reglas</h2><p>Un JPG/JPEG · 5–25 MB · captura desde 2020 · nombre-apellido.</p></section></noscript></main><footer>FocalRuta guarda las notas en tu navegador. La exportación JSON permite moverlas entre dispositivos.</footer><script>{SCRIPT}</script></body></html>'''
 
 def main() -> None:
-    values = [json.loads(path.read_text(encoding="utf-8")) for path in (RULES_PATH, LEARNING_PATH, PHOTOGRAPHERS_PATH, COHORT_PATH, CANONICAL_PATH, VERIFICATION_PATH, RANKING_PATH, ROUTES_PATH, DISCOVERIES_PATH)]
+    values = [json.loads(path.read_text(encoding="utf-8")) for path in (RULES_PATH, LEARNING_PATH, PHOTOGRAPHERS_PATH, COHORT_PATH, CANONICAL_PATH, VERIFICATION_PATH, RANKING_PATH, ROUTES_PATH, DISCOVERIES_PATH, DISCOVERY_DOSSIERS_PATH)]
     PUBLIC_CANDIDATES_PATH.write_text(json.dumps(public_candidates(values[4], values[5]), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(render(*values), encoding="utf-8")

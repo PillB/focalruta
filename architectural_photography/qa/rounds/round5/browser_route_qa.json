@@ -12,10 +12,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 15,
+      "district_cards": 20,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-390x844.png",
-      "forensic_description": "390px portrait route capture: 15 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "390px portrait route capture: 20 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -27,10 +27,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 15,
+      "district_cards": 20,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-430x932.png",
-      "forensic_description": "430px portrait route capture: 15 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "430px portrait route capture: 20 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -42,10 +42,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 15,
+      "district_cards": 20,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-844x390.png",
-      "forensic_description": "844px landscape route capture: 15 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "844px landscape route capture: 20 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -57,10 +57,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 15,
+      "district_cards": 20,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-932x430.png",
-      "forensic_description": "932px landscape route capture: 15 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "932px landscape route capture: 20 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -72,10 +72,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 15,
+      "district_cards": 20,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-820x1000.png",
-      "forensic_description": "820px portrait route capture: 15 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "820px portrait route capture: 20 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -87,10 +87,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 15,
+      "district_cards": 20,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-1440x1100.png",
-      "forensic_description": "1440px landscape route capture: 15 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "1440px landscape route capture: 20 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     }
   ],
   "route_forensics": [
@@ -103,7 +103,7 @@
         "to": "museo-pedro-de-osma-y-av-pedro-de-osma",
         "road_distance_m": 585.4,
         "road_duration_s": 472.2,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -118,10 +118,10 @@
         "to": "saenz-pena-domeyer-pasajes",
         "road_distance_m": 1066,
         "road_duration_s": 853.4,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
         "eta_label": "snapshot estimate"
       },
-      "long_leg_warning": false,
+      "long_leg_warning": true,
       "assessment": "walkable photographic sequence"
     },
     {
@@ -142,29 +142,38 @@
     },
     {
       "district": "Lima",
-      "stops": 2,
-      "total_road_distance_m": 1897.2,
-      "longest_leg": {
-        "from": "conjunto-habitacional-palomino",
-        "to": "unidad-vecinal-3",
-        "road_distance_m": 1897.2,
-        "road_duration_s": 1517.8,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
-        "eta_label": "snapshot estimate"
-      },
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
       "long_leg_warning": false,
-      "assessment": "walkable photographic sequence"
+      "assessment": "single verified map point; no tour claimed"
     },
     {
       "district": "Lima",
-      "stops": 3,
-      "total_road_distance_m": 2143.6,
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Lima",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Lima",
+      "stops": 2,
+      "total_road_distance_m": 204.5,
       "longest_leg": {
-        "from": "quinta-heeren-restauracion-2026",
+        "from": "jiron-de-la-union",
         "to": "damero-de-lima-interseccion-como-objeto",
-        "road_distance_m": 1939.1,
-        "road_duration_s": 1565.1,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
+        "road_distance_m": 204.5,
+        "road_duration_s": 167.4,
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -179,10 +188,25 @@
         "to": "larcomar-acantilado",
         "road_distance_m": 854.2,
         "road_duration_s": 683.1,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
         "eta_label": "snapshot estimate"
       },
-      "long_leg_warning": false,
+      "long_leg_warning": true,
+      "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "Miraflores",
+      "stops": 5,
+      "total_road_distance_m": 1357.4,
+      "longest_leg": {
+        "from": "parque-tradiciones-ricardo-palma",
+        "to": "casa-raul-porras-barrenechea",
+        "road_distance_m": 836.2,
+        "road_duration_s": 672.8,
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+        "eta_label": "snapshot estimate"
+      },
+      "long_leg_warning": true,
       "assessment": "walkable photographic sequence"
     },
     {
@@ -194,26 +218,19 @@
         "to": "parque-maria-reiche",
         "road_distance_m": 994.6,
         "road_duration_s": 795.4,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
         "eta_label": "snapshot estimate"
       },
-      "long_leg_warning": false,
+      "long_leg_warning": true,
       "assessment": "walkable photographic sequence"
     },
     {
       "district": "Miraflores",
-      "stops": 6,
-      "total_road_distance_m": 2863.7,
-      "longest_leg": {
-        "from": "centro-cultural-ccori-wasi",
-        "to": "huaca-pucllana",
-        "road_distance_m": 1506.3,
-        "road_duration_s": 1315.5,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
-        "eta_label": "snapshot estimate"
-      },
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
       "long_leg_warning": false,
-      "assessment": "walkable photographic sequence"
+      "assessment": "single verified map point; no tour claimed"
     },
     {
       "district": "Pueblo Libre",
@@ -224,37 +241,38 @@
         "to": "parque-de-las-americas",
         "road_distance_m": 1309.3,
         "road_duration_s": 1047.6,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
         "eta_label": "snapshot estimate"
       },
-      "long_leg_warning": false,
+      "long_leg_warning": true,
       "assessment": "walkable photographic sequence"
     },
     {
       "district": "Rímac",
-      "stops": 2,
-      "total_road_distance_m": 2091.2,
-      "longest_leg": {
-        "from": "jiron-trujillo-puente-de-piedra",
-        "to": "cantagallo-comunidad-shipibo-konibo",
-        "road_distance_m": 2091.2,
-        "road_duration_s": 1679.3,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
-        "eta_label": "snapshot estimate"
-      },
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
       "long_leg_warning": false,
-      "assessment": "walkable photographic sequence"
+      "assessment": "single verified map point; no tour claimed"
+    },
+    {
+      "district": "Rímac",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
     },
     {
       "district": "San Borja",
-      "stops": 3,
-      "total_road_distance_m": 3012.8,
+      "stops": 2,
+      "total_road_distance_m": 742.2,
       "longest_leg": {
-        "from": "coliseo-eduardo-dibos",
-        "to": "parque-de-la-felicidad",
-        "road_distance_m": 2270.6,
-        "road_duration_s": 1816.9,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
+        "from": "torres-de-limatambo-supermanzana",
+        "to": "coliseo-eduardo-dibos",
+        "road_distance_m": 742.2,
+        "road_duration_s": 594.2,
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -269,11 +287,19 @@
         "to": "ministerio-de-cultura-museo-de-la-nacion",
         "road_distance_m": 486.7,
         "road_duration_s": 389.6,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
       "assessment": "walkable photographic sequence"
+    },
+    {
+      "district": "San Borja",
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "assessment": "single verified map point; no tour claimed"
     },
     {
       "district": "San Isidro",
@@ -284,10 +310,10 @@
         "to": "country-club-lima-hotel",
         "road_distance_m": 1402.2,
         "road_duration_s": 1127.7,
-        "source_retrieved_at": "2026-08-31T04:23:17.709464+00:00",
+        "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
         "eta_label": "snapshot estimate"
       },
-      "long_leg_warning": false,
+      "long_leg_warning": true,
       "assessment": "walkable photographic sequence"
     },
     {

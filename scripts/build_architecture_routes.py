@@ -28,7 +28,7 @@ EXCLUDED = {
     "estacion-restos-del-funicular-de-barranco": "first result is Estación Estado Unión, not the funicular",
     "torres-centro-empresarial-camino-real": "first result is Calle Luis Dorich Torres, not Camino Real",
 }
-MAX_WALKING_LEG_M = 2500
+MAX_WALKING_LEG_M = 1500
 MAX_EXACT_STOPS = 8
 
 

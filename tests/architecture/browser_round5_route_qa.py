@@ -27,7 +27,7 @@ def route_forensics() -> list[dict]:
             "stops": len(layer["stops"]),
             "total_road_distance_m": round(sum(distances), 1),
             "longest_leg": longest_summary,
-            "long_leg_warning": bool(longest and longest["road_distance_m"] > 2500),
+            "long_leg_warning": bool(longest and longest["road_distance_m"] > 800),
             "assessment": "single verified map point; no tour claimed" if longest is None else "walkable photographic sequence",
         })
     return rows

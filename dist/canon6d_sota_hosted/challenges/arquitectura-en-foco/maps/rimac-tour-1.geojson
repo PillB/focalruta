@@ -15,21 +15,6 @@
           -12.0361568
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "cantagallo-comunidad-shipibo-konibo",
-        "name": "Cantagallo",
-        "district": "Rímac"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.017188,
-          -12.0422548
-        ]
-      }
     }
   ]
 }
