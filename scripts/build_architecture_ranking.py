@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_PATH = ROOT / "architectural_photography/ranking/scoring_model.json"
 CANONICAL_PATH = ROOT / "architectural_photography/ranking/canonical_candidates.json"
 VERIFICATION_PATH = ROOT / "architectural_photography/research/locations/equal_depth_verification.json"
-LEGACY_PATH = ROOT / "architectural_photography/FocalRuta_Bonilla_Master82_Ranking.json"
+LEGACY_ASSESSMENTS_PATH = ROOT / "architectural_photography/ranking/legacy_attribute_assessments.json"
 MATRIX_PATH = ROOT / "architectural_photography/ranking/performance_matrix.json"
 RUNS_DIR = ROOT / "architectural_photography/ranking/ranking_runs"
 HISTORY_PATH = ROOT / "architectural_photography/ranking/ranking_history.json"
@@ -255,8 +255,10 @@ def main() -> None:
     validate_model(model)
     candidates = read_json(CANONICAL_PATH)
     verification = read_json(VERIFICATION_PATH)
-    historical = [item for item in candidates if item["historical_ids"]]
-    legacy = legacy_by_canonical(historical, read_json(LEGACY_PATH))
+    legacy = {
+        item["canonical_id"]: item["attributes"]
+        for item in read_json(LEGACY_ASSESSMENTS_PATH)["records"]
+    }
     assessments = {item["canonical_id"]: item for item in read_json(NEW_ASSESSMENTS_PATH)["records"]}
     verified = {item["canonical_id"]: item for item in verification["records"]}
     rows = [

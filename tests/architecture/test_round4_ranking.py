@@ -114,8 +114,16 @@ def test_generator_is_repeatable_and_does_not_read_historical_rank_fields():
     after = hashlib.sha256(latest_path.read_bytes()).hexdigest()
     assert before == after == history["runs"][-1]["sha256"]
     source = (ROOT / "scripts/build_architecture_ranking.py").read_text(encoding="utf-8")
+    assert "FocalRuta_Bonilla_Master82_Ranking.json" not in source
     for field in ("masterRank", "R0Rank", "R1Rank", "R2Rank", "R3Rank", "robustIndex"):
         assert f'["{field}"]' not in source
+
+
+def test_public_ranking_build_has_all_sanitized_declared_inputs():
+    assessments = load(ROOT / "architectural_photography/ranking/legacy_attribute_assessments.json")
+    assert assessments["privacy"] == "GENERATED_PUBLIC_NO_RAW_CONVERSATION_NO_HISTORICAL_RANKS"
+    assert len(assessments["records"]) == 81
+    assert all(set(item) == {"canonical_id", "attributes"} for item in assessments["records"])
 
 
 def test_immutable_writer_rejects_changed_content(tmp_path):
