@@ -4,60 +4,45 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "biblioteca-nacional-del-peru",
-        "name": "Biblioteca Nacional",
+        "id": "torres-de-limatambo-supermanzana",
+        "name": "Conjunto Residencial Las Torres de Limatambo",
         "district": "San Borja"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.005129,
-          -12.0877743
+          -77.0045741,
+          -12.109026
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "gran-teatro-nacional",
-        "name": "Teatro Nacional del Perú",
+        "id": "coliseo-eduardo-dibos",
+        "name": "Coliseo Eduardo Dibós",
         "district": "San Borja"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.0031643,
-          -12.0866273
+          -77.0011657,
+          -12.1109128
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "lima-centro-de-convenciones",
-        "name": "Centro de Convenciones de Lima",
+        "id": "parque-de-la-felicidad",
+        "name": "Parque de la Felicidad",
         "district": "San Borja"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.000684,
-          -12.0863298
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "huaca-san-borja",
-        "name": "Huaca San Borja",
-        "district": "San Borja"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.0002329,
-          -12.0841313
+          -76.9889841,
+          -12.1015009
         ]
       }
     }

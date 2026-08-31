@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mac-lima-parque-espejo-de-agua",
+        "name": "Museo de Arte Contemporaneo de Lima",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0232736,
+          -12.1367297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saenz-pena-domeyer-pasajes",
+        "name": "Sáenz Peña",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0247981,
+          -12.1434417
+        ]
+      }
+    }
+  ]
+}

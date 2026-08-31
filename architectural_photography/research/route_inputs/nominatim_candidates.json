@@ -1,21 +1,49 @@
 {
   "source": "https://nominatim.openstreetmap.org/search",
-  "retrieved_at": "2026-08-30T20:57:17.868983+00:00",
+  "retrieved_at": "2026-08-30T21:19:07.479342+00:00",
   "publication_gate": "Human review plus district polygon containment required",
   "records": [
     {
       "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
       "expected_district": "Pueblo Libre",
-      "query": "Parque 3 de Octubre + Skatepark Muros Libres, Pueblo Libre, Lima, Perú",
+      "query": "Parque 3 de Octubre, Pueblo Libre, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 73954270,
+          "latitude": -12.0785729,
+          "longitude": -77.0600562,
+          "display_name": "Parque 3 de octubre, Pueblo Libre, Lima, Lima Metropolitana, Lima, Perú",
+          "category": "leisure",
+          "type": "park",
+          "district_tokens": [
+            "Pueblo Libre",
+            "Pueblo Libre"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "torres-de-limatambo-supermanzana",
       "expected_district": "San Borja",
-      "query": "Torres de Limatambo / supermanzana, San Borja, Lima, Perú",
+      "query": "Torres de Limatambo, San Borja, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 866508222,
+          "latitude": -12.109026,
+          "longitude": -77.0045741,
+          "display_name": "Conjunto Residencial Las Torres de Limatambo, San Borja, Lima, San Borja, Lima, Lima Metropolitana, Lima, Perú",
+          "category": "landuse",
+          "type": "residential",
+          "district_tokens": [
+            "San Borja",
+            "Lima"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "residencial-san-felipe",
@@ -62,9 +90,36 @@
     {
       "canonical_id": "museo-de-la-electricidad-tranvia",
       "expected_district": "Barranco",
-      "query": "Museo de la Electricidad & Tranvía, Barranco, Lima, Perú",
+      "query": "Museo de la Electricidad, Barranco, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 436605096,
+          "latitude": -12.1504015,
+          "longitude": -77.0217254,
+          "display_name": "Museo de La Electricidad, 105, Avenida Pedro de Osma, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "category": "tourism",
+          "type": "museum",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 5163819556,
+          "latitude": -12.150287,
+          "longitude": -77.0219461,
+          "display_name": "Museo de la Electricidad, Avenida Pedro de Osma, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "category": "railway",
+          "type": "halt",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "parque-de-las-americas",
@@ -117,23 +172,65 @@
     {
       "canonical_id": "quinta-de-los-libertadores-mnaahp",
       "expected_district": "Pueblo Libre",
-      "query": "Quinta de los Libertadores + MNAAHP, Pueblo Libre, Lima, Perú",
+      "query": "Museo Nacional de Arqueología Antropología e Historia del Perú, Pueblo Libre, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "node",
+          "osm_id": 1932068207,
+          "latitude": -12.0773665,
+          "longitude": -77.0622797,
+          "display_name": "Museo Nacional de Arqueología, Antropología e Historia del Perú, Calle Plaza Bolívar, Pueblo Libre, Lima, Lima Metropolitana, Lima, 15084, Perú",
+          "category": "tourism",
+          "type": "museum",
+          "district_tokens": [
+            "Pueblo Libre",
+            "Pueblo Libre"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "plaza-a-la-bandera",
       "expected_district": "Pueblo Libre",
-      "query": "Plaza a la Bandera, Pueblo Libre, Lima, Perú",
+      "query": "Plaza de la Bandera, Pueblo Libre, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 1363237527,
+          "latitude": -12.0680591,
+          "longitude": -77.0607729,
+          "display_name": "Plaza de la Bandera, Pueblo Libre, Lima, Lima Metropolitana, Lima, 15081, Perú",
+          "category": "highway",
+          "type": "secondary",
+          "district_tokens": [
+            "Pueblo Libre",
+            "Pueblo Libre"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "parque-virginia-candamo",
       "expected_district": "Pueblo Libre",
-      "query": "Parque Virginia Candamo, Pueblo Libre, Lima, Perú",
+      "query": "Parque Candamo, Pueblo Libre, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 53373213,
+          "latitude": -12.0740945,
+          "longitude": -77.0634772,
+          "display_name": "Parque Candamo, Pueblo Libre, Lima, Lima Metropolitana, Lima, Perú",
+          "category": "leisure",
+          "type": "park",
+          "district_tokens": [
+            "Pueblo Libre",
+            "Pueblo Libre"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "unidad-vecinal-3",
@@ -183,9 +280,23 @@
     {
       "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
       "expected_district": "La Victoria",
-      "query": "Unidad Vecinal Matute + complejo deportivo, La Victoria, Lima, Perú",
+      "query": "Unidad Vecinal Matute, La Victoria, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 396421284,
+          "latitude": -12.0731313,
+          "longitude": -77.0231999,
+          "display_name": "Unidad Vecinal Matute, La Victoria, Lima, Lima Metropolitana, Lima, Perú",
+          "category": "landuse",
+          "type": "residential",
+          "district_tokens": [
+            "La Victoria",
+            "La Victoria"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "lima-centro-de-convenciones",
@@ -237,23 +348,76 @@
     {
       "canonical_id": "quinta-leuro-y-quintas-historicas",
       "expected_district": "Miraflores",
-      "query": "Quinta Leuro y quintas históricas, Miraflores, Lima, Perú",
+      "query": "Quinta Leuro, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
       "results": []
     },
     {
       "canonical_id": "estacion-restos-del-funicular-de-barranco",
       "expected_district": "Barranco",
-      "query": "Estación / restos del Funicular de Barranco, Barranco, Lima, Perú",
+      "query": "Estación, Barranco, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 436775162,
+          "latitude": -12.1529586,
+          "longitude": -77.0196902,
+          "display_name": "Estación Estado Union, Prolongación Anaya, Villa Mercedes, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "category": "building",
+          "type": "yes",
+          "district_tokens": [
+            "Barranco"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 436616534,
+          "latitude": -12.1498736,
+          "longitude": -77.0218649,
+          "display_name": "La Estación de Barranco, 112, Avenida Pedro de Osma, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "category": "amenity",
+          "type": "bar",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 4876522816,
+          "latitude": -12.13594,
+          "longitude": -77.0186746,
+          "display_name": "Estación Plaza de Flores, Vía Expresa Luis Fernán Bedoya Reyes, Barranco, Lima, Lima Metropolitana, Lima, 15049, Perú",
+          "category": "amenity",
+          "type": "bus_station",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "reducto-2-casa-museo-caceres",
       "expected_district": "Miraflores",
-      "query": "Reducto Nº 2 / Casa Museo Cáceres, Miraflores, Lima, Perú",
+      "query": "Reducto Nº 2, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "node",
+          "osm_id": 11063679747,
+          "latitude": -12.1300445,
+          "longitude": -77.0319172,
+          "display_name": "Reducto, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "place",
+          "type": "neighbourhood",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "biblioteca-municipal-de-barranco",
@@ -286,16 +450,54 @@
     {
       "canonical_id": "torres-centro-empresarial-camino-real",
       "expected_district": "San Isidro",
-      "query": "Torres / Centro Empresarial Camino Real, San Isidro, Lima, Perú",
+      "query": "Torres, San Isidro, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 35893294,
+          "latitude": -12.1055307,
+          "longitude": -77.0152223,
+          "display_name": "Calle Luis Dorich Torres, San Isidro, Lima, Lima Metropolitana, Lima, 15000, Perú",
+          "category": "highway",
+          "type": "residential",
+          "district_tokens": [
+            "San Isidro"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 456077064,
+          "latitude": -12.0973523,
+          "longitude": -77.0575653,
+          "display_name": "Condominio del Campo Torres, Avenida Alberto del Campo, Campo de Polo, Orrantia del Mar, San Isidro, Lima, Lima Metropolitana, Lima, 15076, Perú",
+          "category": "building",
+          "type": "apartments",
+          "district_tokens": [
+            "San Isidro"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "lugar-de-la-memoria-lum",
       "expected_district": "Miraflores",
-      "query": "Lugar de la Memoria (LUM), Miraflores, Lima, Perú",
+      "query": "Lugar de la Memoria, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 298015625,
+          "latitude": -12.1100511,
+          "longitude": -77.0536918,
+          "display_name": "Lugar de la Memoria, Bajada San Martín, Miraflores, Lima, Lima Metropolitana, Lima, 15076, Perú",
+          "category": "tourism",
+          "type": "museum",
+          "district_tokens": [
+            "Miraflores"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "antigua-taberna-queirolo",
@@ -328,23 +530,74 @@
     {
       "canonical_id": "parque-tradiciones-ricardo-palma",
       "expected_district": "Miraflores",
-      "query": "Parque Tradiciones / Ricardo Palma, Miraflores, Lima, Perú",
+      "query": "Parque Tradiciones, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 435517540,
+          "latitude": -12.1217046,
+          "longitude": -77.0213252,
+          "display_name": "Parque Las Tradiciones, Miraflores, Lima, Lima Metropolitana, Lima, Perú",
+          "category": "leisure",
+          "type": "park",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "plaza-de-los-libertadores-santa-maria-magdalena",
       "expected_district": "Pueblo Libre",
-      "query": "Plaza de los Libertadores + Santa María Magdalena, Pueblo Libre, Lima, Perú",
+      "query": "Iglesia Santa María Magdalena, Pueblo Libre, Lima, Perú",
       "status": "REVIEW_REQUIRED",
       "results": []
     },
     {
       "canonical_id": "centro-de-convenciones-estacion-la-cultura",
       "expected_district": "San Borja",
-      "query": "Centro de Convenciones / estación La Cultura, San Borja, Lima, Perú",
+      "query": "Estación La Cultura, San Borja, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 401292937,
+          "latitude": -12.0865598,
+          "longitude": -77.0037399,
+          "display_name": "Estación \"La Cultura\", Avenida Aviación, San Juan Macías, San Borja, Lima, Lima Metropolitana, Lima, 15021, Perú",
+          "category": "building",
+          "type": "train_station",
+          "district_tokens": [
+            "San Borja"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 549584741,
+          "latitude": -12.0865677,
+          "longitude": -77.0038731,
+          "display_name": "Estación \"La Cultura\", Avenida Aviación, San Juan Macías, San Borja, Lima, Lima Metropolitana, Lima, 15041, Perú",
+          "category": "building",
+          "type": "train_station",
+          "district_tokens": [
+            "San Borja"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 5308688295,
+          "latitude": -12.0867325,
+          "longitude": -77.0037841,
+          "display_name": "Estacion La Cultura, Avenida Aviación, San Juan Macías, San Borja, Lima, Lima Metropolitana, Lima, 15021, Perú",
+          "category": "railway",
+          "type": "station",
+          "district_tokens": [
+            "San Borja"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "biblioteca-nacional-del-peru",
@@ -369,16 +622,30 @@
     {
       "canonical_id": "biblioteca-municipal-y-borde-lagunas-del-olivar",
       "expected_district": "San Isidro",
-      "query": "Biblioteca Municipal y borde lagunas del Olivar, San Isidro, Lima, Perú",
+      "query": "Biblioteca Municipal de San Isidro, San Isidro, Lima, Perú",
       "status": "REVIEW_REQUIRED",
       "results": []
     },
     {
       "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
       "expected_district": "San Isidro",
-      "query": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete), San Isidro, Lima, Perú",
+      "query": "Avenida Canaval y Moreyra, San Isidro, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "node",
+          "osm_id": 4083554862,
+          "latitude": -12.0978883,
+          "longitude": -77.0193865,
+          "display_name": "Viettel Perú, 559, Avenida Enrique Canaval y Moreyra, El Palomar, San Isidro, Lima, Lima Metropolitana, Lima, 15000, Perú",
+          "category": "shop",
+          "type": "mobile_phone",
+          "district_tokens": [
+            "San Isidro",
+            "San Isidro"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "gran-teatro-nacional",
@@ -424,28 +691,122 @@
     {
       "canonical_id": "parque-municipal-y-entorno-civico",
       "expected_district": "Barranco",
-      "query": "Parque Municipal y entorno cívico, Barranco, Lima, Perú",
+      "query": "Parque Municipal de Barranco, Barranco, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 436583900,
+          "latitude": -12.1494807,
+          "longitude": -77.0211974,
+          "display_name": "Parque Municipal de Barranco, Barranco, Lima, Lima Metropolitana, Lima, Perú",
+          "category": "leisure",
+          "type": "park",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 103406237,
+          "latitude": -12.1491511,
+          "longitude": -77.0212576,
+          "display_name": "Parque Municipal de Barranco, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "category": "highway",
+          "type": "service",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 603127554,
+          "latitude": -12.1493741,
+          "longitude": -77.0215591,
+          "display_name": "Parque Municipal de Barranco, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "category": "highway",
+          "type": "service",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "mac-lima-parque-espejo-de-agua",
       "expected_district": "Barranco",
-      "query": "MAC Lima + parque / espejo de agua, Barranco, Lima, Perú",
+      "query": "Museo de Arte Contemporáneo de Lima, Barranco, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 261982317,
+          "latitude": -12.1367297,
+          "longitude": -77.0232736,
+          "display_name": "Museo de Arte Contemporaneo de Lima, 1511, Avenida Almirante Miguel Grau, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "category": "tourism",
+          "type": "museum",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "puente-villena-bajada-balta-costa-verde",
       "expected_district": "Miraflores",
-      "query": "Puente Villena / Bajada Balta / Costa Verde, Miraflores, Lima, Perú",
+      "query": "Puente Villena, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 1104706183,
+          "latitude": -12.1274808,
+          "longitude": -77.0357271,
+          "display_name": "Ciclovía Puente Villena Rey, Reducto, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "highway",
+          "type": "cycleway",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 405157186,
+          "latitude": -12.1274595,
+          "longitude": -77.0356089,
+          "display_name": "Puente Villena Rey, Malecón 28 de Julio, Reducto, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "bridge",
+          "type": "yes",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 24315546,
+          "latitude": -12.12747,
+          "longitude": -77.0357059,
+          "display_name": "Puente Villena Rey, Malecón Cisneros, Reducto, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "bridge",
+          "type": "yes",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "casa-raul-porras-barrenechea",
       "expected_district": "Miraflores",
-      "query": "Casa Raúl Porras Barrenechea, Miraflores, Lima, Perú",
+      "query": "Instituto Raúl Porras Barrenechea, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
       "results": []
     },
@@ -459,23 +820,104 @@
     {
       "canonical_id": "calle-choquehuanca-basadre-residencial",
       "expected_district": "San Isidro",
-      "query": "Calle Choquehuanca / Basadre residencial, San Isidro, Lima, Perú",
+      "query": "Calle Choquehuanca, San Isidro, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 1391863720,
+          "latitude": -12.0981264,
+          "longitude": -77.0403007,
+          "display_name": "Calle José Choquehuanca, Santa Inés, San Isidro, Lima, Lima Metropolitana, Lima, 15027, Perú",
+          "category": "highway",
+          "type": "residential",
+          "district_tokens": [
+            "San Isidro",
+            "San Isidro"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1338049987,
+          "latitude": -12.0991647,
+          "longitude": -77.0354226,
+          "display_name": "Calle José Choquehuanca, El Rosario, San Isidro, Lima, Lima Metropolitana, Lima, 15073, Perú",
+          "category": "highway",
+          "type": "residential",
+          "district_tokens": [
+            "San Isidro",
+            "San Isidro"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1391863719,
+          "latitude": -12.0984117,
+          "longitude": -77.0392537,
+          "display_name": "Calle José Choquehuanca, El Rosario, San Isidro, Lima, Lima Metropolitana, Lima, 15027, Perú",
+          "category": "highway",
+          "type": "residential",
+          "district_tokens": [
+            "San Isidro",
+            "San Isidro"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
       "expected_district": "San Isidro",
-      "query": "Palacio Municipal y de la Cultura · San Isidro, San Isidro, Lima, Perú",
+      "query": "Municipalidad de San Isidro, San Isidro, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "node",
+          "osm_id": 8026357065,
+          "latitude": -12.0977364,
+          "longitude": -77.0273922,
+          "display_name": "Municipalidad de San Isidro, 180, Calle Augusto Tamayo, Chacarilla, San Isidro, Lima, Lima Metropolitana, Lima, 15046, Perú",
+          "category": "amenity",
+          "type": "townhall",
+          "district_tokens": [
+            "San Isidro",
+            "San Isidro"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "museo-larco-jardines",
       "expected_district": "Pueblo Libre",
-      "query": "Museo Larco + jardines, Pueblo Libre, Lima, Perú",
+      "query": "Museo Larco, Pueblo Libre, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 387071625,
+          "latitude": -12.0727847,
+          "longitude": -77.0709002,
+          "display_name": "Museo Larco, 1515, Avenida Simón Bolivar, Pueblo Libre, Lima, Lima Metropolitana, Lima, 15084, Perú",
+          "category": "tourism",
+          "type": "museum",
+          "district_tokens": [
+            "Pueblo Libre",
+            "Pueblo Libre"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 12603889538,
+          "latitude": -12.0728683,
+          "longitude": -77.0711881,
+          "display_name": "Museo Larco, Jirón Navarra, Pueblo Libre, Lima, Lima Metropolitana, Lima, 15084, Perú",
+          "category": "shop",
+          "type": "gift",
+          "district_tokens": [
+            "Pueblo Libre",
+            "Pueblo Libre"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "bosque-el-olivar",
@@ -508,16 +950,57 @@
     {
       "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
       "expected_district": "Miraflores",
-      "query": "Calle Porta y casonas frente a verticalización, Miraflores, Lima, Perú",
+      "query": "Calle Porta, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 14073892,
+          "latitude": -12.1270431,
+          "longitude": -77.0328783,
+          "display_name": "Calle Porta, Reducto, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "highway",
+          "type": "residential",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 406007417,
+          "latitude": -12.123346,
+          "longitude": -77.0313122,
+          "display_name": "Calle Porta, Cocharcas, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "highway",
+          "type": "residential",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "saenz-pena-domeyer-pasajes",
       "expected_district": "Barranco",
-      "query": "Sáenz Peña / Domeyer / pasajes, Barranco, Lima, Perú",
+      "query": "Sáenz Peña, Barranco, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 173771121,
+          "latitude": -12.1434417,
+          "longitude": -77.0247981,
+          "display_name": "Sáenz Peña, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "category": "highway",
+          "type": "steps",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "casa-emilio-harth-terre",
@@ -550,9 +1033,22 @@
     {
       "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
       "expected_district": "San Borja",
-      "query": "Ministerio de Cultura / Museo de la Nación, San Borja, Lima, Perú",
+      "query": "Museo de la Nación, San Borja, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 391699962,
+          "latitude": -12.086744,
+          "longitude": -77.0018865,
+          "display_name": "Museo de la Nación, 2300, Avenida Javier Prado Este, San Juan Macías, San Borja, Lima, Lima Metropolitana, Lima, 15041, Perú",
+          "category": "tourism",
+          "type": "museum",
+          "district_tokens": [
+            "San Borja"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "iglesia-santisima-cruz",
@@ -625,9 +1121,36 @@
     {
       "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
       "expected_district": "Barranco",
-      "query": "Museo Pedro de Osma y Av. Pedro de Osma, Barranco, Lima, Perú",
+      "query": "Museo Pedro de Osma, Barranco, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 383861976,
+          "latitude": -12.1546379,
+          "longitude": -77.0226424,
+          "display_name": "Museo Pedro de Osma, 421, Avenida Pedro de Osma, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "category": "tourism",
+          "type": "museum",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 5163819557,
+          "latitude": -12.1554275,
+          "longitude": -77.0229035,
+          "display_name": "Museo Pedro de Osma, Jirón Alfredo Silva, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "category": "railway",
+          "type": "halt",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "casa-hacienda-moreyra",
@@ -639,7 +1162,7 @@
     {
       "canonical_id": "torre-banco-de-la-nacion",
       "expected_district": "San Borja",
-      "query": "Torre Banco de la Nación, San Borja, Lima, Perú",
+      "query": "Banco de la Nación sede San Borja, San Borja, Lima, Perú",
       "status": "REVIEW_REQUIRED",
       "results": []
     },
@@ -667,16 +1190,56 @@
     {
       "canonical_id": "parroquia-nuestra-senora-del-pilar",
       "expected_district": "San Isidro",
-      "query": "Parroquia Nuestra Señora del Pilar, San Isidro, Lima, Perú",
+      "query": "Iglesia Nuestra Señora del Pilar, San Isidro, Lima, Perú",
       "status": "REVIEW_REQUIRED",
       "results": []
     },
     {
       "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
       "expected_district": "Barranco",
-      "query": "Puente de los Suspiros + Bajada de Baños, Barranco, Lima, Perú",
+      "query": "Puente de los Suspiros, Barranco, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 1550043240,
+          "latitude": -12.1491664,
+          "longitude": -77.022591,
+          "display_name": "Puente de Los Suspiros, Bajada de los Baños, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "category": "man_made",
+          "type": "bridge",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 49884086,
+          "latitude": -12.1491725,
+          "longitude": -77.0225942,
+          "display_name": "Puente de los Suspiros, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "category": "highway",
+          "type": "footway",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 6358025587,
+          "latitude": -12.1491636,
+          "longitude": -77.0225867,
+          "display_name": "Puente de los Suspiros, 271, Jirón Batallón Ayacucho, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "category": "tourism",
+          "type": "attraction",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "country-club-lima-hotel",
@@ -702,16 +1265,69 @@
     {
       "canonical_id": "pentagonito-y-bordes-civicos",
       "expected_district": "San Borja",
-      "query": "Pentagonito y bordes cívicos, San Borja, Lima, Perú",
+      "query": "Pentagonito, San Borja, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 126864776,
+          "latitude": -12.1027398,
+          "longitude": -76.9792146,
+          "display_name": "Pentagonito, Tuqui Urco, Monterrico, Santiago de Surco, Lima, Lima Metropolitana, Lima, 51132, Perú",
+          "category": "highway",
+          "type": "footway",
+          "district_tokens": [
+            "Monterrico",
+            "Santiago de Surco"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 5384269023,
+          "latitude": -12.1030503,
+          "longitude": -76.979466,
+          "display_name": "Pentagonito, Carretera Panamericana Sur, San Borja, Lima, Lima Metropolitana, Lima, 51132, Perú",
+          "category": "highway",
+          "type": "bus_stop",
+          "district_tokens": [
+            "San Borja"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 34113696,
+          "latitude": -12.1017614,
+          "longitude": -76.9846099,
+          "display_name": "Cuartel General del Ejército, Avenida Buena Vista, Mariscal Ramón Castilla, San Borja, Lima, Lima Metropolitana, Lima, 15023, Perú",
+          "category": "military",
+          "type": "barracks",
+          "district_tokens": [
+            "San Borja",
+            "San Borja"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "faro-la-marina-parque-antonio-raimondi",
       "expected_district": "Miraflores",
-      "query": "Faro La Marina + Parque Antonio Raimondi, Miraflores, Lima, Perú",
+      "query": "Faro La Marina, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "node",
+          "osm_id": 7557593769,
+          "latitude": -12.1236743,
+          "longitude": -77.040152,
+          "display_name": "Faro La Marina, Circuito de Playas, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "man_made",
+          "type": "lighthouse",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "casa-museo-ricardo-palma",
@@ -813,9 +1429,23 @@
     {
       "canonical_id": "palacio-municipal-virgen-milagrosa",
       "expected_district": "Miraflores",
-      "query": "Palacio Municipal + Virgen Milagrosa, Miraflores, Lima, Perú",
+      "query": "Municipalidad de Miraflores, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "node",
+          "osm_id": 7570079259,
+          "latitude": -12.1217599,
+          "longitude": -77.0292108,
+          "display_name": "Municipalidad de Miraflores, 400, Avenida José Larco, Cocharcas, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "amenity",
+          "type": "townhall",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "la-ermita-de-barranco",
@@ -841,23 +1471,78 @@
     {
       "canonical_id": "parque-kennedy-gatos-civic-core",
       "expected_district": "Miraflores",
-      "query": "Parque Kennedy / gatos / civic core, Miraflores, Lima, Perú",
+      "query": "Parque Kennedy, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 28798160,
+          "latitude": -12.1217806,
+          "longitude": -77.0304221,
+          "display_name": "Parque John F. Kennedy, Surquillo Viejo, Miraflores, Lima, Miraflores, Lima, Lima Metropolitana, Lima, Perú",
+          "category": "leisure",
+          "type": "park",
+          "district_tokens": [
+            "Miraflores",
+            "Lima"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "parque-del-amor-el-beso",
       "expected_district": "Miraflores",
-      "query": "Parque del Amor & El Beso, Miraflores, Lima, Perú",
+      "query": "Parque del Amor, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 76738820,
+          "latitude": -12.1267365,
+          "longitude": -77.0365127,
+          "display_name": "Parque Alberto Andrade Carmona, Miraflores, Lima, Lima Metropolitana, Lima, Perú",
+          "category": "leisure",
+          "type": "park",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "larcomar-acantilado",
       "expected_district": "Miraflores",
-      "query": "Larcomar + acantilado, Miraflores, Lima, Perú",
+      "query": "Larcomar, Miraflores, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 28993402,
+          "latitude": -12.1322184,
+          "longitude": -77.0302263,
+          "display_name": "Larcomar, 610, Malecón de la Reserva, Armendáriz, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "shop",
+          "type": "mall",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 5037995610,
+          "latitude": -12.1311024,
+          "longitude": -77.0299986,
+          "display_name": "Armendáriz, Avenida José Larco, Armendáriz, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "category": "highway",
+          "type": "bus_stop",
+          "district_tokens": [
+            "Miraflores",
+            "Miraflores"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "centro-cultural-ccori-wasi",
@@ -883,9 +1568,46 @@
     {
       "canonical_id": "centro-civico-de-lima-real-plaza",
       "expected_district": "Lima",
-      "query": "Centro Cívico de Lima / Real Plaza, Lima, Lima, Perú",
+      "query": "Centro Cívico de Lima, Lima, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 254425100,
+          "latitude": -11.0228771,
+          "longitude": -77.6438634,
+          "display_name": "Pasaje Centro Civico, Végueta, Huaura, Lima, Perú",
+          "category": "highway",
+          "type": "footway",
+          "district_tokens": [
+            "Végueta"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 401860677,
+          "latitude": -12.056441,
+          "longitude": -77.0373305,
+          "display_name": "Real Plaza Centro Cívico, 1337, Avenida Garcilaso de la Vega, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "category": "shop",
+          "type": "mall",
+          "district_tokens": [
+            "Lima"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 465071801,
+          "latitude": -12.0283217,
+          "longitude": -77.0720124,
+          "display_name": "Mercado Centro Cívico, 251, Avenida José Granda, Condevilla Señor Etapa 2, Perú 2da Zona, San Martín de Porres, Lima, Lima Metropolitana, Lima, 15103, Perú",
+          "category": "amenity",
+          "type": "marketplace",
+          "district_tokens": [
+            "San Martín de Porres"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "agrupamiento-chabuca-granda",
@@ -904,9 +1626,22 @@
     {
       "canonical_id": "quinta-heeren-restauracion-2026",
       "expected_district": "Lima",
-      "query": "Quinta Heeren · restauración 2026, Lima, Lima, Perú",
+      "query": "Quinta Heeren, Lima, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 160264224,
+          "latitude": -12.0499013,
+          "longitude": -77.0179163,
+          "display_name": "Quinta Heeren, 1201, Jirón Junín, Barrio Quinta Heren, Lima, Lima Metropolitana, Lima, 15003, Perú",
+          "category": "tourism",
+          "type": "attraction",
+          "district_tokens": [
+            "Lima"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo",
@@ -918,14 +1653,54 @@
     {
       "canonical_id": "jiron-trujillo-puente-de-piedra",
       "expected_district": "Rímac",
-      "query": "Jirón Trujillo + Puente de Piedra, Rímac, Lima, Perú",
+      "query": "Jirón Trujillo Rímac, Rímac, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 428020167,
+          "latitude": -12.0361568,
+          "longitude": -77.0284544,
+          "display_name": "Jirón Trujillo, Urbanización Leoncio Prado, Rímac, Lima, Lima Metropolitana, Lima, 15094, Perú",
+          "category": "highway",
+          "type": "residential",
+          "district_tokens": [
+            "Rímac",
+            "Rímac"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 24252799,
+          "latitude": -12.041355,
+          "longitude": -77.0294448,
+          "display_name": "Jirón Trujillo, Rímac, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "category": "highway",
+          "type": "residential",
+          "district_tokens": [
+            "Rímac",
+            "Rímac"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1391915302,
+          "latitude": -12.0378116,
+          "longitude": -77.0289706,
+          "display_name": "Jirón Trujillo, Rímac, Lima, Lima Metropolitana, Lima, 15094, Perú",
+          "category": "highway",
+          "type": "residential",
+          "district_tokens": [
+            "Rímac",
+            "Rímac"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "puente-de-la-paz-quebrada-de-armendariz",
       "expected_district": "Miraflores–Barranco",
-      "query": "Puente de la Paz / Quebrada de Armendáriz, Miraflores–Barranco, Lima, Perú",
+      "query": "Puente de la Paz Miraflores, Miraflores–Barranco, Lima, Perú",
       "status": "REVIEW_REQUIRED",
       "results": []
     },
@@ -976,9 +1751,35 @@
     {
       "canonical_id": "damero-de-lima-interseccion-como-objeto",
       "expected_district": "Lima",
-      "query": "Damero de Lima · intersección como objeto, Lima, Lima, Perú",
+      "query": "Damero de Lima, Lima, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "node",
+          "osm_id": 11986059780,
+          "latitude": -12.0487645,
+          "longitude": -77.0317356,
+          "display_name": "El Damero, Jirón Carabaya, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "category": "amenity",
+          "type": "cafe",
+          "district_tokens": [
+            "Lima"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 443859021,
+          "latitude": -12.0676256,
+          "longitude": -77.0129328,
+          "display_name": "Damero Gamarra Plaza, Jirón Mariscal Agustín Gamarra, Urbanización El Porvenir, La Victoria, Lima, Lima Metropolitana, Lima, 15011, Perú",
+          "category": "building",
+          "type": "yes",
+          "district_tokens": [
+            "La Victoria",
+            "La Victoria"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "casa-garcia-bryce",
@@ -990,16 +1791,44 @@
     {
       "canonical_id": "aulario-104-universidad-ricardo-palma",
       "expected_district": "Santiago de Surco",
-      "query": "Aulario 104 · Universidad Ricardo Palma, Santiago de Surco, Lima, Perú",
+      "query": "Universidad Ricardo Palma, Santiago de Surco, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 127709115,
+          "latitude": -12.1322779,
+          "longitude": -76.9800955,
+          "display_name": "Universidad Ricardo Palma, 5540, Avenida Alfredo Benavides, Urb. Las Gardenias, Santiago de Surco, Lima, Lima Metropolitana, Lima, 15039, Perú",
+          "category": "amenity",
+          "type": "university",
+          "district_tokens": [
+            "Santiago de Surco",
+            "Santiago de Surco"
+          ]
+        }
+      ]
     },
     {
       "canonical_id": "cantagallo-comunidad-shipibo-konibo",
       "expected_district": "Rímac",
-      "query": "Cantagallo · comunidad Shipibo-Konibo, Rímac, Lima, Perú",
+      "query": "Cantagallo Rímac, Rímac, Lima, Perú",
       "status": "REVIEW_REQUIRED",
-      "results": []
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 452890441,
+          "latitude": -12.0422548,
+          "longitude": -77.017188,
+          "display_name": "Cantagallo, Rímac, Lima, Lima Metropolitana, Lima, Perú",
+          "category": "landuse",
+          "type": "residential",
+          "district_tokens": [
+            "Rímac",
+            "Rímac"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "quinta-heeren-restauracion-2026",
+        "name": "Quinta Heeren",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0179163,
+          -12.0499013
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "damero-de-lima-interseccion-como-objeto",
+        "name": "El Damero",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0317356,
+          -12.0487645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jiron-de-la-union",
+        "name": "Jirón de la Unión",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0330755,
+          -12.0484888
+        ]
+      }
+    }
+  ]
+}

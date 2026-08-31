@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import itertools
 import json
+import os
 import subprocess
+from tempfile import TemporaryDirectory
 import urllib.parse
 import urllib.request
 from collections import defaultdict
@@ -14,19 +16,25 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / "architectural_photography/research/route_inputs/nominatim_candidates.json"
+MANUAL_INPUT = ROOT / "architectural_photography/research/route_inputs/manual_anchors.json"
 OUTPUT = ROOT / "data/architecture/routes.json"
 RUNS = ROOT / "architectural_photography/routes/route_runs"
 DOWNLOADS = ROOT / "challenges/arquitectura-en-foco/maps"
 ROUTER = "https://routing.openstreetmap.de/routed-foot"
 BOUNDARY = "https://nominatim.openstreetmap.org/search"
 USER_AGENT = "FocalRuta architecture research/1.0 (public repository route verification)"
-EXCLUDED = {"previ-lima": "first geocoder result is a school, not PREVI"}
+EXCLUDED = {
+    "previ-lima": "first geocoder result is a school, not PREVI",
+    "estacion-restos-del-funicular-de-barranco": "first result is Estación Estado Unión, not the funicular",
+    "torres-centro-empresarial-camino-real": "first result is Calle Luis Dorich Torres, not Camino Real",
+}
 MAX_WALKING_LEG_M = 2500
+MAX_EXACT_STOPS = 8
 
 
 def get_json(url: str) -> dict | list:
     completed = subprocess.run(
-        ["curl", "-L", "--fail", "--silent", "--show-error", "--user-agent", USER_AGENT, url],
+        ["curl", "-L", "--fail", "--silent", "--show-error", "--retry", "3", "--retry-delay", "2", "--retry-all-errors", "--user-agent", USER_AGENT, url],
         check=True,
         capture_output=True,
         text=True,
@@ -39,7 +47,7 @@ def slug(text: str) -> str:
     return "-".join("".join(char if char.isalnum() else " " for char in text.translate(table)).lower().split())
 
 
-def reviewed_points(payload: dict) -> list[dict]:
+def reviewed_points(payload: dict, manual_payload: dict) -> list[dict]:
     points = []
     for record in payload["records"]:
         if record["canonical_id"] in EXCLUDED or not record["results"]:
@@ -56,6 +64,22 @@ def reviewed_points(payload: dict) -> list[dict]:
             "longitude": result["longitude"],
             "osm_id": result["osm_id"],
             "point_in_district": True,
+            "anchor_method": "OSM_NOMINATIM_REVIEWED",
+        })
+    for anchor in manual_payload["anchors"]:
+        points = [point for point in points if point["canonical_id"] != anchor["canonical_id"]]
+        points.append({
+            "canonical_id": anchor["canonical_id"],
+            "name": anchor["name"],
+            "district": anchor["district"],
+            "latitude": anchor["latitude"],
+            "longitude": anchor["longitude"],
+            "osm_id": None,
+            "point_in_district": True,
+            "anchor_method": anchor["status"],
+            "address": anchor["address"],
+            "address_source_url": anchor["address_source_url"],
+            "coordinate_source_url": anchor["coordinate_source_url"],
         })
     return points
 
@@ -79,10 +103,15 @@ def exact_path(matrix: list[list[float]]) -> tuple[tuple[int, ...], float, int]:
     permutations = itertools.permutations(range(len(matrix)))
     best_order, best_distance, count = (), float("inf"), 0
     for order in permutations:
-        distance = sum(matrix[order[index]][order[index + 1]] for index in range(len(order) - 1))
+        edges = [matrix[order[index]][order[index + 1]] for index in range(len(order) - 1)]
         count += 1
+        if any(edge > MAX_WALKING_LEG_M for edge in edges):
+            continue
+        distance = sum(edges)
         if distance < best_distance:
             best_order, best_distance = order, distance
+    if not best_order:
+        raise ValueError("cluster has no exact path within the maximum walking-leg constraint")
     return best_order, best_distance, count
 
 
@@ -98,6 +127,35 @@ def connected_components(matrix: list[list[float]]) -> list[list[int]]:
             stack.extend(neighbors)
         components.append(component)
     return components
+
+
+def bounded_components(matrix: list[list[float]]) -> list[list[int]]:
+    bounded = []
+    for component in connected_components(matrix):
+        remaining = set(component)
+        while remaining:
+            group = [remaining.pop()]
+            while remaining and len(group) < MAX_EXACT_STOPS:
+                nearest = min(remaining, key=lambda index: min(matrix[index][member] for member in group))
+                remaining.remove(nearest)
+                group.append(nearest)
+            bounded.append(group)
+    return bounded
+
+
+def exact_path_cover(matrix: list[list[float]], group: list[int]) -> list[list[int]]:
+    best_order, best_breaks, best_metric = (), (), (float("inf"), float("inf"))
+    for order in itertools.permutations(group):
+        breaks = tuple(index for index in range(len(order) - 1) if matrix[order[index]][order[index + 1]] > MAX_WALKING_LEG_M)
+        distance = sum(matrix[order[index]][order[index + 1]] for index in range(len(order) - 1) if index not in breaks)
+        metric = (len(breaks) + 1, distance)
+        if metric < best_metric:
+            best_order, best_breaks, best_metric = order, breaks, metric
+    starts, paths = (0,) + tuple(index + 1 for index in best_breaks), []
+    ends = tuple(index + 1 for index in best_breaks) + (len(best_order),)
+    for start, end in zip(starts, ends):
+        paths.append(list(best_order[start:end]))
+    return paths
 
 
 def ring_contains(ring: list[list[float]], longitude: float, latitude: float) -> bool:
@@ -143,23 +201,28 @@ def stages(points: list[dict]) -> list[dict]:
     return result
 
 
-def write_geojson(layer: dict, district_slug: str) -> str:
-    path = DOWNLOADS / f"{district_slug}.geojson"
+def search_url(point: dict) -> str:
+    params = urllib.parse.urlencode({"api": "1", "query": coord(point)})
+    return "https://www.google.com/maps/search/?" + params
+
+
+def write_geojson(layer: dict, district_slug: str, output_dir: Path) -> str:
+    path = output_dir / f"{district_slug}.geojson"
     features = [{"type": "Feature", "properties": {"id": stop["canonical_id"], "name": stop["name"], "district": stop["district"]}, "geometry": {"type": "Point", "coordinates": [stop["longitude"], stop["latitude"]]}} for stop in layer["stops"]]
     path.write_text(json.dumps({"type": "FeatureCollection", "features": features}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return str(path.relative_to(ROOT))
 
 
-def write_kml(layer: dict, district_slug: str) -> str:
-    path = DOWNLOADS / f"{district_slug}.kml"
+def write_kml(layer: dict, district_slug: str, output_dir: Path) -> str:
+    path = output_dir / f"{district_slug}.kml"
     places = "".join(f'<Placemark><name>{stop["name"]}</name><Point><coordinates>{stop["longitude"]},{stop["latitude"]},0</coordinates></Point></Placemark>' for stop in layer["stops"])
     path.write_text(f'<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>{layer["district"]}</name>{places}</Document></kml>\n', encoding="utf-8")
     return str(path.relative_to(ROOT))
 
 
-def build_layer(district: str, points: list[dict], retrieved_at: str, boundary: dict, suffix: str) -> dict:
-    matrix = get_json(matrix_url(points))
-    order, distance, count = exact_path(matrix["distances"])
+def build_layer(district: str, points: list[dict], retrieved_at: str, boundary: dict, suffix: str, output_dir: Path) -> dict:
+    distances = [[0.0]] if len(points) == 1 else get_json(matrix_url(points))["distances"]
+    order, distance, count = exact_path(distances)
     ordered = [points[index] for index in order]
     legs = []
     for first, second in zip(ordered, ordered[1:]):
@@ -172,22 +235,42 @@ def build_layer(district: str, points: list[dict], retrieved_at: str, boundary: 
         "stops": ordered,
         "legs": legs,
         "stages": stages(ordered),
+        "google_maps_search_url": search_url(ordered[0]),
         "optimization": {"method": "exact_permutation", "permutations_evaluated": count, "selected_distance_m": distance, "exact_minimum_distance_m": distance},
     }
     district_slug = slug(district) + suffix
-    layer["geojson_path"] = write_geojson(layer, district_slug)
-    layer["kml_path"] = write_kml(layer, district_slug)
+    layer["geojson_path"] = str((DOWNLOADS / f"{district_slug}.geojson").relative_to(ROOT))
+    layer["kml_path"] = str((DOWNLOADS / f"{district_slug}.kml").relative_to(ROOT))
+    write_geojson(layer, district_slug, output_dir)
+    write_kml(layer, district_slug, output_dir)
     return layer
 
 
-def build_district_layers(district: str, points: list[dict], retrieved_at: str) -> list[dict]:
+def build_district_layers(district: str, points: list[dict], retrieved_at: str, output_dir: Path) -> list[dict]:
     results = get_json(boundary_url(district))
     boundary = next(item for item in results if item["category"] == "boundary" and item["type"] == "administrative" and item["geojson"]["type"] in {"Polygon", "MultiPolygon"})
     contained = [point for point in points if geometry_contains(boundary["geojson"], point)]
-    matrix = get_json(matrix_url(contained))["distances"]
-    groups = [[contained[index] for index in component] for component in connected_components(matrix) if len(component) >= 2]
+    matrix = [[0.0]] if len(contained) == 1 else get_json(matrix_url(contained))["distances"]
+    index_groups = [path for component in bounded_components(matrix) for path in exact_path_cover(matrix, component)]
+    groups = [[contained[index] for index in group] for group in index_groups]
     suffixes = [f"-tour-{index}" if len(groups) > 1 else "" for index in range(1, len(groups) + 1)]
-    return [build_layer(district, group, retrieved_at, boundary, suffix) for group, suffix in zip(groups, suffixes)]
+    return [build_layer(district, group, retrieved_at, boundary, suffix, output_dir) for group, suffix in zip(groups, suffixes)]
+
+
+def publish_downloads(staging: Path) -> None:
+    published = {path.name for path in staging.iterdir()}
+    for path in staging.iterdir():
+        os.replace(path, DOWNLOADS / path.name)
+    for pattern in ("*.kml", "*.geojson"):
+        for old_file in DOWNLOADS.glob(pattern):
+            if old_file.name not in published:
+                old_file.unlink()
+
+
+def atomic_json(path: Path, payload: dict) -> None:
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    os.replace(temporary, path)
 
 
 def write_iterations(point_count: int, layer_count: int, retrieved_at: str) -> None:
@@ -200,20 +283,20 @@ def write_iterations(point_count: int, layer_count: int, retrieved_at: str) -> N
 
 def main() -> None:
     payload = json.loads(INPUT.read_text(encoding="utf-8"))
+    manual_payload = json.loads(MANUAL_INPUT.read_text(encoding="utf-8"))
     retrieved_at = datetime.now(timezone.utc).isoformat()
     grouped = defaultdict(list)
-    for point in reviewed_points(payload):
+    for point in reviewed_points(payload, manual_payload):
         grouped[point["district"]].append(point)
     DOWNLOADS.mkdir(parents=True, exist_ok=True)
-    for pattern in ("*.kml", "*.geojson"):
-        for old_file in DOWNLOADS.glob(pattern):
-            old_file.unlink()
-    layers = []
-    for district, points in sorted(grouped.items()):
-        if len(points) >= 2:
-            layers.extend(build_district_layers(district, points, retrieved_at))
+    with TemporaryDirectory(prefix="architecture-routes-", dir=DOWNLOADS.parent) as temporary:
+        staging = Path(temporary)
+        layers = []
+        for district, points in sorted(grouped.items()):
+            layers.extend(build_district_layers(district, points, retrieved_at, staging))
+        publish_downloads(staging)
     result = {"schema_version": "architecture-routes-v1", "generated_at": retrieved_at, "road_source": {"name": "OSM routing.openstreetmap.de routed-foot snapshot", "url": ROUTER, "mode": "pedestrian", "geometry_kind": "road_network"}, "district_boundary_source": {"name": "OpenStreetMap Nominatim administrative boundary", "url": BOUNDARY}, "district_layers": layers}
-    OUTPUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    atomic_json(OUTPUT, result)
     write_iterations(sum(len(layer["stops"]) for layer in layers), len(layers), retrieved_at)
     print(f"built {len(layers)} layers with {sum(len(layer['stops']) for layer in layers)} stops")
 

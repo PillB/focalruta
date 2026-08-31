@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-08-30T16:15:00-05:00",
+  "updated_at": "2026-08-30T23:32:00-05:00",
   "phase": "ROUND_5_PEDESTRIAN_ROUTE_FOUNDATION_NATIVE_INTEGRATION",
   "status": "IN_PROGRESS_NOT_PRODUCTION_READY",
   "preproduction_audit": "OPEN_EXPERT_REJECTIONS_RECORDED",
@@ -47,7 +47,7 @@
   "ranking_model_version": "architecture-ranking-v1.1.0",
   "ranking_run_id": "2026-08-30-r4-v5",
   "route_run_id": "2026-08-30-r5-i6",
-  "route_status": "21_VERIFIED_STOPS_7_TOURS_6_DISTRICTS_60_STOPS_WITHHELD_MAX_LEG_2270_6M",
+  "route_status": "60_VERIFIED_STOPS_15_DISTRICT_LAYERS_10_DISTRICTS_21_WITHHELD_MAX_LEG_2270_6M_ATOMIC_BUILD",
   "solarize": {
     "requested_version": "2.2",
     "status": "UNAVAILABLE_IN_SESSION_SKILL_CATALOG",

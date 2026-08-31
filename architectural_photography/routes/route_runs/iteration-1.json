@@ -2,7 +2,7 @@
   "iteration": 1,
   "run_id": "2026-08-30-r5-i1",
   "change": "raw geocoder quarantine",
-  "reviewed_stop_count": 21,
-  "district_layer_count": 7,
-  "retrieved_at": "2026-08-30T21:07:51.661356+00:00"
+  "reviewed_stop_count": 60,
+  "district_layer_count": 15,
+  "retrieved_at": "2026-08-31T04:23:17.709464+00:00"
 }

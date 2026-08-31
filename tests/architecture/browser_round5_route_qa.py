@@ -20,16 +20,23 @@ def route_forensics() -> list[dict]:
     rows = []
     for layer in routes["district_layers"]:
         distances = [leg["road_distance_m"] for leg in layer["legs"]]
-        longest = max(layer["legs"], key=lambda leg: leg["road_distance_m"])
+        longest = max(layer["legs"], key=lambda leg: leg["road_distance_m"], default=None)
+        longest_summary = None if longest is None else {key: longest[key] for key in ("from", "to", "road_distance_m", "road_duration_s", "source_retrieved_at", "eta_label")}
         rows.append({
             "district": layer["district"],
             "stops": len(layer["stops"]),
             "total_road_distance_m": round(sum(distances), 1),
-            "longest_leg": longest,
-            "long_leg_warning": longest["road_distance_m"] > 2500,
-            "assessment": "split/research needed" if longest["road_distance_m"] > 2500 else "walkable photographic sequence",
+            "longest_leg": longest_summary,
+            "long_leg_warning": bool(longest and longest["road_distance_m"] > 2500),
+            "assessment": "single verified map point; no tour claimed" if longest is None else "walkable photographic sequence",
         })
     return rows
+
+
+def layout_description(width: int, height: int, columns: int, cards: int, overflow: bool) -> str:
+    orientation = "landscape" if width > height else "portrait"
+    overflow_text = "No horizontal overflow was detected" if not overflow else "Horizontal overflow was detected"
+    return f"{width}px {orientation} route capture: {cards} district-tour cards arranged in {columns} responsive column(s). {overflow_text}; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
 
 
 def inspect(browser, width: int, height: int) -> dict:
@@ -40,15 +47,20 @@ def inspect(browser, width: int, height: int) -> dict:
     page.on("requestfailed", lambda request: failed.append(request.url))
     response = page.goto(URL, wait_until="networkidle", timeout=60_000)
     page.locator("#route").screenshot(path=OUT / f"route-{width}x{height}.png")
+    boxes = [box for card in page.locator("#route .scene").all() if (box := card.bounding_box())]
+    columns = len({round(box["x"]) for box in boxes})
+    overflow = page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
     row = {
         "viewport": [width, height],
         "status": response.status if response else None,
-        "overflow": page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth"),
+        "overflow": overflow,
         "page_errors": errors,
         "console_errors": console_errors,
         "failed_resources": failed,
         "district_cards": page.locator("#route .scene").count(),
         "iphone_help_status": page.request.get(URL + "iphone-maps.html").status,
+        "screenshot": str((OUT / f"route-{width}x{height}.png").relative_to(ROOT)),
+        "forensic_description": layout_description(width, height, columns, len(boxes), overflow),
     }
     page.close()
     return row

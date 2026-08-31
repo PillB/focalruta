@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jiron-trujillo-puente-de-piedra",
+        "name": "Jirón Trujillo",
+        "district": "Rímac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0284544,
+          -12.0361568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cantagallo-comunidad-shipibo-konibo",
+        "name": "Cantagallo",
+        "district": "Rímac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.017188,
+          -12.0422548
+        ]
+      }
+    }
+  ]
+}

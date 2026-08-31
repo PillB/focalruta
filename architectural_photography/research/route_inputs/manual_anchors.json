@@ -1,0 +1,43 @@
+{
+  "schema_version": "manual-route-anchors-v1",
+  "retrieved_at": "2026-08-30T18:30:00-05:00",
+  "publication_gate": "source-backed address plus independent coordinate and district containment",
+  "anchors": [
+    {
+      "canonical_id": "huaca-santa-cruz",
+      "name": "Huaca Santa Cruz",
+      "district": "San Isidro",
+      "address": "Avenida Belén, cuadra 1, San Isidro",
+      "latitude": -12.104444,
+      "longitude": -77.048338,
+      "address_source_url": "https://www.gob.pe/43232-lugares-para-visitar-en-san-isidro-huaca-santa-cruz-de-san-isidro",
+      "coordinate_source_url": "https://www.urbipedia.org/hoja/Huaca_Santa_Cruz",
+      "status": "CORROBORATED_ADDRESS_COORDINATE",
+      "confidence": 0.9
+    },
+    {
+      "canonical_id": "casa-museo-marina-nunez-del-prado",
+      "name": "Casa Museo Marina Núñez del Prado",
+      "district": "San Isidro",
+      "address": "Calle Ántero Aspíllaga 300, San Isidro",
+      "latitude": -12.100988,
+      "longitude": -77.03397,
+      "address_source_url": "https://www.gob.pe/institucion/munisanisidro-lima/campa%C3%B1as/141769-casa-museo-marina-nunez-del-prado",
+      "coordinate_source_url": "https://es.wikipedia.org/wiki/Casa_Museo_Marina_N%C3%BA%C3%B1ez_del_Prado",
+      "status": "CORROBORATED_ADDRESS_COORDINATE",
+      "confidence": 0.85
+    },
+    {
+      "canonical_id": "casa-raul-porras-barrenechea",
+      "name": "Instituto Raúl Porras Barrenechea",
+      "district": "Miraflores",
+      "address": "Calle Narciso de la Colina 398, Miraflores",
+      "latitude": -12.118414,
+      "longitude": -77.026981,
+      "address_source_url": "https://biologia.unmsm.edu.pe/ciencias-biologicas/Plan_de_prevencion_y_reduccion_del_riesgo_de_desastres_de_la_UNMSM_2024_2030_6f42a0de8d.pdf",
+      "coordinate_source_url": "https://commons.wikimedia.org/wiki/Category:Instituto_Ra%C3%BAl_Porras_Barrenechea",
+      "status": "CORROBORATED_ADDRESS_COORDINATE",
+      "confidence": 0.9
+    }
+  ]
+}

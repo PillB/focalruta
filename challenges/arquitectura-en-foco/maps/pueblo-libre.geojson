@@ -4,15 +4,75 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "huaca-julio-c-tello",
-        "name": "Huaca Julio C. Tello",
+        "id": "parque-3-de-octubre-skatepark-muros-libres",
+        "name": "Parque 3 de octubre",
         "district": "Pueblo Libre"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.07205,
-          -12.0684338
+          -77.0600562,
+          -12.0785729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "quinta-de-los-libertadores-mnaahp",
+        "name": "Museo Nacional de Arqueología",
+        "district": "Pueblo Libre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0622797,
+          -12.0773665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "antigua-taberna-queirolo",
+        "name": "Antigua Taberna Queirolo",
+        "district": "Pueblo Libre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0630716,
+          -12.0775934
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "parque-virginia-candamo",
+        "name": "Parque Candamo",
+        "district": "Pueblo Libre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0634772,
+          -12.0740945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "plaza-a-la-bandera",
+        "name": "Plaza de la Bandera",
+        "district": "Pueblo Libre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0607729,
+          -12.0680591
         ]
       }
     },
@@ -34,15 +94,30 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "antigua-taberna-queirolo",
-        "name": "Antigua Taberna Queirolo",
+        "id": "museo-larco-jardines",
+        "name": "Museo Larco",
         "district": "Pueblo Libre"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.0630716,
-          -12.0775934
+          -77.0709002,
+          -12.0727847
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "huaca-julio-c-tello",
+        "name": "Huaca Julio C. Tello",
+        "district": "Pueblo Libre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.07205,
+          -12.0684338
         ]
       }
     }

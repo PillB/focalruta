@@ -4,6 +4,36 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "parque-tradiciones-ricardo-palma",
+        "name": "Parque Las Tradiciones",
+        "district": "Miraflores"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0213252,
+          -12.1217046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "casa-raul-porras-barrenechea",
+        "name": "Instituto Raúl Porras Barrenechea",
+        "district": "Miraflores"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.026981,
+          -12.118414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "id": "casa-museo-ricardo-palma",
         "name": "Casa Museo Ricardo Palma",
         "district": "Miraflores"
