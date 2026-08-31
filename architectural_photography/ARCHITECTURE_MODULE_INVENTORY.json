@@ -1,0 +1,19 @@
+{
+  "schema_version": "architecture-module-inventory-v1",
+  "main_site_entry": "#architecture-challenge",
+  "return_navigation": "../../index.html",
+  "modules": [
+    {"module_id": "today", "public_surface": "Challenge command header", "verification": "browser navigation and first-screen content QA"},
+    {"module_id": "ranking", "public_surface": "Four-scenario ranking with Top N/all", "verification": "deterministic ranking and browser filter tests"},
+    {"module_id": "field-priorities", "public_surface": "Separate field-priority cards", "verification": "ranking schema and page generation tests"},
+    {"module_id": "route", "public_surface": "District-pure walking route cards, previews and exports", "verification": "geometry containment, KML/GeoJSON and six-viewport route QA"},
+    {"module_id": "style-radar", "public_surface": "Modern, Art Nouveau and geometry discoveries", "verification": "admission and equal-depth dossier tests"},
+    {"module_id": "scenes", "public_surface": "All 87 canonical places/scenes with Top N/all control", "verification": "canonical identity and equal-depth ledger tests"},
+    {"module_id": "learn", "public_surface": "Seeing modes, optics and field drills", "verification": "lesson-schema and technical-claim tests"},
+    {"module_id": "field-run", "public_surface": "Offline CONTRACT vs USE notes and STAY/MOVE/RETURN", "verification": "browser persistence and export/import tests"},
+    {"module_id": "ai-firewall", "public_surface": "Single concise planning workflow boundary", "verification": "page content and competition-rule tests"},
+    {"module_id": "rules", "public_surface": "Deterministic submission preflight", "verification": "file boundary and rules discrepancy tests"},
+    {"module_id": "iphone-maps", "public_surface": "iPhone route opening and failure recovery", "verification": "help-content and resource tests"},
+    {"module_id": "offline-shell", "public_surface": "Hosted PWA cache and standalone parity", "verification": "service-worker, build parity and offline browser tests"}
+  ]
+}

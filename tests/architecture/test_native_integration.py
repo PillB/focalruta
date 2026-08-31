@@ -7,6 +7,7 @@ CHALLENGE = ROOT / "challenges/arquitectura-en-foco/index.html"
 BUILD = ROOT / "scripts/build_dual_release.py"
 CANDIDATES = ROOT / "data/architecture/candidates.json"
 VERIFICATION = ROOT / "architectural_photography/research/locations/equal_depth_verification.json"
+MODULE_INVENTORY = ROOT / "architectural_photography/ARCHITECTURE_MODULE_INVENTORY.json"
 
 
 def text(path: Path) -> str:
@@ -17,6 +18,32 @@ def test_home_discovers_architecture_challenge():
     home = text(HOME)
     assert 'href="challenges/arquitectura-en-foco/"' in home
     assert "Arquitectura en Foco" in home
+
+
+def test_home_explains_architecture_challenge_in_a_content_landmark():
+    home = text(HOME)
+    assert 'id="architecture-challenge"' in home
+    challenge = home.split('id="architecture-challenge"', 1)[1].split("</section>", 1)[0]
+    assert 'aria-labelledby="architecture-challenge-title"' in challenge
+    assert "87 lugares y escenas" in challenge
+    assert "rutas peatonales" in challenge.lower()
+    assert 'href="challenges/arquitectura-en-foco/"' in challenge
+    assert "Abrir Arquitectura en Foco" in challenge
+
+
+def test_architecture_module_inventory_maps_every_public_module_to_evidence():
+    import json
+
+    inventory = json.loads(text(MODULE_INVENTORY))
+    required = {
+        "today", "ranking", "field-priorities", "route", "style-radar", "scenes",
+        "learn", "field-run", "ai-firewall", "rules", "iphone-maps", "offline-shell",
+    }
+    modules = {item["module_id"]: item for item in inventory["modules"]}
+    assert required <= modules.keys()
+    assert all(item["public_surface"] and item["verification"] for item in modules.values())
+    assert inventory["main_site_entry"] == "#architecture-challenge"
+    assert inventory["return_navigation"] == "../../index.html"
 
 
 def test_challenge_has_task_navigation_and_truthful_queue_language():

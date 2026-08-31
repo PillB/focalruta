@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "viewports": [
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "entry_not_occluded": true,
+      "challenge_navigation": true,
+      "round_trip_complete": true
+    },
+    {
+      "viewport": [
+        430,
+        932
+      ],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "entry_not_occluded": true,
+      "challenge_navigation": true,
+      "round_trip_complete": true
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "entry_not_occluded": true,
+      "challenge_navigation": true,
+      "round_trip_complete": true
+    },
+    {
+      "viewport": [
+        932,
+        430
+      ],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "entry_not_occluded": true,
+      "challenge_navigation": true,
+      "round_trip_complete": true
+    },
+    {
+      "viewport": [
+        820,
+        1000
+      ],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "entry_not_occluded": true,
+      "challenge_navigation": true,
+      "round_trip_complete": true
+    },
+    {
+      "viewport": [
+        1440,
+        1100
+      ],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "entry_not_occluded": true,
+      "challenge_navigation": true,
+      "round_trip_complete": true
+    }
+  ]
+}

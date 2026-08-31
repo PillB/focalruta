@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "huaca-pucllana",
+        "name": "Huaca Pucllana",
+        "district": "Miraflores"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0339531,
+          -12.1114871
+        ]
+      }
+    }
+  ]
+}

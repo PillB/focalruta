@@ -1,0 +1,138 @@
+{
+  "schema_version": "route-geometry-containment-audit-v1",
+  "audited_at": "2026-08-31T11:45:00-05:00",
+  "boundary_source": "OpenStreetMap Nominatim administrative polygons",
+  "road_source": "existing OSM routed-foot snapshot",
+  "repair_applied": true,
+  "layers": [
+    {
+      "district": "Barranco",
+      "layer_index": 1,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Barranco",
+      "layer_index": 2,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Barranco",
+      "layer_index": 3,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Jesús María",
+      "layer_index": 1,
+      "outside_vertices": 0
+    },
+    {
+      "district": "La Victoria",
+      "layer_index": 1,
+      "outside_vertices": 0
+    },
+    {
+      "district": "La Victoria",
+      "layer_index": 2,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Lima",
+      "layer_index": 1,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Lima",
+      "layer_index": 2,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Lima",
+      "layer_index": 3,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Lima",
+      "layer_index": 4,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Miraflores",
+      "layer_index": 1,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Miraflores",
+      "layer_index": 2,
+      "outside_vertices": 5,
+      "offending_edge": [
+        "parque-tradiciones-ricardo-palma",
+        "casa-raul-porras-barrenechea"
+      ]
+    },
+    {
+      "district": "Miraflores",
+      "layer_index": 3,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Miraflores",
+      "layer_index": 4,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Pueblo Libre",
+      "layer_index": 1,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Pueblo Libre",
+      "layer_index": 2,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Rímac",
+      "layer_index": 1,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Rímac",
+      "layer_index": 2,
+      "outside_vertices": 0
+    },
+    {
+      "district": "San Borja",
+      "layer_index": 1,
+      "outside_vertices": 0
+    },
+    {
+      "district": "San Borja",
+      "layer_index": 2,
+      "outside_vertices": 0
+    },
+    {
+      "district": "San Borja",
+      "layer_index": 3,
+      "outside_vertices": 0
+    },
+    {
+      "district": "San Isidro",
+      "layer_index": 1,
+      "outside_vertices": 0
+    },
+    {
+      "district": "San Isidro",
+      "layer_index": 2,
+      "outside_vertices": 0
+    },
+    {
+      "district": "San Isidro",
+      "layer_index": 3,
+      "outside_vertices": 0
+    },
+    {
+      "district": "Santiago de Surco",
+      "layer_index": 1,
+      "outside_vertices": 0
+    }
+  ]
+}

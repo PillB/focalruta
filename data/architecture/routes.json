@@ -574,7 +574,8 @@
         "exact_minimum_distance_m": 1192.2
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-1.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-1.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Barranco",
@@ -602,7 +603,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Barranco",
@@ -823,7 +825,8 @@
         "exact_minimum_distance_m": 406
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Jesús María",
@@ -851,7 +854,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/jesus-maria.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/jesus-maria.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/jesus-maria.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "La Victoria",
@@ -879,7 +883,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "La Victoria",
@@ -907,7 +912,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Lima",
@@ -935,7 +941,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Lima",
@@ -963,7 +970,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Lima",
@@ -991,7 +999,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Lima",
@@ -1428,7 +1437,8 @@
         "exact_minimum_distance_m": 2499.8999999999996
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Miraflores",
@@ -2632,23 +2642,14 @@
         "exact_minimum_distance_m": 3484.9
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Miraflores",
       "containment_status": "VERIFIED",
       "boundary_osm_id": 1944770,
       "stops": [
-        {
-          "canonical_id": "parque-tradiciones-ricardo-palma",
-          "name": "Parque Las Tradiciones",
-          "district": "Miraflores",
-          "latitude": -12.1217046,
-          "longitude": -77.0213252,
-          "osm_id": 435517540,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
         {
           "canonical_id": "casa-raul-porras-barrenechea",
           "name": "Instituto Raúl Porras Barrenechea",
@@ -2694,219 +2695,6 @@
         }
       ],
       "legs": [
-        {
-          "from": "parque-tradiciones-ricardo-palma",
-          "to": "casa-raul-porras-barrenechea",
-          "road_distance_m": 836.2,
-          "road_duration_s": 672.8,
-          "geometry": {
-            "coordinates": [
-              [
-                -77.021243,
-                -12.121746
-              ],
-              [
-                -77.021248,
-                -12.121755
-              ],
-              [
-                -77.021265,
-                -12.121775
-              ],
-              [
-                -77.021281,
-                -12.121787
-              ],
-              [
-                -77.021285,
-                -12.121791
-              ],
-              [
-                -77.021309,
-                -12.121802
-              ],
-              [
-                -77.021327,
-                -12.121806
-              ],
-              [
-                -77.021334,
-                -12.121808
-              ],
-              [
-                -77.021361,
-                -12.121808
-              ],
-              [
-                -77.021386,
-                -12.121802
-              ],
-              [
-                -77.02141,
-                -12.121791
-              ],
-              [
-                -77.02143,
-                -12.121775
-              ],
-              [
-                -77.021447,
-                -12.121755
-              ],
-              [
-                -77.021459,
-                -12.121732
-              ],
-              [
-                -77.021463,
-                -12.121715
-              ],
-              [
-                -77.021465,
-                -12.121708
-              ],
-              [
-                -77.021465,
-                -12.121682
-              ],
-              [
-                -77.021462,
-                -12.121664
-              ],
-              [
-                -77.0217,
-                -12.1215
-              ],
-              [
-                -77.021926,
-                -12.121346
-              ],
-              [
-                -77.02218,
-                -12.121172
-              ],
-              [
-                -77.022218,
-                -12.121143
-              ],
-              [
-                -77.022236,
-                -12.121172
-              ],
-              [
-                -77.022909,
-                -12.120729
-              ],
-              [
-                -77.024124,
-                -12.11989
-              ],
-              [
-                -77.024187,
-                -12.119845
-              ],
-              [
-                -77.024335,
-                -12.119743
-              ],
-              [
-                -77.024381,
-                -12.119714
-              ],
-              [
-                -77.024451,
-                -12.11967
-              ],
-              [
-                -77.024885,
-                -12.119389
-              ],
-              [
-                -77.024906,
-                -12.119376
-              ],
-              [
-                -77.025136,
-                -12.119373
-              ],
-              [
-                -77.025214,
-                -12.119372
-              ],
-              [
-                -77.025263,
-                -12.119371
-              ],
-              [
-                -77.025348,
-                -12.11922
-              ],
-              [
-                -77.025465,
-                -12.119211
-              ],
-              [
-                -77.025503,
-                -12.119082
-              ],
-              [
-                -77.025517,
-                -12.119024
-              ],
-              [
-                -77.02565,
-                -12.119031
-              ],
-              [
-                -77.025696,
-                -12.11903
-              ],
-              [
-                -77.025725,
-                -12.11903
-              ],
-              [
-                -77.025934,
-                -12.119028
-              ],
-              [
-                -77.026073,
-                -12.11903
-              ],
-              [
-                -77.02614,
-                -12.119029
-              ],
-              [
-                -77.026177,
-                -12.11903
-              ],
-              [
-                -77.026214,
-                -12.119031
-              ],
-              [
-                -77.026208,
-                -12.119068
-              ],
-              [
-                -77.026713,
-                -12.119062
-              ],
-              [
-                -77.026706,
-                -12.118289
-              ],
-              [
-                -77.02698,
-                -12.118288
-              ]
-            ],
-            "type": "LineString"
-          },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate"
-        },
         {
           "from": "casa-raul-porras-barrenechea",
           "to": "casa-museo-ricardo-palma",
@@ -3059,24 +2847,56 @@
         {
           "stage": 1,
           "stop_ids": [
-            "parque-tradiciones-ricardo-palma",
             "casa-raul-porras-barrenechea",
             "casa-museo-ricardo-palma",
             "ovalo-de-miraflores",
             "centro-cultural-ccori-wasi"
           ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.1217046%2C-77.0213252&destination=-12.1175413%2C-77.0295256&travelmode=walking&waypoints=-12.118414%2C-77.026981%7C-12.1184154%2C-77.0276037%7C-12.1190866%2C-77.0288947"
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.118414%2C-77.026981&destination=-12.1175413%2C-77.0295256&travelmode=walking&waypoints=-12.1184154%2C-77.0276037%7C-12.1190866%2C-77.0288947"
         }
       ],
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1217046%2C-77.0213252",
       "optimization": {
-        "method": "exact_permutation",
+        "method": "verified_subpath_from_exact_parent",
+        "selected_distance_m": 521.2,
+        "exact_minimum_distance_m": null,
         "permutations_evaluated": 120,
-        "selected_distance_m": 1333.8,
-        "exact_minimum_distance_m": 1333.8
+        "optimization_limitation": "Fresh four-stop matrix unavailable after router stall; sequence preserves the contained subpath of the prior exact five-stop solution."
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.kml",
+      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EDGE_REMOVED_2026_08_31"
+    },
+    {
+      "district": "Miraflores",
+      "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
+      "boundary_osm_id": 1944770,
+      "stops": [
+        {
+          "canonical_id": "parque-tradiciones-ricardo-palma",
+          "name": "Parque Las Tradiciones",
+          "district": "Miraflores",
+          "latitude": -12.1217046,
+          "longitude": -77.0213252,
+          "osm_id": 435517540,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        }
+      ],
+      "legs": [],
+      "stages": [],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1217046%2C-77.0213252",
+      "optimization": {
+        "method": "singleton",
+        "permutations_evaluated": 1,
+        "selected_distance_m": 0,
+        "exact_minimum_distance_m": 0
+      },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.kml",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31"
     },
     {
       "district": "Miraflores",
@@ -3404,8 +3224,9 @@
         "selected_distance_m": 994.6,
         "exact_minimum_distance_m": 994.6
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.kml"
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Miraflores",
@@ -3432,8 +3253,9 @@
         "selected_distance_m": 0,
         "exact_minimum_distance_m": 0
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.kml"
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Pueblo Libre",
@@ -3986,7 +3808,8 @@
         "exact_minimum_distance_m": 1994.1999999999998
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Pueblo Libre",
@@ -4431,7 +4254,8 @@
         "exact_minimum_distance_m": 1654.8000000000002
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Rímac",
@@ -4459,7 +4283,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/rimac-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/rimac-tour-1.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/rimac-tour-1.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Rímac",
@@ -4487,7 +4312,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/rimac-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/rimac-tour-2.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/rimac-tour-2.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "San Borja",
@@ -4740,7 +4566,8 @@
         "exact_minimum_distance_m": 742.2
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "San Borja",
@@ -5372,7 +5199,8 @@
         "exact_minimum_distance_m": 1624.3
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "San Borja",
@@ -5400,7 +5228,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "San Isidro",
@@ -6188,7 +6017,8 @@
         "exact_minimum_distance_m": 3070.4
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "San Isidro",
@@ -6441,7 +6271,8 @@
         "exact_minimum_distance_m": 944.4000000000001
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "San Isidro",
@@ -6472,7 +6303,8 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.kml",
+      "route_geometry_containment_status": "VERIFIED"
     },
     {
       "district": "Santiago de Surco",
@@ -6500,7 +6332,13 @@
         "exact_minimum_distance_m": 0
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.kml"
+      "kml_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.kml",
+      "route_geometry_containment_status": "VERIFIED"
     }
-  ]
+  ],
+  "snapshot_repair": {
+    "status": "BOUNDARY_EXIT_REMOVED_ROUTER_REBUILD_PENDING",
+    "audit_path": "architectural_photography/routes/geometry_containment_audit.json",
+    "tradeoff": "One compact Miraflores sequence is a contained parent subpath, not a newly optimized four-stop route."
+  }
 }
