@@ -1,6 +1,6 @@
 {
   "schema_version": "architecture-routes-v1",
-  "generated_at": "2026-08-31T04:48:08.265202+00:00",
+  "generated_at": "2026-08-31T14:46:28.010657+00:00",
   "road_source": {
     "name": "OSM routing.openstreetmap.de routed-foot snapshot",
     "url": "https://routing.openstreetmap.de/routed-foot",
@@ -177,7 +177,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -214,7 +214,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -291,7 +291,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -348,7 +348,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -389,7 +389,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -418,7 +418,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -539,7 +539,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -582,16 +582,6 @@
       "boundary_osm_id": 1944691,
       "stops": [
         {
-          "canonical_id": "mac-lima-parque-espejo-de-agua",
-          "name": "Museo de Arte Contemporaneo de Lima",
-          "district": "Barranco",
-          "latitude": -12.1367297,
-          "longitude": -77.0232736,
-          "osm_id": 261982317,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
           "canonical_id": "saenz-pena-domeyer-pasajes",
           "name": "Sáenz Peña",
           "district": "Barranco",
@@ -602,282 +592,216 @@
           "anchor_method": "OSM_NOMINATIM_REVIEWED"
         }
       ],
+      "legs": [],
+      "stages": [],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1434417%2C-77.0247981",
+      "optimization": {
+        "method": "exact_permutation",
+        "permutations_evaluated": 1,
+        "selected_distance_m": 0,
+        "exact_minimum_distance_m": 0
+      },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.kml"
+    },
+    {
+      "district": "Barranco",
+      "containment_status": "VERIFIED",
+      "boundary_osm_id": 1944691,
+      "stops": [
+        {
+          "canonical_id": "utec-campus-barranco",
+          "name": "Universidad de Ingenieria y Tecnologia",
+          "district": "Barranco",
+          "latitude": -12.1351351,
+          "longitude": -77.0221296,
+          "osm_id": 437212067,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        },
+        {
+          "canonical_id": "mac-lima-parque-espejo-de-agua",
+          "name": "Museo de Arte Contemporaneo de Lima",
+          "district": "Barranco",
+          "latitude": -12.1367297,
+          "longitude": -77.0232736,
+          "osm_id": 261982317,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        }
+      ],
       "legs": [
         {
-          "from": "mac-lima-parque-espejo-de-agua",
-          "to": "saenz-pena-domeyer-pasajes",
-          "road_distance_m": 1066,
-          "road_duration_s": 853.4,
+          "from": "utec-campus-barranco",
+          "to": "mac-lima-parque-espejo-de-agua",
+          "road_distance_m": 406,
+          "road_duration_s": 326.6,
           "geometry": {
             "coordinates": [
               [
-                -77.023352,
-                -12.136631
+                -77.02228,
+                -12.134929
               ],
               [
-                -77.023366,
-                -12.136602
+                -77.022317,
+                -12.134955
               ],
               [
-                -77.023439,
-                -12.136632
+                -77.022539,
+                -12.13514
               ],
               [
-                -77.023493,
-                -12.136658
+                -77.022648,
+                -12.135283
               ],
               [
-                -77.023569,
-                -12.136604
+                -77.022677,
+                -12.135381
               ],
               [
-                -77.023662,
-                -12.13654
+                -77.022688,
+                -12.135464
               ],
               [
-                -77.02371,
-                -12.136487
+                -77.022693,
+                -12.135546
               ],
               [
-                -77.023751,
-                -12.136409
+                -77.0227,
+                -12.135546
               ],
               [
-                -77.023797,
-                -12.13631
+                -77.0227,
+                -12.135558
               ],
               [
-                -77.02382,
-                -12.136226
+                -77.022735,
+                -12.135557
+              ],
+              [
+                -77.02278,
+                -12.135556
+              ],
+              [
+                -77.022843,
+                -12.135358
+              ],
+              [
+                -77.022803,
+                -12.135343
+              ],
+              [
+                -77.022836,
+                -12.135246
+              ],
+              [
+                -77.023181,
+                -12.13541
+              ],
+              [
+                -77.023181,
+                -12.135539
+              ],
+              [
+                -77.023138,
+                -12.135548
+              ],
+              [
+                -77.023149,
+                -12.135623
+              ],
+              [
+                -77.023159,
+                -12.135648
+              ],
+              [
+                -77.023191,
+                -12.135723
+              ],
+              [
+                -77.023198,
+                -12.135739
+              ],
+              [
+                -77.023256,
+                -12.135819
+              ],
+              [
+                -77.023312,
+                -12.135875
+              ],
+              [
+                -77.023438,
+                -12.135956
+              ],
+              [
+                -77.023537,
+                -12.135999
+              ],
+              [
+                -77.023898,
+                -12.136079
+              ],
+              [
+                -77.023891,
+                -12.136097
+              ],
+              [
+                -77.023883,
+                -12.136121
               ],
               [
                 -77.023851,
                 -12.136151
               ],
               [
-                -77.024068,
-                -12.136233
+                -77.02382,
+                -12.136226
               ],
               [
-                -77.02417,
-                -12.136298
+                -77.023797,
+                -12.13631
               ],
               [
-                -77.024291,
-                -12.136382
+                -77.023751,
+                -12.136409
               ],
               [
-                -77.024368,
-                -12.136471
+                -77.02371,
+                -12.136487
               ],
               [
-                -77.024386,
-                -12.136511
+                -77.023662,
+                -12.13654
               ],
               [
-                -77.024393,
-                -12.136561
+                -77.023569,
+                -12.136604
               ],
               [
-                -77.024342,
-                -12.136761
+                -77.023493,
+                -12.136658
               ],
               [
-                -77.024126,
-                -12.137527
+                -77.023439,
+                -12.136632
               ],
               [
-                -77.024117,
-                -12.137577
+                -77.023366,
+                -12.136602
               ],
               [
-                -77.024216,
-                -12.137647
+                -77.023352,
+                -12.136631
               ],
               [
-                -77.024338,
-                -12.137729
-              ],
-              [
-                -77.024427,
-                -12.137987
-              ],
-              [
-                -77.024515,
-                -12.138024
-              ],
-              [
-                -77.024483,
-                -12.138139
-              ],
-              [
-                -77.024445,
-                -12.138281
-              ],
-              [
-                -77.024423,
-                -12.138279
-              ],
-              [
-                -77.024402,
-                -12.138285
-              ],
-              [
-                -77.024384,
-                -12.138297
-              ],
-              [
-                -77.024371,
-                -12.138314
-              ],
-              [
-                -77.024363,
-                -12.138334
-              ],
-              [
-                -77.024363,
-                -12.138355
-              ],
-              [
-                -77.02437,
-                -12.138375
-              ],
-              [
-                -77.024383,
-                -12.138392
-              ],
-              [
-                -77.024401,
-                -12.138404
-              ],
-              [
-                -77.024357,
-                -12.138467
-              ],
-              [
-                -77.024303,
-                -12.138541
-              ],
-              [
-                -77.024176,
-                -12.138711
-              ],
-              [
-                -77.024272,
-                -12.138924
-              ],
-              [
-                -77.024305,
-                -12.13905
-              ],
-              [
-                -77.024316,
-                -12.139092
-              ],
-              [
-                -77.024353,
-                -12.139072
-              ],
-              [
-                -77.024473,
-                -12.139263
-              ],
-              [
-                -77.024536,
-                -12.139396
-              ],
-              [
-                -77.024582,
-                -12.139544
-              ],
-              [
-                -77.024593,
-                -12.139716
-              ],
-              [
-                -77.024584,
-                -12.139893
-              ],
-              [
-                -77.024516,
-                -12.14057
-              ],
-              [
-                -77.024456,
-                -12.141351
-              ],
-              [
-                -77.024348,
-                -12.142391
-              ],
-              [
-                -77.024273,
-                -12.14322
-              ],
-              [
-                -77.0243,
-                -12.143221
-              ],
-              [
-                -77.024306,
-                -12.14323
-              ],
-              [
-                -77.024302,
-                -12.143267
-              ],
-              [
-                -77.0243,
-                -12.143298
-              ],
-              [
-                -77.024296,
-                -12.143338
-              ],
-              [
-                -77.024591,
-                -12.143366
-              ],
-              [
-                -77.024578,
-                -12.143462
-              ],
-              [
-                -77.024657,
-                -12.143469
-              ],
-              [
-                -77.024638,
-                -12.143493
-              ],
-              [
-                -77.024622,
-                -12.143508
-              ],
-              [
-                -77.024678,
-                -12.143535
-              ],
-              [
-                -77.024731,
-                -12.143552
-              ],
-              [
-                -77.024761,
-                -12.14346
-              ],
-              [
-                -77.02477,
-                -12.143431
-              ],
-              [
-                -77.024798,
-                -12.143442
+                -77.023352,
+                -12.136631
               ]
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -885,21 +809,21 @@
         {
           "stage": 1,
           "stop_ids": [
-            "mac-lima-parque-espejo-de-agua",
-            "saenz-pena-domeyer-pasajes"
+            "utec-campus-barranco",
+            "mac-lima-parque-espejo-de-agua"
           ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.1367297%2C-77.0232736&destination=-12.1434417%2C-77.0247981&travelmode=walking"
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.1351351%2C-77.0221296&destination=-12.1367297%2C-77.0232736&travelmode=walking"
         }
       ],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1367297%2C-77.0232736",
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1351351%2C-77.0221296",
       "optimization": {
         "method": "exact_permutation",
         "permutations_evaluated": 2,
-        "selected_distance_m": 1066,
-        "exact_minimum_distance_m": 1066
+        "selected_distance_m": 406,
+        "exact_minimum_distance_m": 406
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.kml"
+      "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.kml"
     },
     {
       "district": "Jesús María",
@@ -954,8 +878,36 @@
         "selected_distance_m": 0,
         "exact_minimum_distance_m": 0
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/la-victoria.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria.kml"
+      "geojson_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.kml"
+    },
+    {
+      "district": "La Victoria",
+      "containment_status": "VERIFIED",
+      "boundary_osm_id": 1944748,
+      "stops": [
+        {
+          "canonical_id": "torre-interbank",
+          "name": "Torre Interbank",
+          "district": "La Victoria",
+          "latitude": -12.0894903,
+          "longitude": -77.0229268,
+          "osm_id": 656096061,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        }
+      ],
+      "legs": [],
+      "stages": [],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0894903%2C-77.0229268",
+      "optimization": {
+        "method": "exact_permutation",
+        "permutations_evaluated": 1,
+        "selected_distance_m": 0,
+        "exact_minimum_distance_m": 0
+      },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.kml"
     },
     {
       "district": "Lima",
@@ -1050,9 +1002,9 @@
           "canonical_id": "jiron-de-la-union",
           "name": "Jirón de la Unión",
           "district": "Lima",
-          "latitude": -12.0484888,
-          "longitude": -77.0330755,
-          "osm_id": 75243087,
+          "latitude": -12.0539567,
+          "longitude": -77.0361916,
+          "osm_id": 610109028,
           "point_in_district": true,
           "anchor_method": "OSM_NOMINATIM_REVIEWED"
         },
@@ -1065,51 +1017,131 @@
           "osm_id": 11986059780,
           "point_in_district": true,
           "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        },
+        {
+          "canonical_id": "estacion-desamparados",
+          "name": "Estación de Desamparados",
+          "district": "Lima",
+          "latitude": -12.0443045,
+          "longitude": -77.0286907,
+          "osm_id": 264964242,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        },
+        {
+          "canonical_id": "casa-fernandini-1913",
+          "name": "Casa Fernandini",
+          "district": "Lima",
+          "latitude": -12.0450471,
+          "longitude": -77.0351457,
+          "osm_id": 4407581796,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
         }
       ],
       "legs": [
         {
           "from": "jiron-de-la-union",
           "to": "damero-de-lima-interseccion-como-objeto",
-          "road_distance_m": 204.5,
-          "road_duration_s": 167.4,
+          "road_distance_m": 929.2,
+          "road_duration_s": 751.7,
           "geometry": {
             "coordinates": [
               [
-                -77.033076,
-                -12.048489
+                -77.036192,
+                -12.053957
               ],
               [
-                -77.033053,
-                -12.048457
+                -77.036158,
+                -12.053848
               ],
               [
-                -77.032968,
-                -12.048336
+                -77.035317,
+                -12.05417
               ],
               [
-                -77.032768,
-                -12.048039
+                -77.034973,
+                -12.054311
               ],
               [
-                -77.032744,
-                -12.048003
+                -77.034241,
+                -12.053195
               ],
               [
-                -77.032694,
-                -12.048034
+                -77.033707,
+                -12.052397
               ],
               [
-                -77.031817,
-                -12.048581
+                -77.033646,
+                -12.052307
               ],
               [
-                -77.031754,
-                -12.04862
+                -77.033613,
+                -12.052254
               ],
               [
-                -77.031778,
-                -12.048654
+                -77.033588,
+                -12.052218
+              ],
+              [
+                -77.033545,
+                -12.052244
+              ],
+              [
+                -77.033512,
+                -12.052192
+              ],
+              [
+                -77.033264,
+                -12.051824
+              ],
+              [
+                -77.033303,
+                -12.051798
+              ],
+              [
+                -77.033111,
+                -12.051523
+              ],
+              [
+                -77.033577,
+                -12.051224
+              ],
+              [
+                -77.033104,
+                -12.050549
+              ],
+              [
+                -77.033078,
+                -12.050512
+              ],
+              [
+                -77.033035,
+                -12.05045
+              ],
+              [
+                -77.032939,
+                -12.050313
+              ],
+              [
+                -77.032423,
+                -12.049578
+              ],
+              [
+                -77.032405,
+                -12.049548
+              ],
+              [
+                -77.032369,
+                -12.049501
+              ],
+              [
+                -77.032345,
+                -12.049465
+              ],
+              [
+                -77.032308,
+                -12.049411
               ],
               [
                 -77.031818,
@@ -1118,7 +1150,261 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "eta_label": "snapshot estimate"
+        },
+        {
+          "from": "damero-de-lima-interseccion-como-objeto",
+          "to": "estacion-desamparados",
+          "road_distance_m": 611.9,
+          "road_duration_s": 493.8,
+          "geometry": {
+            "coordinates": [
+              [
+                -77.031818,
+                -12.04871
+              ],
+              [
+                -77.031778,
+                -12.048654
+              ],
+              [
+                -77.031754,
+                -12.04862
+              ],
+              [
+                -77.031533,
+                -12.048304
+              ],
+              [
+                -77.03112,
+                -12.047715
+              ],
+              [
+                -77.031085,
+                -12.047664
+              ],
+              [
+                -77.031045,
+                -12.047608
+              ],
+              [
+                -77.030453,
+                -12.046761
+              ],
+              [
+                -77.030409,
+                -12.046698
+              ],
+              [
+                -77.03029,
+                -12.046529
+              ],
+              [
+                -77.030208,
+                -12.046412
+              ],
+              [
+                -77.030025,
+                -12.046155
+              ],
+              [
+                -77.02988,
+                -12.045948
+              ],
+              [
+                -77.029805,
+                -12.045838
+              ],
+              [
+                -77.029764,
+                -12.045777
+              ],
+              [
+                -77.029698,
+                -12.045741
+              ],
+              [
+                -77.029,
+                -12.044753
+              ],
+              [
+                -77.028967,
+                -12.044731
+              ],
+              [
+                -77.028938,
+                -12.04474
+              ],
+              [
+                -77.028926,
+                -12.044748
+              ],
+              [
+                -77.028858,
+                -12.044645
+              ],
+              [
+                -77.028749,
+                -12.044696
+              ],
+              [
+                -77.028559,
+                -12.044381
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "eta_label": "snapshot estimate"
+        },
+        {
+          "from": "estacion-desamparados",
+          "to": "casa-fernandini-1913",
+          "road_distance_m": 958.8,
+          "road_duration_s": 775,
+          "geometry": {
+            "coordinates": [
+              [
+                -77.028559,
+                -12.044381
+              ],
+              [
+                -77.028749,
+                -12.044696
+              ],
+              [
+                -77.028858,
+                -12.044645
+              ],
+              [
+                -77.028926,
+                -12.044748
+              ],
+              [
+                -77.028938,
+                -12.04474
+              ],
+              [
+                -77.028967,
+                -12.044731
+              ],
+              [
+                -77.029,
+                -12.044753
+              ],
+              [
+                -77.029698,
+                -12.045741
+              ],
+              [
+                -77.029764,
+                -12.045777
+              ],
+              [
+                -77.029805,
+                -12.045838
+              ],
+              [
+                -77.029867,
+                -12.045799
+              ],
+              [
+                -77.029901,
+                -12.045806
+              ],
+              [
+                -77.029953,
+                -12.045817
+              ],
+              [
+                -77.029993,
+                -12.045825
+              ],
+              [
+                -77.030306,
+                -12.045898
+              ],
+              [
+                -77.030462,
+                -12.0458
+              ],
+              [
+                -77.030617,
+                -12.045703
+              ],
+              [
+                -77.030715,
+                -12.045851
+              ],
+              [
+                -77.03082,
+                -12.046011
+              ],
+              [
+                -77.031135,
+                -12.046069
+              ],
+              [
+                -77.031178,
+                -12.046078
+              ],
+              [
+                -77.031219,
+                -12.046087
+              ],
+              [
+                -77.03129,
+                -12.046044
+              ],
+              [
+                -77.031357,
+                -12.046129
+              ],
+              [
+                -77.031428,
+                -12.046183
+              ],
+              [
+                -77.032053,
+                -12.047044
+              ],
+              [
+                -77.03209,
+                -12.047021
+              ],
+              [
+                -77.033027,
+                -12.046438
+              ],
+              [
+                -77.033272,
+                -12.04629
+              ],
+              [
+                -77.034072,
+                -12.045795
+              ],
+              [
+                -77.034586,
+                -12.045478
+              ],
+              [
+                -77.034831,
+                -12.045327
+              ],
+              [
+                -77.035056,
+                -12.045188
+              ],
+              [
+                -77.035185,
+                -12.045103
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -1127,17 +1413,19 @@
           "stage": 1,
           "stop_ids": [
             "jiron-de-la-union",
-            "damero-de-lima-interseccion-como-objeto"
+            "damero-de-lima-interseccion-como-objeto",
+            "estacion-desamparados",
+            "casa-fernandini-1913"
           ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.0484888%2C-77.0330755&destination=-12.0487645%2C-77.0317356&travelmode=walking"
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.0539567%2C-77.0361916&destination=-12.0450471%2C-77.0351457&travelmode=walking&waypoints=-12.0487645%2C-77.0317356%7C-12.0443045%2C-77.0286907"
         }
       ],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0484888%2C-77.0330755",
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0539567%2C-77.0361916",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 2,
-        "selected_distance_m": 204.5,
-        "exact_minimum_distance_m": 204.5
+        "permutations_evaluated": 24,
+        "selected_distance_m": 2499.8999999999996,
+        "exact_minimum_distance_m": 2499.8999999999996
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.kml"
@@ -1567,7 +1855,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -1616,7 +1904,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -1881,7 +2169,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2014,7 +2302,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2059,7 +2347,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2228,7 +2516,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2309,7 +2597,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -2616,7 +2904,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2641,7 +2929,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2686,7 +2974,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2763,7 +3051,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -3095,7 +3383,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -3201,36 +3489,6 @@
           "osm_id": 1363237527,
           "point_in_district": true,
           "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "parque-de-las-americas",
-          "name": "Parque de las Américas",
-          "district": "Pueblo Libre",
-          "latitude": -12.0706736,
-          "longitude": -77.0678766,
-          "osm_id": 73952921,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "museo-larco-jardines",
-          "name": "Museo Larco",
-          "district": "Pueblo Libre",
-          "latitude": -12.0727847,
-          "longitude": -77.0709002,
-          "osm_id": 387071625,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "huaca-julio-c-tello",
-          "name": "Huaca Julio C. Tello",
-          "district": "Pueblo Libre",
-          "latitude": -12.0684338,
-          "longitude": -77.07205,
-          "osm_id": 195056956,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
         }
       ],
       "legs": [
@@ -3312,7 +3570,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -3349,7 +3607,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -3534,7 +3792,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -3703,330 +3961,70 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
+        }
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "stop_ids": [
+            "parque-3-de-octubre-skatepark-muros-libres",
+            "quinta-de-los-libertadores-mnaahp",
+            "antigua-taberna-queirolo",
+            "parque-virginia-candamo",
+            "plaza-a-la-bandera"
+          ],
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.0785729%2C-77.0600562&destination=-12.0680591%2C-77.0607729&travelmode=walking&waypoints=-12.0773665%2C-77.0622797%7C-12.0775934%2C-77.0630716%7C-12.0740945%2C-77.0634772"
+        }
+      ],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0785729%2C-77.0600562",
+      "optimization": {
+        "method": "exact_permutation",
+        "permutations_evaluated": 120,
+        "selected_distance_m": 1994.1999999999998,
+        "exact_minimum_distance_m": 1994.1999999999998
+      },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.kml"
+    },
+    {
+      "district": "Pueblo Libre",
+      "containment_status": "VERIFIED",
+      "boundary_osm_id": 1944764,
+      "stops": [
+        {
+          "canonical_id": "parque-de-las-americas",
+          "name": "Parque de las Américas",
+          "district": "Pueblo Libre",
+          "latitude": -12.0706736,
+          "longitude": -77.0678766,
+          "osm_id": 73952921,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
         },
         {
-          "from": "plaza-a-la-bandera",
-          "to": "parque-de-las-americas",
-          "road_distance_m": 1309.3,
-          "road_duration_s": 1047.6,
-          "geometry": {
-            "coordinates": [
-              [
-                -77.060743,
-                -12.068103
-              ],
-              [
-                -77.060818,
-                -12.068151
-              ],
-              [
-                -77.060914,
-                -12.068204
-              ],
-              [
-                -77.061003,
-                -12.068235
-              ],
-              [
-                -77.061088,
-                -12.068253
-              ],
-              [
-                -77.061129,
-                -12.068278
-              ],
-              [
-                -77.061154,
-                -12.068323
-              ],
-              [
-                -77.061169,
-                -12.06841
-              ],
-              [
-                -77.061206,
-                -12.068408
-              ],
-              [
-                -77.061295,
-                -12.068402
-              ],
-              [
-                -77.061324,
-                -12.068597
-              ],
-              [
-                -77.061435,
-                -12.069852
-              ],
-              [
-                -77.061527,
-                -12.069851
-              ],
-              [
-                -77.061541,
-                -12.070034
-              ],
-              [
-                -77.061559,
-                -12.070213
-              ],
-              [
-                -77.062018,
-                -12.07017
-              ],
-              [
-                -77.062367,
-                -12.070138
-              ],
-              [
-                -77.062575,
-                -12.070119
-              ],
-              [
-                -77.062577,
-                -12.070093
-              ],
-              [
-                -77.062587,
-                -12.070069
-              ],
-              [
-                -77.062605,
-                -12.070049
-              ],
-              [
-                -77.062629,
-                -12.070037
-              ],
-              [
-                -77.062655,
-                -12.070034
-              ],
-              [
-                -77.062681,
-                -12.070039
-              ],
-              [
-                -77.062704,
-                -12.070052
-              ],
-              [
-                -77.062721,
-                -12.070072
-              ],
-              [
-                -77.06273,
-                -12.070096
-              ],
-              [
-                -77.063046,
-                -12.070071
-              ],
-              [
-                -77.06374,
-                -12.070017
-              ],
-              [
-                -77.06388,
-                -12.070005
-              ],
-              [
-                -77.063934,
-                -12.07
-              ],
-              [
-                -77.063991,
-                -12.069995
-              ],
-              [
-                -77.064039,
-                -12.06999
-              ],
-              [
-                -77.064095,
-                -12.069984
-              ],
-              [
-                -77.064253,
-                -12.069967
-              ],
-              [
-                -77.064658,
-                -12.069926
-              ],
-              [
-                -77.064999,
-                -12.069891
-              ],
-              [
-                -77.065082,
-                -12.069883
-              ],
-              [
-                -77.065168,
-                -12.069874
-              ],
-              [
-                -77.065609,
-                -12.069831
-              ],
-              [
-                -77.065701,
-                -12.069823
-              ],
-              [
-                -77.065927,
-                -12.069804
-              ],
-              [
-                -77.066091,
-                -12.069791
-              ],
-              [
-                -77.066135,
-                -12.069844
-              ],
-              [
-                -77.066166,
-                -12.069886
-              ],
-              [
-                -77.066182,
-                -12.069918
-              ],
-              [
-                -77.066376,
-                -12.070118
-              ],
-              [
-                -77.066406,
-                -12.07014
-              ],
-              [
-                -77.066897,
-                -12.069687
-              ],
-              [
-                -77.066962,
-                -12.069755
-              ],
-              [
-                -77.067296,
-                -12.070105
-              ],
-              [
-                -77.067642,
-                -12.069775
-              ],
-              [
-                -77.067704,
-                -12.069716
-              ],
-              [
-                -77.067725,
-                -12.069697
-              ],
-              [
-                -77.067815,
-                -12.069642
-              ],
-              [
-                -77.067913,
-                -12.06959
-              ],
-              [
-                -77.068001,
-                -12.069555
-              ],
-              [
-                -77.068113,
-                -12.069532
-              ],
-              [
-                -77.06821,
-                -12.069519
-              ],
-              [
-                -77.068323,
-                -12.069516
-              ],
-              [
-                -77.06841,
-                -12.06953
-              ],
-              [
-                -77.068407,
-                -12.069594
-              ],
-              [
-                -77.068415,
-                -12.069743
-              ],
-              [
-                -77.068169,
-                -12.069983
-              ],
-              [
-                -77.067968,
-                -12.070229
-              ],
-              [
-                -77.068116,
-                -12.070643
-              ],
-              [
-                -77.068116,
-                -12.07074
-              ],
-              [
-                -77.068094,
-                -12.070715
-              ],
-              [
-                -77.068069,
-                -12.070694
-              ],
-              [
-                -77.06804,
-                -12.070677
-              ],
-              [
-                -77.068009,
-                -12.070665
-              ],
-              [
-                -77.067977,
-                -12.070658
-              ],
-              [
-                -77.067972,
-                -12.070657
-              ],
-              [
-                -77.067943,
-                -12.070656
-              ],
-              [
-                -77.06791,
-                -12.070659
-              ],
-              [
-                -77.067878,
-                -12.070667
-              ],
-              [
-                -77.067875,
-                -12.070668
-              ]
-            ],
-            "type": "LineString"
-          },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
-          "eta_label": "snapshot estimate"
+          "canonical_id": "museo-larco-jardines",
+          "name": "Museo Larco",
+          "district": "Pueblo Libre",
+          "latitude": -12.0727847,
+          "longitude": -77.0709002,
+          "osm_id": 387071625,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
         },
+        {
+          "canonical_id": "huaca-julio-c-tello",
+          "name": "Huaca Julio C. Tello",
+          "district": "Pueblo Libre",
+          "latitude": -12.0684338,
+          "longitude": -77.07205,
+          "osm_id": 195056956,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        }
+      ],
+      "legs": [
         {
           "from": "parque-de-las-americas",
           "to": "museo-larco-jardines",
@@ -4237,7 +4235,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -4410,7 +4408,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -4418,34 +4416,22 @@
         {
           "stage": 1,
           "stop_ids": [
-            "parque-3-de-octubre-skatepark-muros-libres",
-            "quinta-de-los-libertadores-mnaahp",
-            "antigua-taberna-queirolo",
-            "parque-virginia-candamo",
-            "plaza-a-la-bandera"
-          ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.0785729%2C-77.0600562&destination=-12.0680591%2C-77.0607729&travelmode=walking&waypoints=-12.0773665%2C-77.0622797%7C-12.0775934%2C-77.0630716%7C-12.0740945%2C-77.0634772"
-        },
-        {
-          "stage": 2,
-          "stop_ids": [
-            "plaza-a-la-bandera",
             "parque-de-las-americas",
             "museo-larco-jardines",
             "huaca-julio-c-tello"
           ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.0680591%2C-77.0607729&destination=-12.0684338%2C-77.07205&travelmode=walking&waypoints=-12.0706736%2C-77.0678766%7C-12.0727847%2C-77.0709002"
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.0706736%2C-77.0678766&destination=-12.0684338%2C-77.07205&travelmode=walking&waypoints=-12.0727847%2C-77.0709002"
         }
       ],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0785729%2C-77.0600562",
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0706736%2C-77.0678766",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 40320,
-        "selected_distance_m": 4958.3,
-        "exact_minimum_distance_m": 4958.3
+        "permutations_evaluated": 6,
+        "selected_distance_m": 1654.8000000000002,
+        "exact_minimum_distance_m": 1654.8000000000002
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre.kml"
+      "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.kml"
     },
     {
       "district": "Rímac",
@@ -4732,7 +4718,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -4941,7 +4927,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -5074,7 +5060,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -5151,7 +5137,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -5236,7 +5222,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -5353,7 +5339,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -5422,49 +5408,6 @@
       "boundary_osm_id": 1944812,
       "stops": [
         {
-          "canonical_id": "huaca-santa-cruz",
-          "name": "Huaca Santa Cruz",
-          "district": "San Isidro",
-          "latitude": -12.104444,
-          "longitude": -77.048338,
-          "osm_id": null,
-          "point_in_district": true,
-          "anchor_method": "CORROBORATED_ADDRESS_COORDINATE",
-          "address": "Avenida Belén, cuadra 1, San Isidro",
-          "address_source_url": "https://www.gob.pe/43232-lugares-para-visitar-en-san-isidro-huaca-santa-cruz-de-san-isidro",
-          "coordinate_source_url": "https://www.urbipedia.org/hoja/Huaca_Santa_Cruz"
-        },
-        {
-          "canonical_id": "country-club-lima-hotel",
-          "name": "Hotel Country Club",
-          "district": "San Isidro",
-          "latitude": -12.0979669,
-          "longitude": -77.0490204,
-          "osm_id": 318283091,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "huaca-huallamarca",
-          "name": "Huaca Huallamarca",
-          "district": "San Isidro",
-          "latitude": -12.0974038,
-          "longitude": -77.040492,
-          "osm_id": 129822356,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "calle-choquehuanca-basadre-residencial",
-          "name": "Calle José Choquehuanca",
-          "district": "San Isidro",
-          "latitude": -12.0981264,
-          "longitude": -77.0403007,
-          "osm_id": 1391863720,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
           "canonical_id": "casa-museo-marina-nunez-del-prado",
           "name": "Casa Museo Marina Núñez del Prado",
           "district": "San Isidro",
@@ -5488,6 +5431,26 @@
           "anchor_method": "OSM_NOMINATIM_REVIEWED"
         },
         {
+          "canonical_id": "torre-begonias",
+          "name": "Torre Begonias",
+          "district": "San Isidro",
+          "latitude": -12.092104,
+          "longitude": -77.0239594,
+          "osm_id": 397559270,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        },
+        {
+          "canonical_id": "edificio-petroperu",
+          "name": "150",
+          "district": "San Isidro",
+          "latitude": -12.0973204,
+          "longitude": -77.0245028,
+          "osm_id": 6460139373,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        },
+        {
           "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
           "name": "Viettel Perú",
           "district": "San Isidro",
@@ -5499,570 +5462,6 @@
         }
       ],
       "legs": [
-        {
-          "from": "huaca-santa-cruz",
-          "to": "country-club-lima-hotel",
-          "road_distance_m": 1402.2,
-          "road_duration_s": 1127.7,
-          "geometry": {
-            "coordinates": [
-              [
-                -77.048387,
-                -12.104601
-              ],
-              [
-                -77.048404,
-                -12.10465
-              ],
-              [
-                -77.048545,
-                -12.105052
-              ],
-              [
-                -77.048609,
-                -12.105236
-              ],
-              [
-                -77.048677,
-                -12.10543
-              ],
-              [
-                -77.048731,
-                -12.105592
-              ],
-              [
-                -77.048764,
-                -12.10569
-              ],
-              [
-                -77.049323,
-                -12.105501
-              ],
-              [
-                -77.050001,
-                -12.105272
-              ],
-              [
-                -77.050439,
-                -12.105125
-              ],
-              [
-                -77.050852,
-                -12.104985
-              ],
-              [
-                -77.051652,
-                -12.104712
-              ],
-              [
-                -77.051709,
-                -12.104696
-              ],
-              [
-                -77.051613,
-                -12.104315
-              ],
-              [
-                -77.051548,
-                -12.103979
-              ],
-              [
-                -77.051441,
-                -12.103122
-              ],
-              [
-                -77.051436,
-                -12.103079
-              ],
-              [
-                -77.051385,
-                -12.103086
-              ],
-              [
-                -77.05138,
-                -12.103017
-              ],
-              [
-                -77.051372,
-                -12.102921
-              ],
-              [
-                -77.051369,
-                -12.102884
-              ],
-              [
-                -77.051413,
-                -12.102881
-              ],
-              [
-                -77.051102,
-                -12.100471
-              ],
-              [
-                -77.05098,
-                -12.099411
-              ],
-              [
-                -77.050895,
-                -12.099063
-              ],
-              [
-                -77.050847,
-                -12.098951
-              ],
-              [
-                -77.050627,
-                -12.098928
-              ],
-              [
-                -77.050108,
-                -12.098884
-              ],
-              [
-                -77.049884,
-                -12.098867
-              ],
-              [
-                -77.049795,
-                -12.098855
-              ],
-              [
-                -77.049723,
-                -12.098835
-              ],
-              [
-                -77.049659,
-                -12.098804
-              ],
-              [
-                -77.049603,
-                -12.098766
-              ],
-              [
-                -77.049557,
-                -12.098724
-              ],
-              [
-                -77.049519,
-                -12.098677
-              ],
-              [
-                -77.04946,
-                -12.09859
-              ],
-              [
-                -77.049425,
-                -12.098554
-              ],
-              [
-                -77.049388,
-                -12.098531
-              ],
-              [
-                -77.049321,
-                -12.098421
-              ],
-              [
-                -77.049256,
-                -12.098381
-              ],
-              [
-                -77.049153,
-                -12.098359
-              ],
-              [
-                -77.049028,
-                -12.098359
-              ],
-              [
-                -77.04892,
-                -12.098359
-              ],
-              [
-                -77.048869,
-                -12.098278
-              ],
-              [
-                -77.048823,
-                -12.098189
-              ],
-              [
-                -77.048799,
-                -12.098172
-              ],
-              [
-                -77.04875,
-                -12.098159
-              ],
-              [
-                -77.048776,
-                -12.097994
-              ],
-              [
-                -77.048776,
-                -12.097994
-              ]
-            ],
-            "type": "LineString"
-          },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
-          "eta_label": "snapshot estimate"
-        },
-        {
-          "from": "country-club-lima-hotel",
-          "to": "huaca-huallamarca",
-          "road_distance_m": 944.4,
-          "road_duration_s": 757.8,
-          "geometry": {
-            "coordinates": [
-              [
-                -77.048776,
-                -12.097994
-              ],
-              [
-                -77.04875,
-                -12.098159
-              ],
-              [
-                -77.048711,
-                -12.098162
-              ],
-              [
-                -77.048675,
-                -12.098178
-              ],
-              [
-                -77.048593,
-                -12.098259
-              ],
-              [
-                -77.04855,
-                -12.098329
-              ],
-              [
-                -77.04843,
-                -12.098224
-              ],
-              [
-                -77.04838,
-                -12.098162
-              ],
-              [
-                -77.048289,
-                -12.098209
-              ],
-              [
-                -77.048187,
-                -12.09821
-              ],
-              [
-                -77.04817,
-                -12.098185
-              ],
-              [
-                -77.048148,
-                -12.098173
-              ],
-              [
-                -77.048121,
-                -12.098172
-              ],
-              [
-                -77.048099,
-                -12.098181
-              ],
-              [
-                -77.04808,
-                -12.098204
-              ],
-              [
-                -77.047966,
-                -12.098185
-              ],
-              [
-                -77.047931,
-                -12.09818
-              ],
-              [
-                -77.047882,
-                -12.098172
-              ],
-              [
-                -77.046944,
-                -12.098055
-              ],
-              [
-                -77.046887,
-                -12.098048
-              ],
-              [
-                -77.046779,
-                -12.098036
-              ],
-              [
-                -77.046677,
-                -12.098023
-              ],
-              [
-                -77.045711,
-                -12.097877
-              ],
-              [
-                -77.045624,
-                -12.097862
-              ],
-              [
-                -77.04555,
-                -12.097855
-              ],
-              [
-                -77.044567,
-                -12.097713
-              ],
-              [
-                -77.04449,
-                -12.097702
-              ],
-              [
-                -77.044417,
-                -12.097692
-              ],
-              [
-                -77.043421,
-                -12.09755
-              ],
-              [
-                -77.043357,
-                -12.097541
-              ],
-              [
-                -77.043299,
-                -12.097533
-              ],
-              [
-                -77.043248,
-                -12.097527
-              ],
-              [
-                -77.043142,
-                -12.097536
-              ],
-              [
-                -77.042187,
-                -12.097702
-              ],
-              [
-                -77.041456,
-                -12.097829
-              ],
-              [
-                -77.041395,
-                -12.097842
-              ],
-              [
-                -77.041362,
-                -12.097777
-              ],
-              [
-                -77.041265,
-                -12.097804
-              ],
-              [
-                -77.040947,
-                -12.097182
-              ]
-            ],
-            "type": "LineString"
-          },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
-          "eta_label": "snapshot estimate"
-        },
-        {
-          "from": "huaca-huallamarca",
-          "to": "calle-choquehuanca-basadre-residencial",
-          "road_distance_m": 197,
-          "road_duration_s": 157.6,
-          "geometry": {
-            "coordinates": [
-              [
-                -77.040947,
-                -12.097182
-              ],
-              [
-                -77.041265,
-                -12.097804
-              ],
-              [
-                -77.041297,
-                -12.097867
-              ],
-              [
-                -77.041241,
-                -12.097883
-              ],
-              [
-                -77.040301,
-                -12.098126
-              ]
-            ],
-            "type": "LineString"
-          },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
-          "eta_label": "snapshot estimate"
-        },
-        {
-          "from": "calle-choquehuanca-basadre-residencial",
-          "to": "casa-museo-marina-nunez-del-prado",
-          "road_distance_m": 881,
-          "road_duration_s": 710.8,
-          "geometry": {
-            "coordinates": [
-              [
-                -77.040301,
-                -12.098126
-              ],
-              [
-                -77.040225,
-                -12.098146
-              ],
-              [
-                -77.039361,
-                -12.098379
-              ],
-              [
-                -77.039306,
-                -12.098394
-              ],
-              [
-                -77.039273,
-                -12.098338
-              ],
-              [
-                -77.03923,
-                -12.098352
-              ],
-              [
-                -77.039181,
-                -12.09837
-              ],
-              [
-                -77.039169,
-                -12.098374
-              ],
-              [
-                -77.039201,
-                -12.09843
-              ],
-              [
-                -77.039123,
-                -12.098451
-              ],
-              [
-                -77.038445,
-                -12.098632
-              ],
-              [
-                -77.038125,
-                -12.098719
-              ],
-              [
-                -77.038061,
-                -12.098736
-              ],
-              [
-                -77.038025,
-                -12.098746
-              ],
-              [
-                -77.037634,
-                -12.098863
-              ],
-              [
-                -77.037434,
-                -12.098907
-              ],
-              [
-                -77.037268,
-                -12.098933
-              ],
-              [
-                -77.037152,
-                -12.098949
-              ],
-              [
-                -77.037014,
-                -12.098965
-              ],
-              [
-                -77.036786,
-                -12.098995
-              ],
-              [
-                -77.036366,
-                -12.099051
-              ],
-              [
-                -77.035413,
-                -12.099166
-              ],
-              [
-                -77.034924,
-                -12.099212
-              ],
-              [
-                -77.034853,
-                -12.099223
-              ],
-              [
-                -77.034864,
-                -12.099292
-              ],
-              [
-                -77.034913,
-                -12.099678
-              ],
-              [
-                -77.034983,
-                -12.100223
-              ],
-              [
-                -77.034489,
-                -12.100313
-              ],
-              [
-                -77.034407,
-                -12.100341
-              ],
-              [
-                -77.034309,
-                -12.100444
-              ],
-              [
-                -77.034215,
-                -12.100599
-              ],
-              [
-                -77.034155,
-                -12.100695
-              ],
-              [
-                -77.034124,
-                -12.100728
-              ],
-              [
-                -77.034125,
-                -12.10084
-              ],
-              [
-                -77.033955,
-                -12.10086
-              ]
-            ],
-            "type": "LineString"
-          },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
-          "eta_label": "snapshot estimate"
-        },
         {
           "from": "casa-museo-marina-nunez-del-prado",
           "to": "palacio-municipal-y-de-la-cultura-san-isidro",
@@ -6245,14 +5644,14 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         },
         {
           "from": "palacio-municipal-y-de-la-cultura-san-isidro",
-          "to": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
-          "road_distance_m": 1001.2,
-          "road_duration_s": 801,
+          "to": "torre-begonias",
+          "road_distance_m": 768.3,
+          "road_duration_s": 615,
           "geometry": {
             "coordinates": [
               [
@@ -6312,60 +5711,358 @@
                 -12.09665
               ],
               [
-                -77.026506,
-                -12.096624
+                -77.026714,
+                -12.096618
               ],
               [
-                -77.026277,
-                -12.096593
+                -77.026701,
+                -12.096536
               ],
               [
-                -77.026143,
-                -12.096579
+                -77.026701,
+                -12.096513
               ],
               [
-                -77.026086,
-                -12.096574
+                -77.026648,
+                -12.096529
               ],
               [
-                -77.026068,
-                -12.09658
-              ],
-              [
-                -77.02604,
+                -77.026606,
                 -12.096531
               ],
               [
-                -77.025454,
-                -12.096735
+                -77.026549,
+                -12.096511
               ],
               [
-                -77.025414,
-                -12.096734
+                -77.026533,
+                -12.096489
               ],
               [
-                -77.025359,
-                -12.096744
+                -77.026531,
+                -12.096429
               ],
               [
-                -77.025258,
+                -77.026547,
+                -12.09637
+              ],
+              [
+                -77.026521,
+                -12.096309
+              ],
+              [
+                -77.026508,
+                -12.096276
+              ],
+              [
+                -77.026497,
+                -12.096251
+              ],
+              [
+                -77.026471,
+                -12.096199
+              ],
+              [
+                -77.026452,
+                -12.096174
+              ],
+              [
+                -77.026423,
+                -12.096149
+              ],
+              [
+                -77.026387,
+                -12.096127
+              ],
+              [
+                -77.026345,
+                -12.096122
+              ],
+              [
+                -77.026303,
+                -12.09612
+              ],
+              [
+                -77.026229,
+                -12.096117
+              ],
+              [
+                -77.026176,
+                -12.096126
+              ],
+              [
+                -77.026115,
+                -12.096128
+              ],
+              [
+                -77.025917,
+                -12.09573
+              ],
+              [
+                -77.025691,
+                -12.095189
+              ],
+              [
+                -77.02567,
+                -12.095112
+              ],
+              [
+                -77.025622,
+                -12.095061
+              ],
+              [
+                -77.025507,
+                -12.094811
+              ],
+              [
+                -77.025233,
+                -12.094192
+              ],
+              [
+                -77.025189,
+                -12.094113
+              ],
+              [
+                -77.025157,
+                -12.094052
+              ],
+              [
+                -77.024891,
+                -12.093555
+              ],
+              [
+                -77.024773,
+                -12.093301
+              ],
+              [
+                -77.024738,
+                -12.093227
+              ],
+              [
+                -77.024695,
+                -12.093145
+              ],
+              [
+                -77.02448,
+                -12.09251
+              ],
+              [
+                -77.02442,
+                -12.092266
+              ],
+              [
+                -77.02441,
+                -12.092201
+              ],
+              [
+                -77.024321,
+                -12.092227
+              ],
+              [
+                -77.02429,
+                -12.092231
+              ],
+              [
+                -77.024264,
+                -12.092089
+              ],
+              [
+                -77.024264,
+                -12.092089
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "eta_label": "snapshot estimate"
+        },
+        {
+          "from": "torre-begonias",
+          "to": "edificio-petroperu",
+          "road_distance_m": 705.2,
+          "road_duration_s": 566.4,
+          "geometry": {
+            "coordinates": [
+              [
+                -77.024264,
+                -12.092089
+              ],
+              [
+                -77.02429,
+                -12.092231
+              ],
+              [
+                -77.024337,
+                -12.092497
+              ],
+              [
+                -77.024422,
+                -12.092782
+              ],
+              [
+                -77.02458,
+                -12.09319
+              ],
+              [
+                -77.024633,
+                -12.093322
+              ],
+              [
+                -77.024648,
+                -12.09336
+              ],
+              [
+                -77.024798,
+                -12.093726
+              ],
+              [
+                -77.024987,
+                -12.09413
+              ],
+              [
+                -77.025019,
+                -12.094197
+              ],
+              [
+                -77.02506,
+                -12.094305
+              ],
+              [
+                -77.024368,
+                -12.094632
+              ],
+              [
+                -77.024348,
+                -12.094641
+              ],
+              [
+                -77.024128,
+                -12.09474
+              ],
+              [
+                -77.024169,
+                -12.094826
+              ],
+              [
+                -77.024245,
+                -12.095001
+              ],
+              [
+                -77.024296,
+                -12.095123
+              ],
+              [
+                -77.024537,
+                -12.095626
+              ],
+              [
+                -77.024618,
+                -12.095814
+              ],
+              [
+                -77.024738,
+                -12.096076
+              ],
+              [
+                -77.024919,
+                -12.096492
+              ],
+              [
+                -77.02496,
+                -12.096585
+              ],
+              [
+                -77.024973,
+                -12.096578
+              ],
+              [
+                -77.024988,
+                -12.096586
+              ],
+              [
+                -77.025005,
+                -12.096619
+              ],
+              [
+                -77.025028,
+                -12.096661
+              ],
+              [
+                -77.024738,
+                -12.096694
+              ],
+              [
+                -77.024665,
+                -12.096691
+              ],
+              [
+                -77.024698,
+                -12.096754
+              ],
+              [
+                -77.024649,
                 -12.09676
-              ],
-              [
-                -77.024808,
-                -12.096814
-              ],
-              [
-                -77.024729,
-                -12.096822
               ],
               [
                 -77.02468,
                 -12.096827
               ],
               [
-                -77.024608,
-                -12.096797
+                -77.024708,
+                -12.096897
+              ],
+              [
+                -77.024574,
+                -12.096915
+              ],
+              [
+                -77.024546,
+                -12.097016
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "eta_label": "snapshot estimate"
+        },
+        {
+          "from": "edificio-petroperu",
+          "to": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+          "road_distance_m": 628.1,
+          "road_duration_s": 504.5,
+          "geometry": {
+            "coordinates": [
+              [
+                -77.024546,
+                -12.097016
+              ],
+              [
+                -77.024546,
+                -12.097016
+              ],
+              [
+                -77.024574,
+                -12.096915
+              ],
+              [
+                -77.024009,
+                -12.096999
+              ],
+              [
+                -77.023767,
+                -12.097036
+              ],
+              [
+                -77.023699,
+                -12.097045
+              ],
+              [
+                -77.023327,
+                -12.097094
+              ],
+              [
+                -77.02332,
+                -12.097047
               ],
               [
                 -77.023309,
@@ -6466,7 +6163,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T04:48:08.265202+00:00",
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -6474,33 +6171,308 @@
         {
           "stage": 1,
           "stop_ids": [
-            "huaca-santa-cruz",
-            "country-club-lima-hotel",
-            "huaca-huallamarca",
-            "calle-choquehuanca-basadre-residencial",
-            "casa-museo-marina-nunez-del-prado"
-          ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.104444%2C-77.048338&destination=-12.100988%2C-77.03397&travelmode=walking&waypoints=-12.0979669%2C-77.0490204%7C-12.0974038%2C-77.040492%7C-12.0981264%2C-77.0403007"
-        },
-        {
-          "stage": 2,
-          "stop_ids": [
             "casa-museo-marina-nunez-del-prado",
             "palacio-municipal-y-de-la-cultura-san-isidro",
+            "torre-begonias",
+            "edificio-petroperu",
             "centro-financiero-canaval-y-moreyra-rivera-navarrete"
           ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.100988%2C-77.03397&destination=-12.0978883%2C-77.0193865&travelmode=walking&waypoints=-12.0977364%2C-77.0273922"
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.100988%2C-77.03397&destination=-12.0978883%2C-77.0193865&travelmode=walking&waypoints=-12.0977364%2C-77.0273922%7C-12.092104%2C-77.0239594%7C-12.0973204%2C-77.0245028"
         }
       ],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.100988%2C-77.03397",
+      "optimization": {
+        "method": "exact_permutation",
+        "permutations_evaluated": 120,
+        "selected_distance_m": 3070.4,
+        "exact_minimum_distance_m": 3070.4
+      },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.kml"
+    },
+    {
+      "district": "San Isidro",
+      "containment_status": "VERIFIED",
+      "boundary_osm_id": 1944812,
+      "stops": [
+        {
+          "canonical_id": "huaca-huallamarca",
+          "name": "Huaca Huallamarca",
+          "district": "San Isidro",
+          "latitude": -12.0974038,
+          "longitude": -77.040492,
+          "osm_id": 129822356,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        },
+        {
+          "canonical_id": "calle-choquehuanca-basadre-residencial",
+          "name": "Calle José Choquehuanca",
+          "district": "San Isidro",
+          "latitude": -12.097723,
+          "longitude": -77.0446337,
+          "osm_id": 426905952,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        },
+        {
+          "canonical_id": "country-club-lima-hotel",
+          "name": "Hotel Country Club",
+          "district": "San Isidro",
+          "latitude": -12.0979669,
+          "longitude": -77.0490204,
+          "osm_id": 318283091,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        }
+      ],
+      "legs": [
+        {
+          "from": "huaca-huallamarca",
+          "to": "calle-choquehuanca-basadre-residencial",
+          "road_distance_m": 453.3,
+          "road_duration_s": 362.6,
+          "geometry": {
+            "coordinates": [
+              [
+                -77.040947,
+                -12.097182
+              ],
+              [
+                -77.041265,
+                -12.097804
+              ],
+              [
+                -77.041362,
+                -12.097777
+              ],
+              [
+                -77.041395,
+                -12.097842
+              ],
+              [
+                -77.041456,
+                -12.097829
+              ],
+              [
+                -77.042187,
+                -12.097702
+              ],
+              [
+                -77.043142,
+                -12.097536
+              ],
+              [
+                -77.043248,
+                -12.097527
+              ],
+              [
+                -77.043299,
+                -12.097533
+              ],
+              [
+                -77.043357,
+                -12.097541
+              ],
+              [
+                -77.043421,
+                -12.09755
+              ],
+              [
+                -77.044417,
+                -12.097692
+              ],
+              [
+                -77.04449,
+                -12.097702
+              ],
+              [
+                -77.044567,
+                -12.097713
+              ],
+              [
+                -77.044634,
+                -12.097723
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "eta_label": "snapshot estimate"
+        },
+        {
+          "from": "calle-choquehuanca-basadre-residencial",
+          "to": "country-club-lima-hotel",
+          "road_distance_m": 491.1,
+          "road_duration_s": 397.2,
+          "geometry": {
+            "coordinates": [
+              [
+                -77.044634,
+                -12.097723
+              ],
+              [
+                -77.04555,
+                -12.097855
+              ],
+              [
+                -77.045624,
+                -12.097862
+              ],
+              [
+                -77.045711,
+                -12.097877
+              ],
+              [
+                -77.046677,
+                -12.098023
+              ],
+              [
+                -77.046779,
+                -12.098036
+              ],
+              [
+                -77.046887,
+                -12.098048
+              ],
+              [
+                -77.046944,
+                -12.098055
+              ],
+              [
+                -77.047882,
+                -12.098172
+              ],
+              [
+                -77.047931,
+                -12.09818
+              ],
+              [
+                -77.047966,
+                -12.098185
+              ],
+              [
+                -77.04808,
+                -12.098204
+              ],
+              [
+                -77.048099,
+                -12.098181
+              ],
+              [
+                -77.048121,
+                -12.098172
+              ],
+              [
+                -77.048148,
+                -12.098173
+              ],
+              [
+                -77.04817,
+                -12.098185
+              ],
+              [
+                -77.048187,
+                -12.09821
+              ],
+              [
+                -77.048289,
+                -12.098209
+              ],
+              [
+                -77.04838,
+                -12.098162
+              ],
+              [
+                -77.04843,
+                -12.098224
+              ],
+              [
+                -77.04855,
+                -12.098329
+              ],
+              [
+                -77.048593,
+                -12.098259
+              ],
+              [
+                -77.048675,
+                -12.098178
+              ],
+              [
+                -77.048711,
+                -12.098162
+              ],
+              [
+                -77.04875,
+                -12.098159
+              ],
+              [
+                -77.048776,
+                -12.097994
+              ],
+              [
+                -77.048776,
+                -12.097994
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "eta_label": "snapshot estimate"
+        }
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "stop_ids": [
+            "huaca-huallamarca",
+            "calle-choquehuanca-basadre-residencial",
+            "country-club-lima-hotel"
+          ],
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.0974038%2C-77.040492&destination=-12.0979669%2C-77.0490204&travelmode=walking&waypoints=-12.097723%2C-77.0446337"
+        }
+      ],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0974038%2C-77.040492",
+      "optimization": {
+        "method": "exact_permutation",
+        "permutations_evaluated": 6,
+        "selected_distance_m": 944.4000000000001,
+        "exact_minimum_distance_m": 944.4000000000001
+      },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.kml"
+    },
+    {
+      "district": "San Isidro",
+      "containment_status": "VERIFIED",
+      "boundary_osm_id": 1944812,
+      "stops": [
+        {
+          "canonical_id": "huaca-santa-cruz",
+          "name": "Huaca Santa Cruz",
+          "district": "San Isidro",
+          "latitude": -12.104444,
+          "longitude": -77.048338,
+          "osm_id": null,
+          "point_in_district": true,
+          "anchor_method": "CORROBORATED_ADDRESS_COORDINATE",
+          "address": "Avenida Belén, cuadra 1, San Isidro",
+          "address_source_url": "https://www.gob.pe/43232-lugares-para-visitar-en-san-isidro-huaca-santa-cruz-de-san-isidro",
+          "coordinate_source_url": "https://www.urbipedia.org/hoja/Huaca_Santa_Cruz"
+        }
+      ],
+      "legs": [],
+      "stages": [],
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.104444%2C-77.048338",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 5040,
-        "selected_distance_m": 5394.599999999999,
-        "exact_minimum_distance_m": 5394.599999999999
+        "permutations_evaluated": 1,
+        "selected_distance_m": 0,
+        "exact_minimum_distance_m": 0
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro.kml"
+      "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.kml"
     },
     {
       "district": "Santiago de Surco",

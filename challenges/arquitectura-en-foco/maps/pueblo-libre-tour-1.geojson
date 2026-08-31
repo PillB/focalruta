@@ -75,51 +75,6 @@
           -12.0680591
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "parque-de-las-americas",
-        "name": "Parque de las Américas",
-        "district": "Pueblo Libre"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.0678766,
-          -12.0706736
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "museo-larco-jardines",
-        "name": "Museo Larco",
-        "district": "Pueblo Libre"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.0709002,
-          -12.0727847
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "huaca-julio-c-tello",
-        "name": "Huaca Julio C. Tello",
-        "district": "Pueblo Libre"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.07205,
-          -12.0684338
-        ]
-      }
     }
   ]
 }

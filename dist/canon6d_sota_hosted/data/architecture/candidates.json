@@ -808,5 +808,65 @@
     "requires_current_verification": true,
     "visual_reference_count": 3,
     "verification_complete": true
+  },
+  {
+    "canonical_id": "utec-campus-barranco",
+    "name": "Campus UTEC",
+    "district": "Barranco",
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "visual_reference_count": 3,
+    "verification_complete": true
+  },
+  {
+    "canonical_id": "torre-interbank",
+    "name": "Torre Interbank",
+    "district": "La Victoria",
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "visual_reference_count": 3,
+    "verification_complete": true
+  },
+  {
+    "canonical_id": "casa-fernandini-1913",
+    "name": "Casa Fernandini (1913)",
+    "district": "Lima",
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "visual_reference_count": 3,
+    "verification_complete": true
+  },
+  {
+    "canonical_id": "estacion-desamparados",
+    "name": "Estación Desamparados / Casa de la Literatura",
+    "district": "Lima",
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "visual_reference_count": 3,
+    "verification_complete": true
+  },
+  {
+    "canonical_id": "edificio-petroperu",
+    "name": "Edificio Petroperú",
+    "district": "San Isidro",
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "visual_reference_count": 3,
+    "verification_complete": true
+  },
+  {
+    "canonical_id": "torre-begonias",
+    "name": "Torre Begonias + Paseo Begonias",
+    "district": "San Isidro",
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "visual_reference_count": 3,
+    "verification_complete": true
   }
 ]

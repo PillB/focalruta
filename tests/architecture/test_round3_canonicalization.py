@@ -63,9 +63,11 @@ def test_generated_historical_union_is_provenanced_and_score_isolated():
     assert report["run_deltas"]["Master68_to_Master82"] == {
         "retained": 68, "added": 13, "removed": 0,
     }
-    assert len({item["canonical_id"] for item in candidates}) == 81
-    assert all(item["evidence_status"] == "HISTORICAL_ONLY" for item in candidates)
-    assert all(item["ranking_eligible"] is False for item in candidates)
+    assert len({item["canonical_id"] for item in candidates}) == 87
+    historical = [item for item in candidates if "Master82" in item["source_runs"]]
+    assert len(historical) == 81
+    assert all(item["evidence_status"] == "HISTORICAL_ONLY" for item in historical)
+    assert all(item["ranking_eligible"] is False for item in historical)
     assert all(not (HISTORICAL_SCORE_FIELDS & item.keys()) for item in candidates)
     assert sum("Master68" in item["source_runs"] for item in candidates) == 68
     assert sum("Master82" in item["source_runs"] for item in candidates) == 81

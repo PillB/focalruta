@@ -3369,5 +3369,95 @@
     "source_runs": [
       "Master82"
     ]
+  },
+  {
+    "canonical_id": "utec-campus-barranco",
+    "name": "Campus UTEC",
+    "district": "Barranco",
+    "latitude": -12.1351351,
+    "longitude": -77.0221296,
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "historical_ids": [],
+    "historical_refs": [],
+    "source_runs": [
+      "NEW_2026_STYLE_DISCOVERY"
+    ]
+  },
+  {
+    "canonical_id": "torre-interbank",
+    "name": "Torre Interbank",
+    "district": "La Victoria",
+    "latitude": -12.08945,
+    "longitude": -77.0227,
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "historical_ids": [],
+    "historical_refs": [],
+    "source_runs": [
+      "NEW_2026_STYLE_DISCOVERY"
+    ]
+  },
+  {
+    "canonical_id": "casa-fernandini-1913",
+    "name": "Casa Fernandini (1913)",
+    "district": "Lima",
+    "latitude": -12.0450471,
+    "longitude": -77.0351457,
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "historical_ids": [],
+    "historical_refs": [],
+    "source_runs": [
+      "NEW_2026_STYLE_DISCOVERY"
+    ]
+  },
+  {
+    "canonical_id": "estacion-desamparados",
+    "name": "Estación Desamparados / Casa de la Literatura",
+    "district": "Lima",
+    "latitude": -12.0444153,
+    "longitude": -77.0287553,
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "historical_ids": [],
+    "historical_refs": [],
+    "source_runs": [
+      "NEW_2026_STYLE_DISCOVERY"
+    ]
+  },
+  {
+    "canonical_id": "edificio-petroperu",
+    "name": "Edificio Petroperú",
+    "district": "San Isidro",
+    "latitude": -12.0973204,
+    "longitude": -77.0245028,
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "historical_ids": [],
+    "historical_refs": [],
+    "source_runs": [
+      "NEW_2026_STYLE_DISCOVERY"
+    ]
+  },
+  {
+    "canonical_id": "torre-begonias",
+    "name": "Torre Begonias + Paseo Begonias",
+    "district": "San Isidro",
+    "latitude": -12.092104,
+    "longitude": -77.0239594,
+    "evidence_status": "CORROBORATED",
+    "ranking_eligible": true,
+    "requires_current_verification": false,
+    "historical_ids": [],
+    "historical_refs": [],
+    "source_runs": [
+      "NEW_2026_STYLE_DISCOVERY"
+    ]
   }
 ]

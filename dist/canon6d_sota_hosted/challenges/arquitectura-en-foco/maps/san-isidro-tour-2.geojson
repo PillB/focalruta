@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "huaca-huallamarca",
+        "name": "Huaca Huallamarca",
+        "district": "San Isidro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.040492,
+          -12.0974038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "calle-choquehuanca-basadre-residencial",
+        "name": "Calle José Choquehuanca",
+        "district": "San Isidro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0446337,
+          -12.097723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "country-club-lima-hotel",
+        "name": "Hotel Country Club",
+        "district": "San Isidro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0490204,
+          -12.0979669
+        ]
+      }
+    }
+  ]
+}

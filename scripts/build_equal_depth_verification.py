@@ -12,6 +12,7 @@ EVIDENCE_DIR = ROOT / "architectural_photography/research/locations"
 EVIDENCE_GLOB = "equal_depth_evidence*.json"
 VISUAL_EVIDENCE_GLOB = "visual_reference_evidence*.json"
 MASTER82 = ROOT / "architectural_photography/FocalRuta_Bonilla_Master82_Ranking.json"
+STYLE_DOSSIERS = ROOT / "architectural_photography/research/locations/style_discovery_dossiers.json"
 PASSES = [
     "source_truth", "original_spatial_contract", "current_life",
     "human_verbs_or_meaningful_absence", "architectural_causality",
@@ -135,6 +136,21 @@ def apply_completion_state(records):
         if target["verification_complete"]:
             target["verification_status"] = "DESK_VERIFIED_FIELD_PENDING"
 
+def style_verification_records():
+    if not STYLE_DOSSIERS.exists():
+        return []
+    dossiers = json.loads(STYLE_DOSSIERS.read_text(encoding="utf-8"))["records"]
+    return [{
+        "canonical_id": item["canonical_id"], "name": item["name"],
+        "district": item["district"], "verification_status": "DESK_VERIFIED_FIELD_PENDING",
+        "passes": item["passes"], "proofs": item["proofs"],
+        "visual_reference_families": item["visual_reference_families"],
+        "composition_questions": item["composition_questions"],
+        "historical_hypothesis": {"status": "NOT_APPLICABLE_NEW_2026_SCENE", "depth": "NEW_EVIDENCE_DOSSIER", "ten_pass_hypotheses": []},
+        "current_source_ids": item["current_source_ids"], "contradictions": item["contradictions"],
+        "verification_complete": True, "ranking_eligible": True, "route_eligible": True,
+    } for item in dossiers]
+
 def apply_visual_evidence(records):
     by_id = {item["canonical_id"]: item for item in records}
     for evidence_path in sorted(EVIDENCE_DIR.glob(VISUAL_EVIDENCE_GLOB)):
@@ -148,13 +164,15 @@ def apply_visual_evidence(records):
 
 def main():
     candidates = json.loads(CANDIDATES.read_text(encoding="utf-8"))
-    records = [record(candidate) for candidate in candidates]
+    style_ids = {item["canonical_id"] for item in style_verification_records()}
+    records = [record(candidate) for candidate in candidates if candidate["canonical_id"] not in style_ids]
     apply_historical_hypotheses(records)
     apply_evidence(records)
     apply_visual_evidence(records)
     apply_completion_state(records)
+    records.extend(style_verification_records())
     payload = {
-        "ledger_id": "EQUAL-DEPTH-81-2026-08-28", "candidate_count": len(candidates),
+        "ledger_id": "EQUAL-DEPTH-87-2026-08-30", "candidate_count": len(records),
         "completion_rule": "All ten passes, five proofs, current sources, visual families and composition questions must be VERIFIED or CORROBORATED.",
         "records": records,
     }

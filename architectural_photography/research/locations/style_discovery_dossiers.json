@@ -9,7 +9,7 @@
       "district": "Barranco",
       "latitude": -12.1351351,
       "longitude": -77.0221296,
-      "status": "DESK_VERIFIED_CANONICALIZATION_PENDING",
+      "status": "DESK_VERIFIED_RANKED_ROUTED",
       "sources": [
         {
           "source_id": "SRC-STYLE-UTEC-CURRENT",
@@ -291,9 +291,9 @@
           "redistribution": "LINK_ONLY"
         }
       ],
-      "ranking_eligible": false,
-      "route_eligible": false,
-      "next_gate": "CANONICALIZE_THEN_RERANK_FULL_UNIVERSE_BEFORE_ROUTE_ADMISSION"
+      "ranking_eligible": true,
+      "route_eligible": true,
+      "next_gate": "VERIFY_SAME_DAY_ACCESS_BEFORE_FIELD_VISIT"
     },
     {
       "canonical_id": "torre-interbank",
@@ -301,7 +301,7 @@
       "district": "La Victoria",
       "latitude": -12.08945,
       "longitude": -77.0227,
-      "status": "DESK_VERIFIED_CANONICALIZATION_PENDING",
+      "status": "DESK_VERIFIED_RANKED_ROUTED",
       "sources": [
         {
           "source_id": "SRC-STYLE-INTERBANK-2026",
@@ -583,9 +583,9 @@
           "redistribution": "LINK_ONLY"
         }
       ],
-      "ranking_eligible": false,
-      "route_eligible": false,
-      "next_gate": "CANONICALIZE_THEN_RERANK_FULL_UNIVERSE_BEFORE_ROUTE_ADMISSION"
+      "ranking_eligible": true,
+      "route_eligible": true,
+      "next_gate": "VERIFY_SAME_DAY_ACCESS_BEFORE_FIELD_VISIT"
     },
     {
       "canonical_id": "casa-fernandini-1913",
@@ -593,7 +593,7 @@
       "district": "Lima",
       "latitude": -12.0450471,
       "longitude": -77.0351457,
-      "status": "DESK_VERIFIED_CANONICALIZATION_PENDING",
+      "status": "DESK_VERIFIED_RANKED_ROUTED",
       "sources": [
         {
           "source_id": "SRC-STYLE-FERNANDINI-CULTURE",
@@ -875,9 +875,9 @@
           "redistribution": "LINK_ONLY"
         }
       ],
-      "ranking_eligible": false,
-      "route_eligible": false,
-      "next_gate": "CANONICALIZE_THEN_RERANK_FULL_UNIVERSE_BEFORE_ROUTE_ADMISSION"
+      "ranking_eligible": true,
+      "route_eligible": true,
+      "next_gate": "VERIFY_SAME_DAY_ACCESS_BEFORE_FIELD_VISIT"
     },
     {
       "canonical_id": "estacion-desamparados",
@@ -885,7 +885,7 @@
       "district": "Lima",
       "latitude": -12.0444153,
       "longitude": -77.0287553,
-      "status": "DESK_VERIFIED_CANONICALIZATION_PENDING",
+      "status": "DESK_VERIFIED_RANKED_ROUTED",
       "sources": [
         {
           "source_id": "SRC-STYLE-DESAMPARADOS-CURRENT",
@@ -1167,9 +1167,9 @@
           "redistribution": "LINK_ONLY"
         }
       ],
-      "ranking_eligible": false,
-      "route_eligible": false,
-      "next_gate": "CANONICALIZE_THEN_RERANK_FULL_UNIVERSE_BEFORE_ROUTE_ADMISSION"
+      "ranking_eligible": true,
+      "route_eligible": true,
+      "next_gate": "VERIFY_SAME_DAY_ACCESS_BEFORE_FIELD_VISIT"
     },
     {
       "canonical_id": "edificio-petroperu",
@@ -1177,7 +1177,7 @@
       "district": "San Isidro",
       "latitude": -12.0973204,
       "longitude": -77.0245028,
-      "status": "DESK_VERIFIED_CANONICALIZATION_PENDING",
+      "status": "DESK_VERIFIED_RANKED_ROUTED",
       "sources": [
         {
           "source_id": "SRC-STYLE-PETRO-CAMMP",
@@ -1459,9 +1459,9 @@
           "redistribution": "LINK_ONLY"
         }
       ],
-      "ranking_eligible": false,
-      "route_eligible": false,
-      "next_gate": "CANONICALIZE_THEN_RERANK_FULL_UNIVERSE_BEFORE_ROUTE_ADMISSION"
+      "ranking_eligible": true,
+      "route_eligible": true,
+      "next_gate": "VERIFY_SAME_DAY_ACCESS_BEFORE_FIELD_VISIT"
     },
     {
       "canonical_id": "torre-begonias",
@@ -1469,7 +1469,7 @@
       "district": "San Isidro",
       "latitude": -12.092104,
       "longitude": -77.0239594,
-      "status": "DESK_VERIFIED_CANONICALIZATION_PENDING",
+      "status": "DESK_VERIFIED_RANKED_ROUTED",
       "sources": [
         {
           "source_id": "SRC-STYLE-BEGONIAS-ABOUT",
@@ -1751,9 +1751,9 @@
           "redistribution": "LINK_ONLY"
         }
       ],
-      "ranking_eligible": false,
-      "route_eligible": false,
-      "next_gate": "CANONICALIZE_THEN_RERANK_FULL_UNIVERSE_BEFORE_ROUTE_ADMISSION"
+      "ranking_eligible": true,
+      "route_eligible": true,
+      "next_gate": "VERIFY_SAME_DAY_ACCESS_BEFORE_FIELD_VISIT"
     }
   ]
 }

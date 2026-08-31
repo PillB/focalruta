@@ -36,6 +36,21 @@ DEFAULT_INPUT = ROOT / "architectural_photography" / "FocalRuta_Bonilla_Master82
 PRIVATE_INPUT_ROOT = ROOT / "architectural_photography"
 MASTER68_SUFFIX = "/artifacts/generated/FocalRuta_Expanded_Master_Ranking_68.json"
 RANKING_ROOT = ROOT / "architectural_photography" / "ranking"
+STYLE_DOSSIERS = ROOT / "architectural_photography/research/locations/style_discovery_dossiers.json"
+
+
+def current_style_candidates() -> list[dict]:
+    if not STYLE_DOSSIERS.exists():
+        return []
+    records = json.loads(STYLE_DOSSIERS.read_text(encoding="utf-8"))["records"]
+    return [{
+        "canonical_id": item["canonical_id"], "name": item["name"],
+        "district": item["district"], "latitude": item["latitude"],
+        "longitude": item["longitude"], "evidence_status": "CORROBORATED",
+        "ranking_eligible": True, "requires_current_verification": False,
+        "historical_ids": [], "historical_refs": [],
+        "source_runs": ["NEW_2026_STYLE_DISCOVERY"],
+    } for item in records]
 
 
 def normalize_identity(value: str) -> str:
@@ -174,7 +189,7 @@ def write_historical_derivatives(input_path: Path = DEFAULT_INPUT) -> dict:
     historical_dir = RANKING_ROOT / "historical"
     historical_dir.mkdir(parents=True, exist_ok=True)
     outputs = {
-        RANKING_ROOT / "canonical_candidates.json": result["candidates"],
+        RANKING_ROOT / "canonical_candidates.json": result["candidates"] + current_style_candidates(),
         RANKING_ROOT / "candidate_aliases.json": result["merges"],
         RANKING_ROOT / "reconciliation_report.json": {
             "source_runs": {run_id: len(records) for run_id, records in runs.items()},

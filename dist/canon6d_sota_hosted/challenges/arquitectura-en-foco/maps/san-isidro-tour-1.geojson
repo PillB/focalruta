@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "casa-museo-marina-nunez-del-prado",
+        "name": "Casa Museo Marina Núñez del Prado",
+        "district": "San Isidro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03397,
+          -12.100988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "palacio-municipal-y-de-la-cultura-san-isidro",
+        "name": "Municipalidad de San Isidro",
+        "district": "San Isidro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0273922,
+          -12.0977364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "torre-begonias",
+        "name": "Torre Begonias",
+        "district": "San Isidro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0239594,
+          -12.092104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "edificio-petroperu",
+        "name": "150",
+        "district": "San Isidro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0245028,
+          -12.0973204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
+        "name": "Viettel Perú",
+        "district": "San Isidro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0193865,
+          -12.0978883
+        ]
+      }
+    }
+  ]
+}

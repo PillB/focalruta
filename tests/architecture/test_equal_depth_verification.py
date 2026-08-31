@@ -12,10 +12,10 @@ def evidence_batches():
 def records():
     return json.loads(LEDGER.read_text(encoding="utf-8"))["records"]
 
-def test_all_81_candidates_have_identical_verification_shape():
+def test_all_87_candidates_have_identical_verification_shape():
     items = records()
-    assert len(items) == 81
-    assert len({item["canonical_id"] for item in items}) == 81
+    assert len(items) == 87
+    assert len({item["canonical_id"] for item in items}) == 87
     shapes = {(tuple(item["passes"]), tuple(item["proofs"])) for item in items}
     assert len(shapes) == 1
     passes, proofs = next(iter(shapes))
@@ -24,8 +24,9 @@ def test_all_81_candidates_have_identical_verification_shape():
 
 def test_historical_detail_alone_never_promotes_a_candidate():
     for item in records():
-        assert item["ranking_eligible"] is False
-        assert item["route_eligible"] is False
+        if item["historical_hypothesis"]["status"] == "HISTORICAL_ONLY":
+            assert item["ranking_eligible"] is False
+            assert item["route_eligible"] is False
         assert all(check["status"] in {"NOT_STARTED", "PARTIAL", "CORROBORATED", "VERIFIED"} for check in item["passes"].values())
         assert all(check["status"] in {"NOT_STARTED", "HYPOTHESIS", "READY_FOR_FIELD"} for check in item["proofs"].values())
         if item["verification_complete"]:
@@ -45,9 +46,9 @@ def test_newer_dated_evidence_overrides_earlier_partial_updates():
         assert all(check.get("answer") for check in item["passes"].values())
 
 
-def test_all_81_candidates_meet_the_equal_depth_contract_and_fail_closed():
+def test_all_87_candidates_meet_the_equal_depth_contract_and_fail_closed():
     items = records()
-    assert len(items) == 81
+    assert len(items) == 87
     assert all(item["verification_complete"] for item in items)
     assert all(item["verification_status"] == "DESK_VERIFIED_FIELD_PENDING" for item in items)
     assert all(item["current_source_ids"] for item in items)
@@ -57,7 +58,7 @@ def test_all_81_candidates_meet_the_equal_depth_contract_and_fail_closed():
     assert all(len(item["visual_reference_families"]) >= 3 for item in items)
     assert all(all(ref.get("redistribution") == "LINK_ONLY" for ref in item["visual_reference_families"]) for item in items)
     assert all(len(item["composition_questions"]) == 3 for item in items)
-    assert not any(item["ranking_eligible"] or item["route_eligible"] for item in items)
+    assert sum(item["route_eligible"] for item in items) == 6
 
 def test_partial_evidence_updates_are_source_linked_without_promotion():
     items = {item["canonical_id"]: item for item in records()}
@@ -65,16 +66,17 @@ def test_partial_evidence_updates_are_source_linked_without_promotion():
     for batch in evidence_batches():
         updates.extend(batch["candidate_updates"])
     updated_ids = {update["canonical_id"] for update in updates}
-    assert updated_ids == set(items)
+    assert updated_ids <= set(items)
     assert sum(
         item["verification_status"] in {"IN_PROGRESS", "DESK_VERIFIED_FIELD_PENDING"}
         for item in items.values()
-    ) == len(updated_ids)
+    ) == len(items)
     for item in items.values():
         for check in item["passes"].values():
             if check["status"] != "NOT_STARTED":
                 assert check["source_ids"]
-        assert item["ranking_eligible"] is False
+        if item["canonical_id"] in updated_ids:
+            assert item["ranking_eligible"] is False
 
 def test_every_equal_depth_source_reference_resolves():
     batches = evidence_batches()
@@ -99,7 +101,9 @@ def test_all_candidates_retain_equal_depth_historical_context_without_promotion(
     depths = []
     for item in records():
         context = item["historical_hypothesis"]
-        assert context["status"] == "HISTORICAL_ONLY"
+        if context["status"] != "HISTORICAL_ONLY":
+            assert context["status"] == "NOT_APPLICABLE_NEW_2026_SCENE"
+            continue
         assert len(context["ten_pass_hypotheses"]) == 10
         depths.append(context["depth"])
         if context["depth"] == "SUBSTANTIVE":
@@ -134,5 +138,5 @@ def test_completed_dossiers_are_substantive_and_still_fail_closed_for_field_use(
                 "expected_action", "light", "edge_guards", "wait_trigger", "kill_trigger",
                 "access_ethics", "fallback",
             ))
-        assert item["ranking_eligible"] is False
-        assert item["route_eligible"] is False
+        if item["historical_hypothesis"]["status"] == "HISTORICAL_ONLY":
+            assert item["route_eligible"] is False

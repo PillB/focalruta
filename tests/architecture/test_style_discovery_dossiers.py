@@ -29,14 +29,14 @@ def test_all_six_style_discoveries_have_equal_depth_dossiers():
     items = records()
     assert {item["canonical_id"] for item in items} == EXPECTED_IDS
     for item in items:
-        assert item["status"] == "DESK_VERIFIED_CANONICALIZATION_PENDING"
+        assert item["status"] == "DESK_VERIFIED_RANKED_ROUTED"
         assert set(item["passes"]) == PASSES
         assert all(check["answer"] and check["source_ids"] for check in item["passes"].values())
         assert set(item["proofs"]) == PROOFS
         assert len(item["composition_questions"]) == 3
         assert len(item["visual_reference_families"]) >= 3
-        assert item["ranking_eligible"] is False
-        assert item["route_eligible"] is False
+        assert item["ranking_eligible"] is True
+        assert item["route_eligible"] is True
 
 
 def test_style_dossier_proofs_are_field_ready_and_source_backed():
@@ -59,7 +59,7 @@ def test_style_dossier_proofs_are_field_ready_and_source_backed():
             assert reference["redistribution"] == "LINK_ONLY"
 
 
-def test_style_dossiers_do_not_bypass_canonical_reranking_gate():
+def test_style_dossiers_enter_canonical_ranking_and_verified_routes():
     candidate_ids = {
         item["canonical_id"]
         for item in json.loads((ROOT / "data/architecture/candidates.json").read_text(encoding="utf-8"))
@@ -68,12 +68,13 @@ def test_style_dossiers_do_not_bypass_canonical_reranking_gate():
         item["canonical_id"]
         for item in json.loads((ROOT / "data/architecture/ranking.json").read_text(encoding="utf-8"))["results"]
     }
-    assert not (EXPECTED_IDS & candidate_ids)
-    assert not (EXPECTED_IDS & ranking_ids)
+    assert EXPECTED_IDS <= candidate_ids
+    assert EXPECTED_IDS <= ranking_ids
+    assert all(item["route_eligible"] for item in json.loads((ROOT / "data/architecture/ranking.json").read_text(encoding="utf-8"))["results"] if item["canonical_id"] in EXPECTED_IDS)
 
 
-def test_generated_site_reports_completed_dossiers_without_promotion():
+def test_generated_site_reports_completed_promoted_dossiers():
     page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
-    assert "6/6 dossiers de escritorio completos" in page
+    assert "6/6 dossiers incorporados al ranking" in page
     assert "Can one A-frame plate visibly cause" in page
-    assert "canonización y reranking pendientes" in page
+    assert "incorporados al ranking" in page

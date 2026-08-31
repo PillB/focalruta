@@ -17,7 +17,9 @@ MATRIX_PATH = ROOT / "architectural_photography/ranking/performance_matrix.json"
 RUNS_DIR = ROOT / "architectural_photography/ranking/ranking_runs"
 HISTORY_PATH = ROOT / "architectural_photography/ranking/ranking_history.json"
 PUBLIC_PATH = ROOT / "data/architecture/ranking.json"
-RUN_ID = "2026-08-30-r4-v5"
+ROUTES_PATH = ROOT / "data/architecture/routes.json"
+NEW_ASSESSMENTS_PATH = ROOT / "architectural_photography/ranking/new_candidate_assessments.json"
+RUN_ID = "2026-08-31-r4-v7"
 
 
 def read_json(path: Path):
@@ -99,12 +101,21 @@ def matrix_row(candidate: dict, verified: dict, base: dict) -> dict:
         "juror_public_work_intersection": base["judge"] * 10,
     }
     return {
-        "canonical_id": candidate["canonical_id"],
-        "name": candidate["name"],
+        "canonical_id": candidate["canonical_id"], "name": candidate["name"],
         "district": candidate["district"],
         "criteria": {key: round(value, 3) for key, value in criteria.items()},
         "evidence_source_ids": verified["current_source_ids"],
         "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
+        "contradiction_count": len(verified["contradictions"]),
+    }
+
+
+def assessed_matrix_row(candidate: dict, verified: dict, assessment: dict) -> dict:
+    return {
+        "canonical_id": candidate["canonical_id"], "name": candidate["name"],
+        "district": candidate["district"], "criteria": assessment["criteria"],
+        "evidence_source_ids": verified["current_source_ids"],
+        "assessment_basis": "2026_STYLE_DOSSIER_EXPLICIT_EVIDENCE_ASSESSMENT",
         "contradiction_count": len(verified["contradictions"]),
     }
 
@@ -143,7 +154,8 @@ def pareto_ids(rows: list[dict], objectives: list[str]) -> set[str]:
     return front
 
 
-def build_run(model: dict, rows: list[dict], verification: dict) -> dict:
+def build_run(model: dict, rows: list[dict], verification: dict, route_ids: set[str] | None = None) -> dict:
+    route_ids = route_ids or set()
     scenario_rankings = {key: ranked(rows, value["weights"]) for key, value in model["scenarios"].items()}
     rank_samples = {row["canonical_id"]: [] for row in rows}
     rng = random.Random(model["sensitivity"]["seed"])
@@ -177,7 +189,7 @@ def build_run(model: dict, rows: list[dict], verification: dict) -> dict:
             "evidence_confidence": round(row["criteria"]["evidence_confidence"] / 100, 3),
             "field_rank": field_ranks[canonical_id],
             "ranking_eligible": verified_by_id[canonical_id]["verification_complete"],
-            "route_eligible": False,
+            "route_eligible": canonical_id in route_ids,
             "why_survives": verified_by_id[canonical_id]["passes"]["one_frame_contest_test"]["answer"],
             "strongest_counterargument": verified_by_id[canonical_id]["contradictions"][0] if verified_by_id[canonical_id]["contradictions"] else "Field evidence may overturn the desk hypothesis.",
             "field_failure": verified_by_id[canonical_id]["proofs"]["E_ONE_FRAME_STORY"]["kill_trigger"],
@@ -212,7 +224,7 @@ def build_run(model: dict, rows: list[dict], verification: dict) -> dict:
                 "robust_rank": item["robust_rank"],
                 "why_go_now": f"Combina valor de campo #{item['field_rank']} con potencial robusto #{item['robust_rank']} bajo la evidencia actual.",
                 "field_confidence": item["evidence_confidence"],
-                "route_fit": "NOT_EVALUATED_UNTIL_ROUND_5_TIME_WINDOW_ORIENTEERING",
+                "route_fit": "VERIFIED_WALKING_LAYER" if item["route_eligible"] else "NO_VERIFIED_WALKING_LAYER",
                 "required_scene": item["required_scene"],
                 "fallback": item["fallback"],
             }
@@ -243,12 +255,21 @@ def main() -> None:
     validate_model(model)
     candidates = read_json(CANONICAL_PATH)
     verification = read_json(VERIFICATION_PATH)
-    legacy = legacy_by_canonical(candidates, read_json(LEGACY_PATH))
+    historical = [item for item in candidates if item["historical_ids"]]
+    legacy = legacy_by_canonical(historical, read_json(LEGACY_PATH))
+    assessments = {item["canonical_id"]: item for item in read_json(NEW_ASSESSMENTS_PATH)["records"]}
     verified = {item["canonical_id"]: item for item in verification["records"]}
-    rows = [matrix_row(candidate, verified[candidate["canonical_id"]], legacy[candidate["canonical_id"]]) for candidate in candidates]
+    rows = [
+        matrix_row(candidate, verified[candidate["canonical_id"]], legacy[candidate["canonical_id"]])
+        if candidate["canonical_id"] in legacy else
+        assessed_matrix_row(candidate, verified[candidate["canonical_id"]], assessments[candidate["canonical_id"]])
+        for candidate in candidates
+    ]
     matrix = {"model_version": model["model_version"], "candidate_count": len(rows), "rows": rows}
     write_json(MATRIX_PATH, matrix)
-    run = build_run(model, rows, verification)
+    routes = read_json(ROUTES_PATH)
+    route_ids = {stop["canonical_id"] for layer in routes["district_layers"] for stop in layer["stops"]}
+    run = build_run(model, rows, verification, route_ids)
     run_path = RUNS_DIR / f"{RUN_ID}.json"
     write_immutable_json(run_path, run)
     update_history(run, run_path)

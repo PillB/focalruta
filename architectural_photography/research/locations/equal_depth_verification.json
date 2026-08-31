@@ -1,6 +1,6 @@
 {
-  "ledger_id": "EQUAL-DEPTH-81-2026-08-28",
-  "candidate_count": 81,
+  "ledger_id": "EQUAL-DEPTH-87-2026-08-30",
+  "candidate_count": 87,
   "completion_rule": "All ten passes, five proofs, current sources, visual families and composition questions must be VERIFIED or CORROBORATED.",
   "records": [
     {
@@ -25768,6 +25768,1638 @@
       "verification_complete": true,
       "ranking_eligible": false,
       "route_eligible": false
+    },
+    {
+      "canonical_id": "utec-campus-barranco",
+      "name": "Campus UTEC",
+      "district": "Barranco",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
+      "passes": {
+        "source_truth": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "Grafton Architects with Shell Arquitectos completed the active UTEC engineering campus in Barranco in 2015 at Jr. Medrano Silva 165; the verified point lies inside Barranco."
+        },
+        "original_spatial_contract": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "Inclined reinforced-concrete plates, suspended teaching floors, gardens and open circulation form an inhabited vertical campus that mediates cliff, highway and low-rise Barranco."
+        },
+        "current_life": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "UTEC currently operates classrooms, laboratories, library, maker spaces and common terraces; visitor access must be booked and ordinary student rhythms cannot be assumed from publicity."
+        },
+        "human_verbs_or_meaningful_absence": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "Arrive, climb, overlook, study, prototype, meet, pause and circulate are credible; meaningful absence can show circulation waiting for the next class change."
+        },
+        "architectural_causality": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "A-section plates and staggered terraces channel vertical movement, frame cross-campus views and buffer the fast Armendáriz edge from the neighborhood side."
+        },
+        "visual_forensic_saturation": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "The award-winning ocean/cliff elevation and heroic concrete overview dominate. The less repeated relationship is a public-ground view where student circulation crosses the structural section."
+        },
+        "light_material_geometry": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "Garúa flattens the skyline while revealing concrete mass; low side light separates plates and terraces, but decorative shadow without visible educational use fails."
+        },
+        "position_then_optics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "Test the Medrano neighborhood edge, the Armendáriz structural oblique and an authorized circulation threshold. Choose 35 mm for section/context, 50 mm for a plate-to-person relation, never widen merely to collect the whole icon."
+        },
+        "moment_logistics_ethics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "Remain on public pavement unless a visit is confirmed, observe class-change intervals, avoid identifiable students without consent and cap any exterior wait at 25 minutes."
+        },
+        "one_frame_contest_test": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "answer": "Passes only when the structural cliff visibly organizes learning, meeting or circulation in one frame. A prize-winning façade portrait is insufficient."
+        }
+      },
+      "proofs": {
+        "A_STRUCTURE": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "position": "Medrano public edge aligning staggered terraces and structural plates",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Clear interval reveals the vertical campus order",
+          "light": "Bright garúa",
+          "edge_guards": "Exclude traffic signs and unrelated towers",
+          "wait_trigger": "Three plates and two terraces separate",
+          "kill_trigger": "Reads only as giant concrete façade",
+          "access_ethics": "Public pavement; no campus entry implied",
+          "fallback": "50 mm plate-and-terrace reduction"
+        },
+        "B_HABITAR": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "position": "Authorized/public threshold where a plate frames a stair or terrace",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Adult students change level and pause",
+          "light": "Soft class-change daylight",
+          "edge_guards": "Separate bodies from railings and columns",
+          "wait_trigger": "Movement bends around one structural plate",
+          "kill_trigger": "People provide scale only",
+          "access_ethics": "Permission for interior/threshold; consent for identifiable subjects",
+          "fallback": "Anonymous silhouettes from public edge"
+        },
+        "C_ANTI_POSTAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "position": "Low Armendáriz oblique looking along—not frontally at—the plate sequence",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Pedestrian crosses the building/highway seam",
+          "light": "Overcast",
+          "edge_guards": "No heroic centered elevation",
+          "wait_trigger": "One person bridges city and campus layers",
+          "kill_trigger": "Becomes award-photo imitation",
+          "access_ethics": "Protected public sidewalk",
+          "fallback": "Empty infrastructure/campus seam"
+        },
+        "D_LIGHT_MATERIAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "position": "Public tangent isolating raw concrete, planted terrace and deep void",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Shadow or distant occupant crosses a material seam",
+          "light": "Late lateral sun",
+          "edge_guards": "Retain enough structure to explain material",
+          "wait_trigger": "Light reveals depth across three planes",
+          "kill_trigger": "Abstract texture loses campus function",
+          "access_ethics": "No telephoto into rooms",
+          "fallback": "50 mm garúa tonal study"
+        },
+        "E_ONE_FRAME_STORY": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-UTEC-CURRENT",
+            "SRC-STYLE-UTEC-DESIGN",
+            "SRC-STYLE-UTEC-RIBA"
+          ],
+          "position": "Medrano diagonal joining neighborhood approach, plate, terrace and circulation",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Arrival below and movement above occur together",
+          "light": "Late soft daylight",
+          "edge_guards": "Keep highway clutter subordinate",
+          "wait_trigger": "Two levels of use align",
+          "kill_trigger": "Caption is needed to explain education",
+          "access_ethics": "Public ground or authorized visit",
+          "fallback": "Single-level arrival framed by plate"
+        }
+      },
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-UTEC-01",
+          "page_url": "https://utec.edu.pe/campus",
+          "image_url": "https://utec.edu.pe/campus",
+          "publisher": "UTEC",
+          "viewpoint_family": "CURRENT_CAMPUS_AND_ACTIVE_PROGRAM",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The campus remains an active educational institution with multiple inhabited programs.",
+          "cannot_prove": "Does not prove public photography permission or a repeatable class-change window.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-UTEC-02",
+          "page_url": "https://www.archdaily.com/792814/engineering-and-technology-university-utec-grafton-architects-plus-shell-arquitectos",
+          "image_url": "https://www.archdaily.com/792814/engineering-and-technology-university-utec-grafton-architects-plus-shell-arquitectos",
+          "publisher": "ArchDaily / architect-supplied project text",
+          "viewpoint_family": "STRUCTURAL_SECTION_AND_MULTIANGLE_PROJECT_GALLERY",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The plate/terrace section and four-sided urban condition create distinct position families.",
+          "cannot_prove": "Architectural publication imagery cannot prove present edge clutter or access.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-UTEC-03",
+          "page_url": "https://www.architecture.com/-/media/c3b173cc0e7941779fd3d4ef694c1cda.pdf?la=en",
+          "image_url": "https://www.architecture.com/-/media/c3b173cc0e7941779fd3d4ef694c1cda.pdf?la=en",
+          "publisher": "Royal Institute of British Architects",
+          "viewpoint_family": "CIVIC_ARCHITECTURE_AWARD_CONTEXT",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "People-centered civic architecture, not novelty alone, was part of the authoritative award assessment.",
+          "cannot_prove": "An award cannot predict competition success or current photographic originality.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
+      "composition_questions": [
+        "Can one A-frame plate visibly cause a student circulation choice while the city/cliff edge remains legible?",
+        "Which highway sign, parked vehicle or overlapping slab destroys the structural-to-human reading?",
+        "Does moving from Armendáriz to Medrano change perspective more meaningfully than switching from 35 to 50 mm?"
+      ],
+      "historical_hypothesis": {
+        "status": "NOT_APPLICABLE_NEW_2026_SCENE",
+        "depth": "NEW_EVIDENCE_DOSSIER",
+        "ten_pass_hypotheses": []
+      },
+      "current_source_ids": [
+        "SRC-STYLE-UTEC-CURRENT",
+        "SRC-STYLE-UTEC-DESIGN",
+        "SRC-STYLE-UTEC-RIBA"
+      ],
+      "contradictions": [
+        "UTEC is active, but interior and upper-terrace access require an arranged visit; public sidewalks do not prove campus photography permission.",
+        "Award imagery heavily saturates the cliff façade, so fame and formal drama cannot substitute for present educational causality."
+      ],
+      "verification_complete": true,
+      "ranking_eligible": true,
+      "route_eligible": true
+    },
+    {
+      "canonical_id": "torre-interbank",
+      "name": "Torre Interbank",
+      "district": "La Victoria",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
+      "passes": {
+        "source_truth": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "Hans Hollein designed the Torre Interbank headquarters, completed in 2001 at Carlos Villarán 140 in La Victoria; Interbank confirms continuing headquarters use in 2026."
+        },
+        "original_spatial_contract": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "A curved high-rise slab follows the Javier Prado/Paseo de la República loop while a lower block answers the Carlos Villarán grid; podium, hall and branch mediate the two scales."
+        },
+        "current_life": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "Employees, clients, vehicles and pedestrians continue to arrive, enter, wait and pass; security limits interior access and the road interchange dominates exterior movement."
+        },
+        "human_verbs_or_meaningful_absence": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "Approach, cross, queue, enter, turn, accelerate, wait and disperse are credible. An empty entrance interval can show security and scale without turning workers into props."
+        },
+        "architectural_causality": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "The curved slab responds to fast orbital movement, the low block meets the street grid and the podium converts those trajectories into controlled entry."
+        },
+        "visual_forensic_saturation": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "Night illumination and tilted-tower hero views dominate. The underused relation is ground-level conflict between highway curve, pedestrian crossing and corporate threshold."
+        },
+        "light_material_geometry": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "Titanium mesh, white glass, stone base and deep podium respond differently to hard sun and blue hour; lighting spectacle alone does not establish architectural causality."
+        },
+        "position_then_optics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "Test the Carlos Villarán low-block edge, a legal Javier Prado oblique and the branch/entrance tangent. Start 50 mm for threshold, 35 mm only for road/building relation, 85 mm only from a safe distant public point."
+        },
+        "moment_logistics_ethics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "Scout crossings in daylight, never stand in medians or ramps, avoid security details and faces, cap the wait at 20 minutes and abandon any viewpoint requiring unsafe stopping."
+        },
+        "one_frame_contest_test": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "answer": "Passes when the tower's two geometries visibly transform fast traffic and slow human arrival into one readable frame. A tilted skyline icon fails."
+        }
+      },
+      "proofs": {
+        "A_STRUCTURE": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "position": "Carlos Villarán public sidewalk showing low block, podium and curved slab",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Clear interval reveals the two-scale composition",
+          "light": "Morning side light",
+          "edge_guards": "Exclude billboards and clipped tower crown",
+          "wait_trigger": "Podium and both volumes separate",
+          "kill_trigger": "Only tower silhouette reads",
+          "access_ethics": "Public sidewalk; obey security boundaries",
+          "fallback": "50 mm low-block/podium study"
+        },
+        "B_HABITAR": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "position": "Public entrance tangent outside security perimeter",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Adult client slows, turns and enters",
+          "light": "Bright overcast",
+          "edge_guards": "No faces, badges or security equipment",
+          "wait_trigger": "Entry geometry changes walking direction",
+          "kill_trigger": "Person only supplies scale",
+          "access_ethics": "No obstruction; consent if identifiable",
+          "fallback": "Meaningful empty threshold"
+        },
+        "C_ANTI_POSTAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "position": "Legal distant oblique where loop curvature meets the tower base",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Bus or pedestrian trajectory echoes the curved slab",
+          "light": "Garúa daylight",
+          "edge_guards": "No unsafe median viewpoint",
+          "wait_trigger": "Road and building curves align without collision",
+          "kill_trigger": "Generic compressed traffic/tower image",
+          "access_ethics": "Safe public ground only",
+          "fallback": "35 mm Carlos Villarán reverse"
+        },
+        "D_LIGHT_MATERIAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "position": "Public side view joining stone base, mesh and glass",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Moving shadow crosses podium seam",
+          "light": "Hard late sun",
+          "edge_guards": "Retain entrance/road cue",
+          "wait_trigger": "Three materials separate",
+          "kill_trigger": "Becomes corporate texture",
+          "access_ethics": "No telephoto into offices",
+          "fallback": "Blue-hour tonal volume study"
+        },
+        "E_ONE_FRAME_STORY": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-INTERBANK-2026",
+            "SRC-STYLE-INTERBANK-HOLLEIN",
+            "SRC-STYLE-INTERBANK-ADDRESS"
+          ],
+          "position": "Carlos Villarán diagonal joining sidewalk, controlled entry, low block and tower curve",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Pedestrian approach and vehicle turn occur in distinct layers",
+          "light": "Late afternoon",
+          "edge_guards": "Keep signage and traffic subordinate",
+          "wait_trigger": "Slow and fast movement coexist legibly",
+          "kill_trigger": "Caption must explain highway response",
+          "access_ethics": "Safe corner; no roadway entry",
+          "fallback": "Single arrival against low block"
+        }
+      },
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-INTERBANK-01",
+          "page_url": "https://interbank.pe/es/blog/sala-de-prensa/25-anos-torre-interbank-icono-arquitectonico",
+          "image_url": "https://interbank.pe/es/blog/sala-de-prensa/25-anos-torre-interbank-icono-arquitectonico",
+          "publisher": "Interbank",
+          "viewpoint_family": "CURRENT_HEADQUARTERS_AND_ANNIVERSARY",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The building remains Interbank's principal headquarters in 2026.",
+          "cannot_prove": "Corporate celebration does not prove public access or a strong street moment.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-INTERBANK-02",
+          "page_url": "https://hollein.com/eng/Architecture/Chronology/2000-2009/Torre-Interbank",
+          "image_url": "https://hollein.com/eng/Architecture/Chronology/2000-2009/Torre-Interbank",
+          "publisher": "Hans Hollein",
+          "viewpoint_family": "ARCHITECT_AUTHORED_URBAN_FORM",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "Curved/high and rectilinear/low volumes intentionally answer highway loop and street grid.",
+          "cannot_prove": "Architect imagery cannot prove current pedestrian safety or clutter.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-INTERBANK-03",
+          "page_url": "https://content-us-2.content-cms.com/9b3f67ef-5a9f-4acc-8ce8-bcc27fa681c7/dxdam/10/101f7c9e-e5cb-4b68-991d-390bd18f43be/PDF%20Desplegable%20Tiendas%2023.05.pdf",
+          "image_url": "https://content-us-2.content-cms.com/9b3f67ef-5a9f-4acc-8ce8-bcc27fa681c7/dxdam/10/101f7c9e-e5cb-4b68-991d-390bd18f43be/PDF%20Desplegable%20Tiendas%2023.05.pdf",
+          "publisher": "Interbank",
+          "viewpoint_family": "VERIFIED_CORPORATE_ADDRESS",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The identity and La Victoria address are not inferred from skyline recognition.",
+          "cannot_prove": "A directory does not prove a precise camera position or current façade condition.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
+      "composition_questions": [
+        "Can the highway curve, low street block and one arrival gesture read as a single causal system?",
+        "Which ramp barrier, billboard or vehicle overlap makes the person incidental?",
+        "Does a safer Carlos Villarán position reveal the two-scale design better than a wider lens near the interchange?"
+      ],
+      "historical_hypothesis": {
+        "status": "NOT_APPLICABLE_NEW_2026_SCENE",
+        "depth": "NEW_EVIDENCE_DOSSIER",
+        "ten_pass_hypotheses": []
+      },
+      "current_source_ids": [
+        "SRC-STYLE-INTERBANK-2026",
+        "SRC-STYLE-INTERBANK-HOLLEIN",
+        "SRC-STYLE-INTERBANK-ADDRESS"
+      ],
+      "contradictions": [
+        "The headquarters is highly visible but sits beside highway-scale traffic; a legal, comfortable pedestrian viewpoint is not guaranteed.",
+        "Published imagery emphasizes sculptural skyline form and illumination, creating high cliché saturation."
+      ],
+      "verification_complete": true,
+      "ranking_eligible": true,
+      "route_eligible": true
+    },
+    {
+      "canonical_id": "casa-fernandini-1913",
+      "name": "Casa Fernandini (1913)",
+      "district": "Lima",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
+      "passes": {
+        "source_truth": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "Claudio Sahut's Casa Fernandini, built in 1913 at Jr. Ica 400, is a protected eclectic residence whose interiors contain Art Nouveau glass, ornament and early modern services."
+        },
+        "original_spatial_contract": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "A corner urban shell leads through controlled doors into stair, stained-glass, salon and lift sequences designed to stage domestic status, light and technological modernity."
+        },
+        "current_life": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "The house hosts episodic exhibitions and institutional events, but no stable daily access schedule is verified; public life at the corner remains the repeatable fallback."
+        },
+        "human_verbs_or_meaningful_absence": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "Approach, knock, enter, guide, gather, look, ascend and pass are credible during authorized use; meaningful absence can expose a closed cultural threshold."
+        },
+        "architectural_causality": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "Corner geometry and entrance compress street movement before the interior sequence releases it through stair, hall, glass and salon thresholds."
+        },
+        "visual_forensic_saturation": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "Ornament close-ups, chandelier rooms and frontal heritage façades dominate. The underused relation is contemporary cultural arrival passing through an early-modern domestic threshold."
+        },
+        "light_material_geometry": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "Colored glass, polished wood, metalwork and concrete structure require controlled window light; decorative detail without spatial transition fails."
+        },
+        "position_then_optics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "Test the Ica/Torrico corner, doorway tangent and—only with authorization—hall-to-stair diagonal. Start 35 mm for street/threshold and 50 mm for glass/action relation."
+        },
+        "moment_logistics_ethics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "Confirm an actual public visit and photography permission, never photograph private-event guests without consent, cap the interior wait at 15 minutes and kill all interior proofs if access is denied."
+        },
+        "one_frame_contest_test": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "answer": "Passes when old domestic technology and ornament visibly channel present cultural use. Beautiful Art Nouveau detail alone is not a 2026 architecture-and-life story."
+        }
+      },
+      "proofs": {
+        "A_STRUCTURE": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "position": "Opposite public corner holding both Jr. Ica and Torrico façades",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Clear interval reveals corner, entrance and urban approach",
+          "light": "Soft morning daylight",
+          "edge_guards": "Exclude cars and unrelated signage",
+          "wait_trigger": "Door and corner hierarchy separate",
+          "kill_trigger": "Generic heritage façade",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm door/corner relation"
+        },
+        "B_HABITAR": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "position": "Authorized entrance-to-hall diagonal",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Guide or consenting visitor crosses from street light into hall",
+          "light": "Mixed doorway and interior light",
+          "edge_guards": "No event branding or unidentified guests",
+          "wait_trigger": "Threshold changes pace and light",
+          "kill_trigger": "Visitor only supplies scale",
+          "access_ethics": "Explicit access and photography permission",
+          "fallback": "Empty open-door sequence"
+        },
+        "C_ANTI_POSTAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "position": "Public side tangent emphasizing threshold rather than full façade",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Passerby aligns with a briefly opening door",
+          "light": "Garúa daylight",
+          "edge_guards": "Avoid centered monument portrait",
+          "wait_trigger": "Present street and historic entry coincide",
+          "kill_trigger": "Requires knowledge of the interior",
+          "access_ethics": "Public ground; no waiting on private occupants",
+          "fallback": "Meaningful closed threshold"
+        },
+        "D_LIGHT_MATERIAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "position": "Authorized hall position joining stained glass, stair and structural opening",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Colored light crosses a consenting visitor or empty stair",
+          "light": "Window-directed midday light",
+          "edge_guards": "Retain stair/door context around ornament",
+          "wait_trigger": "Color reveals circulation depth",
+          "kill_trigger": "Decorative detail becomes isolated",
+          "access_ethics": "Permission hard gate; no flash",
+          "fallback": "Exterior window/door light relation"
+        },
+        "E_ONE_FRAME_STORY": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-FERNANDINI-CULTURE",
+            "SRC-STYLE-FERNANDINI-MONUMENT",
+            "SRC-STYLE-FERNANDINI-2026"
+          ],
+          "position": "Authorized diagonal from corner entrance through hall toward stair",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Arrival, pause and ascent occur in one sequence",
+          "light": "Available interior/daylight balance",
+          "edge_guards": "Keep modern equipment and event clutter subordinate",
+          "wait_trigger": "Three spatial stages align",
+          "kill_trigger": "Caption must explain current cultural use",
+          "access_ethics": "Event and subject permission",
+          "fallback": "Exterior arrival at cultural threshold"
+        }
+      },
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-FERNANDINI-01",
+          "page_url": "https://www.elperuano.pe/noticia/201710-casa-fernandini-art-nouveau-en-el-corazon-de-lima",
+          "image_url": "https://www.elperuano.pe/noticia/201710-casa-fernandini-art-nouveau-en-el-corazon-de-lima",
+          "publisher": "Diario Oficial El Peruano",
+          "viewpoint_family": "ART_NOUVEAU_INTERIOR_AND_TECHNOLOGY",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "Art Nouveau glass/ornament and early-modern domestic systems are integral to the house.",
+          "cannot_prove": "Historical description does not prove current opening or condition of every room.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FERNANDINI-02",
+          "page_url": "https://repositorio.cultura.gob.pe/bitstream/handle/CULTURA/77/relacion%20de%20monumentos%20historicos.pdf?sequence=1&isAllowed=y",
+          "image_url": "https://repositorio.cultura.gob.pe/bitstream/handle/CULTURA/77/relacion%20de%20monumentos%20historicos.pdf?sequence=1&isAllowed=y",
+          "publisher": "Ministerio de Cultura",
+          "viewpoint_family": "OFFICIAL_MONUMENT_AND_CORNER_ADDRESS",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The protected identity and exact Centro Histórico corner are authoritative.",
+          "cannot_prove": "Monument listing does not grant access or photography permission.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-FERNANDINI-03",
+          "page_url": "https://cosas.pe/sociales/marina-de-guerra-del-peru-inaugura-la-exposicion-los-cuatro-ases-de-la-marina-en-la-casa-fernandini",
+          "image_url": "https://cosas.pe/sociales/marina-de-guerra-del-peru-inaugura-la-exposicion-los-cuatro-ases-de-la-marina-en-la-casa-fernandini",
+          "publisher": "Cosas",
+          "viewpoint_family": "CURRENT_CULTURAL_EVENT_USE",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The house hosted a cultural exhibition in March 2026.",
+          "cannot_prove": "One exhibition does not establish a recurring schedule or ordinary visitor rhythm.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
+      "composition_questions": [
+        "Can one contemporary arrival be visibly transformed by the corner-door-hall sequence before ornament becomes the subject?",
+        "Which parked car, event backdrop or decorative crop severs street from interior order?",
+        "If access is denied, does the closed threshold still carry enough present cultural expectation to survive without a caption?"
+      ],
+      "historical_hypothesis": {
+        "status": "NOT_APPLICABLE_NEW_2026_SCENE",
+        "depth": "NEW_EVIDENCE_DOSSIER",
+        "ten_pass_hypotheses": []
+      },
+      "current_source_ids": [
+        "SRC-STYLE-FERNANDINI-CULTURE",
+        "SRC-STYLE-FERNANDINI-MONUMENT",
+        "SRC-STYLE-FERNANDINI-2026"
+      ],
+      "contradictions": [
+        "A March 2026 exhibition proves episodic cultural use, not permanent public opening or competition-photography permission.",
+        "The Art Nouveau evidence is primarily interior; without authorized access the viable scene may be only the urban threshold."
+      ],
+      "verification_complete": true,
+      "ranking_eligible": true,
+      "route_eligible": true
+    },
+    {
+      "canonical_id": "estacion-desamparados",
+      "name": "Estación Desamparados / Casa de la Literatura",
+      "district": "Lima",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
+      "passes": {
+        "source_truth": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "The 1912 Desamparados railway station at Jr. Áncash 207 now operates as the Casa de la Literatura Peruana, with current 2026 hours and free public entry."
+        },
+        "original_spatial_contract": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "A symmetrical civic façade, former platform/hall, iron and floral Art Nouveau glazing organized arrival, waiting and rail transfer before conversion to cultural use."
+        },
+        "current_life": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "Readers, families, researchers, guides and event audiences now enter, browse, wait, read and gather within retained station circulation; exact room availability varies."
+        },
+        "human_verbs_or_meaningful_absence": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "Arrive, queue, orient, read, browse, gather, descend and depart are credible. Empty benches or hall axes can carry the residue of waiting without forcing a person."
+        },
+        "architectural_causality": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "The entry axis, tall hall, stained-glass roof and former platform turn urban arrival into illuminated waiting/reading space; adaptive reuse preserves the original movement contract while changing its destination."
+        },
+        "visual_forensic_saturation": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "Frontal façade, clock and empty grand-hall views dominate. The underused scene pairs reader movement with platform/hall geometry or floral glass without becoming event documentation."
+        },
+        "light_material_geometry": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "Diffused roof light reveals the hall and colored floral glass; mixed exposure needs highlight protection, while stained-glass detail alone loses the station-to-library transformation."
+        },
+        "position_then_optics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "Test the Áncash approach, hall centerline offset and former-platform tangent. Start 35 mm for adaptive-reuse section, 50 mm for reader/glass relation and avoid 85 mm that detaches people from circulation."
+        },
+        "moment_logistics_ethics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "Use published hours, recheck room closures and photography rules, avoid identifiable children, never obstruct readers and cap the decisive wait at 20 minutes."
+        },
+        "one_frame_contest_test": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "answer": "Passes when retained station architecture visibly converts arrival/waiting into reading/gathering now. A façade or vitral postcard fails."
+        }
+      },
+      "proofs": {
+        "A_STRUCTURE": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "position": "Áncash public approach holding façade, doors and arrival space",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Clear interval reveals civic entrance order",
+          "light": "Morning façade light",
+          "edge_guards": "Exclude palace/security clutter and vehicles",
+          "wait_trigger": "Door bays and approach align",
+          "kill_trigger": "Generic historic façade",
+          "access_ethics": "Public pavement",
+          "fallback": "50 mm entrance sequence"
+        },
+        "B_HABITAR": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "position": "Interior hall offset where retained circulation frames reading/gathering",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Reader crosses then pauses at a cultural threshold",
+          "light": "Diffused roof light",
+          "edge_guards": "Separate people from panels and columns",
+          "wait_trigger": "Arrival becomes reading choice",
+          "kill_trigger": "People only populate a grand room",
+          "access_ethics": "Open hours; follow photography rules; protect minors",
+          "fallback": "Meaningful empty waiting/reading hall"
+        },
+        "C_ANTI_POSTAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "position": "Former-platform tangent looking back across hall rather than centered façade",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Visitor moves counter to the historic rail direction",
+          "light": "Bright overcast interior",
+          "edge_guards": "Avoid clock-centered postcard symmetry",
+          "wait_trigger": "Old and new routes oppose clearly",
+          "kill_trigger": "Historical relation needs caption",
+          "access_ethics": "Public interior if open",
+          "fallback": "Door-to-library axis"
+        },
+        "D_LIGHT_MATERIAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "position": "Hall position where Art Nouveau glass casts light across circulation structure",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Reader or shadow crosses colored-light field",
+          "light": "Midday roof light with highlight protection",
+          "edge_guards": "Retain hall edge and route cue",
+          "wait_trigger": "Glass changes spatial depth",
+          "kill_trigger": "Becomes isolated vitral detail",
+          "access_ethics": "No flash; do not disrupt readers",
+          "fallback": "Empty glass/hall geometry"
+        },
+        "E_ONE_FRAME_STORY": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-DESAMPARADOS-CURRENT",
+            "SRC-STYLE-DESAMPARADOS-ARCH",
+            "SRC-STYLE-DESAMPARADOS-2026"
+          ],
+          "position": "Diagonal joining street arrival, hall axis and active reading/gathering zone",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Arrival, orientation and reading coexist",
+          "light": "Balanced exterior/interior daylight",
+          "edge_guards": "Keep exhibition furniture subordinate",
+          "wait_trigger": "Three verbs occupy three architectural layers",
+          "kill_trigger": "Caption rescues former-station meaning",
+          "access_ethics": "Public hours and current rules",
+          "fallback": "Hall-to-library two-layer story"
+        }
+      },
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-DESAMPARADOS-01",
+          "page_url": "https://www.casadelaliteratura.gob.pe/",
+          "image_url": "https://www.casadelaliteratura.gob.pe/",
+          "publisher": "Casa de la Literatura Peruana",
+          "viewpoint_family": "CURRENT_CULTURAL_OPERATION",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The former station is an active national literary institution.",
+          "cannot_prove": "Homepage activity cannot predict crowd density or room access on a chosen day.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-DESAMPARADOS-02",
+          "page_url": "https://www.casadelaliteratura.gob.pe/wp-content/uploads/2019/10/Periodico_Estacion-de-las-letras_WEB.pdf",
+          "image_url": "https://www.casadelaliteratura.gob.pe/wp-content/uploads/2019/10/Periodico_Estacion-de-las-letras_WEB.pdf",
+          "publisher": "Casa de la Literatura Peruana",
+          "viewpoint_family": "ARCHITECTURAL_SECTION_AND_ART_NOUVEAU_GLASS",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "Floral Art Nouveau glass and hall geometry are documented components of the retained architecture.",
+          "cannot_prove": "Historic diagrams do not prove current furniture, barriers or light.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-DESAMPARADOS-03",
+          "page_url": "https://www.casadelaliteratura.gob.pe/wp-content/uploads/2026/01/Agenda_Enero-2026.pdf",
+          "image_url": "https://www.casadelaliteratura.gob.pe/wp-content/uploads/2026/01/Agenda_Enero-2026.pdf",
+          "publisher": "Casa de la Literatura Peruana",
+          "viewpoint_family": "CURRENT_2026_HOURS_AND_PROGRAM",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The building has defined public hours and active services in 2026.",
+          "cannot_prove": "Published hours do not authorize every photographic use or guarantee a decisive moment.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
+      "composition_questions": [
+        "Can the old arrival axis visibly become a reading or gathering route in one frame?",
+        "Which exhibition panel, crowd overlap or blown glass highlight breaks the station-to-literature causality?",
+        "Does an off-axis hall position reveal adaptive reuse better than a centered symmetrical view?"
+      ],
+      "historical_hypothesis": {
+        "status": "NOT_APPLICABLE_NEW_2026_SCENE",
+        "depth": "NEW_EVIDENCE_DOSSIER",
+        "ten_pass_hypotheses": []
+      },
+      "current_source_ids": [
+        "SRC-STYLE-DESAMPARADOS-CURRENT",
+        "SRC-STYLE-DESAMPARADOS-ARCH",
+        "SRC-STYLE-DESAMPARADOS-2026"
+      ],
+      "contradictions": [
+        "Published hours establish institutional opening, but event density and interior photography conditions remain same-day checks.",
+        "The former station narrative is highly legible in a caption; the frame must show transport architecture actively organizing reading rather than relying on history text."
+      ],
+      "verification_complete": true,
+      "ranking_eligible": true,
+      "route_eligible": true
+    },
+    {
+      "canonical_id": "edificio-petroperu",
+      "name": "Edificio Petroperú",
+      "district": "San Isidro",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
+      "passes": {
+        "source_truth": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Walter Weberhofer and Daniel Arana Ríos designed the 1970–73 Petroperú headquarters at the Canaval y Moreyra/Paseo de la República corner in San Isidro."
+        },
+        "original_spatial_contract": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Monumental plates, tower, stair box, entry forecourt and interior court organized a centralized state enterprise through legible structural and administrative hierarchy."
+        },
+        "current_life": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Petroperú still identifies the building as headquarters, but since December 2025 it is under evaluation as a non-strategic asset; occupancy and entry patterns require current confirmation."
+        },
+        "human_verbs_or_meaningful_absence": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Arrive, screen, enter, work, maintain, wait and pass are credible; an empty forecourt can express institutional distance if current use is uncertain."
+        },
+        "architectural_causality": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Deep frames, podium/forecourt, stair box and tower convert the exposed expressway corner into a controlled institutional threshold."
+        },
+        "visual_forensic_saturation": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Historic brutalist hero views, empty façade and stair-box abstractions dominate. The underused relation is current employee/public movement against a headquarters whose institutional future is unsettled."
+        },
+        "light_material_geometry": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Concrete depth, repetitive frames and hard Lima sun create strong relief; garúa reveals mass and weathering, while texture-only brutalism fails the theme."
+        },
+        "position_then_optics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Test Canaval forecourt, Paseo structural oblique and safe opposite-corner section. Start 50 mm for threshold, 35 mm for corner/system, 85 mm only from a legal distant sidewalk."
+        },
+        "moment_logistics_ethics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Verify current occupancy and barriers, stay outside the security perimeter, avoid badges/vehicles/security systems, cap wait at 20 minutes and treat any sale/closure change as rank-moving evidence."
+        },
+        "one_frame_contest_test": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "answer": "Passes when structural hierarchy visibly shapes present institutional arrival or meaningful absence. Brutalist monumentality without current life fails."
+        }
+      },
+      "proofs": {
+        "A_STRUCTURE": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "position": "Canaval public sidewalk holding forecourt, entry frame and tower",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Clear interval reveals institutional hierarchy",
+          "light": "Garúa morning",
+          "edge_guards": "Exclude security devices and traffic clutter",
+          "wait_trigger": "Forecourt and frame separate",
+          "kill_trigger": "Only massive façade reads",
+          "access_ethics": "Public sidewalk outside perimeter",
+          "fallback": "50 mm entry-frame study"
+        },
+        "B_HABITAR": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "position": "Public forecourt tangent outside controlled boundary",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Anonymous employee or visitor slows at screening threshold",
+          "light": "Soft daylight",
+          "edge_guards": "No badges, plates or faces",
+          "wait_trigger": "Architecture changes pace",
+          "kill_trigger": "Person merely supplies scale",
+          "access_ethics": "Privacy and security hard gate",
+          "fallback": "Meaningful empty threshold"
+        },
+        "C_ANTI_POSTAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "position": "Safe opposite-corner oblique joining expressway edge to stair box",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "85 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Pedestrian movement opposes monumental frame rhythm",
+          "light": "Bright overcast",
+          "edge_guards": "No roadway/median position",
+          "wait_trigger": "Urban and institutional scales conflict clearly",
+          "kill_trigger": "Compressed tower icon",
+          "access_ethics": "Legal public sidewalk only",
+          "fallback": "35 mm Canaval system view"
+        },
+        "D_LIGHT_MATERIAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "position": "Public side angle where concrete frame, stair box and shadow overlap",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Shadow crosses deep structural bay",
+          "light": "Hard late sun",
+          "edge_guards": "Retain entry or sidewalk cue",
+          "wait_trigger": "Depth reads across three planes",
+          "kill_trigger": "Pure brutalist abstraction",
+          "access_ethics": "No lens into offices",
+          "fallback": "Garúa material sequence"
+        },
+        "E_ONE_FRAME_STORY": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-PETRO-CAMMP",
+            "SRC-STYLE-PETRO-CURRENT",
+            "SRC-STYLE-PETRO-HISTORY"
+          ],
+          "position": "Canaval diagonal joining city approach, forecourt, security threshold and tower",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Pass, pause and enter occupy separate layers—or absence makes closure legible",
+          "light": "Late soft daylight",
+          "edge_guards": "Institutional relationship primary",
+          "wait_trigger": "Current use/uncertainty reads unaided",
+          "kill_trigger": "Asset-evaluation story exists only in caption",
+          "access_ethics": "Public edge; current status recheck",
+          "fallback": "Two-layer forecourt/entry story"
+        }
+      },
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-PETROPERU-01",
+          "page_url": "https://cammp.ulima.edu.pe/edificios/edificio-petroperu/",
+          "image_url": "https://cammp.ulima.edu.pe/edificios/edificio-petroperu/",
+          "publisher": "Universidad de Lima CAMMP",
+          "viewpoint_family": "ARCHIVE_MULTIANGLE_PLANS_AND_CURRENT_ASSESSMENT",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The formal system includes distinct front, rear, court, stair and tower viewpoints.",
+          "cannot_prove": "CAMMP's condition date is not a same-day 2026 survey.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PETROPERU-02",
+          "page_url": "https://www.petroperu.com.pe/petroperu-incluye-su-sede-principal-en-la-lista-de-activos-no-estrategicos",
+          "image_url": "https://www.petroperu.com.pe/petroperu-incluye-su-sede-principal-en-la-lista-de-activos-no-estrategicos",
+          "publisher": "Petroperú",
+          "viewpoint_family": "CURRENT_ASSET_STATUS_AND_ADDRESS",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The building's current corporate status is unsettled and operationally relevant.",
+          "cannot_prove": "Asset evaluation does not prove sale, vacancy or closure.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-PETROPERU-03",
+          "page_url": "https://www.petroperu.com.pe/Storage/tbl_documentos_varios/fld_1160_Documento_file/111-r3Rp4Sk5Wd9Vp7P.pdf",
+          "image_url": "https://www.petroperu.com.pe/Storage/tbl_documentos_varios/fld_1160_Documento_file/111-r3Rp4Sk5Wd9Vp7P.pdf",
+          "publisher": "Petroperú",
+          "viewpoint_family": "ORIGINAL_HEADQUARTERS_CORNER_OPERATION",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The corner complex was designed as a centralized administrative headquarters.",
+          "cannot_prove": "Historic inauguration material does not prove present access or behavior.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
+      "composition_questions": [
+        "Can the forecourt and structural frame visibly disclose current institutional use—or its meaningful withdrawal—without a caption?",
+        "Which expressway clutter, fence or heroic low angle turns the scene into generic brutalism?",
+        "Does the Canaval entry position reveal more causality than a distant 85 mm tower abstraction?"
+      ],
+      "historical_hypothesis": {
+        "status": "NOT_APPLICABLE_NEW_2026_SCENE",
+        "depth": "NEW_EVIDENCE_DOSSIER",
+        "ten_pass_hypotheses": []
+      },
+      "current_source_ids": [
+        "SRC-STYLE-PETRO-CAMMP",
+        "SRC-STYLE-PETRO-CURRENT",
+        "SRC-STYLE-PETRO-HISTORY"
+      ],
+      "contradictions": [
+        "CAMMP records Paseo de la República 3361 while Petroperú records Canaval y Moreyra 150; these describe the same corner complex but the discrepancy is retained.",
+        "The headquarters was placed under non-strategic-asset evaluation in December 2025; future ownership/use is unresolved and must be verified before routing."
+      ],
+      "verification_complete": true,
+      "ranking_eligible": true,
+      "route_eligible": true
+    },
+    {
+      "canonical_id": "torre-begonias",
+      "name": "Torre Begonias + Paseo Begonias",
+      "district": "San Isidro",
+      "verification_status": "DESK_VERIFIED_FIELD_PENDING",
+      "passes": {
+        "source_truth": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Torre Begonias is an operating 26-floor office tower at Calle Las Begonias 415 within the current Paseo Begonias financial-center network in San Isidro."
+        },
+        "original_spatial_contract": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Tower lobby, setback, adjoining office blocks, retail/food edges and pedestrian space combine vertical work with a more porous ground-level destination."
+        },
+        "current_life": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Workers, diners, couriers and visitors arrive, queue, cross, sit, meet and disperse; exact public/private boundaries and peak rhythms require observation."
+        },
+        "human_verbs_or_meaningful_absence": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Arrive, badge, deliver, eat, meet, sit, cross and leave are credible. Off-hours absence can expose how much public life depends on the workday timetable."
+        },
+        "architectural_causality": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Setback, lobby, canopy, retail edge and plaza route turn tower arrival into a sequence of slowing, choosing and branching rather than a single door."
+        },
+        "visual_forensic_saturation": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Upward tower shots, reflections and skyline height dominate. The underused relation is the workday ground plane where office, food and waiting flows collide or separate."
+        },
+        "light_material_geometry": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Glass reflection and hard sun can erase the ground plane; garúa and blue hour may balance canopy, lobby and bodies, but decorative reflection alone fails."
+        },
+        "position_then_optics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Test the 415 lobby setback, a cross-passage toward adjoining food/office edges and an opposite-side compressed ground section. Start 35 mm for flow network, 50 mm for choice point."
+        },
+        "moment_logistics_ethics": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Observe morning, lunch and after-work intervals, remain in clearly public space, avoid badges/screens/faces, verify barriers and cap any single interval at 20 minutes."
+        },
+        "one_frame_contest_test": {
+          "status": "CORROBORATED",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "answer": "Passes when ground-plane architecture visibly redistributes work, food and waiting. Tower height, glass polish or a busy crowd without spatial cause fails."
+        }
+      },
+      "proofs": {
+        "A_STRUCTURE": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "position": "Opposite public sidewalk holding tower setback, lobby and pedestrian plane",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Clear interval reveals lobby/plaza order",
+          "light": "Bright garúa",
+          "edge_guards": "Exclude clipped tower and vehicle clutter",
+          "wait_trigger": "Ground zones separate",
+          "kill_trigger": "Only glass tower reads",
+          "access_ethics": "Public sidewalk",
+          "fallback": "50 mm canopy/lobby study"
+        },
+        "B_HABITAR": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "position": "Public plaza edge where lobby, food and delivery paths branch",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Worker, diner and courier choose different routes",
+          "light": "Lunch-hour soft daylight",
+          "edge_guards": "Separate bodies and protect identities",
+          "wait_trigger": "Three verbs diverge at one device",
+          "kill_trigger": "Crowd density replaces composition",
+          "access_ethics": "Confirm public boundary; no badge/screen details",
+          "fallback": "Two anonymous paths"
+        },
+        "C_ANTI_POSTAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "position": "Cross-passage reverse looking away from the canonical tower-up view",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "People leave tower and occupy adjoining ground programs",
+          "light": "Overcast",
+          "edge_guards": "Avoid centered logo and reflection spectacle",
+          "wait_trigger": "Tower use becomes public-realm occupation",
+          "kill_trigger": "Building identity disappears",
+          "access_ethics": "Public route only",
+          "fallback": "Lobby-to-sidewalk relation"
+        },
+        "D_LIGHT_MATERIAL": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "position": "Canopy tangent where glass, soffit and pavement receive different light",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "50 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Passing shadow or umbrella crosses material seam",
+          "light": "Blue hour or post-garúa brightness",
+          "edge_guards": "Retain lobby and route cue",
+          "wait_trigger": "Light reveals depth without mirror gimmick",
+          "kill_trigger": "Abstract corporate texture",
+          "access_ethics": "No telephoto into offices",
+          "fallback": "Garúa tonal ground plane"
+        },
+        "E_ONE_FRAME_STORY": {
+          "status": "READY_FOR_FIELD",
+          "source_ids": [
+            "SRC-STYLE-BEGONIAS-ABOUT",
+            "SRC-STYLE-BEGONIAS-OFFICES",
+            "SRC-STYLE-BEGONIAS-MAP"
+          ],
+          "position": "Diagonal joining street arrival, plaza choice, lobby and occupied food edge",
+          "camera_height": "1.3 m",
+          "orientation": "Horizontal",
+          "lens": "35 mm",
+          "exposure_intent": "f/8, shutter set by observed movement, Auto ISO ceiling checked",
+          "expected_action": "Arrival, branching and pause coexist",
+          "light": "Late workday transition",
+          "edge_guards": "Keep signage subordinate and faces anonymous",
+          "wait_trigger": "Three layers tell work/public-realm story",
+          "kill_trigger": "Caption must explain mixed use",
+          "access_ethics": "Public ground; current barrier recheck",
+          "fallback": "Lobby/food two-layer story"
+        }
+      },
+      "visual_reference_families": [
+        {
+          "reference_id": "VR-BEGONIAS-01",
+          "page_url": "https://paseobegonias.com/en/about-us/",
+          "image_url": "https://paseobegonias.com/en/about-us/",
+          "publisher": "Paseo Begonias",
+          "viewpoint_family": "CURRENT_MIXED_PUBLIC_REALM_NETWORK",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The operator intentionally links office, food and public-realm programs.",
+          "cannot_prove": "Marketing does not prove access boundaries, activity density or comfort.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BEGONIAS-02",
+          "page_url": "https://paseobegonias.com/oficinas/",
+          "image_url": "https://paseobegonias.com/oficinas/",
+          "publisher": "Paseo Begonias",
+          "viewpoint_family": "TOWER_ADDRESS_AND_ACTIVE_OFFICE_PROGRAM",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "Torre Begonias remains an active office building at the stated address.",
+          "cannot_prove": "Office listing cannot prove exact workday gestures or photography rules.",
+          "redistribution": "LINK_ONLY"
+        },
+        {
+          "reference_id": "VR-BEGONIAS-03",
+          "page_url": "https://www.openstreetmap.org/way/397559270",
+          "image_url": "https://www.openstreetmap.org/way/397559270",
+          "publisher": "OpenStreetMap contributors",
+          "viewpoint_family": "NAMED_BUILDING_FOOTPRINT",
+          "likely_camera_height": "mixed published viewpoints",
+          "fov_class": "wide to normal; exact focal not inferable",
+          "light_weather": "published daylight or interior illumination",
+          "people_activity": "institutional use or public-space occupation where shown",
+          "edge_background": "building, threshold and surrounding urban fabric",
+          "cliche_cluster": "canonical architecture overview",
+          "proves": "The mapped point corresponds to the named tower inside San Isidro.",
+          "cannot_prove": "OSM geometry does not prove architectural quality or current public use.",
+          "redistribution": "LINK_ONLY"
+        }
+      ],
+      "composition_questions": [
+        "Can one lobby/canopy/plaza choice visibly split workers, diners and couriers into different paths?",
+        "Which reflection, parked vehicle or branded sign overwhelms the architectural decision point?",
+        "Does crossing the street change the ground-plane perspective more than moving from 35 to 50 mm?"
+      ],
+      "historical_hypothesis": {
+        "status": "NOT_APPLICABLE_NEW_2026_SCENE",
+        "depth": "NEW_EVIDENCE_DOSSIER",
+        "ten_pass_hypotheses": []
+      },
+      "current_source_ids": [
+        "SRC-STYLE-BEGONIAS-ABOUT",
+        "SRC-STYLE-BEGONIAS-OFFICES",
+        "SRC-STYLE-BEGONIAS-MAP"
+      ],
+      "contradictions": [
+        "Operator material markets a unified destination; it does not prove that every plaza segment is public, comfortable or equally active.",
+        "Corporate tower imagery is highly generic unless ground-plane design visibly causes a current work/food/waiting relationship."
+      ],
+      "verification_complete": true,
+      "ranking_eligible": true,
+      "route_eligible": true
     }
   ]
 }

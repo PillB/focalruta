@@ -1,6 +1,6 @@
 {
   "source": "https://nominatim.openstreetmap.org/search",
-  "retrieved_at": "2026-08-30T21:19:07.479342+00:00",
+  "retrieved_at": "2026-08-31T14:37:07.396940+00:00",
   "publication_gate": "Human review plus district polygon containment required",
   "records": [
     {
@@ -363,10 +363,11 @@
           "osm_id": 436775162,
           "latitude": -12.1529586,
           "longitude": -77.0196902,
-          "display_name": "Estación Estado Union, Prolongación Anaya, Villa Mercedes, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "display_name": "Estación Estado Union, Avenida Panamericana Sur, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
           "category": "building",
           "type": "yes",
           "district_tokens": [
+            "Barranco",
             "Barranco"
           ]
         },
@@ -780,7 +781,7 @@
           "osm_id": 405157186,
           "latitude": -12.1274595,
           "longitude": -77.0356089,
-          "display_name": "Puente Villena Rey, Malecón 28 de Julio, Reducto, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "display_name": "Puente Villena Rey, Calle Hernando de Lavalle, Cocharcas, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
           "category": "bridge",
           "type": "yes",
           "district_tokens": [
@@ -825,9 +826,9 @@
       "results": [
         {
           "osm_type": "way",
-          "osm_id": 1391863720,
-          "latitude": -12.0981264,
-          "longitude": -77.0403007,
+          "osm_id": 426905952,
+          "latitude": -12.097723,
+          "longitude": -77.0446337,
           "display_name": "Calle José Choquehuanca, Santa Inés, San Isidro, Lima, Lima Metropolitana, Lima, 15027, Perú",
           "category": "highway",
           "type": "residential",
@@ -838,10 +839,10 @@
         },
         {
           "osm_type": "way",
-          "osm_id": 1338049987,
-          "latitude": -12.0991647,
-          "longitude": -77.0354226,
-          "display_name": "Calle José Choquehuanca, El Rosario, San Isidro, Lima, Lima Metropolitana, Lima, 15073, Perú",
+          "osm_id": 430221381,
+          "latitude": -12.0994659,
+          "longitude": -77.0339256,
+          "display_name": "Calle José Choquehuanca, Chacarilla, San Isidro, Lima, Lima Metropolitana, Lima, 15073, Perú",
           "category": "highway",
           "type": "residential",
           "district_tokens": [
@@ -1082,7 +1083,7 @@
           "osm_id": 496000353,
           "latitude": -12.1114871,
           "longitude": -77.0339531,
-          "display_name": "Huaca Pucllana, Calle Ayacucho, América, Miraflores, Lima, Lima Metropolitana, Lima, 10574, Perú",
+          "display_name": "Huaca Pucllana, Calle Juana Alarcó de Dammert, América, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
           "category": "historic",
           "type": "archaeological_site",
           "district_tokens": [
@@ -1205,7 +1206,7 @@
           "osm_id": 1550043240,
           "latitude": -12.1491664,
           "longitude": -77.022591,
-          "display_name": "Puente de Los Suspiros, Bajada de los Baños, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "display_name": "Puente de Los Suspiros, Puente de los Suspiros, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
           "category": "man_made",
           "type": "bridge",
           "district_tokens": [
@@ -1298,7 +1299,7 @@
           "osm_id": 34113696,
           "latitude": -12.1017614,
           "longitude": -76.9846099,
-          "display_name": "Cuartel General del Ejército, Avenida Buena Vista, Mariscal Ramón Castilla, San Borja, Lima, Lima Metropolitana, Lima, 15023, Perú",
+          "display_name": "Cuartel General del Ejército, Plaza de Armas, San Borja, Lima, Lima Metropolitana, Lima, 15037, Perú",
           "category": "military",
           "type": "barracks",
           "district_tokens": [
@@ -1712,24 +1713,24 @@
       "results": [
         {
           "osm_type": "way",
-          "osm_id": 75243087,
-          "latitude": -12.0484888,
-          "longitude": -77.0330755,
-          "display_name": "Jirón de la Unión, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
-          "category": "highway",
-          "type": "pedestrian",
-          "district_tokens": [
-            "Lima"
-          ]
-        },
-        {
-          "osm_type": "way",
           "osm_id": 610109028,
           "latitude": -12.0539567,
           "longitude": -77.0361916,
           "display_name": "Jirón de la Unión, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
           "category": "highway",
           "type": "secondary",
+          "district_tokens": [
+            "Lima"
+          ]
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 304547412,
+          "latitude": -12.0446366,
+          "longitude": -77.0303121,
+          "display_name": "Jirón de la Unión, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "category": "highway",
+          "type": "pedestrian",
           "district_tokens": [
             "Lima"
           ]
@@ -1799,7 +1800,7 @@
           "osm_id": 127709115,
           "latitude": -12.1322779,
           "longitude": -76.9800955,
-          "display_name": "Universidad Ricardo Palma, 5540, Avenida Alfredo Benavides, Urb. Las Gardenias, Santiago de Surco, Lima, Lima Metropolitana, Lima, 15039, Perú",
+          "display_name": "Universidad Ricardo Palma, 5540, Avenida Alfredo Benavides, San Ignacio de Monterrico, Santiago de Surco, Lima, Lima Metropolitana, Lima, 15039, Perú",
           "category": "amenity",
           "type": "university",
           "district_tokens": [
@@ -1826,6 +1827,154 @@
           "district_tokens": [
             "Rímac",
             "Rímac"
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_id": "utec-campus-barranco",
+      "expected_district": "Barranco",
+      "query": "Medrano Silva 165, Barranco, Lima, Perú",
+      "status": "REVIEW_REQUIRED",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 437212067,
+          "latitude": -12.1351351,
+          "longitude": -77.0221296,
+          "display_name": "Universidad de Ingenieria y Tecnologia, 165, Jirón Medrano Silva, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "category": "amenity",
+          "type": "university",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 5664281431,
+          "latitude": -12.1353507,
+          "longitude": -77.0223692,
+          "display_name": "Zona de Reciclaje de Baterias, 165, Jirón Medrano Silva, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "category": "amenity",
+          "type": "recycling",
+          "district_tokens": [
+            "Barranco",
+            "Barranco"
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_id": "torre-interbank",
+      "expected_district": "La Victoria",
+      "query": "Torre Interbank, La Victoria, Lima, Perú",
+      "status": "REVIEW_REQUIRED",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 656096061,
+          "latitude": -12.0894903,
+          "longitude": -77.0229268,
+          "display_name": "Torre Interbank, Vía Expresa Luis Fernán Bedoya Reyes, La Victoria, Lima, Lima Metropolitana, Lima, 15033, Perú",
+          "category": "building",
+          "type": "yes",
+          "district_tokens": [
+            "La Victoria"
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_id": "casa-fernandini-1913",
+      "expected_district": "Lima",
+      "query": "Casa Fernandini (1913), Lima, Lima, Perú",
+      "status": "REVIEW_REQUIRED",
+      "results": [
+        {
+          "osm_type": "node",
+          "osm_id": 4407581796,
+          "latitude": -12.0450471,
+          "longitude": -77.0351457,
+          "display_name": "Casa Fernandini, 400, Jirón Ica, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "category": "tourism",
+          "type": "attraction",
+          "district_tokens": [
+            "Lima"
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_id": "estacion-desamparados",
+      "expected_district": "Lima",
+      "query": "Estación Desamparados, Lima, Lima, Perú",
+      "status": "REVIEW_REQUIRED",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 264964242,
+          "latitude": -12.0443045,
+          "longitude": -77.0286907,
+          "display_name": "Estación de Desamparados, Jirón Áncash, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "category": "building",
+          "type": "yes",
+          "district_tokens": [
+            "Lima"
+          ]
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 2706089579,
+          "latitude": -12.0444153,
+          "longitude": -77.0287553,
+          "display_name": "Casa de la Literatura Peruana, 207, Jirón Áncash, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "category": "tourism",
+          "type": "museum",
+          "district_tokens": [
+            "Lima"
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_id": "edificio-petroperu",
+      "expected_district": "San Isidro",
+      "query": "Canaval Moreyra 150, San Isidro, Lima, Perú",
+      "status": "REVIEW_REQUIRED",
+      "results": [
+        {
+          "osm_type": "node",
+          "osm_id": 6460139373,
+          "latitude": -12.0973204,
+          "longitude": -77.0245028,
+          "display_name": "150, Avenida Enrique Canaval y Moreyra, Santa Ana, San Isidro, Lima, Lima Metropolitana, Lima, 15000, Perú",
+          "category": "place",
+          "type": "house",
+          "district_tokens": [
+            "San Isidro",
+            "San Isidro"
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_id": "torre-begonias",
+      "expected_district": "San Isidro",
+      "query": "Torre Begonias, San Isidro, Lima, Perú",
+      "status": "REVIEW_REQUIRED",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 397559270,
+          "latitude": -12.092104,
+          "longitude": -77.0239594,
+          "display_name": "Torre Begonias, 415, Calle Las Begonias, Centro financiero de San Isidro, San Isidro, Lima, Lima Metropolitana, Lima, 15046, Perú",
+          "category": "building",
+          "type": "commercial",
+          "district_tokens": [
+            "San Isidro",
+            "San Isidro"
           ]
         }
       ]

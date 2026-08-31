@@ -38,7 +38,7 @@ def test_anchor_research_resolves_most_canonical_scenes_for_review():
     assert all(stop["canonical_id"] != "previ-lima" for layer in load_routes()["district_layers"] for stop in layer["stops"])
 
 
-def test_style_discoveries_are_source_backed_but_not_silently_ranked():
+def test_style_discoveries_are_source_backed_ranked_and_route_closed():
     discoveries = json.loads(DISCOVERIES.read_text(encoding="utf-8"))["discoveries"]
     ranking = json.loads((ROOT / "data/architecture/ranking.json").read_text(encoding="utf-8"))
     ranked_ids = {item["canonical_id"] for item in ranking["results"]}
@@ -46,7 +46,9 @@ def test_style_discoveries_are_source_backed_but_not_silently_ranked():
     style_text = " ".join(item["style_signal"] for item in discoveries)
     assert all(term in style_text for term in ("contemporary", "Art Nouveau", "brutalism"))
     assert all(item["source_url"].startswith("https://") and item["status"].startswith("ADMISSION_PENDING") for item in discoveries)
-    assert not ({item["discovery_id"] for item in discoveries} & ranked_ids)
+    discovery_ids = {item["discovery_id"] for item in discoveries}
+    assert discovery_ids <= ranked_ids
+    assert all(item["route_eligible"] for item in ranking["results"] if item["canonical_id"] in discovery_ids)
 
 
 def test_route_dataset_has_evidence_contract_and_six_iterations():
@@ -107,7 +109,7 @@ def test_each_road_leg_has_source_geometry_and_no_fake_live_eta():
             assert len(leg["geometry"]["coordinates"]) >= 2
             assert leg["source_retrieved_at"]
             assert leg["eta_label"] == "snapshot estimate"
-            assert leg["road_distance_m"] <= 1500
+            assert leg["road_distance_m"] <= 1000
 
 
 def test_generated_page_discloses_long_transfers():

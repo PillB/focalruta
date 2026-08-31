@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "utec-campus-barranco",
+        "name": "Universidad de Ingenieria y Tecnologia",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0221296,
+          -12.1351351
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mac-lima-parque-espejo-de-agua",
+        "name": "Museo de Arte Contemporaneo de Lima",
+        "district": "Barranco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0232736,
+          -12.1367297
+        ]
+      }
+    }
+  ]
+}

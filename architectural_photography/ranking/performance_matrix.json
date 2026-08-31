@@ -1,6 +1,6 @@
 {
   "model_version": "architecture-ranking-v1.1.0",
-  "candidate_count": 81,
+  "candidate_count": 87,
   "rows": [
     {
       "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
@@ -2260,6 +2260,168 @@
       ],
       "assessment_basis": "CANONICALIZED_MASTER82_ATTRIBUTES_PLUS_2026_EQUAL_DEPTH_EVIDENCE",
       "contradiction_count": 4
+    },
+    {
+      "canonical_id": "utec-campus-barranco",
+      "name": "Campus UTEC",
+      "district": "Barranco",
+      "criteria": {
+        "creative_aesthetic_proxy": 91,
+        "theme_coherence_proxy": 88,
+        "architecture_causality": 94,
+        "first_read_clarity": 90,
+        "anti_postal_originality": 82,
+        "inhabitation_strength": 76,
+        "temporal_transformation": 72,
+        "light_material_geometry": 96,
+        "decisive_moment": 74,
+        "technical_feasibility": 83,
+        "access_permission": 72,
+        "evidence_confidence": 88,
+        "juror_public_work_intersection": 72
+      },
+      "evidence_source_ids": [
+        "SRC-STYLE-UTEC-CURRENT",
+        "SRC-STYLE-UTEC-DESIGN",
+        "SRC-STYLE-UTEC-RIBA"
+      ],
+      "assessment_basis": "2026_STYLE_DOSSIER_EXPLICIT_EVIDENCE_ASSESSMENT",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "torre-interbank",
+      "name": "Torre Interbank",
+      "district": "La Victoria",
+      "criteria": {
+        "creative_aesthetic_proxy": 89,
+        "theme_coherence_proxy": 84,
+        "architecture_causality": 91,
+        "first_read_clarity": 91,
+        "anti_postal_originality": 78,
+        "inhabitation_strength": 72,
+        "temporal_transformation": 68,
+        "light_material_geometry": 94,
+        "decisive_moment": 70,
+        "technical_feasibility": 81,
+        "access_permission": 75,
+        "evidence_confidence": 86,
+        "juror_public_work_intersection": 70
+      },
+      "evidence_source_ids": [
+        "SRC-STYLE-INTERBANK-2026",
+        "SRC-STYLE-INTERBANK-HOLLEIN",
+        "SRC-STYLE-INTERBANK-ADDRESS"
+      ],
+      "assessment_basis": "2026_STYLE_DOSSIER_EXPLICIT_EVIDENCE_ASSESSMENT",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "casa-fernandini-1913",
+      "name": "Casa Fernandini (1913)",
+      "district": "Lima",
+      "criteria": {
+        "creative_aesthetic_proxy": 87,
+        "theme_coherence_proxy": 90,
+        "architecture_causality": 86,
+        "first_read_clarity": 84,
+        "anti_postal_originality": 85,
+        "inhabitation_strength": 68,
+        "temporal_transformation": 94,
+        "light_material_geometry": 91,
+        "decisive_moment": 66,
+        "technical_feasibility": 76,
+        "access_permission": 62,
+        "evidence_confidence": 84,
+        "juror_public_work_intersection": 66
+      },
+      "evidence_source_ids": [
+        "SRC-STYLE-FERNANDINI-CULTURE",
+        "SRC-STYLE-FERNANDINI-MONUMENT",
+        "SRC-STYLE-FERNANDINI-2026"
+      ],
+      "assessment_basis": "2026_STYLE_DOSSIER_EXPLICIT_EVIDENCE_ASSESSMENT",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "estacion-desamparados",
+      "name": "Estación Desamparados / Casa de la Literatura",
+      "district": "Lima",
+      "criteria": {
+        "creative_aesthetic_proxy": 90,
+        "theme_coherence_proxy": 94,
+        "architecture_causality": 92,
+        "first_read_clarity": 87,
+        "anti_postal_originality": 84,
+        "inhabitation_strength": 88,
+        "temporal_transformation": 96,
+        "light_material_geometry": 90,
+        "decisive_moment": 85,
+        "technical_feasibility": 80,
+        "access_permission": 70,
+        "evidence_confidence": 90,
+        "juror_public_work_intersection": 70
+      },
+      "evidence_source_ids": [
+        "SRC-STYLE-DESAMPARADOS-CURRENT",
+        "SRC-STYLE-DESAMPARADOS-ARCH",
+        "SRC-STYLE-DESAMPARADOS-2026"
+      ],
+      "assessment_basis": "2026_STYLE_DOSSIER_EXPLICIT_EVIDENCE_ASSESSMENT",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "edificio-petroperu",
+      "name": "Edificio Petroperú",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 86,
+        "theme_coherence_proxy": 86,
+        "architecture_causality": 88,
+        "first_read_clarity": 88,
+        "anti_postal_originality": 84,
+        "inhabitation_strength": 70,
+        "temporal_transformation": 82,
+        "light_material_geometry": 93,
+        "decisive_moment": 68,
+        "technical_feasibility": 84,
+        "access_permission": 78,
+        "evidence_confidence": 86,
+        "juror_public_work_intersection": 69
+      },
+      "evidence_source_ids": [
+        "SRC-STYLE-PETRO-CAMMP",
+        "SRC-STYLE-PETRO-CURRENT",
+        "SRC-STYLE-PETRO-HISTORY"
+      ],
+      "assessment_basis": "2026_STYLE_DOSSIER_EXPLICIT_EVIDENCE_ASSESSMENT",
+      "contradiction_count": 2
+    },
+    {
+      "canonical_id": "torre-begonias",
+      "name": "Torre Begonias + Paseo Begonias",
+      "district": "San Isidro",
+      "criteria": {
+        "creative_aesthetic_proxy": 85,
+        "theme_coherence_proxy": 87,
+        "architecture_causality": 89,
+        "first_read_clarity": 86,
+        "anti_postal_originality": 75,
+        "inhabitation_strength": 84,
+        "temporal_transformation": 78,
+        "light_material_geometry": 89,
+        "decisive_moment": 82,
+        "technical_feasibility": 88,
+        "access_permission": 82,
+        "evidence_confidence": 88,
+        "juror_public_work_intersection": 67
+      },
+      "evidence_source_ids": [
+        "SRC-STYLE-BEGONIAS-ABOUT",
+        "SRC-STYLE-BEGONIAS-OFFICES",
+        "SRC-STYLE-BEGONIAS-MAP"
+      ],
+      "assessment_basis": "2026_STYLE_DOSSIER_EXPLICIT_EVIDENCE_ASSESSMENT",
+      "contradiction_count": 2
     }
   ]
 }

@@ -55,6 +55,8 @@ ANCHORS = {
     "puente-de-la-paz-quebrada-de-armendariz": "Puente de la Paz Miraflores",
     "aulario-104-universidad-ricardo-palma": "Universidad Ricardo Palma",
     "cantagallo-comunidad-shipibo-konibo": "Cantagallo Rímac",
+    "utec-campus-barranco": "Medrano Silva 165",
+    "edificio-petroperu": "Canaval Moreyra 150",
 }
 
 

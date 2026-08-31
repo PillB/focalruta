@@ -65,7 +65,7 @@ def record(config):
         "district": config["district"],
         "latitude": config["latitude"],
         "longitude": config["longitude"],
-        "status": "DESK_VERIFIED_CANONICALIZATION_PENDING",
+        "status": "DESK_VERIFIED_RANKED_ROUTED",
         "sources": config["sources"],
         "current_source_ids": source_ids,
         "contradictions": config["contradictions"],
@@ -84,9 +84,9 @@ def record(config):
                 config["sources"], config["reference_families"], config["reference_proves"], config["reference_limits"]
             ), 1)
         ],
-        "ranking_eligible": False,
-        "route_eligible": False,
-        "next_gate": "CANONICALIZE_THEN_RERANK_FULL_UNIVERSE_BEFORE_ROUTE_ADMISSION",
+        "ranking_eligible": True,
+        "route_eligible": True,
+        "next_gate": "VERIFY_SAME_DAY_ACCESS_BEFORE_FIELD_VISIT",
     }
 
 
@@ -301,7 +301,7 @@ def main():
         "records": [record(item) for item in configs()],
     }
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"records": len(payload["records"]), "status": "CANONICALIZATION_PENDING"}))
+    print(json.dumps({"records": len(payload["records"]), "status": "RANKED_ROUTED_ACCESS_CHECK_PENDING"}))
 
 
 if __name__ == "__main__":

@@ -38,8 +38,8 @@ def test_model_is_internal_transparent_and_has_four_scenarios():
 def test_performance_matrix_covers_all_scenes_without_historical_rank_leakage():
     matrix = load(MATRIX)
     rows = matrix["rows"]
-    assert len(rows) == 81
-    assert len({row["canonical_id"] for row in rows}) == 81
+    assert len(rows) == 87
+    assert len({row["canonical_id"] for row in rows}) == 87
     prohibited = {"historical_rank", "masterRank", "R0Rank", "R1Rank", "R2Rank", "R3Rank", "robustIndex"}
     assert all(prohibited.isdisjoint(row) for row in rows)
     assert all(row["evidence_source_ids"] for row in rows)
@@ -49,11 +49,11 @@ def test_performance_matrix_covers_all_scenes_without_historical_rank_leakage():
 def test_latest_run_has_deterministic_sensitivity_pareto_and_separate_field_rank():
     history = load(HISTORY)
     latest = load(RUNS / history["runs"][-1]["file"])
-    assert latest["candidate_count"] == 81
+    assert latest["candidate_count"] == 87
     assert latest["seed"] == 20260830
     assert set(latest["scenario_rankings"]) == {"R0", "R1", "R2", "R3"}
-    assert all(len(ranking) == 81 for ranking in latest["scenario_rankings"].values())
-    assert len(latest["results"]) == 81
+    assert all(len(ranking) == 87 for ranking in latest["scenario_rankings"].values())
+    assert len(latest["results"]) == 87
     for item in latest["results"]:
         distribution = item["rank_distribution"]
         assert distribution["min"] <= distribution["p10"] <= distribution["p50"] <= distribution["p90"] <= distribution["max"]
@@ -61,17 +61,17 @@ def test_latest_run_has_deterministic_sensitivity_pareto_and_separate_field_rank
         assert isinstance(item["pareto_front"], bool)
         assert 0 <= item["evidence_confidence"] <= 1
         assert item["field_rank"] >= 1
-        assert item["route_eligible"] is False
-    assert sorted(item["field_rank"] for item in latest["results"]) == list(range(1, 82))
+        assert isinstance(item["route_eligible"], bool)
+    assert sorted(item["field_rank"] for item in latest["results"]) == list(range(1, 88))
 
 
 def test_public_ranking_supports_top_n_or_all_and_avoids_probability_language():
     public = load(PUBLIC)
-    assert public["candidate_count"] == 81
-    assert len(public["results"]) == 81
+    assert public["candidate_count"] == 87
+    assert len(public["results"]) == 87
     assert len(public["top_15_robust_ids"]) == 15
     assert len(public["top_5_field"]) == 5
-    assert all(item["route_fit"] == "NOT_EVALUATED_UNTIL_ROUND_5_TIME_WINDOW_ORIENTEERING" for item in public["top_5_field"])
+    assert all(item["route_fit"] in {"VERIFIED_WALKING_LAYER", "NO_VERIFIED_WALKING_LAYER"} for item in public["top_5_field"])
     assert all(item["fallback"] for item in public["top_5_field"])
     assert public["official_proxy_label"] == "INTERNAL_PROXY"
     page = PAGE.read_text(encoding="utf-8")
@@ -96,12 +96,14 @@ def test_ranking_history_is_append_only_and_points_to_immutable_runs():
         assert run["model_version"] == entry["model_version"]
 
 
-def test_ranking_is_precached_but_route_remains_closed():
+def test_ranking_is_precached_and_route_status_comes_from_verified_layers():
     build = (ROOT / "scripts/build_dual_release.py").read_text(encoding="utf-8")
     assert "./data/architecture/ranking.json" in build
     public = load(PUBLIC)
     assert all(item["ranking_eligible"] for item in public["results"])
-    assert not any(item["route_eligible"] for item in public["results"])
+    routes = load(ROOT / "data/architecture/routes.json")
+    route_ids = {stop["canonical_id"] for layer in routes["district_layers"] for stop in layer["stops"]}
+    assert {item["canonical_id"] for item in public["results"] if item["route_eligible"]} == route_ids
 
 
 def test_generator_is_repeatable_and_does_not_read_historical_rank_fields():

@@ -23,7 +23,7 @@ def test_challenge_has_task_navigation_and_truthful_queue_language():
     page = text(CHALLENGE)
     for anchor in ("#today", "#scenes", "#learn", "#field-run", "#rules"):
         assert f'href="{anchor}"' in page
-    assert "81 lugares y escenas" in page
+    assert "87 lugares y escenas" in page
     assert "Top 3" not in page
     assert "probabilidad de ganar" not in page.lower()
 
@@ -42,13 +42,13 @@ def test_user_can_choose_scene_count_or_all_without_implying_rank():
     assert "PREVI Lima" in page
 
 
-def test_public_candidate_universe_contains_all_81_without_rank_fields():
+def test_public_candidate_universe_contains_all_87_without_rank_fields():
     candidates = __import__("json").loads(text(CANDIDATES))
-    assert len(candidates) == 81
-    assert len({item["canonical_id"] for item in candidates}) == 81
+    assert len(candidates) == 87
+    assert len({item["canonical_id"] for item in candidates}) == 87
     prohibited = {"R0", "R1", "R2", "R3", "masterRank", "fieldRank", "robustIndex"}
     assert all(prohibited.isdisjoint(item) for item in candidates)
-    assert all(item["ranking_eligible"] is False for item in candidates)
+    assert sum(item["ranking_eligible"] for item in candidates) == 6
 
 
 def test_generated_progress_matches_equal_depth_ledger_without_promotion():
@@ -64,7 +64,7 @@ def test_generated_progress_matches_equal_depth_ledger_without_promotion():
     expected_complete = sum(item["verification_complete"] for item in verification)
     assert {item["canonical_id"]: item["visual_reference_count"] for item in candidates} == expected
     assert sum(item["visual_reference_count"] > 0 for item in candidates) == expected_started
-    assert all(item["ranking_eligible"] is False for item in candidates)
+    assert sum(item["ranking_eligible"] for item in candidates) == 6
     assert sum(item["verification_complete"] for item in candidates) == expected_complete
     page = text(CHALLENGE)
     assert f"{expected_started} tienen forénsica visual" in page
@@ -85,7 +85,7 @@ def test_no_js_fallback_contains_queue_protocol_and_rules():
     page = text(CHALLENGE)
     noscript = page.split("<noscript>", 1)[1].split("</noscript>", 1)[0]
     assert "Ranking sin JavaScript" in noscript
-    assert "81 tarjetas" in noscript
+    assert "87 tarjetas" in noscript
     assert "filtros Top N requieren JavaScript" in noscript
     assert "CONTRATO vs USO" in noscript
     assert "5–25 MB" in noscript
