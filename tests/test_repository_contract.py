@@ -14,3 +14,13 @@ def test_quality_workflow_enforces_cyclomatic_complexity_ceiling():
     assert "lint.mccabe.max-complexity=10" in workflow
     assert "python3 scripts/verify_release.py" in workflow
     assert "python3 scripts/verify_architecture.py" in workflow
+
+
+def test_pages_workflow_uses_node24_action_generations():
+    workflow = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+    assert "actions/checkout@v5" in workflow
+    assert "actions/configure-pages@v6" in workflow
+    assert "actions/upload-pages-artifact@v5" in workflow
+    assert "actions/deploy-pages@v5" in workflow
+    assert "@v4" not in workflow
+    assert "upload-pages-artifact@v3" not in workflow
