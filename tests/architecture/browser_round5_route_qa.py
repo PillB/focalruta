@@ -7,9 +7,6 @@ import math
 import os
 from pathlib import Path
 
-from playwright.sync_api import sync_playwright
-
-
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "architectural_photography/qa/rounds/round5"
 URL = os.environ.get("ARCHITECTURE_QA_URL", "http://127.0.0.1:8766/challenges/arquitectura-en-foco/")
@@ -139,6 +136,8 @@ def capture_route_cards(browser, forensic_rows: list[dict]) -> None:
 
 
 def main() -> int:
+    from playwright.sync_api import sync_playwright
+
     OUT.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
