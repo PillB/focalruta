@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:8770/challenges/arquitectura-en-foco/",
+  "viewports": [
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "labs": 4,
+      "lessons": 17,
+      "videos": 6,
+      "position_feedback": true,
+      "focal_preserves_ratio": true,
+      "vertical_feedback": true,
+      "hierarchy_feedback": true,
+      "light_feedback": true,
+      "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-390x844.png"
+    },
+    {
+      "viewport": [
+        430,
+        932
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "labs": 4,
+      "lessons": 17,
+      "videos": 6,
+      "position_feedback": true,
+      "focal_preserves_ratio": true,
+      "vertical_feedback": true,
+      "hierarchy_feedback": true,
+      "light_feedback": true,
+      "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-430x932.png"
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "labs": 4,
+      "lessons": 17,
+      "videos": 6,
+      "position_feedback": true,
+      "focal_preserves_ratio": true,
+      "vertical_feedback": true,
+      "hierarchy_feedback": true,
+      "light_feedback": true,
+      "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-844x390.png"
+    },
+    {
+      "viewport": [
+        932,
+        430
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "labs": 4,
+      "lessons": 17,
+      "videos": 6,
+      "position_feedback": true,
+      "focal_preserves_ratio": true,
+      "vertical_feedback": true,
+      "hierarchy_feedback": true,
+      "light_feedback": true,
+      "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-932x430.png"
+    },
+    {
+      "viewport": [
+        820,
+        1000
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "labs": 4,
+      "lessons": 17,
+      "videos": 6,
+      "position_feedback": true,
+      "focal_preserves_ratio": true,
+      "vertical_feedback": true,
+      "hierarchy_feedback": true,
+      "light_feedback": true,
+      "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-820x1000.png"
+    },
+    {
+      "viewport": [
+        1440,
+        1100
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "labs": 4,
+      "lessons": 17,
+      "videos": 6,
+      "position_feedback": true,
+      "focal_preserves_ratio": true,
+      "vertical_feedback": true,
+      "hierarchy_feedback": true,
+      "light_feedback": true,
+      "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-1440x1100.png"
+    }
+  ]
+}

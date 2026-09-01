@@ -100,3 +100,77 @@ def test_generated_page_exposes_learning_without_hover_dependency():
     assert "Posición antes que focal" in html
     assert "Candida Höfer" in html
     assert "title=" not in html
+
+
+def test_all_lessons_are_rendered_with_the_full_field_learning_cycle():
+    learning = json.loads((DATA / "learning.json").read_text(encoding="utf-8"))
+    html = PAGE.read_text(encoding="utf-8")
+    assert html.count('class="lesson-card"') == len(learning["lessons"]) == 17
+    for lesson in learning["lessons"]:
+        assert lesson["title"] in html
+    for label in ("OBSERVA", "PRUEBA", "DIAGNOSTICA", "ROMPE LA REGLA CUANDO", "CANON 6D", "CONCURSO"):
+        assert html.count(f"<strong>{label}:</strong>") == 17
+
+
+def test_video_synthesis_is_timestamped_transfer_not_an_embed_playlist():
+    learning = json.loads((DATA / "learning.json").read_text(encoding="utf-8"))
+    ledger = json.loads((WORKBENCH / "VIDEO_LEDGER.json").read_text(encoding="utf-8"))
+    known = {video["video_id"] for video in ledger["videos"]}
+    modules = learning["video_modules"]
+    assert len(modules) >= 6
+    assert all(module["video_id"] in known for module in modules)
+    assert all(isinstance(module["timestamp_seconds"], (int, float)) for module in modules)
+    assert all(module["mechanism"] and module["field_transfer"] and module["misuse_risk"] for module in modules)
+    html = PAGE.read_text(encoding="utf-8")
+    assert html.count('class="video-transfer"') == len(modules)
+    assert "youtube.com/embed" not in html
+    assert all(f't={int(module["timestamp_seconds"])}' in html for module in modules)
+
+
+def test_learning_labs_have_prediction_manipulation_feedback_and_sources():
+    learning = json.loads((DATA / "learning.json").read_text(encoding="utf-8"))
+    labs = learning["simulations"]
+    assert {lab["simulation_id"] for lab in labs} == {
+        "perspective-position", "vertical-convergence", "hierarchy-edges", "light-material",
+    }
+    required = {"title", "prediction_prompt", "field_drill", "diagnostic_rule", "sources"}
+    assert all(required <= lab.keys() for lab in labs)
+    assert all(all(lab[field] for field in required) for lab in labs)
+    html = PAGE.read_text(encoding="utf-8")
+    for control in ("perspective-position", "perspective-focal", "vertical-tilt", "hierarchy-mode", "light-mode"):
+        assert f'id="{control}"' in html
+    assert html.count('class="learning-lab"') == 4
+    assert 'id="perspective-feedback"' in html
+    assert 'id="vertical-feedback"' in html
+    assert 'id="hierarchy-feedback"' in html
+    assert 'id="light-feedback"' in html
+
+
+def test_learning_labs_preserve_physical_and_pedagogical_truth():
+    learning = json.loads((DATA / "learning.json").read_text(encoding="utf-8"))
+    text = json.dumps(learning, ensure_ascii=False).lower()
+    assert "camera position changes perspective" in text
+    assert "focal length changes field of view" in text
+    assert "keystoning" in text
+    assert "active learning" in text
+    assert "pedagogical diagram" in text
+    html = PAGE.read_text(encoding="utf-8")
+    assert "No es una simulación óptica ni una previsualización de píxeles" in html
+
+
+def test_no_js_learning_fallback_keeps_core_exercises():
+    html = PAGE.read_text(encoding="utf-8")
+    noscript = html.split("<noscript>", 1)[1].split("</noscript>", 1)[0]
+    assert "Laboratorios sin JavaScript" in noscript
+    assert "Mueve físicamente la cámara" in noscript
+    assert "Mantén la cámara nivelada" in noscript
+    assert "Escanea los cuatro bordes" in noscript
+
+
+def test_non_video_learning_sources_resolve_in_public_registry():
+    learning = json.loads((DATA / "learning.json").read_text(encoding="utf-8"))
+    registry = json.loads((DATA / "sources.json").read_text(encoding="utf-8"))
+    registered = {source["url_or_path"] for source in registry}
+    cited = set(learning["pedagogy"]["sources"])
+    cited.update(url for lab in learning["simulations"] for url in lab["sources"] if "youtube.com" not in url)
+    assert cited <= registered
