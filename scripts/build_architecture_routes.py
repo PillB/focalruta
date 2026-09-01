@@ -29,6 +29,9 @@ EXCLUDED = {
     "estacion-restos-del-funicular-de-barranco": "first result is Estación Estado Unión, not the funicular",
     "torres-centro-empresarial-camino-real": "first result is Calle Luis Dorich Torres, not Camino Real",
 }
+# Hard connectivity ceiling. The publication repair applies a separate 800 m
+# preferred photography-transfer threshold only when both resulting walks keep
+# at least two stops; using 800 m here fragmented useful tours into singletons.
 MAX_WALKING_LEG_M = 1000
 MAX_EXACT_STOPS = 8
 FORCE_SINGLETONS = {

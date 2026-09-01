@@ -138,10 +138,50 @@ def test_each_road_leg_has_source_geometry_and_no_fake_live_eta():
             assert leg["road_distance_m"] <= 1000
 
 
-def test_generated_page_discloses_long_transfers():
+def test_long_intertour_transfers_are_removed_and_disclosed_not_hidden():
+    routes = load_routes()
+    gaps = routes["omitted_intertour_transfers"]
+    assert gaps
+    routed_ids = {stop["canonical_id"] for layer in routes["district_layers"] for stop in layer["stops"]}
+    for gap in gaps:
+        assert gap["from"] in routed_ids and gap["to"] in routed_ids
+        assert gap["road_distance_m"] > 800
+        assert gap["reason"] == "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
     page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
-    assert "Transferencia larga:" in page
-    assert "sepárala si la calle intermedia no aporta" in page
+    assert "traslados entre tours omitidos" in page
+    assert "No se presentan como una caminata continua" in page
+
+
+def test_compact_partition_never_creates_new_singleton_layers():
+    routes = load_routes()
+    partitioned = [layer for layer in routes["district_layers"] if layer.get("route_partition")]
+    assert partitioned
+    assert all(len(layer["stops"]) >= 2 for layer in partitioned)
+    for layer in routes["district_layers"]:
+        for index, leg in enumerate(layer["legs"]):
+            if leg["road_distance_m"] > 800:
+                assert index == 0 or index == len(layer["legs"]) - 1
+
+
+def test_short_network_detour_is_not_mislabeled_as_a_long_transfer():
+    from tests.architecture.browser_round5_route_qa import route_assessment
+
+    assessment = route_assessment({"road_distance_m": 406}, 1.87)
+    assert assessment == "short road-conforming detour; barrier pattern disclosed"
+
+
+def test_generated_page_separates_long_transfers_instead_of_recommending_them():
+    page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
+    assert "Transferencia larga:" not in page
+    assert "Tour separado" in page
+    assert "No se presentan como una caminata continua" in page
+    assert page.count("Traslado terminal conservado:") == 5
+    assert "Separarlo aislaría una escena" in page
+
+
+def test_route_builder_does_not_use_preferred_transfer_as_connectivity_ceiling():
+    source = (ROOT / "scripts/build_architecture_routes.py").read_text(encoding="utf-8")
+    assert "MAX_WALKING_LEG_M = 1000" in source
 
 
 def test_repaired_subpath_is_not_presented_as_a_new_exact_minimum():
@@ -165,7 +205,7 @@ def test_small_tours_are_checked_by_exact_permutation():
             elif optimization["method"] == "singleton":
                 assert optimization["selected_distance_m"] == 0
             else:
-                assert optimization["method"] == "verified_subpath_from_exact_parent"
+                assert optimization["method"] in {"verified_subpath_from_exact_parent", "verified_compact_subpath_from_exact_parent"}
                 assert optimization["exact_minimum_distance_m"] is None
                 assert optimization["optimization_limitation"]
 

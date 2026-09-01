@@ -111,7 +111,21 @@ def optimization_copy(layer: dict) -> str:
         return f'Orden mínimo comprobado entre {optimization["permutations_evaluated"]} permutaciones.'
     if optimization["method"] == "singleton":
         return "Punto aislado verificado; no se presenta como tour."
+    if optimization["method"] == "verified_compact_subpath_from_exact_parent":
+        return "Subruta peatonal compacta conservada de un orden exacto anterior; no se presenta como un nuevo mínimo independiente."
     return "Subruta contenida de una solución exacta anterior; falta recalcular su matriz y no se presenta como un nuevo mínimo exacto."
+
+
+def retained_transfer_copy(layer: dict) -> str:
+    retained = [leg for leg in layer["legs"] if leg["road_distance_m"] > 800]
+    if not retained:
+        return ""
+    longest = max(leg["road_distance_m"] for leg in retained)
+    return (
+        '<p class="warning"><strong>Traslado terminal conservado:</strong> '
+        f'{longest / 1000:.1f} km. Separarlo aislaría una escena, así que decide en campo '
+        'si lo caminas o lo tratas como una salida aparte.</p>'
+    )
 
 def route_cards(routes: dict) -> str:
     cards = []
@@ -123,17 +137,13 @@ def route_cards(routes: dict) -> str:
         if not stages_html:
             stages_html = f'<li><a href="{escape(layer["google_maps_search_url"])}">Abrir punto en Google Maps</a> · sin ruta inventada</li>'
         distance = round(layer["optimization"]["selected_distance_m"] / 1000, 1)
-        longest = max(layer["legs"], key=lambda leg: leg["road_distance_m"], default=None)
-        transfer = ""
-        if longest and longest["road_distance_m"] > 800:
-            transfer = (
-                f'<p class="warning"><strong>Transferencia larga:</strong> '
-                f'{round(longest["road_distance_m"] / 1000, 1)} km entre dos paradas. '
-                f'Es una captura de red peatonal; sepárala si la calle intermedia no aporta a la historia.</p>'
-            )
+        partition = ""
+        if layer.get("route_partition"):
+            info = layer["route_partition"]
+            partition = f'<p class="warning"><strong>Tour separado {info["part"]}/{info["parts"]}:</strong> un traslado mayor de 800 m se retiró de esta caminata fotográfica.</p>'
         cards.append(
             f'<article class="scene" data-district="{escape(layer["district"])}"><p class="eyebrow">{escape(layer["district"])} · RED PEATONAL</p><h3>{len(layer["stops"])} paradas · {distance} km</h3>'
-            f'<p>{optimization_copy(layer)} El tiempo es una captura, no tráfico en vivo.</p>{route_preview_svg(layer)}{transfer}<ol>{stages_html}</ol>'
+            f'<p>{optimization_copy(layer)} El tiempo es una captura, no tráfico en vivo.</p>{route_preview_svg(layer)}{partition}{retained_transfer_copy(layer)}<ol>{stages_html}</ol>'
             f'<p><a href="maps/{escape(Path(layer["kml_path"]).name)}" download>Descargar KML</a> · <a href="maps/{escape(Path(layer["geojson_path"]).name)}" download>GeoJSON</a></p></article>'
         )
     return "".join(cards)
@@ -192,7 +202,7 @@ def render(rules: dict, learning: dict, photographers: dict, cohort: dict | None
 <nav aria-label="Tareas del challenge"><a href="../../index.html">FocalRuta</a><a href="#today">Hoy</a><a href="#ranking">Ranking</a><a href="#route">Ruta</a><a href="#scenes">Escenas</a><a href="#learn">Aprender</a><a href="#field-run">Campo</a><a href="#rules">Reglas</a></nav><main>
 <section id="ranking"><p class="eyebrow">RANKING ROBUSTO · PROXY INTERNO</p><h2>Compara estabilidad, no una falsa certeza</h2><p>R0–R3 comparan valor relativo bajo preferencias internas; no predicen el resultado del concurso. Un rango estrecho indica estabilidad frente a perturbaciones plausibles de pesos; Pareto identifica escenas no dominadas en creatividad, tema, causalidad y anti-postal.</p><div class="ranking-controls"><div><label for="ranking-scenario">Escenario</label><select id="ranking-scenario"><option value="r0">R0 · balanceado</option><option value="r1">R1 · anti-postal</option><option value="r2">R2 · habitar</option><option value="r3">R3 · forma/campo</option></select></div><div><label for="ranking-limit">Mostrar Top N o todas</label><select id="ranking-limit"><option value="5">Top 5</option><option value="15" selected>Top 15</option><option value="40">Top 40</option><option value="all">Todas</option></select></div></div><p id="ranking-count-status" role="status" aria-live="polite"></p><div class="scenes" id="ranking-cards">{ranking_cards(ranking)}</div></section>
 <section id="field-priorities"><p class="eyebrow">TOP 5 DE CAMPO</p><h2>Valor fotográfico que también se puede intentar</h2><p>Este orden combina potencial, causalidad, evidencia, acceso y factibilidad. Consulta abajo qué escenas ya tienen evidencia peatonal; una escena sin ruta todavía exige verificación manual.</p><div class="scenes">{field_priority_cards(ranking)}</div></section>
-<section id="route"><p class="eyebrow">RUTAS PEATONALES · 6 ITERACIONES + AUDITORÍA DE GEOMETRÍA</p><h2>Capas puras por distrito</h2><p>Solo aparecen {routed_stops} puntos que pasaron coincidencia de identidad, polígono distrital y red peatonal. Las otras escenas siguen visibles, pero no reciben una ruta inventada. Cada card declara si el orden es mínimo exacto, un punto aislado o una subruta pendiente de recalcular; Google Maps recalcula el camino al abrirlo.</p><label for="route-district">Filtrar distrito</label><select id="route-district"><option value="all">Todos</option>{route_district_options(routes)}</select><p id="route-count-status" role="status" aria-live="polite"></p><p><a href="iphone-maps.html">Cómo abrirlo en iPhone 13 Pro, paso a paso</a></p><div class="scenes" id="route-cards">{route_cards(routes)}</div></section>
+<section id="route"><p class="eyebrow">RUTAS PEATONALES · 6 ITERACIONES + AUDITORÍA DE GEOMETRÍA</p><h2>Capas puras por distrito</h2><p>Solo aparecen {routed_stops} puntos que pasaron coincidencia de identidad, polígono distrital y red peatonal. Las otras escenas siguen visibles, pero no reciben una ruta inventada. Cada card declara si el orden es mínimo exacto, un punto aislado o una subruta pendiente de recalcular; Google Maps recalcula el camino al abrirlo.</p><p class="warning"><strong>{len(routes.get("omitted_intertour_transfers", []))} traslados entre tours omitidos:</strong> superaban 800 m y podían separar dos caminatas útiles. No se presentan como una caminata continua. Los traslados terminales que no pueden separarse sin aislar una escena se muestran dentro de su card.</p><label for="route-district">Filtrar distrito</label><select id="route-district"><option value="all">Todos</option>{route_district_options(routes)}</select><p id="route-count-status" role="status" aria-live="polite"></p><p><a href="iphone-maps.html">Cómo abrirlo en iPhone 13 Pro, paso a paso</a></p><div class="scenes" id="route-cards">{route_cards(routes)}</div></section>
 <section id="style-radar"><p class="eyebrow">RADAR · MODERNO / ART NOUVEAU / GEOMETRÍA</p><h2>Nuevos edificios que se ganaron una comparación</h2><p><strong>6/6 dossiers incorporados al ranking y a capas peatonales distritales verificadas.</strong> Cada hallazgo tiene diez pases, A/B/C/D/E, tres preguntas y forénsica multiángulo. Confirma acceso el mismo día antes de salir.</p><div class="scenes">{discovery_cards(discoveries, discovery_dossiers)}</div></section>
 <section id="scenes"><p class="eyebrow">UNIVERSO CANÓNICO</p><h2>Todos los lugares y escenas</h2><p>Las {len(candidates)} identidades reconciliadas tienen el mismo contrato de fuentes, imágenes, composición, preguntas, diez pases y A/B/C/D/E. El ranking de escritorio ya puede compararlas; ninguna queda habilitada como ruta hasta verificar ventanas y acceso en campo.</p><label for="scene-limit">Mostrar N escenas</label><select id="scene-limit"><option value="10">10 escenas</option><option value="25">25 escenas</option><option value="40">40 escenas</option><option value="all" selected>Todas las escenas</option></select><p id="scene-count-status" role="status" aria-live="polite">Mostrando todas las escenas.</p><div class="scenes" id="scene-cards">{scene_cards(candidates, cohort, verification)}</div></section>
 <section id="learn"><p class="eyebrow">PRÁCTICA</p><h2>Aprende antes de perseguir una locación</h2><h3>Seis modos de ver</h3><ol class="modes">{modes}</ol><article class="callout"><h3>Posición antes que focal</h3><p><strong>Observa:</strong> {escape(lesson["observe"])}</p><p><strong>Prueba:</strong> {escape(lesson["try"])}</p></article><h3>Preguntas de maestros</h3><div class="scenes">{masters}</div></section>

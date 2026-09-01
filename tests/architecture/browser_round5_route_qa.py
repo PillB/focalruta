@@ -45,8 +45,10 @@ def detour_ratios(layer: dict) -> list[float]:
 def route_assessment(longest: dict | None, maximum_detour: float) -> str:
     if longest is None:
         return "single verified map point; no tour claimed"
-    if longest["road_distance_m"] > 800 or maximum_detour > 1.8:
-        return "review long transfer or street-network detour before field use"
+    if longest["road_distance_m"] > 800:
+        return "retained endpoint transfer; splitting would isolate a scene"
+    if maximum_detour > 1.8:
+        return "short road-conforming detour; barrier pattern disclosed"
     return "compact road-conforming photographic sequence"
 
 
