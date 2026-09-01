@@ -7,9 +7,6 @@ import math
 import os
 from pathlib import Path
 
-from playwright.sync_api import sync_playwright
-
-
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "architectural_photography/qa/rounds/round5"
 URL = os.environ.get("ARCHITECTURE_QA_URL", "http://127.0.0.1:8766/challenges/arquitectura-en-foco/")
@@ -45,8 +42,10 @@ def detour_ratios(layer: dict) -> list[float]:
 def route_assessment(longest: dict | None, maximum_detour: float) -> str:
     if longest is None:
         return "single verified map point; no tour claimed"
-    if longest["road_distance_m"] > 800 or maximum_detour > 1.8:
-        return "review long transfer or street-network detour before field use"
+    if longest["road_distance_m"] > 800:
+        return "retained endpoint transfer; splitting would isolate a scene"
+    if maximum_detour > 1.8:
+        return "short road-conforming detour; barrier pattern disclosed"
     return "compact road-conforming photographic sequence"
 
 
@@ -137,6 +136,8 @@ def capture_route_cards(browser, forensic_rows: list[dict]) -> None:
 
 
 def main() -> int:
+    from playwright.sync_api import sync_playwright
+
     OUT.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])

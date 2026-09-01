@@ -1160,7 +1160,9 @@
             "type": "LineString"
           },
           "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate"
+          "eta_label": "snapshot estimate",
+          "district": "Lima",
+          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
         },
         {
           "from": "damero-de-lima-interseccion-como-objeto",
@@ -1414,7 +1416,9 @@
             "type": "LineString"
           },
           "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate"
+          "eta_label": "snapshot estimate",
+          "district": "Lima",
+          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
         }
       ],
       "stages": [
@@ -1432,9 +1436,9 @@
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0539567%2C-77.0361916",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 24,
-        "selected_distance_m": 2499.8999999999996,
-        "exact_minimum_distance_m": 2499.8999999999996
+        "permutations_evaluated": 1,
+        "selected_distance_m": 2499.9,
+        "exact_minimum_distance_m": 2499.9
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.kml",
@@ -1472,56 +1476,6 @@
           "latitude": -12.1274808,
           "longitude": -77.0357271,
           "osm_id": 1104706183,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "larcomar-acantilado",
-          "name": "Larcomar",
-          "district": "Miraflores",
-          "latitude": -12.1322184,
-          "longitude": -77.0302263,
-          "osm_id": 28993402,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "reducto-2-casa-museo-caceres",
-          "name": "Reducto",
-          "district": "Miraflores",
-          "latitude": -12.1300445,
-          "longitude": -77.0319172,
-          "osm_id": 11063679747,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
-          "name": "Calle Porta",
-          "district": "Miraflores",
-          "latitude": -12.1270431,
-          "longitude": -77.0328783,
-          "osm_id": 14073892,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "parque-kennedy-gatos-civic-core",
-          "name": "Parque John F. Kennedy",
-          "district": "Miraflores",
-          "latitude": -12.1217806,
-          "longitude": -77.0304221,
-          "osm_id": 28798160,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
-        },
-        {
-          "canonical_id": "palacio-municipal-virgen-milagrosa",
-          "name": "Municipalidad de Miraflores",
-          "district": "Miraflores",
-          "latitude": -12.1217599,
-          "longitude": -77.0292108,
-          "osm_id": 7570079259,
           "point_in_district": true,
           "anchor_method": "OSM_NOMINATIM_REVIEWED"
         }
@@ -1916,272 +1870,94 @@
           },
           "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
           "eta_label": "snapshot estimate"
+        }
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "stop_ids": [
+            "faro-la-marina-parque-antonio-raimondi",
+            "parque-del-amor-el-beso",
+            "puente-villena-bajada-balta-costa-verde"
+          ],
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.1236743%2C-77.040152&destination=-12.1274808%2C-77.0357271&travelmode=walking&waypoints=-12.1267365%2C-77.0365127"
+        }
+      ],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1236743%2C-77.040152",
+      "optimization": {
+        "method": "verified_compact_subpath_from_exact_parent",
+        "selected_distance_m": 890.3,
+        "exact_minimum_distance_m": null,
+        "permutations_evaluated": 40320,
+        "optimization_limitation": "A road-verified compact subpath retained after removing transfers above 800 m; it is not claimed as a newly optimized independent tour."
+      },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.kml",
+      "route_geometry_containment_status": "VERIFIED",
+      "route_partition": {
+        "part": 1,
+        "parts": 2,
+        "reason": "LONG_INTERTOUR_TRANSFER_REMOVED",
+        "parent_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.geojson"
+      }
+    },
+    {
+      "district": "Miraflores",
+      "containment_status": "VERIFIED",
+      "boundary_osm_id": 1944770,
+      "stops": [
+        {
+          "canonical_id": "larcomar-acantilado",
+          "name": "Larcomar",
+          "district": "Miraflores",
+          "latitude": -12.1322184,
+          "longitude": -77.0302263,
+          "osm_id": 28993402,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
         },
         {
-          "from": "puente-villena-bajada-balta-costa-verde",
-          "to": "larcomar-acantilado",
-          "road_distance_m": 854.2,
-          "road_duration_s": 683.1,
-          "geometry": {
-            "coordinates": [
-              [
-                -77.035727,
-                -12.127481
-              ],
-              [
-                -77.035462,
-                -12.127896
-              ],
-              [
-                -77.035451,
-                -12.127911
-              ],
-              [
-                -77.035471,
-                -12.12792
-              ],
-              [
-                -77.035441,
-                -12.127964
-              ],
-              [
-                -77.035426,
-                -12.127989
-              ],
-              [
-                -77.035315,
-                -12.128188
-              ],
-              [
-                -77.035097,
-                -12.128544
-              ],
-              [
-                -77.034964,
-                -12.128768
-              ],
-              [
-                -77.034869,
-                -12.128941
-              ],
-              [
-                -77.034682,
-                -12.129232
-              ],
-              [
-                -77.034615,
-                -12.129342
-              ],
-              [
-                -77.034409,
-                -12.129679
-              ],
-              [
-                -77.034336,
-                -12.129791
-              ],
-              [
-                -77.034318,
-                -12.12981
-              ],
-              [
-                -77.034174,
-                -12.129961
-              ],
-              [
-                -77.034002,
-                -12.130078
-              ],
-              [
-                -77.033831,
-                -12.130142
-              ],
-              [
-                -77.033655,
-                -12.130169
-              ],
-              [
-                -77.033462,
-                -12.1302
-              ],
-              [
-                -77.033401,
-                -12.130197
-              ],
-              [
-                -77.033297,
-                -12.130226
-              ],
-              [
-                -77.033173,
-                -12.130282
-              ],
-              [
-                -77.033148,
-                -12.130294
-              ],
-              [
-                -77.032962,
-                -12.130417
-              ],
-              [
-                -77.032888,
-                -12.130417
-              ],
-              [
-                -77.032836,
-                -12.130511
-              ],
-              [
-                -77.032769,
-                -12.130574
-              ],
-              [
-                -77.032667,
-                -12.130646
-              ],
-              [
-                -77.032575,
-                -12.130674
-              ],
-              [
-                -77.032494,
-                -12.130708
-              ],
-              [
-                -77.032442,
-                -12.130751
-              ],
-              [
-                -77.032398,
-                -12.130802
-              ],
-              [
-                -77.032349,
-                -12.130876
-              ],
-              [
-                -77.032288,
-                -12.130949
-              ],
-              [
-                -77.032191,
-                -12.13101
-              ],
-              [
-                -77.032098,
-                -12.131054
-              ],
-              [
-                -77.031941,
-                -12.131095
-              ],
-              [
-                -77.031813,
-                -12.131106
-              ],
-              [
-                -77.031736,
-                -12.131093
-              ],
-              [
-                -77.031662,
-                -12.131075
-              ],
-              [
-                -77.031611,
-                -12.131057
-              ],
-              [
-                -77.031587,
-                -12.13105
-              ],
-              [
-                -77.031533,
-                -12.131034
-              ],
-              [
-                -77.031492,
-                -12.13105
-              ],
-              [
-                -77.03141,
-                -12.131068
-              ],
-              [
-                -77.031347,
-                -12.131085
-              ],
-              [
-                -77.031322,
-                -12.131096
-              ],
-              [
-                -77.031287,
-                -12.131109
-              ],
-              [
-                -77.031205,
-                -12.131168
-              ],
-              [
-                -77.031127,
-                -12.131232
-              ],
-              [
-                -77.031117,
-                -12.131245
-              ],
-              [
-                -77.031099,
-                -12.131305
-              ],
-              [
-                -77.031013,
-                -12.131338
-              ],
-              [
-                -77.030968,
-                -12.131373
-              ],
-              [
-                -77.030929,
-                -12.131408
-              ],
-              [
-                -77.030852,
-                -12.131479
-              ],
-              [
-                -77.030742,
-                -12.131553
-              ],
-              [
-                -77.030658,
-                -12.13161
-              ],
-              [
-                -77.0304,
-                -12.131818
-              ],
-              [
-                -77.030176,
-                -12.132018
-              ],
-              [
-                -77.03013,
-                -12.13206
-              ],
-              [
-                -77.030099,
-                -12.13209
-              ]
-            ],
-            "type": "LineString"
-          },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate"
+          "canonical_id": "reducto-2-casa-museo-caceres",
+          "name": "Reducto",
+          "district": "Miraflores",
+          "latitude": -12.1300445,
+          "longitude": -77.0319172,
+          "osm_id": 11063679747,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
         },
+        {
+          "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
+          "name": "Calle Porta",
+          "district": "Miraflores",
+          "latitude": -12.1270431,
+          "longitude": -77.0328783,
+          "osm_id": 14073892,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        },
+        {
+          "canonical_id": "parque-kennedy-gatos-civic-core",
+          "name": "Parque John F. Kennedy",
+          "district": "Miraflores",
+          "latitude": -12.1217806,
+          "longitude": -77.0304221,
+          "osm_id": 28798160,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        },
+        {
+          "canonical_id": "palacio-municipal-virgen-milagrosa",
+          "name": "Municipalidad de Miraflores",
+          "district": "Miraflores",
+          "latitude": -12.1217599,
+          "longitude": -77.0292108,
+          "osm_id": 7570079259,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+        }
+      ],
+      "legs": [
         {
           "from": "larcomar-acantilado",
           "to": "reducto-2-casa-museo-caceres",
@@ -2615,35 +2391,32 @@
         {
           "stage": 1,
           "stop_ids": [
-            "faro-la-marina-parque-antonio-raimondi",
-            "parque-del-amor-el-beso",
-            "puente-villena-bajada-balta-costa-verde",
             "larcomar-acantilado",
-            "reducto-2-casa-museo-caceres"
-          ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.1236743%2C-77.040152&destination=-12.1300445%2C-77.0319172&travelmode=walking&waypoints=-12.1267365%2C-77.0365127%7C-12.1274808%2C-77.0357271%7C-12.1322184%2C-77.0302263"
-        },
-        {
-          "stage": 2,
-          "stop_ids": [
             "reducto-2-casa-museo-caceres",
             "calle-porta-y-casonas-frente-a-verticalizacion",
             "parque-kennedy-gatos-civic-core",
             "palacio-municipal-virgen-milagrosa"
           ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.1300445%2C-77.0319172&destination=-12.1217599%2C-77.0292108&travelmode=walking&waypoints=-12.1270431%2C-77.0328783%7C-12.1217806%2C-77.0304221"
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.1322184%2C-77.0302263&destination=-12.1217599%2C-77.0292108&travelmode=walking&waypoints=-12.1300445%2C-77.0319172%7C-12.1270431%2C-77.0328783%7C-12.1217806%2C-77.0304221"
         }
       ],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1236743%2C-77.040152",
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1322184%2C-77.0302263",
       "optimization": {
-        "method": "exact_permutation",
+        "method": "verified_compact_subpath_from_exact_parent",
+        "selected_distance_m": 1740.4,
+        "exact_minimum_distance_m": null,
         "permutations_evaluated": 40320,
-        "selected_distance_m": 3484.9,
-        "exact_minimum_distance_m": 3484.9
+        "optimization_limitation": "A road-verified compact subpath retained after removing transfers above 800 m; it is not claimed as a newly optimized independent tour."
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.kml",
+      "route_geometry_containment_status": "VERIFIED",
+      "route_partition": {
+        "part": 2,
+        "parts": 2,
+        "reason": "LONG_INTERTOUR_TRANSFER_REMOVED",
+        "parent_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.geojson"
+      }
     },
     {
       "district": "Miraflores",
@@ -2863,8 +2636,8 @@
         "permutations_evaluated": 120,
         "optimization_limitation": "Fresh four-stop matrix unavailable after router stall; sequence preserves the contained subpath of the prior exact five-stop solution."
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.kml",
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.kml",
       "route_geometry_containment_status": "VERIFIED",
       "route_geometry_repair_provenance": "BOUNDARY_EDGE_REMOVED_2026_08_31"
     },
@@ -2894,8 +2667,8 @@
         "selected_distance_m": 0,
         "exact_minimum_distance_m": 0
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.kml",
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.kml",
       "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31"
     },
     {
@@ -3204,7 +2977,9 @@
             "type": "LineString"
           },
           "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate"
+          "eta_label": "snapshot estimate",
+          "district": "Miraflores",
+          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
         }
       ],
       "stages": [
@@ -3220,12 +2995,12 @@
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1100511%2C-77.0536918",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 2,
+        "permutations_evaluated": 1,
         "selected_distance_m": 994.6,
         "exact_minimum_distance_m": 994.6
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.kml",
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.kml",
       "route_geometry_containment_status": "VERIFIED"
     },
     {
@@ -3253,8 +3028,8 @@
         "selected_distance_m": 0,
         "exact_minimum_distance_m": 0
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.kml",
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.kml",
       "route_geometry_containment_status": "VERIFIED"
     },
     {
@@ -3784,7 +3559,9 @@
             "type": "LineString"
           },
           "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate"
+          "eta_label": "snapshot estimate",
+          "district": "Pueblo Libre",
+          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
         }
       ],
       "stages": [
@@ -3804,8 +3581,8 @@
       "optimization": {
         "method": "exact_permutation",
         "permutations_evaluated": 120,
-        "selected_distance_m": 1994.1999999999998,
-        "exact_minimum_distance_m": 1994.1999999999998
+        "selected_distance_m": 1994.2,
+        "exact_minimum_distance_m": 1994.2
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.kml",
@@ -4059,7 +3836,9 @@
             "type": "LineString"
           },
           "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate"
+          "eta_label": "snapshot estimate",
+          "district": "Pueblo Libre",
+          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
         },
         {
           "from": "museo-larco-jardines",
@@ -4249,9 +4028,9 @@
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0706736%2C-77.0678766",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 6,
-        "selected_distance_m": 1654.8000000000002,
-        "exact_minimum_distance_m": 1654.8000000000002
+        "permutations_evaluated": 1,
+        "selected_distance_m": 1654.8,
+        "exact_minimum_distance_m": 1654.8
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.kml",
@@ -5474,7 +5253,9 @@
             "type": "LineString"
           },
           "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate"
+          "eta_label": "snapshot estimate",
+          "district": "San Isidro",
+          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
         },
         {
           "from": "palacio-municipal-y-de-la-cultura-san-isidro",
@@ -6012,7 +5793,7 @@
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.100988%2C-77.03397",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 120,
+        "permutations_evaluated": 1,
         "selected_distance_m": 3070.4,
         "exact_minimum_distance_m": 3070.4
       },
@@ -6339,6 +6120,276 @@
   "snapshot_repair": {
     "status": "BOUNDARY_EXIT_REMOVED_ROUTER_REBUILD_PENDING",
     "audit_path": "architectural_photography/routes/geometry_containment_audit.json",
-    "tradeoff": "One compact Miraflores sequence is a contained parent subpath, not a newly optimized four-stop route."
-  }
+    "tradeoff": "One compact Miraflores sequence is a contained parent subpath, not a newly optimized four-stop route.",
+    "usability_partition": "Transfers above 800 m are disclosed between separate tours and are not published as continuous photography walks."
+  },
+  "omitted_intertour_transfers": [
+    {
+      "from": "puente-villena-bajada-balta-costa-verde",
+      "to": "larcomar-acantilado",
+      "road_distance_m": 854.2,
+      "road_duration_s": 683.1,
+      "geometry": {
+        "coordinates": [
+          [
+            -77.035727,
+            -12.127481
+          ],
+          [
+            -77.035462,
+            -12.127896
+          ],
+          [
+            -77.035451,
+            -12.127911
+          ],
+          [
+            -77.035471,
+            -12.12792
+          ],
+          [
+            -77.035441,
+            -12.127964
+          ],
+          [
+            -77.035426,
+            -12.127989
+          ],
+          [
+            -77.035315,
+            -12.128188
+          ],
+          [
+            -77.035097,
+            -12.128544
+          ],
+          [
+            -77.034964,
+            -12.128768
+          ],
+          [
+            -77.034869,
+            -12.128941
+          ],
+          [
+            -77.034682,
+            -12.129232
+          ],
+          [
+            -77.034615,
+            -12.129342
+          ],
+          [
+            -77.034409,
+            -12.129679
+          ],
+          [
+            -77.034336,
+            -12.129791
+          ],
+          [
+            -77.034318,
+            -12.12981
+          ],
+          [
+            -77.034174,
+            -12.129961
+          ],
+          [
+            -77.034002,
+            -12.130078
+          ],
+          [
+            -77.033831,
+            -12.130142
+          ],
+          [
+            -77.033655,
+            -12.130169
+          ],
+          [
+            -77.033462,
+            -12.1302
+          ],
+          [
+            -77.033401,
+            -12.130197
+          ],
+          [
+            -77.033297,
+            -12.130226
+          ],
+          [
+            -77.033173,
+            -12.130282
+          ],
+          [
+            -77.033148,
+            -12.130294
+          ],
+          [
+            -77.032962,
+            -12.130417
+          ],
+          [
+            -77.032888,
+            -12.130417
+          ],
+          [
+            -77.032836,
+            -12.130511
+          ],
+          [
+            -77.032769,
+            -12.130574
+          ],
+          [
+            -77.032667,
+            -12.130646
+          ],
+          [
+            -77.032575,
+            -12.130674
+          ],
+          [
+            -77.032494,
+            -12.130708
+          ],
+          [
+            -77.032442,
+            -12.130751
+          ],
+          [
+            -77.032398,
+            -12.130802
+          ],
+          [
+            -77.032349,
+            -12.130876
+          ],
+          [
+            -77.032288,
+            -12.130949
+          ],
+          [
+            -77.032191,
+            -12.13101
+          ],
+          [
+            -77.032098,
+            -12.131054
+          ],
+          [
+            -77.031941,
+            -12.131095
+          ],
+          [
+            -77.031813,
+            -12.131106
+          ],
+          [
+            -77.031736,
+            -12.131093
+          ],
+          [
+            -77.031662,
+            -12.131075
+          ],
+          [
+            -77.031611,
+            -12.131057
+          ],
+          [
+            -77.031587,
+            -12.13105
+          ],
+          [
+            -77.031533,
+            -12.131034
+          ],
+          [
+            -77.031492,
+            -12.13105
+          ],
+          [
+            -77.03141,
+            -12.131068
+          ],
+          [
+            -77.031347,
+            -12.131085
+          ],
+          [
+            -77.031322,
+            -12.131096
+          ],
+          [
+            -77.031287,
+            -12.131109
+          ],
+          [
+            -77.031205,
+            -12.131168
+          ],
+          [
+            -77.031127,
+            -12.131232
+          ],
+          [
+            -77.031117,
+            -12.131245
+          ],
+          [
+            -77.031099,
+            -12.131305
+          ],
+          [
+            -77.031013,
+            -12.131338
+          ],
+          [
+            -77.030968,
+            -12.131373
+          ],
+          [
+            -77.030929,
+            -12.131408
+          ],
+          [
+            -77.030852,
+            -12.131479
+          ],
+          [
+            -77.030742,
+            -12.131553
+          ],
+          [
+            -77.030658,
+            -12.13161
+          ],
+          [
+            -77.0304,
+            -12.131818
+          ],
+          [
+            -77.030176,
+            -12.132018
+          ],
+          [
+            -77.03013,
+            -12.13206
+          ],
+          [
+            -77.030099,
+            -12.13209
+          ]
+        ],
+        "type": "LineString"
+      },
+      "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+      "eta_label": "snapshot estimate",
+      "district": "Miraflores",
+      "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
+    }
+  ]
 }
