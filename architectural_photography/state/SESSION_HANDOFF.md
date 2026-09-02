@@ -457,3 +457,11 @@
 - Added a self-contained “Cómo usar esta guía” explainer in plain Peruvian Spanish. It defines the preparation matrix (R0–R3), place cards, labs, route collections/independent points and brief decoder, and gives a recommended first-time workflow. It is static HTML and therefore remains available without JavaScript.
 - Added an executable content contract requiring all five surfaces and the non-predictive matrix explanation. Architecture suite now passes 135 tests; architecture/release verifiers, pinned Ruff C901≤10 and six-viewport route/whole-site Playwright checks pass.
 - Trade-off: canonical historical place narratives still contain source-preserved English quotations/fields in the underlying 87-scene dataset; translating those verbatim evidence fields would alter provenance. The new instructional chrome and route/field-card content is Spanish and explains how to interpret those source-backed fields.
+
+## Round 6 Spanish-first content and visual polish — 2026-09-02
+
+- Objective: remove user-facing English prose and fix the architectural guide's edge-hugging mobile layout while preserving evidence and compatibility URLs.
+- Public rendering now uses Spanish beginner explanations for ranking cards, field priorities, style-discovery cards and video transfers. Internal source fields and URLs remain unchanged for provenance; proper names and technical acronyms are preserved where they identify a source or standard.
+- CSS now applies a 24–72 px responsive content gutter, a 1160 px readable measure, improved card wrapping, section rhythm and a styled beginner glossary. Static no-JS content remains available.
+- RED/GREEN: initial tests caught stale English label expectations and were updated to the new public contract. Final architecture/repository suite passes 136 tests; architecture/release verifiers and Ruff C901≤10 pass. Route and whole-site Playwright suites pass all six required viewports with no overflow or runtime/resource errors. Live Pages smoke test contains the beginner guide, Spanish ranking label and responsive gutter.
+- Trade-off: translating the public presentation rather than raw evidence preserves source fidelity but means the underlying private/source dataset can still contain English quotations; those fields are no longer rendered in the beginner-facing cards.
