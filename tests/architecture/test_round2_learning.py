@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 
@@ -134,19 +135,24 @@ def test_learning_labs_have_prediction_manipulation_feedback_and_sources():
     learning = json.loads((DATA / "learning.json").read_text(encoding="utf-8"))
     labs = learning["simulations"]
     assert {
-        "perspective-position", "vertical-convergence", "hierarchy-edges", "light-material",
-    } <= {lab["simulation_id"] for lab in labs}
+        "perspective-position", "vertical-convergence", "hierarchy-edges", "negative-space-edges",
+        "depth-layers", "composition-sequence", "light-material", "exposure-triangle", "reflection-glare",
+    } == {lab["simulation_id"] for lab in labs}
     required = {"title", "prediction_prompt", "field_drill", "diagnostic_rule", "sources"}
     assert all(required <= lab.keys() for lab in labs)
     assert all(all(lab[field] for field in required) for lab in labs)
     html = PAGE.read_text(encoding="utf-8")
-    for control in ("perspective-position", "perspective-focal", "vertical-tilt", "hierarchy-mode", "light-mode"):
+    for control in (
+        "perspective-position", "perspective-focal", "vertical-tilt", "hierarchy-mode", "negative-margin",
+        "depth-haze", "composition-mode", "light-azimuth", "light-altitude", "light-source",
+        "exposure-shutter", "exposure-aperture", "reflection-angle", "reflection-exposure",
+    ):
         assert f'id="{control}"' in html
-    assert html.count('class="learning-lab"') == 5
-    assert 'id="perspective-feedback"' in html
-    assert 'id="vertical-feedback"' in html
-    assert 'id="hierarchy-feedback"' in html
-    assert 'id="light-feedback"' in html
+    assert html.count('class="learning-lab"') == len(labs)
+    for slug in ("perspective", "vertical", "hierarchy", "negative", "depth", "composition", "light", "exposure", "reflection"):
+        assert f'id="{slug}-feedback"' in html
+    # every control must belong to a lab whose table can answer it
+    assert html.count("data-lab-control") >= 14
 
 
 def test_learning_labs_preserve_physical_and_pedagogical_truth():
@@ -158,16 +164,19 @@ def test_learning_labs_preserve_physical_and_pedagogical_truth():
     assert "active learning" in text
     assert "pedagogical diagram" in text
     html = PAGE.read_text(encoding="utf-8")
-    assert "No es una simulación óptica ni una previsualización de píxeles" in html
+    assert "No es una simulación calibrada" in html
+    assert "no los píxeles que dará tu toma" in html
 
 
 def test_no_js_learning_fallback_keeps_core_exercises():
     html = PAGE.read_text(encoding="utf-8")
     noscript = html.split("<noscript>", 1)[1].split("</noscript>", 1)[0]
-    assert "Laboratorios sin JavaScript" in noscript
-    assert "Mueve físicamente la cámara" in noscript
-    assert "Mantén la cámara nivelada" in noscript
-    assert "Escanea los cuatro bordes" in noscript
+    labs = html.count('class="learning-lab"')
+    # one camera-only exercise per lab, so nothing is lost without JavaScript
+    numbered = re.findall(r"<p><strong>(\d+)\. [^<]+:</strong>", noscript)
+    assert [int(item) for item in numbered] == list(range(1, labs + 1))
+    assert "Mantén la cámara nivelada" in noscript or "toma nivelada" in noscript
+    assert "cuatro bordes" in noscript
 
 
 def test_non_video_learning_sources_resolve_in_public_registry():
@@ -241,16 +250,18 @@ def test_labs_have_explicit_six_part_contract_and_composition_sequence():
     html = PAGE.read_text(encoding="utf-8")
     assert 'id="composition-mode"' in html
     assert 'id="composition-feedback"' in html
-    assert html.count('class="learning-lab"') == 5
+    assert html.count('class="learning-lab"') == len(learning["simulations"])
 
 
 def test_learning_overhaul_exposes_recovery_legends_and_field_transfer():
     html = PAGE.read_text(encoding="utf-8")
-    assert html.count('class="lab-reset"') == 5
-    assert html.count('class="lab-legend"') == 5
-    assert html.count('class="lab-cycle"') == 5
+    labs = html.count('class="learning-lab"')
+    assert labs == 9
+    assert html.count('class="lab-reset"') == labs
+    assert html.count('class="lab-legend"') == labs
+    assert html.count('class="lab-cycle"') == labs
     for label in ("Predicción", "Acción", "Observación", "Transferencia al campo"):
-        assert html.count(label) >= 5
+        assert html.count(label) >= labs
     assert 'id="composition-before"' in html
     assert 'id="composition-after"' in html
     assert 'id="composition-fixed-position"' in html
@@ -277,8 +288,13 @@ def test_video_technique_wiki_is_evidence_linked_and_offline_ready():
     ledger = json.loads((WORKBENCH / "VIDEO_LEDGER.json").read_text(encoding="utf-8"))
     validated = [claim for video in ledger["videos"] for claim in video["timestamped_claims"]]
     assert len(validated) >= 12
-    assert html.count('class="wiki-technique"') >= 8
-    assert html.count('class="evidence-card"') == len(validated)
+    assert html.count('class="wiki-technique"') == 9
+    timestamps = re.findall(r"youtube\.com/watch\?v=([\w-]+)&t=(\d+)s", html)
+    assert len(timestamps) == len(validated)
+    assert {(video["video_id"], int(claim["timestamp_seconds"]))
+            for video in ledger["videos"] for claim in video["timestamped_claims"]} == {
+        (video_id, int(seconds)) for video_id, seconds in timestamps}
+    assert html.count('class="evidence-card"') == sum(bool(v["timestamped_claims"]) for v in ledger["videos"])
     assert "Qué probar" in html and "Qué observar" in html and "Cuándo descartarlo" in html
     assert "Transcripción no disponible" in html
     assert 'href="wiki-tecnicas.html"' in PAGE.read_text(encoding="utf-8")
@@ -290,6 +306,10 @@ def test_visualizations_use_explicit_world_physics_models():
     assert 'data-physics-model="vanishing-point"' in html
     assert 'data-physics-model="lambert-shadow"' in html
     assert 'data-physics-model="layered-attention"' in html
+    assert 'data-physics-model="edge-competition"' in html
+    assert 'data-physics-model="aerial-perspective"' in html
+    assert 'data-physics-model="exposure-triangle"' in html
+    assert 'data-physics-model="fresnel-schlick"' in html
     assert 'id="vertical-horizon"' in html
     assert 'id="light-direction"' in html
     assert 'id="light-penumbra"' in html
@@ -314,5 +334,6 @@ def test_projection_and_light_models_expose_scale_and_material_layers():
     assert 'id="composition-reflection"' in html
     assert 'id="composition-glare"' in html
     assert 'id="composition-halo"' in html
-    assert "focal/posición" in html.lower()
-    assert "cos" in html.lower()
+    assert "atan(sensor / 2·focal)" in html
+    assert "cos(θ)" in html
+    assert "altura / tan(altura del sol)" in html

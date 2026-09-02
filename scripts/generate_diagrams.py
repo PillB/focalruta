@@ -23,6 +23,8 @@ Iteration log (6 passes):
 import os
 import sys
 import math
+
+import optics_physics
 import json
 
 import matplotlib
@@ -116,10 +118,8 @@ def get_fov(focal_mm):
     """Return (h_fov_deg, v_fov_deg) for a given focal length on FF Canon 6D."""
     if focal_mm in FOV_TABLE:
         return FOV_TABLE[focal_mm]
-    # Compute via formula: FoV = 2 * atan(d / (2 * f))
-    # Canon EOS 6D imaging area ≈35.8 × 23.9 mm
-    h_fov = math.degrees(2 * math.atan(35.8 / (2 * focal_mm)))
-    v_fov = math.degrees(2 * math.atan(23.9 / (2 * focal_mm)))
+    h_fov = optics_physics.angle_of_view_deg(focal_mm, optics_physics.CANON_6D_WIDTH_MM)
+    v_fov = optics_physics.angle_of_view_deg(focal_mm, optics_physics.CANON_6D_HEIGHT_MM)
     return (h_fov, v_fov)
 
 def aperture_to_fnum(ap_str):
@@ -206,26 +206,12 @@ def dof_zone_polygon(camera_xy, subject_distance_m, h_fov_deg, near_m, far_m):
 def estimate_dof(focal_mm, fnum, subject_distance_m):
     """
     Estimate DoF near/far limits using a simplified circle-of-confusion model.
-    CoC for FF = 0.030 mm. Returns (near_m, far_m).
+    CoC for FF = 0.030 mm. Returns (near_m, far_m, hyperfocal_m).
     """
-    # Hyperfocal distance H = f² / (N * CoC) + f
-    f = focal_mm
-    N = fnum
-    coc = 0.030  # mm
-    H_mm = (f * f) / (N * coc) + f
-    H = H_mm / 1000.0  # convert mm to meters
-    s = subject_distance_m * 1000  # mm
-    # Near = H*s / (H + (s - f)) ; Far = H*s / (H - (s - f))
-    near_mm = (H_mm * s) / (H_mm + (s - f))
-    try:
-        far_mm = (H_mm * s) / (H_mm - (s - f))
-    except ZeroDivisionError:
-        far_mm = 10 * s  # treat as very far
-    if far_mm < 0 or far_mm > 1e6:
-        far_mm = 1e6  # infinity
-    near = max(0.1, near_mm / 1000.0)
-    far = far_mm / 1000.0 if far_mm < 1e6 else None
-    return (near, far, H)
+    zone = optics_physics.depth_of_field(focal_mm, fnum, subject_distance_m)
+    near = max(0.1, zone["near"])
+    far = zone["far"] if zone["far"] < 1000.0 else None
+    return (near, far, zone["hyperfocal"])
 
 
 # ---------------------------------------------------------------------------

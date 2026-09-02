@@ -37,9 +37,10 @@ def test_public_visualizations_have_a_caption_or_nearby_explanation():
             window = html[match.start() : end + 6 if end >= 0 else match.end() + 600]
             following = html[end + 6 : end + 500] if end >= 0 else ""
             assert "aria-label" in match.group(0) or "aria-labelledby" in match.group(0), f"missing label: {path}"
-            assert ("<title>" in window or "<figcaption" in window or "Diagrama" in following
-                    or "Visualización" in following or "Síntesis causal" in following or "geometría" in following
-                    or "Geometría peatonal" in html), path
+            # A caption element must follow the drawing, not a lucky keyword somewhere on the page.
+            captioned = (re.search(r"<title[ >]", window) or "<figcaption" in window
+                         or re.search(r'class="(viz-caption|route-note|lab-readout|scene-note)"', following))
+            assert captioned, f"uncaptioned visualization in {path.name}: {match.group(0)[:120]}"
 
 
 def test_glossary_defines_operational_terms_in_master():
