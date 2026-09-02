@@ -1,6 +1,51 @@
 {
-  "url_occurrences": 21,
-  "unique_video_ids": 20,
+  "schema_version": "2.0.0",
+  "url_occurrences": 45,
+  "unique_video_ids": 44,
+  "unverified_attribution_policy": "OMIT_TITLE_CHANNEL_DATE_AND_CLAIMS",
+  "latest_transcript_probe": {
+    "checked_at": "2026-09-01",
+    "method": "Supadata MCP transcript endpoint with mode=native and text=false after direct caption listing was IP-blocked",
+    "result_counts": {
+      "CAPTIONS_DISABLED": 0,
+      "AVAILABILITY_UNKNOWN_IP_BLOCKED": 0,
+      "CAPTURED": 24
+    },
+    "captions_disabled_ids": [],
+    "availability_unknown_ip_blocked_ids": [],
+    "supadata_native_caption_ids": [
+      "5zjA7yFPLr8",
+      "ThImDec0ZNw",
+      "jjtjqhFsEoc",
+      "BaPIP21-jh4",
+      "5ELVLN9eOWA",
+      "jVRR7_pgn0E",
+      "cwNH7sUeNDE",
+      "yebFVp6UDio",
+      "Tdhe00o8R60",
+      "N7AUBqS_yUQ",
+      "hMQQkmKs16Y",
+      "muXeSghtLwE",
+      "GG8M1Huo_2g",
+      "SfIMa_2zYN4",
+      "4pQHpDu8SEA",
+      "XQfuWGDi3qE",
+      "vtrzEJjEL98",
+      "TLNKvAkK-ts",
+      "55654y11Aa8",
+      "ymuNrxexVBM",
+      "skOVHEgBrZ0",
+      "dfjgV5r1e4k",
+      "Nzf8M4HiEUM",
+      "RuYJOWp05sk"
+    ],
+    "serp_discovered_ids": [
+      "5zjA7yFPLr8",
+      "muXeSghtLwE",
+      "GG8M1Huo_2g"
+    ],
+    "serp_evidence_limit": "Discovery only; no timestamped transcript was established."
+  },
   "duplicates": {
     "p0NlX54vKCA": 2
   },
@@ -16,7 +61,24 @@
       "publication_date": "2025-11-03T09:27:10-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/p0NlX54vKCA.json",
-      "last_checked_at": "2026-08-27T18:23:00.866343+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.866343+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/p0NlX54vKCA.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 204.08,
+          "claim": "People reveal use and scale; absence can redirect attention to architecture and carry stillness when social evidence remains.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "pkMssQPul9o",
@@ -29,7 +91,24 @@
       "publication_date": "2023-10-29T12:00:25-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/pkMssQPul9o.json",
-      "last_checked_at": "2026-08-27T18:23:00.867762+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.867762+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/pkMssQPul9o.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 293.64,
+          "claim": "Read the existing direction, color and contrast of natural and practical light before adding equipment.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "kCu_JaxaxX0",
@@ -42,7 +121,29 @@
       "publication_date": "2021-09-03T06:08:03-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/kCu_JaxaxX0.json",
-      "last_checked_at": "2026-08-27T18:23:00.868618+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.868618+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/kCu_JaxaxX0.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 162.0,
+          "claim": "Mira cómo la luz describe relieve, textura, profundidad y uso.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        },
+        {
+          "timestamp_seconds": 383.68,
+          "claim": "Architectural lines organize attention only when they lead through the frame toward a deliberate visual destination.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "vu5ohljtB-A",
@@ -55,7 +156,18 @@
       "publication_date": "2024-12-19T06:00:55-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/vu5ohljtB-A.json",
-      "last_checked_at": "2026-08-27T18:23:00.869795+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.869795+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/vu5ohljtB-A.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_NO_PUBLIC_TRANSFER",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "mDGEHrv9FyY",
@@ -68,7 +180,18 @@
       "publication_date": "2025-01-31T05:01:05-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/mDGEHrv9FyY.json",
-      "last_checked_at": "2026-08-27T18:23:00.870755+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.870755+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/mDGEHrv9FyY.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_NO_PUBLIC_TRANSFER",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "QmC1GEy6JiA",
@@ -81,7 +204,18 @@
       "publication_date": "2025-10-09T14:11:47-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/QmC1GEy6JiA.json",
-      "last_checked_at": "2026-08-27T18:23:00.873702+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.873702+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/QmC1GEy6JiA.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_NO_PUBLIC_TRANSFER",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "Fh6PIafC8wU",
@@ -94,7 +228,34 @@
       "publication_date": "2022-05-15T06:00:01-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/Fh6PIafC8wU.json",
-      "last_checked_at": "2026-08-27T18:23:00.876151+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.876151+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/Fh6PIafC8wU.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 324.9,
+          "claim": "Escanea los cuatro bordes y cada objeto de alto contraste del fondo.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        },
+        {
+          "timestamp_seconds": 1963.1,
+          "claim": "Encuentra el verbo que confirma o contradice el diseño.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        },
+        {
+          "timestamp_seconds": 258.52,
+          "claim": "A chosen camera position controls foreground, background, edge collisions and the moment that can enter the frame.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "ExElfOqn5B8",
@@ -107,7 +268,24 @@
       "publication_date": "2026-02-21T05:00:34-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/ExElfOqn5B8.json",
-      "last_checked_at": "2026-08-27T18:23:00.877459+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.877459+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/ExElfOqn5B8.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 33.2,
+          "claim": "Las reglas son preguntas diagnósticas, no garantías.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "0H-t9N1hDj0",
@@ -120,7 +298,34 @@
       "publication_date": "2026-06-09T07:51:26-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/0H-t9N1hDj0.json",
-      "last_checked_at": "2026-08-27T18:23:00.878831+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.878831+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/0H-t9N1hDj0.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 62.76,
+          "claim": "Nombra la relación y el dispositivo arquitectónico antes de tocar un dial.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        },
+        {
+          "timestamp_seconds": 195.72,
+          "claim": "Pregunta qué lee el espectador primero, segundo y tercero.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        },
+        {
+          "timestamp_seconds": 655.92,
+          "claim": "Grids are tools; intention, hierarchy and emotional direction determine whether an arrangement communicates.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "AuoMaGMBHVg",
@@ -133,7 +338,24 @@
       "publication_date": "2025-11-22T06:00:18-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/AuoMaGMBHVg.json",
-      "last_checked_at": "2026-08-27T18:23:00.880143+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.880143+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/AuoMaGMBHVg.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 25.24,
+          "claim": "Mira cómo ciclan acción, bordes y luz en vez de hacer una foto e irte.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "Ub0EGCMs4_U",
@@ -146,7 +368,29 @@
       "publication_date": "2026-02-28T10:29:47-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/Ub0EGCMs4_U.json",
-      "last_checked_at": "2026-08-27T18:23:00.881119+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.881119+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/Ub0EGCMs4_U.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 11.52,
+          "claim": "Separa primer plano, dispositivo arquitectónico, acción y fondo.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        },
+        {
+          "timestamp_seconds": 135.92,
+          "claim": "Background luminance, distance, edges and clutter change figure-ground separation and perceived depth.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "bpbNNxhEMDg",
@@ -159,7 +403,18 @@
       "publication_date": "2026-06-27T05:20:53-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/bpbNNxhEMDg.json",
-      "last_checked_at": "2026-08-27T18:23:00.881909+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.881909+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/bpbNNxhEMDg.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_NO_PUBLIC_TRANSFER",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "L38beOFz-lM",
@@ -172,7 +427,24 @@
       "publication_date": "2026-07-28T00:00:08-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/L38beOFz-lM.json",
-      "last_checked_at": "2026-08-27T18:23:00.882584+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.882584+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/L38beOFz-lM.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 243.0,
+          "claim": "ISO sostiene el obturador y diafragma que exige la escena; no existe un ISO mágico.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "61pRp270Dbc",
@@ -185,7 +457,29 @@
       "publication_date": "2026-02-20T03:00:08-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/61pRp270Dbc.json",
-      "last_checked_at": "2026-08-27T18:23:00.883452+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.883452+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/61pRp270Dbc.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 42.52,
+          "claim": "Separa foco fallido, trepidación, movimiento, PDC insuficiente, óptica/difracción y atmósfera.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        },
+        {
+          "timestamp_seconds": 547.36,
+          "claim": "Trata clima y horas difíciles como herramientas distintas para construir forma.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "1GZCFDGcOvA",
@@ -198,7 +492,18 @@
       "publication_date": "2026-05-22T03:56:55-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/1GZCFDGcOvA.json",
-      "last_checked_at": "2026-08-27T18:23:00.884223+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.884223+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/1GZCFDGcOvA.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_NO_PUBLIC_TRANSFER",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "LkgbCOYIA-k",
@@ -211,7 +516,18 @@
       "publication_date": "2025-11-21T13:00:23-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/LkgbCOYIA-k.json",
-      "last_checked_at": "2026-08-27T18:23:00.885145+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.885145+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/LkgbCOYIA-k.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_NO_PUBLIC_TRANSFER",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "H1l7mV2y-zI",
@@ -224,7 +540,24 @@
       "publication_date": "2026-01-13T03:00:36-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/H1l7mV2y-zI.json",
-      "last_checked_at": "2026-08-27T18:23:00.886191+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.886191+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/H1l7mV2y-zI.json"
+      },
+      "timestamped_claims": [
+        {
+          "timestamp_seconds": 84.799,
+          "claim": "El fotómetro mide luz reflejada y propone exposición; no conoce la intención.",
+          "evidence_status": "TRANSCRIPT_VALIDATED"
+        }
+      ],
+      "curriculum_cross_validation": {
+        "status": "CURRICULUM_TRANSFER_VALIDATED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "il28la8DRCU",
@@ -237,7 +570,18 @@
       "publication_date": "2023-08-25T03:00:38-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/il28la8DRCU.json",
-      "last_checked_at": "2026-08-27T18:23:00.887301+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.887301+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/il28la8DRCU.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_NO_PUBLIC_TRANSFER",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "bei6n93efWo",
@@ -250,7 +594,18 @@
       "publication_date": "2024-12-30T06:00:40-08:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/bei6n93efWo.json",
-      "last_checked_at": "2026-08-27T18:23:00.888224+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.888224+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/bei6n93efWo.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_NO_PUBLIC_TRANSFER",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     },
     {
       "video_id": "cBPlq2JdVJc",
@@ -263,7 +618,546 @@
       "publication_date": "2026-07-28T04:02:15-07:00",
       "metadata_status": "VERIFIED_YOUTUBE_OEMBED_WATCH_PAGE",
       "transcript_path": "architectural_photography/research/videos/transcripts/cBPlq2JdVJc.json",
-      "last_checked_at": "2026-08-27T18:23:00.889365+00:00"
+      "last_checked_at": "2026-08-27T18:23:00.889365+00:00",
+      "transcript_provenance": {
+        "source": "YOUTUBE_CAPTION_TRACK",
+        "path": "architectural_photography/research/videos/transcripts/cBPlq2JdVJc.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_NO_PUBLIC_TRANSFER",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "5zjA7yFPLr8",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/5zjA7yFPLr8.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/5zjA7yFPLr8.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "ThImDec0ZNw",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/ThImDec0ZNw.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/ThImDec0ZNw.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "jjtjqhFsEoc",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/jjtjqhFsEoc.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/jjtjqhFsEoc.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "BaPIP21-jh4",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/BaPIP21-jh4.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/BaPIP21-jh4.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "5ELVLN9eOWA",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/5ELVLN9eOWA.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/5ELVLN9eOWA.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "jVRR7_pgn0E",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/jVRR7_pgn0E.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/jVRR7_pgn0E.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "cwNH7sUeNDE",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/cwNH7sUeNDE.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/cwNH7sUeNDE.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "yebFVp6UDio",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/yebFVp6UDio.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/yebFVp6UDio.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "Tdhe00o8R60",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/Tdhe00o8R60.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/Tdhe00o8R60.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "N7AUBqS_yUQ",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/N7AUBqS_yUQ.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/N7AUBqS_yUQ.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "hMQQkmKs16Y",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/hMQQkmKs16Y.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/hMQQkmKs16Y.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "muXeSghtLwE",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/muXeSghtLwE.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/muXeSghtLwE.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "GG8M1Huo_2g",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/GG8M1Huo_2g.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/GG8M1Huo_2g.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "SfIMa_2zYN4",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/SfIMa_2zYN4.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/SfIMa_2zYN4.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "4pQHpDu8SEA",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/4pQHpDu8SEA.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/4pQHpDu8SEA.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "XQfuWGDi3qE",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/XQfuWGDi3qE.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/XQfuWGDi3qE.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "vtrzEJjEL98",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/vtrzEJjEL98.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/vtrzEJjEL98.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "TLNKvAkK-ts",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/TLNKvAkK-ts.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/TLNKvAkK-ts.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "55654y11Aa8",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/55654y11Aa8.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/55654y11Aa8.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "ymuNrxexVBM",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/ymuNrxexVBM.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/ymuNrxexVBM.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "skOVHEgBrZ0",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/skOVHEgBrZ0.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/skOVHEgBrZ0.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "dfjgV5r1e4k",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/dfjgV5r1e4k.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/dfjgV5r1e4k.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "Nzf8M4HiEUM",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/Nzf8M4HiEUM.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/Nzf8M4HiEUM.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
+    },
+    {
+      "video_id": "RuYJOWp05sk",
+      "occurrences": 1,
+      "batch": "USER_SUPPLIED_2026_09_01",
+      "metadata_status": "UNAVAILABLE",
+      "exact_title": null,
+      "channel": null,
+      "publication_date": null,
+      "transcript_status": "CAPTURED",
+      "transcript_path": "architectural_photography/research/videos/transcripts/RuYJOWp05sk.json",
+      "transcript_provenance": {
+        "source": "SUPADATA_NATIVE_CAPTION",
+        "path": "architectural_photography/research/videos/transcripts/RuYJOWp05sk.json"
+      },
+      "timestamped_claims": [],
+      "curriculum_cross_validation": {
+        "status": "CAPTION_CAPTURED_ATTRIBUTION_BLOCKED",
+        "agreements": [],
+        "disagreements": []
+      },
+      "tags": []
     }
   ],
   "last_checked_at": "2026-08-27T18:23:00.889725+00:00"

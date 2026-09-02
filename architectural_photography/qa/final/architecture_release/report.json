@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "persistence_after_reload": true,
+  "service_worker_controlled": true,
+  "composition_feedback": true,
+  "keyboard_control": true,
+  "offline_challenge": true,
+  "no_js_core": true,
+  "page_errors": [],
+  "console_errors": [],
+  "failed_resources": []
+}

@@ -99,7 +99,16 @@ def process(row: dict) -> dict:
         "transcript_error": transcript_error,
     }
     (CHECKS / f"{row['video_id']}.json").write_text(json.dumps(check, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return row | meta | captions | {"last_checked_at": check["retrieved_at"]}
+    merged = row | meta | captions | {"last_checked_at": check["retrieved_at"]}
+    merged["transcript_provenance"] = {
+        "source": "YOUTUBE_CAPTION_TRACK" if merged["transcript_status"] == "CAPTURED" else "UNAVAILABLE",
+        "path": merged.get("transcript_path"),
+        "checked_at": check["retrieved_at"],
+    }
+    merged.setdefault("timestamped_claims", [])
+    merged.setdefault("curriculum_cross_validation", {"status": "NOT_YET_REVIEWED", "agreements": [], "disagreements": []})
+    merged.setdefault("tags", [])
+    return merged
 
 
 def main() -> None:

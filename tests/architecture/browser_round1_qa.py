@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "architectural_photography" / "qa" / "rounds" / "round1"
 URL = os.environ.get("ARCHITECTURE_QA_URL", "http://127.0.0.1:8766/challenges/arquitectura-en-foco/")
 VIEWPORTS = ((390, 844), (430, 932), (844, 390), (932, 430), (820, 1000), (1440, 1100))
+EXPECTED_RANKING_COUNT = len(json.loads((ROOT / "data/architecture/ranking.json").read_text(encoding="utf-8"))["results"])
 
 
 def inspect_viewport(browser, width: int, height: int) -> dict:
@@ -57,7 +58,7 @@ def passed(row: dict) -> bool:
         and not row["failed_resources"]
         and row["focus_reached"]
         and row["firewall_count"] == 1
-        and row["ranking_all_count"] == 81
+        and row["ranking_all_count"] == EXPECTED_RANKING_COUNT
         and row["ranking_r2_first"] == "#1"
         and row["ranking_top_five_count"] == 5
     )

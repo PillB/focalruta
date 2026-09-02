@@ -9,7 +9,7 @@
     {"module_id": "route", "public_surface": "District-pure walking route cards, previews and exports", "verification": "geometry containment, KML/GeoJSON and six-viewport route QA"},
     {"module_id": "style-radar", "public_surface": "Modern, Art Nouveau and geometry discoveries", "verification": "admission and equal-depth dossier tests"},
     {"module_id": "scenes", "public_surface": "All 87 canonical places/scenes with Top N/all control", "verification": "canonical identity and equal-depth ledger tests"},
-    {"module_id": "learn", "public_surface": "Seeing modes, optics and field drills", "verification": "lesson-schema and technical-claim tests"},
+    {"module_id": "learn", "public_surface": "17 field-learning cycles, 6 timestamped video transfers, 4 interactive SVG labs, seeing modes and master-photographer drills", "verification": "lesson/video/simulation schema, technical-claim, no-JS fallback and browser interaction tests"},
     {"module_id": "field-run", "public_surface": "Offline CONTRACT vs USE notes and STAY/MOVE/RETURN", "verification": "browser persistence and export/import tests"},
     {"module_id": "ai-firewall", "public_surface": "Single concise planning workflow boundary", "verification": "page content and competition-rule tests"},
     {"module_id": "rules", "public_surface": "Deterministic submission preflight", "verification": "file boundary and rules discrepancy tests"},

@@ -1,5 +1,17 @@
 [
   {
+    "source_id": "SRC-LEARN-GESTALT-REVIEW",
+    "type": "ACADEMIC",
+    "url_or_path": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+    "publisher": "Psychological Bulletin / PubMed Central",
+    "publication_date": "2012",
+    "event_date": null,
+    "retrieved_at": "2026-09-01",
+    "independence_cluster": "gestalt_visual_perception_review",
+    "privacy_class": "PUBLIC_SECONDARY",
+    "status": "ACTIVE"
+  },
+  {
     "source_id": "SRC-COMP-2026-PDF",
     "type": "OFFICIAL",
     "url_or_path": "architectural_photography/research/competition/Bases_Veo_arte_en_todas_partes_2026_2.pdf",
@@ -133,5 +145,20 @@
   },
   {
     "source_id": "SRC-LOC-PUENTE-PAZ-OPENING", "type": "OFFICIAL", "url_or_path": "https://www.miraflores.gob.pe/miles-de-visitantes-cruzaron-el-puente-de-la-paz-en-el-primer-dia-de-acceso-libre-y-gratuito/", "publisher": "Municipalidad de Miraflores", "publication_date": "2025-08-21", "event_date": "2025-08-21", "retrieved_at": "2026-08-27", "independence_cluster": "puente_paz_miraflores", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LEARN-NIKON-PC", "type": "PROFESSIONAL", "url_or_path": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get", "publisher": "Nikon USA", "publication_date": null, "event_date": null, "retrieved_at": "2026-09-01", "independence_cluster": "nikon_learning", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LEARN-NIKON-COMPOSITION", "type": "PROFESSIONAL", "url_or_path": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines", "publisher": "Nikon USA", "publication_date": null, "event_date": null, "retrieved_at": "2026-09-01", "independence_cluster": "nikon_learning", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LEARN-PNAS-ACTIVE", "type": "ACADEMIC", "url_or_path": "https://doi.org/10.1073/pnas.1319030111", "publisher": "Proceedings of the National Academy of Sciences", "publication_date": "2014", "event_date": null, "retrieved_at": "2026-09-01", "independence_cluster": "freeman_active_learning", "privacy_class": "PUBLIC_SECONDARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LEARN-PNAS-RETRIEVAL", "type": "ACADEMIC", "url_or_path": "https://doi.org/10.1073/PNAS.2413511121", "publisher": "Proceedings of the National Academy of Sciences", "publication_date": "2024", "event_date": null, "retrieved_at": "2026-09-01", "independence_cluster": "variable_retrieval", "privacy_class": "PUBLIC_SECONDARY", "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-LEARN-PNAS-SIMULATION", "type": "ACADEMIC", "url_or_path": "https://pubmed.ncbi.nlm.nih.gov/33229515/", "publisher": "Proceedings of the National Academy of Sciences", "publication_date": "2020", "event_date": null, "retrieved_at": "2026-09-01", "independence_cluster": "simulation_physical_reasoning", "privacy_class": "PUBLIC_SECONDARY", "status": "ACTIVE"
   }
 ]
