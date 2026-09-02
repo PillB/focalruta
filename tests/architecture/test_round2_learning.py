@@ -282,3 +282,25 @@ def test_video_technique_wiki_is_evidence_linked_and_offline_ready():
     assert "Qué probar" in html and "Qué observar" in html and "Cuándo descartarlo" in html
     assert "Transcripción no disponible" in html
     assert 'href="wiki-tecnicas.html"' in PAGE.read_text(encoding="utf-8")
+
+
+def test_visualizations_use_explicit_world_physics_models():
+    html = PAGE.read_text(encoding="utf-8")
+    assert 'data-physics-model="pinhole-projection"' in html
+    assert 'data-physics-model="vanishing-point"' in html
+    assert 'data-physics-model="lambert-shadow"' in html
+    assert 'data-physics-model="layered-attention"' in html
+    assert 'id="vertical-horizon"' in html
+    assert 'id="light-direction"' in html
+    assert 'id="light-penumbra"' in html
+    assert 'id="hierarchy-reading-order"' in html
+    assert '<feGaussianBlur' in html
+    assert '<linearGradient' in html
+
+
+def test_physics_copy_rejects_fake_lens_magic_and_unbounded_effects():
+    html = PAGE.read_text(encoding="utf-8").lower()
+    assert "posición controla la perspectiva" in html
+    assert "focal controla el encuadre" in html
+    assert "no es una simulación calibrada" in html
+    assert "halo" in html and "reflejo" in html and "penumbra" in html

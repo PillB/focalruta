@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import hashlib
+import re
 import os
 import threading
 from functools import partial
@@ -54,8 +55,8 @@ def inspect(browser, width: int, height: int, url: str = URL) -> dict:
         "labs": page.locator(".learning-lab").count(),
         "lessons": page.locator(".lesson-card").count(),
         "videos": page.locator(".video-transfer").count(),
-        "position_feedback": "Relación de tamaño" in near_ratio,
-        "focal_preserves_ratio": near_ratio.split("Relación de tamaño cercano/lejos: ")[1].split("×")[0] == focal_ratio.split("Relación de tamaño cercano/lejos: ")[1].split("×")[0],
+        "position_feedback": "Proyección h≈f·H/z" in near_ratio,
+        "focal_preserves_ratio": re.search(r"cercano/lejos[ :]+([0-9.]+)×", near_ratio).group(1) == re.search(r"cercano/lejos[ :]+([0-9.]+)×", focal_ratio).group(1),
         "vertical_feedback": "convergen" in page.locator("#vertical-feedback").inner_text(),
         "hierarchy_feedback": "figura" in page.locator("#hierarchy-feedback").inner_text(),
         "light_feedback": "Garúa" in page.locator("#light-feedback").inner_text(),
