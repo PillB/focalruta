@@ -14,6 +14,7 @@ from generate_architecture_pages import (
     render,
     beginner_guide,
     reorder_story,
+    PHYSICS_GUIDE,
 )
 
 
@@ -41,6 +42,7 @@ def main() -> int:
     expected = render(rules, learning, photographers).replace("Arquitectura<br>en foco", "Fotografía<br>arquitectónica")
     expected = expected.replace('<nav aria-label="Tareas del laboratorio">', beginner_guide() + '<nav aria-label="Tareas del laboratorio">', 1)
     expected = reorder_story(expected)
+    expected = expected.replace('<section id="learn">', '<section id="learn">' + PHYSICS_GUIDE, 1)
     expected = expected.replace("<h3>Nueve familias técnicas</h3>", '<h3>Nueve familias técnicas</h3><p><a href="wiki-tecnicas.html">Abrir la wiki completa de técnicas, diagramas y evidencia de videos</a></p>', 1)
     for source, target in ((">STAY<", ">ME QUEDO<"), (">MOVE<", ">ME MUEVO<"), (">RETURN OTHER LIGHT<", ">VUELVO CON OTRA LUZ<"), ("TOP 5 DE CAMPO", "5 PRIORIDADES PARA COMPROBAR"), ("OFFLINE · GUARDADO LOCAL", "GUARDADO EN ESTE DISPOSITIVO"), ("EDICIÓN SEGÚN EL BRIEF", "EDICIÓN SEGÚN EL ENCARGO"), ("DECODIFICADOR DE BRIEF", "DECODIFICADOR DEL ENCARGO")):
         expected = expected.replace(source, target)
