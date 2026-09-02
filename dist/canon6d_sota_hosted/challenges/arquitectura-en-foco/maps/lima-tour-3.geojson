@@ -4,15 +4,52 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "quinta-heeren-restauracion-2026",
-        "name": "Quinta Heeren",
+        "id": "conjunto-habitacional-palomino",
+        "name": "Conjunto Habitacional Palomino",
         "district": "Lima"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.0179163,
-          -12.0499013
+          -77.0722383,
+          -12.0603412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "unidad-vecinal-3",
+        "name": "Unidad Vecinal 3",
+        "district": "Lima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0820644,
+          -12.0532861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "from": "conjunto-habitacional-palomino",
+        "to": "unidad-vecinal-3",
+        "road_distance_m": 1325.6,
+        "source_retrieved_at": "2026-09-01T00:00:00Z"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.0722383,
+            -12.0603412
+          ],
+          [
+            -77.0820644,
+            -12.0532861
+          ]
         ]
       }
     }

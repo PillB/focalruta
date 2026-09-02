@@ -961,72 +961,6 @@
       "boundary_osm_id": 1944670,
       "stops": [
         {
-          "canonical_id": "conjunto-habitacional-palomino",
-          "name": "Conjunto Habitacional Palomino",
-          "district": "Lima",
-          "latitude": -12.0603412,
-          "longitude": -77.0722383,
-          "osm_id": 3968359,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED",
-          "address": "Conjunto Habitacional Palomino, Lima, Lima Metropolitana, Lima, Perú",
-          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
-        }
-      ],
-      "legs": [],
-      "stages": [],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0603412%2C-77.0722383",
-      "optimization": {
-        "method": "exact_permutation",
-        "permutations_evaluated": 1,
-        "selected_distance_m": 0,
-        "exact_minimum_distance_m": 0
-      },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-07",
-      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.html"
-    },
-    {
-      "district": "Lima",
-      "containment_status": "VERIFIED",
-      "boundary_osm_id": 1944670,
-      "stops": [
-        {
-          "canonical_id": "unidad-vecinal-3",
-          "name": "Unidad Vecinal 3",
-          "district": "Lima",
-          "latitude": -12.0532861,
-          "longitude": -77.0820644,
-          "osm_id": 134143355,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED",
-          "address": "Unidad Vecinal 3, Lima, Lima Metropolitana, Lima, Perú",
-          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
-        }
-      ],
-      "legs": [],
-      "stages": [],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0532861%2C-77.0820644",
-      "optimization": {
-        "method": "exact_permutation",
-        "permutations_evaluated": 1,
-        "selected_distance_m": 0,
-        "exact_minimum_distance_m": 0
-      },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-08",
-      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.html"
-    },
-    {
-      "district": "Lima",
-      "containment_status": "VERIFIED",
-      "boundary_osm_id": 1944670,
-      "stops": [
-        {
           "canonical_id": "quinta-heeren-restauracion-2026",
           "name": "Quinta Heeren",
           "district": "Lima",
@@ -1048,11 +982,11 @@
         "selected_distance_m": 0,
         "exact_minimum_distance_m": 0
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.kml",
+      "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-09",
-      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.html"
+      "layer_id": "route-07",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.html"
     },
     {
       "district": "Lima",
@@ -1500,11 +1434,11 @@
         "selected_distance_m": 2499.9,
         "exact_minimum_distance_m": 2499.9
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.kml",
+      "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-10",
-      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.html"
+      "layer_id": "route-08",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.html"
     },
     {
       "district": "Miraflores",
@@ -1962,7 +1896,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-11",
+      "layer_id": "route-09",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.html",
       "route_partition": {
         "part": 1,
@@ -2491,7 +2425,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-12",
+      "layer_id": "route-10",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.html",
       "route_partition": {
         "part": 2,
@@ -2729,7 +2663,7 @@
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.kml",
       "route_geometry_containment_status": "VERIFIED",
       "route_geometry_repair_provenance": "BOUNDARY_EDGE_REMOVED_2026_08_31",
-      "layer_id": "route-13",
+      "layer_id": "route-11",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.html"
     },
     {
@@ -2763,7 +2697,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.kml",
       "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
-      "layer_id": "route-14",
+      "layer_id": "route-12",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.html"
     },
     {
@@ -3101,7 +3035,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-15",
+      "layer_id": "route-13",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.html"
     },
     {
@@ -3134,7 +3068,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-16",
+      "layer_id": "route-14",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.html"
     },
     {
@@ -3702,7 +3636,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-17",
+      "layer_id": "route-15",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html"
     },
     {
@@ -4158,74 +4092,8 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-18",
+      "layer_id": "route-16",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html"
-    },
-    {
-      "district": "Rímac",
-      "containment_status": "VERIFIED",
-      "boundary_osm_id": 1944796,
-      "stops": [
-        {
-          "canonical_id": "jiron-trujillo-puente-de-piedra",
-          "name": "Jirón Trujillo",
-          "district": "Rímac",
-          "latitude": -12.0361568,
-          "longitude": -77.0284544,
-          "osm_id": 428020167,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED",
-          "address": "Jirón Trujillo, Urbanización Leoncio Prado, Rímac, Lima, Lima Metropolitana, Lima, 15094, Perú",
-          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
-        }
-      ],
-      "legs": [],
-      "stages": [],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0361568%2C-77.0284544",
-      "optimization": {
-        "method": "exact_permutation",
-        "permutations_evaluated": 1,
-        "selected_distance_m": 0,
-        "exact_minimum_distance_m": 0
-      },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/rimac-tour-1.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/rimac-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-19",
-      "offline_map_path": "challenges/arquitectura-en-foco/maps/rimac-tour-1.html"
-    },
-    {
-      "district": "Rímac",
-      "containment_status": "VERIFIED",
-      "boundary_osm_id": 1944796,
-      "stops": [
-        {
-          "canonical_id": "cantagallo-comunidad-shipibo-konibo",
-          "name": "Cantagallo",
-          "district": "Rímac",
-          "latitude": -12.0422548,
-          "longitude": -77.017188,
-          "osm_id": 452890441,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED",
-          "address": "Cantagallo, Rímac, Lima, Lima Metropolitana, Lima, Perú",
-          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
-        }
-      ],
-      "legs": [],
-      "stages": [],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0422548%2C-77.017188",
-      "optimization": {
-        "method": "exact_permutation",
-        "permutations_evaluated": 1,
-        "selected_distance_m": 0,
-        "exact_minimum_distance_m": 0
-      },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/rimac-tour-2.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/rimac-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-20",
-      "offline_map_path": "challenges/arquitectura-en-foco/maps/rimac-tour-2.html"
     },
     {
       "district": "San Borja",
@@ -4484,7 +4352,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-21",
+      "layer_id": "route-17",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.html"
     },
     {
@@ -5131,7 +4999,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-22",
+      "layer_id": "route-18",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.html"
     },
     {
@@ -5164,7 +5032,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-23",
+      "layer_id": "route-19",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.html"
     },
     {
@@ -5966,7 +5834,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-24",
+      "layer_id": "route-20",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html"
     },
     {
@@ -6228,7 +6096,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-25",
+      "layer_id": "route-21",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html"
     },
     {
@@ -6263,7 +6131,7 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-26",
+      "layer_id": "route-22",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html"
     },
     {
@@ -6296,8 +6164,146 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-27",
+      "layer_id": "route-23",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.html"
+    },
+    {
+      "district": "Lima",
+      "containment_status": "VERIFIED",
+      "boundary_osm_id": 1944670,
+      "stops": [
+        {
+          "canonical_id": "conjunto-habitacional-palomino",
+          "name": "Conjunto Habitacional Palomino",
+          "district": "Lima",
+          "latitude": -12.0603412,
+          "longitude": -77.0722383,
+          "osm_id": 3968359,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Conjunto Habitacional Palomino, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
+        },
+        {
+          "canonical_id": "unidad-vecinal-3",
+          "name": "Unidad Vecinal 3",
+          "district": "Lima",
+          "latitude": -12.0532861,
+          "longitude": -77.0820644,
+          "osm_id": 134143355,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Unidad Vecinal 3, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
+        }
+      ],
+      "legs": [
+        {
+          "from": "conjunto-habitacional-palomino",
+          "to": "unidad-vecinal-3",
+          "road_distance_m": 1325.6,
+          "road_duration_s": 982,
+          "source_retrieved_at": "2026-09-01T00:00:00Z",
+          "eta_label": "estimación recta · validar en campo",
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [
+                -77.0722383,
+                -12.0603412
+              ],
+              [
+                -77.0820644,
+                -12.0532861
+              ]
+            ]
+          },
+          "evidence_status": "STRAIGHT_LINE_THRESHOLD_SCREEN_NOT_ROAD_ROUTING"
+        }
+      ],
+      "stages": [],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0603412%2C-77.0722383",
+      "optimization": {
+        "method": "threshold_sensitivity_merge",
+        "selected_distance_m": 1325.6,
+        "exact_minimum_distance_m": null,
+        "permutations_evaluated": 2,
+        "optimization_limitation": "straight-line screen; confirm pedestrian streets before departure"
+      },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.kml",
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-24",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.html"
+    },
+    {
+      "district": "Rímac",
+      "containment_status": "VERIFIED",
+      "boundary_osm_id": 1944796,
+      "stops": [
+        {
+          "canonical_id": "jiron-trujillo-puente-de-piedra",
+          "name": "Jirón Trujillo",
+          "district": "Rímac",
+          "latitude": -12.0361568,
+          "longitude": -77.0284544,
+          "osm_id": 428020167,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Jirón Trujillo, Urbanización Leoncio Prado, Rímac, Lima, Lima Metropolitana, Lima, 15094, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
+        },
+        {
+          "canonical_id": "cantagallo-comunidad-shipibo-konibo",
+          "name": "Cantagallo",
+          "district": "Rímac",
+          "latitude": -12.0422548,
+          "longitude": -77.017188,
+          "osm_id": 452890441,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Cantagallo, Rímac, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
+        }
+      ],
+      "legs": [
+        {
+          "from": "jiron-trujillo-puente-de-piedra",
+          "to": "cantagallo-comunidad-shipibo-konibo",
+          "road_distance_m": 1400.3,
+          "road_duration_s": 1037,
+          "source_retrieved_at": "2026-09-01T00:00:00Z",
+          "eta_label": "estimación recta · validar en campo",
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [
+                -77.0284544,
+                -12.0361568
+              ],
+              [
+                -77.017188,
+                -12.0422548
+              ]
+            ]
+          },
+          "evidence_status": "STRAIGHT_LINE_THRESHOLD_SCREEN_NOT_ROAD_ROUTING"
+        }
+      ],
+      "stages": [],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0361568%2C-77.0284544",
+      "optimization": {
+        "method": "threshold_sensitivity_merge",
+        "selected_distance_m": 1400.3,
+        "exact_minimum_distance_m": null,
+        "permutations_evaluated": 2,
+        "optimization_limitation": "straight-line screen; confirm pedestrian streets before departure"
+      },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/rimac.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/rimac.kml",
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-25",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/rimac.html"
     }
   ],
   "snapshot_repair": {
@@ -6629,16 +6635,14 @@
       "layer_ids": [
         "route-07",
         "route-08",
-        "route-09",
-        "route-10"
+        "route-24"
       ],
       "segments": [
-        "route-10"
+        "route-08",
+        "route-24"
       ],
       "independent_points": [
-        "route-07",
-        "route-08",
-        "route-09"
+        "route-07"
       ],
       "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
     },
@@ -6647,22 +6651,22 @@
       "title": "Miraflores · colección de ruta",
       "district": "Miraflores",
       "layer_ids": [
+        "route-09",
+        "route-10",
         "route-11",
         "route-12",
         "route-13",
-        "route-14",
-        "route-15",
-        "route-16"
+        "route-14"
       ],
       "segments": [
+        "route-09",
+        "route-10",
         "route-11",
-        "route-12",
-        "route-13",
-        "route-15"
+        "route-13"
       ],
       "independent_points": [
-        "route-14",
-        "route-16"
+        "route-12",
+        "route-14"
       ],
       "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
     },
@@ -6671,12 +6675,12 @@
       "title": "Pueblo Libre · colección de ruta",
       "district": "Pueblo Libre",
       "layer_ids": [
-        "route-17",
-        "route-18"
+        "route-15",
+        "route-16"
       ],
       "segments": [
-        "route-17",
-        "route-18"
+        "route-15",
+        "route-16"
       ],
       "independent_points": [],
       "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
@@ -6686,14 +6690,12 @@
       "title": "Rímac · colección de ruta",
       "district": "Rímac",
       "layer_ids": [
-        "route-19",
-        "route-20"
+        "route-25"
       ],
-      "segments": [],
-      "independent_points": [
-        "route-19",
-        "route-20"
+      "segments": [
+        "route-25"
       ],
+      "independent_points": [],
       "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
     },
     {
@@ -6701,16 +6703,16 @@
       "title": "San Borja · colección de ruta",
       "district": "San Borja",
       "layer_ids": [
-        "route-21",
-        "route-22",
-        "route-23"
+        "route-17",
+        "route-18",
+        "route-19"
       ],
       "segments": [
-        "route-21",
-        "route-22"
+        "route-17",
+        "route-18"
       ],
       "independent_points": [
-        "route-23"
+        "route-19"
       ],
       "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
     },
@@ -6719,16 +6721,16 @@
       "title": "San Isidro · colección de ruta",
       "district": "San Isidro",
       "layer_ids": [
-        "route-24",
-        "route-25",
-        "route-26"
+        "route-20",
+        "route-21",
+        "route-22"
       ],
       "segments": [
-        "route-24",
-        "route-25"
+        "route-20",
+        "route-21"
       ],
       "independent_points": [
-        "route-26"
+        "route-22"
       ],
       "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
     },
@@ -6737,11 +6739,11 @@
       "title": "Santiago de Surco · colección de ruta",
       "district": "Santiago de Surco",
       "layer_ids": [
-        "route-27"
+        "route-23"
       ],
       "segments": [],
       "independent_points": [
-        "route-27"
+        "route-23"
       ],
       "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
     }
@@ -6755,22 +6757,7 @@
       1500
     ],
     "method": "straight-line sensitivity screen only; road network evidence remains authoritative",
-    "candidate_pairs_under_1500m": [
-      {
-        "from": "conjunto-habitacional-palomino",
-        "to": "unidad-vecinal-3",
-        "district": "Lima",
-        "straight_distance_m": 1325.6,
-        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
-      },
-      {
-        "from": "jiron-trujillo-puente-de-piedra",
-        "to": "cantagallo-comunidad-shipibo-konibo",
-        "district": "Rímac",
-        "straight_distance_m": 1400.3,
-        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
-      }
-    ],
+    "candidate_pairs_under_1500m": [],
     "candidate_pairs": [
       {
         "from": "unidad-vecinal-matute-complejo-deportivo",
@@ -6780,38 +6767,10 @@
         "road_distance_status": "NOT_CAPTURED_NO_MERGE"
       },
       {
-        "from": "conjunto-habitacional-palomino",
-        "to": "unidad-vecinal-3",
-        "district": "Lima",
-        "straight_distance_m": 1325.6,
-        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
-      },
-      {
-        "from": "conjunto-habitacional-palomino",
-        "to": "quinta-heeren-restauracion-2026",
-        "district": "Lima",
-        "straight_distance_m": 6020.1,
-        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
-      },
-      {
-        "from": "unidad-vecinal-3",
-        "to": "quinta-heeren-restauracion-2026",
-        "district": "Lima",
-        "straight_distance_m": 6985.9,
-        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
-      },
-      {
         "from": "parque-tradiciones-ricardo-palma",
         "to": "huaca-pucllana",
         "district": "Miraflores",
         "straight_distance_m": 1782.0,
-        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
-      },
-      {
-        "from": "jiron-trujillo-puente-de-piedra",
-        "to": "cantagallo-comunidad-shipibo-konibo",
-        "district": "Rímac",
-        "straight_distance_m": 1400.3,
         "road_distance_status": "NOT_CAPTURED_NO_MERGE"
       }
     ],

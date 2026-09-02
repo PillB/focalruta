@@ -4,51 +4,51 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "conjunto-habitacional-palomino",
-        "name": "Conjunto Habitacional Palomino",
-        "district": "Lima"
+        "id": "jiron-trujillo-puente-de-piedra",
+        "name": "Jirón Trujillo",
+        "district": "Rímac"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.0722383,
-          -12.0603412
+          -77.0284544,
+          -12.0361568
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "unidad-vecinal-3",
-        "name": "Unidad Vecinal 3",
-        "district": "Lima"
+        "id": "cantagallo-comunidad-shipibo-konibo",
+        "name": "Cantagallo",
+        "district": "Rímac"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.0820644,
-          -12.0532861
+          -77.017188,
+          -12.0422548
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "from": "conjunto-habitacional-palomino",
-        "to": "unidad-vecinal-3",
-        "road_distance_m": 1325.6,
+        "from": "jiron-trujillo-puente-de-piedra",
+        "to": "cantagallo-comunidad-shipibo-konibo",
+        "road_distance_m": 1400.3,
         "source_retrieved_at": "2026-09-01T00:00:00Z"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            -77.0722383,
-            -12.0603412
+            -77.0284544,
+            -12.0361568
           ],
           [
-            -77.0820644,
-            -12.0532861
+            -77.017188,
+            -12.0422548
           ]
         ]
       }

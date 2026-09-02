@@ -36,8 +36,36 @@ def map_html(layer: dict, filename: str) -> None:
     (MAPS / filename).write_text(content, encoding="utf-8")
 
 
+MERGE_PAIRS = (
+    ("conjunto-habitacional-palomino", "unidad-vecinal-3"),
+    ("jiron-trujillo-puente-de-piedra", "cantagallo-comunidad-shipibo-konibo"),
+)
+
+
+def merge_threshold_pairs(routes: dict) -> None:
+    """Join the two user-approved 1500 m pairs with a disclosed straight leg."""
+    layers = routes["district_layers"]
+    for first_id, second_id in MERGE_PAIRS:
+        first = next((layer for layer in layers if layer["stops"][0]["canonical_id"] == first_id and len(layer["stops"]) == 1), None)
+        second = next((layer for layer in layers if layer["stops"][0]["canonical_id"] == second_id and len(layer["stops"]) == 1), None)
+        if not first or not second:
+            continue
+        a, b = first["stops"][0], second["stops"][0]
+        distance = round(haversine_m(a, b), 1)
+        leg = {
+            "from": a["canonical_id"], "to": b["canonical_id"],
+            "road_distance_m": distance, "road_duration_s": round(distance / 1.35),
+            "source_retrieved_at": "2026-09-01T00:00:00Z", "eta_label": "estimación recta · validar en campo",
+            "geometry": {"type": "LineString", "coordinates": [[a["longitude"], a["latitude"]], [b["longitude"], b["latitude"]]]},
+            "evidence_status": "STRAIGHT_LINE_THRESHOLD_SCREEN_NOT_ROAD_ROUTING",
+        }
+        merged = {**first, "stops": [a, b], "legs": [leg], "optimization": {"method": "threshold_sensitivity_merge", "selected_distance_m": distance, "exact_minimum_distance_m": None, "permutations_evaluated": 2, "optimization_limitation": "straight-line screen; confirm pedestrian streets before departure"}}
+        layers.remove(first); layers.remove(second); layers.append(merged)
+
+
 def main() -> None:
     routes = json.loads(ROUTES.read_text(encoding="utf-8"))
+    merge_threshold_pairs(routes)
     addresses = address_index()
     by_district: dict[str, list[dict]] = {}
     all_points: list[dict] = []

@@ -134,8 +134,10 @@ def test_each_road_leg_has_source_geometry_and_no_fake_live_eta():
             assert leg["road_duration_s"] > 0
             assert len(leg["geometry"]["coordinates"]) >= 2
             assert leg["source_retrieved_at"]
-            assert leg["eta_label"] == "snapshot estimate"
-            assert leg["road_distance_m"] <= 1000
+            assert leg["eta_label"] in {"snapshot estimate", "estimación recta · validar en campo"}
+            assert leg["road_distance_m"] <= 1500
+            if leg["road_distance_m"] > 1000:
+                assert leg.get("evidence_status") == "STRAIGHT_LINE_THRESHOLD_SCREEN_NOT_ROAD_ROUTING"
 
 
 def test_long_intertour_transfers_are_removed_and_disclosed_not_hidden():
@@ -175,7 +177,7 @@ def test_generated_page_separates_long_transfers_instead_of_recommending_them():
     assert "Transferencia larga:" not in page
     assert "Tour separado" in page
     assert "no se presentan como caminata continua" in page
-    assert page.count("Traslado terminal conservado:") == 5
+    assert page.count("Traslado terminal conservado:") == 7
     assert "Separarlo aislaría una escena" in page
 
 
@@ -205,7 +207,7 @@ def test_small_tours_are_checked_by_exact_permutation():
             elif optimization["method"] == "singleton":
                 assert optimization["selected_distance_m"] == 0
             else:
-                assert optimization["method"] in {"verified_subpath_from_exact_parent", "verified_compact_subpath_from_exact_parent"}
+                assert optimization["method"] in {"verified_subpath_from_exact_parent", "verified_compact_subpath_from_exact_parent", "threshold_sensitivity_merge"}
                 assert optimization["exact_minimum_distance_m"] is None
                 assert optimization["optimization_limitation"]
 

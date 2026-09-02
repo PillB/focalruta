@@ -13,10 +13,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 37,
+      "district_cards": 35,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-390x844.png",
-      "forensic_description": "390px portrait route capture: 37 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "390px portrait route capture: 35 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -29,10 +29,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 37,
+      "district_cards": 35,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-430x932.png",
-      "forensic_description": "430px portrait route capture: 37 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "430px portrait route capture: 35 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -45,10 +45,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 37,
+      "district_cards": 35,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-844x390.png",
-      "forensic_description": "844px landscape route capture: 37 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "844px landscape route capture: 35 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -61,10 +61,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 37,
+      "district_cards": 35,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-932x430.png",
-      "forensic_description": "932px landscape route capture: 37 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "932px landscape route capture: 35 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -77,10 +77,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 37,
+      "district_cards": 35,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-820x1000.png",
-      "forensic_description": "820px portrait route capture: 37 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "820px portrait route capture: 35 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -93,10 +93,10 @@
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
-      "district_cards": 37,
+      "district_cards": 35,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-1440x1100.png",
-      "forensic_description": "1440px landscape route capture: 37 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "1440px landscape route capture: 35 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     }
   ],
   "route_forensics": [
@@ -241,7 +241,7 @@
       "layer_id": "lima-tour-1",
       "district": "Lima",
       "ordered_stop_ids": [
-        "conjunto-habitacional-palomino"
+        "quinta-heeren-restauracion-2026"
       ],
       "stops": 1,
       "total_road_distance_m": 0,
@@ -256,40 +256,6 @@
     {
       "layer_index": 8,
       "layer_id": "lima-tour-2",
-      "district": "Lima",
-      "ordered_stop_ids": [
-        "unidad-vecinal-3"
-      ],
-      "stops": 1,
-      "total_road_distance_m": 0,
-      "longest_leg": null,
-      "long_leg_warning": false,
-      "maximum_road_to_straight_ratio": 1,
-      "geometry_bounds": null,
-      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/lima-tour-2.png",
-      "assessment": "single verified map point; no tour claimed",
-      "forensic_description": "Lima layer lima-tour-2: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
-    },
-    {
-      "layer_index": 9,
-      "layer_id": "lima-tour-3",
-      "district": "Lima",
-      "ordered_stop_ids": [
-        "quinta-heeren-restauracion-2026"
-      ],
-      "stops": 1,
-      "total_road_distance_m": 0,
-      "longest_leg": null,
-      "long_leg_warning": false,
-      "maximum_road_to_straight_ratio": 1,
-      "geometry_bounds": null,
-      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/lima-tour-3.png",
-      "assessment": "single verified map point; no tour claimed",
-      "forensic_description": "Lima layer lima-tour-3: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
-    },
-    {
-      "layer_index": 10,
-      "layer_id": "lima-tour-4",
       "district": "Lima",
       "ordered_stop_ids": [
         "jiron-de-la-union",
@@ -316,12 +282,12 @@
         "north": -12.044381,
         "vertices": 82
       },
-      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/lima-tour-4.png",
+      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/lima-tour-2.png",
       "assessment": "retained endpoint transfer; splitting would isolate a scene",
-      "forensic_description": "Lima layer lima-tour-4: 4 ordered stops, 2499.9 m total; 82 road vertices inside -77.03619…-77.02856 longitude and -12.05431…-12.04438 latitude. Maximum road/straight ratio 1.36. Assessment: retained endpoint transfer; splitting would isolate a scene."
+      "forensic_description": "Lima layer lima-tour-2: 4 ordered stops, 2499.9 m total; 82 road vertices inside -77.03619…-77.02856 longitude and -12.05431…-12.04438 latitude. Maximum road/straight ratio 1.36. Assessment: retained endpoint transfer; splitting would isolate a scene."
     },
     {
-      "layer_index": 11,
+      "layer_index": 9,
       "layer_id": "miraflores-tour-1",
       "district": "Miraflores",
       "ordered_stop_ids": [
@@ -353,7 +319,7 @@
       "forensic_description": "Miraflores layer miraflores-tour-1: 3 ordered stops, 890.3 m total; 91 road vertices inside -77.04027…-77.03545 longitude and -12.12792…-12.12373 latitude. Maximum road/straight ratio 2.06. Assessment: short road-conforming detour; barrier pattern disclosed."
     },
     {
-      "layer_index": 12,
+      "layer_index": 10,
       "layer_id": "miraflores-tour-2",
       "district": "Miraflores",
       "ordered_stop_ids": [
@@ -387,7 +353,7 @@
       "forensic_description": "Miraflores layer miraflores-tour-2: 5 ordered stops, 1740.4 m total; 94 road vertices inside -77.03304…-77.02917 longitude and -12.13209…-12.12155 latitude. Maximum road/straight ratio 1.50. Assessment: compact road-conforming photographic sequence."
     },
     {
-      "layer_index": 13,
+      "layer_index": 11,
       "layer_id": "miraflores-tour-3",
       "district": "Miraflores",
       "ordered_stop_ids": [
@@ -420,7 +386,7 @@
       "forensic_description": "Miraflores layer miraflores-tour-3: 4 ordered stops, 521.2 m total; 27 road vertices inside -77.02929…-77.02698 longitude and -12.11904…-12.11750 latitude. Maximum road/straight ratio 1.41. Assessment: compact road-conforming photographic sequence."
     },
     {
-      "layer_index": 14,
+      "layer_index": 12,
       "layer_id": "miraflores-tour-4",
       "district": "Miraflores",
       "ordered_stop_ids": [
@@ -437,7 +403,7 @@
       "forensic_description": "Miraflores layer miraflores-tour-4: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
     },
     {
-      "layer_index": 15,
+      "layer_index": 13,
       "layer_id": "miraflores-tour-5",
       "district": "Miraflores",
       "ordered_stop_ids": [
@@ -468,7 +434,7 @@
       "forensic_description": "Miraflores layer miraflores-tour-5: 2 ordered stops, 994.6 m total; 67 road vertices inside -77.05373…-77.04912 longitude and -12.11488…-12.10907 latitude. Maximum road/straight ratio 1.41. Assessment: retained endpoint transfer; splitting would isolate a scene."
     },
     {
-      "layer_index": 16,
+      "layer_index": 14,
       "layer_id": "miraflores-tour-6",
       "district": "Miraflores",
       "ordered_stop_ids": [
@@ -485,7 +451,7 @@
       "forensic_description": "Miraflores layer miraflores-tour-6: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
     },
     {
-      "layer_index": 17,
+      "layer_index": 15,
       "layer_id": "pueblo-libre-tour-1",
       "district": "Pueblo Libre",
       "ordered_stop_ids": [
@@ -519,7 +485,7 @@
       "forensic_description": "Pueblo Libre layer pueblo-libre-tour-1: 5 ordered stops, 1994.2 m total; 105 road vertices inside -77.06457…-77.05932 longitude and -12.07860…-12.06810 latitude. Maximum road/straight ratio 1.57. Assessment: retained endpoint transfer; splitting would isolate a scene."
     },
     {
-      "layer_index": 18,
+      "layer_index": 16,
       "layer_id": "pueblo-libre-tour-2",
       "district": "Pueblo Libre",
       "ordered_stop_ids": [
@@ -551,41 +517,7 @@
       "forensic_description": "Pueblo Libre layer pueblo-libre-tour-2: 3 ordered stops, 1654.8 m total; 90 road vertices inside -77.07282…-77.06788 longitude and -12.07277…-12.06828 latitude. Maximum road/straight ratio 2.17. Assessment: retained endpoint transfer; splitting would isolate a scene."
     },
     {
-      "layer_index": 19,
-      "layer_id": "rimac-tour-1",
-      "district": "Rímac",
-      "ordered_stop_ids": [
-        "jiron-trujillo-puente-de-piedra"
-      ],
-      "stops": 1,
-      "total_road_distance_m": 0,
-      "longest_leg": null,
-      "long_leg_warning": false,
-      "maximum_road_to_straight_ratio": 1,
-      "geometry_bounds": null,
-      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/rimac-tour-1.png",
-      "assessment": "single verified map point; no tour claimed",
-      "forensic_description": "Rímac layer rimac-tour-1: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
-    },
-    {
-      "layer_index": 20,
-      "layer_id": "rimac-tour-2",
-      "district": "Rímac",
-      "ordered_stop_ids": [
-        "cantagallo-comunidad-shipibo-konibo"
-      ],
-      "stops": 1,
-      "total_road_distance_m": 0,
-      "longest_leg": null,
-      "long_leg_warning": false,
-      "maximum_road_to_straight_ratio": 1,
-      "geometry_bounds": null,
-      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/rimac-tour-2.png",
-      "assessment": "single verified map point; no tour claimed",
-      "forensic_description": "Rímac layer rimac-tour-2: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
-    },
-    {
-      "layer_index": 21,
+      "layer_index": 17,
       "layer_id": "san-borja-tour-1",
       "district": "San Borja",
       "ordered_stop_ids": [
@@ -616,7 +548,7 @@
       "forensic_description": "San Borja layer san-borja-tour-1: 2 ordered stops, 742.2 m total; 48 road vertices inside -77.00483…-77.00074 longitude and -12.11173…-12.10882 latitude. Maximum road/straight ratio 1.74. Assessment: compact road-conforming photographic sequence."
     },
     {
-      "layer_index": 22,
+      "layer_index": 18,
       "layer_id": "san-borja-tour-2",
       "district": "San Borja",
       "ordered_stop_ids": [
@@ -651,7 +583,7 @@
       "forensic_description": "San Borja layer san-borja-tour-2: 6 ordered stops, 1624.3 m total; 117 road vertices inside -77.00501…-77.00014 longitude and -12.08798…-12.08396 latitude. Maximum road/straight ratio 3.51. Assessment: short road-conforming detour; barrier pattern disclosed."
     },
     {
-      "layer_index": 23,
+      "layer_index": 19,
       "layer_id": "san-borja-tour-3",
       "district": "San Borja",
       "ordered_stop_ids": [
@@ -668,7 +600,7 @@
       "forensic_description": "San Borja layer san-borja-tour-3: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
     },
     {
-      "layer_index": 24,
+      "layer_index": 20,
       "layer_id": "san-isidro-tour-1",
       "district": "San Isidro",
       "ordered_stop_ids": [
@@ -702,7 +634,7 @@
       "forensic_description": "San Isidro layer san-isidro-tour-1: 5 ordered stops, 3070.4 m total; 163 road vertices inside -77.03396…-77.01935 longitude and -12.10091…-12.09209 latitude. Maximum road/straight ratio 1.21. Assessment: retained endpoint transfer; splitting would isolate a scene."
     },
     {
-      "layer_index": 25,
+      "layer_index": 21,
       "layer_id": "san-isidro-tour-2",
       "district": "San Isidro",
       "ordered_stop_ids": [
@@ -734,7 +666,7 @@
       "forensic_description": "San Isidro layer san-isidro-tour-2: 3 ordered stops, 944.4 m total; 42 road vertices inside -77.04878…-77.04095 longitude and -12.09833…-12.09718 latitude. Maximum road/straight ratio 1.03. Assessment: compact road-conforming photographic sequence."
     },
     {
-      "layer_index": 26,
+      "layer_index": 22,
       "layer_id": "san-isidro-tour-3",
       "district": "San Isidro",
       "ordered_stop_ids": [
@@ -751,7 +683,7 @@
       "forensic_description": "San Isidro layer san-isidro-tour-3: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
     },
     {
-      "layer_index": 27,
+      "layer_index": 23,
       "layer_id": "santiago-de-surco",
       "district": "Santiago de Surco",
       "ordered_stop_ids": [
@@ -766,6 +698,68 @@
       "screenshot": "architectural_photography/qa/rounds/round5/route_layers/santiago-de-surco.png",
       "assessment": "single verified map point; no tour claimed",
       "forensic_description": "Santiago de Surco layer santiago-de-surco: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
+    },
+    {
+      "layer_index": 24,
+      "layer_id": "lima-tour-3",
+      "district": "Lima",
+      "ordered_stop_ids": [
+        "conjunto-habitacional-palomino",
+        "unidad-vecinal-3"
+      ],
+      "stops": 2,
+      "total_road_distance_m": 1325.6,
+      "longest_leg": {
+        "from": "conjunto-habitacional-palomino",
+        "to": "unidad-vecinal-3",
+        "road_distance_m": 1325.6,
+        "road_duration_s": 982,
+        "source_retrieved_at": "2026-09-01T00:00:00Z",
+        "eta_label": "estimación recta · validar en campo"
+      },
+      "long_leg_warning": true,
+      "maximum_road_to_straight_ratio": 1.0,
+      "geometry_bounds": {
+        "west": -77.0820644,
+        "east": -77.0722383,
+        "south": -12.0603412,
+        "north": -12.0532861,
+        "vertices": 2
+      },
+      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/lima-tour-3.png",
+      "assessment": "retained endpoint transfer; splitting would isolate a scene",
+      "forensic_description": "Lima layer lima-tour-3: 2 ordered stops, 1325.6 m total; 2 road vertices inside -77.08206…-77.07224 longitude and -12.06034…-12.05329 latitude. Maximum road/straight ratio 1.00. Assessment: retained endpoint transfer; splitting would isolate a scene."
+    },
+    {
+      "layer_index": 25,
+      "layer_id": "rimac",
+      "district": "Rímac",
+      "ordered_stop_ids": [
+        "jiron-trujillo-puente-de-piedra",
+        "cantagallo-comunidad-shipibo-konibo"
+      ],
+      "stops": 2,
+      "total_road_distance_m": 1400.3,
+      "longest_leg": {
+        "from": "jiron-trujillo-puente-de-piedra",
+        "to": "cantagallo-comunidad-shipibo-konibo",
+        "road_distance_m": 1400.3,
+        "road_duration_s": 1037,
+        "source_retrieved_at": "2026-09-01T00:00:00Z",
+        "eta_label": "estimación recta · validar en campo"
+      },
+      "long_leg_warning": true,
+      "maximum_road_to_straight_ratio": 1.0,
+      "geometry_bounds": {
+        "west": -77.0284544,
+        "east": -77.017188,
+        "south": -12.0422548,
+        "north": -12.0361568,
+        "vertices": 2
+      },
+      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/rimac.png",
+      "assessment": "retained endpoint transfer; splitting would isolate a scene",
+      "forensic_description": "Rímac layer rimac: 2 ordered stops, 1400.3 m total; 2 road vertices inside -77.02845…-77.01719 longitude and -12.04225…-12.03616 latitude. Maximum road/straight ratio 1.00. Assessment: retained endpoint transfer; splitting would isolate a scene."
     }
   ]
 }
