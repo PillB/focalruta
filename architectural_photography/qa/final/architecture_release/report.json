@@ -6,6 +6,7 @@
   "keyboard_control": true,
   "offline_challenge": true,
   "no_js_core": true,
+  "no_js_exercises": 9,
   "page_errors": [],
   "console_errors": [],
   "failed_resources": []

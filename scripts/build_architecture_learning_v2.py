@@ -15,6 +15,13 @@ NIKON_PC = "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the
 NIKON_COMPOSITION = "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines"
 GESTALT = "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/"
 
+# Public order of the interactive labs, one per technique family.
+LAB_ORDER = [
+    "perspective-position", "vertical-convergence", "hierarchy-edges",
+    "negative-space-edges", "depth-layers", "composition-sequence",
+    "light-material", "exposure-triangle", "reflection-glare",
+]
+
 TECHNIQUES = [
     ("viewpoint-before-focal", "Punto de vista antes que focal", "La posición decide perspectiva, solapes y fondo; la focal recorta el campo desde esa posición.", "Marca tres posiciones legales y compara relaciones antes de montar 35, 50 u 85 mm.", "Si cerca/lejos cambia, cambió la posición; si todo escala junto, cambió el campo de visión.", "Un 85 mm no comprime por magia: normalmente te obliga a alejarte.", [NIKON_PC]),
     ("perspective-shift-tilt", "Perspectiva, convergencia y desplazamiento", "Nivelar el sensor conserva verticales; inclinarlo produce convergencia. El desplazamiento reencuadra sin inclinar.", "Haz nivelada, inclinada y nivelada desde más altura; decide cuál expresa mejor el edificio.", "Distingue convergencia intencional de una corrección que recorta información útil.", "Enderezar no es siempre correcto y un diagrama no sustituye una óptica PC calibrada.", [NIKON_PC]),
@@ -26,6 +33,26 @@ TECHNIQUES = [
     ("exposure-focus-iso-motion", "Exposición, foco, ISO y movimiento", "Obturador, apertura e ISO responden a gesto, profundidad y altas luces; la nitidez tiene varias causas.", "Fija primero movimiento y PDC; diagnostica foco, trepidación, sujeto, óptica y atmósfera por separado.", "Cambia una sola causa y revisa histograma, alerta y ampliación crítica.", "No existe ISO mágico ni un único obturador que cure toda falta de nitidez.", [NIKON_COMPOSITION]),
     ("contest-safe-editing", "Edición compatible con cada convocatoria", "Captura, revelado, composición/eliminación y generación son categorías distintas que cada brief puede permitir o prohibir.", "Antes de editar, convierte las reglas vigentes en una lista de operaciones permitidas y dudosas.", "Si una operación cambia contenido o geometría material, detente y consulta la regla o al organizador.", "No generalices las fronteras de un concurso antiguo ni supongas que IA o relleno generativo están permitidos.", [NIKON_COMPOSITION]),
 ]
+
+
+LEGACY_LAB_COPY = {
+    "perspective-position": {
+        "misconception_warning": "Un 85 mm no comprime por arte de magia. Comprime porque, para conservar el tamaño del sujeto, te obliga a retroceder: es el paso atrás lo que junta los planos.",
+        "model_limit": "Calcula la proyección estenopeica sobre un sensor de 36 mm. No modela distorsión, viñeteo ni el rendimiento de un objetivo concreto.",
+    },
+    "vertical-convergence": {
+        "misconception_warning": "Enderezar no siempre es lo correcto: la convergencia puede expresar altura. Y corregirla después recorta información que quizá necesitabas.",
+        "model_limit": "Proyecta las cuatro esquinas de una fachada de 12 m a 26 m con un 35 mm. No sustituye una óptica descentrable ni predice cuánto recortará tu corrección.",
+    },
+    "hierarchy-edges": {
+        "misconception_warning": "La simetría y los tercios son herramientas, no pruebas de que la composición funcione. Si todo pesa igual, el problema es la posición, no la rejilla.",
+        "model_limit": "Modela atención y competencia de bordes, no física. El orden de lectura real depende de la escena y de quien mira.",
+    },
+    "light-material": {
+        "misconception_warning": "La hora dorada no es universalmente mejor. Lo que decide es si esa luz explica la forma del edificio o sólo lo tiñe.",
+        "model_limit": "Aplica cos θ, h/tan(altura solar) y el tamaño angular de la fuente. No predice exposición, color del cielo ni el comportamiento de un material concreto.",
+    },
+}
 
 
 def technique_cards() -> list[dict]:
@@ -51,12 +78,62 @@ def exemplars() -> list[dict]:
     return rows
 
 
+NEW_LABS = [
+    {
+        "simulation_id": "negative-space-edges", "title": "Espacio negativo y disciplina de bordes",
+        "prediction_prompt": "Predice qué borde expulsa la mirada antes de mover la cámara.",
+        "manipulation": "Ajusta el margen alrededor del sujeto y mira qué contorno queda tangente al borde.",
+        "observable_feedback": "El lab marca en rojo cada tangencia: dos contornos que casi se tocan y compiten.",
+        "diagnostic_rule": "Si un objeto toca el borde sin entrar del todo, decide: entra entero o sale entero.",
+        "model_limit": "Mide distancias en el propio dibujo; no mide tu encuadre real ni la distorsión de tu óptica.",
+        "field_drill": "Haz un barrido de los cuatro bordes antes de disparar y repite la toma con más vacío.",
+        "misconception_warning": "Más vacío no es mejor por sí solo: el vacío debe sostener escala, espera o tensión.",
+        "sources": [NIKON_COMPOSITION, GESTALT],
+    },
+    {
+        "simulation_id": "depth-layers", "title": "Capas, profundidad y perspectiva aérea",
+        "prediction_prompt": "Predice qué capa desaparece primero cuando la bruma aumenta.",
+        "manipulation": "Mueve la distancia de cada plano y la bruma; observa contraste y solape.",
+        "observable_feedback": "El contraste de cada plano cae con la distancia según exp(−bruma·d/200 m) y los solapes se reordenan.",
+        "diagnostic_rule": "Si dos planos tienen el mismo contraste, no hay profundidad: busca solape o cambia la hora.",
+        "model_limit": "Modela la caída de contraste atmosférica, no la dispersión espectral real de la garúa limeña.",
+        "field_drill": "Construye primer plano, dispositivo, acción y fondo; luego quita una capa y compara.",
+        "misconception_warning": "Abrir el diafragma no repara un fondo con forma o brillo contradictorios.",
+        "sources": [GESTALT, NIKON_COMPOSITION],
+    },
+    {
+        "simulation_id": "exposure-triangle", "title": "Obturación, diafragma, ISO y nitidez",
+        "prediction_prompt": "Predice qué se rompe primero si bajas dos pasos de obturación.",
+        "manipulation": "Cambia un vértice del triángulo; el lab compensa el resto para mantener la misma exposición.",
+        "observable_feedback": "El desenfoque de movimiento crece con el tiempo de exposición, la zona nítida con el número f y el ruido con la raíz del ISO.",
+        "diagnostic_rule": "Fija primero el movimiento que quieres congelar y la profundidad que necesitas; el ISO es la consecuencia.",
+        "model_limit": "Usa un círculo de confusión de 0,030 mm y una velocidad de paso típica; no predice el ruido de tu sensor.",
+        "field_drill": "Fija movimiento y profundidad, deja subir el ISO y compara al 100 % antes de juzgar.",
+        "misconception_warning": "No existe un ISO mágico ni un obturador único que cure toda falta de nitidez.",
+        "sources": [NIKON_COMPOSITION],
+    },
+    {
+        "simulation_id": "reflection-glare", "title": "Reflejos, brillo y halo",
+        "prediction_prompt": "Predice si acercarte al vidrio de frente aumenta o reduce el reflejo.",
+        "manipulation": "Cambia el ángulo con el que miras el vidrio y la exposición.",
+        "observable_feedback": "El porcentaje reflejado sigue Schlick: 4 % de frente y casi 100 % en ángulo rasante; el halo se contrae al cerrar pasos.",
+        "diagnostic_rule": "Si el reflejo tapa el interior, camina hacia un ángulo más frontal antes de tocar la cámara.",
+        "model_limit": "Aproximación de Schlick para vidrio (n≈1,5); no modela recubrimientos, polarizadores ni vidrio tintado.",
+        "field_drill": "Rodea una fachada vidriada y anota en qué ángulo el interior se vuelve legible.",
+        "misconception_warning": "Un polarizador no elimina el reflejo en cualquier ángulo: depende de la geometría.",
+        "sources": [NIKON_COMPOSITION, NIKON_PC],
+    },
+]
+
+
 def update_labs(data: dict) -> None:
-    data["simulations"] = [lab for lab in data["simulations"] if lab["simulation_id"] != "composition-sequence"]
+    generated = {"composition-sequence", *(lab["simulation_id"] for lab in NEW_LABS)}
+    data["simulations"] = [lab for lab in data["simulations"] if lab["simulation_id"] not in generated]
     for lab in data["simulations"]:
         lab["manipulation"] = f'Cambia únicamente el control de {lab["title"].lower()} y compara con tu predicción.'
         lab["observable_feedback"] = lab["diagnostic_rule"]
-        lab["misconception_warning"] = f'El resultado simplifica una sola relación. {lab["model_limit"]}'
+        lab["misconception_warning"] = LEGACY_LAB_COPY[lab["simulation_id"]]["misconception_warning"]
+        lab["model_limit"] = LEGACY_LAB_COPY[lab["simulation_id"]]["model_limit"]
     data["simulations"].append({
         "simulation_id": "composition-sequence", "title": "Una escena, cinco decisiones",
         "prediction_prompt": "Predice qué cambio transforma el significado, no solo el aspecto.",
@@ -75,6 +152,8 @@ def update_labs(data: dict) -> None:
             {"variant_id": "light-weather", "label": "Luz / clima"},
         ],
     })
+    data["simulations"].extend(json.loads(json.dumps(NEW_LABS)))
+    data["simulations"].sort(key=lambda lab: LAB_ORDER.index(lab["simulation_id"]))
 
 
 def validated_claims(learning: dict) -> dict[str, list[dict]]:

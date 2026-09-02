@@ -495,3 +495,152 @@
 - RED/GREEN: `tests/architecture/test_whole_site_eli5.py` first failed all four contracts, then exposed three generated-surface gaps (plan orientation order, composition caption, stale map caption). After source fixes and regeneration, full architecture/repository/debugging suite passes 148 tests; architecture verifier PASS; release verifier PASS; pinned Ruff C901≤10 PASS; `git diff --check` PASS.
 - Browser GREEN: learning and whole-site six-viewport suites pass; release-critical PWA probe passes persistence, service-worker control, keyboard, offline deep route and no-JS core with zero page/console/resource errors.
 - Expert rejection and trade-off: style guidance was applied as a review lens, not a blanket banned-word filter. Provenance fields, proper names and URLs remain unchanged; public prose is clearer but source evidence is not rewritten. Longer orientation panels cost vertical space, accepted because hiding definitions would stump first-time users.
+
+## Ronda 7 · Óptica calculada, nueve laboratorios, nueve diagramas y flujo alineado (2026-09-02)
+
+**Objetivo.** Cerrar seis solicitudes: wiki de técnicas, corrección física de las
+visualizaciones, estilo de escritura, cinco pasadas editoriales, diez
+alternativas de flujo pedagógico y revisión completa del sitio. Requisitos:
+G04, G05, G06, G07, H03–H08, I03, L05, L06, L10, M01, M03, M05, N01–N04, N08,
+O03, O04, Q02, Q03.
+
+**Relectura de contrato (Q02).** `AGENTS.md`, `REQUIREMENTS_INVENTORY.md`,
+`CURRENT_STATE.json`, `SOLARIZED_REQUESTS_2026-09-02.md` y el generador de
+páginas antes de editar.
+
+### Rechazos de experto encontrados en el estado anterior
+
+El checkpoint previo declaraba `PINHOLE_PROJECTION_VANISHING_POINT_LAMBERT_
+SHADOW_PENUMBRA…` y `9_TECHNIQUE_FAMILIES_ORIGINAL_CAUSAL_DIAGRAMS_ALL_
+VALIDATED`. La inspección del código generado contradijo ambas:
+
+1. Los nueve diagramas de la wiki eran **el mismo SVG**, byte a byte salvo el
+   `aria-label` (hash `128b35bf4581` ×9).
+2. `halfFov = Math.min(58, 22 + focal/8)` **invertía la óptica**: el cono se
+   abría al alargar la focal, contradiciendo la lección H03/H04 del propio lab,
+   y contradiciendo `get_fov()`, que ya era correcta en el mismo repositorio.
+3. `vanishingY = 64 − tilt·1.6`: lineal y en sentido contrario al real.
+4. Las sombras eran cuatro polígonos escritos a mano; `cos` no aparecía en el
+   JavaScript pese al atributo `data-physics-model="lambert-shadow"`.
+5. `#composition-halo`, `#composition-glare` y `#composition-reflection` no eran
+   tocados por ningún script: decoración presentada como fenómeno.
+6. La barra de navegación ofrecía un orden que contradecía el orden real del DOM.
+7. `ARCHITECTURE_MODULE_INVENTORY.json` declaraba 4 labs cuando había 5.
+
+### RED antes de implementar
+
+- `tests/architecture/test_optics_physics.py` — 16 invariantes físicos.
+  RED inicial: `ModuleNotFoundError: No module named 'optics_physics'`.
+- `tests/architecture/test_learning_flow_and_visual_uniqueness.py` — 9 contratos.
+  RED inicial: 5 de 7 fallaban (orden de navegación, alcanzabilidad de secciones,
+  unicidad de diagramas, anclas por técnica, índice por síntoma); después se
+  añadieron en RED la detección de mapas huérfanos y la de identificadores
+  duplicados, ambas fallando antes de la corrección.
+
+### GREEN
+
+- **`scripts/optics_physics.py`** (nuevo): única definición de la óptica del
+  proyecto. `generate_diagrams.py` y `generate_lens_comparison.py` la importan;
+  se comprobó **deriva numérica cero** en 270 casos de profundidad de campo y 9
+  focales, de modo que los 120 diagramas PNG comprometidos siguen siendo
+  reproducibles bit a bit (N08).
+- **`scripts/lab_visuals.py`** (nuevo): geometría de los nueve laboratorios y de
+  los nueve diagramas de la wiki. Python precalcula 194 estados y los incrusta
+  como tabla JSON; el navegador sólo aplica atributos. Lo que verifica pytest es
+  exactamente lo que dibuja la página.
+- Labs 5 → **9**, uno por familia técnica: se añadieron espacio negativo y
+  bordes, capas y perspectiva aérea, triángulo de exposición y reflejos/halo.
+- Wiki reconstruida: nueve diagramas propios, anclas estables, índice por
+  síntoma, referencia de física con fuente por fórmula y las 18 afirmaciones con
+  marca de tiempo agrupadas por video.
+- Navegación derivada de `STORY_ORDER`, la misma tupla que usa `reorder_story()`.
+- `build_challenge_page()` unifica el pipeline que antes estaba duplicado entre
+  `generate_architecture_pages.main()` y `verify_architecture.py`.
+- Nueve archivos de mapa huérfanos retirados; dos colisiones de identificador
+  (`light-source`, `depth-haze`) corregidas.
+
+### Evidencia ejecutada
+
+| Comando | Resultado |
+|---|---|
+| `python3 -m pytest -q` | 180 pass |
+| `python3 scripts/verify_architecture.py` | `passed: true` |
+| `python3 scripts/verify_release.py` | `passed: true` |
+| `uvx ruff@0.12.11 check scripts tests --select C901 --config 'lint.mccabe.max-complexity=10'` | All checks passed |
+| `browser_round1_qa.py` | passed, 6 viewports |
+| `browser_round2_learning_qa.py` | passed, 6 viewports, 22 invariantes físicos |
+| `browser_round5_route_qa.py` | passed, 6 viewports |
+| `browser_architecture_release_qa.py` | ver registro de la ronda |
+| `browser_whole_site_integration_qa.py` | ver registro de la ronda |
+
+Los 22 invariantes medidos en el navegador incluyen: el cono se cierra al
+alargar la focal y coincide con `2·atan(36/2f)`; la relación cerca/lejos no
+cambia con la focal pero sí con la distancia; a 0° las verticales quedan
+paralelas y la convergencia crece con la inclinación; la sombra gira en sentido
+opuesto al sol y se alarga cuando el sol baja; una fuente ancha ensancha la
+penumbra y borra la umbra; la bruma aplana el plano lejano; la tangencia sólo
+avisa cuando el margen es corto; el orden de lectura sigue la variante; una
+obturación lenta alarga la estela; cerrar el diafragma ensancha la zona nítida;
+el ángulo rasante sube el reflejo y apaga el interior; y más exposición agranda
+el halo.
+
+### Compromisos declarados
+
+- Los laboratorios calculan **dirección y orden de magnitud**, no píxeles,
+  exposición real ni el comportamiento de una óptica concreta. El límite es
+  visible en cada lab y detallado en `wiki-tecnicas.html#fisica`.
+- Las tablas precalculadas añaden ~105 KB al HTML del reto. Se acepta a cambio
+  de que el navegador no derive física por su cuenta.
+- **Las rutas no se recalcularon**: `build_architecture_routes.py` depende del
+  router OSM, registrado como `OSM_ROUTER_STALLED`. Por la regla de fallo rápido
+  se conserva el `routes.json` verificado y no se reintenta.
+- Nueve de las diez alternativas de flujo quedan **documentadas, no
+  implementadas**. La comparación está en
+  `research/pedagogical_flow_alternatives_2026-09-02.md`; construir diez flujos
+  simultáneos contradice el propio criterio de carga cognitiva.
+- Los diagramas siguen siendo síntesis originales: no se copió ninguna imagen
+  externa ni se publicó transcripción privada (I03, L12).
+
+### Documentos de investigación de la ronda
+
+- `architectural_photography/research/visualization_physics_review_2026-09-02.md`
+- `architectural_photography/research/pedagogical_flow_alternatives_2026-09-02.md`
+- `architectural_photography/research/editorial_usability_review_2026-09-02.md` (segunda ronda)
+
+### Escalación de depuración · `browser_architecture_release_qa.py` colgado
+
+**Síntoma.** El guion no terminaba ni fallaba: se quedaba colgado más de diez
+minutos sin escribir informe.
+
+**Primera hipótesis (descartada).** Que las aserciones desactualizadas —cinco
+laboratorios en vez de nueve, y un texto de teclado que ya no existía— lo
+hicieran fallar. Se corrigieron y **siguió colgado**, así que la hipótesis era
+falsa: una aserción falsa produce una excepción, no un bloqueo.
+
+**Evidencia recogida antes del siguiente intento.** Se instrumentó cada paso con
+tiempo y `timeout` propio, con salida sin buffer. `page.goto` respondía en 0,6 s
+con estado 200; el siguiente paso,
+`await navigator.serviceWorker.ready`, no resolvía nunca. Después se comprobó con
+`grep -c "serviceWorker.register"` que `index.html` en la raíz del repositorio da
+**0** y `dist/canon6d_sota_hosted/index.html` da **1**.
+
+**Documentación primaria consultada.** La especificación de Service Workers
+define `ServiceWorkerContainer.ready` como una promesa que **sólo se resuelve**
+cuando hay un registro activo para ese ámbito; no rechaza si no lo hay. Un
+`page.evaluate` que la espera se bloquea de forma indefinida, sin importar el
+tiempo de espera de los localizadores de Playwright.
+
+**Qué cambió la hipótesis.** El guion apuntaba por defecto a la raíz del
+repositorio, donde nunca ha habido registro de service worker. La ronda anterior
+lo ejecutó contra el build hospedado y por eso pasó; el valor por defecto estaba
+mal desde el principio y el fallo era silencioso.
+
+**Predicción falsable.** Sirviendo `dist/canon6d_sota_hosted` y apuntando
+`FOCALRUTA_QA_URL` ahí, `serviceWorker.ready` resuelve y el guion termina.
+**Confirmada:** `passed: true`, service worker con control, nueve laboratorios
+visibles sin conexión y nueve ejercicios en el bloque sin JavaScript.
+
+**Corrección permanente.** El valor por defecto pasó a `http://127.0.0.1:8777/`
+con un comentario que explica por qué, y `README.md` documenta que ese guion
+necesita la raíz hospedada. Un fallo que se manifestaba como cuelgue queda
+convertido en una instrucción explícita.

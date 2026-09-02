@@ -23,3 +23,41 @@ No se sustituyó evidencia de fuente por una voz «humana» inventada, ni se bor
 ## Evidencia ejecutable
 
 La cobertura está en `tests/architecture/test_whole_site_eli5.py`: orientación antes de controles, definiciones operativas, explicación cercana a cada SVG y plan de recuperación. La suite de arquitectura, los verificadores de arquitectura/release y las pruebas de navegador son la evidencia GREEN de las cinco pasadas.
+
+## Segunda ronda · 2026-09-02 (tarde)
+
+Motivo: la revisión anterior dio por buena una capa visual que no cumplía lo que
+declaraba. La inspección directa del generador encontró tres afirmaciones falsas
+—nueve diagramas idénticos, campo de visión invertido y sombras dibujadas a
+mano— y una contradicción de navegación. Las cinco pasadas se repitieron sobre
+el material corregido.
+
+1. **Estructura.** La barra de navegación pasó a derivarse del mismo orden que
+   fija `reorder_story()`; antes ofrecía «Preparación → Ruta → Escenas →
+   Aprender» mientras la página presentaba «Aprender → Lugares → Comparar →
+   Rutas». Se añadieron a la navegación «Cómo usar» y «Nuevos hallazgos», que
+   eran secciones visibles e inalcanzables desde el menú.
+2. **ELI5.** Las etiquetas del menú dicen ahora qué se hace, no cómo se llama el
+   módulo: «Comparar» en vez de «Preparación», «Revelado» en vez de «Brief».
+   La wiki abre por síntoma —«el edificio sale torcido», «salió movida»— para
+   quien llega con una foto fallida y sin vocabulario. Cada fórmula de la wiki
+   viene con su lectura en lenguaje corriente y su fuente.
+3. **Causa y evidencia.** Cada diagrama tiene ahora una línea «Cómo leerlo» y
+   cada laboratorio una lectura que nombra la magnitud que acaba de cambiar
+   («la sombra mide 17,2 m para 8 m de altura»). El aviso de límite dejó de ser
+   una fórmula defensiva genérica: dice qué calcula el modelo y qué no.
+4. **Interacción.** Nueve laboratorios con control nativo, foco visible, botón de
+   reinicio y estado inicial declarado en `data-default`. Se corrigieron dos
+   colisiones de identificador (`light-source` y `depth-haze`) que rompían
+   `getElementById` y confundían a la tecnología asistiva.
+5. **Lectura real.** El bloque sin JavaScript pasó de cinco párrafos a nueve
+   ejercicios numerados, uno por laboratorio, ejecutables sólo con la cámara.
+   Se retiraron nueve archivos de mapa huérfanos que seguían publicados y
+   precacheados sin que ninguna ruta los enlazara.
+
+### Compromiso declarado
+
+Las tablas de física precalculadas añaden unos 105 KB al HTML de la página del
+reto. Se acepta a cambio de que el navegador no vuelva a derivar la óptica: lo
+que verifica pytest es exactamente lo que dibuja la página. Sirviendo con
+compresión el coste real ronda una quinta parte de esa cifra.
