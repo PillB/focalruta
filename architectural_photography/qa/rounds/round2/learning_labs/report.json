@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "url": "http://127.0.0.1:8766/challenges/arquitectura-en-foco/",
+  "url": "isolated-public-root",
   "viewports": [
     {
       "viewport": [
@@ -19,7 +19,10 @@
       "vertical_feedback": true,
       "hierarchy_feedback": true,
       "light_feedback": true,
-      "composition_feedback": true,
+      "composition_feedback": false,
+      "composition_states_distinct": true,
+      "anchor_clear": true,
+      "reset_ok": true,
       "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-390x844.png"
     },
     {
@@ -39,7 +42,10 @@
       "vertical_feedback": true,
       "hierarchy_feedback": true,
       "light_feedback": true,
-      "composition_feedback": true,
+      "composition_feedback": false,
+      "composition_states_distinct": true,
+      "anchor_clear": true,
+      "reset_ok": true,
       "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-430x932.png"
     },
     {
@@ -59,7 +65,10 @@
       "vertical_feedback": true,
       "hierarchy_feedback": true,
       "light_feedback": true,
-      "composition_feedback": true,
+      "composition_feedback": false,
+      "composition_states_distinct": true,
+      "anchor_clear": true,
+      "reset_ok": true,
       "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-844x390.png"
     },
     {
@@ -79,7 +88,10 @@
       "vertical_feedback": true,
       "hierarchy_feedback": true,
       "light_feedback": true,
-      "composition_feedback": true,
+      "composition_feedback": false,
+      "composition_states_distinct": true,
+      "anchor_clear": true,
+      "reset_ok": true,
       "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-932x430.png"
     },
     {
@@ -99,7 +111,10 @@
       "vertical_feedback": true,
       "hierarchy_feedback": true,
       "light_feedback": true,
-      "composition_feedback": true,
+      "composition_feedback": false,
+      "composition_states_distinct": true,
+      "anchor_clear": true,
+      "reset_ok": true,
       "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-820x1000.png"
     },
     {
@@ -119,7 +134,10 @@
       "vertical_feedback": true,
       "hierarchy_feedback": true,
       "light_feedback": true,
-      "composition_feedback": true,
+      "composition_feedback": false,
+      "composition_states_distinct": true,
+      "anchor_clear": true,
+      "reset_ok": true,
       "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-1440x1100.png"
     }
   ]

@@ -242,3 +242,43 @@ def test_labs_have_explicit_six_part_contract_and_composition_sequence():
     assert 'id="composition-mode"' in html
     assert 'id="composition-feedback"' in html
     assert html.count('class="learning-lab"') == 5
+
+
+def test_learning_overhaul_exposes_recovery_legends_and_field_transfer():
+    html = PAGE.read_text(encoding="utf-8")
+    assert html.count('class="lab-reset"') == 5
+    assert html.count('class="lab-legend"') == 5
+    assert html.count('class="lab-cycle"') == 5
+    for label in ("Predicción", "Acción", "Observación", "Transferencia al campo"):
+        assert html.count(label) >= 5
+    assert 'id="composition-before"' in html
+    assert 'id="composition-after"' in html
+    assert 'id="composition-fixed-position"' in html
+
+
+def test_story_order_follows_learning_before_ranking_and_routes():
+    html = PAGE.read_text(encoding="utf-8")
+    ordered_ids = ("how-to-read", "learn", "style-radar", "scenes", "ranking", "field-priorities", "route", "field-run", "rules")
+    positions = [html.index(f'id="{section_id}"') for section_id in ordered_ids]
+    assert positions == sorted(positions)
+
+
+def test_anchor_clearance_uses_measured_sticky_offset_contract():
+    html = PAGE.read_text(encoding="utf-8")
+    assert "--sticky-nav-offset" in html
+    assert "scroll-padding-top:var(--sticky-nav-offset)" in html
+    assert "scroll-margin-top:var(--sticky-nav-offset)" in html
+
+
+def test_video_technique_wiki_is_evidence_linked_and_offline_ready():
+    wiki = PAGE.parent / "wiki-tecnicas.html"
+    assert wiki.exists()
+    html = wiki.read_text(encoding="utf-8")
+    ledger = json.loads((WORKBENCH / "VIDEO_LEDGER.json").read_text(encoding="utf-8"))
+    validated = [claim for video in ledger["videos"] for claim in video["timestamped_claims"]]
+    assert len(validated) >= 12
+    assert html.count('class="wiki-technique"') >= 8
+    assert html.count('class="evidence-card"') == len(validated)
+    assert "Qué probar" in html and "Qué observar" in html and "Cuándo descartarlo" in html
+    assert "Transcripción no disponible" in html
+    assert 'href="wiki-tecnicas.html"' in PAGE.read_text(encoding="utf-8")
