@@ -80,8 +80,8 @@ def test_public_ranking_supports_top_n_or_all_and_avoids_probability_language():
     assert 'value="all"' in page
     assert "applyRankingView" in page
     assert "Pareto" in page
-    assert "TOP 5 DE CAMPO" in page
-    assert "Contraargumento:" in page
+    assert "5 PRIORIDADES PARA COMPROBAR" in page
+    assert "Qué podría refutarla:" in page
     assert "probabilidad de ganar" not in page.lower()
 
 

@@ -76,5 +76,5 @@ def test_style_dossiers_enter_canonical_ranking_and_verified_routes():
 def test_generated_site_reports_completed_promoted_dossiers():
     page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
     assert "6/6 dossiers incorporados al ranking" in page
-    assert "Can one A-frame plate visibly cause" in page
+    assert "¿Puedes mostrar en una sola imagen cómo se usa hoy este espacio?" in page
     assert "incorporados al ranking" in page

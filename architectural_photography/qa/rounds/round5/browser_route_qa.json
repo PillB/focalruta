@@ -9,7 +9,7 @@
       ],
       "status": 200,
       "overflow": false,
-      "anchor_clearance": 8.203125,
+      "anchor_clearance": 7.90625,
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
@@ -25,7 +25,7 @@
       ],
       "status": 200,
       "overflow": false,
-      "anchor_clearance": 8.171875,
+      "anchor_clearance": 8.140625,
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
@@ -41,14 +41,14 @@
       ],
       "status": 200,
       "overflow": false,
-      "anchor_clearance": 8.3125,
+      "anchor_clearance": 7.640625,
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
       "district_cards": 35,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-844x390.png",
-      "forensic_description": "844px landscape route capture: 35 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "844px landscape route capture: 35 district-tour cards arranged in 2 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -57,7 +57,7 @@
       ],
       "status": 200,
       "overflow": false,
-      "anchor_clearance": 8.078125,
+      "anchor_clearance": 8.234375,
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
@@ -73,14 +73,14 @@
       ],
       "status": 200,
       "overflow": false,
-      "anchor_clearance": 7.90625,
+      "anchor_clearance": 8.453125,
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
       "district_cards": 35,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-820x1000.png",
-      "forensic_description": "820px portrait route capture: 35 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "820px portrait route capture: 35 district-tour cards arranged in 2 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     },
     {
       "viewport": [
@@ -89,14 +89,14 @@
       ],
       "status": 200,
       "overflow": false,
-      "anchor_clearance": 8.25,
+      "anchor_clearance": 8.40625,
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
       "district_cards": 35,
       "iphone_help_status": 200,
       "screenshot": "architectural_photography/qa/rounds/round5/route-1440x1100.png",
-      "forensic_description": "1440px landscape route capture: 35 district-tour cards arranged in 3 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+      "forensic_description": "1440px landscape route capture: 35 district-tour cards arranged in 4 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
     }
   ],
   "route_forensics": [

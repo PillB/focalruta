@@ -25,6 +25,7 @@ CSS = """:root{--ink:#10211d;--muted:#5e6d67;--paper:#f4f0e7;--card:#fffdf8;--ac
 
 CSS += "section{scroll-margin-top:70px}"
 CSS += ".learning-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}.lesson-card,.learning-lab,.video-transfer{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card)}.lesson-card details{margin-top:8px}.lesson-card summary{min-height:44px;display:flex;align-items:center;font-weight:800;cursor:pointer}.learning-lab{grid-column:span 1}.lab-frame{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#eef0e9;margin:12px 0}.lab-readout{min-height:52px;padding:10px;border-radius:10px;background:#eef6f2}.source-links{font-size:.82rem;color:var(--muted)}@media(min-width:800px){.learning-lab{grid-column:span 2}}"
+CSS += "header,main,footer{max-width:1160px;padding-inline:clamp(24px,6vw,72px)}section{padding-block:42px}.beginner-guide{background:#fffaf0;border:1px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,42px);margin-block:20px}.beginner-guide dl{display:grid;grid-template-columns:minmax(10rem, .35fr) 1fr;gap:12px 24px}.beginner-guide dt{font-weight:850;color:var(--green)}.beginner-guide dd{margin:0;max-width:70ch}.scene,.lesson-card,.learning-lab,.video-transfer{min-width:0;overflow-wrap:anywhere}.scene p{max-width:72ch}@media(max-width:620px){.beginner-guide dl{grid-template-columns:1fr;gap:4px}.beginner-guide dd{margin-bottom:14px}}"
 
 SCRIPT = r"""const KEY='focalruta.architecture.field.v1',form=document.querySelector('#field-form'),status=document.querySelector('#save-status'),sceneLimit=document.querySelector('#scene-limit');
 const state=()=>({...Object.fromEntries(new FormData(form).entries()),sceneLimit:sceneLimit.value});function applySceneLimit(){const cards=[...document.querySelectorAll('#scene-cards .scene')],limit=sceneLimit.value==='all'?cards.length:Number(sceneLimit.value);cards.forEach((card,index)=>card.hidden=index>=limit);document.querySelector('#scene-count-status').textContent=`Mostrando ${Math.min(limit,cards.length)} de ${cards.length} escenas.`}function applyRankingView(){const scenario=document.querySelector('#ranking-scenario').value,control=document.querySelector('#ranking-limit'),cards=[...document.querySelectorAll('#ranking-cards .scene')],limit=control.value==='all'?cards.length:Number(control.value);cards.sort((a,b)=>Number(a.dataset[scenario])-Number(b.dataset[scenario])||a.dataset.name.localeCompare(b.dataset.name,'es')).forEach((card,index)=>{card.hidden=index>=limit;card.querySelector('.rank-number').textContent=`#${card.dataset[scenario]}`;card.parentNode.appendChild(card)});document.querySelector('#ranking-count-status').textContent=`Mostrando ${Math.min(limit,cards.length)} de ${cards.length} según ${scenario.toUpperCase()}.`}function applyRouteFilter(){const district=document.querySelector('#route-district').value,cards=[...document.querySelectorAll('#route-cards .scene')];cards.forEach(card=>card.hidden=district!=='all'&&card.dataset.district!==district);const visible=cards.filter(card=>!card.hidden).length;document.querySelector('#route-count-status').textContent=`Mostrando ${visible} de ${cards.length} capas.`}function save(extra={}){localStorage.setItem(KEY,JSON.stringify({...state(),...extra,updatedAt:new Date().toISOString()}));status.textContent='Notas guardadas en este dispositivo.'}function restore(data){for(const [key,value] of Object.entries(data||{})){const control=key==='sceneLimit'?sceneLimit:form.elements.namedItem(key);if(control)control.value=value}status.textContent='Notas restauradas.'}try{restore(JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(error){status.textContent='No se pudieron restaurar las notas.'}applySceneLimit();applyRankingView();applyRouteFilter();sceneLimit.addEventListener('change',()=>{applySceneLimit();save()});document.querySelector('#ranking-scenario').addEventListener('change',applyRankingView);document.querySelector('#ranking-limit').addEventListener('change',applyRankingView);document.querySelector('#route-district').addEventListener('change',applyRouteFilter);form.addEventListener('input',()=>save());document.querySelectorAll('[data-decision]').forEach(button=>button.addEventListener('click',()=>save({decision:button.dataset.decision})));
@@ -45,7 +46,7 @@ def scene_cards(candidates: list[dict], cohort: dict, verification: dict) -> str
     for candidate in candidates:
         verified = active.get(candidate["canonical_id"])
         mechanism = verified["primary_scene_mechanism"].replace("_", " ").title() if verified else "Mecanismo visual por investigar"
-        rejection = verified["expert_rejection"] if verified else "Faltan fuentes actuales, forénsica visual, diez pases y pruebas A/B/C/D/E."
+        rejection = "La hipótesis todavía necesita fuentes actuales, comprobación en campo y una prueba A/B/C/D/E; no la tomes como un hecho terminado."
         visual_count = len(progress[candidate["canonical_id"]]["visual_reference_families"])
         desk_verified = progress[candidate["canonical_id"]]["verification_complete"]
         status = f"Dossier de escritorio verificado · {visual_count} referencias · campo pendiente" if desk_verified else f"Forénsica visual: {visual_count} referencias · sin ranking"
@@ -77,14 +78,14 @@ def ranking_cards(ranking: dict) -> str:
             f'<article class="scene" data-name="{escape(item["name"])}" data-r0="{ranks["R0"]}" data-r1="{ranks["R1"]}" data-r2="{ranks["R2"]}" data-r3="{ranks["R3"]}">'
             f'<div class="rank-number">#{item["robust_rank"]}</div><p class="eyebrow">{escape(item["district"])}{pareto}</p><h3>{escape(item["name"])}</h3>'
             f'<div class="rank-meta"><span>R0 #{ranks["R0"]}</span><span>R1 #{ranks["R1"]}</span><span>R2 #{ranks["R2"]}</span><span>R3 #{ranks["R3"]}</span><span>Campo #{item["field_rank"]}</span></div>'
-            f'<p><strong>Sobrevive porque:</strong> {escape(item["why_survives"])}</p><p><strong>Necesita:</strong> {escape(item["required_scene"])} · {escape(item["exact_view"])} · {escape(item["exact_light"])}</p><p class="reject"><strong>Contraargumento:</strong> {escape(item["strongest_counterargument"])}</p><p class="reject"><strong>Kill:</strong> {escape(item["field_failure"])}</p>'
+            f'<p><strong>Por qué entra:</strong> Esta escena tiene una hipótesis visual que conecta espacio, luz y uso actual; el rango muestra prioridad de práctica, no calidad absoluta.</p><p><strong>Qué debes comprobar:</strong> Busca una posición concreta, una acción o ausencia significativa y una condición de luz que hagan visible la relación sin depender del texto.</p><p class="reject"><strong>Qué podría refutarla:</strong> Si solo funciona como postal, necesita un pie de foto para explicar la idea o no puedes confirmar acceso y actividad, baja su prioridad.</p><p class="reject"><strong>Se descarta si:</strong> La relación arquitectónica no se entiende en una sola imagen o exige inventar elementos.</p>'
             f'<p class="status">p50 {item["rank_distribution"]["p50"]} · p10–p90 {item["rank_distribution"]["p10"]}–{item["rank_distribution"]["p90"]} · confianza {round(item["evidence_confidence"] * 100)}%</p></article>'
         )
     return "".join(cards)
 
 def field_priority_cards(ranking: dict) -> str:
     return "".join(
-        f'<article class="scene"><div class="rank-number">#{item["field_rank"]}</div><p class="eyebrow">CAMPO · {escape(item["district"])}</p><h3>{escape(item["name"])}</h3><p>{escape(item["why_go_now"])}</p><p><strong>Prueba:</strong> {escape(item["required_scene"])}</p><p><strong>Fallback:</strong> {escape(item["fallback"])}</p><p class="status">confianza {round(item["field_confidence"] * 100)}% · encaje de ruta pendiente</p></article>'
+        f'<article class="scene"><div class="rank-number">#{item["field_rank"]}</div><p class="eyebrow">CAMPO · {escape(item["district"])}</p><h3>{escape(item["name"])}</h3><p>Este lugar merece una visita porque ofrece una relación comprobable entre forma construida y vida cotidiana. Confirma primero que puedes entrar, detenerte y fotografiar.</p><p><strong>Prueba:</strong> Haz una toma de estructura, otra con uso humano y una tercera desde una posición distinta; compara qué lectura permanece.</p><p><strong>Plan B:</strong> Si no hay acceso o actividad, vuelve con otra luz o cambia a una escena del mismo distrito.</p><p class="status">confianza de escritorio {round(item["field_confidence"] * 100)}% · ruta por confirmar</p></article>'
         for item in ranking["top_5_field"]
     )
 
@@ -177,13 +178,12 @@ def discovery_cards(discoveries: dict, dossiers: dict) -> str:
     cards = []
     for item in discoveries["discoveries"]:
         dossier = evidence[item["discovery_id"]]
-        question = dossier["composition_questions"][0]
-        kill = dossier["proofs"]["E_ONE_FRAME_STORY"]["kill_trigger"]
+        question = "¿Puedes mostrar en una sola imagen cómo se usa hoy este espacio?"
         cards.append(
             f'<article class="scene"><p class="eyebrow">{escape(item["district"])} · RADAR</p>'
-            f'<h3>{escape(item["name"])}</h3><p><strong>{escape(item["style_signal"])}</strong></p>'
-            f'<p>{escape(item["why_it_might_add"])}</p><p><strong>Pregunta de campo:</strong> {escape(question)}</p>'
-            f'<p class="reject"><strong>Kill:</strong> {escape(kill)}</p>'
+            f'<h3>{escape(item["name"])}</h3><p><strong>Qué observar:</strong> Compara volumen, material, luz y actividad actual; el estilo es una pista, no una conclusión.</p>'
+            f'<p>Busca una relación visible entre el edificio y las personas que lo atraviesan. No dependas del pie de foto para explicar la idea.</p><p><strong>Pregunta de campo:</strong> {escape(question)}</p>'
+            f'<p class="reject"><strong>Se descarta si:</strong> Solo funciona como fachada bonita, no puedes confirmar acceso o la historia solo existe en el texto.</p>'
             f'<p class="status">Dossier completo · ranking y capa peatonal verificados · confirma acceso el mismo día</p>'
             f'<p><a href="{escape(dossier["sources"][0]["url"])}">Fuente actual</a> · '
             f'{len(dossier["visual_reference_families"])} familias multiángulo</p></article>'
@@ -214,10 +214,10 @@ def video_transfer_cards(learning: dict) -> str:
         seconds = int(module["timestamp_seconds"])
         url = f'https://www.youtube.com/watch?v={module["video_id"]}&t={seconds}'
         cards.append(
-            f'<article class="video-transfer"><p class="eyebrow">VIDEO · {escape(module["channel"])}</p>'
-            f'<h3>{escape(module["title"])}</h3><p>{escape(module["mechanism"])}</p>'
-            f'<p><strong>Al campo:</strong> {escape(module["field_transfer"])}</p>'
-            f'<p class="reject"><strong>Mal uso:</strong> {escape(module["misuse_risk"])}</p>'
+            f'<article class="video-transfer"><p class="eyebrow">VIDEO · Lección con subtítulos</p>'
+            f'<h3>Decisión práctica: {escape(module["video_id"])}</h3><p>Observa cómo una decisión de posición, luz, composición o enfoque cambia la lectura de una escena.</p>'
+            f'<p><strong>Al campo:</strong> Repite la idea en una parada real, cambia una sola variable y anota qué relación se volvió más clara.</p>'
+            f'<p class="reject"><strong>Evita este error:</strong> No copies una regla automáticamente; comprueba si mejora la historia y respeta el encargo.</p>'
             f'<p class="source-links"><a href="{escape(url)}">Abrir momento citado · {seconds // 60}:{seconds % 60:02d}</a></p></article>'
         )
     return "".join(cards)
@@ -306,6 +306,8 @@ def main() -> None:
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     page = render(*values).replace("Arquitectura<br>en foco", "Fotografía<br>arquitectónica")
     page = page.replace('<nav aria-label="Tareas del laboratorio">', beginner_guide() + '<nav aria-label="Tareas del laboratorio">', 1)
+    for source, target in ((">STAY<", ">ME QUEDO<"), (">MOVE<", ">ME MUEVO<"), (">RETURN OTHER LIGHT<", ">VUELVO CON OTRA LUZ<"), ("TOP 5 DE CAMPO", "5 PRIORIDADES PARA COMPROBAR"), ("OFFLINE · GUARDADO LOCAL", "GUARDADO EN ESTE DISPOSITIVO"), ("EDICIÓN SEGÚN EL BRIEF", "EDICIÓN SEGÚN EL ENCARGO"), ("DECODIFICADOR DE BRIEF", "DECODIFICADOR DEL ENCARGO")):
+        page = page.replace(source, target)
     OUTPUT.write_text(page, encoding="utf-8")
     IPHONE_HELP.write_text(iphone_help_page(), encoding="utf-8")
     FIELD_CARD.write_text(field_card_page(), encoding="utf-8")

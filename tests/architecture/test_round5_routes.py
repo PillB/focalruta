@@ -247,6 +247,13 @@ def test_beginner_guide_explains_every_major_surface_in_plain_spanish():
     assert "no una nota ni una predicción" in page
 
 
+def test_public_copy_removes_known_english_prose_and_keeps_readable_gutters():
+    page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
+    for phrase in ("The frame passes", "Natural light before lighting complexity", "A cliff-like teaching section", "Caption must", "<strong>Kill:</strong>", "RETURN OTHER LIGHT", ">STAY<", ">MOVE<"):
+        assert phrase not in page
+    assert "padding-inline:clamp(24px,6vw,72px)" in page
+
+
 def test_iphone_help_explains_direct_link_and_kml_failure_recovery():
     help_text = (ROOT / "challenges/arquitectura-en-foco/iphone-maps.html").read_text(encoding="utf-8")
     assert "Si el enlace no abre" in help_text

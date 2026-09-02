@@ -39,6 +39,8 @@ def main() -> int:
     photographers = json.loads(PHOTOGRAPHERS_PATH.read_text(encoding="utf-8"))
     expected = render(rules, learning, photographers).replace("Arquitectura<br>en foco", "Fotografía<br>arquitectónica")
     expected = expected.replace('<nav aria-label="Tareas del laboratorio">', beginner_guide() + '<nav aria-label="Tareas del laboratorio">', 1)
+    for source, target in ((">STAY<", ">ME QUEDO<"), (">MOVE<", ">ME MUEVO<"), (">RETURN OTHER LIGHT<", ">VUELVO CON OTRA LUZ<"), ("TOP 5 DE CAMPO", "5 PRIORIDADES PARA COMPROBAR"), ("OFFLINE · GUARDADO LOCAL", "GUARDADO EN ESTE DISPOSITIVO"), ("EDICIÓN SEGÚN EL BRIEF", "EDICIÓN SEGÚN EL ENCARGO"), ("DECODIFICADOR DE BRIEF", "DECODIFICADOR DEL ENCARGO")):
+        expected = expected.replace(source, target)
     check(OUTPUT.exists(), "generated challenge page missing", failures)
     check(OUTPUT.exists() and OUTPUT.read_text(encoding="utf-8") == expected, "challenge page is stale; regenerate it", failures)
     check(rules["file"]["minimum_bytes"] == 5_000_000, "5 MB minimum missing", failures)
