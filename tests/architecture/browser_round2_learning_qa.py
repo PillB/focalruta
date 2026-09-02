@@ -28,6 +28,7 @@ def inspect(browser, width: int, height: int) -> dict:
     page.locator("#vertical-tilt").fill("20")
     page.locator("#hierarchy-mode").select_option("human")
     page.locator("#light-mode").select_option("garua")
+    page.locator("#composition-mode").select_option("changed-position")
     page.locator("#learn").screenshot(path=OUT / f"learning-{width}x{height}.png")
     result = {
         "viewport": [width, height],
@@ -43,6 +44,7 @@ def inspect(browser, width: int, height: int) -> dict:
         "vertical_feedback": "convergen" in page.locator("#vertical-feedback").inner_text(),
         "hierarchy_feedback": "figura" in page.locator("#hierarchy-feedback").inner_text(),
         "light_feedback": "Garúa" in page.locator("#light-feedback").inner_text(),
+        "composition_feedback": "desplazamiento lateral" in page.locator("#composition-feedback").inner_text(),
         "screenshot": str((OUT / f"learning-{width}x{height}.png").relative_to(ROOT)),
     }
     page.close()
@@ -57,10 +59,10 @@ def main() -> int:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
         rows = [inspect(browser, width, height) for width, height in VIEWPORTS]
         browser.close()
-    boolean_checks = ("position_feedback", "focal_preserves_ratio", "vertical_feedback", "hierarchy_feedback", "light_feedback")
+    boolean_checks = ("position_feedback", "focal_preserves_ratio", "vertical_feedback", "hierarchy_feedback", "light_feedback", "composition_feedback")
     passed = all(
         row["status"] == 200 and not row["overflow"] and not row["page_errors"] and not row["console_errors"]
-        and row["labs"] == 4 and row["lessons"] == 17 and row["videos"] >= 6
+        and row["labs"] == 5 and row["lessons"] == 17 and row["videos"] >= 6
         and all(row[key] for key in boolean_checks)
         for row in rows
     )

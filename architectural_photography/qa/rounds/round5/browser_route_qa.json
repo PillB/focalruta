@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "url": "http://127.0.0.1:8769/challenges/arquitectura-en-foco/",
+  "url": "http://127.0.0.1:8766/challenges/arquitectura-en-foco/",
   "records": [
     {
       "viewport": [
@@ -41,7 +41,7 @@
       ],
       "status": 200,
       "overflow": false,
-      "anchor_clearance": 8.28125,
+      "anchor_clearance": 7.96875,
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
@@ -57,7 +57,7 @@
       ],
       "status": 200,
       "overflow": false,
-      "anchor_clearance": 7.734375,
+      "anchor_clearance": 7.8125,
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],
@@ -73,7 +73,7 @@
       ],
       "status": 200,
       "overflow": false,
-      "anchor_clearance": 7.875,
+      "anchor_clearance": 7.828125,
       "page_errors": [],
       "console_errors": [],
       "failed_resources": [],

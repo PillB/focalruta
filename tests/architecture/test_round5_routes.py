@@ -262,3 +262,4 @@ def test_hosted_offline_shell_precaches_route_ui_and_help():
     build = (ROOT / "scripts/build_dual_release.py").read_text(encoding="utf-8")
     assert "./challenges/arquitectura-en-foco/iphone-maps.html" in build
     assert "./data/architecture/routes.json" in build
+    assert "u.pathname.endsWith('/')?u.pathname+'index.html'" in build

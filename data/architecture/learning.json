@@ -1,25 +1,300 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "gear_source": "data/plans.json",
-  "technical_truths_en": ["Camera position changes perspective", "Focal length changes field of view", "Background distance changes separation without changing subject DoF when optical inputs stay fixed", "There is no magic ISO", "Keystoning is caused by camera tilt", "Active learning uses learner action and feedback", "Every simulation is a pedagogical diagram, not a pixel prediction"],
+  "technical_truths_en": [
+    "Camera position changes perspective",
+    "Focal length changes field of view",
+    "Background distance changes separation without changing subject DoF when optical inputs stay fixed",
+    "There is no magic ISO",
+    "Keystoning is caused by camera tilt",
+    "Active learning uses learner action and feedback",
+    "Every simulation is a pedagogical diagram, not a pixel prediction"
+  ],
   "lessons": [
-    {"lesson_id":"L01","title":"Ve antes de ajustar","observe":"Nombra la relación y el dispositivo arquitectónico antes de tocar un dial.","try":"Observa un umbral durante diez minutos y registra cinco verbos reales.","diagnose":"Si el encuadre necesita un párrafo, simplifica la relación o muévete.","break_the_rule_when":"Un hecho irrepetible exige responder de inmediato.","canon_6d_note":"Parte de una exposición conocida, pero deja que la escena determine los ajustes.","competition_note":"La arquitectura debe seguir siendo sujeto causal, no fondo decorativo.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"0H-t9N1hDj0","timestamp_seconds":62.76}]},
-    {"lesson_id":"L02","title":"Posición antes que focal","observe":"Camina hasta que las relaciones cerca/lejos y las verticales expresen tu intención.","try":"Encuentra tres posiciones de cámara antes de elegir lente.","diagnose":"Si las capas chocan o el fondo domina, cambia primero la posición.","break_the_rule_when":"El acceso o la seguridad fijan la única posición legítima.","canon_6d_note":"Usa el zoom 35–80 como visor de exploración después de elegir posición.","competition_note":"Un punto de vista no habitual debe revelar una relación real, no un truco.","sources":[{"type":"FOCALRUTA_TECHNICAL","source_id":"CANONICAL_OPTICS"}]},
-    {"lesson_id":"L03","title":"Perspectiva vs campo de visión","observe":"La posición de cámara cambia la perspectiva; la focal cambia campo de visión y encuadre desde una posición fija.","try":"Compara posición fija con distintas focales; luego conserva el tamaño del sujeto cambiando posición y focal.","diagnose":"Si dices que un lente comprimió el espacio, identifica cómo cambió la distancia de cámara.","break_the_rule_when":"Usa el atajo verbal solo después de entender la causa física.","canon_6d_note":"35, 50 y 85 mm comparten la misma referencia de sensor full frame.","competition_note":"Elige primero la relación y después el recorte.","sources":[{"type":"FOCALRUTA_TECHNICAL","source_id":"CANONICAL_OPTICS"}]},
-    {"lesson_id":"L04","title":"Profundidad, capas y figura-fondo","observe":"Separa primer plano, dispositivo arquitectónico, acción y fondo.","try":"Construye un encuadre con tres planos de profundidad legibles.","diagnose":"Si la persona se fusiona con un borde, espera o muévete lateralmente.","break_the_rule_when":"La planitud o la silueta son la idea formal buscada.","canon_6d_note":"Cierra el diafragma solo hasta donde exijan los planos necesarios.","competition_note":"La profundidad debe aclarar la historia de un solo encuadre.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"Ub0EGCMs4_U","timestamp_seconds":11.52}]},
-    {"lesson_id":"L05","title":"La luz revela forma y material","observe":"Mira cómo la luz describe relieve, textura, profundidad y uso.","try":"Vuelve a la misma superficie con luz dura y con garúa.","diagnose":"Si el contraste oculta el dispositivo causal, protege altas luces o cambia de hora.","break_the_rule_when":"La silueta o el deslumbramiento son esenciales para la idea.","canon_6d_note":"Usa histograma y alerta de altas luces; el fotómetro no conoce tu intención.","competition_note":"La luz debe revelar arquitectura, no solo embellecerla.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"kCu_JaxaxX0","timestamp_seconds":162.0}]},
-    {"lesson_id":"L06","title":"Composición más allá de las rejillas","observe":"Pregunta qué lee el espectador primero, segundo y tercero.","try":"Construye jerarquía sin rejilla de tercios y luego compara.","diagnose":"Si todos los elementos pesan igual, elimina o cambia posición.","break_the_rule_when":"La tensión, el desequilibrio o la ambigüedad son el significado.","canon_6d_note":"Usa los bordes del visor como herramientas compositivas activas.","competition_note":"La coherencia creativa y estética importa más que obedecer una regla.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"0H-t9N1hDj0","timestamp_seconds":195.72}]},
-    {"lesson_id":"L07","title":"Disciplina de bordes y fondo","observe":"Escanea los cuatro bordes y cada objeto de alto contraste del fondo.","try":"Haz una versión limpia antes de aceptar el desorden.","diagnose":"Si un poste nace de una persona o un letrero roba atención, muévete centímetros.","break_the_rule_when":"El desorden es la condición arquitectónica que quieres mostrar.","canon_6d_note":"El visor de la 6D no es el recorte final; inspecciona los bordes en reproducción.","competition_note":"Las restricciones de edición vuelven especialmente valioso resolver bordes en cámara.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"Fh6PIafC8wU","timestamp_seconds":324.9}]},
-    {"lesson_id":"L08","title":"Gesto humano y momento decisivo","observe":"Encuentra el verbo que confirma o contradice el diseño.","try":"Precompón y espera a que el gesto despeje la arquitectura.","diagnose":"Si la persona solo aporta escala, la historia es débil.","break_the_rule_when":"La ausencia significativa contiene evidencia social más fuerte.","canon_6d_note":"Fija el obturador para el gesto buscado antes de bajar ISO.","competition_note":"No escenifiques una realidad falsa ni eludas consentimiento y ética.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"Fh6PIafC8wU","timestamp_seconds":1963.1}]},
-    {"lesson_id":"L09","title":"Ausencia significativa","observe":"Busca residuos, expectativa, mobiliario, desgaste y circulación sin personas.","try":"Haz legible la estructura como marco social aun cuando esté vacía.","diagnose":"Si el vacío solo dice arquitectura limpia, busca evidencia de vida.","break_the_rule_when":"Un verbo humano real cambia materialmente el significado.","canon_6d_note":"Trabaja con disciplina de trípode sin asumir que el trípode está permitido.","competition_note":"Las bases permiten interiores, abstracción y habitación sin forzar una persona.","sources":[{"type":"PHOTOGRAPHER_TRANSFER","source_id":"CANDIDA_HOFER"}]},
-    {"lesson_id":"L10","title":"Exposición, medición y altas luces","observe":"El fotómetro mide luz reflejada y propone exposición; no conoce la intención.","try":"Compara medición evaluativa, histograma y alerta de altas luces.","diagnose":"Si recortas altas luces importantes, reduce exposición o cambia de luz.","break_the_rule_when":"El recorte es deliberado y sostiene la idea gráfica.","canon_6d_note":"Usa compensación o modo manual mientras interpretas el fotómetro.","competition_note":"Conserva información tonal útil para impresión sin reconstrucción prohibida.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"H1l7mV2y-zI","timestamp_seconds":84.799}]},
-    {"lesson_id":"L11","title":"Árbol de fallas de enfoque y nitidez","observe":"Separa foco fallido, trepidación, movimiento, PDC insuficiente, óptica/difracción y atmósfera.","try":"Cambia una sola causa por vez y revisa con ampliación útil.","diagnose":"No recetes un obturador más rápido si la falla es foco o reverberación térmica.","break_the_rule_when":"El desenfoque intencional comunica movimiento arquitectónico o humano.","canon_6d_note":"Prefiere el punto AF central con poca luz y verifica el foco crítico.","competition_note":"La nitidez sirve a la legibilidad; no da valor estético automáticamente.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"61pRp270Dbc","timestamp_seconds":42.52}]},
-    {"lesson_id":"L12","title":"ISO sin superstición","observe":"ISO sostiene el obturador y diafragma que exige la escena; no existe un ISO mágico.","try":"Sube ISO para proteger el gesto y compáralo con movimiento borroso a ISO bajo.","diagnose":"La subexposición puede ser peor que un ISO alto necesario.","break_the_rule_when":"La exposición larga o el movimiento intencional son la meta.","canon_6d_note":"Elige ISO después del obturador y diafragma requeridos, vigilando altas luces.","competition_note":"Un instante decisivo imperfecto puede superar uno limpio y vacío, pero debe soportar impresión.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"L38beOFz-lM","timestamp_seconds":243.0}]},
-    {"lesson_id":"L13","title":"PDC vs separación del fondo","observe":"La PDC del sujeto y el desenfoque del fondo están relacionados, pero son distintos.","try":"Mantén focal, diafragma y distancia de enfoque; cambia solo la distancia del fondo.","diagnose":"Si la PDC permanece y cambia el fondo, el modelo funciona.","break_the_rule_when":"En campo rápido, describe simplemente el resultado visible.","canon_6d_note":"Optical Lab usa CoC 0.030 mm como convención de planificación.","competition_note":"Usa separación solo cuando aclare la causalidad arquitectónica.","sources":[{"type":"FOCALRUTA_TECHNICAL","source_id":"OPTICAL_LAB_INVARIANTS"}]},
-    {"lesson_id":"L14","title":"Trabaja la escena","observe":"Mira cómo ciclan acción, bordes y luz en vez de hacer una foto e irte.","try":"Haz pruebas A estructura, B habitar, C anti-postal, D luz/material y E historia en un cuadro.","diagnose":"Registra por qué todavía falla el intento más fuerte.","break_the_rule_when":"La situación es insegura, no ética o realmente terminó.","canon_6d_note":"Mantén ajustes estables el tiempo suficiente para diagnosticar composición aparte.","competition_note":"Elige STAY, MOVE o RETURN_OTHER_LIGHT según evidencia.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"AuoMaGMBHVg","timestamp_seconds":25.24}]},
-    {"lesson_id":"L15","title":"Garúa, lluvia, mediodía y hora azul","observe":"Trata clima y horas difíciles como herramientas distintas para construir forma.","try":"Usa garúa para separación material suave y mediodía para sombras gráficas duras.","diagnose":"Si la condición aporta atmósfera pero oculta arquitectura, cambia la hipótesis.","break_the_rule_when":"Seguridad, acceso o protección del equipo exigen retirarte.","canon_6d_note":"Usa IS cuando corresponda, protege la cámara y fija obturador según el sujeto.","competition_note":"No elijas siempre hora dorada; usa la condición que revela la relación.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"61pRp270Dbc","timestamp_seconds":547.36}]},
-    {"lesson_id":"L16","title":"Antidogma","observe":"Las reglas son preguntas diagnósticas, no garantías.","try":"Haz la solución convencional y luego una contradicción sustentada en evidencia.","diagnose":"Si romper la regla no tiene propósito visible, es novedad sin significado.","break_the_rule_when":"La escena comunica con más claridad o verdad sin ella.","canon_6d_note":"La técnica sirve al encuadre, no al ritual de cámara.","competition_note":"La originalidad nunca supera coherencia temática ni realidad fotografiada.","sources":[{"type":"VIDEO_TRANSCRIPT","video_id":"ExElfOqn5B8","timestamp_seconds":33.2}]},
-    {"lesson_id":"L17","title":"Límites de edición seguros","observe":"Decide si el encuadre funciona antes de imaginar un rescate en posproducción.","try":"Planifica solo recorte, balance de blancos, B&N, brillo, contraste, nitidez y corrección de color.","diagnose":"Cambiar elementos fundamentales, intervenir con IA, montar o alterar la realidad falla el control.","break_the_rule_when":"No rompas esta regla para una entrega al concurso.","canon_6d_note":"Nivela, posiciónate y encuadra con cuidado porque transformar perspectiva no está autorizado explícitamente.","competition_note":"Mantén el RAW/JPG/JPEG candidato fuera de crítica y edición con IA; el prevuelo es local y determinista.","sources":[{"type":"OFFICIAL_RULES","source_id":"SRC-COMP-2026-PDF"}]}
+    {
+      "lesson_id": "L01",
+      "title": "Ve antes de ajustar",
+      "observe": "Nombra la relación y el dispositivo arquitectónico antes de tocar un dial.",
+      "try": "Observa un umbral durante diez minutos y registra cinco verbos reales.",
+      "diagnose": "Si el encuadre necesita un párrafo, simplifica la relación o muévete.",
+      "break_the_rule_when": "Un hecho irrepetible exige responder de inmediato.",
+      "canon_6d_note": "Parte de una exposición conocida, pero deja que la escena determine los ajustes.",
+      "competition_note": "La arquitectura debe seguir siendo sujeto causal, no fondo decorativo.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "0H-t9N1hDj0",
+          "timestamp_seconds": 62.76
+        }
+      ]
+    },
+    {
+      "lesson_id": "L02",
+      "title": "Posición antes que focal",
+      "observe": "Camina hasta que las relaciones cerca/lejos y las verticales expresen tu intención.",
+      "try": "Encuentra tres posiciones de cámara antes de elegir lente.",
+      "diagnose": "Si las capas chocan o el fondo domina, cambia primero la posición.",
+      "break_the_rule_when": "El acceso o la seguridad fijan la única posición legítima.",
+      "canon_6d_note": "Usa el zoom 35–80 como visor de exploración después de elegir posición.",
+      "competition_note": "Un punto de vista no habitual debe revelar una relación real, no un truco.",
+      "sources": [
+        {
+          "type": "FOCALRUTA_TECHNICAL",
+          "source_id": "CANONICAL_OPTICS"
+        }
+      ]
+    },
+    {
+      "lesson_id": "L03",
+      "title": "Perspectiva vs campo de visión",
+      "observe": "La posición de cámara cambia la perspectiva; la focal cambia campo de visión y encuadre desde una posición fija.",
+      "try": "Compara posición fija con distintas focales; luego conserva el tamaño del sujeto cambiando posición y focal.",
+      "diagnose": "Si dices que un lente comprimió el espacio, identifica cómo cambió la distancia de cámara.",
+      "break_the_rule_when": "Usa el atajo verbal solo después de entender la causa física.",
+      "canon_6d_note": "35, 50 y 85 mm comparten la misma referencia de sensor full frame.",
+      "competition_note": "Elige primero la relación y después el recorte.",
+      "sources": [
+        {
+          "type": "FOCALRUTA_TECHNICAL",
+          "source_id": "CANONICAL_OPTICS"
+        }
+      ]
+    },
+    {
+      "lesson_id": "L04",
+      "title": "Profundidad, capas y figura-fondo",
+      "observe": "Separa primer plano, dispositivo arquitectónico, acción y fondo.",
+      "try": "Construye un encuadre con tres planos de profundidad legibles.",
+      "diagnose": "Si la persona se fusiona con un borde, espera o muévete lateralmente.",
+      "break_the_rule_when": "La planitud o la silueta son la idea formal buscada.",
+      "canon_6d_note": "Cierra el diafragma solo hasta donde exijan los planos necesarios.",
+      "competition_note": "La profundidad debe aclarar la historia de un solo encuadre.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "Ub0EGCMs4_U",
+          "timestamp_seconds": 11.52
+        }
+      ]
+    },
+    {
+      "lesson_id": "L05",
+      "title": "La luz revela forma y material",
+      "observe": "Mira cómo la luz describe relieve, textura, profundidad y uso.",
+      "try": "Vuelve a la misma superficie con luz dura y con garúa.",
+      "diagnose": "Si el contraste oculta el dispositivo causal, protege altas luces o cambia de hora.",
+      "break_the_rule_when": "La silueta o el deslumbramiento son esenciales para la idea.",
+      "canon_6d_note": "Usa histograma y alerta de altas luces; el fotómetro no conoce tu intención.",
+      "competition_note": "La luz debe revelar arquitectura, no solo embellecerla.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "kCu_JaxaxX0",
+          "timestamp_seconds": 162.0
+        }
+      ]
+    },
+    {
+      "lesson_id": "L06",
+      "title": "Composición más allá de las rejillas",
+      "observe": "Pregunta qué lee el espectador primero, segundo y tercero.",
+      "try": "Construye jerarquía sin rejilla de tercios y luego compara.",
+      "diagnose": "Si todos los elementos pesan igual, elimina o cambia posición.",
+      "break_the_rule_when": "La tensión, el desequilibrio o la ambigüedad son el significado.",
+      "canon_6d_note": "Usa los bordes del visor como herramientas compositivas activas.",
+      "competition_note": "La coherencia creativa y estética importa más que obedecer una regla.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "0H-t9N1hDj0",
+          "timestamp_seconds": 195.72
+        }
+      ]
+    },
+    {
+      "lesson_id": "L07",
+      "title": "Disciplina de bordes y fondo",
+      "observe": "Escanea los cuatro bordes y cada objeto de alto contraste del fondo.",
+      "try": "Haz una versión limpia antes de aceptar el desorden.",
+      "diagnose": "Si un poste nace de una persona o un letrero roba atención, muévete centímetros.",
+      "break_the_rule_when": "El desorden es la condición arquitectónica que quieres mostrar.",
+      "canon_6d_note": "El visor de la 6D no es el recorte final; inspecciona los bordes en reproducción.",
+      "competition_note": "Las restricciones de edición vuelven especialmente valioso resolver bordes en cámara.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "Fh6PIafC8wU",
+          "timestamp_seconds": 324.9
+        }
+      ]
+    },
+    {
+      "lesson_id": "L08",
+      "title": "Gesto humano y momento decisivo",
+      "observe": "Encuentra el verbo que confirma o contradice el diseño.",
+      "try": "Precompón y espera a que el gesto despeje la arquitectura.",
+      "diagnose": "Si la persona solo aporta escala, la historia es débil.",
+      "break_the_rule_when": "La ausencia significativa contiene evidencia social más fuerte.",
+      "canon_6d_note": "Fija el obturador para el gesto buscado antes de bajar ISO.",
+      "competition_note": "No escenifiques una realidad falsa ni eludas consentimiento y ética.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "Fh6PIafC8wU",
+          "timestamp_seconds": 1963.1
+        }
+      ]
+    },
+    {
+      "lesson_id": "L09",
+      "title": "Ausencia significativa",
+      "observe": "Busca residuos, expectativa, mobiliario, desgaste y circulación sin personas.",
+      "try": "Haz legible la estructura como marco social aun cuando esté vacía.",
+      "diagnose": "Si el vacío solo dice arquitectura limpia, busca evidencia de vida.",
+      "break_the_rule_when": "Un verbo humano real cambia materialmente el significado.",
+      "canon_6d_note": "Trabaja con disciplina de trípode sin asumir que el trípode está permitido.",
+      "competition_note": "Las bases permiten interiores, abstracción y habitación sin forzar una persona.",
+      "sources": [
+        {
+          "type": "PHOTOGRAPHER_TRANSFER",
+          "source_id": "CANDIDA_HOFER"
+        }
+      ]
+    },
+    {
+      "lesson_id": "L10",
+      "title": "Exposición, medición y altas luces",
+      "observe": "El fotómetro mide luz reflejada y propone exposición; no conoce la intención.",
+      "try": "Compara medición evaluativa, histograma y alerta de altas luces.",
+      "diagnose": "Si recortas altas luces importantes, reduce exposición o cambia de luz.",
+      "break_the_rule_when": "El recorte es deliberado y sostiene la idea gráfica.",
+      "canon_6d_note": "Usa compensación o modo manual mientras interpretas el fotómetro.",
+      "competition_note": "Conserva información tonal útil para impresión sin reconstrucción prohibida.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "H1l7mV2y-zI",
+          "timestamp_seconds": 84.799
+        }
+      ]
+    },
+    {
+      "lesson_id": "L11",
+      "title": "Árbol de fallas de enfoque y nitidez",
+      "observe": "Separa foco fallido, trepidación, movimiento, PDC insuficiente, óptica/difracción y atmósfera.",
+      "try": "Cambia una sola causa por vez y revisa con ampliación útil.",
+      "diagnose": "No recetes un obturador más rápido si la falla es foco o reverberación térmica.",
+      "break_the_rule_when": "El desenfoque intencional comunica movimiento arquitectónico o humano.",
+      "canon_6d_note": "Prefiere el punto AF central con poca luz y verifica el foco crítico.",
+      "competition_note": "La nitidez sirve a la legibilidad; no da valor estético automáticamente.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "61pRp270Dbc",
+          "timestamp_seconds": 42.52
+        }
+      ]
+    },
+    {
+      "lesson_id": "L12",
+      "title": "ISO sin superstición",
+      "observe": "ISO sostiene el obturador y diafragma que exige la escena; no existe un ISO mágico.",
+      "try": "Sube ISO para proteger el gesto y compáralo con movimiento borroso a ISO bajo.",
+      "diagnose": "La subexposición puede ser peor que un ISO alto necesario.",
+      "break_the_rule_when": "La exposición larga o el movimiento intencional son la meta.",
+      "canon_6d_note": "Elige ISO después del obturador y diafragma requeridos, vigilando altas luces.",
+      "competition_note": "Un instante decisivo imperfecto puede superar uno limpio y vacío, pero debe soportar impresión.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "L38beOFz-lM",
+          "timestamp_seconds": 243.0
+        }
+      ]
+    },
+    {
+      "lesson_id": "L13",
+      "title": "PDC vs separación del fondo",
+      "observe": "La PDC del sujeto y el desenfoque del fondo están relacionados, pero son distintos.",
+      "try": "Mantén focal, diafragma y distancia de enfoque; cambia solo la distancia del fondo.",
+      "diagnose": "Si la PDC permanece y cambia el fondo, el modelo funciona.",
+      "break_the_rule_when": "En campo rápido, describe simplemente el resultado visible.",
+      "canon_6d_note": "Optical Lab usa CoC 0.030 mm como convención de planificación.",
+      "competition_note": "Usa separación solo cuando aclare la causalidad arquitectónica.",
+      "sources": [
+        {
+          "type": "FOCALRUTA_TECHNICAL",
+          "source_id": "OPTICAL_LAB_INVARIANTS"
+        }
+      ]
+    },
+    {
+      "lesson_id": "L14",
+      "title": "Trabaja la escena",
+      "observe": "Mira cómo ciclan acción, bordes y luz en vez de hacer una foto e irte.",
+      "try": "Haz pruebas A estructura, B habitar, C anti-postal, D luz/material y E historia en un cuadro.",
+      "diagnose": "Registra por qué todavía falla el intento más fuerte.",
+      "break_the_rule_when": "La situación es insegura, no ética o realmente terminó.",
+      "canon_6d_note": "Mantén ajustes estables el tiempo suficiente para diagnosticar composición aparte.",
+      "competition_note": "Elige STAY, MOVE o RETURN_OTHER_LIGHT según evidencia.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "AuoMaGMBHVg",
+          "timestamp_seconds": 25.24
+        }
+      ]
+    },
+    {
+      "lesson_id": "L15",
+      "title": "Garúa, lluvia, mediodía y hora azul",
+      "observe": "Trata clima y horas difíciles como herramientas distintas para construir forma.",
+      "try": "Usa garúa para separación material suave y mediodía para sombras gráficas duras.",
+      "diagnose": "Si la condición aporta atmósfera pero oculta arquitectura, cambia la hipótesis.",
+      "break_the_rule_when": "Seguridad, acceso o protección del equipo exigen retirarte.",
+      "canon_6d_note": "Usa IS cuando corresponda, protege la cámara y fija obturador según el sujeto.",
+      "competition_note": "No elijas siempre hora dorada; usa la condición que revela la relación.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "61pRp270Dbc",
+          "timestamp_seconds": 547.36
+        }
+      ]
+    },
+    {
+      "lesson_id": "L16",
+      "title": "Antidogma",
+      "observe": "Las reglas son preguntas diagnósticas, no garantías.",
+      "try": "Haz la solución convencional y luego una contradicción sustentada en evidencia.",
+      "diagnose": "Si romper la regla no tiene propósito visible, es novedad sin significado.",
+      "break_the_rule_when": "La escena comunica con más claridad o verdad sin ella.",
+      "canon_6d_note": "La técnica sirve al encuadre, no al ritual de cámara.",
+      "competition_note": "La originalidad nunca supera coherencia temática ni realidad fotografiada.",
+      "sources": [
+        {
+          "type": "VIDEO_TRANSCRIPT",
+          "video_id": "ExElfOqn5B8",
+          "timestamp_seconds": 33.2
+        }
+      ]
+    },
+    {
+      "lesson_id": "L17",
+      "title": "Límites de edición seguros",
+      "observe": "Decide si el encuadre funciona antes de imaginar un rescate en posproducción.",
+      "try": "Planifica solo recorte, balance de blancos, B&N, brillo, contraste, nitidez y corrección de color.",
+      "diagnose": "Cambiar elementos fundamentales, intervenir con IA, montar o alterar la realidad falla el control.",
+      "break_the_rule_when": "No rompas esta regla para una entrega al concurso.",
+      "canon_6d_note": "Nivela, posiciónate y encuadra con cuidado porque transformar perspectiva no está autorizado explícitamente.",
+      "competition_note": "Mantén el RAW/JPG/JPEG candidato fuera de crítica y edición con IA; el prevuelo es local y determinista.",
+      "sources": [
+        {
+          "type": "OFFICIAL_RULES",
+          "source_id": "SRC-COMP-2026-PDF"
+        }
+      ]
+    }
   ],
   "pedagogy": {
     "method": "Predice, manipula, diagnostica y luego recupera la regla en campo.",
@@ -31,17 +306,569 @@
     ]
   },
   "video_modules": [
-    {"video_id":"pkMssQPul9o","title":"Natural light before lighting complexity","channel":"Ben Harvey Photography","timestamp_seconds":293.64,"mechanism":"Read the existing direction, color and contrast of natural and practical light before adding equipment.","field_transfer":"At one interior threshold, make a light map: key direction, brightest surface, mixed-color source and unusable reflection.","misuse_risk":"Do not treat natural light as automatically good; return or reposition when it hides spatial order."},
-    {"video_id":"kCu_JaxaxX0","title":"Lines must guide toward a subject","channel":"Matthew Anderson","timestamp_seconds":383.68,"mechanism":"Architectural lines organize attention only when they lead through the frame toward a deliberate visual destination.","field_transfer":"Trace the strongest line with your finger, then remove any edge that pulls the eye out before the causal device is read.","misuse_risk":"Leading lines without a destination become decoration and can eject the viewer from the image."},
-    {"video_id":"p0NlX54vKCA","title":"People or meaningful absence","channel":"Jamie Windsor","timestamp_seconds":204.08,"mechanism":"People reveal use and scale; absence can redirect attention to architecture and carry stillness when social evidence remains.","field_transfer":"Make paired B/HABITAR frames: one with a meaningful verb and one empty frame with residue or expectation of use.","misuse_risk":"Do not add a person merely for scale or remove people merely for visual cleanliness."},
-    {"video_id":"Fh6PIafC8wU","title":"Position creates the composition","channel":"Jason Vong","timestamp_seconds":258.52,"mechanism":"A chosen camera position controls foreground, background, edge collisions and the moment that can enter the frame.","field_transfer":"Mark three legal standing positions and compare the architectural relationship before changing focal length.","misuse_risk":"Cropping from one fixed position cannot recover a missing near/far relationship."},
-    {"video_id":"0H-t9N1hDj0","title":"Rules are not the whole composition","channel":"Martin Osner","timestamp_seconds":655.92,"mechanism":"Grids are tools; intention, hierarchy and emotional direction determine whether an arrangement communicates.","field_transfer":"Make the conventional thirds version, name its intended reading, then make one contradiction that improves that reading.","misuse_risk":"Breaking a rule without a visible communicative gain is novelty, not authorship."},
-    {"video_id":"Ub0EGCMs4_U","title":"Background is an active plane","channel":"Simon d'Entremont","timestamp_seconds":135.92,"mechanism":"Background luminance, distance, edges and clutter change figure-ground separation and perceived depth.","field_transfer":"Hold the subject position, move laterally one metre, and compare edge contrast and mergers before opening the aperture.","misuse_risk":"Background blur cannot repair a background whose shapes or brightness contradict the story."}
+    {
+      "video_id": "pkMssQPul9o",
+      "title": "Natural light before lighting complexity",
+      "channel": "Ben Harvey Photography",
+      "timestamp_seconds": 293.64,
+      "mechanism": "Read the existing direction, color and contrast of natural and practical light before adding equipment.",
+      "field_transfer": "At one interior threshold, make a light map: key direction, brightest surface, mixed-color source and unusable reflection.",
+      "misuse_risk": "Do not treat natural light as automatically good; return or reposition when it hides spatial order."
+    },
+    {
+      "video_id": "kCu_JaxaxX0",
+      "title": "Lines must guide toward a subject",
+      "channel": "Matthew Anderson",
+      "timestamp_seconds": 383.68,
+      "mechanism": "Architectural lines organize attention only when they lead through the frame toward a deliberate visual destination.",
+      "field_transfer": "Trace the strongest line with your finger, then remove any edge that pulls the eye out before the causal device is read.",
+      "misuse_risk": "Leading lines without a destination become decoration and can eject the viewer from the image."
+    },
+    {
+      "video_id": "p0NlX54vKCA",
+      "title": "People or meaningful absence",
+      "channel": "Jamie Windsor",
+      "timestamp_seconds": 204.08,
+      "mechanism": "People reveal use and scale; absence can redirect attention to architecture and carry stillness when social evidence remains.",
+      "field_transfer": "Make paired B/HABITAR frames: one with a meaningful verb and one empty frame with residue or expectation of use.",
+      "misuse_risk": "Do not add a person merely for scale or remove people merely for visual cleanliness."
+    },
+    {
+      "video_id": "Fh6PIafC8wU",
+      "title": "Position creates the composition",
+      "channel": "Jason Vong",
+      "timestamp_seconds": 258.52,
+      "mechanism": "A chosen camera position controls foreground, background, edge collisions and the moment that can enter the frame.",
+      "field_transfer": "Mark three legal standing positions and compare the architectural relationship before changing focal length.",
+      "misuse_risk": "Cropping from one fixed position cannot recover a missing near/far relationship."
+    },
+    {
+      "video_id": "0H-t9N1hDj0",
+      "title": "Rules are not the whole composition",
+      "channel": "Martin Osner",
+      "timestamp_seconds": 655.92,
+      "mechanism": "Grids are tools; intention, hierarchy and emotional direction determine whether an arrangement communicates.",
+      "field_transfer": "Make the conventional thirds version, name its intended reading, then make one contradiction that improves that reading.",
+      "misuse_risk": "Breaking a rule without a visible communicative gain is novelty, not authorship."
+    },
+    {
+      "video_id": "Ub0EGCMs4_U",
+      "title": "Background is an active plane",
+      "channel": "Simon d'Entremont",
+      "timestamp_seconds": 135.92,
+      "mechanism": "Background luminance, distance, edges and clutter change figure-ground separation and perceived depth.",
+      "field_transfer": "Hold the subject position, move laterally one metre, and compare edge contrast and mergers before opening the aperture.",
+      "misuse_risk": "Background blur cannot repair a background whose shapes or brightness contradict the story."
+    }
   ],
   "simulations": [
-    {"simulation_id":"perspective-position","title":"Posición antes que focal","prediction_prompt":"Predice qué control cambia la relación de tamaño entre cerca y lejos.","field_drill":"Haz la prueba misma posición/distinta focal; después conserva el tamaño del sujeto moviéndote con cada focal.","diagnostic_rule":"La posición de cámara cambia perspectiva; la focal cambia campo de visión y escala proyectada desde una posición fija.","model_limit":"Diagrama pedagógico basado en tamaño proyectado inverso a la distancia; no renderiza un lente.","sources":["https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get","https://www.youtube.com/watch?v=Fh6PIafC8wU&t=258"]},
-    {"simulation_id":"vertical-convergence","title":"Cámara nivelada vs verticales convergentes","prediction_prompt":"Predice qué ocurre con muros paralelos al inclinar la cámara hacia arriba.","field_drill":"Encuadra nivelado y luego inclinado; retrocede o busca altura antes de aceptar convergencia.","diagnostic_rule":"Inclinar la cámara hace converger bordes paralelos; mantener vertical el plano del sensor los conserva paralelos.","model_limit":"Diagrama pedagógico de keystoning; no simula un lente de control de perspectiva calibrado.","sources":["https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get"]},
-    {"simulation_id":"hierarchy-edges","title":"Jerarquía y disciplina de bordes","prediction_prompt":"Predice qué se lee primero en variantes limpia, desordenada y con acción humana.","field_drill":"Nombra primera, segunda y tercera lectura; después escanea los cuatro bordes antes de disparar.","diagnostic_rule":"Contraste, aislamiento, dirección de líneas y choques de borde compiten por atención; una rejilla no elige el sujeto.","model_limit":"Diagrama pedagógico de saliencia; la atención humana varía según tarea y contexto.","sources":["https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines","https://www.youtube.com/watch?v=Ub0EGCMs4_U&t=135"]},
-    {"simulation_id":"light-material","title":"La luz revela forma y material","prediction_prompt":"Predice qué luz vuelve más legibles relieve, textura o silueta.","field_drill":"Vuelve a una fachada con sol lateral, sombra de mediodía y garúa; conserva posición y compara qué aparece.","diagnostic_rule":"Dirección y tamaño de fuente cambian borde de sombra, relieve y separación material; el color atractivo no basta.","model_limit":"Diagrama pedagógico de tono y sombra; no predice exposición ni clima.","sources":["https://www.youtube.com/watch?v=pkMssQPul9o&t=293","https://www.youtube.com/watch?v=kCu_JaxaxX0&t=415"]}
+    {
+      "simulation_id": "perspective-position",
+      "title": "Posición antes que focal",
+      "prediction_prompt": "Predice qué control cambia la relación de tamaño entre cerca y lejos.",
+      "field_drill": "Haz la prueba misma posición/distinta focal; después conserva el tamaño del sujeto moviéndote con cada focal.",
+      "diagnostic_rule": "La posición de cámara cambia perspectiva; la focal cambia campo de visión y escala proyectada desde una posición fija.",
+      "model_limit": "Diagrama pedagógico basado en tamaño proyectado inverso a la distancia; no renderiza un lente.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+        "https://www.youtube.com/watch?v=Fh6PIafC8wU&t=258"
+      ],
+      "manipulation": "Cambia únicamente el control de posición antes que focal y compara con tu predicción.",
+      "observable_feedback": "La posición de cámara cambia perspectiva; la focal cambia campo de visión y escala proyectada desde una posición fija.",
+      "misconception_warning": "El resultado simplifica una sola relación. Diagrama pedagógico basado en tamaño proyectado inverso a la distancia; no renderiza un lente."
+    },
+    {
+      "simulation_id": "vertical-convergence",
+      "title": "Cámara nivelada vs verticales convergentes",
+      "prediction_prompt": "Predice qué ocurre con muros paralelos al inclinar la cámara hacia arriba.",
+      "field_drill": "Encuadra nivelado y luego inclinado; retrocede o busca altura antes de aceptar convergencia.",
+      "diagnostic_rule": "Inclinar la cámara hace converger bordes paralelos; mantener vertical el plano del sensor los conserva paralelos.",
+      "model_limit": "Diagrama pedagógico de keystoning; no simula un lente de control de perspectiva calibrado.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get"
+      ],
+      "manipulation": "Cambia únicamente el control de cámara nivelada vs verticales convergentes y compara con tu predicción.",
+      "observable_feedback": "Inclinar la cámara hace converger bordes paralelos; mantener vertical el plano del sensor los conserva paralelos.",
+      "misconception_warning": "El resultado simplifica una sola relación. Diagrama pedagógico de keystoning; no simula un lente de control de perspectiva calibrado."
+    },
+    {
+      "simulation_id": "hierarchy-edges",
+      "title": "Jerarquía y disciplina de bordes",
+      "prediction_prompt": "Predice qué se lee primero en variantes limpia, desordenada y con acción humana.",
+      "field_drill": "Nombra primera, segunda y tercera lectura; después escanea los cuatro bordes antes de disparar.",
+      "diagnostic_rule": "Contraste, aislamiento, dirección de líneas y choques de borde compiten por atención; una rejilla no elige el sujeto.",
+      "model_limit": "Diagrama pedagógico de saliencia; la atención humana varía según tarea y contexto.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+        "https://www.youtube.com/watch?v=Ub0EGCMs4_U&t=135"
+      ],
+      "manipulation": "Cambia únicamente el control de jerarquía y disciplina de bordes y compara con tu predicción.",
+      "observable_feedback": "Contraste, aislamiento, dirección de líneas y choques de borde compiten por atención; una rejilla no elige el sujeto.",
+      "misconception_warning": "El resultado simplifica una sola relación. Diagrama pedagógico de saliencia; la atención humana varía según tarea y contexto."
+    },
+    {
+      "simulation_id": "light-material",
+      "title": "La luz revela forma y material",
+      "prediction_prompt": "Predice qué luz vuelve más legibles relieve, textura o silueta.",
+      "field_drill": "Vuelve a una fachada con sol lateral, sombra de mediodía y garúa; conserva posición y compara qué aparece.",
+      "diagnostic_rule": "Dirección y tamaño de fuente cambian borde de sombra, relieve y separación material; el color atractivo no basta.",
+      "model_limit": "Diagrama pedagógico de tono y sombra; no predice exposición ni clima.",
+      "sources": [
+        "https://www.youtube.com/watch?v=pkMssQPul9o&t=293",
+        "https://www.youtube.com/watch?v=kCu_JaxaxX0&t=415"
+      ],
+      "manipulation": "Cambia únicamente el control de la luz revela forma y material y compara con tu predicción.",
+      "observable_feedback": "Dirección y tamaño de fuente cambian borde de sombra, relieve y separación material; el color atractivo no basta.",
+      "misconception_warning": "El resultado simplifica una sola relación. Diagrama pedagógico de tono y sombra; no predice exposición ni clima."
+    },
+    {
+      "simulation_id": "composition-sequence",
+      "title": "Una escena, cinco decisiones",
+      "prediction_prompt": "Predice qué cambio transforma el significado, no solo el aspecto.",
+      "manipulation": "Recorre cinco variantes manteniendo explícito qué variable cambia.",
+      "observable_feedback": "Compara relación espacial, jerarquía, uso y legibilidad de luz en cada estado.",
+      "diagnostic_rule": "Aísla una variable por toma y conserva el estado que cambia la lectura, no solo el acabado.",
+      "model_limit": "Viñetas SVG abstractas; no representan un edificio, óptica, clima ni persona reales.",
+      "field_drill": "Haz la secuencia sin borrar fallos: postal, posición, focal fija, presencia/ausencia y otra condición de luz.",
+      "misconception_warning": "Cambiar varias variables a la vez impide saber qué mejoró la imagen.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/"
+      ],
+      "variants": [
+        {
+          "variant_id": "default-postcard",
+          "label": "Postal por defecto"
+        },
+        {
+          "variant_id": "changed-position",
+          "label": "Cambia posición"
+        },
+        {
+          "variant_id": "fixed-position-focal",
+          "label": "Focal, posición fija"
+        },
+        {
+          "variant_id": "human-presence",
+          "label": "Presencia / ausencia"
+        },
+        {
+          "variant_id": "light-weather",
+          "label": "Luz / clima"
+        }
+      ]
+    }
+  ],
+  "learning_path": [
+    "SEE",
+    "POSITION",
+    "COMPOSE",
+    "LIGHT",
+    "WORK_THE_SCENE",
+    "FINISH",
+    "COMPETE"
+  ],
+  "technique_cards": [
+    {
+      "technique_id": "viewpoint-before-focal",
+      "title": "Punto de vista antes que focal",
+      "mechanism": "La posición decide perspectiva, solapes y fondo; la focal recorta el campo desde esa posición.",
+      "field_test": "Marca tres posiciones legales y compara relaciones antes de montar 35, 50 u 85 mm.",
+      "diagnosis": "Si cerca/lejos cambia, cambió la posición; si todo escala junto, cambió el campo de visión.",
+      "misconception_warning": "Un 85 mm no comprime por magia: normalmente te obliga a alejarte.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get"
+      ]
+    },
+    {
+      "technique_id": "perspective-shift-tilt",
+      "title": "Perspectiva, convergencia y desplazamiento",
+      "mechanism": "Nivelar el sensor conserva verticales; inclinarlo produce convergencia. El desplazamiento reencuadra sin inclinar.",
+      "field_test": "Haz nivelada, inclinada y nivelada desde más altura; decide cuál expresa mejor el edificio.",
+      "diagnosis": "Distingue convergencia intencional de una corrección que recorta información útil.",
+      "misconception_warning": "Enderezar no es siempre correcto y un diagrama no sustituye una óptica PC calibrada.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get"
+      ]
+    },
+    {
+      "technique_id": "lines-symmetry-hierarchy",
+      "title": "Líneas, simetría y jerarquía",
+      "mechanism": "Dirección, contraste, repetición y aislamiento ordenan la primera, segunda y tercera lectura.",
+      "field_test": "Traza la línea dominante y comprueba si llega al sujeto o expulsa la mirada.",
+      "diagnosis": "Si todos los elementos pesan igual, cambia posición, espera o elimina del borde.",
+      "misconception_warning": "Simetría y tercios son herramientas, no pruebas de una composición lograda.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/"
+      ]
+    },
+    {
+      "technique_id": "negative-space-edge-control",
+      "title": "Espacio negativo y control de bordes",
+      "mechanism": "El vacío separa figura y fondo; los bordes determinan si la mirada permanece dentro.",
+      "field_test": "Haz un barrido de cuatro bordes y una versión con más vacío sin recortar después.",
+      "diagnosis": "Busca tangencias, objetos de alto contraste y formas que compitan con el sujeto.",
+      "misconception_warning": "Vacío no significa limpieza decorativa: debe sostener escala, espera o tensión.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/"
+      ]
+    },
+    {
+      "technique_id": "depth-figure-ground",
+      "title": "Capas, profundidad y figura-fondo",
+      "mechanism": "Oclusión, escala, contraste y continuidad separan planos y hacen legible la relación espacial.",
+      "field_test": "Construye primer plano, dispositivo, acción y fondo; luego quita una capa.",
+      "diagnosis": "Si persona y borde se fusionan, espera o desplázate lateralmente.",
+      "misconception_warning": "Abrir diafragma no repara un fondo con forma o brillo contradictorios.",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/"
+      ]
+    },
+    {
+      "technique_id": "gesture-absence",
+      "title": "Gesto decisivo y ausencia significativa",
+      "mechanism": "Una persona importa cuando su verbo revela el diseño; la ausencia importa cuando quedan uso, espera o residuo.",
+      "field_test": "Precompón una versión con verbo y otra vacía con evidencia social.",
+      "diagnosis": "Descarta la figura que solo aporta escala y el vacío que solo aporta pulcritud.",
+      "misconception_warning": "No escenifiques, invadas privacidad ni fuerces presencia humana.",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/"
+      ]
+    },
+    {
+      "technique_id": "light-material-weather",
+      "title": "Luz, material, reflejos y clima",
+      "mechanism": "Dirección, tamaño y color de la fuente revelan relieve, volumen, transparencia y reflexión.",
+      "field_test": "Repite posición con lateral, mediodía, garúa y hora azul; registra qué relación aparece.",
+      "diagnosis": "Protege altas luces y separa atmósfera útil de arquitectura ilegible.",
+      "misconception_warning": "Hora dorada no es universalmente mejor; el clima debe explicar la forma.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines"
+      ]
+    },
+    {
+      "technique_id": "exposure-focus-iso-motion",
+      "title": "Exposición, foco, ISO y movimiento",
+      "mechanism": "Obturador, apertura e ISO responden a gesto, profundidad y altas luces; la nitidez tiene varias causas.",
+      "field_test": "Fija primero movimiento y PDC; diagnostica foco, trepidación, sujeto, óptica y atmósfera por separado.",
+      "diagnosis": "Cambia una sola causa y revisa histograma, alerta y ampliación crítica.",
+      "misconception_warning": "No existe ISO mágico ni un único obturador que cure toda falta de nitidez.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines"
+      ]
+    },
+    {
+      "technique_id": "contest-safe-editing",
+      "title": "Edición compatible con cada convocatoria",
+      "mechanism": "Captura, revelado, composición/eliminación y generación son categorías distintas que cada brief puede permitir o prohibir.",
+      "field_test": "Antes de editar, convierte las reglas vigentes en una lista de operaciones permitidas y dudosas.",
+      "diagnosis": "Si una operación cambia contenido o geometría material, detente y consulta la regla o al organizador.",
+      "misconception_warning": "No generalices las fronteras de un concurso antiguo ni supongas que IA o relleno generativo están permitidos.",
+      "sources": [
+        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines"
+      ]
+    }
+  ],
+  "visual_exemplar_families": [
+    {
+      "technique_id": "viewpoint-before-focal",
+      "family_id": "viewpoint-before-focal-1",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición frontal / luz neutra",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "viewpoint-before-focal",
+      "family_id": "viewpoint-before-focal-2",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición oblicua / luz lateral",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "viewpoint-before-focal",
+      "family_id": "viewpoint-before-focal-3",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+      "author": "Wagemans et al.",
+      "date": "2012",
+      "rights_status": "LINK_ONLY",
+      "condition": "distancia o clima alternativo",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "perspective-shift-tilt",
+      "family_id": "perspective-shift-tilt-1",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición frontal / luz neutra",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "perspective-shift-tilt",
+      "family_id": "perspective-shift-tilt-2",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición oblicua / luz lateral",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "perspective-shift-tilt",
+      "family_id": "perspective-shift-tilt-3",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+      "author": "Wagemans et al.",
+      "date": "2012",
+      "rights_status": "LINK_ONLY",
+      "condition": "distancia o clima alternativo",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "lines-symmetry-hierarchy",
+      "family_id": "lines-symmetry-hierarchy-1",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición frontal / luz neutra",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "lines-symmetry-hierarchy",
+      "family_id": "lines-symmetry-hierarchy-2",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición oblicua / luz lateral",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "lines-symmetry-hierarchy",
+      "family_id": "lines-symmetry-hierarchy-3",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+      "author": "Wagemans et al.",
+      "date": "2012",
+      "rights_status": "LINK_ONLY",
+      "condition": "distancia o clima alternativo",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "negative-space-edge-control",
+      "family_id": "negative-space-edge-control-1",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición frontal / luz neutra",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "negative-space-edge-control",
+      "family_id": "negative-space-edge-control-2",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición oblicua / luz lateral",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "negative-space-edge-control",
+      "family_id": "negative-space-edge-control-3",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+      "author": "Wagemans et al.",
+      "date": "2012",
+      "rights_status": "LINK_ONLY",
+      "condition": "distancia o clima alternativo",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "depth-figure-ground",
+      "family_id": "depth-figure-ground-1",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición frontal / luz neutra",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "depth-figure-ground",
+      "family_id": "depth-figure-ground-2",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición oblicua / luz lateral",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "depth-figure-ground",
+      "family_id": "depth-figure-ground-3",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+      "author": "Wagemans et al.",
+      "date": "2012",
+      "rights_status": "LINK_ONLY",
+      "condition": "distancia o clima alternativo",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "gesture-absence",
+      "family_id": "gesture-absence-1",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición frontal / luz neutra",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "gesture-absence",
+      "family_id": "gesture-absence-2",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición oblicua / luz lateral",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "gesture-absence",
+      "family_id": "gesture-absence-3",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+      "author": "Wagemans et al.",
+      "date": "2012",
+      "rights_status": "LINK_ONLY",
+      "condition": "distancia o clima alternativo",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "light-material-weather",
+      "family_id": "light-material-weather-1",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición frontal / luz neutra",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "light-material-weather",
+      "family_id": "light-material-weather-2",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición oblicua / luz lateral",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "light-material-weather",
+      "family_id": "light-material-weather-3",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+      "author": "Wagemans et al.",
+      "date": "2012",
+      "rights_status": "LINK_ONLY",
+      "condition": "distancia o clima alternativo",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "exposure-focus-iso-motion",
+      "family_id": "exposure-focus-iso-motion-1",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición frontal / luz neutra",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "exposure-focus-iso-motion",
+      "family_id": "exposure-focus-iso-motion-2",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición oblicua / luz lateral",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "exposure-focus-iso-motion",
+      "family_id": "exposure-focus-iso-motion-3",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+      "author": "Wagemans et al.",
+      "date": "2012",
+      "rights_status": "LINK_ONLY",
+      "condition": "distancia o clima alternativo",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "contest-safe-editing",
+      "family_id": "contest-safe-editing-1",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición frontal / luz neutra",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "contest-safe-editing",
+      "family_id": "contest-safe-editing-2",
+      "source_url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines",
+      "author": "Nikon USA",
+      "date": "s. f.",
+      "rights_status": "LINK_ONLY",
+      "condition": "posición oblicua / luz lateral",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    },
+    {
+      "technique_id": "contest-safe-editing",
+      "family_id": "contest-safe-editing-3",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/",
+      "author": "Wagemans et al.",
+      "date": "2012",
+      "rights_status": "LINK_ONLY",
+      "condition": "distancia o clima alternativo",
+      "proves": "Referencia para comparar una variable visual y formular una predicción de campo.",
+      "cannot_prove": "No prueba que una escena, luz, acceso o resultado equivalente exista en Lima."
+    }
   ]
 }
