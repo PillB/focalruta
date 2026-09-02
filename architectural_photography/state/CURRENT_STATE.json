@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "updated_at": "2026-09-02T11:13:35-05:00",
   "phase": "ROUND_6_WHOLE_SITE_NATIVE_INTEGRATION_AND_FINAL_GATES",
-  "status": "VISUAL_LEARNING_STORY_OVERHAUL_GREEN_LIVE_BASELINE_GIT_WRITE_BLOCKED",
+  "status": "VISUAL_LEARNING_STORY_OVERHAUL_MERGED_DEPLOYED_LIVE_VERIFIED",
   "preproduction_audit": "OPEN_EXPERT_REJECTIONS_RECORDED",
   "baseline_commit": "9a415311f8d34772a6391193434bbf22c7b9af5b",
   "branch": "architecture-learning-lab",
