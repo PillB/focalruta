@@ -644,3 +644,24 @@ visibles sin conexión y nueve ejercicios en el bloque sin JavaScript.
 con un comentario que explica por qué, y `README.md` documenta que ese guion
 necesita la raíz hospedada. Un fallo que se manifestaba como cuelgue queda
 convertido en una instrucción explícita.
+
+### Cierre de la ronda 7 · desplegado y verificado en vivo
+
+PR #14 fusionado en `main` (`d64dc75`). Workflow **Quality** `33696913241` y
+**Deploy FocalRuta to Pages** `33696913261`, ambos en verde.
+
+Verificación contra `https://pillb.github.io/focalruta/`:
+
+- `challenges/arquitectura-en-foco/index.html` y `wiki-tecnicas.html` en vivo son
+  **byte a byte idénticos** a los archivos locales generados.
+- La página publicada expone los **nueve laboratorios**; la wiki publica nueve
+  familias con **nueve diagramas de hash distinto**.
+- Los nueve archivos de mapa huérfanos devuelven **404**: dejaron de publicarse.
+- `browser_round1_qa.py` apuntando a la URL en vivo: `passed: true`, seis
+  viewports, sin errores de consola, sin recursos fallidos, sin desbordamiento.
+
+Estado: `ROUND_7_..._MERGED_AND_LIVE_VERIFIED`.
+
+**Siguiente acción sugerida.** Reconstruir las rutas cuando el router OSM vuelva
+a estar disponible, y decidir con datos de uso si alguna de las nueve
+alternativas de flujo documentadas merece implementarse.
