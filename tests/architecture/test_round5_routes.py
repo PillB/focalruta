@@ -148,8 +148,8 @@ def test_long_intertour_transfers_are_removed_and_disclosed_not_hidden():
         assert gap["road_distance_m"] > 800
         assert gap["reason"] == "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
     page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
-    assert "traslados entre tours omitidos" in page
-    assert "No se presentan como una caminata continua" in page
+    assert "traslados omitidos" in page
+    assert "no se presentan como caminata continua" in page
 
 
 def test_compact_partition_never_creates_new_singleton_layers():
@@ -174,7 +174,7 @@ def test_generated_page_separates_long_transfers_instead_of_recommending_them():
     page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
     assert "Transferencia larga:" not in page
     assert "Tour separado" in page
-    assert "No se presentan como una caminata continua" in page
+    assert "no se presentan como caminata continua" in page
     assert page.count("Traslado terminal conservado:") == 5
     assert "Separarlo aislaría una escena" in page
 
@@ -215,9 +215,34 @@ def test_downloads_and_eli5_iphone_help_exist():
     help_text = (ROOT / "challenges/arquitectura-en-foco/iphone-maps.html").read_text(encoding="utf-8")
     assert "iPhone 13 Pro" in help_text
     assert "You" in help_text and "Maps" in help_text
+    assert "Arquitectura en Foco" not in help_text
+    field_card = ROOT / "challenges/arquitectura-en-foco/field-card.html"
+    assert field_card.exists() and "TARJETA DESCARGABLE" in field_card.read_text(encoding="utf-8")
     for layer in routes["district_layers"]:
         assert (ROOT / layer["kml_path"]).exists()
         assert (ROOT / layer["geojson_path"]).exists()
+        assert all(stop.get("address") and stop.get("latitude") is not None and stop.get("longitude") is not None for stop in layer["stops"])
+        assert layer.get("offline_map_path") and (ROOT / layer["offline_map_path"]).exists()
+
+
+def test_route_collections_never_call_single_points_tours_and_group_all_layers():
+    routes = load_routes()
+    collections = routes["route_collections"]
+    assert collections
+    assert all(collection["segments"] or collection["independent_points"] for collection in collections)
+    assert all("singleton" not in collection["title"].lower() for collection in collections)
+    layer_ids = {layer_id for collection in collections for layer_id in collection["layer_ids"]}
+    assert layer_ids == {layer["layer_id"] for layer in routes["district_layers"]}
+    page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
+    assert "Colecciones de ruta" in page
+    assert "Punto independiente" in page
+
+
+def test_beginner_guide_explains_every_major_surface_in_plain_spanish():
+    page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
+    for phrase in ("Matriz de preparación", "Tarjeta de lugar", "Laboratorio", "Ruta y colección", "Brief", "SIN CONOCIMIENTOS PREVIOS"):
+        assert phrase in page
+    assert "no una nota ni una predicción" in page
 
 
 def test_iphone_help_explains_direct_link_and_kml_failure_recovery():

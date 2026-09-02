@@ -27,7 +27,7 @@ def run() -> dict:
         page.on("requestfailed", lambda request: failed.append(request.url))
         page.goto(BASE, wait_until="networkidle")
         page.evaluate("async()=>await navigator.serviceWorker.ready")
-        page.get_by_role("link", name="Abrir Arquitectura en Foco").click()
+        page.get_by_role("link", name="Abrir fotografía arquitectónica").click()
         page.locator("#contract").fill("Conecta calle, umbral, sombra y vida cotidiana")
         page.locator("#verbs").fill("cruzar, esperar, mirar, conversar, descansar")
         page.reload(wait_until="networkidle")

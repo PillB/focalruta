@@ -201,6 +201,10 @@ def main() -> None:
         "usability_partition": "Transfers above 800 m are disclosed between separate tours and are not published as continuous photography walks.",
     }
     atomic_json(OUTPUT, routes)
+    # Reapply the public route UX envelope after rebuilding partitioned layers.
+    # This keeps layer IDs, addresses, offline maps and district collections stable.
+    from repair_architecture_route_ux import main as enrich_route_ux
+    enrich_route_ux()
     temporary = AUDIT.with_suffix(".json.tmp")
     audit["repair_applied"] = True
     temporary.write_text(json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -25,7 +25,9 @@
           "longitude": -77.0235738,
           "osm_id": 2474848392,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Mirador Catalina Recavarren, Pasaje La Ermita, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "la-ermita-de-barranco",
@@ -35,7 +37,9 @@
           "longitude": -77.0229075,
           "osm_id": 191628991,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Pasaje La Ermita, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
@@ -45,7 +49,9 @@
           "longitude": -77.022591,
           "osm_id": 1550043240,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Puente de Los Suspiros, Puente de los Suspiros, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "iglesia-santisima-cruz",
@@ -55,7 +61,9 @@
           "longitude": -77.0216208,
           "osm_id": 389384011,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Iglesia Santísima Cruz, Parque Municipal de Barranco, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "parque-municipal-y-entorno-civico",
@@ -65,7 +73,9 @@
           "longitude": -77.0211974,
           "osm_id": 436583900,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque Municipal de Barranco, Barranco, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "biblioteca-municipal-de-barranco",
@@ -75,7 +85,9 @@
           "longitude": -77.0214626,
           "osm_id": 512088042,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Biblioteca Municipal, Malecón Mariscal Ramón Castilla, Barranco, Lima, Lima Metropolitana, Lima, 15042, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "museo-de-la-electricidad-tranvia",
@@ -85,7 +97,9 @@
           "longitude": -77.0217254,
           "osm_id": 436605096,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Museo de La Electricidad, 105, Avenida Pedro de Osma, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
@@ -95,7 +109,9 @@
           "longitude": -77.0226424,
           "osm_id": 383861976,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Museo Pedro de Osma, 421, Avenida Pedro de Osma, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -575,7 +591,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-01",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/barranco-tour-1.html"
     },
     {
       "district": "Barranco",
@@ -590,7 +608,9 @@
           "longitude": -77.0247981,
           "osm_id": 173771121,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Sáenz Peña, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -604,7 +624,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-02",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.html"
     },
     {
       "district": "Barranco",
@@ -619,7 +641,9 @@
           "longitude": -77.0221296,
           "osm_id": 437212067,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Universidad de Ingenieria y Tecnologia, 165, Jirón Medrano Silva, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "mac-lima-parque-espejo-de-agua",
@@ -629,7 +653,9 @@
           "longitude": -77.0232736,
           "osm_id": 261982317,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Museo de Arte Contemporaneo de Lima, 1511, Avenida Almirante Miguel Grau, Barranco, Lima, Lima Metropolitana, Lima, 15063, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -826,7 +852,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-03",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.html"
     },
     {
       "district": "Jesús María",
@@ -841,7 +869,9 @@
           "longitude": -77.0532248,
           "osm_id": 3921656,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Residencial San Felipe, Jesús María, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -855,7 +885,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/jesus-maria.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/jesus-maria.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-04",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/jesus-maria.html"
     },
     {
       "district": "La Victoria",
@@ -870,7 +902,9 @@
           "longitude": -77.0231999,
           "osm_id": 396421284,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Unidad Vecinal Matute, La Victoria, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -884,7 +918,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-05",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html"
     },
     {
       "district": "La Victoria",
@@ -899,7 +935,9 @@
           "longitude": -77.0229268,
           "osm_id": 656096061,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Torre Interbank, Vía Expresa Luis Fernán Bedoya Reyes, La Victoria, Lima, Lima Metropolitana, Lima, 15033, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -913,7 +951,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-06",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html"
     },
     {
       "district": "Lima",
@@ -928,7 +968,9 @@
           "longitude": -77.0722383,
           "osm_id": 3968359,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Conjunto Habitacional Palomino, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -942,7 +984,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-07",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.html"
     },
     {
       "district": "Lima",
@@ -957,7 +1001,9 @@
           "longitude": -77.0820644,
           "osm_id": 134143355,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Unidad Vecinal 3, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -971,7 +1017,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-08",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.html"
     },
     {
       "district": "Lima",
@@ -986,7 +1034,9 @@
           "longitude": -77.0179163,
           "osm_id": 160264224,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Quinta Heeren, 1201, Jirón Junín, Barrio Quinta Heren, Lima, Lima Metropolitana, Lima, 15003, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -1000,7 +1050,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-09",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.html"
     },
     {
       "district": "Lima",
@@ -1015,7 +1067,9 @@
           "longitude": -77.0361916,
           "osm_id": 610109028,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Jirón de la Unión, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "damero-de-lima-interseccion-como-objeto",
@@ -1025,7 +1079,9 @@
           "longitude": -77.0317356,
           "osm_id": 11986059780,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "El Damero, Jirón Carabaya, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "estacion-desamparados",
@@ -1035,7 +1091,9 @@
           "longitude": -77.0286907,
           "osm_id": 264964242,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Estación de Desamparados, Jirón Áncash, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "casa-fernandini-1913",
@@ -1045,7 +1103,9 @@
           "longitude": -77.0351457,
           "osm_id": 4407581796,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Casa Fernandini, 400, Jirón Ica, Urbanización Cercado de Lima, Lima, Lima Metropolitana, Lima, 15001, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -1442,7 +1502,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-10",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-4.html"
     },
     {
       "district": "Miraflores",
@@ -1457,7 +1519,9 @@
           "longitude": -77.040152,
           "osm_id": 7557593769,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Faro La Marina, Circuito de Playas, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "parque-del-amor-el-beso",
@@ -1467,7 +1531,9 @@
           "longitude": -77.0365127,
           "osm_id": 76738820,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque Alberto Andrade Carmona, Miraflores, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "puente-villena-bajada-balta-costa-verde",
@@ -1477,7 +1543,9 @@
           "longitude": -77.0357271,
           "osm_id": 1104706183,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Ciclovía Puente Villena Rey, Reducto, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -1894,6 +1962,8 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.kml",
       "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-11",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.html",
       "route_partition": {
         "part": 1,
         "parts": 2,
@@ -1914,7 +1984,9 @@
           "longitude": -77.0302263,
           "osm_id": 28993402,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Larcomar, 610, Malecón de la Reserva, Armendáriz, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "reducto-2-casa-museo-caceres",
@@ -1924,7 +1996,9 @@
           "longitude": -77.0319172,
           "osm_id": 11063679747,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Reducto, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
@@ -1934,7 +2008,9 @@
           "longitude": -77.0328783,
           "osm_id": 14073892,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Calle Porta, Reducto, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "parque-kennedy-gatos-civic-core",
@@ -1944,7 +2020,9 @@
           "longitude": -77.0304221,
           "osm_id": 28798160,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque John F. Kennedy, Surquillo Viejo, Miraflores, Lima, Miraflores, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "palacio-municipal-virgen-milagrosa",
@@ -1954,7 +2032,9 @@
           "longitude": -77.0292108,
           "osm_id": 7570079259,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Municipalidad de Miraflores, 400, Avenida José Larco, Cocharcas, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -2411,6 +2491,8 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.kml",
       "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-12",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.html",
       "route_partition": {
         "part": 2,
         "parts": 2,
@@ -2434,7 +2516,8 @@
           "anchor_method": "CORROBORATED_ADDRESS_COORDINATE",
           "address": "Calle Narciso de la Colina 398, Miraflores",
           "address_source_url": "https://biologia.unmsm.edu.pe/ciencias-biologicas/Plan_de_prevencion_y_reduccion_del_riesgo_de_desastres_de_la_UNMSM_2024_2030_6f42a0de8d.pdf",
-          "coordinate_source_url": "https://commons.wikimedia.org/wiki/Category:Instituto_Ra%C3%BAl_Porras_Barrenechea"
+          "coordinate_source_url": "https://commons.wikimedia.org/wiki/Category:Instituto_Ra%C3%BAl_Porras_Barrenechea",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "casa-museo-ricardo-palma",
@@ -2444,7 +2527,9 @@
           "longitude": -77.0276037,
           "osm_id": 1932068150,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Casa Museo Ricardo Palma, 189, Calle Narciso de la Colina, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "ovalo-de-miraflores",
@@ -2454,7 +2539,9 @@
           "longitude": -77.0288947,
           "osm_id": 314356553,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Óvalo de Miraflores, Miraflores, Lima, Lima Metropolitana, Lima, 10574, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "centro-cultural-ccori-wasi",
@@ -2464,7 +2551,9 @@
           "longitude": -77.0295256,
           "osm_id": 5192428621,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Centro Cultural CCORI WASI, 5198, Avenida Arequipa, Miraflores, Lima, Lima Metropolitana, Lima, 10574, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -2639,7 +2728,9 @@
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.kml",
       "route_geometry_containment_status": "VERIFIED",
-      "route_geometry_repair_provenance": "BOUNDARY_EDGE_REMOVED_2026_08_31"
+      "route_geometry_repair_provenance": "BOUNDARY_EDGE_REMOVED_2026_08_31",
+      "layer_id": "route-13",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.html"
     },
     {
       "district": "Miraflores",
@@ -2655,7 +2746,9 @@
           "longitude": -77.0213252,
           "osm_id": 435517540,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque Las Tradiciones, Miraflores, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -2669,7 +2762,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.kml",
-      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31"
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
+      "layer_id": "route-14",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.html"
     },
     {
       "district": "Miraflores",
@@ -2684,7 +2779,9 @@
           "longitude": -77.0536918,
           "osm_id": 298015625,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Lugar de la Memoria, Bajada San Martín, Miraflores, Lima, Lima Metropolitana, Lima, 15076, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "parque-maria-reiche",
@@ -2694,7 +2791,9 @@
           "longitude": -77.0493238,
           "osm_id": 286993925,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque María Reiche, Miraflores, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -3001,7 +3100,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-15",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.html"
     },
     {
       "district": "Miraflores",
@@ -3016,7 +3117,9 @@
           "longitude": -77.0339531,
           "osm_id": 496000353,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Huaca Pucllana, Calle Juana Alarcó de Dammert, América, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -3030,7 +3133,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-16",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.html"
     },
     {
       "district": "Pueblo Libre",
@@ -3045,7 +3150,9 @@
           "longitude": -77.0600562,
           "osm_id": 73954270,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque 3 de octubre, Pueblo Libre, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "quinta-de-los-libertadores-mnaahp",
@@ -3055,7 +3162,9 @@
           "longitude": -77.0622797,
           "osm_id": 1932068207,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Museo Nacional de Arqueología, Antropología e Historia del Perú, Calle Plaza Bolívar, Pueblo Libre, Lima, Lima Metropolitana, Lima, 15084, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "antigua-taberna-queirolo",
@@ -3065,7 +3174,9 @@
           "longitude": -77.0630716,
           "osm_id": 638368249,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Antigua Taberna Queirolo, 1090, Calle San Martin, Pueblo Libre, Lima, Lima Metropolitana, Lima, 15084, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "parque-virginia-candamo",
@@ -3075,7 +3186,9 @@
           "longitude": -77.0634772,
           "osm_id": 53373213,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque Candamo, Pueblo Libre, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "plaza-a-la-bandera",
@@ -3085,7 +3198,9 @@
           "longitude": -77.0607729,
           "osm_id": 1363237527,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Plaza de la Bandera, Pueblo Libre, Lima, Lima Metropolitana, Lima, 15081, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -3586,7 +3701,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-17",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html"
     },
     {
       "district": "Pueblo Libre",
@@ -3601,7 +3718,9 @@
           "longitude": -77.0678766,
           "osm_id": 73952921,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque de las Américas, Pueblo Libre, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "museo-larco-jardines",
@@ -3611,7 +3730,9 @@
           "longitude": -77.0709002,
           "osm_id": 387071625,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Museo Larco, 1515, Avenida Simón Bolivar, Pueblo Libre, Lima, Lima Metropolitana, Lima, 15084, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "huaca-julio-c-tello",
@@ -3621,7 +3742,9 @@
           "longitude": -77.07205,
           "osm_id": 195056956,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Huaca Julio C. Tello, Pasaje Arqueológico, Pueblo Libre, Lima, Lima Metropolitana, Lima, 15084, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -4034,7 +4157,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-18",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html"
     },
     {
       "district": "Rímac",
@@ -4049,7 +4174,9 @@
           "longitude": -77.0284544,
           "osm_id": 428020167,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Jirón Trujillo, Urbanización Leoncio Prado, Rímac, Lima, Lima Metropolitana, Lima, 15094, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -4063,7 +4190,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/rimac-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/rimac-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-19",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/rimac-tour-1.html"
     },
     {
       "district": "Rímac",
@@ -4078,7 +4207,9 @@
           "longitude": -77.017188,
           "osm_id": 452890441,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Cantagallo, Rímac, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -4092,7 +4223,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/rimac-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/rimac-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-20",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/rimac-tour-2.html"
     },
     {
       "district": "San Borja",
@@ -4107,7 +4240,9 @@
           "longitude": -77.0045741,
           "osm_id": 866508222,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Conjunto Residencial Las Torres de Limatambo, San Borja, Lima, San Borja, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "coliseo-eduardo-dibos",
@@ -4117,7 +4252,9 @@
           "longitude": -77.0011657,
           "osm_id": 401852683,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Coliseo Eduardo Dibós, 2681, Avenida Angamos Este, Urb. Primavera de Monterrico, San Borja, Lima, Lima Metropolitana, Lima, 15038, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -4346,7 +4483,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-21",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.html"
     },
     {
       "district": "San Borja",
@@ -4361,7 +4500,9 @@
           "longitude": -77.0002329,
           "osm_id": 153125090,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Huaca San Borja, Avenida De la Arqueología, San Juan Macías, San Borja, Lima, Lima Metropolitana, Lima, 15041, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "lima-centro-de-convenciones",
@@ -4371,7 +4512,9 @@
           "longitude": -77.000684,
           "osm_id": 151308528,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Centro de Convenciones de Lima, 206, Avenida De la Arqueología, San Juan Macías, San Borja, Lima, Lima Metropolitana, Lima, 15041, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
@@ -4381,7 +4524,9 @@
           "longitude": -77.0018865,
           "osm_id": 391699962,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Museo de la Nación, 2300, Avenida Javier Prado Este, San Juan Macías, San Borja, Lima, Lima Metropolitana, Lima, 15041, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "gran-teatro-nacional",
@@ -4391,7 +4536,9 @@
           "longitude": -77.0031643,
           "osm_id": 151308524,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Teatro Nacional del Perú, 2225, Javier Prado Este, Jacaranda Etapa Dos, San Borja, Lima, Lima Metropolitana, Lima, 15041, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "centro-de-convenciones-estacion-la-cultura",
@@ -4401,7 +4548,9 @@
           "longitude": -77.0037399,
           "osm_id": 401292937,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Estación \"La Cultura\", Avenida Aviación, San Juan Macías, San Borja, Lima, Lima Metropolitana, Lima, 15021, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "biblioteca-nacional-del-peru",
@@ -4411,7 +4560,9 @@
           "longitude": -77.005129,
           "osm_id": 151308525,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Biblioteca Nacional, 160, Calle de las Letras, San Juan Macías, San Borja, Lima, Lima Metropolitana, Lima, 15021, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -4979,7 +5130,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-22",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.html"
     },
     {
       "district": "San Borja",
@@ -4994,7 +5147,9 @@
           "longitude": -76.9889841,
           "osm_id": 40146796,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque de la Felicidad, San Borja, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -5008,7 +5163,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-23",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.html"
     },
     {
       "district": "San Isidro",
@@ -5026,7 +5183,8 @@
           "anchor_method": "CORROBORATED_ADDRESS_COORDINATE",
           "address": "Calle Ántero Aspíllaga 300, San Isidro",
           "address_source_url": "https://www.gob.pe/institucion/munisanisidro-lima/campa%C3%B1as/141769-casa-museo-marina-nunez-del-prado",
-          "coordinate_source_url": "https://es.wikipedia.org/wiki/Casa_Museo_Marina_N%C3%BA%C3%B1ez_del_Prado"
+          "coordinate_source_url": "https://es.wikipedia.org/wiki/Casa_Museo_Marina_N%C3%BA%C3%B1ez_del_Prado",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
@@ -5036,7 +5194,9 @@
           "longitude": -77.0273922,
           "osm_id": 8026357065,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Municipalidad de San Isidro, 180, Calle Augusto Tamayo, Chacarilla, San Isidro, Lima, Lima Metropolitana, Lima, 15046, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "torre-begonias",
@@ -5046,7 +5206,9 @@
           "longitude": -77.0239594,
           "osm_id": 397559270,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Torre Begonias, 415, Calle Las Begonias, Centro financiero de San Isidro, San Isidro, Lima, Lima Metropolitana, Lima, 15046, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "edificio-petroperu",
@@ -5056,7 +5218,9 @@
           "longitude": -77.0245028,
           "osm_id": 6460139373,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "150, Avenida Enrique Canaval y Moreyra, Santa Ana, San Isidro, Lima, Lima Metropolitana, Lima, 15000, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
@@ -5066,7 +5230,9 @@
           "longitude": -77.0193865,
           "osm_id": 4083554862,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Viettel Perú, 559, Avenida Enrique Canaval y Moreyra, El Palomar, San Isidro, Lima, Lima Metropolitana, Lima, 15000, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -5799,7 +5965,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-24",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html"
     },
     {
       "district": "San Isidro",
@@ -5814,7 +5982,9 @@
           "longitude": -77.040492,
           "osm_id": 129822356,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Huaca Huallamarca, Calle José Choquehuanca, Santa Inés, San Isidro, Lima, Lima Metropolitana, Lima, 15027, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "calle-choquehuanca-basadre-residencial",
@@ -5824,7 +5994,9 @@
           "longitude": -77.0446337,
           "osm_id": 426905952,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Calle José Choquehuanca, Santa Inés, San Isidro, Lima, Lima Metropolitana, Lima, 15027, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
           "canonical_id": "country-club-lima-hotel",
@@ -5834,7 +6006,9 @@
           "longitude": -77.0490204,
           "osm_id": 318283091,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Hotel Country Club, 590, Calle Los Eucaliptos, Santa Rosa, San Isidro, Lima, Lima Metropolitana, Lima, 15976, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
@@ -6053,7 +6227,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-25",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html"
     },
     {
       "district": "San Isidro",
@@ -6071,7 +6247,8 @@
           "anchor_method": "CORROBORATED_ADDRESS_COORDINATE",
           "address": "Avenida Belén, cuadra 1, San Isidro",
           "address_source_url": "https://www.gob.pe/43232-lugares-para-visitar-en-san-isidro-huaca-santa-cruz-de-san-isidro",
-          "coordinate_source_url": "https://www.urbipedia.org/hoja/Huaca_Santa_Cruz"
+          "coordinate_source_url": "https://www.urbipedia.org/hoja/Huaca_Santa_Cruz",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -6085,7 +6262,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-26",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html"
     },
     {
       "district": "Santiago de Surco",
@@ -6100,7 +6279,9 @@
           "longitude": -76.9800955,
           "osm_id": 127709115,
           "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED"
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Universidad Ricardo Palma, 5540, Avenida Alfredo Benavides, San Ignacio de Monterrico, Santiago de Surco, Lima, Lima Metropolitana, Lima, 15039, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [],
@@ -6114,7 +6295,9 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.kml",
-      "route_geometry_containment_status": "VERIFIED"
+      "route_geometry_containment_status": "VERIFIED",
+      "layer_id": "route-27",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.html"
     }
   ],
   "snapshot_repair": {
@@ -6391,5 +6574,247 @@
       "district": "Miraflores",
       "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
     }
-  ]
+  ],
+  "route_collections": [
+    {
+      "collection_id": "collection-barranco",
+      "title": "Barranco · colección de ruta",
+      "district": "Barranco",
+      "layer_ids": [
+        "route-01",
+        "route-02",
+        "route-03"
+      ],
+      "segments": [
+        "route-01",
+        "route-03"
+      ],
+      "independent_points": [
+        "route-02"
+      ],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    },
+    {
+      "collection_id": "collection-jesús-maría",
+      "title": "Jesús María · colección de ruta",
+      "district": "Jesús María",
+      "layer_ids": [
+        "route-04"
+      ],
+      "segments": [],
+      "independent_points": [
+        "route-04"
+      ],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    },
+    {
+      "collection_id": "collection-la-victoria",
+      "title": "La Victoria · colección de ruta",
+      "district": "La Victoria",
+      "layer_ids": [
+        "route-05",
+        "route-06"
+      ],
+      "segments": [],
+      "independent_points": [
+        "route-05",
+        "route-06"
+      ],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    },
+    {
+      "collection_id": "collection-lima",
+      "title": "Lima · colección de ruta",
+      "district": "Lima",
+      "layer_ids": [
+        "route-07",
+        "route-08",
+        "route-09",
+        "route-10"
+      ],
+      "segments": [
+        "route-10"
+      ],
+      "independent_points": [
+        "route-07",
+        "route-08",
+        "route-09"
+      ],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    },
+    {
+      "collection_id": "collection-miraflores",
+      "title": "Miraflores · colección de ruta",
+      "district": "Miraflores",
+      "layer_ids": [
+        "route-11",
+        "route-12",
+        "route-13",
+        "route-14",
+        "route-15",
+        "route-16"
+      ],
+      "segments": [
+        "route-11",
+        "route-12",
+        "route-13",
+        "route-15"
+      ],
+      "independent_points": [
+        "route-14",
+        "route-16"
+      ],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    },
+    {
+      "collection_id": "collection-pueblo-libre",
+      "title": "Pueblo Libre · colección de ruta",
+      "district": "Pueblo Libre",
+      "layer_ids": [
+        "route-17",
+        "route-18"
+      ],
+      "segments": [
+        "route-17",
+        "route-18"
+      ],
+      "independent_points": [],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    },
+    {
+      "collection_id": "collection-rímac",
+      "title": "Rímac · colección de ruta",
+      "district": "Rímac",
+      "layer_ids": [
+        "route-19",
+        "route-20"
+      ],
+      "segments": [],
+      "independent_points": [
+        "route-19",
+        "route-20"
+      ],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    },
+    {
+      "collection_id": "collection-san-borja",
+      "title": "San Borja · colección de ruta",
+      "district": "San Borja",
+      "layer_ids": [
+        "route-21",
+        "route-22",
+        "route-23"
+      ],
+      "segments": [
+        "route-21",
+        "route-22"
+      ],
+      "independent_points": [
+        "route-23"
+      ],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    },
+    {
+      "collection_id": "collection-san-isidro",
+      "title": "San Isidro · colección de ruta",
+      "district": "San Isidro",
+      "layer_ids": [
+        "route-24",
+        "route-25",
+        "route-26"
+      ],
+      "segments": [
+        "route-24",
+        "route-25"
+      ],
+      "independent_points": [
+        "route-26"
+      ],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    },
+    {
+      "collection_id": "collection-santiago-de-surco",
+      "title": "Santiago de Surco · colección de ruta",
+      "district": "Santiago de Surco",
+      "layer_ids": [
+        "route-27"
+      ],
+      "segments": [],
+      "independent_points": [
+        "route-27"
+      ],
+      "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
+    }
+  ],
+  "ux_version": "2.0.0",
+  "threshold_sensitivity": {
+    "baseline_m": 1000,
+    "tested_thresholds_m": [
+      500,
+      1000,
+      1500
+    ],
+    "method": "straight-line sensitivity screen only; road network evidence remains authoritative",
+    "candidate_pairs_under_1500m": [
+      {
+        "from": "conjunto-habitacional-palomino",
+        "to": "unidad-vecinal-3",
+        "district": "Lima",
+        "straight_distance_m": 1325.6,
+        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
+      },
+      {
+        "from": "jiron-trujillo-puente-de-piedra",
+        "to": "cantagallo-comunidad-shipibo-konibo",
+        "district": "Rímac",
+        "straight_distance_m": 1400.3,
+        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
+      }
+    ],
+    "candidate_pairs": [
+      {
+        "from": "unidad-vecinal-matute-complejo-deportivo",
+        "to": "torre-interbank",
+        "district": "La Victoria",
+        "straight_distance_m": 1819.3,
+        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
+      },
+      {
+        "from": "conjunto-habitacional-palomino",
+        "to": "unidad-vecinal-3",
+        "district": "Lima",
+        "straight_distance_m": 1325.6,
+        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
+      },
+      {
+        "from": "conjunto-habitacional-palomino",
+        "to": "quinta-heeren-restauracion-2026",
+        "district": "Lima",
+        "straight_distance_m": 6020.1,
+        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
+      },
+      {
+        "from": "unidad-vecinal-3",
+        "to": "quinta-heeren-restauracion-2026",
+        "district": "Lima",
+        "straight_distance_m": 6985.9,
+        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
+      },
+      {
+        "from": "parque-tradiciones-ricardo-palma",
+        "to": "huaca-pucllana",
+        "district": "Miraflores",
+        "straight_distance_m": 1782.0,
+        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
+      },
+      {
+        "from": "jiron-trujillo-puente-de-piedra",
+        "to": "cantagallo-comunidad-shipibo-konibo",
+        "district": "Rímac",
+        "straight_distance_m": 1400.3,
+        "road_distance_status": "NOT_CAPTURED_NO_MERGE"
+      }
+    ],
+    "decision": "Do not merge on straight distance alone. A 1500 m screen identifies field/router checks; only captured road legs may join a walking segment."
+  }
 }

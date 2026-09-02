@@ -17,7 +17,7 @@ def text(path: Path) -> str:
 def test_home_discovers_architecture_challenge():
     home = text(HOME)
     assert 'href="challenges/arquitectura-en-foco/"' in home
-    assert "Arquitectura en Foco" in home
+    assert "Fotografía arquitectónica" in home
 
 
 def test_home_explains_architecture_challenge_in_a_content_landmark():
@@ -28,7 +28,7 @@ def test_home_explains_architecture_challenge_in_a_content_landmark():
     assert "87 lugares y escenas" in challenge
     assert "rutas peatonales" in challenge.lower()
     assert 'href="challenges/arquitectura-en-foco/"' in challenge
-    assert "Abrir Arquitectura en Foco" in challenge
+    assert "Abrir fotografía arquitectónica" in challenge
 
 
 def test_architecture_module_inventory_maps_every_public_module_to_evidence():

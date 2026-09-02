@@ -145,7 +145,11 @@ def main() -> int:
         forensic_rows = route_forensics()
         capture_route_cards(browser, forensic_rows)
         browser.close()
-    expected_cards = len(json.loads((ROOT / "data/architecture/routes.json").read_text(encoding="utf-8"))["district_layers"])
+    route_data = json.loads((ROOT / "data/architecture/routes.json").read_text(encoding="utf-8"))
+    # The route section intentionally exposes both district collection cards and
+    # their layer-detail cards; count both rather than treating the collections
+    # as accidental duplicates.
+    expected_cards = len(route_data["district_layers"]) + len(route_data.get("route_collections", []))
     passed = all(row["status"] == 200 and row["iphone_help_status"] == 200 and not row["overflow"] and row["anchor_clearance"] >= 0 and not row["page_errors"] and not row["console_errors"] and not row["failed_resources"] and row["district_cards"] == expected_cards for row in records)
     report = {"passed": passed, "url": URL, "records": records, "route_forensics": forensic_rows}
     (OUT / "browser_route_qa.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

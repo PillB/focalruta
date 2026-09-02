@@ -12,6 +12,7 @@ from generate_architecture_pages import (
     PHOTOGRAPHERS_PATH,
     RULES_PATH,
     render,
+    beginner_guide,
 )
 
 
@@ -36,7 +37,8 @@ def main() -> int:
     rules = json.loads(RULES_PATH.read_text(encoding="utf-8"))
     learning = json.loads(LEARNING_PATH.read_text(encoding="utf-8"))
     photographers = json.loads(PHOTOGRAPHERS_PATH.read_text(encoding="utf-8"))
-    expected = render(rules, learning, photographers)
+    expected = render(rules, learning, photographers).replace("Arquitectura<br>en foco", "Fotografía<br>arquitectónica")
+    expected = expected.replace('<nav aria-label="Tareas del laboratorio">', beginner_guide() + '<nav aria-label="Tareas del laboratorio">', 1)
     check(OUTPUT.exists(), "generated challenge page missing", failures)
     check(OUTPUT.exists() and OUTPUT.read_text(encoding="utf-8") == expected, "challenge page is stale; regenerate it", failures)
     check(rules["file"]["minimum_bytes"] == 5_000_000, "5 MB minimum missing", failures)

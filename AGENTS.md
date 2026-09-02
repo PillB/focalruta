@@ -60,6 +60,14 @@ python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-comp
 
 If Ruff is unavailable, record that exact blocker; do not silently skip the chore. Refactor complexity rather than raising the ceiling.
 
+## Route and whole-site review contract
+
+For every route or integration task, inspect the complete route graph and UI at all required viewports before editing. Test route grouping, walking-leg constraints, address/coordinate provenance, offline map downloads, Google Maps links, no-JS fallback, keyboard/focus behavior, responsive overflow, service-worker control and hosted/standalone parity. A singleton may be published only as an explicitly labeled independent point, never as a tour. Compare threshold sensitivity before changing a routing ceiling and record the evidence and trade-off.
+
+Every task and every round must add at least one executable RED test for the intended missing behavior, then independent GREEN evidence after implementation. Tests must observe behavior, invariants, boundary cases or transformations; tautological string-presence tests and fixture-only PASS assertions are prohibited.
+
+If the first fix hypothesis fails once, stop guessing and research the exact error online using primary documentation, maintainer issues or reproducible upstream evidence. Record the source, environmental similarity, changed hypothesis and falsifiable next test in the round handoff before attempting another fix.
+
 Minimum closeout command set after architecture implementation exists:
 
 ```bash
