@@ -21,3 +21,9 @@ architectural_photography/FocalRuta_Bonilla_Source_Snapshots.json
 # Copyrighted/provider research evidence remains local; publish only derivatives.
 architectural_photography/research/videos/transcripts/
 architectural_photography/research/videos/transcript_checks/
+
+# Local QA and exploratory purchase research (never part of the release slice).
+LIVE_PAGES_QA.json
+camera_purchase/
+scripts/build_camera_value.py
+tests/camera_value/
