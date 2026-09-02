@@ -304,3 +304,15 @@ def test_physics_copy_rejects_fake_lens_magic_and_unbounded_effects():
     assert "focal controla el encuadre" in html
     assert "no es una simulación calibrada" in html
     assert "halo" in html and "reflejo" in html and "penumbra" in html
+
+
+def test_projection_and_light_models_expose_scale_and_material_layers():
+    html = PAGE.read_text(encoding="utf-8")
+    assert 'id="perspective-near"' in html and 'id="perspective-far"' in html
+    assert 'id="perspective-fov"' in html
+    assert 'id="light-umbra"' in html
+    assert 'id="composition-reflection"' in html
+    assert 'id="composition-glare"' in html
+    assert 'id="composition-halo"' in html
+    assert "focal/posición" in html.lower()
+    assert "cos" in html.lower()

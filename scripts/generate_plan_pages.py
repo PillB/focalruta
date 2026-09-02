@@ -64,6 +64,8 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 </head>
 <body class="bg-paper text-ink">
 
+<section id="plan-orientation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" aria-labelledby="plan-orientation-title"><div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4"><h2 id="plan-orientation-title" class="font-bold text-base text-emerald-950">Cómo leer este plan</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 text-xs leading-relaxed text-emerald-950"><p><strong>Qué cambia:</strong> la hora, el sujeto y la toma modifican la luz o la acción. El dibujo te enseña dónde poner cámara, sujeto y fondo.</p><p><strong>Cómo comprobarlo:</strong> haz una foto, amplíala al 100% y revisa foco, movimiento, altas luces y bordes. Si cambia la perspectiva, moviste la cámara.</p><p><strong>Si no funciona:</strong> conserva la posición y cambia una sola variable. Si no hay acceso, luz o actividad, usa el plan B de la tarjeta y anota el motivo.</p></div></div></section>
+
 <nav class="glass sticky top-0 z-50 border-b border-slate-200 no-print">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
@@ -233,7 +235,7 @@ function renderShots() {
           <div class="text-xs text-slate-700 italic">${shot.scene_notes}</div>
         </div>
         <div class="diagram-frame bg-paper">
-          ${diagramSrc ? `<img src="${diagramSrc}" alt="Diagrama ${shot.id} ${currentVariant}" />` : '<div class="p-8 text-center text-slate-400">Diagrama no disponible</div>'}
+          ${diagramSrc ? `<img src="${diagramSrc}" alt="Diagrama ${shot.id} ${currentVariant}" /><p class="px-4 py-2 text-[11px] leading-relaxed text-slate-600"><strong>Qué mirar:</strong> compara las distancias dibujadas y el borde del encuadre con tu escena. Es una relación orientativa, no una promesa de píxeles.</p>` : '<div class="p-8 text-center text-slate-400">Diagrama no disponible</div>'}
         </div>
         <div class="p-5 space-y-3">
           ${baseline ? `<div class="bg-slate-50 border border-slate-300 rounded-lg p-3"><div class="text-[10px] font-black tracking-wider text-slate-700">FIELD CARD · BASELINE</div><div class="text-[11px] font-mono mt-1">${baseline.lens} · ${baseline.aperture} · ${baseline.shutter} · ISO ${baseline.iso}</div><div class="text-[11px] text-slate-600">${baseline.af} · ${baseline.geometry}</div><div class="text-[10px] text-blue-700 mt-1">El plan puede variar por escena/luz; conserva la variable que define el efecto.</div></div>` : ''}
