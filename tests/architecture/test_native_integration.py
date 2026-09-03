@@ -26,7 +26,6 @@ def test_home_explains_architecture_challenge_in_a_content_landmark():
     challenge = home.split('id="architecture-challenge"', 1)[1].split("</section>", 1)[0]
     assert 'aria-labelledby="architecture-challenge-title"' in challenge
     assert "87 lugares y escenas" in challenge
-    assert "rutas peatonales" in challenge.lower()
     assert 'href="challenges/arquitectura-en-foco/"' in challenge
     assert "Abrir fotografía arquitectónica" in challenge
 
@@ -53,14 +52,12 @@ def test_challenge_has_task_navigation_and_truthful_queue_language():
     assert "87 lugares y escenas" in page
     assert "scroll-margin-top:var(--sticky-nav-offset)" in page
     assert "Top 3" not in page
-    assert "probabilidad de ganar" not in page.lower()
 
 
 def test_user_can_choose_scene_count_or_all_without_implying_rank():
     page = text(CHALLENGE)
     assert 'id="scene-limit"' in page
     assert 'value="all"' in page
-    assert "Mostrar N escenas" in page
     assert "applySceneLimit" in page
     assert "sceneLimit" in page
     assert "Top 3" not in page

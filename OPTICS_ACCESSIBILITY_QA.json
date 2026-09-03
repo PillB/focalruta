@@ -253,5 +253,11 @@
       "pass": true,
       "detail": []
     }
-  ]
+  ],
+  "audited_at": "2026-09-03T19:45:59.805738+00:00",
+  "audited_commit": "",
+  "audited_artifacts": {
+    "dist/canon6d_sota_hosted/index.html": "ecb5a14a252ecdaa89b245f7b43e91664374acc0db0ba55e83c559de9b1838a0",
+    "index.html": "0db6db0dc37875bd08c0fb55d2f67955599383f03c3f0e84ab59ba7c73ea4057"
+  }
 }

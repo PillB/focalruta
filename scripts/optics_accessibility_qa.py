@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+import evidence
 
 ROOT=Path(__file__).resolve().parents[1]
 CHROME='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
@@ -49,5 +50,5 @@ with sync_playwright() as pw:
     browser.close()
 
 report={'passed':all(x['pass'] for x in results),'checks':len(results),'failures':[x for x in results if not x['pass']],'results':results}
-(ROOT/os.environ.get('OPTICS_QA_OUT','OPTICS_ACCESSIBILITY_QA.json')).write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+evidence.write_report(ROOT/os.environ.get('OPTICS_QA_OUT','OPTICS_ACCESSIBILITY_QA.json'), report, [ROOT/'index.html', ROOT/'dist/canon6d_sota_hosted/index.html'])
 print(json.dumps({'passed':report['passed'],'checks':report['checks'],'failures':report['failures']},ensure_ascii=False,indent=2))

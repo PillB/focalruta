@@ -6,10 +6,19 @@ import re
 import sys
 import zipfile
 from pathlib import Path
+import artifact_diff
+import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / "data/plans.json").read_text(encoding="utf-8"))
 failures: list[str] = []
+
+
+def check_equal(expected, actual, label: str) -> None:
+    """Compare artifacts and, on mismatch, say where they diverge."""
+    difference = artifact_diff.describe(expected, actual, label)
+    if difference is not None:
+        failures.append(difference)
 
 
 def check(condition: bool, label: str) -> None:
@@ -98,11 +107,11 @@ if hosted.is_dir():
     hosted_index = (hosted / "index.html").read_text(encoding="utf-8")
     check("18*Math.log2(1+raw)" in hosted_index, "hosted motion calibration parity")
     check("serviceWorker.register('./sw.js',{scope:'./'})" in hosted_index, "hosted service worker is registered")
-    check((hosted / "data/plans.json").read_bytes() == (ROOT / "data/plans.json").read_bytes(), "hosted canonical data byte parity")
-    check((hosted / "FocalRuta_STANDALONE.html").read_bytes() == (ROOT / "index.html").read_bytes(), "built standalone byte parity")
+    check_equal((ROOT / "data/plans.json").read_bytes(), (hosted / "data/plans.json").read_bytes(), "hosted canonical data byte parity")
+    check_equal((ROOT / "index.html").read_bytes(), (hosted / "FocalRuta_STANDALONE.html").read_bytes(), "built standalone byte parity")
     check((hosted / "downloads/canon6d_photo_planner_assets.zip").is_file(), "hosted ZIP download exists")
     for page in sorted((ROOT / "plans").glob("plan_*.html")):
-        check((hosted / "plans" / page.name).read_bytes() == page.read_bytes(), f"hosted {page.name} byte parity")
+        check_equal(page.read_bytes(), (hosted / "plans" / page.name).read_bytes(), f"hosted {page.name} byte parity")
 
 diagrams = list((ROOT / "diagrams").glob("plan_*_*.png"))
 check(len(diagrams) == 120, "120 plan diagrams")
@@ -120,26 +129,50 @@ if bundle.is_file():
             member = f"plans/{page.name}"
             check(member in names, f"bundle contains {member}")
             if member in names:
-                check(archive.read(member) == page.read_bytes(), f"bundle current parity: {page.name}")
+                check_equal(page.read_bytes(), archive.read(member), f"bundle current parity: {member}")
         for member, source in (("field_card.html", ROOT / "field_card.html"), ("data/plans.json", ROOT / "data/plans.json")):
             check(member in names, f"bundle contains {member}")
             if member in names:
-                check(archive.read(member) == source.read_bytes(), f"bundle current parity: {member}")
+                check_equal(source.read_bytes(), archive.read(member), f"bundle current parity: {member}")
 
-browser_report = ROOT / "CURRENT_BROWSER_QA.json"
-check(browser_report.is_file(), "current browser QA report exists")
-if browser_report.is_file():
-    browser_qa = json.loads(browser_report.read_text(encoding="utf-8"))
-    check(browser_qa.get("passed") is True, "current browser QA passes")
-    check(browser_qa.get("checks") == 234, "current browser QA has full 234-check scope")
-
-for report_name, expected in (("OPTICS_ACCESSIBILITY_QA.json", 22), ("VISUAL_RESOURCE_QA.json", 37)):
+def check_evidence(report_name: str, expected_checks: int) -> None:
+    """A QA report is evidence only while it still matches what it audited."""
     report_path = ROOT / report_name
     check(report_path.is_file(), f"{report_name} exists")
-    if report_path.is_file():
-        report = json.loads(report_path.read_text(encoding="utf-8"))
-        check(report.get("passed") is True, f"{report_name} passes")
-        check(report.get("checks") == expected, f"{report_name} has full {expected}-check scope")
+    if not report_path.is_file():
+        return
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    check(report.get("passed") is True, f"{report_name} passes")
+    check(report.get("checks") == expected_checks, f"{report_name} has full {expected_checks}-check scope")
+    audited = report.get("audited_artifacts")
+    check(bool(audited), f"{report_name} records which artefacts it audited")
+    for path, recorded in (audited or {}).items():
+        current = ROOT / path
+        check(current.is_file(), f"{report_name} audited {path}, which no longer exists")
+        if current.is_file():
+            digest = hashlib.sha256(current.read_bytes()).hexdigest()
+            check(digest == recorded,
+                  f"{report_name} is stale: {path} changed since it was audited at "
+                  f"{report.get('audited_at', 'an unrecorded time')}; re-run its generator")
+
+
+for report_name, expected_checks in (
+    ("CURRENT_BROWSER_QA.json", 234),
+    ("OPTICS_ACCESSIBILITY_QA.json", 22),
+    ("VISUAL_RESOURCE_QA.json", 37),
+):
+    check_evidence(report_name, expected_checks)
+
+hosted_metrics = ROOT / "dist/canon6d_sota_hosted/BUILD_METRICS.json"
+check(hosted_metrics.is_file(), "hosted build metrics exist")
+if hosted_metrics.is_file():
+    metrics = json.loads(hosted_metrics.read_text(encoding="utf-8"))
+    for key, source in (
+        ("hosted_html_sha256", hosted / "index.html"),
+        ("standalone_sha256", hosted / "FocalRuta_STANDALONE.html"),
+    ):
+        check(metrics.get(key) == hashlib.sha256(source.read_bytes()).hexdigest(),
+              f"BUILD_METRICS {key} matches the shipped file; rebuild dist/")
 
 print(json.dumps({"passed": not failures, "checks_failed": failures}, ensure_ascii=False, indent=2))
 sys.exit(1 if failures else 0)

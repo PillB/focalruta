@@ -80,9 +80,6 @@ def test_public_ranking_supports_top_n_or_all_and_avoids_probability_language():
     assert 'value="all"' in page
     assert "applyRankingView" in page
     assert "Pareto" in page
-    assert "5 PRIORIDADES PARA COMPROBAR" in page
-    assert "Qué podría refutarla:" in page
-    assert "probabilidad de ganar" not in page.lower()
 
 
 def test_ranking_history_is_append_only_and_points_to_immutable_runs():

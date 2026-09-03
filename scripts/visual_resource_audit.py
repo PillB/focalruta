@@ -5,6 +5,7 @@ from pathlib import Path
 from urllib.parse import urlsplit,unquote
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
+import evidence
 
 ROOT=Path(__file__).resolve().parents[1];CHROME='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';checks=[]
 def add(name,ok,detail=''):
@@ -59,4 +60,4 @@ bg=luminance('#071421');ratios={c:(max(luminance(c),bg)+.05)/(min(luminance(c),b
 add('Optical visualization meaningful lines >=3:1',min(ratios.values())>=3,ratios)
 
 report={'passed':all(x['pass'] for x in checks),'checks':len(checks),'failures':[x for x in checks if not x['pass']],'results':checks}
-(ROOT/'VISUAL_RESOURCE_QA.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps({'passed':report['passed'],'checks':report['checks'],'failures':report['failures']},ensure_ascii=False,indent=2))
+evidence.write_report(ROOT/'VISUAL_RESOURCE_QA.json', report, pages);print(json.dumps({'passed':report['passed'],'checks':report['checks'],'failures':report['failures']},ensure_ascii=False,indent=2))

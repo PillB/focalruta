@@ -20,6 +20,10 @@ jobs:
         run: python3 -m pip install pytest ruff==0.12.11 Pillow==11.3.0
       - name: Enforce cyclomatic complexity ceiling
         run: python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-complexity=10'
+      - name: Verify generated artefacts are current
+        run: |
+          python3 scripts/regenerate_all.py
+          git diff --exit-code
       - name: Run tests
         run: python3 -m pytest -q
       - name: Verify architecture challenge
