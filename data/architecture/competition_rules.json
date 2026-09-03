@@ -5,21 +5,42 @@
   "theme": "Arquitectura en relación con la vida cotidiana, las personas y el paisaje urbano; transformación, identidad y maneras de habitar.",
   "eligibility": {
     "minimum_age": 18,
-    "residency": ["Chile", "Peru", "Colombia"]
+    "residency": [
+      "Chile",
+      "Peru",
+      "Colombia"
+    ]
   },
   "submission": {
     "photo_count": 1,
     "authored_by_participant": true,
     "filename_pattern": "nombre-apellido",
-    "required_fields": ["personal_details", "title", "place", "capture_date_or_year", "brief_description"]
+    "required_fields": [
+      "personal_details",
+      "title",
+      "place",
+      "capture_date_or_year",
+      "brief_description"
+    ]
   },
   "file": {
-    "extensions": [".jpg", ".jpeg"],
+    "extensions": [
+      ".jpg",
+      ".jpeg"
+    ],
     "minimum_bytes": 5000000,
     "maximum_bytes": 25000000,
-    "backup_suggestion": {"dpi": 300, "width_px": 5900, "height_px": 4100, "color_mode": "RGB"}
+    "backup_suggestion": {
+      "dpi": 300,
+      "width_px": 5900,
+      "height_px": 4100,
+      "color_mode": "RGB"
+    }
   },
-  "capture": {"minimum_year": 2020, "digital_camera_any_type": true},
+  "capture": {
+    "minimum_year": 2020,
+    "digital_camera_any_type": true
+  },
   "editing": {
     "allowed_basic_adjustments": [
       "composition_crop",
@@ -43,11 +64,25 @@
     "results": "2026-10-22"
   },
   "finalist_count": 35,
-  "jurors": ["Cristián Aninat", "Hans Stoll", "Camilo Monzón"],
-  "official_criteria": ["Propuesta creativa y estética", "Coherencia con la temática"],
+  "jurors": [
+    "Cristián Aninat",
+    "Hans Stoll",
+    "Camilo Monzón"
+  ],
+  "official_criteria": [
+    "Propuesta creativa y estética",
+    "Coherencia con la temática"
+  ],
   "inspiration_nonexclusive": [
-    "everyday_architecture", "inhabitation", "interiors", "legacy_present_future",
-    "forms_geometry", "light_shadow", "city_architecture", "micro_macro", "abstraction"
+    "everyday_architecture",
+    "inhabitation",
+    "interiors",
+    "legacy_present_future",
+    "forms_geometry",
+    "light_shadow",
+    "city_architecture",
+    "micro_macro",
+    "abstraction"
   ],
   "source_discrepancies": [
     {
@@ -70,7 +105,13 @@
     "final_evaluation": "MANUAL",
     "file_preflight": "DETERMINISTIC_LOCAL_ONLY"
   },
-  "source_ids": ["SRC-COMP-2026-PDF", "SRC-COMP-2026-PAGE", "SRC-COMP-2026-FORM"],
+  "source_ids": [
+    "SRC-COMP-2026-PDF",
+    "SRC-COMP-2026-PAGE",
+    "SRC-COMP-2026-FORM"
+  ],
   "evidence_status": "VERIFIED",
-  "last_verified_at": "2026-08-27T13:10:00-05:00"
+  "last_verified_at": "2026-08-27T13:10:00-05:00",
+  "edition_state": "CLOSED",
+  "edition_note": "Edición 2026 cerrada: el plazo de envío terminó el 2026-08-30 a las 23:59 hora local del país. Estas fechas se conservan como referencia histórica verificada contra las bases oficiales; no describen una convocatoria vigente. El decodificador del encargo pide al usuario las fechas de la convocatoria que tenga delante en lugar de asumir éstas."
 }

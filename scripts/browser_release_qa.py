@@ -4,9 +4,18 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+import evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "CURRENT_BROWSER_QA.json"
+# Every artefact this matrix actually loads, fingerprinted into the report.
+AUDITED = [
+    ROOT / "index.html",
+    ROOT / "dist/canon6d_sota_hosted/index.html",
+    ROOT / "field_card.html",
+    ROOT / "data/plans.json",
+    *sorted((ROOT / "plans").glob("plan_*.html")),
+]
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 results = []
 
@@ -88,5 +97,5 @@ with sync_playwright() as pw:
     browser.close()
 
 report = {"passed": all(item["pass"] for item in results), "checks": len(results), "failures": [item for item in results if not item["pass"]], "results": results}
-OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+evidence.write_report(OUT, report, AUDITED)
 print(json.dumps({"passed": report["passed"], "checks": report["checks"], "failures": report["failures"]}, ensure_ascii=False, indent=2))

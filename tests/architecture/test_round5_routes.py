@@ -68,12 +68,24 @@ def test_route_dataset_has_evidence_contract_and_six_iterations():
     assert sum(len(layer["stops"]) for layer in routes["district_layers"]) >= 50
 
 
-def test_route_builder_stages_outputs_before_atomic_publish():
-    source = (ROOT / "scripts/build_architecture_routes.py").read_text(encoding="utf-8")
-    assert "TemporaryDirectory" in source
-    assert "os.replace" in source
-    assert '"--retry-all-errors"' in source
-    assert source.index("build_district_layers") < source.index("publish_downloads(staging)")
+def test_route_builder_publishes_atomically_and_retries_bounded():
+    """Exercise the real functions instead of grepping the source for their names."""
+    import sys
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import build_architecture_routes as builder
+
+    # atomic_json must leave no partial file behind and must replace in one step.
+    target = ROOT / "architectural_photography/routes/route_runs/iteration-1.json"
+    before = target.read_bytes()
+    builder.atomic_json(target, json.loads(before.decode("utf-8")))
+    assert target.read_bytes() == before
+    assert not list(target.parent.glob("*.tmp")), "atomic write left a temporary file behind"
+
+    # The fetch budget must be finite and leave room for the retries it declares.
+    assert builder.FETCH_ATTEMPTS >= 1
+    assert 0 < builder.CONNECT_TIMEOUT_SECONDS < builder.MAX_TIME_SECONDS
+    assert builder.request_budget_seconds() >= builder.MAX_TIME_SECONDS * builder.FETCH_ATTEMPTS
 
 
 def test_every_layer_is_district_pure_and_every_stop_is_contained():
@@ -182,8 +194,21 @@ def test_generated_page_separates_long_transfers_instead_of_recommending_them():
 
 
 def test_route_builder_does_not_use_preferred_transfer_as_connectivity_ceiling():
-    source = (ROOT / "scripts/build_architecture_routes.py").read_text(encoding="utf-8")
-    assert "MAX_WALKING_LEG_M = 1000" in source
+    """Import the constants and compare them, rather than matching source text."""
+    import sys
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import build_architecture_routes as builder
+    import repair_architecture_route_snapshot as publication
+
+    assert builder.MAX_WALKING_LEG_M > publication.MAX_TOUR_TRANSFER_M, (
+        "connectivity must be looser than the photography-transfer preference, "
+        "otherwise useful tours fragment into singletons"
+    )
+    routes = load_routes()
+    walked = [leg["road_distance_m"] for layer in routes["district_layers"] for leg in layer["legs"]
+              if leg.get("evidence_status") != "STRAIGHT_LINE_THRESHOLD_SCREEN_NOT_ROAD_ROUTING"]
+    assert walked and max(walked) <= builder.MAX_WALKING_LEG_M
 
 
 def test_repaired_subpath_is_not_presented_as_a_new_exact_minimum():

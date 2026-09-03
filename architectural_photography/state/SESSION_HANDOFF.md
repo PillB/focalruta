@@ -763,3 +763,95 @@ Contra `https://pillb.github.io/focalruta/`:
 entre Puente Villena y Larcomar: si resulta caminable con cámara, sube el techo
 de transferencia de 800 m con evidencia y Miraflores pasa a ser un recorrido
 único de ocho paradas.
+
+## Ronda 9 · Guardianes que diagnostican y evidencia que no caduca en silencio (2026-09-03)
+
+**Objetivo.** Atacar las causas raíz que hicieron caras las dos rondas anteriores,
+no sus síntomas: un fallo de paridad que no decía dónde, evidencia que envejecía
+sin que nada lo notara, y afirmaciones de estado que ninguna prueba respaldaba.
+Requisitos: **E03, G06, L05, L10, M01, M03, M04, M05, N03, N04, O03, Q01, Q03**.
+
+**Método pedido y aplicado.** Prior art → opciones ordenadas → prueba sobre el
+artefacto real → comparación medida → implementación → RED/GREEN → iterar.
+El análisis completo está en
+`research/failure_mode_analysis_2026-09-03.md`.
+
+### Hallazgos que motivaron la ronda
+
+| Hallazgo | Evidencia |
+|---|---|
+| Diagnóstico imposible por construcción | `check(condition: bool, label)` descarta los operandos antes de ejecutarse; cero usos de `difflib` en todo el repositorio |
+| Evidencia de release caducada | Los tres informes que abren la puerta llevaban comprometidos desde **2026-08-09**; el sitio que auditan cambió el **2026-09-02**. Ninguno registraba qué había auditado |
+| `BUILD_METRICS.json` no lo leía nadie | Dos sha256 escritos y jamás comparados |
+| Estado sin respaldo | `CURRENT_STATE.json` no lo abre ningún script ni test. `66` paradas, `25` capas, `41` tramos y `1058` vértices —escritos por mí en las rondas 7 y 8— no aparecían en ninguna prueba |
+| Pruebas tautológicas | `test_round5_routes.py` afirmaba `"MAX_WALKING_LEG_M = 1000" in source`, patrón que `AGENTS.md:43` prohíbe |
+| Prosa como contrato | ~60 aserciones de frases literales; seis se rompieron en un solo día de esta sesión al reescribir textos |
+
+### Experimento medido (opciones comparadas)
+
+Sobre la página real —398.880 bytes, línea más larga de **273.747 caracteres**—
+renombrando un atributo:
+
+| Opción | Salida | Tiempo | Veredicto |
+|---|---|---|---|
+| `unified_diff` por líneas | 5 líneas, la mayor de 273.750 caracteres | 0,00 s | inservible |
+| Normalizar `><`→`>\n<` y diff | 7 líneas, la mayor de 109 | 0,02 s | legible |
+| Primer byte divergente + ventana | offset 12.062 de 398.880 | 0,01 s | exacto |
+
+Se implementaron las dos últimas juntas.
+
+### Entregado
+
+- **`scripts/artifact_diff.py`** y `check_equal()` en ambos guardianes. Un
+  carácter cambiado produce ahora `offset 12065 of 398880` con el `<path>` exacto
+  a ambos lados; un byte en `plan_a.html`, `offset 314 of 4637462`.
+- **`scripts/evidence.py`**: cada informe de QA estampa `audited_at`,
+  `audited_commit` y el sha256 de cada archivo inspeccionado. `verify_release.py`
+  exige que sigan coincidiendo y **consume** `BUILD_METRICS.json`. Los tres
+  informes se regeneraron: 37, 22 y 234 checks, idénticos a los previos —sin
+  regresión de comportamiento, sólo procedencia fresca—.
+- **`scripts/regenerate_all.py`** + paso de CI `regenerate_all && git diff --exit-code`.
+  Cubre curriculum, las cuatro páginas del reto, el índice raíz, el build
+  hospedado y el estado. Excluye explícitamente el constructor de rutas.
+- **`scripts/build_state_snapshot.py`**: 23 hechos medidos desde los artefactos,
+  separados de la narrativa histórica.
+- Contratos estructurales en `test_editorial_contracts.py` y sustitución de las
+  aserciones que leían el código como texto por ejercicio real de las constantes.
+- `competition_rules.json` marcado `CLOSED` con prueba contra la fecha real.
+
+### Trampa encontrada durante la implementación
+
+La primera versión de `build_state_snapshot.py` estampaba `generated_at: now()`,
+así que **cada ejecución ensuciaba el árbol** y habría convertido la nueva puerta
+de CI en ruido permanente. Es la fuente de no-determinismo que cataloga
+reproducible-builds. Se eliminó la marca de tiempo. Comprobado: dos ejecuciones
+seguidas dejan el árbol idéntico.
+
+También se detectaron **dos falsos positivos en mis propios contratos nuevos**
+antes de tocar el sitio: `TODO` es palabra española corriente («TODO desde
+~2,5 m queda nítido»), y el glosario se comprobaba contra la página equivocada
+—KML pertenece al reto, no al planificador raíz—. Ninguno era defecto del producto.
+
+### Evidencia
+
+| Comando | Resultado |
+|---|---|
+| `python3 -m pytest -q` | **265 pass**, 1 skip (antes 189) |
+| `verify_architecture.py` / `verify_release.py` | `passed: true`, y **fallan con offset y contexto** al inducir un byte |
+| `uvx ruff@0.12.11 … C901` | limpio |
+| `regenerate_all.py` + `git diff` | sin cambios |
+
+### Compromisos y deuda registrada
+
+- La puerta global hará fallar cualquier PR que edite HTML generado a mano. Es
+  deliberado.
+- **La afirmación de la ronda 7 queda acotada:** `optics_physics.py` unifica la
+  óptica de Python y de los laboratorios del reto, **no** la del laboratorio
+  óptico de la raíz, que reimplementa `atan(sw/2f)` y la CoC por separado en
+  `upgrade_optics_accessibility.py:93` y `sota_upgrade.py:131`. Ambas copias son
+  correctas hoy y ambas se publican; el riesgo es divergencia futura.
+- Fuera de alcance por acuerdo: umbrales de ruta repetidos en cinco archivos,
+  `VIEWPORTS` duplicado en cuatro (ya divergente en `browser_release_qa.py`), dos
+  implementaciones de haversine, y los colgados restantes
+  (`navigator.serviceWorker.ready` sin guarda, sin `set_default_timeout`, sin
+  `pytest-timeout`, `research_video_ledger.py:71` sin tiempo límite).

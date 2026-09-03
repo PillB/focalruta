@@ -6,6 +6,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import artifact_diff
+
 from generate_architecture_pages import (
     LEARNING_PATH,
     OUTPUT,
@@ -25,6 +27,13 @@ def check(condition: bool, message: str, failures: list[str]) -> None:
         failures.append(message)
 
 
+def check_equal(expected, actual, label: str, failures: list[str]) -> None:
+    """Compare artifacts and, on mismatch, report where they diverge."""
+    difference = artifact_diff.describe(expected, actual, label)
+    if difference is not None:
+        failures.append(difference)
+
+
 def public_files():
     for root in PUBLIC_ROOTS:
         if root.exists():
@@ -38,7 +47,9 @@ def main() -> int:
     photographers = json.loads(PHOTOGRAPHERS_PATH.read_text(encoding="utf-8"))
     expected = build_challenge_page(rules, learning, photographers)
     check(OUTPUT.exists(), "generated challenge page missing", failures)
-    check(OUTPUT.exists() and OUTPUT.read_text(encoding="utf-8") == expected, "challenge page is stale; regenerate it", failures)
+    if OUTPUT.exists():
+        check_equal(expected, OUTPUT.read_text(encoding="utf-8"),
+                    "challenge page is stale; regenerate with scripts/generate_architecture_pages.py", failures)
     check(rules["file"]["minimum_bytes"] == 5_000_000, "5 MB minimum missing", failures)
     check(rules["file"]["maximum_bytes"] == 25_000_000, "25 MB maximum missing", failures)
     for path in public_files():
