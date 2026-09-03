@@ -745,3 +745,21 @@ La regla funcionó como debía.
   como omitida, no escondida.
 - No se volvió a lanzar el constructor una vez obtenido un resultado válido: son
   servicios públicos y no hay motivo para repetir la carga.
+
+### Cierre de la ronda 8 · fusionado y verificado en vivo
+
+PR #15 fusionado en `main` (`c7008e3`); **Quality** y **Deploy to Pages** en verde.
+
+Contra `https://pillb.github.io/focalruta/`:
+
+- La página del reto en vivo es **byte a byte idéntica** a la generada localmente
+  y publica los nueve laboratorios.
+- **Todos** los `kml`, `geojson` y mapas offline referenciados por las 25 capas
+  responden 200.
+- Los archivos retirados por `retire_unreferenced_maps()` devuelven **404**: ya
+  no se publican tours que no existen.
+
+**Siguiente acción sugerida.** Comprobar en campo el enlace peatonal de 854 m
+entre Puente Villena y Larcomar: si resulta caminable con cámara, sube el techo
+de transferencia de 800 m con evidencia y Miraflores pasa a ser un recorrido
+único de ocho paradas.

@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-09-02T23:40:00-05:00",
+  "updated_at": "2026-09-03T00:05:00-05:00",
   "phase": "ROUND_6_WHOLE_SITE_NATIVE_INTEGRATION_AND_FINAL_GATES",
-  "status": "ROUND_8_ROUTES_REBUILT_FROM_LIVE_ROUTER_LOCAL_VERIFIED",
+  "status": "ROUND_8_ROUTES_REBUILT_FROM_LIVE_ROUTER_MERGED_AND_LIVE_VERIFIED",
   "preproduction_audit": "OPEN_EXPERT_REJECTIONS_RECORDED",
   "baseline_commit": "9a415311f8d34772a6391193434bbf22c7b9af5b",
   "branch": "physics-visualization-flow-overhaul",
-  "main_merge_commit": "d64dc75",
+  "main_merge_commit": "c7008e3",
   "pull_requests": [
     4,
     5,
@@ -14,13 +14,14 @@
     8,
     9,
     13,
-    14
+    14,
+    15
   ],
   "pages_deployment_run": 33696913261,
   "quality_run": 33696913241,
   "live_url": "https://pillb.github.io/focalruta/challenges/arquitectura-en-foco/",
-  "live_verified_at": "2026-09-02T19:05:00-05:00",
-  "live_gate": "PASS_BYTE_EXACT_PARITY_CHALLENGE_AND_WIKI_9_LABS_9_DISTINCT_DIAGRAMS_LIVE_SIX_VIEWPORT_QA_ZERO_ERRORS_ZERO_OVERFLOW_ORPHAN_MAPS_RETURN_404",
+  "live_verified_at": "2026-09-03T00:02:00-05:00",
+  "live_gate": "PASS_BYTE_EXACT_CHALLENGE_PARITY_9_LABS_ALL_REFERENCED_KML_GEOJSON_OFFLINE_MAPS_REACHABLE_RETIRED_ORPHANS_RETURN_404",
   "production_edits_allowed": true,
   "privacy_gate": "PASS_FOR_ROUND_0",
   "baseline_release_gate": "PASS",
