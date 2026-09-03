@@ -855,3 +855,24 @@ antes de tocar el sitio: `TODO` es palabra española corriente («TODO desde
   implementaciones de haversine, y los colgados restantes
   (`navigator.serviceWorker.ready` sin guarda, sin `set_default_timeout`, sin
   `pytest-timeout`, `research_video_ledger.py:71` sin tiempo límite).
+
+### Cierre de la ronda 9 · fusionado y verificado en vivo
+
+PR #16 fusionado en `main` (`b5221a4`); **Quality** y **Deploy to Pages** en verde.
+
+Contra `https://pillb.github.io/focalruta/`: la página del reto en vivo es **byte
+a byte idéntica** a la generada y publica los nueve laboratorios. El bloque
+`measured` del estado contiene 23 hechos leídos de los artefactos —entre ellos
+`route_stops 66`, `route_layers 25`, `route_legs 41`, `audited_vertices 1058`,
+`interactive_labs 9`— y 68 claves de narrativa marcadas como no comprobables.
+
+**Coste introducido, medido.** El workflow Quality pasó de **30 s a 95 s**. La
+regeneración se ejecuta dos veces: como paso de CI y otra vez dentro de
+`test_regenerating_leaves_the_tree_unchanged`. Es duplicación real; la prueba
+tiene valor en local, donde no existe el paso de CI, pero conviene que se salte
+sola cuando el paso ya corrió (por ejemplo mirando `GITHUB_ACTIONS`). Queda
+anotado como el primer arreglo de la próxima ronda.
+
+**Siguiente acción sugerida.** Esa deduplicación de CI, y después la deuda ya
+registrada: la óptica JS duplicada del laboratorio óptico raíz, los umbrales de
+ruta repetidos, los `VIEWPORTS` divergentes y los colgados sin guarda.
