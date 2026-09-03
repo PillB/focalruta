@@ -52,7 +52,7 @@
         "from": "parque-de-las-americas",
         "to": "museo-larco-jardines",
         "road_distance_m": 875.2,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -266,7 +266,7 @@
         "from": "museo-larco-jardines",
         "to": "huaca-julio-c-tello",
         "road_distance_m": 779.6,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [

@@ -665,3 +665,83 @@ Estado: `ROUND_7_..._MERGED_AND_LIVE_VERIFIED`.
 **Siguiente acción sugerida.** Reconstruir las rutas cuando el router OSM vuelva
 a estar disponible, y decidir con datos de uso si alguna de las nueve
 alternativas de flujo documentadas merece implementarse.
+
+## Ronda 8 · Rutas reconstruidas con el router en vivo (2026-09-02)
+
+**Autorización.** El usuario aclaró que la regla de detenerse tras el primer
+fallo de disponibilidad apunta a APIs comerciales que pueden penalizarnos, no a
+un router público, y autorizó **cuatro intentos** para esta reconstrucción.
+
+**Estado del servicio.** Antes de tocar nada se sondearon los dos servicios:
+`routing.openstreetmap.de/routed-foot` respondió 200 en 0,63 s y Nominatim 200
+en 0,69 s. La reconstrucción terminó **en el primer intento, en 192,6 s**, así
+que el presupuesto de cuatro no llegó a usarse.
+
+### Defecto que hacía imposible cumplir la regla de fallo rápido
+
+`get_json` invocaba `curl` **sin ningún tiempo límite**. Una conexión estancada
+no fallaba: se colgaba indefinidamente, de modo que la regla de «detenerse tras
+el primer fallo confirmado» nunca podía dispararse —no había fallo, había
+bloqueo—. Eso explica el `OSM_ROUTER_STALLED` registrado en la ronda anterior.
+
+Corrección: `--connect-timeout 12`, `--max-time 45`, tres reintentos con dos
+segundos de espera y un `timeout` de proceso derivado de esos valores.
+`tests/architecture/test_route_fetch_resilience.py` levanta un servidor local
+que nunca responde y exige que `get_json` **falle dentro de un presupuesto
+acotado** en lugar de colgarse; con el código anterior esa prueba no terminaba.
+
+### Resultado de la reconstrucción
+
+El grafo reconstruido es **estructuralmente idéntico** al que estaba verificado:
+25 capas, 66 paradas, 10 puntos independientes, 41 tramos, agrupaciones idénticas
+y cero capas vacías o malformadas. Datos de carretera nuevos confirman de forma
+independiente las rutas que estaban congeladas por el bloqueo.
+
+Durante el proceso el router encontró un enlace peatonal de 854 m que unía los
+dos grupos de Miraflores en un solo recorrido de ocho paradas (3,48 km, 46 min).
+La regla de publicación de 800 m lo volvió a separar y lo declaró como
+transferencia omitida, que es exactamente la forma 5+3 que ya estaba publicada.
+La regla funcionó como debía.
+
+### Tres defectos encontrados y corregidos
+
+1. **Auditoría de contención acoplada por posición.** El artefacto
+   `geometry_containment_audit.json` no tenía generador en el repositorio y
+   estaba indexado por `(distrito, índice)`. Cualquier reconstrucción que
+   cambiara el número de capas de un distrito lo invalidaba y **rompía la
+   publicación** con un `KeyError`. Ahora existe `scripts/audit_route_geometry.py`,
+   que **vuelve a descargar cada polígono administrativo y reevalúa vértice a
+   vértice**: 1058 vértices comprobados, 0 fuera de su distrito. Es evidencia
+   independiente del constructor, no una copia de su afirmación. Además el paso
+   de publicación ya no se cae si la auditoría pertenece a otra corrida.
+2. **Reparación de frontera aplicada dos veces.** `split_target` separaba Parque
+   Tradiciones de su capa, pero el constructor ya lo publica aislado por
+   `FORCE_SINGLETONS`; el resultado era **una capa vacía y un duplicado**. Ahora
+   la reparación reconoce que ya está satisfecha. Con el router en vivo la
+   subruta reparada desaparece por completo: ya no hace falta el descargo de
+   «subruta contenida de una solución exacta anterior» para ese caso.
+3. **Mapas huérfanos.** Fusionar o partir capas dejaba archivos publicados que
+   ninguna ruta enlazaba. `retire_unreferenced_maps()` los retira en el propio
+   paso de publicación y los registra en `retired_map_files`; esta vez retiró 8.
+
+### Evidencia
+
+| Comando | Resultado |
+|---|---|
+| `build_architecture_routes.py` | rc 0, 192,6 s, 26 capas / 66 paradas, intento 1 de 4 |
+| `repair_architecture_route_snapshot.py` | rc 0, 27 capas reparadas |
+| `audit_route_geometry.py` | 25 capas, 1058 vértices, 0 fuera |
+| `python3 -m pytest -q` | 189 pass |
+| `verify_architecture.py` / `verify_release.py` | `passed: true` |
+| Ruff C901 pinned 0.12.11 | limpio |
+| `browser_round1_qa` / `round5_route` / `round2_learning` | pass, 6 viewports |
+| `browser_architecture_release_qa` | pass · SW, offline, sin JS, 9 ejercicios |
+
+### Compromisos
+
+- Los dos pares aprobados de 1500 m siguen siendo una **pantalla en línea recta**,
+  no rutas de carretera capturadas; se publican con ese estado explícito.
+- La transferencia de 854 m entre los dos grupos de Miraflores queda declarada
+  como omitida, no escondida.
+- No se volvió a lanzar el constructor una vez obtenido un resultado válido: son
+  servicios públicos y no hay motivo para repetir la carga.

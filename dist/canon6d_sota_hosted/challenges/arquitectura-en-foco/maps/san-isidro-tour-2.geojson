@@ -52,7 +52,7 @@
         "from": "huaca-huallamarca",
         "to": "calle-choquehuanca-basadre-residencial",
         "road_distance_m": 453.3,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -126,7 +126,7 @@
         "from": "calle-choquehuanca-basadre-residencial",
         "to": "country-club-lima-hotel",
         "road_distance_m": 491.1,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [

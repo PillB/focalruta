@@ -46,8 +46,8 @@ def merge_threshold_pairs(routes: dict) -> None:
     """Join the two user-approved 1500 m pairs with a disclosed straight leg."""
     layers = routes["district_layers"]
     for first_id, second_id in MERGE_PAIRS:
-        first = next((layer for layer in layers if layer["stops"][0]["canonical_id"] == first_id and len(layer["stops"]) == 1), None)
-        second = next((layer for layer in layers if layer["stops"][0]["canonical_id"] == second_id and len(layer["stops"]) == 1), None)
+        singles = {layer["stops"][0]["canonical_id"]: layer for layer in layers if len(layer["stops"]) == 1}
+        first, second = singles.get(first_id), singles.get(second_id)
         if not first or not second:
             continue
         a, b = first["stops"][0], second["stops"][0]
@@ -61,6 +61,25 @@ def merge_threshold_pairs(routes: dict) -> None:
         }
         merged = {**first, "stops": [a, b], "legs": [leg], "optimization": {"method": "threshold_sensitivity_merge", "selected_distance_m": distance, "exact_minimum_distance_m": None, "permutations_evaluated": 2, "optimization_limitation": "straight-line screen; confirm pedestrian streets before departure"}}
         layers.remove(first); layers.remove(second); layers.append(merged)
+
+
+def retire_unreferenced_maps(routes: dict) -> list[str]:
+    """Delete published map files that no surviving layer points at.
+
+    Merging or splitting layers changes which files are reachable; leaving the
+    old ones on disk publishes tours that no longer exist.
+    """
+    referenced = set()
+    for layer in routes["district_layers"]:
+        for key in ("geojson_path", "kml_path", "offline_map_path"):
+            if layer.get(key):
+                referenced.add(Path(layer[key]).name)
+    retired = []
+    for path in sorted(MAPS.iterdir()):
+        if path.is_file() and path.name not in referenced:
+            path.unlink()
+            retired.append(path.name)
+    return retired
 
 
 def main() -> None:
@@ -91,6 +110,7 @@ def main() -> None:
     routes["route_collections"] = collections
     routes["threshold_sensitivity"] = threshold_sensitivity(all_points)
     routes["ux_version"] = "2.0.0"
+    routes["retired_map_files"] = retire_unreferenced_maps(routes)
     ROUTES.write_text(json.dumps(routes, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 

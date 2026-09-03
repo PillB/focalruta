@@ -4,15 +4,15 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "huaca-pucllana",
-        "name": "Huaca Pucllana",
+        "id": "parque-tradiciones-ricardo-palma",
+        "name": "Parque Las Tradiciones",
         "district": "Miraflores"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.0339531,
-          -12.1114871
+          -77.0213252,
+          -12.1217046
         ]
       }
     }

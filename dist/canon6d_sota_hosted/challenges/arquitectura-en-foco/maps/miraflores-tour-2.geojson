@@ -82,7 +82,7 @@
         "from": "larcomar-acantilado",
         "to": "reducto-2-casa-museo-caceres",
         "road_distance_m": 354.1,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -216,7 +216,7 @@
         "from": "reducto-2-casa-museo-caceres",
         "to": "calle-porta-y-casonas-frente-a-verticalizacion",
         "road_distance_m": 479.4,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -262,7 +262,7 @@
         "from": "calle-porta-y-casonas-frente-a-verticalizacion",
         "to": "parque-kennedy-gatos-civic-core",
         "road_distance_m": 709.4,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -432,7 +432,7 @@
         "from": "parque-kennedy-gatos-civic-core",
         "to": "palacio-municipal-virgen-milagrosa",
         "road_distance_m": 197.5,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [

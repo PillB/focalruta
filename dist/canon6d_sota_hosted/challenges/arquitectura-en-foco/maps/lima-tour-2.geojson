@@ -67,7 +67,7 @@
         "from": "jiron-de-la-union",
         "to": "damero-de-lima-interseccion-como-objeto",
         "road_distance_m": 929.2,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -181,7 +181,7 @@
         "from": "damero-de-lima-interseccion-como-objeto",
         "to": "estacion-desamparados",
         "road_distance_m": 611.9,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -287,7 +287,7 @@
         "from": "estacion-desamparados",
         "to": "casa-fernandini-1913",
         "road_distance_m": 958.8,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [

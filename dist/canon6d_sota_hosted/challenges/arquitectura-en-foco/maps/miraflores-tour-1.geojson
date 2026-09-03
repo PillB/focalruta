@@ -52,7 +52,7 @@
         "from": "faro-la-marina-parque-antonio-raimondi",
         "to": "parque-del-amor-el-beso",
         "road_distance_m": 645.4,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -394,7 +394,7 @@
         "from": "parque-del-amor-el-beso",
         "to": "puente-villena-bajada-balta-costa-verde",
         "road_distance_m": 244.9,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [

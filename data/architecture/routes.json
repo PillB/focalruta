@@ -1,6 +1,6 @@
 {
   "schema_version": "architecture-routes-v1",
-  "generated_at": "2026-08-31T14:46:28.010657+00:00",
+  "generated_at": "2026-09-03T00:26:22.093162+00:00",
   "road_source": {
     "name": "OSM routing.openstreetmap.de routed-foot snapshot",
     "url": "https://routing.openstreetmap.de/routed-foot",
@@ -15,6 +15,7 @@
     {
       "district": "Barranco",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944691,
       "stops": [
         {
@@ -193,7 +194,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -230,7 +231,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -307,7 +308,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -364,7 +365,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -405,7 +406,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -434,7 +435,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -555,7 +556,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -591,13 +592,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-01",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/barranco-tour-1.html"
     },
     {
       "district": "Barranco",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944691,
       "stops": [
         {
@@ -624,13 +626,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-02",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/barranco-tour-2.html"
     },
     {
       "district": "Barranco",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944691,
       "stops": [
         {
@@ -829,7 +832,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -852,13 +855,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-03",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/barranco-tour-3.html"
     },
     {
       "district": "Jesús María",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944744,
       "stops": [
         {
@@ -885,13 +889,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/jesus-maria.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/jesus-maria.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-04",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/jesus-maria.html"
     },
     {
       "district": "La Victoria",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944748,
       "stops": [
         {
@@ -918,13 +923,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-05",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html"
     },
     {
       "district": "La Victoria",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944748,
       "stops": [
         {
@@ -951,13 +957,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-06",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html"
     },
     {
       "district": "Lima",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944670,
       "stops": [
         {
@@ -984,13 +991,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-07",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-1.html"
     },
     {
       "district": "Lima",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944670,
       "stops": [
         {
@@ -1153,10 +1161,8 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate",
-          "district": "Lima",
-          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
+          "eta_label": "snapshot estimate"
         },
         {
           "from": "damero-de-lima-interseccion-como-objeto",
@@ -1260,7 +1266,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -1409,10 +1415,8 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate",
-          "district": "Lima",
-          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
+          "eta_label": "snapshot estimate"
         }
       ],
       "stages": [
@@ -1430,19 +1434,20 @@
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0539567%2C-77.0361916",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 1,
-        "selected_distance_m": 2499.9,
-        "exact_minimum_distance_m": 2499.9
+        "permutations_evaluated": 24,
+        "selected_distance_m": 2499.8999999999996,
+        "exact_minimum_distance_m": 2499.8999999999996
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-08",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-2.html"
     },
     {
       "district": "Miraflores",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944770,
       "stops": [
         {
@@ -1821,7 +1826,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -1870,7 +1875,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -1895,7 +1900,7 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-09",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.html",
       "route_partition": {
@@ -1908,6 +1913,7 @@
     {
       "district": "Miraflores",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944770,
       "stops": [
         {
@@ -2102,7 +2108,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2147,7 +2153,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2316,7 +2322,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -2397,7 +2403,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -2424,7 +2430,7 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-10",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.html",
       "route_partition": {
@@ -2437,32 +2443,19 @@
     {
       "district": "Miraflores",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944770,
       "stops": [
         {
-          "canonical_id": "casa-raul-porras-barrenechea",
-          "name": "Instituto Raúl Porras Barrenechea",
+          "canonical_id": "centro-cultural-ccori-wasi",
+          "name": "Centro Cultural CCORI WASI",
           "district": "Miraflores",
-          "latitude": -12.118414,
-          "longitude": -77.026981,
-          "osm_id": null,
-          "point_in_district": true,
-          "anchor_method": "CORROBORATED_ADDRESS_COORDINATE",
-          "address": "Calle Narciso de la Colina 398, Miraflores",
-          "address_source_url": "https://biologia.unmsm.edu.pe/ciencias-biologicas/Plan_de_prevencion_y_reduccion_del_riesgo_de_desastres_de_la_UNMSM_2024_2030_6f42a0de8d.pdf",
-          "coordinate_source_url": "https://commons.wikimedia.org/wiki/Category:Instituto_Ra%C3%BAl_Porras_Barrenechea",
-          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
-        },
-        {
-          "canonical_id": "casa-museo-ricardo-palma",
-          "name": "Casa Museo Ricardo Palma",
-          "district": "Miraflores",
-          "latitude": -12.1184154,
-          "longitude": -77.0276037,
-          "osm_id": 1932068150,
+          "latitude": -12.1175413,
+          "longitude": -77.0295256,
+          "osm_id": 5192428621,
           "point_in_district": true,
           "anchor_method": "OSM_NOMINATIM_REVIEWED",
-          "address": "Casa Museo Ricardo Palma, 189, Calle Narciso de la Colina, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address": "Centro Cultural CCORI WASI, 5198, Avenida Arequipa, Miraflores, Lima, Lima Metropolitana, Lima, 10574, Perú",
           "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
@@ -2478,57 +2471,135 @@
           "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         },
         {
-          "canonical_id": "centro-cultural-ccori-wasi",
-          "name": "Centro Cultural CCORI WASI",
+          "canonical_id": "casa-museo-ricardo-palma",
+          "name": "Casa Museo Ricardo Palma",
           "district": "Miraflores",
-          "latitude": -12.1175413,
-          "longitude": -77.0295256,
-          "osm_id": 5192428621,
+          "latitude": -12.1184154,
+          "longitude": -77.0276037,
+          "osm_id": 1932068150,
           "point_in_district": true,
           "anchor_method": "OSM_NOMINATIM_REVIEWED",
-          "address": "Centro Cultural CCORI WASI, 5198, Avenida Arequipa, Miraflores, Lima, Lima Metropolitana, Lima, 10574, Perú",
+          "address": "Casa Museo Ricardo Palma, 189, Calle Narciso de la Colina, Miraflores, Lima, Lima Metropolitana, Lima, 15074, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
+        },
+        {
+          "canonical_id": "casa-raul-porras-barrenechea",
+          "name": "Instituto Raúl Porras Barrenechea",
+          "district": "Miraflores",
+          "latitude": -12.118414,
+          "longitude": -77.026981,
+          "osm_id": null,
+          "point_in_district": true,
+          "anchor_method": "CORROBORATED_ADDRESS_COORDINATE",
+          "address": "Calle Narciso de la Colina 398, Miraflores",
+          "address_source_url": "https://biologia.unmsm.edu.pe/ciencias-biologicas/Plan_de_prevencion_y_reduccion_del_riesgo_de_desastres_de_la_UNMSM_2024_2030_6f42a0de8d.pdf",
+          "coordinate_source_url": "https://commons.wikimedia.org/wiki/Category:Instituto_Ra%C3%BAl_Porras_Barrenechea",
           "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
       "legs": [
         {
-          "from": "casa-raul-porras-barrenechea",
-          "to": "casa-museo-ricardo-palma",
-          "road_distance_m": 67.8,
-          "road_duration_s": 54.4,
+          "from": "centro-cultural-ccori-wasi",
+          "to": "ovalo-de-miraflores",
+          "road_distance_m": 229.5,
+          "road_duration_s": 183.8,
           "geometry": {
             "coordinates": [
               [
-                -77.02698,
-                -12.118288
+                -77.029292,
+                -12.117502
               ],
               [
-                -77.027433,
-                -12.118286
+                -77.029254,
+                -12.117719
               ],
               [
-                -77.027603,
-                -12.118285
+                -77.029229,
+                -12.117864
+              ],
+              [
+                -77.029176,
+                -12.117824
+              ],
+              [
+                -77.029155,
+                -12.117955
+              ],
+              [
+                -77.029154,
+                -12.117957
+              ],
+              [
+                -77.029139,
+                -12.118045
+              ],
+              [
+                -77.029012,
+                -12.118795
+              ],
+              [
+                -77.028971,
+                -12.118784
+              ],
+              [
+                -77.028927,
+                -12.118774
+              ],
+              [
+                -77.028866,
+                -12.118765
+              ],
+              [
+                -77.028837,
+                -12.118956
+              ],
+              [
+                -77.028776,
+                -12.118984
+              ],
+              [
+                -77.028743,
+                -12.118985
+              ],
+              [
+                -77.028728,
+                -12.119037
+              ],
+              [
+                -77.028895,
+                -12.119036
               ]
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
-          "from": "casa-museo-ricardo-palma",
-          "to": "ovalo-de-miraflores",
+          "from": "ovalo-de-miraflores",
+          "to": "casa-museo-ricardo-palma",
           "road_distance_m": 223.9,
           "road_duration_s": 179,
           "geometry": {
             "coordinates": [
               [
-                -77.027603,
-                -12.118285
+                -77.028895,
+                -12.119036
               ],
               [
-                -77.028044,
+                -77.028728,
+                -12.119037
+              ],
+              [
+                -77.028193,
+                -12.119043
+              ],
+              [
+                -77.028192,
+                -12.119002
+              ],
+              [
+                -77.028184,
                 -12.118282
               ],
               [
@@ -2536,106 +2607,42 @@
                 -12.118282
               ],
               [
-                -77.028184,
+                -77.028044,
                 -12.118282
               ],
               [
-                -77.028192,
-                -12.119002
-              ],
-              [
-                -77.028193,
-                -12.119043
-              ],
-              [
-                -77.028728,
-                -12.119037
-              ],
-              [
-                -77.028895,
-                -12.119036
+                -77.027603,
+                -12.118285
               ]
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
-          "from": "ovalo-de-miraflores",
-          "to": "centro-cultural-ccori-wasi",
-          "road_distance_m": 229.5,
-          "road_duration_s": 183.8,
+          "from": "casa-museo-ricardo-palma",
+          "to": "casa-raul-porras-barrenechea",
+          "road_distance_m": 67.8,
+          "road_duration_s": 54.4,
           "geometry": {
             "coordinates": [
               [
-                -77.028895,
-                -12.119036
+                -77.027603,
+                -12.118285
               ],
               [
-                -77.028728,
-                -12.119037
+                -77.027433,
+                -12.118286
               ],
               [
-                -77.028743,
-                -12.118985
-              ],
-              [
-                -77.028776,
-                -12.118984
-              ],
-              [
-                -77.028837,
-                -12.118956
-              ],
-              [
-                -77.028866,
-                -12.118765
-              ],
-              [
-                -77.028927,
-                -12.118774
-              ],
-              [
-                -77.028971,
-                -12.118784
-              ],
-              [
-                -77.029012,
-                -12.118795
-              ],
-              [
-                -77.029139,
-                -12.118045
-              ],
-              [
-                -77.029154,
-                -12.117957
-              ],
-              [
-                -77.029155,
-                -12.117955
-              ],
-              [
-                -77.029176,
-                -12.117824
-              ],
-              [
-                -77.029229,
-                -12.117864
-              ],
-              [
-                -77.029254,
-                -12.117719
-              ],
-              [
-                -77.029292,
-                -12.117502
+                -77.02698,
+                -12.118288
               ]
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -2643,26 +2650,24 @@
         {
           "stage": 1,
           "stop_ids": [
-            "casa-raul-porras-barrenechea",
-            "casa-museo-ricardo-palma",
+            "centro-cultural-ccori-wasi",
             "ovalo-de-miraflores",
-            "centro-cultural-ccori-wasi"
+            "casa-museo-ricardo-palma",
+            "casa-raul-porras-barrenechea"
           ],
-          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.118414%2C-77.026981&destination=-12.1175413%2C-77.0295256&travelmode=walking&waypoints=-12.1184154%2C-77.0276037%7C-12.1190866%2C-77.0288947"
+          "google_maps_url": "https://www.google.com/maps/dir/?api=1&origin=-12.1175413%2C-77.0295256&destination=-12.118414%2C-77.026981&travelmode=walking&waypoints=-12.1190866%2C-77.0288947%7C-12.1184154%2C-77.0276037"
         }
       ],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1217046%2C-77.0213252",
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1175413%2C-77.0295256",
       "optimization": {
-        "method": "verified_subpath_from_exact_parent",
-        "selected_distance_m": 521.2,
-        "exact_minimum_distance_m": null,
-        "permutations_evaluated": 120,
-        "optimization_limitation": "Fresh four-stop matrix unavailable after router stall; sequence preserves the contained subpath of the prior exact five-stop solution."
+        "method": "exact_permutation",
+        "permutations_evaluated": 24,
+        "selected_distance_m": 521.1999999999999,
+        "exact_minimum_distance_m": 521.1999999999999
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.kml",
-      "route_geometry_containment_status": "VERIFIED",
-      "route_geometry_repair_provenance": "BOUNDARY_EDGE_REMOVED_2026_08_31",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-11",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.html"
     },
@@ -2670,39 +2675,6 @@
       "district": "Miraflores",
       "containment_status": "VERIFIED",
       "route_geometry_containment_status": "VERIFIED",
-      "boundary_osm_id": 1944770,
-      "stops": [
-        {
-          "canonical_id": "parque-tradiciones-ricardo-palma",
-          "name": "Parque Las Tradiciones",
-          "district": "Miraflores",
-          "latitude": -12.1217046,
-          "longitude": -77.0213252,
-          "osm_id": 435517540,
-          "point_in_district": true,
-          "anchor_method": "OSM_NOMINATIM_REVIEWED",
-          "address": "Parque Las Tradiciones, Miraflores, Lima, Lima Metropolitana, Lima, Perú",
-          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
-        }
-      ],
-      "legs": [],
-      "stages": [],
-      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1217046%2C-77.0213252",
-      "optimization": {
-        "method": "singleton",
-        "permutations_evaluated": 1,
-        "selected_distance_m": 0,
-        "exact_minimum_distance_m": 0
-      },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.kml",
-      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
-      "layer_id": "route-12",
-      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.html"
-    },
-    {
-      "district": "Miraflores",
-      "containment_status": "VERIFIED",
       "boundary_osm_id": 1944770,
       "stops": [
         {
@@ -3009,10 +2981,8 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate",
-          "district": "Miraflores",
-          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
+          "eta_label": "snapshot estimate"
         }
       ],
       "stages": [
@@ -3028,19 +2998,20 @@
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1100511%2C-77.0536918",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 1,
+        "permutations_evaluated": 2,
         "selected_distance_m": 994.6,
         "exact_minimum_distance_m": 994.6
       },
-      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.geojson",
-      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.kml",
-      "route_geometry_containment_status": "VERIFIED",
-      "layer_id": "route-13",
-      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.html"
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.kml",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
+      "layer_id": "route-12",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.html"
     },
     {
       "district": "Miraflores",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944770,
       "stops": [
         {
@@ -3065,15 +3036,50 @@
         "selected_distance_m": 0,
         "exact_minimum_distance_m": 0
       },
+      "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.geojson",
+      "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.kml",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
+      "layer_id": "route-13",
+      "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.html"
+    },
+    {
+      "district": "Miraflores",
+      "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
+      "boundary_osm_id": 1944770,
+      "stops": [
+        {
+          "canonical_id": "parque-tradiciones-ricardo-palma",
+          "name": "Parque Las Tradiciones",
+          "district": "Miraflores",
+          "latitude": -12.1217046,
+          "longitude": -77.0213252,
+          "osm_id": 435517540,
+          "point_in_district": true,
+          "anchor_method": "OSM_NOMINATIM_REVIEWED",
+          "address": "Parque Las Tradiciones, Miraflores, Lima, Lima Metropolitana, Lima, Perú",
+          "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
+        }
+      ],
+      "legs": [],
+      "stages": [],
+      "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.1217046%2C-77.0213252",
+      "optimization": {
+        "method": "exact_permutation",
+        "permutations_evaluated": 1,
+        "selected_distance_m": 0,
+        "exact_minimum_distance_m": 0
+      },
       "geojson_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-14",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.html"
     },
     {
       "district": "Pueblo Libre",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944764,
       "stops": [
         {
@@ -3216,7 +3222,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -3253,7 +3259,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -3438,7 +3444,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -3607,10 +3613,8 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate",
-          "district": "Pueblo Libre",
-          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
+          "eta_label": "snapshot estimate"
         }
       ],
       "stages": [
@@ -3630,18 +3634,19 @@
       "optimization": {
         "method": "exact_permutation",
         "permutations_evaluated": 120,
-        "selected_distance_m": 1994.2,
-        "exact_minimum_distance_m": 1994.2
+        "selected_distance_m": 1994.1999999999998,
+        "exact_minimum_distance_m": 1994.1999999999998
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-15",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html"
     },
     {
       "district": "Pueblo Libre",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944764,
       "stops": [
         {
@@ -3892,10 +3897,8 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate",
-          "district": "Pueblo Libre",
-          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
+          "eta_label": "snapshot estimate"
         },
         {
           "from": "museo-larco-jardines",
@@ -4067,7 +4070,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -4085,19 +4088,20 @@
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.0706736%2C-77.0678766",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 1,
-        "selected_distance_m": 1654.8,
-        "exact_minimum_distance_m": 1654.8
+        "permutations_evaluated": 6,
+        "selected_distance_m": 1654.8000000000002,
+        "exact_minimum_distance_m": 1654.8000000000002
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-16",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html"
     },
     {
       "district": "San Borja",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944802,
       "stops": [
         {
@@ -4328,7 +4332,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -4351,13 +4355,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-17",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.html"
     },
     {
       "district": "San Borja",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944802,
       "stops": [
         {
@@ -4552,7 +4557,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -4685,7 +4690,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -4762,7 +4767,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -4847,7 +4852,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -4964,7 +4969,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -4998,13 +5003,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-18",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.html"
     },
     {
       "district": "San Borja",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944802,
       "stops": [
         {
@@ -5031,13 +5037,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-19",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.html"
     },
     {
       "district": "San Isidro",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944812,
       "stops": [
         {
@@ -5286,10 +5293,8 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
-          "eta_label": "snapshot estimate",
-          "district": "San Isidro",
-          "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
+          "eta_label": "snapshot estimate"
         },
         {
           "from": "palacio-municipal-y-de-la-cultura-san-isidro",
@@ -5517,7 +5522,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -5666,7 +5671,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -5807,7 +5812,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -5827,19 +5832,20 @@
       "google_maps_search_url": "https://www.google.com/maps/search/?api=1&query=-12.100988%2C-77.03397",
       "optimization": {
         "method": "exact_permutation",
-        "permutations_evaluated": 1,
+        "permutations_evaluated": 120,
         "selected_distance_m": 3070.4,
         "exact_minimum_distance_m": 3070.4
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-20",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html"
     },
     {
       "district": "San Isidro",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944812,
       "stops": [
         {
@@ -5950,7 +5956,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         },
         {
@@ -6071,7 +6077,7 @@
             ],
             "type": "LineString"
           },
-          "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+          "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
           "eta_label": "snapshot estimate"
         }
       ],
@@ -6095,13 +6101,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-21",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html"
     },
     {
       "district": "San Isidro",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944812,
       "stops": [
         {
@@ -6130,13 +6137,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-22",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html"
     },
     {
       "district": "Santiago de Surco",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944844,
       "stops": [
         {
@@ -6163,13 +6171,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-23",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/santiago-de-surco.html"
     },
     {
       "district": "Lima",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944670,
       "stops": [
         {
@@ -6232,13 +6241,14 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-24",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/lima-tour-3.html"
     },
     {
       "district": "Rímac",
       "containment_status": "VERIFIED",
+      "route_geometry_containment_status": "VERIFIED",
       "boundary_osm_id": 1944796,
       "stops": [
         {
@@ -6301,17 +6311,11 @@
       },
       "geojson_path": "challenges/arquitectura-en-foco/maps/rimac.geojson",
       "kml_path": "challenges/arquitectura-en-foco/maps/rimac.kml",
-      "route_geometry_containment_status": "VERIFIED",
+      "route_geometry_repair_provenance": "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31",
       "layer_id": "route-25",
       "offline_map_path": "challenges/arquitectura-en-foco/maps/rimac.html"
     }
   ],
-  "snapshot_repair": {
-    "status": "BOUNDARY_EXIT_REMOVED_ROUTER_REBUILD_PENDING",
-    "audit_path": "architectural_photography/routes/geometry_containment_audit.json",
-    "tradeoff": "One compact Miraflores sequence is a contained parent subpath, not a newly optimized four-stop route.",
-    "usability_partition": "Transfers above 800 m are disclosed between separate tours and are not published as continuous photography walks."
-  },
   "omitted_intertour_transfers": [
     {
       "from": "puente-villena-bajada-balta-costa-verde",
@@ -6575,12 +6579,18 @@
         ],
         "type": "LineString"
       },
-      "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+      "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
       "eta_label": "snapshot estimate",
       "district": "Miraflores",
       "reason": "EXCEEDS_PHOTOGRAPHY_TOUR_TRANSFER_LIMIT"
     }
   ],
+  "snapshot_repair": {
+    "status": "BOUNDARY_EXIT_REMOVED_ROUTER_REBUILD_PENDING",
+    "audit_path": "architectural_photography/routes/geometry_containment_audit.json",
+    "tradeoff": "One compact Miraflores sequence is a contained parent subpath, not a newly optimized four-stop route.",
+    "usability_partition": "Transfers above 800 m are disclosed between separate tours and are not published as continuous photography walks."
+  },
   "route_collections": [
     {
       "collection_id": "collection-barranco",
@@ -6662,10 +6672,10 @@
         "route-09",
         "route-10",
         "route-11",
-        "route-13"
+        "route-12"
       ],
       "independent_points": [
-        "route-12",
+        "route-13",
         "route-14"
       ],
       "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
@@ -6748,7 +6758,6 @@
       "routing_note": "Camina cada segmento; los puntos independientes requieren traslado aparte."
     }
   ],
-  "ux_version": "2.0.0",
   "threshold_sensitivity": {
     "baseline_m": 1000,
     "tested_thresholds_m": [
@@ -6767,13 +6776,15 @@
         "road_distance_status": "NOT_CAPTURED_NO_MERGE"
       },
       {
-        "from": "parque-tradiciones-ricardo-palma",
-        "to": "huaca-pucllana",
+        "from": "huaca-pucllana",
+        "to": "parque-tradiciones-ricardo-palma",
         "district": "Miraflores",
         "straight_distance_m": 1782.0,
         "road_distance_status": "NOT_CAPTURED_NO_MERGE"
       }
     ],
     "decision": "Do not merge on straight distance alone. A 1500 m screen identifies field/router checks; only captured road legs may join a walking segment."
-  }
+  },
+  "ux_version": "2.0.0",
+  "retired_map_files": []
 }

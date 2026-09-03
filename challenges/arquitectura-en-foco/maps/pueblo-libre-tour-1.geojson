@@ -82,7 +82,7 @@
         "from": "parque-3-de-octubre-skatepark-muros-libres",
         "to": "quinta-de-los-libertadores-mnaahp",
         "road_distance_m": 433.6,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -164,7 +164,7 @@
         "from": "quinta-de-los-libertadores-mnaahp",
         "to": "antigua-taberna-queirolo",
         "road_distance_m": 114.6,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -202,7 +202,7 @@
         "from": "antigua-taberna-queirolo",
         "to": "parque-virginia-candamo",
         "road_distance_m": 605.9,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -388,7 +388,7 @@
         "from": "parque-virginia-candamo",
         "to": "plaza-a-la-bandera",
         "road_distance_m": 840.1,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
