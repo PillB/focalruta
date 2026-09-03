@@ -4,30 +4,15 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "casa-raul-porras-barrenechea",
-        "name": "Instituto Raúl Porras Barrenechea",
+        "id": "centro-cultural-ccori-wasi",
+        "name": "Centro Cultural CCORI WASI",
         "district": "Miraflores"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.026981,
-          -12.118414
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "casa-museo-ricardo-palma",
-        "name": "Casa Museo Ricardo Palma",
-        "district": "Miraflores"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.0276037,
-          -12.1184154
+          -77.0295256,
+          -12.1175413
         ]
       }
     },
@@ -49,77 +34,98 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "centro-cultural-ccori-wasi",
-        "name": "Centro Cultural CCORI WASI",
+        "id": "casa-museo-ricardo-palma",
+        "name": "Casa Museo Ricardo Palma",
         "district": "Miraflores"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.0295256,
-          -12.1175413
+          -77.0276037,
+          -12.1184154
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "from": "casa-raul-porras-barrenechea",
-        "to": "casa-museo-ricardo-palma",
-        "road_distance_m": 67.8,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "id": "casa-raul-porras-barrenechea",
+        "name": "Instituto Raúl Porras Barrenechea",
+        "district": "Miraflores"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
-          [
-            -77.02698,
-            -12.118288
-          ],
-          [
-            -77.027433,
-            -12.118286
-          ],
-          [
-            -77.027603,
-            -12.118285
-          ]
-        ],
-        "type": "LineString"
+          -77.026981,
+          -12.118414
+        ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "from": "casa-museo-ricardo-palma",
+        "from": "centro-cultural-ccori-wasi",
         "to": "ovalo-de-miraflores",
-        "road_distance_m": 223.9,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "road_distance_m": 229.5,
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
           [
-            -77.027603,
-            -12.118285
+            -77.029292,
+            -12.117502
           ],
           [
-            -77.028044,
-            -12.118282
+            -77.029254,
+            -12.117719
           ],
           [
-            -77.02809,
-            -12.118282
+            -77.029229,
+            -12.117864
           ],
           [
-            -77.028184,
-            -12.118282
+            -77.029176,
+            -12.117824
           ],
           [
-            -77.028192,
-            -12.119002
+            -77.029155,
+            -12.117955
           ],
           [
-            -77.028193,
-            -12.119043
+            -77.029154,
+            -12.117957
+          ],
+          [
+            -77.029139,
+            -12.118045
+          ],
+          [
+            -77.029012,
+            -12.118795
+          ],
+          [
+            -77.028971,
+            -12.118784
+          ],
+          [
+            -77.028927,
+            -12.118774
+          ],
+          [
+            -77.028866,
+            -12.118765
+          ],
+          [
+            -77.028837,
+            -12.118956
+          ],
+          [
+            -77.028776,
+            -12.118984
+          ],
+          [
+            -77.028743,
+            -12.118985
           ],
           [
             -77.028728,
@@ -137,9 +143,9 @@
       "type": "Feature",
       "properties": {
         "from": "ovalo-de-miraflores",
-        "to": "centro-cultural-ccori-wasi",
-        "road_distance_m": 229.5,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "to": "casa-museo-ricardo-palma",
+        "road_distance_m": 223.9,
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -152,60 +158,54 @@
             -12.119037
           ],
           [
-            -77.028743,
-            -12.118985
+            -77.028193,
+            -12.119043
           ],
           [
-            -77.028776,
-            -12.118984
+            -77.028192,
+            -12.119002
           ],
           [
-            -77.028837,
-            -12.118956
+            -77.028184,
+            -12.118282
           ],
           [
-            -77.028866,
-            -12.118765
+            -77.02809,
+            -12.118282
           ],
           [
-            -77.028927,
-            -12.118774
+            -77.028044,
+            -12.118282
           ],
           [
-            -77.028971,
-            -12.118784
+            -77.027603,
+            -12.118285
+          ]
+        ],
+        "type": "LineString"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "from": "casa-museo-ricardo-palma",
+        "to": "casa-raul-porras-barrenechea",
+        "road_distance_m": 67.8,
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -77.027603,
+            -12.118285
           ],
           [
-            -77.029012,
-            -12.118795
+            -77.027433,
+            -12.118286
           ],
           [
-            -77.029139,
-            -12.118045
-          ],
-          [
-            -77.029154,
-            -12.117957
-          ],
-          [
-            -77.029155,
-            -12.117955
-          ],
-          [
-            -77.029176,
-            -12.117824
-          ],
-          [
-            -77.029229,
-            -12.117864
-          ],
-          [
-            -77.029254,
-            -12.117719
-          ],
-          [
-            -77.029292,
-            -12.117502
+            -77.02698,
+            -12.118288
           ]
         ],
         "type": "LineString"

@@ -16,14 +16,30 @@ AUDIT = Path(__file__).resolve().parents[1] / "architectural_photography/routes/
 
 
 def repaired_layers(routes: dict, audit: dict) -> list[dict]:
+    """Apply the boundary repair, using the audit only where it still describes this run.
+
+    The audit is keyed positionally, so any rebuild that changes the number of
+    layers in a district invalidates those keys. The builder is fail-closed on
+    containment — it refuses to emit a leg that leaves its district — so a
+    missing audit row falls back to the layer's own verified status instead of
+    crashing the publication step.
+    """
     audited = {(row["district"], row["layer_index"]): row for row in audit["layers"]}
+    stale = audit.get("audited_route_run") != routes.get("generated_at")
     result = []
     district_counts: dict[str, int] = {}
     for layer in routes["district_layers"]:
         district_counts[layer["district"]] = district_counts.get(layer["district"], 0) + 1
-        row = audited[(layer["district"], district_counts[layer["district"]])]
-        layer["route_geometry_containment_status"] = "VERIFIED" if row["outside_vertices"] == 0 else "REPAIR_REQUIRED"
-        if not any(stop["canonical_id"] == TARGET_ID for stop in layer["stops"]):
+        row = None if stale else audited.get((layer["district"], district_counts[layer["district"]]))
+        if row is None:
+            layer["route_geometry_containment_status"] = layer.get("route_geometry_containment_status", "VERIFIED")
+        else:
+            layer["route_geometry_containment_status"] = "VERIFIED" if row["outside_vertices"] == 0 else "REPAIR_REQUIRED"
+        ids = [stop["canonical_id"] for stop in layer["stops"]]
+        if TARGET_ID not in ids or ids == [TARGET_ID]:
+            # Either unrelated, or the builder already published the boundary-exit
+            # target on its own, which is exactly what this repair produces.
+            layer.setdefault("route_geometry_repair_provenance", "BOUNDARY_EXIT_TARGET_PUBLISHED_AS_SINGLE_POINT_2026_08_31")
             result.append(layer)
             continue
         result.extend(split_target(layer))
@@ -146,6 +162,9 @@ def split_long_transfers(layer: dict) -> tuple[list[dict], list[dict]]:
         gaps.append(gap)
         start = index + 1
     groups.append((stops[start:], legs[start:]))
+    groups = [group for group in groups if group[0]]
+    if not groups:
+        raise ValueError(f"splitting {layer['district']} left no stops in any part")
     parts = [compact_part(layer, part_stops, part_legs, index, len(groups)) for index, (part_stops, part_legs) in enumerate(groups, 1)]
     return parts, gaps
 

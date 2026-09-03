@@ -121,7 +121,7 @@
         "to": "museo-pedro-de-osma-y-av-pedro-de-osma",
         "road_distance_m": 585.4,
         "road_duration_s": 472.2,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -169,7 +169,7 @@
         "to": "mac-lima-parque-espejo-de-agua",
         "road_distance_m": 406,
         "road_duration_s": 326.6,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -270,7 +270,7 @@
         "to": "casa-fernandini-1913",
         "road_distance_m": 958.8,
         "road_duration_s": 775,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": true,
@@ -302,7 +302,7 @@
         "to": "parque-del-amor-el-beso",
         "road_distance_m": 645.4,
         "road_duration_s": 516,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -336,7 +336,7 @@
         "to": "parque-kennedy-gatos-civic-core",
         "road_distance_m": 709.4,
         "road_duration_s": 567.6,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -357,19 +357,19 @@
       "layer_id": "miraflores-tour-3",
       "district": "Miraflores",
       "ordered_stop_ids": [
-        "casa-raul-porras-barrenechea",
-        "casa-museo-ricardo-palma",
+        "centro-cultural-ccori-wasi",
         "ovalo-de-miraflores",
-        "centro-cultural-ccori-wasi"
+        "casa-museo-ricardo-palma",
+        "casa-raul-porras-barrenechea"
       ],
       "stops": 4,
       "total_road_distance_m": 521.2,
       "longest_leg": {
-        "from": "ovalo-de-miraflores",
-        "to": "centro-cultural-ccori-wasi",
+        "from": "centro-cultural-ccori-wasi",
+        "to": "ovalo-de-miraflores",
         "road_distance_m": 229.5,
         "road_duration_s": 183.8,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -390,23 +390,6 @@
       "layer_id": "miraflores-tour-4",
       "district": "Miraflores",
       "ordered_stop_ids": [
-        "parque-tradiciones-ricardo-palma"
-      ],
-      "stops": 1,
-      "total_road_distance_m": 0,
-      "longest_leg": null,
-      "long_leg_warning": false,
-      "maximum_road_to_straight_ratio": 1,
-      "geometry_bounds": null,
-      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/miraflores-tour-4.png",
-      "assessment": "single verified map point; no tour claimed",
-      "forensic_description": "Miraflores layer miraflores-tour-4: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
-    },
-    {
-      "layer_index": 13,
-      "layer_id": "miraflores-tour-5",
-      "district": "Miraflores",
-      "ordered_stop_ids": [
         "lugar-de-la-memoria-lum",
         "parque-maria-reiche"
       ],
@@ -417,7 +400,7 @@
         "to": "parque-maria-reiche",
         "road_distance_m": 994.6,
         "road_duration_s": 795.4,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": true,
@@ -429,16 +412,33 @@
         "north": -12.10907,
         "vertices": 67
       },
-      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/miraflores-tour-5.png",
+      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/miraflores-tour-4.png",
       "assessment": "retained endpoint transfer; splitting would isolate a scene",
-      "forensic_description": "Miraflores layer miraflores-tour-5: 2 ordered stops, 994.6 m total; 67 road vertices inside -77.05373…-77.04912 longitude and -12.11488…-12.10907 latitude. Maximum road/straight ratio 1.41. Assessment: retained endpoint transfer; splitting would isolate a scene."
+      "forensic_description": "Miraflores layer miraflores-tour-4: 2 ordered stops, 994.6 m total; 67 road vertices inside -77.05373…-77.04912 longitude and -12.11488…-12.10907 latitude. Maximum road/straight ratio 1.41. Assessment: retained endpoint transfer; splitting would isolate a scene."
+    },
+    {
+      "layer_index": 13,
+      "layer_id": "miraflores-tour-5",
+      "district": "Miraflores",
+      "ordered_stop_ids": [
+        "huaca-pucllana"
+      ],
+      "stops": 1,
+      "total_road_distance_m": 0,
+      "longest_leg": null,
+      "long_leg_warning": false,
+      "maximum_road_to_straight_ratio": 1,
+      "geometry_bounds": null,
+      "screenshot": "architectural_photography/qa/rounds/round5/route_layers/miraflores-tour-5.png",
+      "assessment": "single verified map point; no tour claimed",
+      "forensic_description": "Miraflores layer miraflores-tour-5: 1 ordered stops, 0.0 m total; single pin. Maximum road/straight ratio 1.00. Assessment: single verified map point; no tour claimed."
     },
     {
       "layer_index": 14,
       "layer_id": "miraflores-tour-6",
       "district": "Miraflores",
       "ordered_stop_ids": [
-        "huaca-pucllana"
+        "parque-tradiciones-ricardo-palma"
       ],
       "stops": 1,
       "total_road_distance_m": 0,
@@ -468,7 +468,7 @@
         "to": "plaza-a-la-bandera",
         "road_distance_m": 840.1,
         "road_duration_s": 672.3,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": true,
@@ -500,7 +500,7 @@
         "to": "museo-larco-jardines",
         "road_distance_m": 875.2,
         "road_duration_s": 702.2,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": true,
@@ -531,7 +531,7 @@
         "to": "coliseo-eduardo-dibos",
         "road_distance_m": 742.2,
         "road_duration_s": 594.2,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -566,7 +566,7 @@
         "to": "ministerio-de-cultura-museo-de-la-nacion",
         "road_distance_m": 486.7,
         "road_duration_s": 389.6,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,
@@ -617,7 +617,7 @@
         "to": "palacio-municipal-y-de-la-cultura-san-isidro",
         "road_distance_m": 968.8,
         "road_duration_s": 778.7,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": true,
@@ -649,7 +649,7 @@
         "to": "country-club-lima-hotel",
         "road_distance_m": 491.1,
         "road_duration_s": 397.2,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00",
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00",
         "eta_label": "snapshot estimate"
       },
       "long_leg_warning": false,

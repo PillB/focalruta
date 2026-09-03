@@ -39,12 +39,35 @@ FORCE_SINGLETONS = {
 }
 
 
+# A request with no timeout can never fail fast: it hangs. Bound every attempt
+# so a stalled router surfaces as an error the caller can act on.
+CONNECT_TIMEOUT_SECONDS = 12
+MAX_TIME_SECONDS = 45
+FETCH_ATTEMPTS = 3
+RETRY_DELAY_SECONDS = 2
+
+
+def request_budget_seconds() -> float:
+    """Worst case for one get_json call: every attempt burns its full budget."""
+    return MAX_TIME_SECONDS * (FETCH_ATTEMPTS + 1) + RETRY_DELAY_SECONDS * FETCH_ATTEMPTS
+
+
 def get_json(url: str) -> dict | list:
     completed = subprocess.run(
-        ["curl", "-L", "--fail", "--silent", "--show-error", "--retry", "3", "--retry-delay", "2", "--retry-all-errors", "--user-agent", USER_AGENT, url],
+        [
+            "curl", "-L", "--fail", "--silent", "--show-error",
+            "--connect-timeout", str(CONNECT_TIMEOUT_SECONDS),
+            "--max-time", str(MAX_TIME_SECONDS),
+            "--retry", str(FETCH_ATTEMPTS),
+            "--retry-delay", str(RETRY_DELAY_SECONDS),
+            "--retry-all-errors",
+            "--user-agent", USER_AGENT,
+            url,
+        ],
         check=True,
         capture_output=True,
         text=True,
+        timeout=request_budget_seconds(),
     )
     return json.loads(completed.stdout)
 

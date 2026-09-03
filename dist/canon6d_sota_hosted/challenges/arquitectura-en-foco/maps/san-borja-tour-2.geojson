@@ -97,7 +97,7 @@
         "from": "huaca-san-borja",
         "to": "lima-centro-de-convenciones",
         "road_distance_m": 392.6,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -219,7 +219,7 @@
         "from": "lima-centro-de-convenciones",
         "to": "ministerio-de-cultura-museo-de-la-nacion",
         "road_distance_m": 486.7,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -353,7 +353,7 @@
         "from": "ministerio-de-cultura-museo-de-la-nacion",
         "to": "gran-teatro-nacional",
         "road_distance_m": 312.7,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -431,7 +431,7 @@
         "from": "gran-teatro-nacional",
         "to": "centro-de-convenciones-estacion-la-cultura",
         "road_distance_m": 126.6,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -517,7 +517,7 @@
         "from": "centro-de-convenciones-estacion-la-cultura",
         "to": "biblioteca-nacional-del-peru",
         "road_distance_m": 305.7,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [

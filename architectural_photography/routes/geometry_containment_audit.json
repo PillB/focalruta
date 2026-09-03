@@ -1,138 +1,219 @@
 {
-  "schema_version": "route-geometry-containment-audit-v1",
-  "audited_at": "2026-08-31T11:45:00-05:00",
-  "boundary_source": "OpenStreetMap Nominatim administrative polygons",
-  "road_source": "existing OSM routed-foot snapshot",
-  "repair_applied": true,
+  "schema_version": "route-geometry-containment-v2",
+  "audited_at": "2026-09-03T00:29:35.927848+00:00",
+  "audited_route_run": "2026-09-03T00:26:22.093162+00:00",
+  "method": "INDEPENDENT_REFETCH_OF_ADMINISTRATIVE_POLYGONS_AND_PER_VERTEX_POINT_IN_POLYGON",
+  "boundary_source": {
+    "name": "OpenStreetMap Nominatim administrative boundary",
+    "url": "https://nominatim.openstreetmap.org/search"
+  },
+  "road_source": {
+    "name": "OSM routing.openstreetmap.de routed-foot snapshot",
+    "url": "https://routing.openstreetmap.de/routed-foot",
+    "mode": "pedestrian",
+    "geometry_kind": "road_network"
+  },
   "layers": [
     {
       "district": "Barranco",
       "layer_index": 1,
-      "outside_vertices": 0
+      "stops": 8,
+      "checked_vertices": 88,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944691
     },
     {
       "district": "Barranco",
       "layer_index": 2,
-      "outside_vertices": 0
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944691
     },
     {
       "district": "Barranco",
       "layer_index": 3,
-      "outside_vertices": 0
+      "stops": 2,
+      "checked_vertices": 40,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944691
     },
     {
       "district": "Jesús María",
       "layer_index": 1,
-      "outside_vertices": 0
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944744
     },
     {
       "district": "La Victoria",
       "layer_index": 1,
-      "outside_vertices": 0
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944748
     },
     {
       "district": "La Victoria",
       "layer_index": 2,
-      "outside_vertices": 0
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944748
     },
     {
       "district": "Lima",
       "layer_index": 1,
-      "outside_vertices": 0
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944670
     },
     {
       "district": "Lima",
       "layer_index": 2,
-      "outside_vertices": 0
-    },
-    {
-      "district": "Lima",
-      "layer_index": 3,
-      "outside_vertices": 0
-    },
-    {
-      "district": "Lima",
-      "layer_index": 4,
-      "outside_vertices": 0
+      "stops": 4,
+      "checked_vertices": 82,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944670
     },
     {
       "district": "Miraflores",
       "layer_index": 1,
-      "outside_vertices": 0
+      "stops": 3,
+      "checked_vertices": 91,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944770
     },
     {
       "district": "Miraflores",
       "layer_index": 2,
-      "outside_vertices": 5,
-      "offending_edge": [
-        "parque-tradiciones-ricardo-palma",
-        "casa-raul-porras-barrenechea"
-      ]
+      "stops": 5,
+      "checked_vertices": 94,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944770
     },
     {
       "district": "Miraflores",
       "layer_index": 3,
-      "outside_vertices": 0
+      "stops": 4,
+      "checked_vertices": 27,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944770
     },
     {
       "district": "Miraflores",
       "layer_index": 4,
-      "outside_vertices": 0
+      "stops": 2,
+      "checked_vertices": 67,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944770
+    },
+    {
+      "district": "Miraflores",
+      "layer_index": 5,
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944770
+    },
+    {
+      "district": "Miraflores",
+      "layer_index": 6,
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944770
     },
     {
       "district": "Pueblo Libre",
       "layer_index": 1,
-      "outside_vertices": 0
+      "stops": 5,
+      "checked_vertices": 105,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944764
     },
     {
       "district": "Pueblo Libre",
       "layer_index": 2,
-      "outside_vertices": 0
-    },
-    {
-      "district": "Rímac",
-      "layer_index": 1,
-      "outside_vertices": 0
-    },
-    {
-      "district": "Rímac",
-      "layer_index": 2,
-      "outside_vertices": 0
+      "stops": 3,
+      "checked_vertices": 90,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944764
     },
     {
       "district": "San Borja",
       "layer_index": 1,
-      "outside_vertices": 0
+      "stops": 2,
+      "checked_vertices": 48,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944802
     },
     {
       "district": "San Borja",
       "layer_index": 2,
-      "outside_vertices": 0
+      "stops": 6,
+      "checked_vertices": 117,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944802
     },
     {
       "district": "San Borja",
       "layer_index": 3,
-      "outside_vertices": 0
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944802
     },
     {
       "district": "San Isidro",
       "layer_index": 1,
-      "outside_vertices": 0
+      "stops": 5,
+      "checked_vertices": 163,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944812
     },
     {
       "district": "San Isidro",
       "layer_index": 2,
-      "outside_vertices": 0
+      "stops": 3,
+      "checked_vertices": 42,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944812
     },
     {
       "district": "San Isidro",
       "layer_index": 3,
-      "outside_vertices": 0
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944812
     },
     {
       "district": "Santiago de Surco",
       "layer_index": 1,
-      "outside_vertices": 0
+      "stops": 1,
+      "checked_vertices": 0,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944844
+    },
+    {
+      "district": "Lima",
+      "layer_index": 3,
+      "stops": 2,
+      "checked_vertices": 2,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944670
+    },
+    {
+      "district": "Rímac",
+      "layer_index": 1,
+      "stops": 2,
+      "checked_vertices": 2,
+      "outside_vertices": 0,
+      "boundary_osm_id": 1944796
     }
-  ]
+  ],
+  "repair_applied": true
 }

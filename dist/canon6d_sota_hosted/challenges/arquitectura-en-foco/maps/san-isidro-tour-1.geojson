@@ -82,7 +82,7 @@
         "from": "casa-museo-marina-nunez-del-prado",
         "to": "palacio-municipal-y-de-la-cultura-san-isidro",
         "road_distance_m": 968.8,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -268,7 +268,7 @@
         "from": "palacio-municipal-y-de-la-cultura-san-isidro",
         "to": "torre-begonias",
         "road_distance_m": 768.3,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -498,7 +498,7 @@
         "from": "torre-begonias",
         "to": "edificio-petroperu",
         "road_distance_m": 705.2,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -648,7 +648,7 @@
         "from": "edificio-petroperu",
         "to": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
         "road_distance_m": 628.1,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [

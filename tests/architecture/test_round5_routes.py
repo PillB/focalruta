@@ -187,13 +187,24 @@ def test_route_builder_does_not_use_preferred_transfer_as_connectivity_ceiling()
 
 
 def test_repaired_subpath_is_not_presented_as_a_new_exact_minimum():
+    """A subpath kept from a parent solution may never claim its own optimum.
+
+    The count is not fixed: a router rebuild can remove the need for a repair
+    entirely. What must hold is that any surviving subpath is disclosed as one
+    and declares no exact minimum.
+    """
     page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
-    assert "Subruta contenida de una solución exacta anterior" in page
-    assert "no se presenta como un nuevo mínimo exacto" in page
     routes = load_routes()
-    repaired = [layer for layer in routes["district_layers"] if layer["optimization"]["method"] == "verified_subpath_from_exact_parent"]
-    assert len(repaired) == 1
-    assert repaired[0]["optimization"]["exact_minimum_distance_m"] is None
+    subpaths = [layer for layer in routes["district_layers"] if "subpath" in layer["optimization"]["method"]]
+    for layer in subpaths:
+        assert layer["optimization"]["exact_minimum_distance_m"] is None, layer.get("layer_id")
+        assert layer["optimization"]["optimization_limitation"]
+    disclosed = "no se presenta como un nuevo mínimo exacto" in page
+    assert disclosed == bool(subpaths), (
+        "the subpath disclaimer must appear exactly when a subpath is published"
+    )
+    exact = [layer for layer in routes["district_layers"] if layer["optimization"]["method"] == "exact_permutation"]
+    assert all(layer["optimization"]["exact_minimum_distance_m"] is not None for layer in exact)
 
 
 def test_small_tours_are_checked_by_exact_permutation():

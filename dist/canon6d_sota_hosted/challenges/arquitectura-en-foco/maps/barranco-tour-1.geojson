@@ -127,7 +127,7 @@
         "from": "mirador-catalina-recavarren",
         "to": "la-ermita-de-barranco",
         "road_distance_m": 92.8,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -209,7 +209,7 @@
         "from": "la-ermita-de-barranco",
         "to": "puente-de-los-suspiros-bajada-de-banos",
         "road_distance_m": 44.2,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -247,7 +247,7 @@
         "from": "puente-de-los-suspiros-bajada-de-banos",
         "to": "iglesia-santisima-cruz",
         "road_distance_m": 201.3,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -325,7 +325,7 @@
         "from": "iglesia-santisima-cruz",
         "to": "parque-municipal-y-entorno-civico",
         "road_distance_m": 110.4,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -383,7 +383,7 @@
         "from": "parque-municipal-y-entorno-civico",
         "to": "biblioteca-municipal-de-barranco",
         "road_distance_m": 96,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -425,7 +425,7 @@
         "from": "biblioteca-municipal-de-barranco",
         "to": "museo-de-la-electricidad-tranvia",
         "road_distance_m": 62.1,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
@@ -455,7 +455,7 @@
         "from": "museo-de-la-electricidad-tranvia",
         "to": "museo-pedro-de-osma-y-av-pedro-de-osma",
         "road_distance_m": 585.4,
-        "source_retrieved_at": "2026-08-31T14:46:28.010657+00:00"
+        "source_retrieved_at": "2026-09-03T00:26:22.093162+00:00"
       },
       "geometry": {
         "coordinates": [
