@@ -6,18 +6,27 @@ import json
 import math
 import os
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import qa_matrix  # noqa: E402  (needs the path above)
+import repair_architecture_route_snapshot as repair_snapshot  # noqa: E402
+import repair_architecture_route_ux as route_ux  # noqa: E402
 OUT = ROOT / "architectural_photography/qa/rounds/round5"
 URL = os.environ.get("ARCHITECTURE_QA_URL", "http://127.0.0.1:8766/challenges/arquitectura-en-foco/")
-VIEWPORTS = ((390, 844), (430, 932), (844, 390), (932, 430), (820, 1000), (1440, 1100))
+VIEWPORTS = qa_matrix.REQUIRED_VIEWPORTS
 
 
 def straight_distance_m(first: dict, second: dict) -> float:
-    latitude = math.radians((first["latitude"] + second["latitude"]) / 2)
-    dx = math.radians(second["longitude"] - first["longitude"]) * math.cos(latitude)
-    dy = math.radians(second["latitude"] - first["latitude"])
-    return 6_371_000 * math.hypot(dx, dy)
+    """Delegate to the formula the route builder actually used.
+
+    This file previously carried its own equirectangular approximation, so
+    the geometry checks validated the routes against a second, hand-rolled
+    implementation instead of the production one.
+    """
+    return route_ux.haversine_m(first, second)
 
 
 def geometry_bounds(layer: dict) -> dict | None:
@@ -42,7 +51,7 @@ def detour_ratios(layer: dict) -> list[float]:
 def route_assessment(longest: dict | None, maximum_detour: float) -> str:
     if longest is None:
         return "single verified map point; no tour claimed"
-    if longest["road_distance_m"] > 800:
+    if longest["road_distance_m"] > repair_snapshot.MAX_TOUR_TRANSFER_M:
         return "retained endpoint transfer; splitting would isolate a scene"
     if maximum_detour > 1.8:
         return "short road-conforming detour; barrier pattern disclosed"
@@ -67,7 +76,7 @@ def route_forensics() -> list[dict]:
             "stops": len(layer["stops"]),
             "total_road_distance_m": round(sum(distances), 1),
             "longest_leg": longest_summary,
-            "long_leg_warning": bool(longest and longest["road_distance_m"] > 800),
+            "long_leg_warning": bool(longest and longest["road_distance_m"] > repair_snapshot.MAX_TOUR_TRANSFER_M),
             "maximum_road_to_straight_ratio": maximum_detour,
             "geometry_bounds": geometry_bounds(layer),
             "screenshot": f"architectural_photography/qa/rounds/round5/route_layers/{layer_slug}.png",
@@ -84,6 +93,7 @@ def layout_description(width: int, height: int, columns: int, cards: int, overfl
 
 def inspect(browser, width: int, height: int) -> dict:
     page = browser.new_page(viewport={"width": width, "height": height})
+    qa_matrix.harden(page)
     errors, console_errors, failed = [], [], []
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)

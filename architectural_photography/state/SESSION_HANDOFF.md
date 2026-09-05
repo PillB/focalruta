@@ -876,3 +876,78 @@ anotado como el primer arreglo de la próxima ronda.
 **Siguiente acción sugerida.** Esa deduplicación de CI, y después la deuda ya
 registrada: la óptica JS duplicada del laboratorio óptico raíz, los umbrales de
 ruta repetidos, los `VIEWPORTS` divergentes y los colgados sin guarda.
+
+## Ronda 10 · Verdad única y colgados acotados (2026-09-04)
+
+**Objetivo.** La deuda registrada al cerrar la ronda 9: duplicación de constantes
+y operaciones que se cuelgan en vez de fallar. Requisitos: **N01, N02, M01, M04,
+M05, K04, O03**.
+
+### Lo que resultó no ser sólo duplicación
+
+Cuatro guiones de navegador llevaban su copia de la matriz N01 y otros dos una
+**distinta y más corta**. El problema de fondo no era la repetición: era que
+`browser_release_qa.py` y `live_pages_qa.py` comprobaban **tres** viewports —uno
+de ellos **1440×1000**, que N01 no nombra— frente a los **seis** que
+`REQUIREMENTS_INVENTORY.md:144` marca como MUST. La duplicación escondía un
+incumplimiento de contrato.
+
+`scripts/qa_matrix.py` centraliza la matriz y un test la compara contra la línea
+N01 del inventario. **Efecto medido: 234 → 246 checks, cero fallos.** Los cuatro
+viewports que nadie probaba ya estaban bien; ahora se verifican. La puerta de
+release dejó de comparar un total opaco y comprueba **cobertura**: el informe
+declara qué viewports recorrió y el verificador exige que sean exactamente los de
+N01, nombrando los que falten o sobren.
+
+### Colgados convertidos en fallos
+
+`page.evaluate` no tiene tiempo límite propio
+([playwright#13253](https://github.com/microsoft/playwright/issues/13253), abierto)
+y `navigator.serviceWorker.ready` **nunca se rechaza** por especificación. Cuatro
+`await` podían bloquear una sesión entera: los dos de `serviceWorker.ready`, el
+barrido de recursos y el de decodificación de imágenes. `qa_matrix.bounded_async()`
+mete la carrera **dentro** del JavaScript, que es el único sitio donde puede
+rechazar. Como defensa en profundidad, `harden()` en siete puntos de creación de
+página y un límite global en `pytest.ini`.
+
+### Mi propia prueba nueva era un falso verde
+
+El contrato «ningún `await` sin límite» pasaba con 17 verdes mientras dos
+colgados seguían ahí: la regex no codiciosa se cerraba en las comillas del propio
+JavaScript y truncaba el cuerpo, así que informaba de **cero** casos. Se sustituyó
+por análisis con `ast` y una meta-prueba que exige ver ≥15 llamadas y ≥1 con
+`await`. Entonces se puso en rojo y encontró los dos reales.
+
+Por la misma razón el guardián de óptica se refactorizó a la función pura
+`optics_drift()`, ejercitada en ambas direcciones.
+
+### Corrección a la ronda 9
+
+Afirmé que las dos copias JavaScript de la óptica «se publican». **Es falso.**
+Sólo `upgrade_optics_accessibility.py` es la viva; el marcador de
+`sota_upgrade.py` (`maxScene=30`) no aparece en `index.html` y nada lo invoca.
+Una copia viva más código superado, no dos copias en producción.
+
+### También
+
+Umbral de transferencia y fórmula de distancia importados en vez de retecleados;
+la regeneración deja de correr dos veces en CI (se salta bajo `GITHUB_ACTIONS`),
+revirtiendo el coste de 30 s → 95 s que yo mismo introduje.
+
+### Evidencia
+
+| Comando | Resultado |
+|---|---|
+| `python3 -m pytest -q` | **286 pass**, 1 skip (antes 265) |
+| `verify_architecture.py` / `verify_release.py` | `passed: true` |
+| Ruff C901 pinned 0.12.11 | limpio |
+| 5 suites de navegador | pass, 6 viewports, SW/offline/no-JS |
+| Matriz de navegador | 234 → **246 checks**, cero fallos |
+
+### Deuda que permanece
+
+- `research_video_ledger.py:71,73` sigue sin tiempo límite; no está en ningún
+  ciclo automático.
+- `pytest.ini` declara `timeout = 600`, pero sin `pytest-timeout` instalado
+  pytest lo ignora con un aviso. CI lo instala; en local no hay red salvo que se
+  instale a mano. El archivo lo dice explícitamente.

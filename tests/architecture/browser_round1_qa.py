@@ -8,17 +8,22 @@ import os
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import qa_matrix  # noqa: E402  (needs the path above)
 OUT = ROOT / "architectural_photography" / "qa" / "rounds" / "round1"
 URL = os.environ.get("ARCHITECTURE_QA_URL", "http://127.0.0.1:8766/challenges/arquitectura-en-foco/")
-VIEWPORTS = ((390, 844), (430, 932), (844, 390), (932, 430), (820, 1000), (1440, 1100))
+VIEWPORTS = qa_matrix.REQUIRED_VIEWPORTS
 EXPECTED_RANKING_COUNT = len(json.loads((ROOT / "data/architecture/ranking.json").read_text(encoding="utf-8"))["results"])
 
 
 def inspect_viewport(browser, width: int, height: int) -> dict:
     page = browser.new_page(viewport={"width": width, "height": height})
+    qa_matrix.harden(page)
     page_errors, console_errors, failed = [], [], []
     page.on("pageerror", lambda error: page_errors.append(str(error)))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)

@@ -8,6 +8,7 @@ import zipfile
 from pathlib import Path
 import artifact_diff
 import hashlib
+import qa_matrix
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / "data/plans.json").read_text(encoding="utf-8"))
@@ -135,7 +136,7 @@ if bundle.is_file():
             if member in names:
                 check_equal(source.read_bytes(), archive.read(member), f"bundle current parity: {member}")
 
-def check_evidence(report_name: str, expected_checks: int) -> None:
+def check_evidence(report_name: str, minimum_checks: int) -> None:
     """A QA report is evidence only while it still matches what it audited."""
     report_path = ROOT / report_name
     check(report_path.is_file(), f"{report_name} exists")
@@ -143,7 +144,8 @@ def check_evidence(report_name: str, expected_checks: int) -> None:
         return
     report = json.loads(report_path.read_text(encoding="utf-8"))
     check(report.get("passed") is True, f"{report_name} passes")
-    check(report.get("checks") == expected_checks, f"{report_name} has full {expected_checks}-check scope")
+    check(report.get("checks", 0) >= minimum_checks,
+          f"{report_name} scope shrank: {report.get('checks')} checks, expected at least {minimum_checks}")
     audited = report.get("audited_artifacts")
     check(bool(audited), f"{report_name} records which artefacts it audited")
     for path, recorded in (audited or {}).items():
@@ -156,12 +158,21 @@ def check_evidence(report_name: str, expected_checks: int) -> None:
                   f"{report.get('audited_at', 'an unrecorded time')}; re-run its generator")
 
 
-for report_name, expected_checks in (
+for report_name, minimum_checks in (
     ("CURRENT_BROWSER_QA.json", 234),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
 ):
-    check_evidence(report_name, expected_checks)
+    check_evidence(report_name, minimum_checks)
+
+# Coverage, not an opaque total: the browser matrix must span every viewport N01
+# mandates. Two scripts previously tested three sizes, one of which N01 does not
+# name, and the shortfall was invisible behind a check count.
+browser_qa = json.loads((ROOT / "CURRENT_BROWSER_QA.json").read_text(encoding="utf-8"))
+covered = {tuple(viewport) for viewport in browser_qa.get("viewports", [])}
+check(covered == set(qa_matrix.REQUIRED_VIEWPORTS),
+      f"browser QA must cover the N01 matrix; missing "
+      f"{sorted(set(qa_matrix.REQUIRED_VIEWPORTS) - covered)}, extra {sorted(covered - set(qa_matrix.REQUIRED_VIEWPORTS))}")
 
 hosted_metrics = ROOT / "dist/canon6d_sota_hosted/BUILD_METRICS.json"
 check(hosted_metrics.is_file(), "hosted build metrics exist")

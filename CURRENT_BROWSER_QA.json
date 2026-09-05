@@ -1,6 +1,32 @@
 {
   "passed": true,
-  "checks": 234,
+  "checks": 246,
+  "viewports": [
+    [
+      390,
+      844
+    ],
+    [
+      430,
+      932
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      932,
+      430
+    ],
+    [
+      820,
+      1000
+    ],
+    [
+      1440,
+      1100
+    ]
+  ],
   "failures": [],
   "results": [
     {
@@ -10,6 +36,36 @@
     },
     {
       "name": "standalone 390 no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 430 no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone 430 no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 844 no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone 844 no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 932 no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone 932 no page errors",
       "pass": true,
       "detail": []
     },
@@ -478,6 +534,36 @@
     },
     {
       "name": "hosted 390 no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 430 no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "hosted 430 no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 844 no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "hosted 844 no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 932 no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "hosted 932 no page errors",
       "pass": true,
       "detail": []
     },
@@ -1210,10 +1296,11 @@
       "detail": []
     }
   ],
-  "audited_at": "2026-09-03T19:47:41.328933+00:00",
+  "audited_at": "2026-09-04T02:03:03.508237+00:00",
   "audited_commit": "",
   "audited_artifacts": {
     "data/plans.json": "789f3f862c5e1645d317316ca42f1b91876e45659094da5c33febc39521b5bb2",
+    "dist/canon6d_sota_hosted/index.html": "ecb5a14a252ecdaa89b245f7b43e91664374acc0db0ba55e83c559de9b1838a0",
     "field_card.html": "fd9d263f99aa932f3601df064f1f962a0c2ad1cad24f46297301f1750501e207",
     "index.html": "0db6db0dc37875bd08c0fb55d2f67955599383f03c3f0e84ab59ba7c73ea4057",
     "plans/plan_a.html": "ee8d2c4f1f7b9a2bf69e499d95ef5e60a686ea463a4c88e05112723fac91f9f8",
