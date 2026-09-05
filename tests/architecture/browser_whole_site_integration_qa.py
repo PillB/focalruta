@@ -8,13 +8,17 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import qa_matrix  # noqa: E402  (needs the path above)
 PUBLIC_ROOT = ROOT / "dist/canon6d_sota_hosted"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 OUT = ROOT / "architectural_photography/qa/final/whole_site_integration"
-VIEWPORTS = ((390, 844), (430, 932), (844, 390), (932, 430), (820, 1000), (1440, 1100))
+VIEWPORTS = qa_matrix.REQUIRED_VIEWPORTS
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -25,6 +29,7 @@ class QuietHandler(SimpleHTTPRequestHandler):
 def inspect_viewport(browser, base_url: str, width: int, height: int) -> dict:
     context = browser.new_context(viewport={"width": width, "height": height})
     page = context.new_page()
+    qa_matrix.harden(page)
     errors: list[str] = []
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.goto(f"{base_url}/index.html", wait_until="domcontentloaded")

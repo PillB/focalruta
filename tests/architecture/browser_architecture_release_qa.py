@@ -8,9 +8,13 @@ import re
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import qa_matrix  # noqa: E402  (needs the path above)
 OUT = ROOT / "architectural_photography" / "qa" / "final" / "architecture_release"
 # Serve dist/canon6d_sota_hosted: only the hosted build registers the service
 # worker, and navigator.serviceWorker.ready never resolves without one.
@@ -25,11 +29,14 @@ def run() -> dict:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
         context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="allow")
         page = context.new_page()
+        qa_matrix.harden(page)
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
         page.on("requestfailed", lambda request: failed.append(request.url))
         page.goto(BASE, wait_until="networkidle")
-        page.evaluate("async()=>await navigator.serviceWorker.ready")
+        # `ready` never rejects by specification and page.evaluate cannot time a
+        # promise out (microsoft/playwright#13253), so the bound goes in the JS.
+        page.evaluate(qa_matrix.bounded_async("navigator.serviceWorker.ready"))
         page.get_by_role("link", name="Abrir fotografía arquitectónica").click()
         page.locator("#contract").fill("Conecta calle, umbral, sombra y vida cotidiana")
         page.locator("#verbs").fill("cruzar, esperar, mirar, conversar, descansar")
@@ -52,6 +59,7 @@ def run() -> dict:
 
         nojs = browser.new_context(viewport={"width": 390, "height": 844}, java_script_enabled=False)
         fallback = nojs.new_page()
+        qa_matrix.harden(fallback)
         fallback.goto(BASE + "challenges/arquitectura-en-foco/", wait_until="domcontentloaded")
         nojs_text = fallback.locator("noscript").inner_text()
         # one camera-only exercise per lab must survive without JavaScript

@@ -208,3 +208,111 @@ dato, no de lo que ve el lector.
   `set_default_timeout` en todos los guiones y de `pytest-timeout` en la suite.
 - `research_video_ledger.py:71,73` llama a la API de transcripciones sin límite
   de tiempo: la misma clase que ya costó una tarde en las rutas.
+
+---
+
+# Continuación · 2026-09-04 · duplicación y colgados
+
+La ronda anterior dejó estos puntos como deuda explícita. Se atacan con el mismo
+método: prior art → opciones ordenadas → prueba sobre el artefacto real →
+comparación medida → RED/GREEN.
+
+## 8. La matriz de viewports era tres listas, y una incumplía el contrato
+
+**Síntoma.** Ninguno visible. Cuatro guiones de navegador llevaban cada uno su
+copia de la tupla N01, y otros dos llevaban una **distinta y más corta**.
+
+**Causa raíz.** No es sólo duplicación: `REQUIREMENTS_INVENTORY.md:144` exige
+como **N01 MUST** seis viewports —390×844, 430×932, 844×390, 932×430, 820×1000 y
+1440×1100— pero `browser_release_qa.py` y `live_pages_qa.py` comprobaban
+**tres**, y una de ellas era **1440×1000**, un tamaño que N01 no nombra. La
+cobertura obligatoria estaba incompleta y la duplicación lo ocultaba.
+
+**Implementado.** `scripts/qa_matrix.py` define `REQUIRED_VIEWPORTS` una sola vez
+y los seis guiones la importan. Un test compara la tupla con la línea N01 del
+propio inventario, así que la lista no puede divergir del requisito sin fallar.
+
+**Efecto medido, no supuesto.** La matriz de navegador pasó de **234 a 246
+checks, con cero fallos**: los cuatro viewports que N01 exigía y nadie probaba ya
+estaban bien, pero ahora se verifican de verdad. La puerta de release dejó de
+comparar un número opaco y ahora comprueba **cobertura**: el informe declara qué
+viewports recorrió y `verify_release.py` exige que ese conjunto sea exactamente
+el de N01, nombrando los que falten o sobren.
+
+## 9. Cuatro `await` que no podían fallar, sólo colgarse
+
+**Prior art consultado.** [microsoft/playwright#13253](https://github.com/microsoft/playwright/issues/13253)
+sigue **abierto**: `page.evaluate` no tiene tiempo límite propio; su argumento
+`timeout` cubre la disponibilidad del elemento, no la promesa. Y
+[MDN](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/ready)
+documenta que `navigator.serviceWorker.ready` **espera indefinidamente** por
+diseño y nunca se rechaza. No es un defecto que corregir: es una propiedad
+contra la que hay que protegerse.
+
+**Opciones ordenadas y comparadas.**
+
+| Opción | Veredicto |
+|---|---|
+| `Promise.race` **dentro** del JavaScript evaluado | ✔ corrige en el origen: el navegador rechaza y Python nunca se bloquea |
+| `set_default_timeout` | parcial: cubre localizadores y navegación, **no hace nada** por `evaluate` |
+| `pytest-timeout` | sólo red de seguridad; los guiones de QA no los recoge pytest |
+| Hilo en Python con `join(timeout)` | deja el navegador colgado y filtra el hilo |
+
+Se implementó la primera como corrección y las dos siguientes como defensa en
+profundidad: `qa_matrix.bounded_async()` envuelve la expresión, `harden()` fija
+tiempos explícitos en siete puntos de creación de página, y `pytest.ini` añade un
+límite global.
+
+**Cuatro sitios corregidos:** `browser_architecture_release_qa.py:32` y
+`live_pages_qa.py:148` (`serviceWorker.ready`), más el barrido de recursos —cada
+`fetch` con su `AbortSignal.timeout`— y el de decodificación de imágenes, donde
+`.catch()` sólo atrapaba rechazos, no una promesa que nunca se resuelve.
+
+## 10. Mi propia prueba nueva era un falso verde
+
+**Síntoma.** El contrato «ningún `await` sin límite» pasaba con 17 verdes
+mientras dos `await` sin límite seguían en el archivo.
+
+**Causa raíz.** La inspección usaba una expresión regular no codiciosa. El
+JavaScript contiene sus propias comillas (`'serviceWorker' in navigator`), así
+que el cierre `['\"]` disparaba antes de tiempo y **truncaba el cuerpo**: la
+palabra `await` quedaba fuera de la captura y la prueba informaba de cero casos.
+
+**Implementado.** Análisis con `ast` en vez de regex, más una **meta-prueba** que
+exige ver al menos 15 llamadas a `evaluate` y al menos una con `await`. Con ella
+el contrato se puso en rojo de inmediato y encontró los dos colgados reales.
+
+**Lección.** Una comprobación que sólo ha pasado no demuestra nada sobre lo que
+detectaría. Por eso el guardián de óptica se refactorizó a la función pura
+`optics_drift()`, ejercitada en ambas direcciones: constante intacta, constante
+desviada, dos desviadas a la vez y laboratorio ausente.
+
+## 11. Corrección a la ronda 9: la óptica JS no se publica dos veces
+
+La ronda 9 afirmó que las dos copias JavaScript de la óptica «se publican».
+**Es falso.** Sólo `upgrade_optics_accessibility.py` es la viva: su marcador de
+`stops`/`presets` está en `index.html`, mientras que el de `sota_upgrade.py`
+(`maxScene=30`) **no aparece** en la página y ningún guion invoca ese archivo.
+Es código superado, no una segunda copia en producción.
+
+El riesgo real es más estrecho: una copia viva que puede desviarse de
+`optics_physics.py`. Se cubre con un test que compara las constantes que
+**realmente se publican** (`coc`, `sw`) contra el módulo probado, y con otro que
+exige que la salida del generador superado no reaparezca.
+
+## 12. Coste de CI que yo mismo introduje
+
+La puerta de regeneración de la ronda 9 subió el workflow Quality de **30 s a
+95 s**, porque la regeneración corría dos veces: como paso de CI y otra vez
+dentro de `test_regenerating_leaves_the_tree_unchanged`. La prueba se salta ahora
+bajo `GITHUB_ACTIONS`, conservando su valor en local, donde ese paso no existe.
+
+## Deuda que permanece
+
+- `research_video_ledger.py:71,73` llama a la API de transcripciones sin tiempo
+  límite. Es la misma clase ya corregida dos veces; queda fuera porque ese guion
+  no forma parte de ningún ciclo automático.
+- `pytest.ini` declara `timeout = 600`, pero sin `pytest-timeout` instalado
+  pytest lo ignora con un aviso. CI lo instala; en local no hay red de seguridad
+  salvo que se instale a mano. El propio archivo lo dice ahora, para que nadie
+  suponga una protección que no está activa.

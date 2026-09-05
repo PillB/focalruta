@@ -16,12 +16,16 @@ import threading
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import qa_matrix  # noqa: E402  (needs the path above)
 OUT = ROOT / "architectural_photography/qa/rounds/round2/learning_labs"
 URL = os.environ.get("ARCHITECTURE_QA_URL", "http://127.0.0.1:8766/challenges/arquitectura-en-foco/")
-VIEWPORTS = ((390, 844), (430, 932), (844, 390), (932, 430), (820, 1000), (1440, 1100))
+VIEWPORTS = qa_matrix.REQUIRED_VIEWPORTS
 COMPOSITION_MODES = ("default-postcard", "changed-position", "fixed-position-focal", "human-presence", "light-weather")
 
 
@@ -173,6 +177,7 @@ def check_composition(page) -> dict:
 
 def inspect(browser, width: int, height: int, url: str = URL) -> dict:
     page = browser.new_page(viewport={"width": width, "height": height})
+    qa_matrix.harden(page)
     errors, console_errors = [], []
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)

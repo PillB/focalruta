@@ -4,9 +4,12 @@ Requirements: L05, M04, M05, O03. `git diff --exit-code` after regeneration is
 only a valid staleness gate if the generators are deterministic and the
 entrypoint covers them.
 """
+import os
 import subprocess
 import sys
 from pathlib import Path
+
+import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / "scripts/regenerate_all.py"
@@ -40,8 +43,16 @@ def test_entrypoint_covers_every_deterministic_generator():
     assert all((ROOT / "scripts" / script).is_file() for script in covered)
 
 
+@pytest.mark.skipif(
+    os.environ.get("GITHUB_ACTIONS") == "true",
+    reason="the workflow already runs regenerate_all followed by git diff --exit-code",
+)
 def test_regenerating_leaves_the_tree_unchanged():
-    """Deterministic generators must not dirty a clean tree."""
+    """Deterministic generators must not dirty a clean tree.
+
+    Skipped in CI because the workflow runs the same regeneration as a dedicated
+    step; running it twice doubled the Quality job from 30 s to 95 s.
+    """
     before = _tracked_state()
     completed = subprocess.run(
         [sys.executable, str(SCRIPT)], cwd=ROOT, capture_output=True, text=True, timeout=1800

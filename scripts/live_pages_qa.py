@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+import qa_matrix
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = "https://pillb.github.io/focalruta/"
@@ -33,7 +34,7 @@ with sync_playwright() as pw:
     browser = pw.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
 
     # Responsive navigation/runtime checks against the actual public origin.
-    for width, height in (() if FAST_PHASE else ((390, 844), (820, 1000), (1440, 1000))):
+    for width, height in (() if FAST_PHASE else qa_matrix.REQUIRED_VIEWPORTS):
         page = browser.new_page(viewport={"width": width, "height": height})
         errors, failed = [], []
         page.on("pageerror", lambda error: errors.append(str(error)))
@@ -61,7 +62,7 @@ with sync_playwright() as pw:
       for(const plan of PLANS_DATA.plans)for(const subject of ['human','dog'])for(const time of ['day','afternoon','night']){
         selectPlan(plan.id);setVariant(subject);setTime(time);states++;
         const cs=[...document.querySelectorAll('#plan-detail-content .shot-card')],xs=cs.flatMap(c=>[...c.querySelectorAll('img')]);cards+=cs.length;images+=xs.length;
-        if(time==='day'){xs.forEach(x=>x.loading='eager');await Promise.all(xs.map(x=>x.decode().catch(()=>null)));broken.push(...xs.filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src))}
+        if(time==='day'){xs.forEach(x=>x.loading='eager');await Promise.all(xs.map(x=>Promise.race([x.decode().catch(()=>null),new Promise(r=>setTimeout(r,10000))])));broken.push(...xs.filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src))}
         if(cs.length!==10||xs.length!==10)failures.push([plan.id,subject,time,cs.length,xs.length]);
       }return{states,cards,images,failures,broken:[...new Set(broken)]}}""", os.environ.get('LIVE_QA_SKIP_IMAGES') == '1')
     record("live full 36-state plan matrix", plan_matrix["states"] == 36 and not plan_matrix["failures"], plan_matrix)
@@ -145,13 +146,16 @@ with sync_playwright() as pw:
     initial = page.locator("#visibility-toggle").get_attribute("aria-pressed"); page.locator("#visibility-toggle").click(); toggled = page.locator("#visibility-toggle").get_attribute("aria-pressed"); page.reload(wait_until="networkidle"); persisted = page.locator("body").evaluate("b=>b.classList.contains('sun-mode')")
     record("live sunlight mode changes and persists", initial != toggled and persisted, [initial, toggled, persisted])
     page.reload(wait_until="networkidle")
-    sw = page.evaluate("async()=>{if(!('serviceWorker' in navigator))return{supported:false};const reg=await navigator.serviceWorker.ready;return{supported:true,scope:reg.scope,controlled:!!navigator.serviceWorker.controller}}")
+    sw = page.evaluate(qa_matrix.bounded_async(
+        "!('serviceWorker' in navigator)?{supported:false}:navigator.serviceWorker.ready"
+        ".then(reg=>({supported:true,scope:reg.scope,controlled:!!navigator.serviceWorker.controller}))"))
     record("live service worker correct project scope", sw.get("supported") and sw.get("scope") == URL, sw)
     record("live page controlled by service worker", sw.get("controlled"), sw)
     print('live QA: dialogs/state/PWA complete', flush=True)
 
     # Every same-origin authored route/resource must return successfully.
-    resources = page.evaluate("""async()=>{const urls=[...new Set([...document.querySelectorAll('a[href],link[href],script[src],img[src]')].map(e=>new URL(e.getAttribute('href')||e.getAttribute('src'),location.href).href).filter(x=>x.startsWith(location.origin)&&!x.startsWith('data:')))];const rows=[];for(const url of urls){try{const r=await fetch(url);rows.push([url,r.status,r.ok,r.headers.get('content-type')])}catch(e){rows.push([url,0,false,String(e)])}}return rows}""")
+    resources = page.evaluate(qa_matrix.bounded_async(
+        "(async()=>{const urls=[...new Set([...document.querySelectorAll('a[href],link[href],script[src],img[src]')].map(e=>new URL(e.getAttribute('href')||e.getAttribute('src'),location.href).href).filter(x=>x.startsWith(location.origin)&&!x.startsWith('data:')))];const rows=[];for(const url of urls){try{const r=await fetch(url,{signal:AbortSignal.timeout(15000)});rows.push([url,r.status,r.ok,r.headers.get('content-type')])}catch(e){rows.push([url,0,false,String(e)])}}return rows}()", 120000))
     record("live all authored same-origin resources resolve", all(row[2] for row in resources), [row for row in resources if not row[2]])
     record("live no accumulated runtime errors", not errors, errors)
     record("live no failed project requests", not [x for x in failed if x.startswith(URL)], failed[:20])
