@@ -52,3 +52,40 @@ def test_agent_contract_requires_expert_rejection_and_fail_fast_evidence():
     claude = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
     assert "`AGENTS.md`" in claude
     assert "/Users/pabloillescas/Documents/GitHub/focalruta/AGENTS.md" in claude
+
+
+def test_every_third_party_import_in_the_suite_is_declared():
+    """A dependency present locally but absent in CI is the failure this file prevents."""
+    import ast
+
+    stdlib_or_local = {
+        "json", "os", "re", "sys", "ast", "math", "shutil", "hashlib", "pathlib", "subprocess",
+        "datetime", "typing", "collections", "functools", "http", "threading", "time", "zipfile",
+        "importlib", "tempfile", "itertools", "urllib", "atexit", "argparse", "difflib", "dataclasses",
+        "xml", "scripts", "tests",
+    }
+    # Import name differs from distribution name for some packages.
+    provided_by = {"PIL": "pillow", "yt_dlp": "yt-dlp", "youtube_transcript_api": "youtube-transcript-api"}
+    declared = {
+        line.split("==")[0].strip().lower()
+        for line in (ROOT / "requirements-dev.txt").read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.startswith("#")
+    }
+    missing = set()
+    for path in sorted((ROOT / "tests").rglob("test_*.py")):
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        for node in ast.walk(tree):
+            names = []
+            if isinstance(node, ast.Import):
+                names = [alias.name.split(".")[0] for alias in node.names]
+            elif isinstance(node, ast.ImportFrom) and node.level == 0 and node.module:
+                names = [node.module.split(".")[0]]
+            for name in names:
+                if name in stdlib_or_local or name.lower() in declared:
+                    continue
+                if provided_by.get(name, "") in declared:
+                    continue
+                if (ROOT / "scripts" / f"{name}.py").is_file() or (ROOT / f"{name}.py").is_file():
+                    continue
+                missing.add(name)
+    assert not missing, f"imported by the suite but not in requirements-dev.txt: {sorted(missing)}"
