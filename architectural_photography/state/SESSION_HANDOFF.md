@@ -951,3 +951,23 @@ revirtiendo el coste de 30 s → 95 s que yo mismo introduje.
 - `pytest.ini` declara `timeout = 600`, pero sin `pytest-timeout` instalado
   pytest lo ignora con un aviso. CI lo instala; en local no hay red salvo que se
   instale a mano. El archivo lo dice explícitamente.
+
+### Cierre de la ronda 10 · fusionado y verificado en vivo
+
+PR #17 fusionado en `main` (`9d63acd`); **Quality** y **Deploy to Pages** en verde.
+
+Contra `https://pillb.github.io/focalruta/`: la página del reto en vivo es **byte
+a byte idéntica** a la generada y publica los nueve laboratorios. La matriz de
+navegador registra **246 checks sobre los seis viewports de N01**, y el bloque
+`measured` del estado lo refleja: `current_browser_qa_checks = 246`.
+
+**Coste de CI recuperado.** El workflow Quality bajó de **95 s a 69 s**
+(02:15:48 → 02:16:57) tras dejar de regenerar dos veces. La ronda 9 lo había
+subido de 30 s a 95 s; queda en 69 s, que incluye la puerta de staleness y una
+suite un 8 % mayor.
+
+**Siguiente acción sugerida.** La deuda restante es pequeña y está acotada:
+`research_video_ledger.py:71,73` sin tiempo límite (fuera de todo ciclo
+automático) e instalar `pytest-timeout` en local si se quiere la misma red que
+tiene CI. Por lo demás, el enlace peatonal de 854 m entre Puente Villena y
+Larcomar sigue siendo la comprobación de campo con más valor pendiente.
