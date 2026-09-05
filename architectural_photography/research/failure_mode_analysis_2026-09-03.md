@@ -380,3 +380,47 @@ Cerrada. Del inventario que abrió estas rondas —diagnóstico imposible, evide
 caducada, estado sin respaldo, duplicación de verdad, colgados silenciosos y
 pruebas tautológicas— no queda ningún punto abierto. Lo que resta es de campo,
 no de código: comprobar a pie el enlace de 854 m entre Puente Villena y Larcomar.
+
+## 15. Publicación no atómica del build hospedado (incidente propio)
+
+**Síntoma.** Un `git commit` de esta sesión registró **176 borrados espurios** de
+`dist/canon6d_sota_hosted`, con los archivos presentes en disco.
+
+**Primera hipótesis (descartada).** Que algo los ignorara. `git check-ignore -v`
+no devolvió nada y no había `.gitignore` dentro de `dist/`.
+
+**Causa raíz.** `build_dual_release.py:7` hacía `shutil.rmtree(OUT)` y volvía a
+poblar el árbol durante varios segundos. Yo ejecuté `git add -A` mientras una
+suite en segundo plano —cuya prueba de regeneración reconstruye `dist/`— estaba
+justo en esa ventana. **La publicación no era atómica**, así que cualquier lector
+del directorio en ese instante veía un árbol vacío o parcial: una tarea de CI, un
+guion de QA o, como aquí, un `git add`.
+
+El repositorio ya tenía el patrón correcto en
+`build_architecture_routes.publish_downloads`: preparar aparte y cambiar de golpe.
+
+**Implementado.** El build escribe en `dist/.canon6d_sota_hosted.staging` y sólo
+al final, con todo correcto, hace el intercambio con `os.replace`. Un `atexit`
+retira el staging si el build falla, para no dejar basura. Quien lea `dist/` ve
+la publicación anterior o la nueva, nunca una a medias.
+
+**Prueba de comportamiento, no de texto.** Se rompe el build a propósito
+—eliminando `field_card.html`, que se copia ya empezado el árbol— y se exige que
+la publicación anterior siga **intacta**. Antes del arreglo esa prueba destruía
+el árbol publicado; ahora conserva los 244 archivos.
+
+**Dos defectos más que salieron de ahí.**
+
+1. `shutil.copytree` publicaba `.DS_Store` en el sitio. Ahora se excluye.
+2. El build **copiaba `data/plans.json` sin mirarlo**: mi inyección de fallo dejó
+   un fragmento corrupto de 16 bytes publicado y el build informó de éxito. Ahora
+   valida el JSON antes de copiarlo y se niega a publicar datos ilegibles. Fue el
+   propio `artifact_diff` de la ronda 9 el que localizó la contaminación:
+   `first difference at offset 1 of 153950`.
+
+**Lección de proceso.** Estas pruebas tienen que romper cosas reales para
+demostrar que el build falla con seguridad, y una interrupción a mitad dejaba el
+repositorio dañado —me borró `field_card.html` una vez—. La restauración pasó a
+hacerse con `git checkout --` en el desmontaje del fixture, de modo que el
+archivo vuelve byte a byte aunque la copia de respaldo hubiera fallado, y el
+fixture barre además cualquier staging huérfano.

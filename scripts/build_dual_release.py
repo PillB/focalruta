@@ -1,11 +1,23 @@
 from pathlib import Path
 from PIL import Image
-import re, shutil, hashlib, json, os
+import re, shutil, hashlib, json, os, atexit, tempfile
 
 SRC=Path(__file__).resolve().parents[1]
-OUT=SRC/'dist'/'canon6d_sota_hosted'
-if OUT.exists(): shutil.rmtree(OUT)
+PUBLISHED=SRC/'dist'/'canon6d_sota_hosted'
+# Build into a staging directory and swap it in only once everything succeeded.
+# Rebuilding in place left dist/ empty or partial for seconds, so anything that
+# read it in that window — a QA script, CI, or `git add -A` — saw a broken tree.
+# Same reason build_architecture_routes.publish_downloads stages before it swaps.
+# A unique staging directory per run: a fixed one lets two concurrent builds
+# clobber each other, which is how a test suite running the build twice managed
+# to publish a half-written tree.
+(SRC/'dist').mkdir(parents=True,exist_ok=True)
+OUT=Path(tempfile.mkdtemp(prefix='.canon6d_sota_hosted.staging.',dir=SRC/'dist'))
 (OUT/'assets').mkdir(parents=True); (OUT/'data').mkdir(); (OUT/'diagrams-webp').mkdir(); (OUT/'plans').mkdir(); (OUT/'downloads').mkdir(); (OUT/'.github/workflows').mkdir(parents=True)
+# A failed build must not leave its staging tree behind. On success the swap
+# below renames OUT away, so this becomes a no-op.
+atexit.register(lambda: shutil.rmtree(OUT, ignore_errors=True))
+IGNORE_JUNK=shutil.ignore_patterns('.DS_Store')
 
 # Convert diagrams to lossless WebP once: exact diagram text/lines, granular lazy assets.
 img_meta={}
@@ -29,6 +41,10 @@ html=html.replace('</head>','<link rel="stylesheet" href="./assets/hosted.css">\
 html,n=re.subn(r'<script>\s*const PLANS_DATA = .*?;\s*</script>', '<script src="./data/plans_embedded.js"></script>',html,count=1,flags=re.S)
 if n!=1: raise RuntimeError('PLANS_DATA block not found')
 shutil.copy2(SRC/'data/plans_embedded.js',OUT/'data/plans_embedded.js')
+# Refuse to publish canonical data that is not parseable. Copying it blindly once
+# put a corrupt 16-byte stub on the site and the build still reported success.
+try: json.loads((SRC/'data/plans.json').read_text(encoding='utf-8'))
+except json.JSONDecodeError as error: raise RuntimeError(f'data/plans.json is not valid JSON: {error}') from error
 shutil.copy2(SRC/'data/plans.json',OUT/'data/plans.json')
 
 # Externalize dynamic images: no 12MB inline asset map.
@@ -55,8 +71,8 @@ html=html.replace('</body>','<div class="hosted-badge no-print" style="position:
 (OUT/'index.html').write_text(html,encoding='utf-8')
 
 # Native challenge and its public canonical data.
-shutil.copytree(SRC/'challenges',OUT/'challenges')
-shutil.copytree(SRC/'data'/'architecture',OUT/'data'/'architecture')
+shutil.copytree(SRC/'challenges',OUT/'challenges',ignore=IGNORE_JUNK)
+shutil.copytree(SRC/'data'/'architecture',OUT/'data'/'architecture',ignore=IGNORE_JUNK)
 
 # Standalone canonical file kept separately, unmodified behavior.
 shutil.copy2(SRC/'index.html',OUT/'FocalRuta_STANDALONE.html')
@@ -90,4 +106,12 @@ metrics={
 }
 (OUT/'BUILD_METRICS.json').write_text(json.dumps(metrics,indent=2),encoding='utf-8')
 (OUT/'README.md').write_text('''# FocalRuta — SOTA dual release\n\n- `index.html`: hosted/PWA target; lean HTML, external CSS/data and granular lazy WebP diagrams.\n- `FocalRuta_STANDALONE.html`: single-file iPhone/offline attachment target.\n- `field_card.html`: quick operational card.\n- `plans/`: individual self-contained plan pages.\n- `diagrams-webp/`: hosted diagram assets.\n- `sw.js`: versioned shell/runtime cache.\n- `.github/workflows/pages.yml`: GitHub Pages workflow.\n''',encoding='utf-8')
+
+# Everything above succeeded, so publish in one step. A reader of dist/ sees
+# either the previous build or this one, never a half-written tree.
+_retired=Path(tempfile.mkdtemp(prefix='.canon6d_sota_hosted.retired.',dir=SRC/'dist'))/'previous'
+if PUBLISHED.exists(): os.replace(PUBLISHED,_retired)
+os.replace(OUT,PUBLISHED)
+shutil.rmtree(_retired.parent,ignore_errors=True)
+
 print(json.dumps(metrics,indent=2))

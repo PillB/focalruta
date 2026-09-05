@@ -27,3 +27,7 @@ LIVE_PAGES_QA.json
 camera_purchase/
 scripts/build_camera_value.py
 tests/camera_value/
+
+# Transient staging tree used by scripts/build_dual_release.py during an atomic
+# publish. Never committed; a leftover would otherwise fail the staleness gate.
+dist/.canon6d_sota_hosted.*
