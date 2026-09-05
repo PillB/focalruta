@@ -22,14 +22,21 @@ python3 scripts/verify_release.py
 ## Regenerating the Arquitectura en Foco challenge
 
 Generated HTML is build output, never edited by hand: `scripts/verify_architecture.py`
-re-renders the page and byte-compares it against the committed file. Run the
-generators in dependency order, then the gates:
+re-renders the page and byte-compares it against the committed file, reporting the
+byte offset and surrounding content when they differ.
+
+Install the same dependency set CI uses — including `pytest-timeout`, without which
+`pytest.ini`'s hang protection is silently inert:
 
 ```bash
-python3 scripts/build_architecture_learning_v2.py   # curriculum + video ledger
-python3 scripts/generate_architecture_pages.py      # challenge, wiki, field card, iPhone help
-python3 scripts/build_dual_release.py               # dist/canon6d_sota_hosted (what Pages serves)
+python3 -m pip install -r requirements-dev.txt
+```
 
+`scripts/regenerate_all.py` runs every deterministic generator in dependency order;
+CI runs it and then `git diff --exit-code`, so stale committed output fails the build:
+
+```bash
+python3 scripts/regenerate_all.py                   # add --with-browser-qa to refresh the QA reports
 python3 -m pytest -q
 python3 scripts/verify_architecture.py
 python3 scripts/verify_release.py

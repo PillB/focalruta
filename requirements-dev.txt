@@ -1,0 +1,22 @@
+# Everything needed to run the gates this repository enforces.
+#
+#   python3 -m pip install -r requirements-dev.txt
+#
+# The list used to exist only inside .github/workflows/quality.yml, so a
+# contributor's local environment could differ from CI without either noticing.
+# tests/test_repository_contract.py checks the workflow installs from this file.
+
+pytest
+# Without this, pytest silently ignores the `timeout` in pytest.ini and a hanging
+# test kills the run with no traceback instead of failing with a stack dump.
+pytest-timeout
+
+# Pinned: the complexity ceiling is only reproducible on the same Ruff release.
+ruff==0.12.11
+
+# Pinned: used to build the WebP assets in dist/, so the output is byte-stable.
+Pillow==11.3.0
+
+# Browser QA (tests/architecture/browser_*.py, scripts/live_pages_qa.py). Not
+# installed in CI, which runs no browser suite; needed locally to reproduce them.
+playwright

@@ -971,3 +971,54 @@ suite un 8 % mayor.
 automático) e instalar `pytest-timeout` en local si se quiere la misma red que
 tiene CI. Por lo demás, el enlace peatonal de 854 m entre Puente Villena y
 Larcomar sigue siendo la comprobación de campo con más valor pendiente.
+
+## Ronda 11 · Deuda pendiente cerrada (2026-09-04)
+
+**Objetivo.** Los dos puntos que quedaron anotados al cerrar la ronda 10.
+Requisitos: **K04, M01, M04, O03**.
+
+### El tercer «sólo puede colgarse, nunca fallar»
+
+Auditadas las cinco llamadas de red de `scripts/research_video_ledger.py`:
+`yt_dlp` con `socket_timeout: 20` ✓, dos `requests.get(..., timeout=30)` ✓ y
+**`api.list()` con `track.fetch()` sin plazo**. Sólo esas dos.
+
+[youtube-transcript-api#324](https://github.com/jdepoix/youtube-transcript-api/issues/324)
+sigue abierto: la biblioteca no ofrece tiempo límite. La trampa es que
+`requests.Session` tampoco tiene uno —`timeout` es argumento de cada petición—,
+así que **pasarle una sesión normal no habría servido de nada**.
+`scripts/bounded_http.py` inyecta el plazo en cada `request()` y respeta el que
+traiga la llamada; se entrega como `http_client` en el único punto de uso.
+
+Probado sin red y **sin la biblioteca instalada** (no está en este entorno),
+sustituyendo el `request` del padre por un grabador. Una prueba fija la razón de
+existir del módulo: si `requests` gana algún día un `timeout` de sesión, falla y
+avisa de que puede retirarse.
+
+### La lista de dependencias vivía sólo en el workflow
+
+El problema real no era el aviso `Unknown config option: timeout`, sino que la
+lista de dependencias existía **únicamente** dentro de `quality.yml`: el entorno
+local podía diferir del de CI sin que nada lo detectara. Es la misma duplicación
+de fuente de verdad ya corregida para la óptica, los umbrales y los viewports.
+
+`requirements-dev.txt` documenta cada dependencia y cada versión fijada, el
+workflow instala desde él, y una prueba nueva exige que siga siendo así y que
+`pytest-timeout` esté presente mientras `pytest.ini` declare un `timeout`.
+
+### Evidencia
+
+| Comando | Resultado |
+|---|---|
+| `python3 -m pytest -q` | **293 pass**, 1 skip (antes 286) |
+| `verify_architecture.py` / `verify_release.py` | `passed: true` |
+| Ruff C901 pinned 0.12.11 | limpio |
+| `regenerate_all.py` + comparación | no-op confirmado |
+
+### Estado
+
+La deuda del inventario que abrió estas rondas queda **cerrada**: diagnóstico,
+evidencia caducada, estado sin respaldo, duplicación de verdad, colgados
+silenciosos y pruebas tautológicas. Lo pendiente es de campo, no de código:
+caminar el enlace de 854 m entre Puente Villena y Larcomar y, si resulta
+practicable con cámara, subir el techo de 800 m con esa evidencia.
