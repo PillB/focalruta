@@ -12,6 +12,8 @@ import requests
 from youtube_transcript_api import YouTubeTranscriptApi
 from yt_dlp import YoutubeDL
 
+import bounded_http
+
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "architectural_photography" / "research" / "videos" / "VIDEO_LEDGER.json"
@@ -67,7 +69,9 @@ def transcript(video_id: str) -> tuple[dict, str | None]:
         if saved.get("segments"):
             return {"transcript_status": "CAPTURED", "transcript_path": path.relative_to(ROOT).as_posix()}, None
     try:
-        api = YouTubeTranscriptApi()
+        # The library has no timeout of its own, so the deadline is injected
+        # through the one hook it offers: the session it makes requests with.
+        api = YouTubeTranscriptApi(http_client=bounded_http.bounded_session())
         tracks = api.list(video_id)
         track = next(iter(tracks))
         fetched = track.fetch()

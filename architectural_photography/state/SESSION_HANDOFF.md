@@ -971,3 +971,85 @@ suite un 8 % mayor.
 automático) e instalar `pytest-timeout` en local si se quiere la misma red que
 tiene CI. Por lo demás, el enlace peatonal de 854 m entre Puente Villena y
 Larcomar sigue siendo la comprobación de campo con más valor pendiente.
+
+## Ronda 11 · Deuda pendiente cerrada (2026-09-04)
+
+**Objetivo.** Los dos puntos que quedaron anotados al cerrar la ronda 10.
+Requisitos: **K04, M01, M04, O03**.
+
+### El tercer «sólo puede colgarse, nunca fallar»
+
+Auditadas las cinco llamadas de red de `scripts/research_video_ledger.py`:
+`yt_dlp` con `socket_timeout: 20` ✓, dos `requests.get(..., timeout=30)` ✓ y
+**`api.list()` con `track.fetch()` sin plazo**. Sólo esas dos.
+
+[youtube-transcript-api#324](https://github.com/jdepoix/youtube-transcript-api/issues/324)
+sigue abierto: la biblioteca no ofrece tiempo límite. La trampa es que
+`requests.Session` tampoco tiene uno —`timeout` es argumento de cada petición—,
+así que **pasarle una sesión normal no habría servido de nada**.
+`scripts/bounded_http.py` inyecta el plazo en cada `request()` y respeta el que
+traiga la llamada; se entrega como `http_client` en el único punto de uso.
+
+Probado sin red y **sin la biblioteca instalada** (no está en este entorno),
+sustituyendo el `request` del padre por un grabador. Una prueba fija la razón de
+existir del módulo: si `requests` gana algún día un `timeout` de sesión, falla y
+avisa de que puede retirarse.
+
+### La lista de dependencias vivía sólo en el workflow
+
+El problema real no era el aviso `Unknown config option: timeout`, sino que la
+lista de dependencias existía **únicamente** dentro de `quality.yml`: el entorno
+local podía diferir del de CI sin que nada lo detectara. Es la misma duplicación
+de fuente de verdad ya corregida para la óptica, los umbrales y los viewports.
+
+`requirements-dev.txt` documenta cada dependencia y cada versión fijada, el
+workflow instala desde él, y una prueba nueva exige que siga siendo así y que
+`pytest-timeout` esté presente mientras `pytest.ini` declare un `timeout`.
+
+### Evidencia
+
+| Comando | Resultado |
+|---|---|
+| `python3 -m pytest -q` | **293 pass**, 1 skip (antes 286) |
+| `verify_architecture.py` / `verify_release.py` | `passed: true` |
+| Ruff C901 pinned 0.12.11 | limpio |
+| `regenerate_all.py` + comparación | no-op confirmado |
+
+### Estado
+
+La deuda del inventario que abrió estas rondas queda **cerrada**: diagnóstico,
+evidencia caducada, estado sin respaldo, duplicación de verdad, colgados
+silenciosos y pruebas tautológicas. Lo pendiente es de campo, no de código:
+caminar el enlace de 854 m entre Puente Villena y Larcomar y, si resulta
+practicable con cámara, subir el techo de 800 m con esa evidencia.
+
+### Añadido a la ronda 11 · publicación atómica del build (incidente propio)
+
+Un `git commit` de esta sesión registró **176 borrados espurios** de
+`dist/canon6d_sota_hosted` con los archivos presentes en disco. No los ignoraba
+nada: `build_dual_release.py` hacía `rmtree` y repoblaba durante segundos, y mi
+`git add -A` cayó en esa ventana mientras una suite en segundo plano
+reconstruía el árbol. **La publicación no era atómica.**
+
+Ahora el build escribe en un directorio de staging **único por ejecución**
+(`tempfile.mkdtemp`; uno fijo permitía que dos builds simultáneos se pisaran) y
+sólo intercambia con `os.replace` cuando todo ha ido bien. Un `atexit` retira el
+staging si falla, y `.gitignore` cubre el patrón para que un resto nunca llegue
+a un commit ni rompa la puerta de staleness.
+
+Salieron dos defectos más del mismo hilo: `copytree` publicaba `.DS_Store` en el
+sitio, y el build **copiaba `data/plans.json` sin mirarlo** —mi inyección de
+fallo dejó publicado un fragmento corrupto de 16 bytes y el build informó de
+éxito—. Ahora valida el JSON antes de copiar. Fue `artifact_diff` de la ronda 9
+quien localizó la contaminación: `first difference at offset 1 of 153950`.
+
+Las pruebas destructivas restauran con `git checkout --` en el desmontaje del
+fixture, después de que una interrupción me borrara `field_card.html`.
+
+**Coste medido:** la suite pasa de **57 s a 102 s**, porque las dos pruebas
+nuevas ejecutan un build completo cada una (conversión WebP de 131 diagramas).
+Es el precio de probar la atomicidad de verdad en lugar de afirmarla; si algún
+día molesta, el corte natural es marcarlas y excluirlas del bucle rápido.
+
+**Evidencia:** 297 pass, 1 skip; ambos verificadores en verde; Ruff C901 limpio;
+árbol limpio tras las pruebas destructivas.

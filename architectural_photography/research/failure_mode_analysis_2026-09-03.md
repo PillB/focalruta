@@ -316,3 +316,111 @@ bajo `GITHUB_ACTIONS`, conservando su valor en local, donde ese paso no existe.
   pytest lo ignora con un aviso. CI lo instala; en local no hay red de seguridad
   salvo que se instale a mano. El propio archivo lo dice ahora, para que nadie
   suponga una protección que no está activa.
+
+---
+
+# Continuación · 2026-09-04 (tarde) · deuda pendiente cerrada
+
+## 13. La tercera aparición de «sólo puede colgarse, nunca fallar»
+
+**Auditoría completa de `scripts/research_video_ledger.py`.** Sus cinco llamadas
+de red: `yt_dlp` con `socket_timeout: 20` ✓, dos `requests.get(..., timeout=30)` ✓,
+y **`api.list()` más `track.fetch()` sin límite alguno**. Sólo esas dos.
+
+**Prior art.** [jdepoix/youtube-transcript-api#324](https://github.com/jdepoix/youtube-transcript-api/issues/324)
+sigue abierto: la biblioteca **no tiene** opción de tiempo límite. Y hay una
+trampa: `requests.Session` tampoco la tiene, porque `timeout` es argumento de
+cada petición, no atributo de la sesión. Pasarle una `Session` normal como
+`http_client` **no habría cambiado nada**.
+
+**Opciones ordenadas.**
+
+| Opción | Veredicto |
+|---|---|
+| Subclase de `Session` que inyecta el plazo en cada `request()` | ✔ cubre todas las llamadas y usa el único punto de extensión documentado |
+| `HTTPAdapter(max_retries=…)` | controla reintentos, **no** el tiempo límite |
+| `socket.setdefaulttimeout()` | global y brusco; afecta a E/S ajena |
+| Hilo con `join(timeout)` | la petición sigue viva y el hilo se filtra |
+
+**Implementado.** `scripts/bounded_http.py`: `bounded_session()` devuelve una
+sesión que pone el plazo por defecto en cada petición y **respeta** el que ya
+traiga la llamada. Se pasa como `http_client` en el único punto de uso.
+
+**Probado sin red y sin la biblioteca instalada** —`youtube_transcript_api` no
+está en este entorno— sustituyendo el `request` del padre por un grabador. Una de
+las pruebas fija además la **razón** de existir del módulo: si algún día
+`requests.Session` gana un `timeout` propio, esa prueba falla y avisa de que el
+módulo puede retirarse.
+
+## 14. La lista de dependencias vivía sólo en el workflow
+
+**Síntoma.** `pytest.ini` declaraba `timeout = 600`, pero sin `pytest-timeout`
+pytest lo ignora con un aviso: en local no había ninguna red de seguridad
+mientras el archivo aparentaba prometerla.
+
+**Causa raíz.** No era el aviso: era que la lista de dependencias existía
+**únicamente** dentro de `.github/workflows/quality.yml`. El entorno de quien
+desarrolla podía diferir del de CI sin que nada lo detectara. La misma
+duplicación de fuente de verdad que ya se corrigió para la óptica, los umbrales
+de ruta y los viewports.
+
+**Implementado.** `requirements-dev.txt` con la razón de cada dependencia y de
+cada versión fijada; el workflow instala desde él; y
+`test_ci_and_contributors_install_the_same_dependency_set` exige que lo haga y
+que `pytest-timeout` esté presente mientras `pytest.ini` declare un `timeout`.
+Ahora divergir requiere romper una prueba.
+
+**Sigue siendo cierto** que en un entorno sin instalar el archivo, el aviso
+aparece. La diferencia es que existe un comando único que lo resuelve y el
+`pytest.ini` lo señala.
+
+## Estado de la deuda
+
+Cerrada. Del inventario que abrió estas rondas —diagnóstico imposible, evidencia
+caducada, estado sin respaldo, duplicación de verdad, colgados silenciosos y
+pruebas tautológicas— no queda ningún punto abierto. Lo que resta es de campo,
+no de código: comprobar a pie el enlace de 854 m entre Puente Villena y Larcomar.
+
+## 15. Publicación no atómica del build hospedado (incidente propio)
+
+**Síntoma.** Un `git commit` de esta sesión registró **176 borrados espurios** de
+`dist/canon6d_sota_hosted`, con los archivos presentes en disco.
+
+**Primera hipótesis (descartada).** Que algo los ignorara. `git check-ignore -v`
+no devolvió nada y no había `.gitignore` dentro de `dist/`.
+
+**Causa raíz.** `build_dual_release.py:7` hacía `shutil.rmtree(OUT)` y volvía a
+poblar el árbol durante varios segundos. Yo ejecuté `git add -A` mientras una
+suite en segundo plano —cuya prueba de regeneración reconstruye `dist/`— estaba
+justo en esa ventana. **La publicación no era atómica**, así que cualquier lector
+del directorio en ese instante veía un árbol vacío o parcial: una tarea de CI, un
+guion de QA o, como aquí, un `git add`.
+
+El repositorio ya tenía el patrón correcto en
+`build_architecture_routes.publish_downloads`: preparar aparte y cambiar de golpe.
+
+**Implementado.** El build escribe en `dist/.canon6d_sota_hosted.staging` y sólo
+al final, con todo correcto, hace el intercambio con `os.replace`. Un `atexit`
+retira el staging si el build falla, para no dejar basura. Quien lea `dist/` ve
+la publicación anterior o la nueva, nunca una a medias.
+
+**Prueba de comportamiento, no de texto.** Se rompe el build a propósito
+—eliminando `field_card.html`, que se copia ya empezado el árbol— y se exige que
+la publicación anterior siga **intacta**. Antes del arreglo esa prueba destruía
+el árbol publicado; ahora conserva los 244 archivos.
+
+**Dos defectos más que salieron de ahí.**
+
+1. `shutil.copytree` publicaba `.DS_Store` en el sitio. Ahora se excluye.
+2. El build **copiaba `data/plans.json` sin mirarlo**: mi inyección de fallo dejó
+   un fragmento corrupto de 16 bytes publicado y el build informó de éxito. Ahora
+   valida el JSON antes de copiarlo y se niega a publicar datos ilegibles. Fue el
+   propio `artifact_diff` de la ronda 9 el que localizó la contaminación:
+   `first difference at offset 1 of 153950`.
+
+**Lección de proceso.** Estas pruebas tienen que romper cosas reales para
+demostrar que el build falla con seguridad, y una interrupción a mitad dejaba el
+repositorio dañado —me borró `field_card.html` una vez—. La restauración pasó a
+hacerse con `git checkout --` en el desmontaje del fixture, de modo que el
+archivo vuelve byte a byte aunque la copia de respaldo hubiera fallado, y el
+fixture barre además cualquier staging huérfano.
