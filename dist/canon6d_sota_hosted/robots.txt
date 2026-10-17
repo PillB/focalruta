@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pillb.github.io/focalruta/sitemap.xml

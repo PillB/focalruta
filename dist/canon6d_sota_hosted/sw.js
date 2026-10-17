@@ -1,4 +1,4 @@
-const VERSION='canon6d-sota-v4';
+const VERSION='focalruta-df2e2ff13c7e';
 const SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime';
 const CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./challenges/arquitectura-en-foco/index.html','./challenges/arquitectura-en-foco/iphone-maps.html','./data/architecture/competition_rules.json','./data/architecture/learning.json','./data/architecture/ranking.json','./data/architecture/routes.json','./assets/icon-192.png','./assets/icon-512.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));

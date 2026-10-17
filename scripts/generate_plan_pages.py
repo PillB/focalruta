@@ -41,7 +41,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <meta name="theme-color" content="#0f172a">
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>__PLAN_NAME__ — Plan individual</title>
+<title>__PLAN_NAME__ · Plan fotográfico · FocalRuta</title>
+<meta name="description" content="__PLAN_DESCRIPTION__">
+<link rel="icon" href="../assets/app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-192.png">
 <style>__SITE_CSS__</style>
 <style>
 body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: #0F172A; }
@@ -340,6 +343,8 @@ def generate_plan_html(plan):
     html = HTML_TEMPLATE
     site_css=(Path(__file__).resolve().parents[1]/"assets"/"site.css").read_text(encoding="utf-8")
     html = html.replace("__SITE_CSS__", site_css)
+    description = f"Diez tomas planificadas en {plan['location']} para Canon 6D, con diagramas a escala y ajustes para día, tarde y noche."
+    html = html.replace("__PLAN_DESCRIPTION__", description.replace('"', "&quot;"))
     html = html.replace("__PLAN_NAME__", plan["name"])
     html = html.replace("__PLAN_LOCATION__", plan["location"])
     html = html.replace("__DISTANCE__", plan["distance_from_home"])

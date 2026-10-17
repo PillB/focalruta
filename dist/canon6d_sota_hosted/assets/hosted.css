@@ -4925,6 +4925,11 @@ html,body{max-width:100%;overflow-x:clip}
   .aperture-pill { background: #DCFCE7; color: #14532D; border: 1px solid #86EFAC; }
   .shutter-pill { background: #FEE2E2; color: #7F1D1D; border: 1px solid #FCA5A5; }
   .iso-pill { background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; }
+.hdr-label { display: none; }
+@media (min-width: 640px) { .hdr-label { display: inline; } }
+.nd-pill { background: #1F2937; color: #F9FAFB; border: 1px solid #111827; }
+.scene-light-line { font-size: 11px; color: #475569; margin-bottom: 6px; }
+.unviable-note { font-size: 12px; color: #7C2D12; background: #FFEDD5; border: 1px solid #FDBA74; border-radius: 8px; padding: 6px 10px; margin-bottom: 6px; }
   .compos-rule-card { transition: all 0.3s; cursor: pointer; }
   .compos-rule-card:hover { transform: translateY(-3px); border-color: #2563EB; box-shadow: 0 6px 18px rgba(37,99,235,0.12); }
   .angle-card { transition: all 0.3s; }
@@ -5050,3 +5055,15 @@ body.sun-mode{--read-ink:#000;--read-muted:#1f2937;--read-line:#475569;backgroun
 @media(min-width:1100px){.optics-controls{grid-template-columns:1fr 1fr}.optics-controls label:nth-child(3),.optics-controls label:nth-child(4),.optics-controls label:nth-child(5){grid-column:1/-1}}@media(max-width:900px){.optics-layout{grid-template-columns:1fr}.optics-visual-card{order:2;position:static}.optics-control-card{order:1}}@media(max-width:640px){.optics-readouts{grid-template-columns:1fr}.optics-panel-head{align-items:flex-end}}@media(max-width:520px){.optics-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.optics-preview{grid-template-columns:1fr}.preview-scene{height:130px}.optics-control-card,.optics-visual-card{padding:.75rem;border-radius:18px}}
 @media(prefers-contrast:more){body{--read-ink:#000;--read-muted:#1f2937;--read-line:#334155}.optics-visual-card,.optics-control-card{border-color:#fff}.opt-dof-band{fill-opacity:.48}}
 /* ACCESSIBILITY_OUTDOOR_V2_END */
+
+
+
+.sun-panel{border:1px solid #fcd34d;background:#fffbeb;border-radius:1rem;padding:1.25rem}
+.sun-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin-top:1rem}
+.sun-cell{background:#fff;border:1px solid #fde68a;border-radius:.75rem;padding:.75rem}
+.sun-cell b{display:block;font-size:1.15rem;color:#0b1220;font-variant-numeric:tabular-nums}
+.sun-cell span{font-size:.75rem;color:#475569}
+.sun-cell.blue{border-color:#93c5fd;background:#eff6ff}
+.sun-cell.gold{border-color:#fbbf24;background:#fff7ed}
+.sun-date{min-height:44px;border:2px solid #64748b;border-radius:.6rem;padding:.35rem .6rem;font-size:1rem;background:#fff;color:#0b1220}
+body.sun-mode .sun-panel{background:#fff}
