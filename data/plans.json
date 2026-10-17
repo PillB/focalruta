@@ -789,7 +789,7 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "Bulb 30",
+              "shutter": "Bulb 30\"",
               "iso": 100,
               "scene": "sombra_abierta",
               "viable": false,
@@ -798,7 +798,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "Bulb 25",
+              "shutter": "Bulb 25\"",
               "iso": 100,
               "scene": "sombra_abierta",
               "viable": false,
@@ -1456,7 +1456,7 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/22",
-              "shutter": "Bulb 60",
+              "shutter": "Bulb 60\"",
               "iso": 100,
               "scene": "sol_velado",
               "viable": false,
@@ -1465,7 +1465,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/22",
-              "shutter": "Bulb 30",
+              "shutter": "Bulb 30\"",
               "iso": 100,
               "scene": "antes_ocaso",
               "viable": false,
@@ -2784,7 +2784,7 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/22",
-              "shutter": "Bulb 60",
+              "shutter": "Bulb 60\"",
               "iso": 100,
               "scene": "sol_velado",
               "viable": false,
@@ -2793,7 +2793,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/22",
-              "shutter": "Bulb 30",
+              "shutter": "Bulb 30\"",
               "iso": 100,
               "scene": "antes_ocaso",
               "viable": false,
@@ -4091,7 +4091,7 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "10",
+              "shutter": "10\"",
               "iso": 100,
               "scene": "sol_velado",
               "viable": false,
@@ -4100,7 +4100,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "10",
+              "shutter": "10\"",
               "iso": 100,
               "scene": "antes_ocaso",
               "viable": false,

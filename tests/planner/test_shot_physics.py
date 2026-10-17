@@ -163,6 +163,16 @@ def test_settings_stay_inside_camera_and_lens_limits():
         assert 100 <= s["iso"] <= 25600, (shot["id"], time)
 
 
+SHUTTER_DISPLAY = re.compile(r'^(1/\d+|\d+(\.\d)?"|Bulb \d+")$')
+
+
+def test_shutter_speeds_are_written_the_way_the_camera_shows_them():
+    # The 6D shows fractions as 1/250 and whole seconds with a seconds mark
+    # (2", 30"); a bare "10" reads as 1/10 on the top LCD.
+    for shot, time, s in slots(load_plans()):
+        assert SHUTTER_DISPLAY.match(s["shutter"]), (shot["id"], time, s["shutter"])
+
+
 def test_headline_settings_are_one_of_the_time_slots():
     for _plan, shot in all_shots(load_plans()):
         headline = (shot["aperture"], shot["shutter"], shot["iso"])
