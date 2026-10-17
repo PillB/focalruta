@@ -338,9 +338,26 @@ def light_note_errors(slot, r, lens, sensor_w):
         errors.append(f"{slot['key']}: the lens cannot open to f/{n:.1f} and the line does not say so")
     dark = exposure_q(r["f_number"], r["seconds"], r["iso"], r["nd_stops"]) - plan_q(slot)
     missing = said_number(r"Faltan (\d+,\d) pasos", said)
-    if (dark > 1 / 3 and (missing is None or abs(missing - dark) > 0.1)) or (dark < 1 / 6 and missing is not None):
+    # The planner holds the exposure to a third of a stop (the 6D's dial step), so a shortfall is said from a third up.
+    if (dark > 1 / 3 + 0.02 and (missing is None or abs(missing - dark) > 0.1)) or (dark < 1 / 3 - 0.02 and missing is not None):
         errors.append(f"{slot['key']}: {dark:+.2f} EV darker than the plan, the line says {missing} stops missing")
     return errors
+
+
+def test_v13_a_shortfall_is_said_only_from_a_third_of_a_stop():
+    """Real kits on the grid of settings: the lens limits and the missing light are said with the numbers the
+    physics gives, and nothing is said missing under a third of a stop (red team, second pass on PR #20:
+    "Faltan 0,2 pasos" at 0.17 EV), which the 6D's dial cannot even show."""
+    need_node()
+    grid = grid_slots()
+    gears = {f"{kit} ISO {limit}": {**gear, "iso": limit} for kit, gear in REAL_KITS.items() for limit in (1600, 6400)}
+    out = adapt_all(gears, grid)
+    errors = []
+    for name, rows in out.items():
+        gear = gears[name]
+        for slot, r in viable(zip(grid, rows)):
+            errors += [f"{name} · {e}" for e in light_note_errors(slot, r, lens_of(gear, r), BODY_W[gear["body"]])]
+    assert errors == [], errors[:8]
 
 
 def depth_note_errors(slot, r, sensor_w):

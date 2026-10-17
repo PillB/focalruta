@@ -5197,7 +5197,8 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
     var iso = isoNeeded(r, plan), allowed = ISOS.filter(function (x) { return x <= body.iso; });
     r.iso = nearest(allowed, Math.max(BASE_ISO, Math.min(body.iso, iso)));
     var short = Math.log2(iso / body.iso);
-    if (short > 1 / 6) r.shortStops = short;
+    // Exposure is held to a third of a stop, the dial's step: a shortfall under that is not one.
+    if (short >= 1 / 3 - 0.01) r.shortStops = short;
     return r;
   }
 

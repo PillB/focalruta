@@ -8,7 +8,9 @@ live site:
   CDN node that has not caught up can slip an old file in), the home page
   names its stylesheet and data by revision (so an older worker still in
   control fetches the new ones), and every file it keeps, the web manifest
-  included, is served offline.
+  included, is served offline. Pages and this build's files are revalidated
+  with the server; a page from another build gets the revision it names; a
+  404 or 5xx never replaces a kept copy.
 - V17 An upgrade, from the worker live at 9cd3044 or from any later one, keeps
   every page and diagram the reader had offline and downloads nothing that did
   not change; the files kept for the field are brought up to date on install,
@@ -123,6 +125,46 @@ out.named=(await old.request('assets/hosted.css?v='+rev(Buffer.from(B['assets/ho
 """, A=A, B=B)
     assert out["bare"] == A["assets/hosted.css"], "the worker live at 9cd3044 answers a known URL from its cache"
     assert out["named"] == B["assets/hosted.css"]
+
+
+def test_v16_a_page_opened_within_the_http_cache_window_is_this_builds():
+    """Pages sends max-age=600: for ten minutes after a deploy the browser's HTTP cache still
+    answers a plain request for the site's root with the last build's home page."""
+    out = run("""
+const w=new World();w.deploy(A);await ours(w,A).upgrade();w.rememberHttp();
+w.deploy(B);const b=ours(w,B);await b.upgrade();
+out.root=(await b.request('','navigate')).body;
+out.page=(await b.request('plans/plan_c.html','navigate')).body;
+""", A=A, B=B)
+    assert out == {"root": B["index.html"], "page": B["plans/plan_c.html"]}
+
+
+def test_v16_a_page_from_another_build_gets_the_stylesheet_it_names():
+    """A home page the HTTP cache kept from the last build names that build's stylesheet; the
+    worker must not answer it with this build's, and answers this build's from its cache."""
+    out = run("""
+const w=new World();w.deploy(A);const css='assets/hosted.css',old=w.revisions()[css];
+w.httpCache[SCOPE+css+'?v='+old]=Buffer.from(A[css]);
+w.deploy(B);const b=ours(w,B);await b.upgrade();
+out.old=(await b.request(css+'?v='+old)).body;
+const now=await b.request(css+'?v='+w.revisions()[css]);out.now=now.body;out.network=now.network;
+""", A=A, B=B)
+    assert out == {"old": A["assets/hosted.css"], "now": B["assets/hosted.css"], "network": False}
+
+
+def test_v16_an_error_from_the_server_does_not_replace_the_kept_copy():
+    """A 404 or 5xx from a CDN node that has not caught up loses to the copy the reader kept."""
+    out = run("""
+const w=new World();w.deploy(B);const b=ours(w,B);await b.upgrade();
+await b.message({type:'pack',urls:['plans/plan_c.html','diagrams-webp/plan_c_2.webp'].map(p=>SCOPE+p)});
+// Build C changes both; the server has not caught up on either and answers 404.
+const lagging={...C};delete lagging['plans/plan_c.html'];delete lagging['diagrams-webp/plan_c_2.webp'];
+w.deploy(lagging);const c=ours(w,C);await tryUpgrade(c);
+out.page=await c.request('plans/plan_c.html','navigate');
+out.diagram=await c.request('diagrams-webp/plan_c_2.webp');
+""", B=B, C=C)
+    assert (out["page"]["status"], out["page"]["body"]) == (200, B["plans/plan_c.html"])
+    assert (out["diagram"]["status"], out["diagram"]["body"]) == (200, B["diagrams-webp/plan_c_2.webp"])
 
 
 def test_v17_an_upgrade_from_the_live_worker_keeps_what_the_reader_opened_and_downloads_only_changes():

@@ -426,7 +426,7 @@ def install_behind_http_cache(browser, old) -> None:
     page.goto(pages.base + "field_card.html", wait_until="load")
     pages.deploy(DIST)
     settle(page)
-    later(context, page)
+    # No later(): the HTTP cache still holds the last build's pages and files, as it does for ten minutes.
     for path in ("", "field_card.html"):
         check_fresh(f"V16 installed behind the HTTP cache: {path or 'the home page'} gets only this build's files",
                     page, pages.base + path, pages, DIST)

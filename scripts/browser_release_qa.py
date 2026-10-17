@@ -113,6 +113,40 @@ def dialogs_give_focus_back(page, target_name):
         record(f"{target_name} {name} dialog closes on Escape and gives focus back", after["closed"] and after["back"] and not after["inert"], after)
 
 
+# V18 with a reader's own gear: lens names as long as real ones, which a select
+# sizes itself to (red team, second pass on PR #20). 375 px is the iPhone SE and mini.
+LONG_GEAR = {"body": "apsc_canon", "iso": 12800, "lenses": [
+    {"name": "Zoom de kit 18–55 mm f/3.5–5.6", "min": 18, "max": 55, "wide": 3.5, "tele": 5.6},
+    {"name": "Teleobjetivo de viaje 70–300 mm f/4.5–6.3 con estabilizador", "min": 70, "max": 300, "wide": 4.5, "tele": 6.3}]}
+LONG_GEAR_WIDTHS = (320, 375)
+
+
+def long_gear_page(browser, width, path):
+    context = browser.new_context(viewport={"width": width, "height": 640})
+    context.add_init_script(f"try{{localStorage.setItem('focalruta-equipo-v1',{json.dumps(json.dumps(LONG_GEAR))})}}catch(e){{}}")
+    page = context.new_page()
+    page.goto((ROOT / path).as_uri(), wait_until="load", timeout=60000)
+    return context, page
+
+
+def nothing_cut_with_long_gear(browser):
+    for width in LONG_GEAR_WIDTHS:
+        for path in ("index.html", "dist/canon6d_sota_hosted/index.html"):
+            context, page = long_gear_page(browser, width, path)
+            cut = reading_floor.audit_home(page)["cut"]
+            record(f"{path} {width} with long lens names: nothing cut off", not cut, cut[:12])
+            context.close()
+    for path in ("dist/canon6d_sota_hosted/field_card.html", *[f"dist/canon6d_sota_hosted/plans/plan_{x}.html" for x in "abcdef"]):
+        context, page = long_gear_page(browser, LONG_GEAR_WIDTHS[0], path)
+        if "plans/" in path:
+            cut = reading_floor.audit_plan_page(page)["cut"]
+        else:
+            page.evaluate("document.querySelectorAll('details').forEach(d=>d.open=true)")
+            cut = page.evaluate(reading_floor.CUT_OFF, "")
+        record(f"{path} {LONG_GEAR_WIDTHS[0]} with long lens names: nothing cut off", not cut, cut[:12])
+        context.close()
+
+
 with sync_playwright() as pw:
     browser = pw.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
     targets = {
@@ -209,6 +243,7 @@ with sync_playwright() as pw:
         record(f"plan_{letter} no overflow", page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
         record(f"plan_{letter} no errors", not errors, errors)
         page.close()
+    nothing_cut_with_long_gear(browser)
     hosted_plan_offline(browser)
     browser.close()
 

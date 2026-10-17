@@ -28,7 +28,8 @@ MIN_TARGET_PX = 44
 # Matched without case, on whole words.
 ENGLISH_UI = re.compile(
     r"\b(?:field card|eye-level|pre-?flight|shutter|dof|fov|mfd|burst|streak|blue hour|light ?painting"
-    r"|zooming|freeze|background|foreground|panning|reset|human|building lab|session run|tips?)\b",
+    r"|zooming|freeze|background|foreground|panning|reset|human|building lab|session run|tips?"
+    r"|settings|back|download|close|next|previous|print|share|save)\b",
     re.I,
 )
 

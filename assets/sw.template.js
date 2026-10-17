@@ -128,23 +128,31 @@ async function warm(paths){
   await pool(paths,async path=>{if(!await current(path)){const res=await download(path);if(res)await (await open(RUNTIME)).put(keyOf(path,FILES[path]),res);}});
 }
 
+// The copy kept for `path`, this build's or an older one.
+async function kept(path){return await current(path)||await older(path);}
+
 async function navigate(e,r,path){
   try{
-    const res=await fetch(r);
-    if(res.ok&&known(path))e.waitUntil(remember(path,res.clone()).catch(()=>{}));
+    // no-cache: revalidate with the server, so the HTTP cache cannot answer with the last build's page.
+    const res=await fetch(r,{cache:'no-cache'});
+    // A 404 or 5xx from a CDN node that has not caught up loses to the copy the reader kept.
+    if(!res.ok)return (known(path)&&await kept(path))||res;
+    if(known(path))e.waitUntil(remember(path,res.clone()).catch(()=>{}));
     return res;
   }catch(_){
-    return (known(path)&&(await current(path)||await older(path)))||await current('index.html')||await older('index.html')||Response.error();
+    return (known(path)&&await kept(path))||await kept('index.html')||Response.error();
   }
 }
 async function asset(e,r,path){
   // A page from another build (an HTML copy the HTTP cache kept) names its own revision: give it that one.
-  const wanted=new URL(r.url).searchParams.get('v')||FILES[path];
+  const wanted=new URL(r.url).searchParams.get('v')||FILES[path],ours=wanted===FILES[path];
   const hit=await current(path,wanted);
   if(hit)return hit;
   try{
-    const res=await fetch(r);
-    if(res.ok&&wanted===FILES[path])e.waitUntil(remember(path,res.clone()).catch(()=>{}));
+    // This build's file is revalidated like a page; another build's is left to the HTTP cache, which may still hold it.
+    const res=await fetch(r,ours?{cache:'no-cache'}:{});
+    if(!res.ok)return await older(path)||res;
+    if(ours)e.waitUntil(remember(path,res.clone()).catch(()=>{}));
     return res;
   }catch(_){
     return await older(path)||Response.error();
