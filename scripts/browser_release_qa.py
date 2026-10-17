@@ -21,6 +21,7 @@ AUDITED = [
     ROOT / "index.html",
     ROOT / "dist/canon6d_sota_hosted/index.html",
     ROOT / "field_card.html",
+    ROOT / "dist/canon6d_sota_hosted/field_card.html",
     ROOT / "data/plans.json",
     *sorted((ROOT / "plans").glob("plan_*.html")),
     *sorted((ROOT / "dist/canon6d_sota_hosted/plans").glob("plan_*.html")),
@@ -51,8 +52,9 @@ class QuietHandler(SimpleHTTPRequestHandler):
 DECODE_ALL = """async()=>{const xs=[...document.querySelectorAll('.shot-card img')];xs.forEach(x=>x.loading='eager');
 await Promise.all(xs.map(x=>x.complete?null:new Promise(done=>{x.addEventListener('load',done,{once:true});x.addEventListener('error',done,{once:true});setTimeout(done,20000)})));
 return xs.filter(x=>!x.naturalWidth).map(x=>x.src.split('/').pop())}"""
-WARMED = """async()=>{let n=0;for(const k of await caches.keys()){for(const r of await (await caches.open(k)).keys()){if(r.url.endsWith('.webp'))n++}}
-return n>=20&&!!(await caches.match(location.href))}"""
+# The worker keys every copy by its revision (path?__rev=…), so compare paths, not URLs.
+WARMED = """async()=>{let n=0;for(const k of await caches.keys()){for(const r of await (await caches.open(k)).keys()){if(new URL(r.url).pathname.endsWith('.webp'))n++}}
+return n>=20&&!!(await caches.match(location.href,{ignoreSearch:true}))}"""
 
 
 def wait_until(page, predicate: str, timeout_s: float = 30.0) -> None:
@@ -134,6 +136,63 @@ def error_log(browser):
     server.shutdown()
 
 
+# V19: each dialog opened from the button a reader would press, then closed with
+# Escape, hands focus back to that button and leaves nothing on the page inert.
+DIALOGS = (
+    ("session", "button[onclick='openSessionRun()']:visible", "#session-run-dialog"),
+    ("field card", "button[onclick='openFieldCard()']:visible", "#field-card-modal"),
+    ("shot", "#plan-detail-content button[onclick^='openModal(']:visible", "#shot-modal"),
+)
+FOCUS_INSIDE = "(d)=>{const m=document.querySelector(d);return !!m&&m.contains(document.activeElement)}"
+AFTER_ESCAPE = """(d)=>{const m=document.querySelector(d);return {closed:!(m.open||m.classList.contains('fc-modal-open')),
+back:document.activeElement?.dataset.qaTrigger==='1',inert:[...document.querySelectorAll('[inert]')].map(e=>e.id||e.tagName)}}"""
+
+
+def dialogs_give_focus_back(page, target_name):
+    for name, trigger, dialog in DIALOGS:
+        button = page.locator(trigger).first
+        button.evaluate("b=>{document.querySelectorAll('[data-qa-trigger]').forEach(x=>delete x.dataset.qaTrigger);b.dataset.qaTrigger='1'}")
+        button.click()
+        record(f"{target_name} {name} dialog takes focus from its button", page.evaluate(FOCUS_INSIDE, dialog))
+        page.keyboard.press("Escape")
+        after = page.evaluate(AFTER_ESCAPE, dialog)
+        record(f"{target_name} {name} dialog closes on Escape and gives focus back", after["closed"] and after["back"] and not after["inert"], after)
+
+
+# V18 with a reader's own gear: lens names as long as real ones, which a select
+# sizes itself to (red team, second pass on PR #20). 375 px is the iPhone SE and mini.
+LONG_GEAR = {"body": "apsc_canon", "iso": 12800, "lenses": [
+    {"name": "Zoom de kit 18–55 mm f/3.5–5.6", "min": 18, "max": 55, "wide": 3.5, "tele": 5.6},
+    {"name": "Teleobjetivo de viaje 70–300 mm f/4.5–6.3 con estabilizador", "min": 70, "max": 300, "wide": 4.5, "tele": 6.3}]}
+LONG_GEAR_WIDTHS = (320, 375)
+
+
+def long_gear_page(browser, width, path):
+    context = browser.new_context(viewport={"width": width, "height": 640})
+    context.add_init_script(f"try{{localStorage.setItem('focalruta-equipo-v1',{json.dumps(json.dumps(LONG_GEAR))})}}catch(e){{}}")
+    page = context.new_page()
+    page.goto((ROOT / path).as_uri(), wait_until="load", timeout=60000)
+    return context, page
+
+
+def nothing_cut_with_long_gear(browser):
+    for width in LONG_GEAR_WIDTHS:
+        for path in ("index.html", "dist/canon6d_sota_hosted/index.html"):
+            context, page = long_gear_page(browser, width, path)
+            cut = reading_floor.audit_home(page)["cut"]
+            record(f"{path} {width} with long lens names: nothing cut off", not cut, cut[:12])
+            context.close()
+    for path in ("dist/canon6d_sota_hosted/field_card.html", *[f"dist/canon6d_sota_hosted/plans/plan_{x}.html" for x in "abcdef"]):
+        context, page = long_gear_page(browser, LONG_GEAR_WIDTHS[0], path)
+        if "plans/" in path:
+            cut = reading_floor.audit_plan_page(page)["cut"]
+        else:
+            page.evaluate("document.querySelectorAll('details').forEach(d=>d.open=true)")
+            cut = page.evaluate(reading_floor.CUT_OFF, "")
+        record(f"{path} {LONG_GEAR_WIDTHS[0]} with long lens names: nothing cut off", not cut, cut[:12])
+        context.close()
+
+
 with sync_playwright() as pw:
     browser = pw.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
     targets = {
@@ -185,6 +244,7 @@ with sync_playwright() as pw:
         page.evaluate("openModal('plan_f','F10')")
         record(f"{target_name} shot detail modal", page.locator("#shot-modal").evaluate("e=>e.open"))
         page.keyboard.press("Escape")
+        dialogs_give_focus_back(page, target_name)
         record(f"{target_name} ZIP link resolves", page.locator('a[href="downloads/canon6d_photo_planner_assets.zip"]').first.evaluate("a=>new URL(a.href).protocol==='file:'"))
         record(f"{target_name} interaction errors", not errors, errors)
         page.close()
@@ -198,9 +258,21 @@ with sync_playwright() as pw:
             record(f"{target_name} {width} every control at least 44 px", not floor["tiny"], floor["tiny"][:12])
             record(f"{target_name} {width} interface in Spanish", not floor["english"], floor["english"])
             record(f"{target_name} {width} session and shot dialogs open", not floor["unreached"], floor["unreached"])
+            record(f"{target_name} {width} nothing cut off at the edges", not floor["cut"], floor["cut"][:12])
             page.close()
 
+    narrow = browser.new_page(viewport={"width": 320, "height": 640})
+    narrow.goto((ROOT / "dist/canon6d_sota_hosted/field_card.html").as_uri(), wait_until="load", timeout=60000)
+    narrow.evaluate("document.querySelectorAll('details').forEach(d=>d.open=true)")
+    cut = narrow.evaluate(reading_floor.CUT_OFF, "")
+    record("field_card 320 nothing cut off at the edges", not cut, cut[:12])
+    narrow.close()
     for letter in "abcdef":
+        narrow = browser.new_page(viewport={"width": 320, "height": 640})
+        narrow.goto((ROOT / f"dist/canon6d_sota_hosted/plans/plan_{letter}.html").as_uri(), wait_until="domcontentloaded", timeout=60000)
+        cut = reading_floor.audit_plan_page(narrow)["cut"]
+        record(f"plan_{letter} 320 nothing cut off at the edges", not cut, cut[:12])
+        narrow.close()
         page = browser.new_page(viewport={"width": 390, "height": 844})
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
@@ -217,6 +289,7 @@ with sync_playwright() as pw:
         record(f"plan_{letter} no overflow", page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
         record(f"plan_{letter} no errors", not errors, errors)
         page.close()
+    nothing_cut_with_long_gear(browser)
     hosted_plan_offline(browser)
     error_log(browser)
     browser.close()

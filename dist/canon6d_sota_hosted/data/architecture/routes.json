@@ -2492,7 +2492,7 @@
           "point_in_district": true,
           "anchor_method": "CORROBORATED_ADDRESS_COORDINATE",
           "address": "Calle Narciso de la Colina 398, Miraflores",
-          "address_source_url": "https://biologia.unmsm.edu.pe/ciencias-biologicas/Plan_de_prevencion_y_reduccion_del_riesgo_de_desastres_de_la_UNMSM_2024_2030_6f42a0de8d.pdf",
+          "address_source_url": "https://en.wikipedia.org/wiki/Ra%C3%BAl_Porras_Barrenechea_Institute",
           "coordinate_source_url": "https://commons.wikimedia.org/wiki/Category:Instituto_Ra%C3%BAl_Porras_Barrenechea",
           "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }

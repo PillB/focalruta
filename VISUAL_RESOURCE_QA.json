@@ -195,24 +195,24 @@
       }
     }
   ],
-  "audited_at": "2026-10-17T20:23:46.905659+00:00",
-  "audited_commit": "e25098fc13cfb5840e4286e2732e50f5ca8a2997",
+  "audited_at": "2026-10-17T23:36:19.374520+00:00",
+  "audited_commit": "13253a405bd8c704f8557a1fc5c5047e72ef81aa",
   "audited_artifacts": {
-    "dist/canon6d_sota_hosted/field_card.html": "b286f75441ada9402bae23fdbcf0902c033182dad504c34752832866f5a5a051",
-    "dist/canon6d_sota_hosted/index.html": "bc81c6f3bff765cd463aa381877892651458cb9d3e73253bbe46dc3eed8ee72b",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "59a92a9bb1f80450c06b8aaf081c4c63e3e271b1627ade0164f1669d74ece846",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "ec5124380d0d57d4c704292842236f2806ea3b8868b2ca19ce30a555c7a4ce25",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "b0cea2bdfb922b3b66b6bd85ec7b838d0942aaef776cfec758b3665cf1ee7ecb",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "d5b849218384c4da9f876af8f3b948d115aa8a02411acac97f80985bdb16e346",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "b5d3e729c135fed9dba7ed97f9002a84d10b35d73841846f7ef36bffa0cc2b04",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "438e058aeff0d158ed16d894148ad2df54e26adc172708413e5742e719ff48e5",
-    "field_card.html": "b286f75441ada9402bae23fdbcf0902c033182dad504c34752832866f5a5a051",
-    "index.html": "163044583976a208fde3df504cca8b385d1669f56b48d2946eb01c793380bc2a",
-    "plans/plan_a.html": "2c9139a23bb5fc9f325fb61d6ae0d55f74efb78d54804f2011ee42fa527d6186",
-    "plans/plan_b.html": "440a2dc716c26d581e162732d85d614df157904d5193db0b21e28475b91d7324",
-    "plans/plan_c.html": "fa11e305736dcf6a221d5e81f5e34aaadef5a278093ee82f3f7d2d2a85859de6",
-    "plans/plan_d.html": "c1612cf3dc255ab8d203f8d22e9416532b34392ae560fccacf9d4e3f88ebec91",
-    "plans/plan_e.html": "e4047f64c374758192398ca12c947f18018aca1b969adff75334ee2ddda20b85",
-    "plans/plan_f.html": "9d0af83d60579b5ab2d9154269bc735828abb2e4ae86e54fa10f0c655253d60e"
+    "dist/canon6d_sota_hosted/field_card.html": "32ccf751f41d3ede06ebfff2978b070f9594b7be39c377c234ac10aee2142f38",
+    "dist/canon6d_sota_hosted/index.html": "9447c2f617d47ec65b117dcd5842da2fc06f2fccf49149f277b415d368a96329",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "b25128a391592da5c1babbccf4caa982bb1871d1c5f4fd28d87de3c48b1623dd",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "c71516bfebd8e706824b1c2665ff1e60afb7a9538edcead3a24172f6571a0419",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "f7eeca3211dd2212b9a179b7640651ae5b994192f949fb3adb3a5c6455f73937",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "a447941bc96685230aa7f53706961b6aa8f6a699104ec36cea7705daba132359",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "b60a87e6ebe6e505f769cf154d51c2bf541cbe11ce379555eceb2db4e1875669",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "33d87eb48742453b5661483d0619b81fb4999c47b10c12d333bfc415b2140f9a",
+    "field_card.html": "32ccf751f41d3ede06ebfff2978b070f9594b7be39c377c234ac10aee2142f38",
+    "index.html": "69dcbc7abc85e57ea21b562ab565b7b71fcdbc418ae82b01a4f5706970de8421",
+    "plans/plan_a.html": "bead2dfa68d943c6aaa5aaaee2d2c34ee35bd472f444be2d99c40fd728151240",
+    "plans/plan_b.html": "530d7bcf7f2d31c2632f7eff191f9d7bd14489faa4570dd2ac355facc604a393",
+    "plans/plan_c.html": "1cc42aab989726d9cbaf37ee11c951de79bdf0f79303e2644bba5946694ce571",
+    "plans/plan_d.html": "add5ffa3d7485a75378a5fb810cddb3ba4b7e17b8113b8d420df5a1ea1bd32fd",
+    "plans/plan_e.html": "6252ef1faf8a681e842b63a2eab83cca7d5cc847ed89318ecd1db4918e4d5b74",
+    "plans/plan_f.html": "a30b56bc2a02c1d10d067fc74ff8f16f5b07eadc29eb527c278ad01c8d84992c"
   }
 }

@@ -1,6 +1,7 @@
 from pathlib import Path
 from PIL import Image
 import re, shutil, hashlib, json, os
+import service_worker
 
 SRC=Path(__file__).resolve().parents[1]
 OUT=SRC/'dist'/'canon6d_sota_hosted'
@@ -23,13 +24,17 @@ def take_style(m): styles.append(m.group(1)); return ''
 html=re.sub(r'<style(?:\s+[^>]*)?>(.*?)</style>',take_style,html,flags=re.S|re.I)
 hosted_css='\n\n'.join(styles)
 (OUT/'assets/hosted.css').write_text(hosted_css,encoding='utf-8')
-html=html.replace('</head>','<link rel="stylesheet" href="./assets/hosted.css">\n</head>',1)
+# The stylesheet and the plan data are named with their revision, so a page from one
+# build never gets another build's copy from a cache that answers by URL: an older
+# worker's, or the browser's HTTP cache (Pages sends max-age=600).
+html=html.replace('</head>','<link rel="stylesheet" href="./assets/hosted.css?v='+service_worker.revision(OUT/'assets/hosted.css')+'">\n</head>',1)
 
 # External canonical plan data.
 html,n=re.subn(r'<script>\s*const PLANS_DATA = .*?;\s*</script>', '<script src="./data/plans_embedded.js"></script>',html,count=1,flags=re.S)
 if n!=1: raise RuntimeError('PLANS_DATA block not found')
 shutil.copy2(SRC/'data/plans_embedded.js',OUT/'data/plans_embedded.js')
 shutil.copy2(SRC/'data/plans.json',OUT/'data/plans.json')
+html=html.replace('<script src="./data/plans_embedded.js">','<script src="./data/plans_embedded.js?v='+service_worker.revision(OUT/'data/plans_embedded.js')+'">',1)
 
 # Externalize dynamic images: no 12MB inline asset map.
 html,n=re.subn(r'<script>\s*const INLINE_ASSETS=.*?function assetUrl\(path\)\{return INLINE_ASSETS\[path\]\|\|path;\}\s*</script>',
@@ -91,9 +96,9 @@ content_hash=hashlib.sha256()
 for f in sorted(x for x in OUT.rglob('*') if x.is_file()):
     content_hash.update(f.relative_to(OUT).as_posix().encode()); content_hash.update(f.read_bytes())
 cache_version='focalruta-'+content_hash.hexdigest()[:12]
-# The worker lives in assets/sw.template.js; only its version is filled in here.
-sw=(SRC/'assets'/'sw.template.js').read_text(encoding='utf-8')
-(OUT/'sw.js').write_text(sw.replace('__CACHE_VERSION__',cache_version),encoding='utf-8')
+# The worker lives in assets/sw.template.js; scripts/service_worker.py fills in its
+# version and the revision of every file it may keep.
+service_worker.write(OUT,cache_version)
 
 # Pages workflow from official artifact pattern.
 workflow='''name: Deploy FocalRuta to Pages\non:\n  push:\n    branches: [ main ]\n  workflow_dispatch:\npermissions:\n  contents: read\n  pages: write\n  id-token: write\nconcurrency:\n  group: pages\n  cancel-in-progress: true\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/configure-pages@v5\n      - uses: actions/upload-pages-artifact@v3\n        with:\n          path: .\n      - name: Deploy\n        id: deployment\n        uses: actions/deploy-pages@v4\n'''

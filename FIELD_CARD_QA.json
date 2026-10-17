@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 48,
+  "checks": 56,
   "failures": [],
   "results": [
     {
@@ -308,17 +308,68 @@
       "detail": []
     },
     {
-      "name": "a simulated deploy replaces the worker and its caches",
+      "name": "V16 first visit after a deploy, still under the live worker: the home page gets only this build's files",
       "pass": true,
-      "detail": null
+      "detail": []
     },
     {
-      "name": "offline after saving: plan C itself opens with all its diagrams",
+      "name": "V16 under the new worker: the home page gets only this build's files",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "V17 offline after the upgrade: plan C, opened before it, still opens with its 10 diagrams",
       "pass": true,
       "detail": [
         10,
         [],
-        "San Isidro Nocturno — Interior + Calle Urbana · Plan fotográfico · FocalRuta"
+        "San Isidro Nocturno — Interior + Calle Urbana · Plan fotográfico · FocalRuta",
+        "build en-vivo"
+      ]
+    },
+    {
+      "name": "V16 offline: the home page and its web manifest come from the worker",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "V16 installed behind the HTTP cache: the home page gets only this build's files",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "V16 installed behind the HTTP cache: field_card.html gets only this build's files",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "V17 a deploy brings the kept plan up to date on install",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "V17 the card says when a kept file is from an earlier version",
+      "pass": true,
+      "detail": "Tu copia sin conexión es de una versión anterior de FocalRuta: vuelve a guardarla con señal para tener los ajustes de ahora."
+    },
+    {
+      "name": "offline after saving and two deploys: plan C is the new one, with all its diagrams",
+      "pass": true,
+      "detail": [
+        10,
+        [],
+        "San Isidro Nocturno — Interior + Calle Urbana · Plan fotográfico · FocalRuta",
+        "build siguiente"
+      ]
+    },
+    {
+      "name": "offline: plan D, which could not be refreshed, still opens with all its diagrams",
+      "pass": true,
+      "detail": [
+        10,
+        [],
+        "Centro Histórico — Plaza San Martín & Jirón de la Unión · Plan fotográfico · FocalRuta",
+        ""
       ]
     },
     {
@@ -332,13 +383,14 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-17T20:26:22.521433+00:00",
-  "audited_commit": "e25098fc13cfb5840e4286e2732e50f5ca8a2997",
+  "audited_at": "2026-10-17T23:39:09.810019+00:00",
+  "audited_commit": "13253a405bd8c704f8557a1fc5c5047e72ef81aa",
   "audited_artifacts": {
     "data/plans.json": "04ed789b72c2db92cd061d56116990924767d352ffd413c5125734f2b62cfd14",
-    "dist/canon6d_sota_hosted/field_card.html": "b286f75441ada9402bae23fdbcf0902c033182dad504c34752832866f5a5a051",
-    "dist/canon6d_sota_hosted/index.html": "bc81c6f3bff765cd463aa381877892651458cb9d3e73253bbe46dc3eed8ee72b",
-    "dist/canon6d_sota_hosted/sw.js": "555eab6c9ad7507dc2deef0bc2032e5dbeee714ca46295425ea7664171007e6d",
-    "field_card.html": "b286f75441ada9402bae23fdbcf0902c033182dad504c34752832866f5a5a051"
+    "dist/canon6d_sota_hosted/field_card.html": "32ccf751f41d3ede06ebfff2978b070f9594b7be39c377c234ac10aee2142f38",
+    "dist/canon6d_sota_hosted/index.html": "9447c2f617d47ec65b117dcd5842da2fc06f2fccf49149f277b415d368a96329",
+    "dist/canon6d_sota_hosted/sw.js": "21378215a265e24b777ad89dec4b630a4d62b1244dc36cb84e06fe349f1bf5c2",
+    "field_card.html": "32ccf751f41d3ede06ebfff2978b070f9594b7be39c377c234ac10aee2142f38",
+    "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
 }

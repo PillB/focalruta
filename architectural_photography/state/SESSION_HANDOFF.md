@@ -1293,3 +1293,154 @@ Verificación independiente: el red team recibe el PR del paso 3 para revisarlo.
   sombreado por un bucle). Corregido en PR #19 (28ef2aa).
 - Los reportes decían `+dirty` por escribirse uno tras otro; `evidence.QA_REPORTS`
   exime sólo a los cinco reportes por nombre (pedido del red team).
+
+## Ronda 15 · Lo que el red team encontró en PR #20 (2026-10-17)
+
+El red team revisó PR #20 en eb3c101 y dijo «not yet»: siete hallazgos mayores (tres de
+«tu equipo», la caché del service worker que halló la comprobación del sitio en vivo, el
+HTML nuevo con CSS viejo tras un despliegue, la pérdida de las páginas sin conexión al
+actualizar desde 9cd3044, el desborde a 320 px y pruebas que leían las páginas fuente en
+vez de las que se publican) y una lista de menores, más L1–L5 del sitio en vivo
+(`/mnt/project-files/qa/FINDINGS_PR20.md`, `LIVE_CHECK_PR19.md`). Esta ronda los corrige
+en el mismo PR. Requisitos nuevos en `REQUIREMENTS_INVENTORY.md`: V16–V19; N01 añade
+320×640.
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| V16 | Una página recibe archivos de esta build o de la red, nunca la copia de otra: cada copia se comprueba contra el resumen SHA-256 de la build; la portada nombra su hoja y sus datos por revisión; todo lo que se guarda, el manifest incluido, se sirve sin conexión | `tests/test_service_worker.py` con la plantilla de eb3c101 (`FOCALRUTA_SW_TEMPLATE`): 10 de 11 fallan (index, hosted.css y plans_embedded.js guardados desde la caché HTTP; la hoja de otra build servida; el manifest no se sirve sin conexión). Ensayo de despliegue en Chromium (`field_card_qa.py`, servidor tipo Pages con ETag y `max-age=600`): 7 de 12 fallan, entre ellos «primera visita tras un despliegue con el worker en vivo: hosted.css y plans_embedded.js de otra build» (M4) | 12/12 en pytest y 12/12 en el navegador; plantilla nueva `assets/sw.template.js` rellenada por `scripts/service_worker.py` (FILES = ruta → revisión, CORE) |
+| V17 | Al actualizar desde el worker de 9cd3044 o uno posterior se conserva todo lo que el lector tenía sin conexión y sólo se baja lo que cambió; lo guardado para el campo se pone al día al instalar; la tarjeta dice si algo es de una versión anterior o falta; las cachés de los otros sitios de pillb.github.io no se tocan | RED en el mismo log: «sin conexión tras actualizar: el plan C, abierto antes, sigue con sus 10 diagramas» daba 0 diagramas y la portada (M5); «un despliegue pone al día el plan guardado» y «la tarjeta avisa de un archivo de una versión anterior» fallaban (decía «Guardados … el 2026-10-17») | adopta las cachés `focalruta-<hash>-*` y `canon6d-sota-v*` al instalar y borra sólo esas al activar; textos «Falta 1 archivo / Faltan N archivos…» y «Tu copia sin conexión es de una versión anterior…» |
+| V13 (mayores 1–3) | Zoom fuera de rango, PDC perdida con lentes largos, pruebas que confiaban en la bandera de la propia función | 100-400 en el zoom de A10: «100–80 mm» sin nota; A01 en 100-400 a f/22 sin aviso; `test_gear.py` restaba `flags.short` y sobrevivían `APERTURE_LED = []`, sin alargar la obturación y umbral de 1 paso | el zoom que no llega da la razón «añade uno que cubra ese recorrido»; «nítido sólo hasta 44,2 m»; exposición esperada desde la ecuación EV; las cinco mutaciones fallan la suite; lentes hasta f/22 (`test_v13_the_slowest_lens…[22,25,32]`: antes `f/undefined`) |
+| V18 | Desde 320 px nada se corta: nada pasa del borde fuera de una franja que se desplaza, ninguna etiqueta se recorta ni se sale de su control, ningún control queda encima de otro, en todos los estados | `reading_floor.CUT_OFF` sobre la build de 071e41a a 320×640: portada 327 hallazgos (formulario de equipo 28 px fuera de pantalla, «Quitar» cortado; enlaces del encabezado encogidos a 44 px con la etiqueta saliéndose), plan F 12 («🖨 Imprimir» fuera de pantalla). Mutantes de la portada corregida: sin `flex:0 0 auto` 80, sin `min-inline-size:0` 231 | 0 en ambas portadas, la tarjeta y los seis planes, en todos los estados, a 320, 390, 844 y 1440 |
+| V18 (M7) | Las pruebas leen lo que se publica en `dist/` | mutantes en dist (palabra inglesa en index, `font-size:9px` en hosted.css, obturación errónea en field_card.html): las pruebas viejas pasan los tres | las nuevas fallan con cada uno |
+| V19 | Los diálogos de sesión, tarjeta y toma, abiertos con su botón y cerrados con Escape, toman el foco, lo devuelven a ese botón y no dejan nada inerte | mutantes de la portada (sin devolver el foco, sin quitar `inert`, sesión con `show()` en vez de `showModal()`): las comprobaciones anteriores pasan los tres | la nueva falla con cada uno; 24/24 en ambas portadas a 390 y 1440 |
+| L4, L5 | Fuentes vivas | el PDF de la UNMSM para la dirección del Instituto Raúl Porras Barrenechea da 404 sin copia en Wayback; `https://www.basprincen.com/` corta el TLS | Wikipedia (en) da la misma dirección (Calle Narciso de la Colina 398, Miraflores); basprincen por http |
+
+Registros en el scratchpad de la sesión: `red_v16_v17_sw.log`, `red_v16_v17_browser.log`,
+`red_gear_slow_lens.log`, `red_m7_mutants_{old,new}_tests.log`, `red_v18_cutoff.log`,
+`green_v18_cutoff.log`, `red_v19_focus.log`, `green_v19_focus.log`.
+
+### Menores atendidos
+
+- ISO guardado bajo 100 («ISO undefined») o `1e309` (selector vacío): vuelve como el valor
+  del selector más cercano. `lineFor` lee el equipo guardado una vez por cambio.
+- Zoom cuyo extremo largo no llega: termina más cerca y lo dice (24-70: 35–70 mm, 7,0 m).
+- «Faltan 1 archivos» → «Falta 1 archivo».
+- Encabezado a 320 px: las acciones se desplazan con una pista de que hay más; en móvil se
+  quedan las esenciales; «Guía» ya no se corta.
+- L2: la tarjeta en `dist/` se mide también (V03 con las dos copias).
+
+### Compromisos explícitos
+
+- Un lector que aún tiene el worker de 9cd3044 y vuelve dentro de los 10 minutos de caché
+  HTTP de Pages puede recibir todavía el HTML anterior desde esa caché y, si su worker no
+  guardó la hoja anterior, verlo con la nueva. Con el worker nuevo no ocurre (V16), y la
+  ventana se cierra sola.
+- `sw.js` pesa 22 KB (6,7 KB con gzip) porque lleva la revisión de cada archivo.
+- Si un nodo de la CDN sirve un archivo de CORE con un resumen viejo, la instalación falla
+  y se reintenta en la visita siguiente; mientras, sigue el worker anterior.
+- El `sw.js` de la raíz (canon6d-master-v2, muy antiguo) no se toca.
+- Equipo: la nota de f/22 es aproximada; la regla del trípode ignora la estabilización; los
+  solapes de zoom pequeños no llevan nota; se conservan el paso del ND (ningún hueco real lo
+  alcanza) y el redondeo a infinito (un 38 mm propio lo necesita). Sin hacer: la etiqueta
+  «factor 2» de Micro 4/3 (el cálculo usa 2,07), f/0.95 limitado a f/1, 1/4000 para todo
+  cuerpo, límites de nombre y número de lentes, evento `storage` entre pestañas.
+- V18 compara solapes sólo dentro de una misma capa (el encabezado fijo sobre el contenido
+  que pasa por debajo no cuenta) y mide etiquetas sólo en controles con ancho propio.
+- L4: la dirección viene ahora de Wikipedia y la coordenada de Commons, ambas de Wikimedia,
+  así que ya no son editores independientes. UNMSM, BNP, Andina y El Peruano no publican la
+  dirección. Se mantiene el estado y la confianza.
+- L5: basprincen por http, sin TLS. El red team comprobó en vivo que responde 200; desde este
+  contenedor la red externa está bloqueada (proxy 403) y no se pudo repetir.
+- «Siempre decir Listo» en la tarjeta lo detecta la QA del navegador (`field_card_qa.py`), no
+  pytest; pytest cubre el worker (V16, V17).
+
+### Cierre (comandos, código de salida, resumen)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `python3 -m pytest -q` | 0 | 677 pass, 1 skip |
+| `python3 scripts/verify_architecture.py` | 0 | `checks_failed: []` (incluye el escaneo de privacidad) |
+| `python3 scripts/verify_release.py` | 0 | `checks_failed: []`; mínimos subidos a 360 (release) y 56 (tarjeta); cubre la matriz N01 con 320×640 |
+| `ruff check scripts tests --select C901` (máx. 10) | 0 | sin hallazgos |
+| `python3 scripts/regenerate_all.py && git diff --exit-code` | 0 | sin cambios salvo `CURRENT_STATE.json`, que mide el reporte nuevo (315 → 360) y va en el mismo commit |
+| QA de navegador (`--with-browser-qa`, Chromium + axe 4.10.3) sobre 7f0fe75 limpio | 0 | visual 37/37, óptica 22/22, release 360/360, axe 78/78, tarjeta 56/56 |
+| Cinco suites `tests/architecture/browser_*.py`, una tras otra | 0 | en verde en las siete vistas, 320×640 incluida |
+
+Verificación independiente: el red team recibe el PR otra vez para revisarlo. Antes de
+fusionar hace falta la palabra de Pablo.
+
+### Referencia de experto por decisión
+
+- V16–V17: el precacheo con revisión por archivo de Workbox (`precacheAndRoute` con
+  `{url, revision}`) y el ciclo de vida del service worker de la especificación W3C; un
+  experto rechazaría servir un CSS de otra build o vaciar lo guardado al actualizar, que es
+  lo que hacía eb3c101.
+- V18: WCAG 2.2, criterio 1.4.10 Reflow (contenido usable a 320 px CSS sin desplazamiento en
+  dos dimensiones). `overflow-x:hidden` en `body` ocultaba el fallo en vez de evitarlo.
+- V19: patrón de diálogo modal de WAI-ARIA APG (el foco entra al abrir y vuelve al control
+  que lo abrió al cerrar) y el `inert` de HTML.
+- L4–L5: una fuente de dirección que no responde no corrobora nada; se cambia por una que
+  responde y se declara la pérdida de independencia.
+
+### Errores propios encontrados en esta ronda
+
+- Las pruebas de Node quedaban colgadas 90 s: el temporizador de `Promise.race` seguía vivo.
+  Ahora se cancela.
+- El servidor de pruebas mandaba `Last-Modified` y respondía 304 con el cuerpo viejo tras un
+  despliegue; ahora usa ETag de contenido, como Pages.
+- Las pruebas de arquitectura leían CORE de la plantilla, que ahora tiene `__CORE__`; leen el
+  `sw.js` publicado.
+- La primera versión de V18 no vio el defecto del encabezado (etiquetas que se salen con
+  `overflow` visible); lo encontró un mutante y la comprobación se amplió.
+- La espera de U05 en `browser_release_qa.py` buscaba claves que terminaran en `.webp` y la
+  URL exacta de la página; con las claves por revisión (`?__rev=`) nunca se cumplía y la QA
+  completa cayó. Ahora compara rutas; la recarga sin conexión y los diagramas decodificados
+  que comprueba después no cambian. Lo encontró la corrida completa, no las sondas parciales.
+
+### Segunda pasada del red team (287f197)
+
+El red team confirmó corregidos los siete mayores anteriores, L1 y L3, reprodujo todas las
+puertas y pidió cuatro cosas nuevas (`FINDINGS_PR20.md`, «Second pass at 287f197»).
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| V18 (N1) | Nada se corta con el equipo propio del lector, con nombres de lente tan largos como los reales | con un 18–55 de kit y un 70–300 guardados, el `<select>` del laboratorio óptico medía lo que su opción más larga y empujaba el laboratorio fuera de la pantalla: 1451 hallazgos a 320 px y 1336 a 375 px en cada portada; «Quitar» se salía de su botón | 0 en ambas portadas a 320 y 375 px, en la tarjeta y en los seis planes (también con un nombre de 72 caracteres sin espacios); comprobación nueva en `browser_release_qa.py` |
+| V16 (N2) | Una página abierta dentro de los 10 minutos de caché HTTP es de esta build | `test_v16_a_page_opened_within_the_http_cache_window_is_this_builds` fallaba (la raíz devolvía la portada anterior); en Chromium, el ensayo sin borrar la caché HTTP fallaba en la portada (`index.html` de la build anterior) | `navigate()` y los archivos de esta build se revalidan (`cache:'no-cache'`); pasa en Node y en Chromium. `install_behind_http_cache` ya no borra la caché HTTP antes de comprobar |
+| V16 (N2, ?v) | Una página de otra build recibe la hoja que nombra | el mutante «`asset()` ignora `?v`» sobrevivía a toda la suite | `test_v16_a_page_from_another_build_gets_the_stylesheet_it_names` lo mata |
+| V16 (N3) | Un 404 o 5xx no reemplaza la copia guardada | la página y el diagrama guardados devolvían 404 | devuelven la copia guardada |
+| V13 (N4) | La luz que falta se dice desde ⅓ de paso, el paso del dial | con kits reales sobre la rejilla, «Faltan 0,3 pasos» a +0,28 EV y «0,2» a 0,17 EV | `test_v13_a_shortfall_is_said_only_from_a_third_of_a_stop` pasa |
+
+Registros: `red_n1_long_gear.log`, `red_n2_n3_sw.log`, `red_green_n2_browser.log`,
+`red_n4_gear.log`, `green_n2_n3_n4.log`.
+
+También: la lista de palabras inglesas suma settings, back, download, close, next,
+previous, print, share y save (un «← Back» en un plan publicado ya falla V12); ninguna
+página la incumple. En Chromium, una página que el worker nunca guardó, abierta con red,
+llega de la red (el `fetch(r,{cache:'no-cache'})` sobre una petición de navegación no
+lanza error).
+
+Compromisos de esta pasada:
+
+- Revalidar páginas y archivos de esta build cuesta una petición condicional (304) cuando
+  el worker no tiene la copia; con copia, no hay red.
+- Una instalación fallida deja en las cachés compartidas los archivos que sí llegaron;
+  son de esta build y verificados, la siguiente instalación los reutiliza y el siguiente
+  `prune` borra los que sobren.
+- Un faltante de luz menor que ⅓ de paso ya no se menciona: queda dentro de la tolerancia
+  que el planificador declara.
+
+Cierre de la segunda pasada:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `python3 -m pytest -q` | 0 | 681 pass, 1 skip |
+| `python3 scripts/verify_architecture.py` | 0 | `checks_failed: []` |
+| `python3 scripts/verify_release.py` | 0 | `checks_failed: []`; mínimo de release subido a 371 |
+| `ruff check scripts tests --select C901` (máx. 10) | 0 | sin hallazgos |
+| `python3 scripts/regenerate_all.py && git diff --exit-code` | 0 | sólo `CURRENT_STATE.json` (360 → 371), en el mismo commit |
+| QA de navegador (`--with-browser-qa`) sobre 13253a4 limpio | 0 | visual 37/37, óptica 22/22, release 371/371, axe 78/78, tarjeta 56/56 |
+| Cinco suites `tests/architecture/browser_*.py`, una tras otra | 0 | en verde en las siete vistas |
+
+Verificación independiente: vuelve al red team. Fusionar sigue necesitando la palabra de Pablo.

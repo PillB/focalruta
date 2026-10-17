@@ -8,6 +8,12 @@ V11 every control is at least 44 × 44 px, so it can be hit with a thumb in the
 V12 the interface is in Spanish. Camera labels stay as the 6D prints them, and
     the titles of cited English sources stay as published.
 
+V18 nothing a reader needs is cut off, from a 320 px screen up (WCAG 1.4.10
+    Reflow): no text or control runs past the edge of the screen, where
+    `body{overflow-x:hidden}` would hide it, unless it sits in a strip that
+    scrolls sideways, no control's label is clipped or runs out of it, and no
+    control is squeezed on top of another.
+
 The checks live here so the static tests and the browser QA measure the same
 thing.
 """
@@ -22,7 +28,8 @@ MIN_TARGET_PX = 44
 # Matched without case, on whole words.
 ENGLISH_UI = re.compile(
     r"\b(?:field card|eye-level|pre-?flight|shutter|dof|fov|mfd|burst|streak|blue hour|light ?painting"
-    r"|zooming|freeze|background|foreground|panning|reset|human|building lab|session run|tips?)\b",
+    r"|zooming|freeze|background|foreground|panning|reset|human|building lab|session run|tips?"
+    r"|settings|back|download|close|next|previous|print|share|save)\b",
     re.I,
 )
 
@@ -52,6 +59,23 @@ const labels=[...c.querySelectorAll('[alt],[title],[aria-label],[placeholder]')]
 return c.textContent+' '+labels.join(' ')}"""
 
 
+# V18: elements past either edge of the screen, outside a strip that scrolls sideways,
+# controls whose label is clipped or runs out of them, and controls squeezed on top of each other.
+CUT_OFF = """(skip)=>{const W=document.documentElement.clientWidth,out=[];
+const strip=el=>{for(let p=el.parentElement;p&&p!==document.body;p=p.parentElement){const o=getComputedStyle(p).overflowX;if(o==='auto'||o==='scroll')return true}return false};
+const name=el=>el.tagName.toLowerCase()+(el.id?'#'+el.id:'')+(el.classList[0]?'.'+el.classList[0]:'')+' «'+(el.textContent||el.value||'').trim().slice(0,24)+'»';
+for(const el of document.body.querySelectorAll('*')){if(skip&&el.closest(skip))continue;if(!el.checkVisibility({visibilityProperty:true}))continue;
+const r=el.getBoundingClientRect(),cs=getComputedStyle(el);if(r.width<2||r.height<2||cs.visibility==='hidden'||cs.position==='fixed')continue;
+if((r.right>W+1||r.left<-1)&&!strip(el))out.push(name(el)+' '+Math.round(r.left)+'–'+Math.round(r.right)+' px');
+else if(el.matches('button,a,summary,select,label,legend')&&el.scrollWidth>el.clientWidth+1&&el.clientWidth>1)out.push(name(el)+(cs.overflowX==='visible'?' label runs out ':' label clipped ')+el.scrollWidth+'>'+el.clientWidth)}
+// A sticky header over the content scrolled under it is not an overlap: compare controls in the same layer.
+const layer=el=>{for(let p=el;p;p=p.parentElement){const s=getComputedStyle(p).position;if(s==='sticky'||s==='fixed')return p}return null};
+const ctl=[...document.body.querySelectorAll('a[href],button,input,select,textarea,summary')].filter(el=>!(skip&&el.closest(skip))&&el.checkVisibility({visibilityProperty:true})),box=ctl.map(el=>el.getBoundingClientRect()),on=ctl.map(layer);
+for(let i=0;i<ctl.length;i++)for(let j=i+1;j<ctl.length;j++){if(on[i]!==on[j]||ctl[i].contains(ctl[j])||ctl[j].contains(ctl[i]))continue;const a=box[i],b=box[j];
+if(Math.min(a.right,b.right)-Math.max(a.left,b.left)>2&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>2)out.push(name(ctl[i])+' overlaps '+name(ctl[j]))}
+return out}"""
+
+
 def english_in(text: str) -> list[str]:
     """English interface words in `text`, each once, in order of appearance."""
     return list(dict.fromkeys(m.group(0) for m in ENGLISH_UI.finditer(text)))
@@ -72,12 +96,13 @@ def audit_home(page) -> dict:
     every motion lab mode; every <details> open; the session dialog; a shot dialog.
     `unreached` names the dialogs that did not open.
     """
-    small, tiny, words, unreached = set(), set(), [], []
+    small, tiny, words, unreached, cut = set(), set(), [], [], set()
 
     def measure(state: str, shown: str = "") -> None:
         # A state that never opens would be measured as the page behind it and pass.
         if shown and not page.evaluate("(s)=>!!document.querySelector(s)?.open", shown):
             unreached.append(state)
+        cut.update(f"{state}: {x}" for x in page.evaluate(CUT_OFF, HOME_SKIP))
         small.update(f"{state}: {x}" for x in page.evaluate(TEXT_UNDER_FLOOR, [HOME_SKIP, MIN_TEXT_PX]))
         tiny.update(f"{state}: {x}" for x in page.evaluate(TARGETS_UNDER_FLOOR, [HOME_SKIP, MIN_TARGET_PX]))
         words.append(page.evaluate(SHOWN_WORDS, HOME_SPANISH_SKIP))
@@ -98,16 +123,18 @@ def audit_home(page) -> dict:
     page.evaluate("openModal('plan_c','C08')")
     measure("shot dialog", "#shot-modal")
     page.keyboard.press("Escape")
-    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words)), "unreached": unreached}
+    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words)), "unreached": unreached,
+            "cut": sorted(cut)}
 
 
 def audit_plan_page(page) -> dict:
     """V10-V12 on a plan page, for both subjects in every light, with its details open."""
-    small, tiny, words = set(), set(), []
+    small, tiny, words, cut = set(), set(), [], set()
     for subject in ("human", "dog"):
         for slot in ("day", "afternoon", "night"):
             page.evaluate("([s,t])=>{setVariant(s);setTime(t);document.querySelectorAll('details').forEach(d=>d.open=true)}", [subject, slot])
+            cut.update(f"{subject}/{slot}: {x}" for x in page.evaluate(CUT_OFF, ""))
             small.update(f"{subject}/{slot}: {x}" for x in page.evaluate(TEXT_UNDER_FLOOR, ["", MIN_TEXT_PX]))
             tiny.update(f"{subject}/{slot}: {x}" for x in page.evaluate(TARGETS_UNDER_FLOOR, ["", MIN_TARGET_PX]))
             words.append(page.evaluate(SHOWN_WORDS, "cite"))
-    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words))}
+    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words)), "cut": sorted(cut)}

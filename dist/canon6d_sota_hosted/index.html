@@ -170,7 +170,7 @@
 
 
 
-<link rel="stylesheet" href="./assets/hosted.css">
+<link rel="stylesheet" href="./assets/hosted.css?v=2db4493d4d89">
 </head>
 <body class="bg-paper text-ink">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -189,28 +189,39 @@
           </svg>
         </div>
         <div class="min-w-0">
-          <h1 class="text-xs sm:text-base font-bold leading-tight truncate">FocalRuta · San Isidro</h1>
+          <h1 class="text-xs sm:text-base font-bold leading-tight truncate">FocalRuta<span class="hdr-label"> · San Isidro</span></h1>
           <p class="text-xs text-slate-500 hidden sm:block">Planificador para Canon 6D · Lima</p>
         </div>
       </div>
       <div class="top-actions flex items-center space-x-1 sm:space-x-2 overflow-x-auto">
-        <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">↑</button>
+        <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">↑</button>
         <a href="#quick-start" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Inicio</a>
-        <a href="challenges/arquitectura-en-foco/" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap">Fotografía arquitectónica</a>
-        <a href="#planes" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">Planes</a>
+        <a href="challenges/arquitectura-en-foco/" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap"><span class="hdr-short">Arquitectura</span><span class="hdr-label">Fotografía arquitectónica</span></a>
+        <a href="#planes" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">Planes</a>
         <a href="#optics-lab" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Óptica</a>
         <a href="#gear" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Tu equipo</a>
         <a href="#lens-comparison" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Lentes</a>
         <a href="#tecnicas" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Técnicas</a>
         <a href="#composicion" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Composición</a>
         <button id="visibility-toggle" type="button" class="visibility-toggle" aria-pressed="false">☀️ Modo sol</button>
-        <button type="button" onclick="openSessionRun()" title="Modo sesión: recorre las 10 tomas una a una" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Sesión</button>
-        <button type="button" onclick="openFieldCard()" title="Tarjeta de campo" aria-label="Abrir tarjeta de campo" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap">📋<span class="hdr-label"> Tarjeta</span></button>
+        <button type="button" onclick="openSessionRun()" title="Modo sesión: recorre las 10 tomas una a una" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Sesión</button>
+        <button type="button" onclick="openFieldCard()" title="Tarjeta de campo" aria-label="Abrir tarjeta de campo" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap">📋<span class="hdr-label"> Tarjeta</span></button>
         <button onclick="window.print()" title="Imprimir o guardar como PDF" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold bg-ink text-white rounded-lg hover:bg-slate-700 transition whitespace-nowrap">PDF</button>
       </div>
     </div>
   </div>
 </nav>
+<script>
+// When the header's actions do not fit, fade the last one so it reads as "more to the right".
+(function () {
+  var bar = document.querySelector('.top-actions');
+  if (!bar) return;
+  function hint() { bar.classList.toggle('has-more', bar.scrollLeft + bar.clientWidth < bar.scrollWidth - 2); }
+  bar.addEventListener('scroll', hint, { passive: true });
+  window.addEventListener('resize', hint);
+  hint();
+})();
+</script>
 
 <main id="contenido">
 <!-- ============================================================ -->
@@ -358,8 +369,8 @@
         <div class="gear-grid">
           <label class="gear-field"><span>Focal más corta (mm)</span><input id="gear-min" type="number" inputmode="decimal" min="4" max="1200" step="1"></label>
           <label class="gear-field"><span>Focal más larga (mm; vacío si es fijo)</span><input id="gear-max" type="number" inputmode="decimal" min="4" max="1200" step="1"></label>
-          <label class="gear-field"><span>Apertura máxima (f/)</span><input id="gear-wide" type="number" inputmode="decimal" min="0.95" max="32" step="0.1"></label>
-          <label class="gear-field"><span>Apertura máxima en la focal larga (f/; solo zoom)</span><input id="gear-tele" type="number" inputmode="decimal" min="0.95" max="32" step="0.1"></label>
+          <label class="gear-field"><span>Apertura máxima (f/)</span><input id="gear-wide" type="number" inputmode="decimal" min="0.95" max="22" step="0.1"></label>
+          <label class="gear-field"><span>Apertura máxima en la focal larga (f/; solo zoom)</span><input id="gear-tele" type="number" inputmode="decimal" min="0.95" max="22" step="0.1"></label>
         </div>
         <button type="button" id="gear-add" class="sota-btn">Añadir este lente</button>
       </details>
@@ -474,6 +485,8 @@
   var REF_W = 35.8, REF_COC = 0.03, BASE_ISO = 100, FASTEST = 1 / 4000, NARROWEST = 22, KEY = 'focalruta-equipo-v1';
   var APERTURES = [1, 1.1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.5, 2.8, 3.2, 3.5, 4, 4.5, 5, 5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22];
   var ISOS = [100, 125, 160, 200, 250, 320, 400, 500, 640, 800, 1000, 1250, 1600, 2000, 2500, 3200, 4000, 5000, 6400, 8000, 10000, 12800, 16000, 20000, 25600, 32000, 40000, 51200];
+  // The highest ISO the reader allows, as the picker offers it.
+  var ISO_LIMITS = [1600, 3200, 6400, 12800, 25600, 51200];
   var SHUTTERS = [1 / 4000, 1 / 3200, 1 / 2500, 1 / 2000, 1 / 1600, 1 / 1250, 1 / 1000, 1 / 800, 1 / 640, 1 / 500, 1 / 400, 1 / 320, 1 / 250, 1 / 200, 1 / 160, 1 / 125,
     1 / 100, 1 / 80, 1 / 60, 1 / 50, 1 / 40, 1 / 30, 1 / 25, 1 / 20, 1 / 15, 1 / 13, 1 / 10, 1 / 8, 1 / 6, 1 / 5, 1 / 4, 0.3, 0.4, 0.5, 0.6, 0.8, 1, 1.3, 1.6, 2, 2.5,
     3.2, 4, 5, 6, 8, 10, 13, 15, 20, 25, 30];
@@ -559,11 +572,12 @@
     return best;
   }
 
+  // The zoom that runs over most of the planned range; one that misses it (no overlap) cannot make the burst.
   function chooseZoom(lenses, from, to) {
     var best = null;
     lenses.filter(function (l) { return l.max / l.min >= 1.5; }).forEach(function (lens) {
       var a = Math.max(lens.min, from), b = Math.min(lens.max, to), span = b > a ? Math.log(b / a) : 0;
-      if (!best || span > best.span) best = { lens: lens, from: a, to: b, span: span };
+      if (span > 0 && (!best || span > best.span)) best = { lens: lens, from: a, to: b, span: span };
     });
     return best;
   }
@@ -572,14 +586,22 @@
   // scales with the camera distance (thin lens, f much shorter than d).
   function apertureFor(plan, focal, distanceM, coc) {
     var target = plan.hyperfocal * distanceM / plan.distance;
-    return target > focal ? focal * focal / (coc * (target - focal)) : NARROWEST;
+    return target > focal ? focal * focal / (coc * (target - focal)) : Infinity;
+  }
+
+  // Sharp to infinity when the hyperfocal distance does not pass the subject.
+  function sharpToInfinity(n, focal, distanceM, coc) { return focal * focal / (n * coc) + focal <= distanceM * 1000 - focal; }
+  // Far limit of the sharp zone, in metres (thin lens).
+  function farLimit(n, focal, distanceM, coc) {
+    var h = focal * focal / (n * coc) + focal, s = distanceM * 1000;
+    return h * s / (h - s + focal) / 1000;
   }
 
   function snapAperture(n, widest, planFarIsInfinite, focal, distance, coc) {
     var allowed = APERTURES.filter(function (x) { return x >= widest - 0.05; });
     var snapped = nearest(allowed, Math.max(n, widest));
     // A plan sharp to infinity stays sharp to infinity: round toward more depth.
-    if (planFarIsInfinite && focal * focal / (snapped * coc) + focal > distance * 1000 - focal && snapped < NARROWEST) {
+    if (planFarIsInfinite && !sharpToInfinity(snapped, focal, distance, coc) && snapped < NARROWEST) {
       snapped = allowed[Math.min(allowed.length - 1, allowed.indexOf(snapped) + 1)];
     }
     return snapped;
@@ -617,7 +639,8 @@
     var iso = isoNeeded(r, plan), allowed = ISOS.filter(function (x) { return x <= body.iso; });
     r.iso = nearest(allowed, Math.max(BASE_ISO, Math.min(body.iso, iso)));
     var short = Math.log2(iso / body.iso);
-    if (short > 1 / 6) r.shortStops = short;
+    // Exposure is held to a third of a stop, the dial's step: a shortfall under that is not one.
+    if (short >= 1 / 3 - 0.01) r.shortStops = short;
     return r;
   }
 
@@ -628,9 +651,18 @@
         : 'Acércate a ' + decimal(r.distance) + ' m (el plan está a ' + decimal(plan.distance) + ' m), o quédate y recorta.');
     }
     if (r.apertureLimited) notes.push('Tu lente no abre tanto: habrá más zona nítida y menos desenfoque de fondo que en el plan.');
+    if (r.narrow) {
+      notes.push('Ni cerrando a f/' + NARROWEST + ' alcanza con esta focal: ' + (r.sharpTo ? 'nítido sólo hasta ' + decimal(r.sharpTo) + ' m, no hasta el infinito como en el plan.'
+        : 'habrá menos zona nítida que en el plan.'));
+    }
     if (r.stoppedDown) notes.push('Diafragma más cerrado que el equivalente, para no pasarte de luz: algo más de zona nítida.');
     if (r.opened) notes.push('Diafragma más abierto que el equivalente, por falta de luz: algo menos de zona nítida.');
-    if (r.slower) notes.push(r.t > r.handheld * 1.05 ? 'Exposición más larga por falta de luz: usa trípode.' : 'Exposición más larga por falta de luz; aún a pulso.');
+    var shaky = r.t > r.handheld * 1.05;
+    if (r.slower) notes.push(shaky ? 'Exposición más larga por falta de luz: usa trípode.' : 'Exposición más larga por falta de luz; aún a pulso.');
+    // A shutter the plan holds by hand on the 6D can need support on a longer equivalent focal (panning moves the camera on purpose).
+    if (!r.slower && shaky && !r.panned && plan.t <= 1.05 / plan.focal) {
+      notes.push('Con tu focal (equivale a ' + Math.round(1 / r.handheld) + ' mm), ' + shutterText(r.t) + ' ya no se sostiene a pulso: usa trípode o apoya la cámara.');
+    }
     if (r.nd !== plan.nd) notes.push(r.nd ? 'Filtro ND de ' + r.nd + (r.nd === 1 ? ' paso.' : ' pasos.') : 'Sin filtro ND.');
     if (r.shortStops) notes.push('Faltan ' + decimal(r.shortStops) + ' pasos de luz con ISO ' + r.iso + ': sube tu ISO máximo o acepta una foto más oscura.');
     return notes;
@@ -649,16 +681,22 @@
     var focal;
     if (lens.from) {
       var zoom = chooseZoom(gear.lenses, lens.from * k, lens.to * k);
-      if (!zoom) return { ok: false, reason: 'El efecto zoom necesita un objetivo zoom: añade uno a tu equipo.' };
+      if (!zoom) {
+        var zooms = gear.lenses.filter(function (l) { return l.max / l.min >= 1.5; }).length;
+        return { ok: false, reason: !zooms ? 'El efecto zoom necesita un objetivo zoom: añade uno a tu equipo.'
+          : 'El efecto zoom pide de ' + Math.round(lens.from * k) + ' a ' + Math.round(lens.to * k) + ' mm con tu cámara y ' +
+            (zooms === 1 ? 'tu zoom no llega' : 'ninguno de tus zooms llega') + ': añade uno que cubra ese recorrido.' };
+      }
       focal = zoom.to; r.lensName = zoom.lens.name; r.lensText = Math.round(zoom.from) + '–' + Math.round(zoom.to) + ' mm, girando el anillo durante la exposición';
-      r.widest = widestAt(zoom.lens, focal); r.distance = plan.distance;
+      // The burst ends on the plan's framing: a zoom whose long end falls short ends it closer.
+      r.widest = widestAt(zoom.lens, focal); r.distance = plan.distance * focal / (lens.to * k);
     } else {
       var pick = chooseLens(gear.lenses, lens.focal * k, plan, coc);
       focal = pick.focal; r.lensName = pick.lens.name; r.distance = pick.distance; r.widest = widestAt(pick.lens, focal);
       r.lensText = Math.round(focal) + ' mm' + (pick.lens.max > pick.lens.min ? ' (zoom ' + pick.lens.min + '–' + pick.lens.max + ')' : '');
     }
     // The reciprocal rule on the 35 mm equivalent focal: slower than this, the camera needs support.
-    r.handheld = k / focal;
+    r.handheld = k / focal; r.panned = setting.technique === 'barrido';
     var planInfinite = plan.distance * 1000 - plan.focal >= plan.hyperfocal;
     var ideal = apertureFor(plan, focal, r.distance, coc);
     r.apertureLimited = ideal < r.widest - 0.05;
@@ -666,10 +704,14 @@
     lightBalance(r, plan, limits);
     // Stopped down for the light, the lens limit no longer shows in the picture.
     if (r.stoppedDown) r.apertureLimited = false;
+    // A long lens can need more than f/22 for the plan's sharp zone: say what is lost, and where it ends if the plan reached infinity.
+    var lostFar = planInfinite && !sharpToInfinity(r.n, focal, r.distance, coc);
+    r.narrow = r.n >= NARROWEST && (ideal > NARROWEST * Math.pow(2, 1 / 6) || lostFar);
+    r.sharpTo = r.narrow && lostFar ? farLimit(r.n, focal, r.distance, coc) : 0;
     return {
       ok: true, focal: focal, lens: r.lensText, lens_name: r.lensName, distance_m: r.distance, f_number: r.n, aperture: 'f/' + r.n,
       seconds: r.t, shutter: shutterText(r.t), iso: r.iso, nd_stops: r.nd, coc_mm: coc,
-      flags: { apertureLimited: r.apertureLimited, stoppedDown: !!r.stoppedDown, opened: !!r.opened, slower: !!r.slower, short: r.shortStops || 0 },
+      flags: { apertureLimited: r.apertureLimited, narrowLimited: r.narrow, stoppedDown: !!r.stoppedDown, opened: !!r.opened, slower: !!r.slower, short: r.shortStops || 0 },
       notes: notesFor(r, plan)
     };
   }
@@ -694,23 +736,31 @@
     if (!l || typeof l !== 'object') return null;
     var n = { name: String(l.name || '').replace(/[<>&"]/g, ''), min: +l.min, max: +l.max, wide: +l.wide, tele: +l.tele };
     if ('filter' in l) n.filter = +l.filter;
-    return n.min >= 4 && n.max >= n.min && n.max <= 1200 && n.wide >= 0.95 && n.tele >= n.wide && n.tele <= 32 ? n : null;
+    return n.min >= 4 && n.max >= n.min && n.max <= 1200 && n.wide >= 0.95 && n.tele >= n.wide && n.tele <= NARROWEST ? n : null;
   }
-  function load() {
+  // A stored ISO limit comes back as one the picker offers: the nearest, or the body's own when it is not a number.
+  function isoLimit(x) { return nearest(ISO_LIMITS, Math.min(Math.max(x, ISO_LIMITS[0]), ISO_LIMITS[ISO_LIMITS.length - 1])); }
+  function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function parse(raw) {
     try {
-      var g = JSON.parse(localStorage.getItem(KEY) || 'null');
-      if (g && BODIES.some(function (b) { return b.id === g.body; }) && Array.isArray(g.lenses) && +g.iso > 0) {
-        return { body: g.body, iso: +g.iso, lenses: g.lenses.map(cleanLens).filter(Boolean) };
+      var g = JSON.parse(raw || 'null');
+      if (g && BODIES.some(function (b) { return b.id === g.body; }) && Array.isArray(g.lenses)) {
+        return { body: g.body, iso: isoLimit(+g.iso > 0 ? +g.iso : bodyOf(g).iso), lenses: g.lenses.map(cleanLens).filter(Boolean) };
       }
     } catch (e) {}
     return reference();
   }
+  function load() { return parse(stored()); }
   function save(gear) { try { if (isReference(gear)) localStorage.removeItem(KEY); else localStorage.setItem(KEY, JSON.stringify(gear)); } catch (e) {} }
   api.load = load;
   api.save = save;
-  // The adapted line for a shot in the light slot the page shows.
+  // The adapted line for a shot in the light slot the page shows. A page draws every shot at once,
+  // so the stored gear is parsed again only when it has changed.
+  var last = null;
   api.lineFor = function (shot, setting) {
-    return lineHtml(Object.assign({ technique: shot.technique, distance: shot.subject_distance_m }, setting), load());
+    var raw = stored();
+    if (!last || raw !== last.raw) last = { raw: raw, gear: parse(raw) };
+    return lineHtml(Object.assign({ technique: shot.technique, distance: shot.subject_distance_m }, setting), last.gear);
   };
   if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
   root.FocalRutaEquipo = api;
@@ -741,7 +791,7 @@
       : 'Planes adaptados a ' + body.name.split(' (')[0] + ' con ' + gear.lenses.length + (gear.lenses.length === 1 ? ' lente' : ' lentes') + ': cada toma muestra también «Con tu equipo».';
   }
   $('gear-body').innerHTML = BODIES.map(function (b) { return '<option value="' + b.id + '">' + b.name + '</option>'; }).join('');
-  $('gear-iso').innerHTML = [1600, 3200, 6400, 12800, 25600, 51200].map(function (x) { return '<option value="' + x + '">ISO ' + x + '</option>'; }).join('');
+  $('gear-iso').innerHTML = ISO_LIMITS.map(function (x) { return '<option value="' + x + '">ISO ' + x + '</option>'; }).join('');
   $('gear-common').innerHTML = '<option value="">Elige un lente…</option>' + COMMON.map(function (l, i) { return '<option value="' + i + '">' + l.name + '</option>'; }).join('');
   $('gear-body').addEventListener('change', function () {
     gear.body = this.value;
@@ -759,8 +809,8 @@
   });
   $('gear-add').addEventListener('click', function () {
     var min = +$('gear-min').value, max = +$('gear-max').value || min, wide = +$('gear-wide').value, tele = +$('gear-tele').value || wide;
-    if (!(min >= 4 && min <= 1200 && max >= min && max <= 1200 && wide >= 0.95 && wide <= 32 && tele >= wide && tele <= 32)) {
-      $('gear-status').textContent = 'Revisa el lente: focal entre 4 y 1200 mm, la larga no menor que la corta, y apertura entre f/0.95 y f/32.';
+    if (!(min >= 4 && min <= 1200 && max >= min && max <= 1200 && wide >= 0.95 && wide <= NARROWEST && tele >= wide && tele <= NARROWEST)) {
+      $('gear-status').textContent = 'Revisa el lente: focal entre 4 y 1200 mm, la larga no menor que la corta, y apertura entre f/0.95 y f/' + NARROWEST + '.';
       return;
     }
     gear.lenses.push({ name: '', min: min, max: max, wide: wide, tele: tele });
@@ -1286,7 +1336,7 @@
 <!-- ============================================================ -->
 <!-- SCRIPT: data and rendering are fully embedded for iPhone/Safari attachment mode -->
 <!-- ============================================================ -->
-<script src="./data/plans_embedded.js"></script>
+<script src="./data/plans_embedded.js?v=75d8e47aed72"></script>
 <script>
 function assetUrl(path){
   return path.replace(/^diagrams\/(.+)\.png$/, './diagrams-webp/$1.webp');
@@ -1943,14 +1993,24 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
     document.addEventListener('visibilitychange', function () { if (awake.checked && document.visibilityState === 'visible') request(); });
   }
 
-  // V07: keep the plan pages and diagrams for the field, through the service worker.
+  // V07, V17: keep the plan pages and diagrams for the field, through the service
+  // worker, and say whether the kept copy is this version's, an older one or incomplete.
   var packButton = $('#fc-pack'), packStatus = $('#fc-pack-status');
+  var files = function (n) { return n === 1 ? 'Falta 1 archivo' : 'Faltan ' + n + ' archivos'; };
+  var packText = function (d) {
+    if (d.current === d.total) return 'Guardados para usar sin conexión' + (state.packed ? ' el ' + state.packed : '') + '.';
+    if (!state.packed) return '';
+    if (d.missing) return files(d.missing) + ' de tu copia sin conexión: vuelve a guardarla con señal.';
+    return 'Tu copia sin conexión es de una versión anterior de FocalRuta: vuelve a guardarla con señal para tener los ajustes de ahora.';
+  };
   if (packButton && 'serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+    var packUrls = function () { return JSON.parse(packButton.getAttribute('data-urls')).map(function (u) { return new URL(u, location.href).href; }); };
     navigator.serviceWorker.ready.then(function (registration) {
       $('#fc-offline').hidden = false;
       if (state.packed) packStatus.textContent = 'Guardados para usar sin conexión el ' + state.packed + '.';
+      registration.active.postMessage({ type: 'pack-status', urls: packUrls() });
       packButton.addEventListener('click', function () {
-        var urls = JSON.parse(packButton.getAttribute('data-urls')).map(function (u) { return new URL(u, location.href).href; });
+        var urls = packUrls();
         if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(function () {});
         packButton.disabled = true; packStatus.textContent = 'Guardando 0 de ' + urls.length + '…';
         registration.active.postMessage({ type: 'pack', urls: urls });
@@ -1958,10 +2018,11 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
     });
     navigator.serviceWorker.addEventListener('message', function (event) {
       var d = event.data || {};
+      if (d.type === 'pack-status' && !packButton.disabled) { packStatus.textContent = packText(d); return; }
       if (d.type !== 'pack-progress') return;
       if (d.done < d.total) { packStatus.textContent = 'Guardando ' + d.done + ' de ' + d.total + '…'; return; }
       packButton.disabled = false;
-      if (d.failed) { packStatus.textContent = 'Faltan ' + d.failed + ' archivos: vuelve a intentarlo con mejor señal.'; return; }
+      if (d.failed) { packStatus.textContent = files(d.failed) + ': vuelve a intentarlo con mejor señal.'; return; }
       state.packed = today; save();
       packStatus.textContent = 'Listo: ' + d.total + ' archivos guardados para usar sin conexión.';
     });

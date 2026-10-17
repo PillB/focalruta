@@ -1,4 +1,5 @@
 import json
+import re
 import hashlib
 from pathlib import Path
 import subprocess
@@ -329,8 +330,8 @@ def test_route_ui_exposes_district_filter_and_singleton_map_links():
 
 
 def test_hosted_offline_shell_precaches_route_ui_and_help():
-    worker = (ROOT / "assets/sw.template.js").read_text(encoding="utf-8")
-    core = worker.split("const CORE=", 1)[1].split(";", 1)[0]
-    assert "'./challenges/arquitectura-en-foco/iphone-maps.html'" in core
-    assert "'./data/architecture/routes.json'" in core
-    assert "u.pathname.endsWith('/')?u.pathname+'index.html'" in worker
+    # Opening the guide by its folder (…/arquitectura-en-foco/) offline is tests/test_service_worker.py's.
+    worker = (ROOT / "dist/canon6d_sota_hosted/sw.js").read_text(encoding="utf-8")
+    core = json.loads(re.search(r"const CORE=(\[[^\]]*\])", worker).group(1))
+    assert "challenges/arquitectura-en-foco/iphone-maps.html" in core
+    assert "data/architecture/routes.json" in core

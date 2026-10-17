@@ -33,6 +33,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 CARD = ROOT / "field_card.html"
+# The copy that ships: a build step could break it alone.
+CARDS = (CARD, ROOT / "dist" / "canon6d_sota_hosted" / "field_card.html")
 FRAGMENT = ROOT / "data" / "field_card_fragment.html"
 CARD_CSS = ROOT / "data" / "field_card.css"
 CARD_JS = ROOT / "data" / "field_card.js"
@@ -105,14 +107,15 @@ def nd_name(stops: int) -> str:
 
 
 def test_v01_card_text_is_spanish():
-    for page in (CARD, FRAGMENT):
+    for page in (*CARDS, FRAGMENT):
         text = visible_text(page.read_text(encoding="utf-8"))
         hits = sorted({m.group(0) for pattern in (ENGLISH, MIXED_CASE_CAMERA, INITIALS) for m in pattern.finditer(text)})
         assert not hits, f"{page.name}: {hits}"
 
 
-def test_v02_every_slot_shows_its_exact_settings():
-    blocks = slot_blocks(CARD.read_text(encoding="utf-8"))
+@pytest.mark.parametrize("card", CARDS, ids=lambda p: p.relative_to(ROOT).as_posix())
+def test_v02_every_slot_shows_its_exact_settings(card):
+    blocks = slot_blocks(card.read_text(encoding="utf-8"))
     wrong = []
     for plan in DATA["plans"]:
         for shot in plan["shots"]:
@@ -137,8 +140,9 @@ def test_v02_every_slot_shows_its_exact_settings():
     assert len(blocks) == 180 and not wrong, (len(blocks), wrong[:10])
 
 
-def test_v02_slots_that_cannot_be_shot_say_so():
-    blocks = slot_blocks(CARD.read_text(encoding="utf-8"))
+@pytest.mark.parametrize("card", CARDS, ids=lambda p: p.relative_to(ROOT).as_posix())
+def test_v02_slots_that_cannot_be_shot_say_so(card):
+    blocks = slot_blocks(card.read_text(encoding="utf-8"))
     for plan in DATA["plans"]:
         for shot in plan["shots"]:
             for slot in SLOTS:
@@ -167,6 +171,14 @@ def font_sizes_px(css: str) -> list[tuple[float, str]]:
 def test_v03_no_card_text_below_12px():
     css = CARD_CSS.read_text(encoding="utf-8")
     # Print sizes are physical (A4); screens are what the field reader holds.
+    screen = re.sub(r"@media print\s*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}", "", css)
+    small = [rule for size, rule in font_sizes_px(screen) if size < 12]
+    assert font_sizes_px(screen) and not small, small
+
+
+@pytest.mark.parametrize("card", CARDS, ids=lambda p: p.relative_to(ROOT).as_posix())
+def test_v03_the_card_pages_style_no_text_below_12px(card):
+    css = " ".join(re.findall(r"<style[^>]*>(.*?)</style>", card.read_text(encoding="utf-8"), re.S))
     screen = re.sub(r"@media print\s*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}", "", css)
     small = [rule for size, rule in font_sizes_px(screen) if size < 12]
     assert font_sizes_px(screen) and not small, small
