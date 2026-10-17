@@ -1,12 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-08-27T00:00:00-05:00",
+  "updated_at": "2026-10-17T00:00:00-05:00",
   "questions": [
     {
       "id": "OQ-001",
       "question": "Can the current official PDF, live form, and public competition page be reverified and snapshotted?",
       "status": "RESOLVED_2026-08-27",
-      "blocks": ["ROUND_1_RELEASE"]
+      "blocks": [
+        "ROUND_1_RELEASE"
+      ]
     },
     {
       "id": "OQ-002",
@@ -18,7 +20,15 @@
       "id": "OQ-003",
       "question": "Can headless browser QA complete outside the managed sandbox after the interrupted run?",
       "status": "RESOLVED_CUSTOM_BASELINE_CAPTURE",
-      "blocks": ["ROUND_0_BASELINE"]
+      "blocks": [
+        "ROUND_0_BASELINE"
+      ]
+    },
+    {
+      "id": "OQ-004",
+      "question": "Should the public path challenges/arquitectura-en-foco/ be renamed now that the guide is no longer tied to the contest?",
+      "status": "OPEN_NONBLOCKING",
+      "default": "Keep the path: GitHub Pages cannot send server redirects, and existing links, bookmarks and installed PWAs point at it. Only the visible copy is generalized."
     }
   ]
 }

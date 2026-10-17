@@ -64,7 +64,7 @@ def run() -> dict:
         nojs_text = fallback.locator("noscript").inner_text()
         # one camera-only exercise per lab must survive without JavaScript
         exercises = len(re.findall(r"^\d+\. ", nojs_text, flags=re.M))
-        nojs_ok = exercises == 9 and all(term in nojs_text for term in ("Secuencia", "CONTRATO vs USO", "Brief"))
+        nojs_ok = exercises == 9 and all(term in nojs_text for term in ("Secuencia", "CONTRATO vs USO", "Encargo"))
         nojs.close()
         browser.close()
     return {

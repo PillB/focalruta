@@ -19,7 +19,8 @@ HISTORY_PATH = ROOT / "architectural_photography/ranking/ranking_history.json"
 PUBLIC_PATH = ROOT / "data/architecture/ranking.json"
 ROUTES_PATH = ROOT / "data/architecture/routes.json"
 NEW_ASSESSMENTS_PATH = ROOT / "architectural_photography/ranking/new_candidate_assessments.json"
-RUN_ID = "2026-08-31-r4-v7"
+RUN_ID = "2026-10-17-r4-v8"
+GENERATED_AT = "2026-10-17T12:00:00-05:00"
 
 
 def read_json(path: Path):
@@ -99,8 +100,10 @@ def matrix_row(candidate: dict, verified: dict, base: dict) -> dict:
     passes = verified["passes"]
     evidence = mean([status_score(check["status"]) for check in passes.values()])
     criteria = {
-        "creative_aesthetic_proxy": mean([base["story"], base["formal"], base["novelty"]]) * 10,
-        "theme_coherence_proxy": mean([base["brief"], base["story"], base["lived"], base["ephemeris"]]) * 10,
+        # The Master82 "brief" (2026 contest theme fit) and "judge" (2026 jurors) attributes are not read:
+        # the contest closed and the ranking now serves the photographer's own practice.
+        "visual_potential": mean([base["story"], base["formal"], base["novelty"]]) * 10,
+        "architecture_in_use": mean([base["story"], base["lived"], base["ephemeris"]]) * 10,
         "architecture_causality": status_score(passes["architectural_causality"]["status"]),
         "first_read_clarity": base["formal"] * 10,
         "anti_postal_originality": mean([base["novelty"], 10 - base["saturation"]]) * 10,
@@ -111,7 +114,6 @@ def matrix_row(candidate: dict, verified: dict, base: dict) -> dict:
         "technical_feasibility": base["feasibility"] * 10,
         "access_permission": access_score(verified, base),
         "evidence_confidence": evidence,
-        "juror_public_work_intersection": base["judge"] * 10,
     }
     return {
         "canonical_id": candidate["canonical_id"], "name": candidate["name"],
@@ -219,12 +221,11 @@ def build_run(model: dict, rows: list[dict], verification: dict, route_ids: set[
     return {
         "run_id": RUN_ID,
         "model_version": model["model_version"],
-        "generated_at": "2026-08-30T12:00:00-05:00",
+        "generated_at": GENERATED_AT,
         "candidate_count": len(rows),
         "seed": model["sensitivity"]["seed"],
         "samples_per_scenario": model["sensitivity"]["samples"],
-        "official_proxy_label": model["official_proxy_label"],
-        "calibrated_winning_probability": False,
+        "calibrated_probability": model["calibrated_probability"],
         "scenario_rankings": scenario_rankings,
         "field_ranking": field,
         "top_15_robust_ids": [item["canonical_id"] for item in results[:15]],
@@ -248,7 +249,7 @@ def build_run(model: dict, rows: list[dict], verification: dict, route_ids: set[
 
 
 def public_run(run: dict) -> dict:
-    return {key: run[key] for key in ("run_id", "model_version", "candidate_count", "official_proxy_label", "calibrated_winning_probability", "scenario_rankings", "top_15_robust_ids", "top_5_field", "results")}
+    return {key: run[key] for key in ("run_id", "model_version", "candidate_count", "calibrated_probability", "scenario_rankings", "top_15_robust_ids", "top_5_field", "results")}
 
 
 def update_history(run: dict, run_path: Path) -> None:

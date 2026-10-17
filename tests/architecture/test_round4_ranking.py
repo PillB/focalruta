@@ -22,8 +22,7 @@ def load(path: Path):
 
 def test_model_is_internal_transparent_and_has_four_scenarios():
     model = load(MODEL)
-    assert model["official_proxy_label"] == "INTERNAL_PROXY"
-    assert model["calibrated_winning_probability"] is False
+    assert model["calibrated_probability"] is False
     assert model["method"] == "LINEAR_ADDITIVE_VALUE_MODEL_WITH_SENSITIVITY"
     assert set(model["scenarios"]) == {"R0", "R1", "R2", "R3"}
     assert all(abs(sum(item["weights"].values()) - 1) < 1e-9 for item in model["scenarios"].values())
@@ -32,7 +31,7 @@ def test_model_is_internal_transparent_and_has_four_scenarios():
     assert model["sensitivity"]["seed"] == 20260830
     assert model["sensitivity"]["samples"] >= 1000
     assert abs(sum(model["field_weights"].values()) - 1) < 1e-9
-    assert {"creative_aesthetic_proxy", "theme_coherence_proxy", "architecture_causality"}.issubset(model["field_weights"])
+    assert {"visual_potential", "architecture_in_use", "architecture_causality"}.issubset(model["field_weights"])
 
 
 def test_performance_matrix_covers_all_scenes_without_historical_rank_leakage():
@@ -73,7 +72,7 @@ def test_public_ranking_supports_top_n_or_all_and_avoids_probability_language():
     assert len(public["top_5_field"]) == 5
     assert all(item["route_fit"] in {"VERIFIED_WALKING_LAYER", "NO_VERIFIED_WALKING_LAYER"} for item in public["top_5_field"])
     assert all(item["fallback"] for item in public["top_5_field"])
-    assert public["official_proxy_label"] == "INTERNAL_PROXY"
+    assert public["calibrated_probability"] is False
     page = PAGE.read_text(encoding="utf-8")
     assert 'id="ranking-scenario"' in page
     assert 'id="ranking-limit"' in page

@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "data" / "architecture"
+DATA = ROOT / "architectural_photography" / "archive" / "arquitectura-en-foco-2026"
 
 
 def load(name):

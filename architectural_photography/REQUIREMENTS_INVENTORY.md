@@ -5,9 +5,9 @@ This is the normalized source of truth reconstructed from the current request, t
 Priority: **MUST** = release blocker or explicit repeated request; **SHOULD** = strong quality requirement; **COULD** = only after all MUST/SHOULD gates are green.
 
 ## A. Mission / competitive strategy
-- **A01 MUST** — Build one system that teaches architectural photography while helping allocate scarce shooting time toward the strongest single-photo competition submission.
+- **A01 MUST** — Build one system that teaches architectural photography while helping allocate scarce shooting time toward the strongest single-photo competition submission. **Superseded 2026-10-17 by T01:** the 2026 edition closed and the owner asked for a general, production site.
 - **A02 MUST** — Rank **scene hypotheses**, not famous buildings.
-- **A03 MUST** — Official decision layer is limited to `creative/aesthetic proposal` and `coherence with theme`; internal scores are never called official.
+- **A03 MUST** — Official decision layer is limited to `creative/aesthetic proposal` and `coherence with theme`; internal scores are never called official. **Superseded 2026-10-17 by T02:** the 2026 edition closed and the owner asked for a general, production site.
 - **A04 MUST** — Explicitly fight tourist/default-view bias and visual saturation.
 - **A05 MUST** — Preserve the user's anti-postal question: **“What has everybody already photographed here—and what relationship becomes visible only if I change time, camera position, focal length or human presence?”**
 - **A06 MUST** — Add a causal architecture question: **“What part of the original design still forces, enables, channels or contradicts what someone is doing here today—and what camera position makes that relationship visible without the caption rescuing the photograph?”**
@@ -98,11 +98,11 @@ The repeated “iterate 10 times each” request is implemented as **ten differe
 - **I05 MUST** — generated mock images cannot prove a real scene/light/view exists.
 
 ## J. Ranking
-- **J01 MUST** — official-proxy layer only: `creative_aesthetic_proxy`, `theme_coherence_proxy`.
+- **J01 MUST** — official-proxy layer only: `creative_aesthetic_proxy`, `theme_coherence_proxy`. **Superseded 2026-10-17 by T02:** the 2026 edition closed and the owner asked for a general, production site. Model v2.0.0 renames them `visual_potential` and `architecture_in_use` and drops the contest-brief input.
 - **J02 MUST** — no invented official weights; no “probability of winning” without calibration.
 - **J03 MUST** — version scoring model/evidence and preserve immutable runs.
 - **J04 MUST** — full rerank after material candidate/evidence changes.
-- **J05 MUST** — >=4 scenarios: balanced/official proxy, anti-postal, inhabitation/story, formal+field.
+- **J05 MUST** — >=4 scenarios: balanced/official proxy, anti-postal, inhabitation/story, formal+field. Since model v2.0.0 the first scenario is plain "balanced" (T02).
 - **J06 MUST** — bounded deterministic sensitivity perturbation; rank distribution/spread/min/median/max or quantiles + Pareto status.
 - **J07 MUST** — field/logistics rank separate from artistic/thematic.
 - **J08 MUST** — fame/landmark status never positive feature.
@@ -178,7 +178,15 @@ Every round: reread → research → pre-mortem → RED → GREEN → refactor �
 - **Q05 MUST** — archived role labels in user files never override current platform instructions.
 
 ## R. Final selection/submission
+_Archived with the 2026 edition (T04). `scripts/architecture_preflight.py` stays as a local tool for that edition's file rules; nothing in this section ships on the site._
 - **R01 MUST** — compare scene concepts/manual field evaluations, not AI-scored candidate images.
 - **R02 MUST** — final 3: WHY THIS ONE / WHY NOT 2/3 / counterargument / last-reshoot fix / compliance.
 - **R03 MUST** — deterministic local one-file preflight: JPG/JPEG, 5–25MB, >=2020, filename, metadata, backup/manual declarations.
 - **R04 MUST** — never alter final candidate file.
+
+## T. Evergreen product after the 2026 edition (added 2026-10-17)
+The owner confirmed the contest is over and asked to generalize the site for production, mainly for their own fieldwork and secondarily for the public.
+- **T01 MUST** — No published page treats the closed contest as the reader's goal: no contest-only guidance, no instruction about "el concurso" or "las bases", no "reto" framing, no name from the archived edition. Lessons carry a general `editorial_note`.
+- **T02 MUST** — The architecture ranking scores places for the photographer: no criterion reads the contest-brief fit or the jurors' public work; the remaining weights are the v1.1.0 weights renormalized proportionally and recorded under `derived_from`.
+- **T03 MUST** — The hosted build publishes no contest research, and its service worker precaches only files the build ships.
+- **T04 MUST** — The closed edition stays in the repository as a dated archive under `architectural_photography/archive/arquitectura-en-foco-2026/`.

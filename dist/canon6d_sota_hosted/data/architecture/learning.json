@@ -19,7 +19,7 @@
       "diagnose": "Si el encuadre necesita un párrafo, simplifica la relación o muévete.",
       "break_the_rule_when": "Un hecho irrepetible exige responder de inmediato.",
       "canon_6d_note": "Parte de una exposición conocida, pero deja que la escena determine los ajustes.",
-      "competition_note": "La arquitectura debe seguir siendo sujeto causal, no fondo decorativo.",
+      "editorial_note": "La arquitectura debe seguir siendo sujeto causal, no fondo decorativo.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -36,7 +36,7 @@
       "diagnose": "Si las capas chocan o el fondo domina, cambia primero la posición.",
       "break_the_rule_when": "El acceso o la seguridad fijan la única posición legítima.",
       "canon_6d_note": "Usa el zoom 35–80 como visor de exploración después de elegir posición.",
-      "competition_note": "Un punto de vista no habitual debe revelar una relación real, no un truco.",
+      "editorial_note": "Un punto de vista no habitual debe revelar una relación real, no un truco.",
       "sources": [
         {
           "type": "FOCALRUTA_TECHNICAL",
@@ -52,7 +52,7 @@
       "diagnose": "Si dices que un lente comprimió el espacio, identifica cómo cambió la distancia de cámara.",
       "break_the_rule_when": "Usa el atajo verbal solo después de entender la causa física.",
       "canon_6d_note": "35, 50 y 85 mm comparten la misma referencia de sensor full frame.",
-      "competition_note": "Elige primero la relación y después el recorte.",
+      "editorial_note": "Elige primero la relación y después el recorte.",
       "sources": [
         {
           "type": "FOCALRUTA_TECHNICAL",
@@ -68,7 +68,7 @@
       "diagnose": "Si la persona se fusiona con un borde, espera o muévete lateralmente.",
       "break_the_rule_when": "La planitud o la silueta son la idea formal buscada.",
       "canon_6d_note": "Cierra el diafragma solo hasta donde exijan los planos necesarios.",
-      "competition_note": "La profundidad debe aclarar la historia de un solo encuadre.",
+      "editorial_note": "La profundidad debe aclarar la historia de un solo encuadre.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -85,7 +85,7 @@
       "diagnose": "Si el contraste oculta el dispositivo causal, protege altas luces o cambia de hora.",
       "break_the_rule_when": "La silueta o el deslumbramiento son esenciales para la idea.",
       "canon_6d_note": "Usa histograma y alerta de altas luces; el fotómetro no conoce tu intención.",
-      "competition_note": "La luz debe revelar arquitectura, no solo embellecerla.",
+      "editorial_note": "La luz debe revelar arquitectura, no solo embellecerla.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -102,7 +102,7 @@
       "diagnose": "Si todos los elementos pesan igual, elimina o cambia posición.",
       "break_the_rule_when": "La tensión, el desequilibrio o la ambigüedad son el significado.",
       "canon_6d_note": "Usa los bordes del visor como herramientas compositivas activas.",
-      "competition_note": "La coherencia creativa y estética importa más que obedecer una regla.",
+      "editorial_note": "Una composición vale por lo que hace ver, no por obedecer una rejilla.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -119,7 +119,7 @@
       "diagnose": "Si un poste nace de una persona o un letrero roba atención, muévete centímetros.",
       "break_the_rule_when": "El desorden es la condición arquitectónica que quieres mostrar.",
       "canon_6d_note": "El visor de la 6D no es el recorte final; inspecciona los bordes en reproducción.",
-      "competition_note": "Las restricciones de edición vuelven especialmente valioso resolver bordes en cámara.",
+      "editorial_note": "Resolver los bordes en cámara conserva resolución y evita depender del recorte o del retoque.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -136,7 +136,7 @@
       "diagnose": "Si la persona solo aporta escala, la historia es débil.",
       "break_the_rule_when": "La ausencia significativa contiene evidencia social más fuerte.",
       "canon_6d_note": "Fija el obturador para el gesto buscado antes de bajar ISO.",
-      "competition_note": "No escenifiques una realidad falsa ni eludas consentimiento y ética.",
+      "editorial_note": "No escenifiques una realidad falsa ni eludas consentimiento y ética.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -153,7 +153,7 @@
       "diagnose": "Si el vacío solo dice arquitectura limpia, busca evidencia de vida.",
       "break_the_rule_when": "Un verbo humano real cambia materialmente el significado.",
       "canon_6d_note": "Trabaja con disciplina de trípode sin asumir que el trípode está permitido.",
-      "competition_note": "Las bases permiten interiores, abstracción y habitación sin forzar una persona.",
+      "editorial_note": "Interiores, abstracción y huellas de uso pueden contar cómo se habita un lugar sin forzar a una persona en el cuadro.",
       "sources": [
         {
           "type": "PHOTOGRAPHER_TRANSFER",
@@ -169,7 +169,7 @@
       "diagnose": "Si recortas altas luces importantes, reduce exposición o cambia de luz.",
       "break_the_rule_when": "El recorte es deliberado y sostiene la idea gráfica.",
       "canon_6d_note": "Usa compensación o modo manual mientras interpretas el fotómetro.",
-      "competition_note": "Conserva información tonal útil para impresión sin reconstrucción prohibida.",
+      "editorial_note": "Conserva detalle en altas luces y sombras para poder imprimir sin reconstruir zonas quemadas.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -186,7 +186,7 @@
       "diagnose": "No recetes un obturador más rápido si la falla es foco o reverberación térmica.",
       "break_the_rule_when": "El desenfoque intencional comunica movimiento arquitectónico o humano.",
       "canon_6d_note": "Prefiere el punto AF central con poca luz y verifica el foco crítico.",
-      "competition_note": "La nitidez sirve a la legibilidad; no da valor estético automáticamente.",
+      "editorial_note": "La nitidez sirve a la legibilidad; no da valor estético automáticamente.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -203,7 +203,7 @@
       "diagnose": "La subexposición puede ser peor que un ISO alto necesario.",
       "break_the_rule_when": "La exposición larga o el movimiento intencional son la meta.",
       "canon_6d_note": "Elige ISO después del obturador y diafragma requeridos, vigilando altas luces.",
-      "competition_note": "Un instante decisivo imperfecto puede superar uno limpio y vacío, pero debe soportar impresión.",
+      "editorial_note": "Un instante decisivo imperfecto puede superar uno limpio y vacío, pero debe soportar impresión.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -219,8 +219,8 @@
       "try": "Mantén focal, diafragma y distancia de enfoque; cambia solo la distancia del fondo.",
       "diagnose": "Si la PDC permanece y cambia el fondo, el modelo funciona.",
       "break_the_rule_when": "En campo rápido, describe simplemente el resultado visible.",
-      "canon_6d_note": "Optical Lab usa CoC 0.030 mm como convención de planificación.",
-      "competition_note": "Usa separación solo cuando aclare la causalidad arquitectónica.",
+      "canon_6d_note": "El laboratorio óptico usa un círculo de confusión de 0,030 mm como convención de planificación.",
+      "editorial_note": "Usa separación solo cuando aclare la causalidad arquitectónica.",
       "sources": [
         {
           "type": "FOCALRUTA_TECHNICAL",
@@ -236,7 +236,7 @@
       "diagnose": "Registra por qué todavía falla el intento más fuerte.",
       "break_the_rule_when": "La situación es insegura, no ética o realmente terminó.",
       "canon_6d_note": "Mantén ajustes estables el tiempo suficiente para diagnosticar composición aparte.",
-      "competition_note": "Elige STAY, MOVE o RETURN_OTHER_LIGHT según evidencia.",
+      "editorial_note": "Decide si te quedas, te mueves o vuelves con otra luz según lo que muestran tus pruebas, no según el cansancio.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -253,7 +253,7 @@
       "diagnose": "Si la condición aporta atmósfera pero oculta arquitectura, cambia la hipótesis.",
       "break_the_rule_when": "Seguridad, acceso o protección del equipo exigen retirarte.",
       "canon_6d_note": "Usa IS cuando corresponda, protege la cámara y fija obturador según el sujeto.",
-      "competition_note": "No elijas siempre hora dorada; usa la condición que revela la relación.",
+      "editorial_note": "No elijas siempre hora dorada; usa la condición que revela la relación.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -270,7 +270,7 @@
       "diagnose": "Si romper la regla no tiene propósito visible, es novedad sin significado.",
       "break_the_rule_when": "La escena comunica con más claridad o verdad sin ella.",
       "canon_6d_note": "La técnica sirve al encuadre, no al ritual de cámara.",
-      "competition_note": "La originalidad nunca supera coherencia temática ni realidad fotografiada.",
+      "editorial_note": "La originalidad vale cuando la foto sigue siendo fiel al lugar y a lo que quieres contar.",
       "sources": [
         {
           "type": "VIDEO_TRANSCRIPT",
@@ -281,17 +281,23 @@
     },
     {
       "lesson_id": "L17",
-      "title": "Límites de edición seguros",
+      "title": "Edición honesta según el uso",
       "observe": "Decide si el encuadre funciona antes de imaginar un rescate en posproducción.",
-      "try": "Planifica solo recorte, balance de blancos, B&N, brillo, contraste, nitidez y corrección de color.",
-      "diagnose": "Cambiar elementos fundamentales, intervenir con IA, montar o alterar la realidad falla el control.",
-      "break_the_rule_when": "No rompas esta regla para una entrega al concurso.",
-      "canon_6d_note": "Nivela, posiciónate y encuadra con cuidado porque transformar perspectiva no está autorizado explícitamente.",
-      "competition_note": "Mantén el RAW/JPG/JPEG candidato fuera de crítica y edición con IA; el prevuelo es local y determinista.",
+      "try": "Antes de editar, escribe para qué es la foto (registro, encargo, concurso o portafolio) y qué admite ese uso: ajustes globales, corrección de perspectiva, limpieza local, montaje o generación.",
+      "diagnose": "Si una operación añade, quita o mueve algo de la escena, o retoca un elemento fundamental, ya no es un ajuste: confírmala con quien usará la foto o descártala.",
+      "break_the_rule_when": "La imagen se presenta y se declara como ilustración o fotomontaje.",
+      "canon_6d_note": "Nivela la cámara y cuida las verticales al disparar: corregir la perspectiva al revelar deja bordes vacíos que obligan a recortar.",
+      "editorial_note": "Si la foto se presenta como registro de un lugar, no añadas, quites ni muevas elementos.",
       "sources": [
         {
-          "type": "OFFICIAL_RULES",
-          "source_id": "SRC-COMP-2026-PDF"
+          "type": "PRIMARY_GUIDANCE",
+          "publisher": "World Press Photo",
+          "url": "https://www.worldpressphoto.org/contest/verification-process/what-counts-as-manipulation"
+        },
+        {
+          "type": "PRIMARY_GUIDANCE",
+          "publisher": "Adobe",
+          "url": "https://helpx.adobe.com/lightroom-classic/desktop/process-and-develop-photos/guided-upright-perspective-correction.html"
         }
       ]
     }
@@ -526,7 +532,7 @@
     "LIGHT",
     "WORK_THE_SCENE",
     "FINISH",
-    "COMPETE"
+    "DELIVER"
   ],
   "technique_cards": [
     {
@@ -621,13 +627,14 @@
     },
     {
       "technique_id": "contest-safe-editing",
-      "title": "Edición compatible con cada convocatoria",
-      "mechanism": "Captura, revelado, composición/eliminación y generación son categorías distintas que cada brief puede permitir o prohibir.",
-      "field_test": "Antes de editar, convierte las reglas vigentes en una lista de operaciones permitidas y dudosas.",
-      "diagnosis": "Si una operación cambia contenido o geometría material, detente y consulta la regla o al organizador.",
-      "misconception_warning": "No generalices las fronteras de un concurso antiguo ni supongas que IA o relleno generativo están permitidos.",
+      "title": "Edición según el uso de la foto",
+      "mechanism": "Captura, revelado, limpieza o montaje y generación son categorías distintas; cada uso (registro, encargo, concurso o portafolio) admite unas y excluye otras.",
+      "field_test": "Antes de editar, convierte las condiciones del encargo o de la convocatoria en una lista de operaciones permitidas y dudosas.",
+      "diagnosis": "Si una operación cambia contenido o geometría material, detente y confírmala con quien encarga u organiza.",
+      "misconception_warning": "No supongas que borrar objetos, montar o usar relleno generativo está permitido: en fotografía documental no lo está.",
       "sources": [
-        "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines"
+        "https://www.worldpressphoto.org/contest/verification-process/what-counts-as-manipulation",
+        "https://helpx.adobe.com/lightroom-classic/desktop/process-and-develop-photos/guided-upright-perspective-correction.html"
       ]
     }
   ],

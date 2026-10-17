@@ -1055,7 +1055,7 @@ TECHNIQUE_CAPTIONS = {
     "gesture-absence": "Cómo leerlo: el mismo umbral con una figura que actúa y con el residuo de uso que deja cuando no hay nadie.",
     "light-material-weather": "Cómo leerlo: cada cara tiene el tono que le da cos θ. La zona oscura del suelo es la umbra; su contorno difuso, la penumbra.",
     "exposure-focus-iso-motion": "Cómo leerlo: arriba, la estela que deja un peatón según la obturación. Abajo, la zona nítida que abre cada diafragma.",
-    "contest-safe-editing": "Cómo leerlo: a la izquierda, lo que casi todo encargo admite. A la derecha, lo que hay que confirmar en las bases antes de tocarlo.",
+    "contest-safe-editing": "Cómo leerlo: a la izquierda, lo que casi todo encargo admite. A la derecha, lo que hay que confirmar con quien encarga u organiza antes de tocarlo.",
 }
 
 TECHNIQUE_LABS = {

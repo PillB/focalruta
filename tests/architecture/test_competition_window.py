@@ -9,7 +9,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-RULES = ROOT / "data/architecture/competition_rules.json"
+RULES = ROOT / "architectural_photography/archive/arquitectura-en-foco-2026/competition_rules.json"
 
 
 def _rules() -> dict:

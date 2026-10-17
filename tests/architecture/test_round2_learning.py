@@ -33,7 +33,7 @@ def test_all_supplied_videos_have_verified_metadata_and_real_transcript_files():
 def test_curriculum_has_all_required_lessons_and_field_shape():
     learning = json.loads((DATA / "learning.json").read_text(encoding="utf-8"))
     assert len(learning["lessons"]) == 17
-    required = {"observe", "try", "diagnose", "break_the_rule_when", "canon_6d_note", "competition_note", "sources"}
+    required = {"observe", "try", "diagnose", "break_the_rule_when", "canon_6d_note", "editorial_note", "sources"}
     assert all(required <= lesson.keys() for lesson in learning["lessons"])
     assert all(all(lesson[field] for field in required) for lesson in learning["lessons"])
 
@@ -112,7 +112,7 @@ def test_all_lessons_are_rendered_with_the_full_field_learning_cycle():
     assert html.count('class="lesson-card"') == len(learning["lessons"]) == 17
     for lesson in learning["lessons"]:
         assert lesson["title"] in html
-    for label in ("OBSERVA", "PRUEBA", "DIAGNOSTICA", "ROMPE LA REGLA CUANDO", "CANON 6D", "CONCURSO"):
+    for label in ("OBSERVA", "PRUEBA", "DIAGNOSTICA", "ROMPE LA REGLA CUANDO", "CANON 6D", "CRITERIO"):
         assert html.count(f"<strong>{label}:</strong>") == 17
 
 

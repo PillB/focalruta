@@ -19,7 +19,7 @@ Run the release gate with:
 python3 scripts/verify_release.py
 ```
 
-## Regenerating the Arquitectura en Foco challenge
+## Regenerating the architecture photography guide
 
 Generated HTML is build output, never edited by hand: `scripts/verify_architecture.py`
 re-renders the page and byte-compares it against the committed file. Run the
@@ -27,7 +27,7 @@ generators in dependency order, then the gates:
 
 ```bash
 python3 scripts/build_architecture_learning_v2.py   # curriculum + video ledger
-python3 scripts/generate_architecture_pages.py      # challenge, wiki, field card, iPhone help
+python3 scripts/generate_architecture_pages.py      # guide, wiki, field card, iPhone help
 python3 scripts/build_dual_release.py               # dist/canon6d_sota_hosted (what Pages serves)
 
 python3 -m pytest -q
