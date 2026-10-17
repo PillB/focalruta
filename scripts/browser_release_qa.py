@@ -51,8 +51,9 @@ class QuietHandler(SimpleHTTPRequestHandler):
 DECODE_ALL = """async()=>{const xs=[...document.querySelectorAll('.shot-card img')];xs.forEach(x=>x.loading='eager');
 await Promise.all(xs.map(x=>x.complete?null:new Promise(done=>{x.addEventListener('load',done,{once:true});x.addEventListener('error',done,{once:true});setTimeout(done,20000)})));
 return xs.filter(x=>!x.naturalWidth).map(x=>x.src.split('/').pop())}"""
-WARMED = """async()=>{let n=0;for(const k of await caches.keys()){for(const r of await (await caches.open(k)).keys()){if(r.url.endsWith('.webp'))n++}}
-return n>=20&&!!(await caches.match(location.href))}"""
+# The worker keys every copy by its revision (path?__rev=…), so compare paths, not URLs.
+WARMED = """async()=>{let n=0;for(const k of await caches.keys()){for(const r of await (await caches.open(k)).keys()){if(new URL(r.url).pathname.endsWith('.webp'))n++}}
+return n>=20&&!!(await caches.match(location.href,{ignoreSearch:true}))}"""
 
 
 def wait_until(page, predicate: str, timeout_s: float = 30.0) -> None:
