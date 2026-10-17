@@ -1075,8 +1075,8 @@
       }
     }
   ],
-  "audited_at": "2026-10-17T17:55:04.091718+00:00",
-  "audited_commit": "eec010abe4134a44aa42da9f13c1d325fd0eddb8+dirty",
+  "audited_at": "2026-10-17T20:04:19.272129+00:00",
+  "audited_commit": "28ef2aa19c6fb30b3e2ad55d8431e59a979a470b",
   "audited_artifacts": {
     "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
     "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "e0dda216bebc7ba1ab877442ae5754fb1753aaa0748c303ffacb056485d4a392",
