@@ -110,11 +110,11 @@ with sync_playwright() as pw:
         page.goto(target.as_uri(), wait_until="domcontentloaded", timeout=60000)
         for plan in [f"plan_{letter}" for letter in "abcdef"]:
             for subject in ("human", "dog"):
-                for time in ("day", "afternoon", "night"):
-                    count = page.evaluate("([p,s,t])=>{selectPlan(p);setVariant(s);setTime(t);return document.querySelectorAll('#plan-detail-content .shot-card').length}", [plan, subject, time])
-                    record(f"{target_name} {plan}/{subject}/{time} ten cards", count == 10, count)
+                for slot in ("day", "afternoon", "night"):
+                    count = page.evaluate("([p,s,t])=>{selectPlan(p);setVariant(s);setTime(t);return document.querySelectorAll('#plan-detail-content .shot-card').length}", [plan, subject, slot])
+                    record(f"{target_name} {plan}/{subject}/{slot} ten cards", count == 10, count)
                     image_count = page.locator("#plan-detail-content .shot-card img").count()
-                    record(f"{target_name} {plan}/{subject}/{time} ten diagrams", image_count == 10, image_count)
+                    record(f"{target_name} {plan}/{subject}/{slot} ten diagrams", image_count == 10, image_count)
         motion = []
         for mode in ("freeze", "pan", "ghost", "trails", "paint", "zoom"):
             page.locator(f'[data-motion="{mode}"]').click()
@@ -148,9 +148,9 @@ with sync_playwright() as pw:
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto((ROOT / f"plans/plan_{letter}.html").as_uri(), wait_until="domcontentloaded", timeout=60000)
         for subject in ("human", "dog"):
-            for time in ("day", "afternoon", "night"):
-                page.evaluate("([s,t])=>{setVariant(s);setTime(t)}", [subject, time])
-                record(f"plan_{letter} {subject}/{time} ten cards", page.locator(".shot-card").count() == 10)
+            for slot in ("day", "afternoon", "night"):
+                page.evaluate("([s,t])=>{setVariant(s);setTime(t)}", [subject, slot])
+                record(f"plan_{letter} {subject}/{slot} ten cards", page.locator(".shot-card").count() == 10)
         record(f"plan_{letter} correction panel", "35.8 × 23.9 mm" in (page.locator("details").text_content() or ""))
         record(f"plan_{letter} no overflow", page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
         record(f"plan_{letter} no errors", not errors, errors)
