@@ -4,6 +4,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "architectural_photography" / "archive" / "arquitectura-en-foco-2026"
+# The source registry stays with the public data: other records cite it too.
+SOURCES = ROOT / "data" / "architecture" / "sources.json"
 
 
 def load(name):
@@ -65,7 +67,7 @@ def test_every_material_rule_has_primary_source_and_status():
     rules = load("competition_rules.json")
     assert rules["source_ids"]
     assert rules["evidence_status"] == "VERIFIED"
-    sources = load("sources.json")
+    sources = json.loads(SOURCES.read_text(encoding="utf-8"))
     known = {source["source_id"] for source in sources}
     assert set(rules["source_ids"]) <= known
     assert all(source["url_or_path"] for source in sources)

@@ -1045,3 +1045,78 @@ verificar lo implementado y dejarla lista para producción.
 
 - Verificar Pages en vivo tras el despliegue.
 - El enlace PMC3482144 citado muestra un captcha; no se pudo comprobar su contenido.
+
+## Ronda 12 · Guía general tras el cierre del concurso (2026-10-17)
+
+Pablo confirmó que el concurso terminó y pidió generalizar el sitio para producción:
+es sobre todo para su trabajo de campo y, en segundo lugar, para el público.
+Requisitos nuevos en `REQUIREMENTS_INVENTORY.md`, sección T; A01, A03, J01, J05 y la
+sección R quedan marcados como sustituidos o archivados.
+
+### Requisitos y evidencia RED → GREEN (`tests/architecture/test_round12_evergreen.py`)
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| T01 | Ninguna página publicada orienta al lector hacia el concurso cerrado | 5 páginas de `dist/` fallaban: «CONCURSO:» ×17, «Las bases», «al concurso» y «Reto» en la guía; «las bases» en la wiki; «reto» en la tarjeta de campo; «Reto» en la portada y la versión autónoma. `learning.json` sin `editorial_note` | 0 coincidencias en las 39 páginas HTML publicadas; las 17 lecciones llevan `editorial_note` («CRITERIO») |
+| T02 | El ranking puntúa para el fotógrafo, no para un jurado | el modelo tenía capas `OFFICIAL_PROXY` y `LOW_WEIGHT_ROBUSTNESS_ONLY`; mover `brief` o `judge` de 0 a 10 cambiaba la fila de la matriz | modelo `architecture-ranking-v2.0.0`: sin criterio de jurado ni de encaje con el tema del concurso; pesos = v1.1.0 renormalizados en proporción (`derived_from`); corrida inmutable `2026-10-17-r4-v8` |
+| T03 | El build publicado no publica investigación del concurso y el SW sólo precachea lo que existe | `dist/` publicaba `competition_rules.json`, `judges.json` (con perfiles de los jurados) y `organizer_history.json` | ninguno se publica; ningún archivo de `dist/` nombra a los jurados; todas las URL de `CORE` existen en `dist/` |
+| T04 | La edición cerrada queda archivada y fechada | no existía `architectural_photography/archive/` | los tres archivos están en `archive/arquitectura-en-foco-2026/` con sus tests originales |
+
+### Cambios visibles
+
+- Lecciones: «CONCURSO:» pasa a «CRITERIO:» con consejos generales. L17 se reescribió
+  como «Edición honesta según el uso», con fuentes primarias: World Press Photo («What
+  counts as manipulation») y la ayuda de Adobe sobre corrección de perspectiva (deja
+  bordes vacíos que obligan a recortar).
+- Técnica de edición: «Edición según el uso de la foto» (registro, encargo, concurso o
+  portafolio), con las mismas fuentes en lugar de la guía de composición de Nikon.
+- Navegación «Bases» → «Encargo»; el decodificador sirve para cualquier encargo o
+  convocatoria. Ruta de aprendizaje «… → COMPETIR» → «… → ENTREGAR».
+- Portada: «Reto especializado» → «Guía especializada»; meta descripciones sin «reto».
+- Ayuda de iPhone: «ELI5» → «PASO A PASO». Lección L13 sin «Optical Lab».
+
+### Efecto del modelo v2 en el ranking (v7 → v8)
+
+- Mismo conjunto de 15 escenas robustas y mismo frente de Pareto (9).
+- 51 de 87 rangos robustos se movieron, como máximo 7 puestos.
+- Prioridades de campo: el mismo top 5; el 3.º y el 4.º intercambian lugar.
+
+### Verificado
+
+- PMC3482144 (pendiente de la ronda 11) es Wagemans et al. 2012, «A century of
+  Gestalt psychology in visual perception: I», Psychological Bulletin (PubMed 22845751).
+  Confirmado por búsqueda; europepmc.org está bloqueado por el proxy de este entorno.
+
+### Compromisos explícitos
+
+- Se conserva la ruta `challenges/arquitectura-en-foco/` (OQ-004): GitHub Pages no
+  hace redirecciones de servidor y hay enlaces, marcadores y PWA instaladas que la usan.
+- Las seis evaluaciones explícitas de 2026 (`new_candidate_assessments.json`) conservan
+  su valor de «coherencia temática» con el nombre `architecture_in_use`; no se
+  re-evaluaron a mano.
+- La clave de investigación `one_frame_contest_test` y el id de técnica
+  `contest-safe-editing` siguen igual: son internos y cambiarlos rompería anclas.
+- `scripts/architecture_preflight.py` (reglas de archivo de 2026) queda como
+  herramienta local archivada; no se publica.
+- Las tarjetas del ranking siguen con texto genérico igual para las 87 escenas; los
+  datos por escena (`why_survives`, `exact_view`…) están en inglés y no se publicaron.
+- Señales retiradas del ranking: `juror_public_work_intersection` (peso 0,005–0,01
+  según escenario) y el atributo Master82 `brief` dentro de la antigua
+  `theme_coherence_proxy`. Los demás pesos se renormalizaron en proporción.
+
+### Comandos y resultados (todos con salida 0)
+
+- `python3 -m pytest -q` → 350 passed, 1 skipped (incluye 48 de `test_round12_evergreen.py`).
+- `python3 scripts/verify_architecture.py` y `python3 scripts/verify_release.py` → passed.
+- `python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-complexity=10'` → All checks passed.
+- `python3 scripts/regenerate_all.py` → idempotente; `git diff --check` limpio.
+- `FOCALRUTA_CHROME=/opt/pw-browsers/chromium` + servidor de `dist/` en 127.0.0.1:8777:
+  visual/recursos 37/37, óptica/accesibilidad 22/22, matriz 246/246 y las 5 suites
+  `tests/architecture/browser_*.py` en verde (6 viewports, SW, offline, sin JS).
+
+### Pendiente
+
+- Incorporar la revisión del red team (`/mnt/project-files/qa/FINDINGS_PR19.md`, sin
+  bloqueos, 5 hallazgos mayores) en PR #19.
+- Pasos 3 y 4 del plan (UX de campo y endurecimiento de producción) tras la fusión,
+  según el hilo de planificación.
