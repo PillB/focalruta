@@ -332,8 +332,8 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-17T20:14:50.154755+00:00",
-  "audited_commit": "3a84dc380ec6f51853702520f4d21c2eea92ba63",
+  "audited_at": "2026-10-17T20:26:22.521433+00:00",
+  "audited_commit": "e25098fc13cfb5840e4286e2732e50f5ca8a2997",
   "audited_artifacts": {
     "data/plans.json": "04ed789b72c2db92cd061d56116990924767d352ffd413c5125734f2b62cfd14",
     "dist/canon6d_sota_hosted/field_card.html": "b286f75441ada9402bae23fdbcf0902c033182dad504c34752832866f5a5a051",
