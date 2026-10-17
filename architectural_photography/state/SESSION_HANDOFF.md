@@ -1185,3 +1185,14 @@ pasos («proceed»); esta ronda cierra el paso 1. Requisitos nuevos en
 
 Verificación independiente: el hilo de red team recibe el nuevo commit para su
 segunda pasada; su veredicto se registra en la ronda siguiente.
+
+### Corrección posterior: la prueba offline de U05 no esperaba
+
+Al escribir las pruebas del paso 3 apareció que `page.wait_for_function` de
+Playwright 1.55 da por cumplido un predicado que devuelve una promesa sin
+esperarla (reproducido: `async()=>false` vuelve en 0,01 s). La espera de U05
+(«página y 20 diagramas en caché») no esperaba, y el servidor de prueba no
+prohibía la caché HTTP, así que Chromium podía responder «offline» desde su
+caché de disco. `browser_release_qa.py` ahora sondea con `page.evaluate` y
+sirve con `Cache-Control: no-store`. Con el arnés corregido, U05 sigue en
+verde en este commit y en c4f96bf: página y 10/10 diagramas por sujeto.

@@ -4,6 +4,7 @@ from __future__ import annotations
 import functools
 import json
 import threading
+import time
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from playwright.sync_api import sync_playwright
@@ -36,6 +37,12 @@ class QuietHandler(SimpleHTTPRequestHandler):
     def log_message(self, *args):
         pass
 
+    def end_headers(self):
+        # No HTTP caching: otherwise Chromium's heuristic freshness answers
+        # "offline" requests from its disk cache and the worker is never tested.
+        self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
 
 # Settle every image on load or error (a cache miss offline ends in error), then
 # list the ones without pixels. decode() alone can reject on a slow load.
@@ -46,6 +53,17 @@ WARMED = """async()=>{let n=0;for(const k of await caches.keys()){for(const r of
 return n>=20&&!!(await caches.match(location.href))}"""
 
 
+def wait_until(page, predicate: str, timeout_s: float = 30.0) -> None:
+    """Poll an async predicate. page.wait_for_function treats a returned Promise
+    as truthy and returns at once (checked against Playwright 1.55), so a
+    predicate that reads the Cache API must be awaited through page.evaluate."""
+    deadline = time.monotonic() + timeout_s
+    while not page.evaluate(predicate):
+        if time.monotonic() > deadline:
+            raise TimeoutError(f"still false after {timeout_s:.0f} s: {predicate[:80]}")
+        page.wait_for_timeout(250)
+
+
 def hosted_plan_offline(browser):
     """U05: a hosted plan page visited once works offline, both subjects, all ten diagrams."""
     server = ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(ROOT / "dist/canon6d_sota_hosted")))
@@ -54,7 +72,7 @@ def hosted_plan_offline(browser):
     page = context.new_page()
     page.goto(f"http://127.0.0.1:{server.server_address[1]}/plans/plan_a.html", wait_until="load", timeout=60000)
     page.wait_for_function("navigator.serviceWorker.controller!==null", timeout=30000)
-    page.wait_for_function(WARMED, timeout=30000)
+    wait_until(page, WARMED, 30)
     # Stop the server rather than emulate offline: Chromium's offline emulation
     # does not reach requests the service worker makes, so it cannot fail.
     server.shutdown()
