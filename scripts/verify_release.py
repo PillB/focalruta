@@ -68,11 +68,11 @@ check("cámara fija" in DATA["field_baselines"]["zooming"]["geometry"], "zooming
 
 index = (ROOT / "index.html").read_text(encoding="utf-8")
 for marker in (
-    "Optical Decision Lab",
-    "Motion Lab",
-    "Composition Sandbox",
-    "SESSION RUN",
-    "Pose Coach",
+    "Laboratorio óptico",
+    "Laboratorio de movimiento",
+    "Laboratorio de composición",
+    "MODO SESIÓN",
+    "Guía de poses",
     'id="field-card-modal"',
     'id="shot-modal"',
     "Home/Building Lab",

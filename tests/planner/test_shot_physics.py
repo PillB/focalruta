@@ -214,31 +214,42 @@ def claim_aperture(shot: dict) -> float:
     return float(match.group(1)) if match else em.f_number(shot["aperture"])
 
 
+def dof_claim_errors(shot_id, text, dof):
+    for match in DOF_CM.finditer(text):
+        claimed = number(match.group(1) or match.group(2)) / 100
+        if abs(claimed - dof["total"]) > 0.15 * dof["total"]:
+            yield f"{shot_id}: claims DoF {claimed*100:.0f} cm, model {dof['total']*100:.0f} cm"
+
+
+def hyperfocal_claim_errors(shot_id, text, dof):
+    for match in HYPERFOCAL.finditer(text):
+        claimed = number(match.group(1))
+        if abs(claimed - dof["hyperfocal"]) > 0.1 * dof["hyperfocal"]:
+            yield f"{shot_id}: claims hyperfocal {claimed} m, model {dof['hyperfocal']:.2f} m"
+    for match in NEAR_TO_INF.finditer(text):
+        claimed = number(match.group(1))
+        if not math.isinf(dof["far"]) or abs(claimed - dof["near"]) > 0.1 * dof["near"]:
+            yield f"{shot_id}: claims {claimed} m to infinity, model {dof['near']:.2f}–{dof['far']} m"
+
+
+def coverage_claim_errors(shot_id, text, distance_m, focal):
+    for match in COVERS.finditer(text):
+        for group, sensor_mm, side in ((1, SENSOR_W_MM, "wide"), (2, SENSOR_H_MM, "high")):
+            if not match.group(group):
+                continue
+            expected = distance_m * sensor_mm / focal
+            if abs(number(match.group(group)) - expected) > 0.05 * expected:
+                yield f"{shot_id}: claims {match.group(group)} m {side}, sensor gives {expected:.1f} m"
+
+
 def optical_claim_violations(data: dict) -> list[str]:
     bad = []
     for _plan, shot in all_shots(data):
         text, focal, n = shot["reasoning"], headline_focal_mm(shot), claim_aperture(shot)
         dof = op.depth_of_field(focal, n, shot["subject_distance_m"])
-        for match in DOF_CM.finditer(text):
-            claimed = number(match.group(1) or match.group(2)) / 100
-            if abs(claimed - dof["total"]) > 0.15 * dof["total"]:
-                bad.append(f"{shot['id']}: claims DoF {claimed*100:.0f} cm, model {dof['total']*100:.0f} cm")
-        for match in HYPERFOCAL.finditer(text):
-            claimed = number(match.group(1))
-            if abs(claimed - dof["hyperfocal"]) > 0.1 * dof["hyperfocal"]:
-                bad.append(f"{shot['id']}: claims hyperfocal {claimed} m, model {dof['hyperfocal']:.2f} m")
-        for match in NEAR_TO_INF.finditer(text):
-            claimed = number(match.group(1))
-            if not math.isinf(dof["far"]) or abs(claimed - dof["near"]) > 0.1 * dof["near"]:
-                bad.append(f"{shot['id']}: claims {claimed} m to infinity, model {dof['near']:.2f}–{dof['far']} m")
-        for match in COVERS.finditer(text):
-            width = shot["subject_distance_m"] * SENSOR_W_MM / focal
-            if abs(number(match.group(1)) - width) > 0.05 * width:
-                bad.append(f"{shot['id']}: claims {match.group(1)} m wide, sensor gives {width:.1f} m")
-            if match.group(2):
-                height = shot["subject_distance_m"] * SENSOR_H_MM / focal
-                if abs(number(match.group(2)) - height) > 0.05 * height:
-                    bad.append(f"{shot['id']}: claims {match.group(2)} m high, sensor gives {height:.1f} m")
+        bad += dof_claim_errors(shot["id"], text, dof)
+        bad += hyperfocal_claim_errors(shot["id"], text, dof)
+        bad += coverage_claim_errors(shot["id"], text, shot["subject_distance_m"], focal)
     return bad
 
 
@@ -277,3 +288,11 @@ def test_published_json_is_the_canonical_plan_data():
 
     canonical = json.loads(json.dumps(plans_data.to_dict(), ensure_ascii=False))
     assert load_plans() == canonical
+
+
+def test_every_pose_used_by_a_shot_has_a_spanish_name():
+    data = load_plans()
+    for _plan, shot in all_shots(data):
+        for variant in ("human", "dog"):
+            pose = shot["subjects"][variant]["pose"]
+            assert pose in data["pose_names"][variant], (shot["id"], variant, pose)

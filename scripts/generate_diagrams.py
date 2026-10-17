@@ -25,7 +25,7 @@ import sys
 import math
 
 import optics_physics
-import json
+from plans_data import POSE_NAMES
 
 import matplotlib
 matplotlib.use("Agg")
@@ -116,8 +116,6 @@ def get_focal_mm(lens_focal):
 
 def get_fov(focal_mm):
     """Return (h_fov_deg, v_fov_deg) for a given focal length on FF Canon 6D."""
-    if focal_mm in FOV_TABLE:
-        return FOV_TABLE[focal_mm]
     h_fov = optics_physics.angle_of_view_deg(focal_mm, optics_physics.CANON_6D_WIDTH_MM)
     v_fov = optics_physics.angle_of_view_deg(focal_mm, optics_physics.CANON_6D_HEIGHT_MM)
     return (h_fov, v_fov)
@@ -161,6 +159,20 @@ def shutter_to_seconds(ss_str):
 # ---------------------------------------------------------------------------
 # Geometry helpers — compute FoV cone vertices
 # ---------------------------------------------------------------------------
+
+def draw_chip_row(ax, x, y, chips, fontsize):
+    """Lay out rounded label chips left to right, each placed after the rendered width of the previous one."""
+    style = dict(fontsize=fontsize, color="white", fontweight="bold", va="center", ha="left", zorder=10)
+    previous = None
+    for label, color in chips:
+        box = dict(boxstyle="round,pad=0.3", facecolor=color, edgecolor="none")
+        if previous is None:
+            previous = ax.annotate(label, xy=(x, y), xycoords="data", bbox=box, **style)
+        else:
+            previous = ax.annotate(label, xy=(1, 0.5), xycoords=previous, xytext=(10, 0),
+                                   textcoords="offset points", bbox=box, **style)
+    return previous
+
 
 def fov_cone_polygon(camera_xy, subject_distance_m, h_fov_deg, half_length=1.0):
     """
@@ -249,7 +261,7 @@ def draw_subject_icon(ax, x, y, variant="human", pose_key="", pose_desc="", colo
         ax.add_patch(shoulders)
         ax.add_patch(head)
         # Pose indicator (label placed OFFSET to the RIGHT of subject to avoid overlap)
-        pose_label = pose_key.replace("_", " ").title() if pose_key else "SUJETO"
+        pose_label = POSE_NAMES["human"].get(pose_key, pose_key.replace("_", " ")) if pose_key else "SUJETO"
         ax.text(x + 0.55, y + 0.05, pose_label, ha="left", va="center",
                 fontsize=7.5, fontweight="bold", color=color, zorder=11,
                 bbox=dict(boxstyle="round,pad=0.28", facecolor="white",
@@ -276,7 +288,7 @@ def draw_subject_icon(ax, x, y, variant="human", pose_key="", pose_desc="", colo
         # 4 legs (small dots)
         for lx in [-0.15, -0.05, 0.05, 0.15]:
             ax.plot([x + lx, x + lx], [y - 0.05, y - 0.15], color=color, linewidth=1.2, zorder=7)
-        pose_label = pose_key.replace("_", " ").title() if pose_key else "PERRO"
+        pose_label = POSE_NAMES["dog"].get(pose_key, pose_key.replace("_", " ")) if pose_key else "PERRO"
         ax.text(x + 0.60, y + 0.05, pose_label, ha="left", va="center",
                 fontsize=7.5, fontweight="bold", color=color, zorder=11,
                 bbox=dict(boxstyle="round,pad=0.28", facecolor="white",
@@ -396,7 +408,7 @@ def _overlay_minimalismo(ax, x, y, _width, _height):
 
 
 def _overlay_capas(ax, x, y, width, _height):
-    for offset, label in [(0.5, "FG"), (0, "MID"), (-0.5, "BG")]:
+    for offset, label in [(0.5, "1.er plano"), (0, "medio"), (-0.5, "fondo")]:
         ax.plot([x - width/3, x + width/3], [y + offset, y + offset],
                 color=PALETTE["compose"], linewidth=0.7, linestyle="--", alpha=0.5, zorder=3)
         ax.text(x - width/3 - 0.1, y + offset, label, fontsize=6.5,
@@ -454,37 +466,28 @@ def draw_fov_cone(ax, camera_xy, subject_distance_m, h_fov_deg, bg_distance_m):
             linestyle="--", alpha=0.6, zorder=3)
 
 
-def draw_dof_zone(ax, camera_xy, subject_distance_m, h_fov_deg, near_m, far_m):
-    """Draw the DoF zone (shaded trapezoid)."""
-    if near_m is None or far_m is None:
+def draw_dof_zone(ax, camera_xy, subject_distance_m, h_fov_deg, near_m, far_m, background_m):
+    """Draw the DoF zone (shaded trapezoid), stopping at the background the scene ends on."""
+    if near_m is None:
         return
-    poly = dof_zone_polygon(camera_xy, subject_distance_m, h_fov_deg, near_m, far_m)
+    drawn_far = min(far_m if far_m else math.inf, background_m)
+    poly = dof_zone_polygon(camera_xy, subject_distance_m, h_fov_deg, near_m, drawn_far)
     p = Polygon(poly, closed=True, facecolor=PALETTE["dof_fill"], alpha=0.32,
                 edgecolor=PALETTE["dof_line"], linewidth=1.4, linestyle=":", zorder=2)
     ax.add_patch(p)
-    # Labels for near/far — place at the SIDE, not over the subject
+    # One label on the left edge of the zone, so it never collides with the
+    # subject label on the right or with itself when the zone is shallow.
     cx, cy = camera_xy
     half_angle = math.radians(h_fov_deg / 2)
-    near_label_x = cx + near_m * math.tan(half_angle) + 0.2
-    ax.text(near_label_x, cy + near_m,
-            f"near {near_m:.2f}m", fontsize=7.5, color=PALETTE["dof_line"],
-            fontweight="bold", ha="left", va="bottom", zorder=5,
+    if far_m and far_m < 1000:
+        span = f"{near_m:.1f}–{far_m:.1f} m".replace(".", ",")
+    else:
+        span = f"{near_m:.1f} m → ∞".replace(".", ",")
+    ax.text(cx - near_m * math.tan(half_angle) - 0.2, cy + near_m,
+            f"zona nítida {span}", fontsize=7.5, color=PALETTE["dof_line"],
+            fontweight="bold", ha="right", va="center", zorder=5,
             bbox=dict(boxstyle="round,pad=0.22", facecolor="white",
                       edgecolor=PALETTE["dof_line"], linewidth=0.6, alpha=0.95))
-    # Far label (only if finite)
-    if far_m and far_m < 50:
-        far_label_x = cx + far_m * math.tan(half_angle) + 0.2
-        ax.text(far_label_x, cy + far_m,
-                f"far {far_m:.1f}m", fontsize=7.5, color=PALETTE["dof_line"],
-                fontweight="bold", ha="left", va="bottom", zorder=5,
-                bbox=dict(boxstyle="round,pad=0.22", facecolor="white",
-                          edgecolor=PALETTE["dof_line"], linewidth=0.6, alpha=0.95))
-    else:
-        ax.text(near_label_x, cy + near_m + 0.4,
-                "→ ∞ (infinito)", fontsize=7.5, color=PALETTE["dof_line"],
-                fontweight="bold", ha="left", va="bottom", zorder=5,
-                bbox=dict(boxstyle="round,pad=0.22", facecolor="white",
-                          edgecolor=PALETTE["dof_line"], linewidth=0.6, alpha=0.95))
 
 
 # ---------------------------------------------------------------------------
@@ -517,12 +520,16 @@ def render_topdown_panel(fig, rect, shot, variant, focal_mm, h_fov, v_fov, near_
 
     sd = shot["subject_distance_m"]
     bd = shot["background_distance_m"]
+    # A sea horizon 200 m away would squash the camera, subject and sharp zone
+    # into the bottom edge; draw distant backgrounds closer and say so.
+    bd_draw = min(bd, max(sd * 2.5, sd + 8))
+    shortened = bd_draw < bd
     cam_x = 0
     cam_y = 0
 
     # Scene extent
-    scene_w = max(8, sd * 2, bd * 0.5)
-    scene_h = max(8, bd * 1.2 + 2)
+    scene_w = max(8, sd * 2, bd_draw * 0.5)
+    scene_h = max(8, bd_draw * 1.2 + 2)
     ax.set_xlim(-scene_w/2 - 1, scene_w/2 + 1)
     ax.set_ylim(-1.5, scene_h + 1)
 
@@ -547,10 +554,10 @@ def render_topdown_panel(fig, rect, shot, variant, focal_mm, h_fov, v_fov, near_
                               shot["composition"])
 
     # FoV cone
-    draw_fov_cone(ax, (cam_x, cam_y), sd, h_fov, bd)
+    draw_fov_cone(ax, (cam_x, cam_y), sd, h_fov, bd_draw)
 
     # DoF zone
-    draw_dof_zone(ax, (cam_x, cam_y), sd, h_fov, near_m, far_m)
+    draw_dof_zone(ax, (cam_x, cam_y), sd, h_fov, near_m, far_m, bd_draw)
 
     # Background layer
     bg_kind = "trees"
@@ -560,13 +567,13 @@ def render_topdown_panel(fig, rect, shot, variant, focal_mm, h_fov, v_fov, near_
         bg_kind = "buildings"
     elif "casa" in shot.get("scene_notes", "").lower() or "sala" in shot.get("scene_notes", "").lower():
         bg_kind = "wall"
-    draw_background_layer(ax, 0, bd, scene_w, label=f"FONDO · {bd:.0f} m", kind=bg_kind)
+    draw_background_layer(ax, 0, bd_draw, scene_w, label=f"FONDO · {bd:.0f} m" + (" (no a escala)" if shortened else ""), kind=bg_kind)
 
     # Distance markers
     draw_distance_marker(ax, -scene_w/2 + 0.3, 0, -scene_w/2 + 0.3, sd,
                          f"{sd:.1f} m", color=PALETTE["muted"])
-    draw_distance_marker(ax, -scene_w/2 + 0.6, sd, -scene_w/2 + 0.6, bd,
-                         f"{bd-sd:.1f} m", color=PALETTE["muted"])
+    draw_distance_marker(ax, -scene_w/2 + 0.6, sd, -scene_w/2 + 0.6, bd_draw,
+                         f"{bd-sd:.1f} m" + (" ≈" if shortened else ""), color=PALETTE["muted"])
 
     # Subject icon after global field-card safety/clarity policy.
     eff_variant = effective_subject_variant(shot, variant)
@@ -588,23 +595,19 @@ def render_topdown_panel(fig, rect, shot, variant, focal_mm, h_fov, v_fov, near_
     # Settings chips at bottom
     chip_y = -1.0
     chips = [
+        (f"  {headline_time_label(shot)}  ", PALETTE["ink"]),
         (f"  {LENS_LABELS.get(shot['lens_focal'], shot['lens_focal'])}  ", PALETTE["lens_chip"]),
         (f"  {shot['aperture']}  ", PALETTE["ok"]),
         (f"  {shot['shutter']}  ", PALETTE["warning"]),
         (f"  ISO {shot['iso']}  ", PALETTE["muted"]),
     ]
-    chip_x = -scene_w/2 + 0.3
-    for label, color in chips:
-        ax.text(chip_x, chip_y, label, fontsize=8, color="white", fontweight="bold",
-                bbox=dict(boxstyle="round,pad=0.3", facecolor=color, edgecolor="none"),
-                va="center", ha="left", zorder=10)
-        chip_x += len(label) * 0.16 + 0.4
+    draw_chip_row(ax, -scene_w/2 + 0.3, chip_y, [(label.strip(), color) for label, color in chips], fontsize=8)
 
     # Legend (top-right)
     legend_items = [
-        ("FoV cone", PALETTE["fov_fill"], 0.12),
-        ("DoF zone", PALETTE["dof_fill"], 0.18),
-        ("Subject",  PALETTE["subject"], 0.85),
+        ("Campo visual", PALETTE["fov_fill"], 0.12),
+        ("Zona nítida", PALETTE["dof_fill"], 0.18),
+        ("Sujeto",  PALETTE["subject"], 0.85),
     ]
     for i, (lbl, col, alpha) in enumerate(legend_items):
         ly = 0.97 - i * 0.035
@@ -831,7 +834,7 @@ def _draw_side_angle_indicator(ax, cam_x, cam_y, angle_tilt, angle_label):
         text, color, align = f"{angle_label}\n{abs(angle_tilt)}°", PALETTE["warning"], "center"
     else:
         lx, ly = cam_x + 0.5, cam_y
-        text, color, align = f"{angle_label}\n0° (eye-level)", PALETTE["ok"], "left"
+        text, color, align = f"{angle_label}\n0° (altura de ojos)", PALETTE["ok"], "left"
     ax.text(lx, ly, text, fontsize=7, color=color, fontweight="bold",
             ha=align, va="center", zorder=12,
             bbox=dict(boxstyle="round,pad=0.2", facecolor="white", edgecolor=color, linewidth=0.6))
@@ -850,11 +853,12 @@ def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
     # Scene setup
     sd = shot["subject_distance_m"]
     bd = shot["background_distance_m"]
+    bd_draw = min(bd, max(sd * 2.5, sd + 8))  # same shortening as the plan view
     cam_h = shot["camera_height_m"]
     # Map distances to plot coords: 1m horizontal = 1 unit, 1m vertical = 1 unit (exaggerated x2 for visibility)
     vert_scale = 1.5
 
-    scene_w = max(8, bd * 1.2 + 4)
+    scene_w = max(8, bd_draw * 1.2 + 4)
     ax.set_xlim(-1, scene_w)
     ax.set_ylim(-0.5, 4)
 
@@ -877,7 +881,7 @@ def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
     angle_tilt = _side_angle_tilt(shot["angle"])
 
     # Background layer (drawn first, in background)
-    bg_x = bd
+    bg_x = bd_draw
     _draw_side_background(ax, shot, bg_x)
 
     # Direction-aware vertical FoV cone. The legacy diagram always drew it
@@ -912,14 +916,14 @@ def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
     draw_distance_marker(ax, -0.5, -0.35, sd, -0.35,
                          f"{sd:.1f} m", color=PALETTE["muted"])
     if bd > sd:
-        draw_distance_marker(ax, sd + 0.1, -0.35, bd, -0.35,
-                             f"{bd-sd:.1f} m", color=PALETTE["muted"])
+        draw_distance_marker(ax, sd + 0.1, -0.35, bd_draw, -0.35,
+                             f"{bd-sd:.1f} m" + (" ≈" if bd_draw < bd else ""), color=PALETTE["muted"])
 
     # Pose name chip
     pose_chip_x = sd
     pose_chip_y = 2.7
     _eff = effective_subject_variant(shot, variant)
-    pose_label = (shot["subjects"][_eff]["pose"].replace("_", " ").title() if _eff else "Sin sujeto · perro fuera")
+    pose_label = (POSE_NAMES[_eff].get(shot["subjects"][_eff]["pose"], shot["subjects"][_eff]["pose"]) if _eff else "Sin sujeto · perro fuera")
     ax.text(pose_chip_x, pose_chip_y, f"POSE: {pose_label}",
             fontsize=7.5, color=PALETTE["subject"], fontweight="bold",
             ha="center", va="center", zorder=11,
@@ -956,12 +960,7 @@ def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
         (f"{shot['composition_label']}", PALETTE["compose"]),
         (f"{shot['angle_label']}", PALETTE["warning"]),
     ]
-    cx = -0.5
-    for label, color in chips_text:
-        ax.text(cx, chip_y, f" {label} ", fontsize=7, color="white", fontweight="bold",
-                bbox=dict(boxstyle="round,pad=0.3", facecolor=color, edgecolor="none"),
-                va="center", ha="left", zorder=10)
-        cx += len(label) * 0.13 + 0.5
+    draw_chip_row(ax, -0.5, chip_y, chips_text, fontsize=7)
 
     return ax
 
@@ -969,6 +968,19 @@ def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
 # ---------------------------------------------------------------------------
 # Main renderer
 # ---------------------------------------------------------------------------
+
+VARIANT_LABELS = {"dog": "perro", "human": "persona"}
+TIME_LABELS = {"day": "día", "afternoon": "tarde", "night": "noche"}
+
+
+def headline_time_label(shot):
+    """Which time slot the drawn settings belong to, so the chips are not read as all-day values."""
+    headline = (shot["aperture"], shot["shutter"], shot["iso"])
+    for time, s in shot.get("settings_by_time", {}).items():
+        if (s["aperture"], s["shutter"], s["iso"]) == headline:
+            return f"Ajustes de {TIME_LABELS[time]}"
+    return "Ajustes de referencia"
+
 
 def render_diagram(shot, plan, variant, output_path):
     """Render a single diagram for a shot × variant."""
@@ -980,7 +992,7 @@ def render_diagram(shot, plan, variant, output_path):
     # Figure with two panels side by side — taller figure to fit footer
     fig = plt.figure(figsize=(16, 9.5), facecolor=PALETTE["bg"], dpi=110)
     # Use GridSpec for cleaner layout
-    fig.suptitle(f"{plan['name']} · {shot['id']} — {shot['technique_label']}  [{variant.upper()}]",
+    fig.suptitle(f"{plan['name']} · {shot['id']} — {shot['technique_label']}  [{VARIANT_LABELS.get(variant, variant).upper()}]",
                  fontsize=14, fontweight="bold", color=PALETTE["ink"], y=0.975)
 
     # Topdown panel (left, ~55%) — leave more room at bottom for footer
@@ -998,7 +1010,7 @@ def render_diagram(shot, plan, variant, output_path):
     fig.text(0.02, 0.045, wrapped, fontsize=8, color=PALETTE["muted"],
              ha="left", va="top", style="italic", wrap=True,
              fontfamily='DejaVu Sans')
-    fig.text(0.98, 0.045, "Diagrama v7 · Python/matplotlib",
+    fig.text(0.98, 0.045, "Geometría a escala · PDC con CoC 0,03 mm",
              fontsize=7.5, color=PALETTE["soft"], ha="right", va="top")
 
     fig.savefig(output_path, dpi=110, facecolor=PALETTE["bg"],
