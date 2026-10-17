@@ -1,12 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-08-27T00:00:00-05:00",
+  "updated_at": "2026-10-17",
   "questions": [
     {
       "id": "OQ-001",
       "question": "Can the current official PDF, live form, and public competition page be reverified and snapshotted?",
       "status": "RESOLVED_2026-08-27",
-      "blocks": ["ROUND_1_RELEASE"]
+      "blocks": [
+        "ROUND_1_RELEASE"
+      ]
     },
     {
       "id": "OQ-002",
@@ -18,7 +20,21 @@
       "id": "OQ-003",
       "question": "Can headless browser QA complete outside the managed sandbox after the interrupted run?",
       "status": "RESOLVED_CUSTOM_BASELINE_CAPTURE",
-      "blocks": ["ROUND_0_BASELINE"]
+      "blocks": [
+        "ROUND_0_BASELINE"
+      ]
+    },
+    {
+      "id": "OQ-004",
+      "question": "Should the public path challenges/arquitectura-en-foco/ be renamed now that the guide is no longer tied to the contest?",
+      "status": "OPEN_NONBLOCKING",
+      "default": "Keep the path: GitHub Pages cannot send server redirects, and existing links, bookmarks and installed PWAs point at it. Only the visible copy is generalized."
+    },
+    {
+      "id": "OQ-005",
+      "question": "Do the estimated scene rows match Lima in the field: window-lit interiors by day (EV 8-10) and darkness away from street lights (upper bound -1)?",
+      "status": "OPEN_NONBLOCKING",
+      "default": "Keep the stated estimates and their sources in exposure_model.py. Confirm with a metered test frame in each condition on the next field outing and correct the rows if they are off by more than a stop."
     }
   ]
 }

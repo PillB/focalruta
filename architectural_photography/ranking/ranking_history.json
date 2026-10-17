@@ -35,6 +35,12 @@
       "model_version": "architecture-ranking-v1.1.0",
       "file": "2026-08-31-r4-v7.json",
       "sha256": "0609c12b6b4b603c668439d2e04782dba0e7772f2b85df0e721d3e6b9c8afa77"
+    },
+    {
+      "run_id": "2026-10-17-r4-v8",
+      "model_version": "architecture-ranking-v2.0.0",
+      "file": "2026-10-17-r4-v8.json",
+      "sha256": "a2eec76fd7c61d7fc1cb145d555740e67d31596b7341a40b6125570a1cda5850"
     }
   ]
 }

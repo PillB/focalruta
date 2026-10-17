@@ -971,3 +971,245 @@ suite un 8 % mayor.
 automático) e instalar `pytest-timeout` en local si se quiere la misma red que
 tiene CI. Por lo demás, el enlace peatonal de 854 m entre Puente Villena y
 Larcomar sigue siendo la comprobación de campo con más valor pendiente.
+
+## Ronda 11 · Planificador fotográfico listo para producción (2026-10-17)
+
+Pedido de Pablo: tratar la página como prototipo, investigar técnicas y fuentes,
+verificar lo implementado y dejarla lista para producción.
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| R01 | Ranking igual en cualquier Python | `mean([1e16,1,-1e16])` daba 1.0 en 3.13 (suma compensada de `sum`) | `ordered_sum` → 0.0 en 3.11 y 3.13 |
+| P01 | Exposición de cada franja dentro de ±1 EV de la luz de escena (tabla ANSI PH2.7) | ninguna franja declaraba escena; 8/14 tests fallaban | 180 franjas re-resueltas, 0 violaciones |
+| P02 | ND de catálogo (2, 3, 6, 10 pasos) nombrado en la nota | notas con "sin filtro" y densidades no estándar | ND nombrado; franjas imposibles marcadas "no viable" |
+| P03–P04 | Límites de cámara/lente y envolvente de cada técnica | — | dentro de límites; obturadores escritos como en la 6D (`10"`, no `10`) |
+| P05 | Afirmaciones ópticas del texto = modelo de lente delgada y sensor 35,8×23,9 | A01 hiperfocal 5,1 m (modelo 3,75); B01 5,0; C03 PDC 6 cm (9); C04 10 cm (27); D03 6 cm (9) | 0 discrepancias; mitos de "compresión" y del zoom burst retirados |
+| P06 | `data/plans.json` = `plans_data.to_dict()` | — | igual; incluye `scene_light` y `pose_names` |
+| S01–S04 | Panel solar de Lima (NOAA) dentro de 2 min/1° de `astral` 3.2; JS = Python | test de paridad JS falló sin `assets/sun_times.js` | 22 tests de `tests/planner` en verde |
+| M04 | `regenerate_all.py` cubre datos, páginas de plan, tarjeta y ZIP | "plans_data.py is not reachable from the regeneration entrypoint" | cubierto; segunda regeneración sin cambios |
+
+### Cambios visibles
+
+- Tarjetas, detalle y modo sesión muestran lente, apertura, obturador e ISO **de la
+  franja elegida** (antes mezclaban lente/apertura de cabecera con obturador/ISO de la
+  franja), más filtro ND, luz prevista y aviso "no viable".
+- 120 diagramas redibujados: chips medidos (antes se salían), PDC infinita dibujada
+  (antes se omitía), fondos lejanos acortados y marcados "no a escala", etiquetas y
+  poses en español.
+- Copia en español sin jerga de desarrollo: fuera el panel "Regression audit",
+  "se recuperaron…", créditos de matplotlib, KEY TAKEAWAYS, half-body, etc.
+- Fuentes: la página de Canon Europe que atribuye la compresión a la focal se
+  sustituyó por Wikipedia "Perspective distortion", la tabla EV y NOAA.
+- Plan B: el ocaso va de ≈246° (dic.) a ≈294° (jun.), no 278–288°. Planes A y D ya
+  no llaman "luz dorada" a franjas posteriores a la hora dorada.
+- Producción: descripción, canonical y Open Graph; iconos maskable separados; `id`,
+  `lang`, `dir` en el manifiesto; `robots.txt` y `sitemap.xml`; versión de caché del
+  service worker = hash del contenido; 404 autónoma; fuera la insignia "hosted lean".
+- ZIP de descarga reconstruido de forma determinista (contenía las páginas de plan
+  previas a las correcciones). Páginas de plan en WebP sin pérdida: ~4,5 → ~2,4 MB.
+
+### Comandos y resultados (todos con salida 0)
+
+- `python3 -m pytest -q` → 302 passed, 1 skipped.
+- `python3 scripts/verify_architecture.py` → passed. `python3 scripts/verify_release.py` → passed.
+- `python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-complexity=10'` → All checks passed.
+- `python3 scripts/regenerate_all.py` dos veces → árbol sin cambios.
+- `FOCALRUTA_CHROME=/opt/pw-browsers/chromium` + servidor en `dist/canon6d_sota_hosted` (127.0.0.1:8777):
+  visual/recursos 37/37, óptica/accesibilidad 22/22, matriz de navegador 246/246,
+  y las 5 suites `tests/architecture/browser_*.py` en verde (6 viewports, SW, offline, sin JS).
+- Lighthouse 12.8.2 (móvil simulado): portada 92/100/100/100; `plans/plan_a.html` 46/100/100/100 (antes 35 de rendimiento).
+
+### Compromisos explícitos
+
+- `optics_physics.FULL_FRAME_*` sigue en 36×24 mm para el modelo genérico; el campo
+  visual de la 6D y los tests usan 35,8×23,9. La diferencia es <0,6 %.
+- La escena `oscuridad` (−3 a −1 EV) es una estimación: no tiene fila en la tabla ANSI.
+- Tolerancia de ±1 EV: lo que una foto de prueba y el histograma recuperan sin
+  cambiar de técnica.
+- Tomas de interior con mucha PDC usan ISO hasta 6400 en vez de trípode, para no
+  cambiar la técnica.
+- Se mantiene `skipWaiting()` en el service worker: sitio estático sin estado de
+  formulario; prima recibir la versión nueva.
+- Las páginas de plan siguen autocontenidas (2,4 MB) para uso sin conexión; por eso
+  su rendimiento en Lighthouse es 46.
+- `generate_diagrams.py` queda fuera de `regenerate_all.py` (necesita matplotlib, que
+  CI no instala); los PNG se regeneraron a mano en esta ronda.
+- La tarjeta de campo integrada conserva rótulos breves en inglés ("Eye-level", "FG/BG");
+  se regenera desde `integrate_field_card.py`, fuera del ciclo automático.
+- Los scripts de QA de navegador aceptan `FOCALRUTA_CHROME`; en este runner se
+  enlazó `chromium_headless_shell-1187` → `-1194` porque Playwright 1.55 espera la 1187.
+
+### Pendiente
+
+- Verificar Pages en vivo tras el despliegue.
+- El enlace PMC3482144 citado muestra un captcha; no se pudo comprobar su contenido.
+
+## Ronda 12 · Guía general tras el cierre del concurso (2026-10-17)
+
+Pablo confirmó que el concurso terminó y pidió generalizar el sitio para producción:
+es sobre todo para su trabajo de campo y, en segundo lugar, para el público.
+Requisitos nuevos en `REQUIREMENTS_INVENTORY.md`, sección T; A01, A03, J01, J05 y la
+sección R quedan marcados como sustituidos o archivados.
+
+### Requisitos y evidencia RED → GREEN (`tests/architecture/test_round12_evergreen.py`)
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| T01 | Ninguna página publicada orienta al lector hacia el concurso cerrado | 5 páginas de `dist/` fallaban: «CONCURSO:» ×17, «Las bases», «al concurso» y «Reto» en la guía; «las bases» en la wiki; «reto» en la tarjeta de campo; «Reto» en la portada y la versión autónoma. `learning.json` sin `editorial_note` | 0 coincidencias en las 39 páginas HTML publicadas; las 17 lecciones llevan `editorial_note` («CRITERIO») |
+| T02 | El ranking puntúa para el fotógrafo, no para un jurado | el modelo tenía capas `OFFICIAL_PROXY` y `LOW_WEIGHT_ROBUSTNESS_ONLY`; mover `brief` o `judge` de 0 a 10 cambiaba la fila de la matriz | modelo `architecture-ranking-v2.0.0`: sin criterio de jurado ni de encaje con el tema del concurso; pesos = v1.1.0 renormalizados en proporción (`derived_from`); corrida inmutable `2026-10-17-r4-v8` |
+| T03 | El build publicado no publica investigación del concurso y el SW sólo precachea lo que existe | `dist/` publicaba `competition_rules.json`, `judges.json` (con perfiles de los jurados) y `organizer_history.json` | ninguno se publica; ningún archivo de `dist/` nombra a los jurados; todas las URL de `CORE` existen en `dist/` |
+| T04 | La edición cerrada queda archivada y fechada | no existía `architectural_photography/archive/` | los tres archivos están en `archive/arquitectura-en-foco-2026/` con sus tests originales |
+
+### Cambios visibles
+
+- Lecciones: «CONCURSO:» pasa a «CRITERIO:» con consejos generales. L17 se reescribió
+  como «Edición honesta según el uso», con fuentes primarias: World Press Photo («What
+  counts as manipulation») y la ayuda de Adobe sobre corrección de perspectiva (deja
+  bordes vacíos que obligan a recortar).
+- Técnica de edición: «Edición según el uso de la foto» (registro, encargo, concurso o
+  portafolio), con las mismas fuentes en lugar de la guía de composición de Nikon.
+- Navegación «Bases» → «Encargo»; el decodificador sirve para cualquier encargo o
+  convocatoria. Ruta de aprendizaje «… → COMPETIR» → «… → ENTREGAR».
+- Portada: «Reto especializado» → «Guía especializada»; meta descripciones sin «reto».
+- Ayuda de iPhone: «ELI5» → «PASO A PASO». Lección L13 sin «Optical Lab».
+
+### Efecto del modelo v2 en el ranking (v7 → v8)
+
+- Mismo conjunto de 15 escenas robustas y mismo frente de Pareto (9).
+- 51 de 87 rangos robustos se movieron, como máximo 7 puestos.
+- Prioridades de campo: el mismo top 5; el 3.º y el 4.º intercambian lugar.
+
+### Verificado
+
+- PMC3482144 (pendiente de la ronda 11) es Wagemans et al. 2012, «A century of
+  Gestalt psychology in visual perception: I», Psychological Bulletin (PubMed 22845751).
+  Confirmado por búsqueda; europepmc.org está bloqueado por el proxy de este entorno.
+
+### Compromisos explícitos
+
+- Se conserva la ruta `challenges/arquitectura-en-foco/` (OQ-004): GitHub Pages no
+  hace redirecciones de servidor y hay enlaces, marcadores y PWA instaladas que la usan.
+- Las seis evaluaciones explícitas de 2026 (`new_candidate_assessments.json`) conservan
+  su valor de «coherencia temática» con el nombre `architecture_in_use`; no se
+  re-evaluaron a mano.
+- La clave de investigación `one_frame_contest_test` y el id de técnica
+  `contest-safe-editing` siguen igual: son internos y cambiarlos rompería anclas.
+- `scripts/architecture_preflight.py` (reglas de archivo de 2026) queda como
+  herramienta local archivada; no se publica.
+- Las tarjetas del ranking siguen con texto genérico igual para las 87 escenas; los
+  datos por escena (`why_survives`, `exact_view`…) están en inglés y no se publicaron.
+- Señales retiradas del ranking: `juror_public_work_intersection` (peso 0,005–0,01
+  según escenario) y el atributo Master82 `brief` dentro de la antigua
+  `theme_coherence_proxy`. Los demás pesos se renormalizaron en proporción.
+
+### Comandos y resultados (todos con salida 0)
+
+- `python3 -m pytest -q` → 350 passed, 1 skipped (incluye 48 de `test_round12_evergreen.py`).
+- `python3 scripts/verify_architecture.py` y `python3 scripts/verify_release.py` → passed.
+- `python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-complexity=10'` → All checks passed.
+- `python3 scripts/regenerate_all.py` → idempotente; `git diff --check` limpio.
+- `FOCALRUTA_CHROME=/opt/pw-browsers/chromium` + servidor de `dist/` en 127.0.0.1:8777:
+  visual/recursos 37/37, óptica/accesibilidad 22/22, matriz 246/246 y las 5 suites
+  `tests/architecture/browser_*.py` en verde (6 viewports, SW, offline, sin JS).
+
+### Pendiente
+
+- Incorporar la revisión del red team (`/mnt/project-files/qa/FINDINGS_PR19.md`, sin
+  bloqueos, 5 hallazgos mayores) en PR #19.
+- Pasos 3 y 4 del plan (UX de campo y endurecimiento de producción) tras la fusión,
+  según el hilo de planificación.
+
+## Ronda 13 · Revisión del red team sobre PR #19 (2026-10-17)
+
+Un hilo de red team revisó PR #19 (`/mnt/project-files/qa/FINDINGS_PR19.md`): sin
+bloqueos, 5 hallazgos mayores y una lista de menores. Pablo aprobó el plan de cuatro
+pasos («proceed»); esta ronda cierra el paso 1. Requisitos nuevos en
+`REQUIREMENTS_INVENTORY.md`, sección U (U01–U08).
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| U01 | Velocidades como las muestra la 6D (`0"5`, `3"2`, `30"`); hasta 30" nunca «Bulb» | 6 fallos en `tests/planner/test_shot_physics.py` (20 × `3.2"`, Bulb 20/25/30) | 35 pass; un solo parser en `exposure_model.py` |
+| U02 | Interiores con ventana de día contra una fila de luz de ventana con fuente | 2 fallos: 14 franjas de C y E puntuadas contra «oficina» (EV 7–8) | fila `ventana` EV 8–10 (500–2500 lx con E = 2,5·2^EV); 14 franjas re-resueltas cerca de EV 9 |
+| U03 | La suite mata las 8 mutaciones que sobrevivían | arnés `scratchpad/mut/mutate.py`: la suite de ad248c4 dejó vivas 8/8 | la suite nueva mata 8/8 |
+| U04 | Todas las páginas pasan axe; `lang`, un `main`, un `h1`; contraste sobre degradados | axe 4.10.3 en reposo: 70 de 78 pasadas fallaban (sin `main`, 25 mapas sin `lang`, tarjeta de campo sin `h1`, tira de lentes inaccesible por teclado, `aside` dentro de `main`); `test_page_structure.py` 94 fallos; la auditoría ampliada halló RAZONAMIENTO 3,72:1 y el botón Día 4,22:1 | axe 78/78; 118 pass; auditoría de contraste 37/37 con degradados |
+| U05 | Páginas de plan alojadas sin imágenes en línea y usables offline tras una visita | `test_hosted_plan_pages.py` 12 fallos (2,4–2,6 MB con data URI); con el servidor apagado la página no estaba en caché (el SW devolvía `index.html` y fallaba `PLANS_DATA`) | 18 pass; 148–154 KB; offline página + 10/10 diagramas por sujeto; Lighthouse móvil 100/100/100/100 (antes 35). `verify_release.py` exigía paridad byte a byte con `plans/` y fallaba en las 6 páginas; ahora compara todo salvo el mapa de diagramas y el script de caché, y que cada `.webp` sea la imagen embebida (dos mutaciones detectadas) |
+| U06 | Cada nota nombra la luz con la que se puntúa; alternativas a ≤ ¼ de paso; el panel solar abre en la fecha de Lima | 15 notas «a pleno sol/día» sobre `sol_velado`; fecha: 6 fallos, y el código viejo mostraba 2026-03-28 en Madrid a las 05:30Z del 29 | 3 + 7 pass |
+| U07 | Texto de los planes en español; número y unidad separados | 3 fallos (11 términos en inglés, 23 «3s»/«20s:») | pass; 8 diagramas redibujados porque su pie cita el razonamiento |
+| U08 | Evidencia y build reproducibles | 4 reportes sin `audited_commit`; 10 JSON de QA en la raíz; CI sin archivo de dependencias; iconos maskable fuera del precache; `sources.json` publicado con 6 fuentes del concurso | commit auditado; sólo los 4 reportes con huellas en la raíz (los 6 de agosto, a `archive/qa-2026-08-09/`); `requirements-dev.txt` y `requirements-qa.txt`; iconos precacheados; fuentes del concurso archivadas |
+
+### Lo que el red team midió y lo que resultó ser
+
+- El «4,29:1» de las etiquetas verdes «HACER» se midió a mitad del fundido de entrada:
+  axe mezcla el texto con la opacidad actual de la tarjeta. En reposo pasan con más de
+  5:1. Buscar ese fallo destapó dos huecos reales: axe en reposo fallaba por
+  estructura y la auditoría propia ignoraba el texto sobre degradados.
+- La afirmación del PR «8 de 14 tests nuevos fallaban antes» era inexacta: con los
+  datos de `main` fallan 10, casi todos estructurales (campos ausentes); sólo el de
+  la hiperfocal de A01 es un error físico real. Se corrige en la descripción del PR.
+
+### Compromisos explícitos
+
+- La fila `ventana` (EV 8–10) es una estimación: la tabla ANSI no tiene fila para luz
+  de ventana. Sale de 500–2500 lx junto a la ventana con E = 2,5·2^EV (C = 250).
+- `oscuridad` (−3 a −1): ANSI da −3 a −2 bajo luna llena alta; el paso extra por el
+  resplandor urbano de Lima es un supuesto conservador sin medir. Con ese tope, el
+  light painting de A08–D08 de noche cumple el margen de 3 pasos por 0,00–0,02.
+- Los fundidos de entrada siguen: durante 0,5 s el texto pasa por contrastes bajos.
+  WCAG juzga el contenido presentado y con movimiento reducido no hay fundido.
+- La caché offline de un plan alojado se llena al cargar la página (≈ 2 MB, igual
+  que antes pero después del primer pintado); se omite si el lector pidió ahorrar datos.
+- La tarjeta de campo integrada y algunos textos de la portada conservan etiquetas en
+  inglés («Field Card», «Eye-level», «preflight», «shutter»): el paso 3 del plan la
+  rehace entera en español. Lighthouse marca su texto como pequeño (< 12 px).
+- axe-core no se versiona en el repo: `FOCALRUTA_AXE` apunta a `axe.min.js` 4.10.3 y
+  el script se detiene si falta.
+- Chromium no aplica la emulación offline a las peticiones del service worker; la
+  prueba offline apaga el servidor en vez de emularla.
+
+### Cierre (comandos, código de salida, resumen)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `python3 -m pytest -q` | 0 | 525 pass, 1 skip (`wiki-tecnicas.html` no usa Schlick) |
+| `python3 scripts/verify_architecture.py` | 0 | `checks_failed: []` |
+| `python3 scripts/verify_release.py` | 0 | `checks_failed: []` |
+| `ruff check scripts tests --select C901` (máx. 10) | 0 | sin hallazgos |
+| `python3 scripts/regenerate_all.py && git diff --exit-code` | 0 | 10 pasos, sin cambios |
+| `git diff --cached --check` | 0 | sin espacios sobrantes |
+| QA de navegador (`--with-browser-qa`, Chromium + axe 4.10.3) | 0 | visual 37/37, óptica 22/22, release 249/249, axe 78/78, cinco suites de arquitectura en verde |
+| Lighthouse móvil (rendimiento) | — | portada 92, planes 100, tarjeta de campo 100, guía 91; accesibilidad 100 en todas |
+
+Verificación independiente: el hilo de red team recibe el nuevo commit para su
+segunda pasada; su veredicto se registra en la ronda siguiente.
+
+### Corrección posterior: la prueba offline de U05 no esperaba
+
+Al escribir las pruebas del paso 3 apareció que `page.wait_for_function` de
+Playwright 1.55 da por cumplido un predicado que devuelve una promesa sin
+esperarla (reproducido: `async()=>false` vuelve en 0,01 s). La espera de U05
+(«página y 20 diagramas en caché») no esperaba, y el servidor de prueba no
+prohibía la caché HTTP, así que Chromium podía responder «offline» desde su
+caché de disco. `browser_release_qa.py` ahora sondea con `page.evaluate` y
+sirve con `Cache-Control: no-store`. Con el arnés corregido, U05 sigue en
+verde en este commit y en c4f96bf: página y 10/10 diagramas por sujeto.
+
+### Segunda pasada del red team y evidencia limpia
+
+El red team dio PASS a c4f96bf y b86aa96 (12/12 mutaciones propias muertas, axe en
+reposo sin violaciones, offline con 0 imágenes rotas) con una nota: los reportes
+decían `eec010a…+dirty`. La causa era mecánica: las suites corren una tras otra y
+cada una escribe su reporte en la raíz, así que desde la segunda el árbol parecía
+sucio. `evidence.current_commit` ya no cuenta los `*_QA.json` de la raíz y una prueba
+exige que cada reporte nombre un commit limpio (RED: 3 de 4 reportes).
+
+Al regenerar apareció otro fallo: los bucles de `browser_release_qa.py` reutilizaban
+el nombre `time`, así que `time.monotonic()` fallaba al llegar a la comprobación
+offline de U05 y el script moría sin escribir el reporte. La verificación de U05
+citada arriba se hizo con un script aparte; la del script completo no había corrido.
+Corregido en 28ef2aa. Evidencia sobre 28ef2aa sin cambios pendientes: visual 37/37,
+óptica 22/22, release 249/249 (con U05), axe 78/78; pytest 530 pass, 1 skip;
+`verify_architecture` y `verify_release` sin fallos; regeneración sin cambios.

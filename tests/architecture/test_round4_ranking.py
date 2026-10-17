@@ -22,8 +22,7 @@ def load(path: Path):
 
 def test_model_is_internal_transparent_and_has_four_scenarios():
     model = load(MODEL)
-    assert model["official_proxy_label"] == "INTERNAL_PROXY"
-    assert model["calibrated_winning_probability"] is False
+    assert model["calibrated_probability"] is False
     assert model["method"] == "LINEAR_ADDITIVE_VALUE_MODEL_WITH_SENSITIVITY"
     assert set(model["scenarios"]) == {"R0", "R1", "R2", "R3"}
     assert all(abs(sum(item["weights"].values()) - 1) < 1e-9 for item in model["scenarios"].values())
@@ -32,7 +31,7 @@ def test_model_is_internal_transparent_and_has_four_scenarios():
     assert model["sensitivity"]["seed"] == 20260830
     assert model["sensitivity"]["samples"] >= 1000
     assert abs(sum(model["field_weights"].values()) - 1) < 1e-9
-    assert {"creative_aesthetic_proxy", "theme_coherence_proxy", "architecture_causality"}.issubset(model["field_weights"])
+    assert {"visual_potential", "architecture_in_use", "architecture_causality"}.issubset(model["field_weights"])
 
 
 def test_performance_matrix_covers_all_scenes_without_historical_rank_leakage():
@@ -73,7 +72,7 @@ def test_public_ranking_supports_top_n_or_all_and_avoids_probability_language():
     assert len(public["top_5_field"]) == 5
     assert all(item["route_fit"] in {"VERIFIED_WALKING_LAYER", "NO_VERIFIED_WALKING_LAYER"} for item in public["top_5_field"])
     assert all(item["fallback"] for item in public["top_5_field"])
-    assert public["official_proxy_label"] == "INTERNAL_PROXY"
+    assert public["calibrated_probability"] is False
     page = PAGE.read_text(encoding="utf-8")
     assert 'id="ranking-scenario"' in page
     assert 'id="ranking-limit"' in page
@@ -132,3 +131,19 @@ def test_immutable_writer_rejects_changed_content(tmp_path):
     write_immutable_json(target, {"run_id": "stable"})
     with pytest.raises(RuntimeError, match="immutable ranking run changed"):
         write_immutable_json(target, {"run_id": "changed"})
+
+
+def test_scores_do_not_depend_on_the_interpreters_float_summation():
+    """Python 3.12 made sum() of floats compensated; 3.11 adds left to right.
+
+    The recorded ranking runs are immutable, so a score must be the same on
+    every interpreter. These values separate the two algorithms: compensated
+    summation returns 1.0, left-to-right accumulation returns 0.0.
+    """
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from build_architecture_ranking import mean, weighted_score
+
+    criteria = {"a": 1e16, "b": 1.0, "c": -1e16}
+    weights = {"a": 1.0, "b": 1.0, "c": 1.0}
+    assert weighted_score(criteria, weights) == 0.0
+    assert mean([1e16, 1.0, -1e16]) == 0.0

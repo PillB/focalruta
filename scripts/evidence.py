@@ -12,6 +12,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -30,10 +31,39 @@ def fingerprint(paths) -> dict[str, str]:
     return dict(sorted(prints.items()))
 
 
+# The reports the browser QA suites write at the repository root, by name: a
+# stale or hand-made file elsewhere still counts as an uncommitted change.
+QA_REPORTS = frozenset({
+    "CURRENT_BROWSER_QA.json",
+    "OPTICS_ACCESSIBILITY_QA.json",
+    "VISUAL_RESOURCE_QA.json",
+    "AXE_ACCESSIBILITY_QA.json",
+})
+
+
+def current_commit(root: Path = ROOT) -> str:
+    """HEAD the audit ran on, with "+dirty" when the tree had uncommitted changes.
+
+    The artefact hashes are what bind a report; the commit says where to look.
+    The root QA reports do not count as changes: the suites run one after
+    another and each writes its own report, so counting them marked every
+    report after the first "+dirty" although nothing it audited had changed.
+    """
+    try:
+        head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, check=True,
+                              capture_output=True, text=True).stdout.strip()
+        status = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=root,
+                                check=True, capture_output=True, text=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return ""
+    dirty = [line for line in status.splitlines() if line.strip() and line[3:].strip() not in QA_REPORTS]
+    return head + ("+dirty" if dirty else "")
+
+
 def stamp(report: dict, audited_paths) -> dict:
     """Add provenance to a QA report without disturbing its existing shape."""
     report["audited_at"] = datetime.now(timezone.utc).isoformat()
-    report["audited_commit"] = os.environ.get("GITHUB_SHA", "")
+    report["audited_commit"] = os.environ.get("GITHUB_SHA") or current_commit()
     report["audited_artifacts"] = fingerprint(audited_paths)
     return report
 

@@ -278,9 +278,9 @@ def test_route_collections_never_call_single_points_tours_and_group_all_layers()
 
 def test_beginner_guide_explains_every_major_surface_in_plain_spanish():
     page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
-    for phrase in ("Matriz de preparación", "Tarjeta de lugar", "Laboratorio", "Ruta y colección", "Brief", "SIN CONOCIMIENTOS PREVIOS"):
+    for phrase in ("Matriz de preparación", "Tarjeta de lugar", "Laboratorio", "Ruta y colección", "Encargo", "SIN CONOCIMIENTOS PREVIOS"):
         assert phrase in page
-    assert "no una nota ni una predicción" in page
+    assert "no una nota ni un pronóstico" in page
 
 
 def test_public_copy_removes_known_english_prose_and_keeps_readable_gutters():

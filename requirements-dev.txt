@@ -1,0 +1,7 @@
+# What CI installs (.github/workflows/quality.yml), on Python 3.11.
+# Pillow is pinned because its WebP/PNG encoder output changes between
+# releases, and regenerate_all.py && git diff --exit-code compares bytes.
+pytest==9.1.1
+pytest-timeout==2.4.0
+ruff==0.12.11
+Pillow==11.3.0

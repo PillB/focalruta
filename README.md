@@ -8,27 +8,29 @@ GitHub Pages deploys the optimized runtime from `dist/canon6d_sota_hosted`.
 
 ## Validation
 
-- 234/234 current browser regression checks
-- 16/16 Optical Decision Lab matrix and accessibility checks, covering more than 500 parameter combinations per release target
-- 37/37 image, resource-path, font-floor, and contrast checks
-- 120/120 dynamic shot diagrams decoded in both main release targets
+The release gate (`python3 scripts/verify_release.py`) fails unless four browser QA
+reports at the repository root still match the files they audited, byte for byte:
 
-Run the release gate with:
+- `CURRENT_BROWSER_QA.json` — 249 browser regression checks across six viewports,
+  including a hosted plan page that must work offline after one visit
+- `OPTICS_ACCESSIBILITY_QA.json` — 22 optical-lab matrix and accessibility checks
+- `VISUAL_RESOURCE_QA.json` — 37 image, resource-path, font-floor and contrast checks
+  (contrast on gradients is checked at every colour stop)
+- `AXE_ACCESSIBILITY_QA.json` — axe-core on all 39 published pages, light phone and
+  dark desktop passes, zero violations
 
-```bash
-python3 scripts/verify_release.py
-```
+Set up with `python3 -m pip install -r requirements-dev.txt` (what CI installs, on
+Python 3.11) and, for browser QA, `requirements-qa.txt`.
 
-## Regenerating the Arquitectura en Foco challenge
+## Regenerating the architecture photography guide
 
 Generated HTML is build output, never edited by hand: `scripts/verify_architecture.py`
-re-renders the page and byte-compares it against the committed file. Run the
-generators in dependency order, then the gates:
+re-renders the page and byte-compares it against the committed file. One entrypoint
+runs every generator in dependency order (CI runs it and fails on any diff), then
+the gates:
 
 ```bash
-python3 scripts/build_architecture_learning_v2.py   # curriculum + video ledger
-python3 scripts/generate_architecture_pages.py      # challenge, wiki, field card, iPhone help
-python3 scripts/build_dual_release.py               # dist/canon6d_sota_hosted (what Pages serves)
+python3 scripts/regenerate_all.py   # add --with-browser-qa to refresh the QA reports
 
 python3 -m pytest -q
 python3 scripts/verify_architecture.py
@@ -40,7 +42,9 @@ python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-comp
 it depends on a live OSM router, so route data is regenerated only in a session
 where that service is confirmed available.
 
-Browser QA is not run by CI. Serve two roots and run each script in
+Browser QA is not run by CI. Point `FOCALRUTA_CHROME` at a Chromium binary and
+`FOCALRUTA_AXE` at axe-core 4.10.3's `axe.min.js`, serve two roots and run the
+scripts in `scripts/` listed under `BROWSER_QA` in `regenerate_all.py` and each
 `tests/architecture/browser_*.py`:
 
 ```bash

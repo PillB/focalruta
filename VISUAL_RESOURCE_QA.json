@@ -89,7 +89,7 @@
       "detail": []
     },
     {
-      "name": "standalone solid-background text contrast",
+      "name": "standalone text contrast on solid and gradient backgrounds",
       "pass": true,
       "detail": []
     },
@@ -109,7 +109,7 @@
       "detail": []
     },
     {
-      "name": "hosted solid-background text contrast",
+      "name": "hosted text contrast on solid and gradient backgrounds",
       "pass": true,
       "detail": []
     },
@@ -129,7 +129,7 @@
       "detail": []
     },
     {
-      "name": "field solid-background text contrast",
+      "name": "field text contrast on solid and gradient backgrounds",
       "pass": true,
       "detail": []
     },
@@ -149,7 +149,7 @@
       "detail": []
     },
     {
-      "name": "plan_a solid-background text contrast",
+      "name": "plan_a text contrast on solid and gradient backgrounds",
       "pass": true,
       "detail": []
     },
@@ -169,7 +169,7 @@
       "detail": []
     },
     {
-      "name": "plan_f solid-background text contrast",
+      "name": "plan_f text contrast on solid and gradient backgrounds",
       "pass": true,
       "detail": []
     },
@@ -195,24 +195,24 @@
       }
     }
   ],
-  "audited_at": "2026-09-03T19:45:40.370289+00:00",
-  "audited_commit": "",
+  "audited_at": "2026-10-17T20:02:51.297692+00:00",
+  "audited_commit": "28ef2aa19c6fb30b3e2ad55d8431e59a979a470b",
   "audited_artifacts": {
-    "dist/canon6d_sota_hosted/field_card.html": "fd9d263f99aa932f3601df064f1f962a0c2ad1cad24f46297301f1750501e207",
-    "dist/canon6d_sota_hosted/index.html": "ecb5a14a252ecdaa89b245f7b43e91664374acc0db0ba55e83c559de9b1838a0",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "ee8d2c4f1f7b9a2bf69e499d95ef5e60a686ea463a4c88e05112723fac91f9f8",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "0629c63ac9075d6351063e74ced171d456503de57b427118e6627c2751ad20c7",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "5198eec9317f25c5e69168e0e0f32ecb9164d36b4c9413c75f7577a950733376",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "665ca2164798fd16b4106b4a4832ec12d9b6a74bb97c9a87ff0c5a20e98c8c61",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "27d06ecf016559f4587c7019fa9560165e43d81195d9d5b1ea5ffd046884f456",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "4e633b749f063a1670ce0603961f0c906732357115ab307a0454293548ef775a",
-    "field_card.html": "fd9d263f99aa932f3601df064f1f962a0c2ad1cad24f46297301f1750501e207",
-    "index.html": "0db6db0dc37875bd08c0fb55d2f67955599383f03c3f0e84ab59ba7c73ea4057",
-    "plans/plan_a.html": "ee8d2c4f1f7b9a2bf69e499d95ef5e60a686ea463a4c88e05112723fac91f9f8",
-    "plans/plan_b.html": "0629c63ac9075d6351063e74ced171d456503de57b427118e6627c2751ad20c7",
-    "plans/plan_c.html": "5198eec9317f25c5e69168e0e0f32ecb9164d36b4c9413c75f7577a950733376",
-    "plans/plan_d.html": "665ca2164798fd16b4106b4a4832ec12d9b6a74bb97c9a87ff0c5a20e98c8c61",
-    "plans/plan_e.html": "27d06ecf016559f4587c7019fa9560165e43d81195d9d5b1ea5ffd046884f456",
-    "plans/plan_f.html": "4e633b749f063a1670ce0603961f0c906732357115ab307a0454293548ef775a"
+    "dist/canon6d_sota_hosted/field_card.html": "130d59c8dead5fda5addcd68e01c6cdd2c829ebbbb66791f1a985fee0933e8fd",
+    "dist/canon6d_sota_hosted/index.html": "a06a232588f62a892ce6a36c75801c18b0e4c74540bd26beb1f77bfe8dca6f89",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "e7b3ac54b316573a4be888383bf14b0fe30c7910247dc188bf617402440dcea8",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "4d277a0bef00c57a9d124b6d54976a494bf36768dab77f24c0d40369ba0ae85a",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "cd472053b3bf8e261724f479c77507f794a6ad49b1401ea962044944638ea030",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "ac923b7018b5c8a400bdf683f375ab2c31465211e71c0cb834b8d3f60ef9eb04",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "467a02f77e56635b54d4d034e9d26c8fadb1e5773ca209fec98e51be1b22a8de",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "6773650af4bfb958e400b3ac1244ec300182d0546dcf576e987eb8ec8b27034f",
+    "field_card.html": "130d59c8dead5fda5addcd68e01c6cdd2c829ebbbb66791f1a985fee0933e8fd",
+    "index.html": "e0dda216bebc7ba1ab877442ae5754fb1753aaa0748c303ffacb056485d4a392",
+    "plans/plan_a.html": "262a3495260ee57608baf025593ddc5076e69d79246fabe2b57784a1aab5f484",
+    "plans/plan_b.html": "a233e4512b07cff165f946f4926cd771d46de970c091d45a307d081ffccc4173",
+    "plans/plan_c.html": "209ebed7df4e4117bfdd133552db3bd778ce2c0311d69b6185cfcac3c5f1d150",
+    "plans/plan_d.html": "86f03657b7e15b95f20f58a8806777e36b0609830d73c6e7010ff6f61542f88f",
+    "plans/plan_e.html": "7e822a348b3ac355accb0cac7f1791927a7cfcacaeca0af0f0ac384549297f76",
+    "plans/plan_f.html": "6f85cdb60d6f3add34a6a93b0c518ded7c403c339377ff24084293ba65d55fc6"
   }
 }

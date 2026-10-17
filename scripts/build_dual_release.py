@@ -23,7 +23,7 @@ def take_style(m): styles.append(m.group(1)); return ''
 html=re.sub(r'<style(?:\s+[^>]*)?>(.*?)</style>',take_style,html,flags=re.S|re.I)
 hosted_css='\n\n'.join(styles)
 (OUT/'assets/hosted.css').write_text(hosted_css,encoding='utf-8')
-html=html.replace('</head>','<link rel="stylesheet" href="./assets/hosted.css">\n<link rel="apple-touch-icon" href="./assets/icon-192.png">\n</head>',1)
+html=html.replace('</head>','<link rel="stylesheet" href="./assets/hosted.css">\n</head>',1)
 
 # External canonical plan data.
 html,n=re.subn(r'<script>\s*const PLANS_DATA = .*?;\s*</script>', '<script src="./data/plans_embedded.js"></script>',html,count=1,flags=re.S)
@@ -49,9 +49,8 @@ def img_hints(m):
     if 'loading=' not in tag: tag=tag[:-1]+' loading="lazy" decoding="async">'
     return tag
 html=re.sub(r'<img\b[^>]*>',img_hints,html)
-html=html.replace('Master · 6 planes · 120 diagramas · Field Card validado','Hosted/PWA · 6 planes · 120 diagramas · SOTA labs')
 registration='''<script>\nif('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>console.warn('PWA worker unavailable',error)));}\n</script>'''
-html=html.replace('</body>','<div class="hosted-badge no-print" style="position:fixed;right:10px;bottom:74px;z-index:55">● hosted lean</div>\n'+registration+'\n</body>',1)
+html=html.replace('</body>',registration+'\n</body>',1)
 (OUT/'index.html').write_text(html,encoding='utf-8')
 
 # Native challenge and its public canonical data.
@@ -61,16 +60,39 @@ shutil.copytree(SRC/'data'/'architecture',OUT/'data'/'architecture')
 # Standalone canonical file kept separately, unmodified behavior.
 shutil.copy2(SRC/'index.html',OUT/'FocalRuta_STANDALONE.html')
 shutil.copy2(SRC/'field_card.html',OUT/'field_card.html')
-for p in (SRC/'plans').glob('*.html'): shutil.copy2(p,OUT/'plans'/p.name)
+# Hosted plan pages load the diagrams the hosted index already ships, as lazy
+# files, instead of ~2.4 MB of inline base64 per page (Lighthouse 46 on a phone).
+# Once a page has loaded it asks the worker to cache itself and its diagrams
+# (the first visit happens before the worker controls the page), so one visit
+# still leaves the whole plan usable offline. plans/ in the repo and
+# the download ZIP keep the self-contained copies for the iPhone Files app.
+WARM_DIAGRAMS = """<script>window.addEventListener('load',()=>{const c=navigator.connection;if(!('serviceWorker' in navigator)||(c&&c.saveData))return;const urls=[location.href.split('#')[0],...Object.values(DIAGRAMS).map(u=>new URL(u,location.href).href)];navigator.serviceWorker.ready.then(r=>r.active&&r.active.postMessage({type:'warm',urls})).catch(()=>{});});</script>"""
+for p in sorted((SRC/'plans').glob('plan_*.html')):
+    page=p.read_text(encoding='utf-8')
+    files={key:f'../diagrams-webp/{p.stem}_{key}.webp' for key in json.loads(re.search(r'const DIAGRAMS = (\{.*?\});\n',page,re.S).group(1))}
+    page,n=re.subn(r'const DIAGRAMS = \{.*?\};\n',lambda _m:'const DIAGRAMS = '+json.dumps(files)+';\n',page,count=1,flags=re.S)
+    if n!=1: raise RuntimeError('DIAGRAMS map not found in '+p.name)
+    (OUT/'plans'/p.name).write_text(page.replace('</body>',WARM_DIAGRAMS+'\n</body>',1),encoding='utf-8')
 shutil.copy2(SRC/'downloads/canon6d_photo_planner_assets.zip',OUT/'downloads/canon6d_photo_planner_assets.zip')
 for name in ['404.html','manifest.webmanifest']:
     if (SRC/name).exists(): shutil.copy2(SRC/name,OUT/name)
-for icon in ['app-icon.svg','icon-192.png','icon-512.png']:
+for icon in ['app-icon.svg','icon-192.png','icon-512.png','icon-maskable-192.png','icon-maskable-512.png']:
     if (SRC/'assets'/icon).exists(): shutil.copy2(SRC/'assets'/icon,OUT/'assets'/icon)
 
 # PWA: small shell pre-cache, granular runtime cache. Never return HTML for an image/style request.
-sw='''const VERSION='canon6d-sota-v4';\nconst SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime';\nconst CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./challenges/arquitectura-en-foco/index.html','./challenges/arquitectura-en-foco/iphone-maps.html','./data/architecture/competition_rules.json','./data/architecture/learning.json','./data/architecture/ranking.json','./data/architecture/routes.json','./assets/icon-192.png','./assets/icon-512.png'];\nself.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));\nself.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>![SHELL,RUNTIME].includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));\nself.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;if(r.mode==='navigate'){e.respondWith(fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(async()=>await caches.match(r)||await caches.match(new URL(u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname,location.origin))||await caches.match('./index.html')));return;}if(/\\.(?:webp|png|svg|css|js|json)$/.test(u.pathname)){e.respondWith(caches.match(r).then(cached=>{const fresh=fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(()=>cached);return cached||fresh}));}});\n'''
-(OUT/'sw.js').write_text(sw,encoding='utf-8')
+# Crawlers: everything is public; list the pages people should land on.
+SITE='https://pillb.github.io/focalruta/'
+(OUT/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+SITE+'sitemap.xml\n',encoding='utf-8')
+pages=['','field_card.html','challenges/arquitectura-en-foco/index.html','challenges/arquitectura-en-foco/wiki-tecnicas.html']+['plans/'+p.name for p in sorted((OUT/'plans').glob('*.html'))]
+(OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{SITE}{page}</loc></url>\n' for page in pages)+'</urlset>\n',encoding='utf-8')
+
+# The worker's bytes must change whenever anything it serves changes, or browsers keep the old cache.
+content_hash=hashlib.sha256()
+for f in sorted(x for x in OUT.rglob('*') if x.is_file()):
+    content_hash.update(f.relative_to(OUT).as_posix().encode()); content_hash.update(f.read_bytes())
+cache_version='focalruta-'+content_hash.hexdigest()[:12]
+sw='''const VERSION='__CACHE_VERSION__';\nconst SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime';\nconst CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./challenges/arquitectura-en-foco/index.html','./challenges/arquitectura-en-foco/iphone-maps.html','./data/architecture/learning.json','./data/architecture/ranking.json','./data/architecture/routes.json','./assets/icon-192.png','./assets/icon-512.png','./assets/icon-maskable-192.png','./assets/icon-maskable-512.png','./assets/app-icon.svg'];\nself.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));\nself.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>![SHELL,RUNTIME].includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));\nself.addEventListener('message',e=>{const d=e.data;if(!d||d.type!=='warm'||!Array.isArray(d.urls))return;const urls=d.urls.filter(u=>{try{const x=new URL(u);return x.origin===location.origin&&/\\.(?:webp|html)$/.test(x.pathname)}catch(_){return false}}).slice(0,40);e.waitUntil(caches.open(RUNTIME).then(c=>Promise.all(urls.map(u=>c.match(u).then(hit=>hit||fetch(u).then(x=>{if(x.ok)return c.put(u,x)}).catch(()=>{}))))));});\nself.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;if(r.mode==='navigate'){e.respondWith(fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(async()=>await caches.match(r)||await caches.match(new URL(u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname,location.origin))||await caches.match('./index.html')));return;}if(/\\.(?:webp|png|svg|css|js|json)$/.test(u.pathname)){e.respondWith(caches.match(r).then(cached=>{const fresh=fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(()=>cached);return cached||fresh}));}});\n'''
+(OUT/'sw.js').write_text(sw.replace('__CACHE_VERSION__',cache_version),encoding='utf-8')
 
 # Pages workflow from official artifact pattern.
 workflow='''name: Deploy FocalRuta to Pages\non:\n  push:\n    branches: [ main ]\n  workflow_dispatch:\npermissions:\n  contents: read\n  pages: write\n  id-token: write\nconcurrency:\n  group: pages\n  cancel-in-progress: true\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/configure-pages@v5\n      - uses: actions/upload-pages-artifact@v3\n        with:\n          path: .\n      - name: Deploy\n        id: deployment\n        uses: actions/deploy-pages@v4\n'''

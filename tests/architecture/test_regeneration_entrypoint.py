@@ -37,6 +37,9 @@ def test_entrypoint_covers_every_deterministic_generator():
     for required in (
         "build_architecture_learning_v2.py", "generate_architecture_pages.py",
         "build_master.py", "build_dual_release.py",
+        # The photo planner's data, plan pages, field card and download bundle
+        # went stale when they lived outside the entrypoint.
+        "plans_data.py", "generate_plan_pages.py", "generate_field_card.py", "build_download_bundle.py",
         "visual_resource_audit.py", "optics_accessibility_qa.py", "browser_release_qa.py",
     ):
         assert required in covered, f"{required} is not reachable from the regeneration entrypoint"

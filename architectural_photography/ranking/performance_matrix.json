@@ -1,5 +1,5 @@
 {
-  "model_version": "architecture-ranking-v1.1.0",
+  "model_version": "architecture-ranking-v2.0.0",
   "candidate_count": 87,
   "rows": [
     {
@@ -7,8 +7,8 @@
       "name": "Parque 3 de Octubre + Skatepark Muros Libres",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 92.0,
-        "theme_coherence_proxy": 94.75,
+        "visual_potential": 92.0,
+        "architecture_in_use": 95.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 88.0,
         "anti_postal_originality": 86.5,
@@ -18,8 +18,7 @@
         "decisive_moment": 97.5,
         "technical_feasibility": 95.0,
         "access_permission": 82.6,
-        "evidence_confidence": 78.0,
-        "juror_public_work_intersection": 86.0
+        "evidence_confidence": 78.0
       },
       "evidence_source_ids": [
         "SRC-LOC-PARQUE3-JUNE-2026",
@@ -35,8 +34,8 @@
       "name": "Torres de Limatambo / supermanzana",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 91.667,
-        "theme_coherence_proxy": 94.0,
+        "visual_potential": 91.667,
+        "architecture_in_use": 93.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 82.5,
@@ -46,8 +45,7 @@
         "decisive_moment": 95.0,
         "technical_feasibility": 95.0,
         "access_permission": 84.4,
-        "evidence_confidence": 78.0,
-        "juror_public_work_intersection": 93.0
+        "evidence_confidence": 78.0
       },
       "evidence_source_ids": [
         "SRC-LOC-LIMATAMBO-ENACE",
@@ -64,8 +62,8 @@
       "name": "Residencial San Felipe",
       "district": "Jesús María",
       "criteria": {
-        "creative_aesthetic_proxy": 93.0,
-        "theme_coherence_proxy": 94.5,
+        "visual_potential": 93.0,
+        "architecture_in_use": 93.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 95.0,
         "anti_postal_originality": 79.0,
@@ -75,8 +73,7 @@
         "decisive_moment": 96.5,
         "technical_feasibility": 85.0,
         "access_permission": 73.0,
-        "evidence_confidence": 78.0,
-        "juror_public_work_intersection": 95.0
+        "evidence_confidence": 78.0
       },
       "evidence_source_ids": [
         "SRC-LOC-SANFELIPE-ARCHDAILY",
@@ -91,8 +88,8 @@
       "name": "PREVI Lima",
       "district": "Los Olivos",
       "criteria": {
-        "creative_aesthetic_proxy": 96.0,
-        "theme_coherence_proxy": 100.0,
+        "visual_potential": 96.0,
+        "architecture_in_use": 100.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 88.0,
         "anti_postal_originality": 95.0,
@@ -102,8 +99,7 @@
         "decisive_moment": 100.0,
         "technical_feasibility": 62.0,
         "access_permission": 43.0,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 96.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-PREVI-MDLO-2026",
@@ -119,8 +115,8 @@
       "name": "Museo de la Electricidad & Tranvía",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 87.0,
-        "theme_coherence_proxy": 91.0,
+        "visual_potential": 87.0,
+        "architecture_in_use": 90.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 80.0,
@@ -130,8 +126,7 @@
         "decisive_moment": 90.5,
         "technical_feasibility": 90.0,
         "access_permission": 61.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 94.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-ELECTRICIDAD-BARRANCO",
@@ -147,8 +142,8 @@
       "name": "Parque de las Américas",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 86.667,
-        "theme_coherence_proxy": 92.25,
+        "visual_potential": 86.667,
+        "architecture_in_use": 92.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 82.0,
         "anti_postal_originality": 80.5,
@@ -158,8 +153,7 @@
         "decisive_moment": 93.5,
         "technical_feasibility": 95.0,
         "access_permission": 82.6,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 87.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-AMERICAS-BIRDS",
@@ -176,8 +170,8 @@
       "name": "Huaca Santa Cruz",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 88.667,
-        "theme_coherence_proxy": 91.0,
+        "visual_potential": 88.667,
+        "architecture_in_use": 90.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 95.0,
         "anti_postal_originality": 80.0,
@@ -187,8 +181,7 @@
         "decisive_moment": 85.5,
         "technical_feasibility": 85.0,
         "access_permission": 75.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 95.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-SANTACRUZ-CIVIC-2026",
@@ -204,8 +197,8 @@
       "name": "Conjunto Habitacional Palomino",
       "district": "Lima",
       "criteria": {
-        "creative_aesthetic_proxy": 94.0,
-        "theme_coherence_proxy": 91.25,
+        "visual_potential": 94.0,
+        "architecture_in_use": 89.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 92.0,
         "anti_postal_originality": 92.5,
@@ -215,8 +208,7 @@
         "decisive_moment": 94.5,
         "technical_feasibility": 60.0,
         "access_permission": 26.0,
-        "evidence_confidence": 78.0,
-        "juror_public_work_intersection": 92.0
+        "evidence_confidence": 78.0
       },
       "evidence_source_ids": [
         "SRC-LOC-LIMATAMBO-PUBLICSPACE",
@@ -233,8 +225,8 @@
       "name": "Quinta de los Libertadores + MNAAHP",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 85.0,
-        "theme_coherence_proxy": 90.0,
+        "visual_potential": 85.0,
+        "architecture_in_use": 88.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 88.0,
         "anti_postal_originality": 67.5,
@@ -244,8 +236,7 @@
         "decisive_moment": 90.0,
         "technical_feasibility": 90.0,
         "access_permission": 77.6,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-LIBERTADORES-MINCETUR-2025",
@@ -260,8 +251,8 @@
       "name": "Plaza a la Bandera",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 86.333,
-        "theme_coherence_proxy": 86.5,
+        "visual_potential": 86.333,
+        "architecture_in_use": 86.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 91.0,
         "anti_postal_originality": 69.0,
@@ -271,8 +262,7 @@
         "decisive_moment": 90.0,
         "technical_feasibility": 92.0,
         "access_permission": 79.6,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 87.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-BANDERA-CIVIC",
@@ -287,8 +277,8 @@
       "name": "Parque Virginia Candamo",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 87.333,
-        "theme_coherence_proxy": 84.75,
+        "visual_potential": 87.333,
+        "architecture_in_use": 83.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 83.0,
         "anti_postal_originality": 84.0,
@@ -298,8 +288,7 @@
         "decisive_moment": 90.5,
         "technical_feasibility": 93.0,
         "access_permission": 80.6,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 84.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-CANDAMO-EMPRENDE-2026",
@@ -314,8 +303,8 @@
       "name": "Unidad Vecinal Nº3",
       "district": "Lima",
       "criteria": {
-        "creative_aesthetic_proxy": 92.833,
-        "theme_coherence_proxy": 91.25,
+        "visual_potential": 92.833,
+        "architecture_in_use": 89.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 87.0,
         "anti_postal_originality": 88.75,
@@ -325,8 +314,7 @@
         "decisive_moment": 97.0,
         "technical_feasibility": 70.0,
         "access_permission": 55.5,
-        "evidence_confidence": 78.0,
-        "juror_public_work_intersection": 90.5
+        "evidence_confidence": 78.0
       },
       "evidence_source_ids": [
         "SRC-LOC-UV3-2026",
@@ -343,8 +331,8 @@
       "name": "Unidad Vecinal Matute + complejo deportivo",
       "district": "La Victoria",
       "criteria": {
-        "creative_aesthetic_proxy": 89.333,
-        "theme_coherence_proxy": 96.5,
+        "visual_potential": 89.333,
+        "architecture_in_use": 97.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 85.0,
         "anti_postal_originality": 85.0,
@@ -354,8 +342,7 @@
         "decisive_moment": 96.5,
         "technical_feasibility": 65.0,
         "access_permission": 50.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 87.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-MATUTE-2026",
@@ -372,8 +359,8 @@
       "name": "Lima Centro de Convenciones",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 80.667,
-        "theme_coherence_proxy": 91.75,
+        "visual_potential": 80.667,
+        "architecture_in_use": 92.333,
         "architecture_causality": 100.0,
         "first_read_clarity": 95.0,
         "anti_postal_originality": 60.0,
@@ -383,8 +370,7 @@
         "decisive_moment": 93.5,
         "technical_feasibility": 85.0,
         "access_permission": 66.4,
-        "evidence_confidence": 89.0,
-        "juror_public_work_intersection": 91.0
+        "evidence_confidence": 89.0
       },
       "evidence_source_ids": [
         "SRC-LOC-LCC-ACTIVE-2026",
@@ -400,8 +386,8 @@
       "name": "Casa Museo Julia Codesido",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 92.667,
-        "theme_coherence_proxy": 90.75,
+        "visual_potential": 92.667,
+        "architecture_in_use": 90.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 86.0,
@@ -411,8 +397,7 @@
         "decisive_moment": 88.0,
         "technical_feasibility": 55.0,
         "access_permission": 34.6,
-        "evidence_confidence": 78.0,
-        "juror_public_work_intersection": 92.0
+        "evidence_confidence": 78.0
       },
       "evidence_source_ids": [
         "SRC-LOC-CODESIDO-FOUNDATION",
@@ -428,8 +413,8 @@
       "name": "Huaca San Borja",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 86.333,
-        "theme_coherence_proxy": 80.25,
+        "visual_potential": 86.333,
+        "architecture_in_use": 76.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 80.0,
@@ -439,8 +424,7 @@
         "decisive_moment": 84.5,
         "technical_feasibility": 85.0,
         "access_permission": 56.4,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 91.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-HUACA-SB-ACADEMIC",
@@ -456,8 +440,8 @@
       "name": "Quinta Leuro y quintas históricas",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 85.333,
-        "theme_coherence_proxy": 83.0,
+        "visual_potential": 85.333,
+        "architecture_in_use": 82.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 80.0,
@@ -467,8 +451,7 @@
         "decisive_moment": 88.0,
         "technical_feasibility": 75.0,
         "access_permission": 56.6,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 94.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-LEURO-PDLC-2020",
@@ -484,8 +467,8 @@
       "name": "Estación / restos del Funicular de Barranco",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 87.667,
-        "theme_coherence_proxy": 79.25,
+        "visual_potential": 87.667,
+        "architecture_in_use": 76.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 95.0,
         "anti_postal_originality": 80.0,
@@ -495,8 +478,7 @@
         "decisive_moment": 84.0,
         "technical_feasibility": 70.0,
         "access_permission": 41.0,
-        "evidence_confidence": 78.0,
-        "juror_public_work_intersection": 95.0
+        "evidence_confidence": 78.0
       },
       "evidence_source_ids": [
         "SRC-LOC-FUNICULAR-ATRACTIVOS",
@@ -511,8 +493,8 @@
       "name": "Reducto Nº 2 / Casa Museo Cáceres",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 76.0,
-        "theme_coherence_proxy": 84.0,
+        "visual_potential": 76.0,
+        "architecture_in_use": 86.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 60.0,
@@ -522,8 +504,7 @@
         "decisive_moment": 89.0,
         "technical_feasibility": 95.0,
         "access_permission": 94.6,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 94.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-REDUCTO-CINEMA-2026",
@@ -541,8 +522,8 @@
       "name": "Biblioteca Municipal de Barranco",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 77.667,
-        "theme_coherence_proxy": 82.0,
+        "visual_potential": 77.667,
+        "architecture_in_use": 81.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 60.0,
@@ -552,8 +533,7 @@
         "decisive_moment": 91.5,
         "technical_feasibility": 85.0,
         "access_permission": 56.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-BIBBARRANCO-CENTURY",
@@ -569,8 +549,8 @@
       "name": "Santísima Cruz del Viajero",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 88.0,
-        "theme_coherence_proxy": 79.25,
+        "visual_potential": 88.0,
+        "architecture_in_use": 75.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 82.0,
         "anti_postal_originality": 85.5,
@@ -580,8 +560,7 @@
         "decisive_moment": 80.5,
         "technical_feasibility": 92.0,
         "access_permission": 89.6,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 86.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-CRUZ-GREEN",
@@ -597,8 +576,8 @@
       "name": "Torres / Centro Empresarial Camino Real",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 82.0,
-        "theme_coherence_proxy": 84.25,
+        "visual_potential": 82.0,
+        "architecture_in_use": 83.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 95.0,
         "anti_postal_originality": 70.0,
@@ -608,8 +587,7 @@
         "decisive_moment": 75.5,
         "technical_feasibility": 85.0,
         "access_permission": 57.0,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 92.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-CAMINO-2025Q3",
@@ -626,8 +604,8 @@
       "name": "Lugar de la Memoria (LUM)",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 80.667,
-        "theme_coherence_proxy": 81.75,
+        "visual_potential": 80.667,
+        "architecture_in_use": 77.333,
         "architecture_causality": 100.0,
         "first_read_clarity": 100.0,
         "anti_postal_originality": 50.0,
@@ -637,8 +615,7 @@
         "decisive_moment": 86.0,
         "technical_feasibility": 75.0,
         "access_permission": 64.6,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 98.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-LUM-AGENDA-2026-08",
@@ -653,8 +630,8 @@
       "name": "Antigua Taberna Queirolo",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 79.333,
-        "theme_coherence_proxy": 82.0,
+        "visual_potential": 79.333,
+        "architecture_in_use": 81.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 85.0,
         "anti_postal_originality": 52.5,
@@ -664,8 +641,7 @@
         "decisive_moment": 91.5,
         "technical_feasibility": 80.0,
         "access_permission": 59.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 81.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-QUEIROLO-CURRENT",
@@ -680,8 +656,8 @@
       "name": "Casa Museo Marina Núñez del Prado",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 78.0,
-        "theme_coherence_proxy": 77.25,
+        "visual_potential": 78.0,
+        "architecture_in_use": 74.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 70.0,
@@ -691,8 +667,7 @@
         "decisive_moment": 82.0,
         "technical_feasibility": 85.0,
         "access_permission": 57.0,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 91.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-MARINA-CURRENT-2026",
@@ -708,8 +683,8 @@
       "name": "Parque Tradiciones / Ricardo Palma",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 76.0,
-        "theme_coherence_proxy": 79.5,
+        "visual_potential": 76.0,
+        "architecture_in_use": 79.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 70.0,
@@ -719,8 +694,7 @@
         "decisive_moment": 89.0,
         "technical_feasibility": 85.0,
         "access_permission": 84.6,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-TRADICIONES-MIRAFLORES",
@@ -736,8 +710,8 @@
       "name": "Plaza de los Libertadores + Santa María Magdalena",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 76.333,
-        "theme_coherence_proxy": 86.75,
+        "visual_potential": 76.333,
+        "architecture_in_use": 86.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 86.0,
         "anti_postal_originality": 47.5,
@@ -747,8 +721,7 @@
         "decisive_moment": 90.0,
         "technical_feasibility": 92.0,
         "access_permission": 79.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 85.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-LIBERTADORES-2026",
@@ -764,8 +737,8 @@
       "name": "Centro de Convenciones / estación La Cultura",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 75.0,
-        "theme_coherence_proxy": 77.75,
+        "visual_potential": 75.0,
+        "architecture_in_use": 78.333,
         "architecture_causality": 100.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 60.0,
@@ -775,8 +748,7 @@
         "decisive_moment": 87.5,
         "technical_feasibility": 85.0,
         "access_permission": 84.4,
-        "evidence_confidence": 89.0,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 89.0
       },
       "evidence_source_ids": [
         "SRC-LOC-LACULTURA-DLPS",
@@ -793,8 +765,8 @@
       "name": "Biblioteca Nacional del Perú",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 71.667,
-        "theme_coherence_proxy": 85.25,
+        "visual_potential": 71.667,
+        "architecture_in_use": 88.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -804,8 +776,7 @@
         "decisive_moment": 82.5,
         "technical_feasibility": 85.0,
         "access_permission": 66.4,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-BNP-2026-DESIGN",
@@ -820,8 +791,8 @@
       "name": "Biblioteca Municipal y borde lagunas del Olivar",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 72.667,
-        "theme_coherence_proxy": 76.75,
+        "visual_potential": 72.667,
+        "architecture_in_use": 76.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -831,8 +802,7 @@
         "decisive_moment": 84.0,
         "technical_feasibility": 85.0,
         "access_permission": 75.0,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-OLIVAR-FURNITURE-2026",
@@ -848,8 +818,8 @@
       "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 72.333,
-        "theme_coherence_proxy": 76.5,
+        "visual_potential": 72.333,
+        "architecture_in_use": 75.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -859,8 +829,7 @@
         "decisive_moment": 83.5,
         "technical_feasibility": 85.0,
         "access_permission": 75.0,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-FINANCE-ATU-2026",
@@ -876,8 +845,8 @@
       "name": "Gran Teatro Nacional",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 71.333,
-        "theme_coherence_proxy": 92.75,
+        "visual_potential": 71.333,
+        "architecture_in_use": 94.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 40.0,
@@ -887,8 +856,7 @@
         "decisive_moment": 92.0,
         "technical_feasibility": 80.0,
         "access_permission": 51.4,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-GTN-2026",
@@ -903,8 +871,8 @@
       "name": "Mirador Catalina Recavarren",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 70.667,
-        "theme_coherence_proxy": 81.5,
+        "visual_potential": 70.667,
+        "architecture_in_use": 80.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 50.0,
@@ -914,8 +882,7 @@
         "decisive_moment": 91.0,
         "technical_feasibility": 85.0,
         "access_permission": 74.0,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-BARRANCO-ATRACTIVOS",
@@ -931,8 +898,8 @@
       "name": "Parque Municipal y entorno cívico",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 72.0,
-        "theme_coherence_proxy": 78.25,
+        "visual_potential": 72.0,
+        "architecture_in_use": 78.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -942,8 +909,7 @@
         "decisive_moment": 88.0,
         "technical_feasibility": 85.0,
         "access_permission": 66.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-BARRANCO-ATRACTIVOS",
@@ -959,8 +925,8 @@
       "name": "MAC Lima + parque / espejo de agua",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 72.0,
-        "theme_coherence_proxy": 85.5,
+        "visual_potential": 72.0,
+        "architecture_in_use": 88.667,
         "architecture_causality": 100.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 50.0,
@@ -970,8 +936,7 @@
         "decisive_moment": 88.0,
         "technical_feasibility": 80.0,
         "access_permission": 69.0,
-        "evidence_confidence": 89.0,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 89.0
       },
       "evidence_source_ids": [
         "SRC-LOC-MAC-2026",
@@ -987,8 +952,8 @@
       "name": "Puente Villena / Bajada Balta / Costa Verde",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 76.0,
-        "theme_coherence_proxy": 71.5,
+        "visual_potential": 76.0,
+        "architecture_in_use": 69.333,
         "architecture_causality": 100.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 60.0,
@@ -998,8 +963,7 @@
         "decisive_moment": 74.0,
         "technical_feasibility": 85.0,
         "access_permission": 84.6,
-        "evidence_confidence": 86.8,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 86.8
       },
       "evidence_source_ids": [
         "SRC-LOC-BALTA-WORKS-2026",
@@ -1015,8 +979,8 @@
       "name": "Casa Raúl Porras Barrenechea",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 75.0,
-        "theme_coherence_proxy": 80.5,
+        "visual_potential": 75.0,
+        "architecture_in_use": 81.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 70.0,
@@ -1026,8 +990,7 @@
         "decisive_moment": 77.5,
         "technical_feasibility": 60.0,
         "access_permission": 41.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-PORRAS-2026-VISITS",
@@ -1042,8 +1005,8 @@
       "name": "Casa Hacienda Orbea",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 93.333,
-        "theme_coherence_proxy": 73.25,
+        "visual_potential": 93.333,
+        "architecture_in_use": 67.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 92.0,
         "anti_postal_originality": 92.5,
@@ -1053,8 +1016,7 @@
         "decisive_moment": 66.5,
         "technical_feasibility": 35.0,
         "access_permission": 4.6,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-ORBEA-CLOSED",
@@ -1070,8 +1032,8 @@
       "name": "Calle Choquehuanca / Basadre residencial",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 72.667,
-        "theme_coherence_proxy": 71.75,
+        "visual_potential": 72.667,
+        "architecture_in_use": 69.333,
         "architecture_causality": 100.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -1081,8 +1043,7 @@
         "decisive_moment": 74.0,
         "technical_feasibility": 85.0,
         "access_permission": 75.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-BASADRE-VERTICE",
@@ -1098,8 +1059,8 @@
       "name": "Palacio Municipal y de la Cultura · San Isidro",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 71.667,
-        "theme_coherence_proxy": 75.0,
+        "visual_potential": 71.667,
+        "architecture_in_use": 75.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -1109,8 +1070,7 @@
         "decisive_moment": 82.5,
         "technical_feasibility": 85.0,
         "access_permission": 67.0,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-PALACIO-SI-PDLC",
@@ -1126,8 +1086,8 @@
       "name": "Museo Larco + jardines",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 69.333,
-        "theme_coherence_proxy": 78.5,
+        "visual_potential": 69.333,
+        "architecture_in_use": 76.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 93.0,
         "anti_postal_originality": 25.0,
@@ -1137,8 +1097,7 @@
         "decisive_moment": 85.0,
         "technical_feasibility": 80.0,
         "access_permission": 49.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-LARCO-CURRENT-2026",
@@ -1154,8 +1113,8 @@
       "name": "Bosque El Olivar",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 61.667,
-        "theme_coherence_proxy": 83.25,
+        "visual_potential": 61.667,
+        "architecture_in_use": 81.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 20.0,
@@ -1165,8 +1124,7 @@
         "decisive_moment": 92.5,
         "technical_feasibility": 85.0,
         "access_permission": 85.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-OLIVAR-CARE-2026",
@@ -1182,8 +1140,8 @@
       "name": "Huaca Huallamarca",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 67.0,
-        "theme_coherence_proxy": 79.25,
+        "visual_potential": 67.0,
+        "architecture_in_use": 73.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 20.0,
@@ -1193,8 +1151,7 @@
         "decisive_moment": 80.5,
         "technical_feasibility": 85.0,
         "access_permission": 75.0,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-HUALLAMARCA-2026",
@@ -1209,8 +1166,8 @@
       "name": "Calle Porta y casonas frente a verticalización",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 75.333,
-        "theme_coherence_proxy": 70.5,
+        "visual_potential": 75.333,
+        "architecture_in_use": 68.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 70.0,
@@ -1220,8 +1177,7 @@
         "decisive_moment": 73.0,
         "technical_feasibility": 85.0,
         "access_permission": 74.6,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-PORTA-CONSERVATION",
@@ -1238,8 +1194,8 @@
       "name": "Sáenz Peña / Domeyer / pasajes",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 72.0,
-        "theme_coherence_proxy": 70.5,
+        "visual_potential": 72.0,
+        "architecture_in_use": 68.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -1249,8 +1205,7 @@
         "decisive_moment": 73.0,
         "technical_feasibility": 85.0,
         "access_permission": 56.0,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-SAENZ-CREATIVE",
@@ -1266,8 +1221,8 @@
       "name": "Casa Emilio Harth-Terré",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 82.0,
-        "theme_coherence_proxy": 70.5,
+        "visual_potential": 82.0,
+        "architecture_in_use": 68.667,
         "architecture_causality": 100.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 80.0,
@@ -1277,8 +1232,7 @@
         "decisive_moment": 73.0,
         "technical_feasibility": 60.0,
         "access_permission": 59.6,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-HARTH-CAMMP",
@@ -1294,8 +1248,8 @@
       "name": "Parque de la Felicidad",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 64.667,
-        "theme_coherence_proxy": 77.0,
+        "visual_potential": 64.667,
+        "architecture_in_use": 78.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 40.0,
@@ -1305,8 +1259,7 @@
         "decisive_moment": 87.0,
         "technical_feasibility": 85.0,
         "access_permission": 56.4,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-FELICIDAD-COMPENDIUM",
@@ -1322,8 +1275,8 @@
       "name": "Ministerio de Cultura / Museo de la Nación",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 71.667,
-        "theme_coherence_proxy": 70.25,
+        "visual_potential": 71.667,
+        "architecture_in_use": 68.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -1333,8 +1286,7 @@
         "decisive_moment": 72.5,
         "technical_feasibility": 85.0,
         "access_permission": 56.4,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-MINCUL-CARAL-2026",
@@ -1350,8 +1302,8 @@
       "name": "Iglesia Santísima Cruz",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 71.667,
-        "theme_coherence_proxy": 70.0,
+        "visual_potential": 71.667,
+        "architecture_in_use": 68.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -1361,8 +1313,7 @@
         "decisive_moment": 72.5,
         "technical_feasibility": 85.0,
         "access_permission": 84.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-IGLESIA-CRUZ-BARRANCO",
@@ -1378,8 +1329,8 @@
       "name": "Huaca Pucllana",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 57.667,
-        "theme_coherence_proxy": 78.5,
+        "visual_potential": 57.667,
+        "architecture_in_use": 74.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 0.0,
@@ -1389,8 +1340,7 @@
         "decisive_moment": 81.5,
         "technical_feasibility": 85.0,
         "access_permission": 66.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-PUCLLANA-AGENDA-2026",
@@ -1406,8 +1356,8 @@
       "name": "Museo Pedro de Osma y Av. Pedro de Osma",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 64.667,
-        "theme_coherence_proxy": 75.5,
+        "visual_potential": 64.667,
+        "architecture_in_use": 71.333,
         "architecture_causality": 100.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 30.0,
@@ -1417,8 +1367,7 @@
         "decisive_moment": 77.0,
         "technical_feasibility": 70.0,
         "access_permission": 51.0,
-        "evidence_confidence": 91.2,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 91.2
       },
       "evidence_source_ids": [
         "SRC-LOC-OSMA-MUSEUM",
@@ -1434,8 +1383,8 @@
       "name": "Casa-Hacienda Moreyra",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 71.333,
-        "theme_coherence_proxy": 80.0,
+        "visual_potential": 71.333,
+        "architecture_in_use": 81.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 50.0,
@@ -1445,8 +1394,7 @@
         "decisive_moment": 82.0,
         "technical_feasibility": 60.0,
         "access_permission": 32.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-MOREYRA-OFFICIAL",
@@ -1461,8 +1409,8 @@
       "name": "Torre Banco de la Nación",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 68.667,
-        "theme_coherence_proxy": 71.0,
+        "visual_potential": 68.667,
+        "architecture_in_use": 68.667,
         "architecture_causality": 100.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 40.0,
@@ -1472,8 +1420,7 @@
         "decisive_moment": 73.0,
         "technical_feasibility": 85.0,
         "access_permission": 56.4,
-        "evidence_confidence": 86.8,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 86.8
       },
       "evidence_source_ids": [
         "SRC-LOC-BN-OPERATIONS",
@@ -1489,8 +1436,8 @@
       "name": "Parque María Reiche",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 68.333,
-        "theme_coherence_proxy": 70.0,
+        "visual_potential": 68.333,
+        "architecture_in_use": 68.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 50.0,
@@ -1500,8 +1447,7 @@
         "decisive_moment": 72.5,
         "technical_feasibility": 85.0,
         "access_permission": 74.6,
-        "evidence_confidence": 86.8,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 86.8
       },
       "evidence_source_ids": [
         "SRC-LOC-REICHE-2026",
@@ -1517,8 +1463,8 @@
       "name": "Parroquia Nuestra Señora del Pilar",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 68.0,
-        "theme_coherence_proxy": 69.75,
+        "visual_potential": 68.0,
+        "architecture_in_use": 68.0,
         "architecture_causality": 100.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 50.0,
@@ -1528,8 +1474,7 @@
         "decisive_moment": 72.0,
         "technical_feasibility": 85.0,
         "access_permission": 57.0,
-        "evidence_confidence": 91.2,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 91.2
       },
       "evidence_source_ids": [
         "SRC-LOC-PILAR-HISTORY",
@@ -1545,8 +1490,8 @@
       "name": "Puente de los Suspiros + Bajada de Baños",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 51.333,
-        "theme_coherence_proxy": 77.75,
+        "visual_potential": 51.333,
+        "architecture_in_use": 78.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 0.0,
@@ -1556,8 +1501,7 @@
         "decisive_moment": 87.0,
         "technical_feasibility": 85.0,
         "access_permission": 74.0,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-SUSPIROS-BARRANCO",
@@ -1571,8 +1515,8 @@
       "name": "Country Club Lima Hotel",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 66.0,
-        "theme_coherence_proxy": 82.0,
+        "visual_potential": 66.0,
+        "architecture_in_use": 82.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 40.0,
@@ -1582,8 +1526,7 @@
         "decisive_moment": 84.0,
         "technical_feasibility": 60.0,
         "access_permission": 42.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-COUNTRYCLUB-2026",
@@ -1599,8 +1542,8 @@
       "name": "Pentagonito y bordes cívicos",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 71.667,
-        "theme_coherence_proxy": 77.5,
+        "visual_potential": 71.667,
+        "architecture_in_use": 78.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -1610,8 +1553,7 @@
         "decisive_moment": 87.5,
         "technical_feasibility": 50.0,
         "access_permission": 31.4,
-        "evidence_confidence": 86.8,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 86.8
       },
       "evidence_source_ids": [
         "SRC-LOC-PENTAGONITO-CANCEL-2026",
@@ -1627,8 +1569,8 @@
       "name": "Faro La Marina + Parque Antonio Raimondi",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 52.667,
-        "theme_coherence_proxy": 76.5,
+        "visual_potential": 52.667,
+        "architecture_in_use": 76.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 0.0,
@@ -1638,8 +1580,7 @@
         "decisive_moment": 84.0,
         "technical_feasibility": 85.0,
         "access_permission": 74.6,
-        "evidence_confidence": 78.0,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 78.0
       },
       "evidence_source_ids": [
         "SRC-LOC-AMOR-PROGRAM-2024",
@@ -1656,8 +1597,8 @@
       "name": "Casa Museo Ricardo Palma",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 72.0,
-        "theme_coherence_proxy": 71.5,
+        "visual_potential": 72.0,
+        "architecture_in_use": 68.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -1667,8 +1608,7 @@
         "decisive_moment": 73.0,
         "technical_feasibility": 50.0,
         "access_permission": 21.6,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-PALMA-CULTURE",
@@ -1684,8 +1624,8 @@
       "name": "Óvalo de Miraflores",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 65.0,
-        "theme_coherence_proxy": 70.75,
+        "visual_potential": 65.0,
+        "architecture_in_use": 68.333,
         "architecture_causality": 100.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 30.0,
@@ -1695,8 +1635,7 @@
         "decisive_moment": 72.5,
         "technical_feasibility": 85.0,
         "access_permission": 74.6,
-        "evidence_confidence": 91.2,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 91.2
       },
       "evidence_source_ids": [
         "SRC-LOC-OVALO-2026",
@@ -1712,8 +1651,8 @@
       "name": "Coliseo Eduardo Dibós",
       "district": "San Borja",
       "criteria": {
-        "creative_aesthetic_proxy": 70.0,
-        "theme_coherence_proxy": 68.5,
+        "visual_potential": 70.0,
+        "architecture_in_use": 66.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 60.0,
@@ -1723,8 +1662,7 @@
         "decisive_moment": 70.0,
         "technical_feasibility": 85.0,
         "access_permission": 84.4,
-        "evidence_confidence": 86.8,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 86.8
       },
       "evidence_source_ids": [
         "SRC-LOC-DIBOS-2026",
@@ -1740,8 +1678,8 @@
       "name": "Huaca Julio C. Tello",
       "district": "Pueblo Libre",
       "criteria": {
-        "creative_aesthetic_proxy": 83.333,
-        "theme_coherence_proxy": 68.75,
+        "visual_potential": 83.333,
+        "architecture_in_use": 61.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 85.0,
         "anti_postal_originality": 75.0,
@@ -1751,8 +1689,7 @@
         "decisive_moment": 67.5,
         "technical_feasibility": 25.0,
         "access_permission": 12.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 88.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-JCTELLO-CORRIDOR",
@@ -1768,8 +1705,8 @@
       "name": "Palacio Municipal + Virgen Milagrosa",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 61.333,
-        "theme_coherence_proxy": 70.0,
+        "visual_potential": 61.333,
+        "architecture_in_use": 68.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 30.0,
@@ -1779,8 +1716,7 @@
         "decisive_moment": 72.0,
         "technical_feasibility": 85.0,
         "access_permission": 56.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-MIRAFLORES-ATTRACTIONS",
@@ -1796,8 +1732,8 @@
       "name": "La Ermita de Barranco",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 62.0,
-        "theme_coherence_proxy": 80.75,
+        "visual_potential": 62.0,
+        "architecture_in_use": 82.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 30.0,
@@ -1807,8 +1743,7 @@
         "decisive_moment": 73.0,
         "technical_feasibility": 60.0,
         "access_permission": 49.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-ERMITA-BARRANCO",
@@ -1823,8 +1758,8 @@
       "name": "Parque Kennedy / gatos / civic core",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 50.0,
-        "theme_coherence_proxy": 76.25,
+        "visual_potential": 50.0,
+        "architecture_in_use": 76.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 0.0,
@@ -1834,8 +1769,7 @@
         "decisive_moment": 85.0,
         "technical_feasibility": 85.0,
         "access_permission": 74.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-KENNEDY-2026",
@@ -1852,8 +1786,8 @@
       "name": "Parque del Amor & El Beso",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 49.333,
-        "theme_coherence_proxy": 67.5,
+        "visual_potential": 49.333,
+        "architecture_in_use": 66.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 0.0,
@@ -1863,8 +1797,7 @@
         "decisive_moment": 69.0,
         "technical_feasibility": 85.0,
         "access_permission": 74.6,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-AMOR-PARKS",
@@ -1881,8 +1814,8 @@
       "name": "Larcomar + acantilado",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 51.667,
-        "theme_coherence_proxy": 70.75,
+        "visual_potential": 51.667,
+        "architecture_in_use": 68.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 0.0,
@@ -1892,8 +1825,7 @@
         "decisive_moment": 72.5,
         "technical_feasibility": 85.0,
         "access_permission": 56.6,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 80.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-LARCOMAR-2026",
@@ -1908,8 +1840,8 @@
       "name": "Centro Cultural Ccori Wasi",
       "district": "Miraflores",
       "criteria": {
-        "creative_aesthetic_proxy": 93.333,
-        "theme_coherence_proxy": 94.75,
+        "visual_potential": 93.333,
+        "architecture_in_use": 94.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 93.0,
         "anti_postal_originality": 83.0,
@@ -1919,8 +1851,7 @@
         "decisive_moment": 95.0,
         "technical_feasibility": 90.0,
         "access_permission": 79.5,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 92.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-CCORI-2026-EVENT",
@@ -1935,8 +1866,8 @@
       "name": "Centro Cívico de Lima / Real Plaza",
       "district": "Lima",
       "criteria": {
-        "creative_aesthetic_proxy": 95.0,
-        "theme_coherence_proxy": 94.75,
+        "visual_potential": 95.0,
+        "architecture_in_use": 94.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 95.0,
         "anti_postal_originality": 73.5,
@@ -1946,8 +1877,7 @@
         "decisive_moment": 99.0,
         "technical_feasibility": 92.0,
         "access_permission": 62.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 93.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-CENTROCIVICO-CAMMP",
@@ -1962,8 +1892,8 @@
       "name": "Agrupamiento Chabuca Granda",
       "district": "Rímac",
       "criteria": {
-        "creative_aesthetic_proxy": 95.667,
-        "theme_coherence_proxy": 91.5,
+        "visual_potential": 95.667,
+        "architecture_in_use": 90.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 94.0,
         "anti_postal_originality": 90.5,
@@ -1973,8 +1903,7 @@
         "decisive_moment": 97.5,
         "technical_feasibility": 78.0,
         "access_permission": 65.4,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 94.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-CHABUCA-BN-1984",
@@ -1989,8 +1918,8 @@
       "name": "Edificio Álvarez Calderón",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 96.0,
-        "theme_coherence_proxy": 86.0,
+        "visual_potential": 96.0,
+        "architecture_in_use": 83.333,
         "architecture_causality": 100.0,
         "first_read_clarity": 96.0,
         "anti_postal_originality": 93.5,
@@ -2000,8 +1929,7 @@
         "decisive_moment": 90.0,
         "technical_feasibility": 90.0,
         "access_permission": 79.5,
-        "evidence_confidence": 86.8,
-        "juror_public_work_intersection": 94.0
+        "evidence_confidence": 86.8
       },
       "evidence_source_ids": [
         "SRC-LOC-ALVAREZ-CAMMP",
@@ -2017,8 +1945,8 @@
       "name": "Quinta Heeren · restauración 2026",
       "district": "Lima",
       "criteria": {
-        "creative_aesthetic_proxy": 97.0,
-        "theme_coherence_proxy": 93.0,
+        "visual_potential": 97.0,
+        "architecture_in_use": 91.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 94.0,
         "anti_postal_originality": 89.0,
@@ -2028,8 +1956,7 @@
         "decisive_moment": 87.0,
         "technical_feasibility": 58.0,
         "access_permission": 27.2,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 97.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-HEEREN-2026",
@@ -2045,8 +1972,8 @@
       "name": "Transecto de ciudad compacta · Pueblo Libre/Lince/Surquillo",
       "district": "Lima",
       "criteria": {
-        "creative_aesthetic_proxy": 91.333,
-        "theme_coherence_proxy": 90.25,
+        "visual_potential": 91.333,
+        "architecture_in_use": 89.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 82.0,
         "anti_postal_originality": 96.5,
@@ -2056,8 +1983,7 @@
         "decisive_moment": 97.0,
         "technical_feasibility": 88.0,
         "access_permission": 76.4,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-TRANSECT-LINCE-2026",
@@ -2073,8 +1999,8 @@
       "name": "Jirón Trujillo + Puente de Piedra",
       "district": "Rímac",
       "criteria": {
-        "creative_aesthetic_proxy": 90.667,
-        "theme_coherence_proxy": 91.25,
+        "visual_potential": 90.667,
+        "architecture_in_use": 90.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 88.0,
         "anti_postal_originality": 76.5,
@@ -2084,8 +2010,7 @@
         "decisive_moment": 98.0,
         "technical_feasibility": 82.0,
         "access_permission": 69.4,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-TRUJILLO-BRIDGE",
@@ -2101,8 +2026,8 @@
       "name": "Puente de la Paz / Quebrada de Armendáriz",
       "district": "Miraflores–Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 89.0,
-        "theme_coherence_proxy": 95.75,
+        "visual_potential": 89.0,
+        "architecture_in_use": 97.0,
         "architecture_causality": 100.0,
         "first_read_clarity": 92.0,
         "anti_postal_originality": 58.5,
@@ -2112,8 +2037,7 @@
         "decisive_moment": 95.5,
         "technical_feasibility": 92.0,
         "access_permission": 81.1,
-        "evidence_confidence": 84.6,
-        "juror_public_work_intersection": 88.0
+        "evidence_confidence": 84.6
       },
       "evidence_source_ids": [
         "SRC-LOC-PAZ-2026",
@@ -2128,8 +2052,8 @@
       "name": "Jirón de la Unión",
       "district": "Lima",
       "criteria": {
-        "creative_aesthetic_proxy": 83.333,
-        "theme_coherence_proxy": 91.75,
+        "visual_potential": 83.333,
+        "architecture_in_use": 91.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 90.0,
         "anti_postal_originality": 42.5,
@@ -2139,8 +2063,7 @@
         "decisive_moment": 97.5,
         "technical_feasibility": 95.0,
         "access_permission": 83.0,
-        "evidence_confidence": 89.0,
-        "juror_public_work_intersection": 89.0
+        "evidence_confidence": 89.0
       },
       "evidence_source_ids": [
         "SRC-LOC-UNION-2026",
@@ -2156,8 +2079,8 @@
       "name": "Damero de Lima · intersección como objeto",
       "district": "Lima",
       "criteria": {
-        "creative_aesthetic_proxy": 88.333,
-        "theme_coherence_proxy": 85.5,
+        "visual_potential": 88.333,
+        "architecture_in_use": 84.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 97.0,
         "anti_postal_originality": 52.5,
@@ -2167,8 +2090,7 @@
         "decisive_moment": 94.0,
         "technical_feasibility": 85.0,
         "access_permission": 73.0,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 88.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-DAMERO-C40",
@@ -2184,8 +2106,8 @@
       "name": "Casa García Bryce",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 94.667,
-        "theme_coherence_proxy": 84.75,
+        "visual_potential": 94.667,
+        "architecture_in_use": 82.667,
         "architecture_causality": 78.0,
         "first_read_clarity": 94.0,
         "anti_postal_originality": 93.5,
@@ -2195,8 +2117,7 @@
         "decisive_moment": 84.0,
         "technical_feasibility": 55.0,
         "access_permission": 44.5,
-        "evidence_confidence": 82.4,
-        "juror_public_work_intersection": 95.0
+        "evidence_confidence": 82.4
       },
       "evidence_source_ids": [
         "SRC-LOC-GARCIABRYCE-2025",
@@ -2211,8 +2132,8 @@
       "name": "Aulario 104 · Universidad Ricardo Palma",
       "district": "Santiago de Surco",
       "criteria": {
-        "creative_aesthetic_proxy": 92.0,
-        "theme_coherence_proxy": 87.0,
+        "visual_potential": 92.0,
+        "architecture_in_use": 86.0,
         "architecture_causality": 78.0,
         "first_read_clarity": 95.0,
         "anti_postal_originality": 85.0,
@@ -2222,8 +2143,7 @@
         "decisive_moment": 94.0,
         "technical_feasibility": 58.0,
         "access_permission": 28.4,
-        "evidence_confidence": 80.2,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 80.2
       },
       "evidence_source_ids": [
         "SRC-LOC-AULARIO-INTERVIEW",
@@ -2238,8 +2158,8 @@
       "name": "Cantagallo · comunidad Shipibo-Konibo",
       "district": "Rímac",
       "criteria": {
-        "creative_aesthetic_proxy": 91.667,
-        "theme_coherence_proxy": 96.75,
+        "visual_potential": 91.667,
+        "architecture_in_use": 97.333,
         "architecture_causality": 78.0,
         "first_read_clarity": 80.0,
         "anti_postal_originality": 94.0,
@@ -2249,8 +2169,7 @@
         "decisive_moment": 98.5,
         "technical_feasibility": 25.0,
         "access_permission": 0.0,
-        "evidence_confidence": 86.8,
-        "juror_public_work_intersection": 90.0
+        "evidence_confidence": 86.8
       },
       "evidence_source_ids": [
         "SRC-LOC-CANTAGALLO-2026",
@@ -2266,8 +2185,8 @@
       "name": "Campus UTEC",
       "district": "Barranco",
       "criteria": {
-        "creative_aesthetic_proxy": 91,
-        "theme_coherence_proxy": 88,
+        "visual_potential": 91,
+        "architecture_in_use": 88,
         "architecture_causality": 94,
         "first_read_clarity": 90,
         "anti_postal_originality": 82,
@@ -2277,8 +2196,7 @@
         "decisive_moment": 74,
         "technical_feasibility": 83,
         "access_permission": 72,
-        "evidence_confidence": 88,
-        "juror_public_work_intersection": 72
+        "evidence_confidence": 88
       },
       "evidence_source_ids": [
         "SRC-STYLE-UTEC-CURRENT",
@@ -2293,8 +2211,8 @@
       "name": "Torre Interbank",
       "district": "La Victoria",
       "criteria": {
-        "creative_aesthetic_proxy": 89,
-        "theme_coherence_proxy": 84,
+        "visual_potential": 89,
+        "architecture_in_use": 84,
         "architecture_causality": 91,
         "first_read_clarity": 91,
         "anti_postal_originality": 78,
@@ -2304,8 +2222,7 @@
         "decisive_moment": 70,
         "technical_feasibility": 81,
         "access_permission": 75,
-        "evidence_confidence": 86,
-        "juror_public_work_intersection": 70
+        "evidence_confidence": 86
       },
       "evidence_source_ids": [
         "SRC-STYLE-INTERBANK-2026",
@@ -2320,8 +2237,8 @@
       "name": "Casa Fernandini (1913)",
       "district": "Lima",
       "criteria": {
-        "creative_aesthetic_proxy": 87,
-        "theme_coherence_proxy": 90,
+        "visual_potential": 87,
+        "architecture_in_use": 90,
         "architecture_causality": 86,
         "first_read_clarity": 84,
         "anti_postal_originality": 85,
@@ -2331,8 +2248,7 @@
         "decisive_moment": 66,
         "technical_feasibility": 76,
         "access_permission": 62,
-        "evidence_confidence": 84,
-        "juror_public_work_intersection": 66
+        "evidence_confidence": 84
       },
       "evidence_source_ids": [
         "SRC-STYLE-FERNANDINI-CULTURE",
@@ -2347,8 +2263,8 @@
       "name": "Estación Desamparados / Casa de la Literatura",
       "district": "Lima",
       "criteria": {
-        "creative_aesthetic_proxy": 90,
-        "theme_coherence_proxy": 94,
+        "visual_potential": 90,
+        "architecture_in_use": 94,
         "architecture_causality": 92,
         "first_read_clarity": 87,
         "anti_postal_originality": 84,
@@ -2358,8 +2274,7 @@
         "decisive_moment": 85,
         "technical_feasibility": 80,
         "access_permission": 70,
-        "evidence_confidence": 90,
-        "juror_public_work_intersection": 70
+        "evidence_confidence": 90
       },
       "evidence_source_ids": [
         "SRC-STYLE-DESAMPARADOS-CURRENT",
@@ -2374,8 +2289,8 @@
       "name": "Edificio Petroperú",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 86,
-        "theme_coherence_proxy": 86,
+        "visual_potential": 86,
+        "architecture_in_use": 86,
         "architecture_causality": 88,
         "first_read_clarity": 88,
         "anti_postal_originality": 84,
@@ -2385,8 +2300,7 @@
         "decisive_moment": 68,
         "technical_feasibility": 84,
         "access_permission": 78,
-        "evidence_confidence": 86,
-        "juror_public_work_intersection": 69
+        "evidence_confidence": 86
       },
       "evidence_source_ids": [
         "SRC-STYLE-PETRO-CAMMP",
@@ -2401,8 +2315,8 @@
       "name": "Torre Begonias + Paseo Begonias",
       "district": "San Isidro",
       "criteria": {
-        "creative_aesthetic_proxy": 85,
-        "theme_coherence_proxy": 87,
+        "visual_potential": 85,
+        "architecture_in_use": 87,
         "architecture_causality": 89,
         "first_read_clarity": 86,
         "anti_postal_originality": 75,
@@ -2412,8 +2326,7 @@
         "decisive_moment": 82,
         "technical_feasibility": 88,
         "access_permission": 82,
-        "evidence_confidence": 88,
-        "juror_public_work_intersection": 67
+        "evidence_confidence": 88
       },
       "evidence_source_ids": [
         "SRC-STYLE-BEGONIAS-ABOUT",

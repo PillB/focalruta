@@ -1,0 +1,1121 @@
+{
+  "passed": true,
+  "checks": 78,
+  "axe_version": "4.10.3",
+  "rule_sets": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "passes": [
+    "light-390",
+    "dark-1280"
+  ],
+  "failures": [],
+  "incomplete": {
+    "FocalRuta_STANDALONE.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 190
+      }
+    ],
+    "challenges/arquitectura-en-foco/index.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 97
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/barranco-tour-1.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 8
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/barranco-tour-2.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/barranco-tour-3.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/jesus-maria.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/lima-tour-1.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/lima-tour-2.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 4
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/lima-tour-3.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-1.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 3
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-2.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 5
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-3.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 4
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-4.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-5.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-6.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 5
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 3
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/rimac.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-borja-tour-1.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-borja-tour-2.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 6
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-borja-tour-3.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 5
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 3
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/santiago-de-surco.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/wiki-tecnicas.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 34
+      }
+    ],
+    "field_card.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 22
+      }
+    ],
+    "index.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 190
+      }
+    ],
+    "plans/plan_a.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 54
+      }
+    ],
+    "plans/plan_b.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 54
+      }
+    ],
+    "plans/plan_c.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 54
+      }
+    ],
+    "plans/plan_d.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 54
+      }
+    ],
+    "plans/plan_e.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 54
+      }
+    ],
+    "plans/plan_f.html [light-390]": [
+      {
+        "id": "color-contrast",
+        "count": 54
+      }
+    ],
+    "FocalRuta_STANDALONE.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 188
+      }
+    ],
+    "challenges/arquitectura-en-foco/index.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 89
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/barranco-tour-1.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 8
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/barranco-tour-2.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/barranco-tour-3.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/jesus-maria.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/lima-tour-1.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/lima-tour-2.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 4
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/lima-tour-3.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-1.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 3
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-2.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 5
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-3.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 4
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-4.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-5.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/miraflores-tour-6.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 5
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 3
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/rimac.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-borja-tour-1.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 2
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-borja-tour-2.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 6
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-borja-tour-3.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 5
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 3
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/maps/santiago-de-surco.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 1
+      }
+    ],
+    "challenges/arquitectura-en-foco/wiki-tecnicas.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 32
+      }
+    ],
+    "field_card.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 22
+      }
+    ],
+    "index.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 188
+      }
+    ],
+    "plans/plan_a.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 52
+      }
+    ],
+    "plans/plan_b.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 52
+      }
+    ],
+    "plans/plan_c.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 52
+      }
+    ],
+    "plans/plan_d.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 52
+      }
+    ],
+    "plans/plan_e.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 52
+      }
+    ],
+    "plans/plan_f.html [dark-1280]": [
+      {
+        "id": "color-contrast",
+        "count": 52
+      }
+    ]
+  },
+  "results": [
+    {
+      "name": "404.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "FocalRuta_STANDALONE.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/field-card.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/index.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/iphone-maps.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/barranco-tour-1.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/barranco-tour-2.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/barranco-tour-3.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/jesus-maria.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/lima-tour-1.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/lima-tour-2.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/lima-tour-3.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/rimac.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/santiago-de-surco.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/wiki-tecnicas.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "field_card.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "index.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_a.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_b.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_c.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_d.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_e.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_f.html [light-390] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "404.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "FocalRuta_STANDALONE.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/field-card.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/index.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/iphone-maps.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/barranco-tour-1.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/barranco-tour-2.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/barranco-tour-3.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/jesus-maria.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/lima-tour-1.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/lima-tour-2.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/lima-tour-3.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-1.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-2.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-3.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-4.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-5.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/miraflores-tour-6.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/rimac.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-borja-tour-1.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-borja-tour-2.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-borja-tour-3.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/maps/santiago-de-surco.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "challenges/arquitectura-en-foco/wiki-tecnicas.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "field_card.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "index.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_a.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_b.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_c.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_d.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_e.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    },
+    {
+      "name": "plans/plan_f.html [dark-1280] axe",
+      "pass": true,
+      "detail": {
+        "violations": [],
+        "page_errors": []
+      }
+    }
+  ],
+  "audited_at": "2026-10-17T20:04:19.272129+00:00",
+  "audited_commit": "28ef2aa19c6fb30b3e2ad55d8431e59a979a470b",
+  "audited_artifacts": {
+    "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
+    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "e0dda216bebc7ba1ab877442ae5754fb1753aaa0748c303ffacb056485d4a392",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "e6dc816c988561b1dbf7b912f75421d1fa1e3afea72fadcc0d3549dc4ac73773",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "210b9862dcea69155fd26727017d895ab9f112f15e0a04ed016ba508dac86b91",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/iphone-maps.html": "dcf00bc64b53195126e98369ee57281d3754e989551f1d59317bbd41ce99dd78",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-1.html": "7c75f80f02bfa8608fa55e6c0bcf3fdbe540500cc50eb468e77dc64677f2a80b",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-2.html": "088fa7b5e66cdd98b3ba04e667228103f58b040fd484f10ba4cf71eb672229e9",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-3.html": "df7cf71ac5c5d662f707e21f91e63546e8c4beec5ba4b68e2cb6bb690980ca65",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/jesus-maria.html": "145f27854a2c27ade8ceda820e5aae33b2bbb7c16a55ba0b143b7a55ac7b859c",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html": "30335aabaefb42da4c3340e3e7aed20df7a3d3d4ad6331f9f487a5fc8d28938f",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html": "8b8708a0f138ad42991b0cdb1cf8891d34261817caa2677dfd125e43df2cfc77",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-1.html": "a5010bcefe78deb7227f64ccc0a5a5f309b411830688fd47fbd8dd96bae8fdc1",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-2.html": "862b1dc9fcbf11bf19edcd68f58cb793d2649bb9c3f257a8265d883df690d06b",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-3.html": "c24e4034a29416dc05983e1d6080b49be802ce85abf1ca594492ed348f24887c",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-1.html": "63af330db45fba10a51ed891f96fc32207ccf6d985bc5c0f44585be73448b373",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-2.html": "c3d24cbe3838702b42a8a9fcb04275ddb95509369012367ea6918e131aeb57e3",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-3.html": "549587942b0b612bc778f51d0528e124db53324f1f8869fb10fba27eb2f85036",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-4.html": "3d5df49052b67e31dbe3b5345eb2efa0d05e9724cb9211e4f680249b77ee5d7d",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-5.html": "a32326bd10174e895a52d7ad16c29e3f1df3fc3ca95aa5e982d39d628d6d097d",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-6.html": "10e43c7ee50b05697d9f787955e6099df878c883f13b700903cfbaf4cd614649",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html": "13424bdfcb4b702848ba8136080108a928f647963dd9f223938ddcdc879fa7c2",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html": "b8e046431ae978ad9be22b3edf2aaf7a2c2bceccbaecdeb1db37e2939d81ff1a",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/rimac.html": "ec5aafac6afb97602674fcbfc4d8e3977e4e9d6538fa0ffc7139fb7ae9bf03f7",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-1.html": "67fcb388dd048d413494da94c74fd14b8710dc19de38fe3e824bea9aa51c85e8",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-2.html": "572401afffe6f2d518c02f8ed793d0e09e757c320e8574de1131b467404ff24c",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-3.html": "840efe16586583ae218516c145db27de8b89ae9da3ee842745216f57b8eeab31",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html": "d1bd893b7da2c16ef358e81d2de70cf57a3d2e6425541ce6926bd9067a878ed8",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html": "7e4e75be13f4f385b903f96f1b2384c167032952b48b311b457e6824c34156d8",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html": "fef1da0075298e0b98be8ad6320c7a12c3b4f33a7e6e38a0378f718fd9937384",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "ee1783c839181086e47e55a50586e167442c5685752e14af1f9b318599a36eea",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "059a7c90cf9ce08c22d5a1f6c481be982b57bdda5f3e5cb404fc08c4141d15b4",
+    "dist/canon6d_sota_hosted/field_card.html": "130d59c8dead5fda5addcd68e01c6cdd2c829ebbbb66791f1a985fee0933e8fd",
+    "dist/canon6d_sota_hosted/index.html": "a06a232588f62a892ce6a36c75801c18b0e4c74540bd26beb1f77bfe8dca6f89",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "e7b3ac54b316573a4be888383bf14b0fe30c7910247dc188bf617402440dcea8",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "4d277a0bef00c57a9d124b6d54976a494bf36768dab77f24c0d40369ba0ae85a",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "cd472053b3bf8e261724f479c77507f794a6ad49b1401ea962044944638ea030",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "ac923b7018b5c8a400bdf683f375ab2c31465211e71c0cb834b8d3f60ef9eb04",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "467a02f77e56635b54d4d034e9d26c8fadb1e5773ca209fec98e51be1b22a8de",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "6773650af4bfb958e400b3ac1244ec300182d0546dcf576e987eb8ec8b27034f"
+  }
+}

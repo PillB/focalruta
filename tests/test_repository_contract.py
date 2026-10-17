@@ -8,8 +8,12 @@ def test_quality_workflow_enforces_cyclomatic_complexity_ceiling():
     workflow = (ROOT / ".github" / "workflows" / "quality.yml").read_text(encoding="utf-8")
     assert "actions/checkout@v5" in workflow
     assert "actions/setup-python@v6" in workflow
-    assert "ruff==0.12.11" in workflow
-    assert "Pillow==11.3.0" in workflow
+    # One pin list for CI and contributors: a different local Pillow re-encodes
+    # 132 images and dirties the tree (red team, PR #19).
+    assert "pip install -r requirements-dev.txt" in workflow
+    pins = (ROOT / "requirements-dev.txt").read_text(encoding="utf-8").split()
+    assert "ruff==0.12.11" in pins
+    assert "Pillow==11.3.0" in pins
     assert "--select C901" in workflow
     assert "lint.mccabe.max-complexity=10" in workflow
     assert "python3 scripts/verify_release.py" in workflow

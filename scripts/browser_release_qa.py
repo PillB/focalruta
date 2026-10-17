@@ -1,7 +1,11 @@
 """Fresh browser matrix for current standalone, hosted and individual-plan targets."""
 from __future__ import annotations
 
+import functools
 import json
+import threading
+import time
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 import evidence
@@ -16,8 +20,10 @@ AUDITED = [
     ROOT / "field_card.html",
     ROOT / "data/plans.json",
     *sorted((ROOT / "plans").glob("plan_*.html")),
+    *sorted((ROOT / "dist/canon6d_sota_hosted/plans").glob("plan_*.html")),
+    ROOT / "dist/canon6d_sota_hosted/sw.js",
 ]
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME = __import__('os').environ.get('FOCALRUTA_CHROME', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')  # Linux runners: point at Playwright's Chromium
 results = []
 
 
@@ -25,6 +31,60 @@ def record(name, passed, detail=""):
     results.append({"name": name, "pass": bool(passed), "detail": detail})
     if not passed:
         raise AssertionError(f"{name}: {detail}")
+
+
+class QuietHandler(SimpleHTTPRequestHandler):
+    def log_message(self, *args):
+        pass
+
+    def end_headers(self):
+        # No HTTP caching: otherwise Chromium's heuristic freshness answers
+        # "offline" requests from its disk cache and the worker is never tested.
+        self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
+
+# Settle every image on load or error (a cache miss offline ends in error), then
+# list the ones without pixels. decode() alone can reject on a slow load.
+DECODE_ALL = """async()=>{const xs=[...document.querySelectorAll('.shot-card img')];xs.forEach(x=>x.loading='eager');
+await Promise.all(xs.map(x=>x.complete?null:new Promise(done=>{x.addEventListener('load',done,{once:true});x.addEventListener('error',done,{once:true});setTimeout(done,20000)})));
+return xs.filter(x=>!x.naturalWidth).map(x=>x.src.split('/').pop())}"""
+WARMED = """async()=>{let n=0;for(const k of await caches.keys()){for(const r of await (await caches.open(k)).keys()){if(r.url.endsWith('.webp'))n++}}
+return n>=20&&!!(await caches.match(location.href))}"""
+
+
+def wait_until(page, predicate: str, timeout_s: float = 30.0) -> None:
+    """Poll an async predicate. page.wait_for_function treats a returned Promise
+    as truthy and returns at once (checked against Playwright 1.55), so a
+    predicate that reads the Cache API must be awaited through page.evaluate."""
+    deadline = time.monotonic() + timeout_s
+    while not page.evaluate(predicate):
+        if time.monotonic() > deadline:
+            raise TimeoutError(f"still false after {timeout_s:.0f} s: {predicate[:80]}")
+        page.wait_for_timeout(250)
+
+
+def hosted_plan_offline(browser):
+    """U05: a hosted plan page visited once works offline, both subjects, all ten diagrams."""
+    server = ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(ROOT / "dist/canon6d_sota_hosted")))
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    context = browser.new_context(viewport={"width": 390, "height": 844})
+    page = context.new_page()
+    page.goto(f"http://127.0.0.1:{server.server_address[1]}/plans/plan_a.html", wait_until="load", timeout=60000)
+    page.wait_for_function("navigator.serviceWorker.controller!==null", timeout=30000)
+    wait_until(page, WARMED, 30)
+    # Stop the server rather than emulate offline: Chromium's offline emulation
+    # does not reach requests the service worker makes, so it cannot fail.
+    server.shutdown()
+    server.server_close()
+    page.reload(wait_until="load")
+    record("hosted plan_a offline after one visit: page itself", "plan-orientation" in page.content())
+    for subject in ("human", "dog"):
+        page.evaluate("s=>setVariant(s)", subject)
+        missing = page.evaluate(DECODE_ALL)
+        count = page.locator(".shot-card img").count()
+        record(f"hosted plan_a offline after one visit: {subject} diagrams decode", count == 10 and not missing, missing)
+    context.close()
 
 
 with sync_playwright() as pw:
@@ -50,11 +110,11 @@ with sync_playwright() as pw:
         page.goto(target.as_uri(), wait_until="domcontentloaded", timeout=60000)
         for plan in [f"plan_{letter}" for letter in "abcdef"]:
             for subject in ("human", "dog"):
-                for time in ("day", "afternoon", "night"):
-                    count = page.evaluate("([p,s,t])=>{selectPlan(p);setVariant(s);setTime(t);return document.querySelectorAll('#plan-detail-content .shot-card').length}", [plan, subject, time])
-                    record(f"{target_name} {plan}/{subject}/{time} ten cards", count == 10, count)
+                for slot in ("day", "afternoon", "night"):
+                    count = page.evaluate("([p,s,t])=>{selectPlan(p);setVariant(s);setTime(t);return document.querySelectorAll('#plan-detail-content .shot-card').length}", [plan, subject, slot])
+                    record(f"{target_name} {plan}/{subject}/{slot} ten cards", count == 10, count)
                     image_count = page.locator("#plan-detail-content .shot-card img").count()
-                    record(f"{target_name} {plan}/{subject}/{time} ten diagrams", image_count == 10, image_count)
+                    record(f"{target_name} {plan}/{subject}/{slot} ten diagrams", image_count == 10, image_count)
         motion = []
         for mode in ("freeze", "pan", "ghost", "trails", "paint", "zoom"):
             page.locator(f'[data-motion="{mode}"]').click()
@@ -88,13 +148,14 @@ with sync_playwright() as pw:
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto((ROOT / f"plans/plan_{letter}.html").as_uri(), wait_until="domcontentloaded", timeout=60000)
         for subject in ("human", "dog"):
-            for time in ("day", "afternoon", "night"):
-                page.evaluate("([s,t])=>{setVariant(s);setTime(t)}", [subject, time])
-                record(f"plan_{letter} {subject}/{time} ten cards", page.locator(".shot-card").count() == 10)
+            for slot in ("day", "afternoon", "night"):
+                page.evaluate("([s,t])=>{setVariant(s);setTime(t)}", [subject, slot])
+                record(f"plan_{letter} {subject}/{slot} ten cards", page.locator(".shot-card").count() == 10)
         record(f"plan_{letter} correction panel", "35.8 × 23.9 mm" in (page.locator("details").text_content() or ""))
         record(f"plan_{letter} no overflow", page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
         record(f"plan_{letter} no errors", not errors, errors)
         page.close()
+    hosted_plan_offline(browser)
     browser.close()
 
 report = {"passed": all(item["pass"] for item in results), "checks": len(results),

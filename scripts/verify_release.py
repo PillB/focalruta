@@ -1,6 +1,7 @@
 """Authoritative release/parity checks for every PhotoPlanner delivery target."""
 from __future__ import annotations
 
+import base64
 import json
 import re
 import sys
@@ -25,6 +26,32 @@ def check_equal(expected, actual, label: str) -> None:
 def check(condition: bool, label: str) -> None:
     if not condition:
         failures.append(label)
+
+
+DIAGRAM_MAP = re.compile(r"const DIAGRAMS = (\{.*?\});\n", re.S)
+WARM_SCRIPT = re.compile(r"<script>window\.addEventListener\('load',\(\)=>\{const c=navigator\.connection;.*?</script>\n", re.S)
+
+
+def check_hosted_plan(offline: Path, hosted_page: Path) -> None:
+    """The hosted plan page is the offline page with its diagrams as files.
+
+    Hosted pages point the diagram map at diagrams-webp/ and add one script
+    that asks the service worker to cache them (U05); everything else must be
+    byte-identical, and every file must hold the same image the offline page
+    inlines.
+    """
+    offline_html = offline.read_text(encoding="utf-8")
+    hosted_html = hosted_page.read_text(encoding="utf-8")
+    inline = json.loads(DIAGRAM_MAP.search(offline_html).group(1))
+    linked = json.loads(DIAGRAM_MAP.search(hosted_html).group(1)) if DIAGRAM_MAP.search(hosted_html) else {}
+    check(set(inline) == set(linked), f"hosted {offline.name} links every inline diagram")
+    for key in set(inline) & set(linked):
+        target = (hosted_page.parent / linked[key]).resolve()
+        same = target.is_file() and target.read_bytes() == base64.b64decode(inline[key].split(",", 1)[1])
+        check(same, f"hosted {offline.name} {key} is the inlined image")
+    blank = lambda html: DIAGRAM_MAP.sub("const DIAGRAMS = {};\n", html, count=1)
+    check_equal(blank(offline_html).encode(), blank(WARM_SCRIPT.sub("", hosted_html, count=1)).encode(),
+                f"hosted {offline.name} parity outside its diagram map")
 
 
 plans = DATA["plans"]
@@ -68,11 +95,11 @@ check("cámara fija" in DATA["field_baselines"]["zooming"]["geometry"], "zooming
 
 index = (ROOT / "index.html").read_text(encoding="utf-8")
 for marker in (
-    "Optical Decision Lab",
-    "Motion Lab",
-    "Composition Sandbox",
-    "SESSION RUN",
-    "Pose Coach",
+    "Laboratorio óptico",
+    "Laboratorio de movimiento",
+    "Laboratorio de composición",
+    "MODO SESIÓN",
+    "Guía de poses",
     'id="field-card-modal"',
     'id="shot-modal"',
     "Home/Building Lab",
@@ -112,7 +139,7 @@ if hosted.is_dir():
     check_equal((ROOT / "index.html").read_bytes(), (hosted / "FocalRuta_STANDALONE.html").read_bytes(), "built standalone byte parity")
     check((hosted / "downloads/canon6d_photo_planner_assets.zip").is_file(), "hosted ZIP download exists")
     for page in sorted((ROOT / "plans").glob("plan_*.html")):
-        check_equal(page.read_bytes(), (hosted / "plans" / page.name).read_bytes(), f"hosted {page.name} byte parity")
+        check_hosted_plan(page, hosted / "plans" / page.name)
 
 diagrams = list((ROOT / "diagrams").glob("plan_*_*.png"))
 check(len(diagrams) == 120, "120 plan diagrams")
@@ -162,6 +189,8 @@ for report_name, minimum_checks in (
     ("CURRENT_BROWSER_QA.json", 234),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
+    # Every shipped page, light phone and dark desktop: 39 pages x 2 passes.
+    ("AXE_ACCESSIBILITY_QA.json", 78),
 ):
     check_evidence(report_name, minimum_checks)
 

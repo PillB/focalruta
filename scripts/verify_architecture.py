@@ -12,7 +12,6 @@ from generate_architecture_pages import (
     LEARNING_PATH,
     OUTPUT,
     PHOTOGRAPHERS_PATH,
-    RULES_PATH,
     build_challenge_page,
 )
 
@@ -42,16 +41,13 @@ def public_files():
 
 def main() -> int:
     failures = []
-    rules = json.loads(RULES_PATH.read_text(encoding="utf-8"))
     learning = json.loads(LEARNING_PATH.read_text(encoding="utf-8"))
     photographers = json.loads(PHOTOGRAPHERS_PATH.read_text(encoding="utf-8"))
-    expected = build_challenge_page(rules, learning, photographers)
+    expected = build_challenge_page(learning, photographers)
     check(OUTPUT.exists(), "generated challenge page missing", failures)
     if OUTPUT.exists():
         check_equal(expected, OUTPUT.read_text(encoding="utf-8"),
                     "challenge page is stale; regenerate with scripts/generate_architecture_pages.py", failures)
-    check(rules["file"]["minimum_bytes"] == 5_000_000, "5 MB minimum missing", failures)
-    check(rules["file"]["maximum_bytes"] == 25_000_000, "25 MB maximum missing", failures)
     for path in public_files():
         text = path.read_text(encoding="utf-8", errors="ignore")
         check(not any(marker in text for marker in PRIVATE_MARKERS), f"private marker in {path.relative_to(ROOT)}", failures)

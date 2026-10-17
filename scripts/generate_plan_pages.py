@@ -11,7 +11,10 @@ import base64
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from plans_data import PLANS, GEAR, COMPOSITION_RULES, CAMERA_ANGLES, TECHNIQUES, FIELD_BASELINES
+from plans_data import PLANS, GEAR, COMPOSITION_RULES, CAMERA_ANGLES, TECHNIQUES, FIELD_BASELINES, POSE_NAMES
+from exposure_model import SCENE_LIGHT
+from PIL import Image
+import io
 
 ROOT = Path(__file__).resolve().parents[1]
 PLAN_DIR = str(ROOT / "plans")
@@ -20,9 +23,13 @@ os.makedirs(PLAN_DIR, exist_ok=True)
 
 
 def embed_image_b64(path):
-    with open(path, "rb") as f:
-        data = base64.b64encode(f.read()).decode("ascii")
-    return f"data:image/png;base64,{data}"
+    """Lossless WebP keeps every label pixel-identical to the PNG at a fraction of the bytes."""
+    with Image.open(path) as im:
+        im = im.convert("RGBA") if im.mode in ("RGBA", "LA") else im.convert("RGB")
+        buf = io.BytesIO()
+        im.save(buf, format="WEBP", lossless=True, method=6)
+    data = base64.b64encode(buf.getvalue()).decode("ascii")
+    return f"data:image/webp;base64,{data}"
 
 
 # HTML template with __PLACEHOLDERS__ (no f-string conflicts)
@@ -34,9 +41,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <meta name="theme-color" content="#0f172a">
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>__PLAN_NAME__ — Plan individual</title>
+<title>__PLAN_NAME__ · Plan fotográfico · FocalRuta</title>
+<meta name="description" content="__PLAN_DESCRIPTION__">
+<link rel="icon" href="../assets/app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-192.png">
 <style>__SITE_CSS__</style>
 <style>
+.skip-link{position:absolute;left:8px;top:-64px;z-index:200;padding:10px 14px;border-radius:10px;background:#0f172a;color:#fff;font-weight:700;font-size:14px;text-decoration:none}.skip-link:focus{top:8px}
 body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: #0F172A; }
 .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.85); }
 .toggle-active { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: white; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
@@ -47,7 +58,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 .reasoning-block { background: linear-gradient(135deg, #FEF3C7 0%, #FED7AA 100%); border-left: 4px solid #F59E0B; }
 .do-block { background: #ECFDF5; border-left: 4px solid #16A34A; }
 .dont-block { background: #FEF2F2; border-left: 4px solid #DC2626; }
-.time-toggle-day { background: linear-gradient(135deg, #FEF3C7 0%, #F59E0B 100%); color: #78350F; }
+.time-toggle-day { background: linear-gradient(135deg, #FEF3C7 0%, #F59E0B 100%); color: #451A03; }
 .time-toggle-afternoon { background: linear-gradient(135deg, #FED7AA 0%, #EA580C 100%); color: #7C2D12; }
 .time-toggle-night { background: linear-gradient(135deg, #1E293B 0%, #4338CA 100%); color: #F1F5F9; }
 .shot-card { transition: all 0.3s ease; }
@@ -58,13 +69,17 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 .aperture-pill { background: #DCFCE7; color: #14532D; border: 1px solid #86EFAC; }
 .shutter-pill { background: #FEE2E2; color: #7F1D1D; border: 1px solid #FCA5A5; }
 .iso-pill { background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; }
+.nd-pill { background: #1F2937; color: #F9FAFB; border: 1px solid #111827; }
+.scene-light-line { font-size: 11px; color: #475569; margin-bottom: 6px; }
+.unviable-note { font-size: 12px; color: #7C2D12; background: #FFEDD5; border: 1px solid #FDBA74; border-radius: 8px; padding: 6px 10px; margin-bottom: 6px; }
 .gradient-bg { background: linear-gradient(135deg, #0F172A 0%, #1E40AF 50%, #7C3AED 100%); }
 @media print { .no-print { display: none !important; } .shot-card { page-break-inside: avoid; } }
 </style>
 </head>
 <body class="bg-paper text-ink">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<section id="plan-orientation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" aria-labelledby="plan-orientation-title"><div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4"><h2 id="plan-orientation-title" class="font-bold text-base text-emerald-950">Cómo leer este plan</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 text-xs leading-relaxed text-emerald-950"><p><strong>Qué cambia:</strong> la hora, el sujeto y la toma modifican la luz o la acción. El dibujo te enseña dónde poner cámara, sujeto y fondo.</p><p><strong>Cómo comprobarlo:</strong> haz una foto, amplíala al 100% y revisa foco, movimiento, altas luces y bordes. Si cambia la perspectiva, moviste la cámara.</p><p><strong>Si no funciona:</strong> conserva la posición y cambia una sola variable. Si no hay acceso, luz o actividad, usa el plan B de la tarjeta y anota el motivo.</p></div></div></section>
+
 
 <nav class="glass sticky top-0 z-50 border-b border-slate-200 no-print">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,6 +100,9 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
     </div>
   </div>
 </nav>
+
+<main id="contenido">
+<section id="plan-orientation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" aria-labelledby="plan-orientation-title"><div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4"><h2 id="plan-orientation-title" class="font-bold text-base text-emerald-950">Cómo leer este plan</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 text-xs leading-relaxed text-emerald-950"><p><strong>Qué cambia:</strong> la hora, el sujeto y la toma modifican la luz o la acción. El dibujo te enseña dónde poner cámara, sujeto y fondo.</p><p><strong>Cómo comprobarlo:</strong> haz una foto, amplíala al 100% y revisa foco, movimiento, altas luces y bordes. Si cambia la perspectiva, moviste la cámara.</p><p><strong>Si no funciona:</strong> conserva la posición y cambia una sola variable. Si no hay acceso, luz o actividad, usa el plan B de la tarjeta y anota el motivo.</p></div></div></section>
 
 <section class="sticky top-16 z-40 bg-paper/95 backdrop-blur border-y border-slate-200 no-print py-3">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
@@ -115,7 +133,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
       <p><strong>Ángulos:</strong> nadir = cámara debajo apuntando 90° hacia arriba; cenital = cámara encima apuntando 90° hacia abajo.</p>
       <p><strong>Seguridad:</strong> en modo perro, fantasma usa una persona controlada con el perro fuera; larga exposición de tráfico se hace sin sujeto/perro junto a la calzada; lightpainting nunca dirige luz intensa a los ojos.</p>
       <p><strong>Zooming:</strong> usa el 35–80 con la cámara fija; cambia la focal durante la exposición alrededor de un centro fuerte.</p>
-      <p><strong>Baseline vs plan:</strong> la Field Card es el punto de partida. La variación indicada en cada toma responde a luz/escena; conserva la variable que crea el efecto.</p>
+      <p><strong>Referencia frente a plan:</strong> la Field Card es el punto de partida. La variación indicada en cada toma responde a luz/escena; conserva la variable que crea el efecto.</p>
     </div>
   </details>
 </section>
@@ -147,6 +165,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
   <div id="shots-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
 </section>
 
+</main>
 <footer class="bg-ink text-white py-8 mt-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <p class="text-sm text-slate-400">__PLAN_NAME__ · Plan individual de FocalRuta</p>
@@ -185,6 +204,30 @@ function timeLabel(t) {
   return { day: 'DÍA', afternoon: 'TARDE', night: 'NOCHE' }[t] || '';
 }
 
+function ndLabel(stops){
+  if(!stops) return '';
+  return `${stops===10 ? 'ND1000' : 'ND'+(2**stops)} · ${stops} pasos`;
+}
+function sceneLightText(ts){
+  const light=(DATA.scene_light||{})[ts.scene];
+  if(!light) return '';
+  const ev=light.ev_low===light.ev_high ? `EV ${light.ev_low}` : `EV ${light.ev_low} a ${light.ev_high}`;
+  return `${light.label} (${ev})`;
+}
+function settingsChips(ts){
+  return `<span class="chip lens-pill">${ts.lens}</span><span class="chip aperture-pill">${ts.aperture}</span><span class="chip shutter-pill">${ts.shutter}</span><span class="chip iso-pill">ISO ${ts.iso}</span>`+
+    (ts.nd_stops ? `<span class="chip nd-pill" title="Filtro de densidad neutra de ${ts.nd_stops} pasos">${ndLabel(ts.nd_stops)}</span>` : '');
+}
+function slotStatus(ts){
+  const light=sceneLightText(ts);
+  const line=light ? `<div class="scene-light-line">☀︎ Luz prevista: ${light}</div>` : '';
+  if(ts.viable===false) return `<div class="unviable-note" role="note"><strong>No viable a esta hora.</strong> Cambia el horario arriba o pospón esta toma.</div>`+line;
+  return line;
+}
+function poseName(view){
+  const names=(DATA.pose_names||{})[view.kind]||{};
+  return names[view.data.pose] || view.data.pose.replace(/_/g,' ');
+}
 function baselineForShot(plan, shot) {
   const b=DATA.field_baselines||{};
   if(shot.technique==='mucha_pdc'||shot.technique==='poca_pdc'){
@@ -195,9 +238,9 @@ function baselineForShot(plan, shot) {
   return b[shot.technique]||null;
 }
 function effectiveSubject(shot){
-  if(currentVariant==='dog'&&shot.technique==='fantasma') return {label:'PERSONA · perro fuera', data:shot.subjects.human};
-  if(currentVariant==='dog'&&shot.technique==='larga_exp') return {label:'SIN SUJETO · perro fuera', data:null};
-  return {label: currentVariant==='human'?'Humano':'Perro', data:shot.subjects[currentVariant]};
+  if(currentVariant==='dog'&&shot.technique==='fantasma') return {label:'PERSONA · perro fuera', kind:'human', data:shot.subjects.human};
+  if(currentVariant==='dog'&&shot.technique==='larga_exp') return {label:'SIN SUJETO · perro fuera', kind:null, data:null};
+  return {label: currentVariant==='human'?'Humano':'Perro', kind:currentVariant, data:shot.subjects[currentVariant]};
 }
 
 function renderShots() {
@@ -220,12 +263,8 @@ function renderShots() {
             </div>
             <span class="chip bg-purple-100 text-purple-700">📷&nbsp;${shot.technique_label}</span>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="chip lens-pill">${shot.lens_focal}mm</span>
-            <span class="chip aperture-pill">${shot.aperture}</span>
-            <span class="chip shutter-pill">${timeSettings.shutter}</span>
-            <span class="chip iso-pill">ISO ${timeSettings.iso}</span>
-          </div>
+          <div class="flex flex-wrap gap-1.5 mb-2">${settingsChips(timeSettings)}</div>
+          ${slotStatus(timeSettings)}
           <div class="text-xs text-slate-600 mb-2">
             <span class="font-bold">Composición:</span> ${shot.composition_label} ·
             <span class="font-bold">Ángulo:</span> ${shot.angle_label} ·
@@ -235,12 +274,12 @@ function renderShots() {
           <div class="text-xs text-slate-700 italic">${shot.scene_notes}</div>
         </div>
         <div class="diagram-frame bg-paper">
-          ${diagramSrc ? `<img src="${diagramSrc}" alt="Diagrama ${shot.id} ${currentVariant}" /><p class="px-4 py-2 text-[11px] leading-relaxed text-slate-600"><strong>Qué mirar:</strong> compara las distancias dibujadas y el borde del encuadre con tu escena. Es una relación orientativa, no una promesa de píxeles.</p>` : '<div class="p-8 text-center text-slate-400">Diagrama no disponible</div>'}
+          ${diagramSrc ? `<img src="${diagramSrc}" alt="Diagrama ${shot.id} ${currentVariant}" width="1744" height="1058" loading="${idx<2?'eager':'lazy'}" decoding="async" /><p class="px-4 py-2 text-[11px] leading-relaxed text-slate-600"><strong>Qué mirar:</strong> compara las distancias dibujadas y el borde del encuadre con tu escena. Es una relación orientativa, no una promesa de píxeles.</p>` : '<div class="p-8 text-center text-slate-400">Diagrama no disponible</div>'}
         </div>
         <div class="p-5 space-y-3">
-          ${baseline ? `<div class="bg-slate-50 border border-slate-300 rounded-lg p-3"><div class="text-[10px] font-black tracking-wider text-slate-700">FIELD CARD · BASELINE</div><div class="text-[11px] font-mono mt-1">${baseline.lens} · ${baseline.aperture} · ${baseline.shutter} · ISO ${baseline.iso}</div><div class="text-[11px] text-slate-600">${baseline.af} · ${baseline.geometry}</div><div class="text-[10px] text-blue-700 mt-1">El plan puede variar por escena/luz; conserva la variable que define el efecto.</div></div>` : ''}
+          ${baseline ? `<div class="bg-slate-50 border border-slate-300 rounded-lg p-3"><div class="text-[10px] font-black tracking-wider text-slate-700">TARJETA DE CAMPO · REFERENCIA</div><div class="text-[11px] font-mono mt-1">${baseline.lens} · ${baseline.aperture} · ${baseline.shutter} · ISO ${baseline.iso}</div><div class="text-[11px] text-slate-600">${baseline.af} · ${baseline.geometry}</div><div class="text-[10px] text-blue-700 mt-1">El plan puede variar por escena/luz; conserva la variable que define el efecto.</div></div>` : ''}
           <div class="reasoning-block p-3 rounded-lg">
-            <div class="text-xs font-bold text-amber-700 mb-1">RAZONAMIENTO</div>
+            <div class="text-xs font-bold text-amber-800 mb-1">RAZONAMIENTO</div>
             <p class="text-xs text-amber-900 leading-relaxed">${shot.reasoning}</p>
           </div>
           <div class="do-block p-3 rounded-lg">
@@ -262,7 +301,7 @@ function renderShots() {
           </div>` : ''}
           <div class="bg-purple-50 border border-purple-200 rounded-lg p-3">
             <div class="text-xs font-bold text-purple-700 mb-1">🎭 SUJETO (${subjectView.label})</div>
-            ${subjectView.data ? `<p class="text-xs text-purple-900"><strong>${subjectView.data.pose.replace(/_/g,' ').toUpperCase()}</strong>: ${subjectView.data.action}</p>` : `<p class="text-xs text-purple-900"><strong>SIN SUJETO</strong>: prioriza trazas/escena y seguridad.</p>`}
+            ${subjectView.data ? `<p class="text-xs text-purple-900"><strong>${poseName(subjectView)}</strong>: ${subjectView.data.action}</p>` : `<p class="text-xs text-purple-900"><strong>SIN SUJETO</strong>: prioriza trazas/escena y seguridad.</p>`}
           </div>
         </div>
       </article>
@@ -297,6 +336,11 @@ def generate_plan_html(plan):
         "camera_angles": CAMERA_ANGLES,
         "techniques": TECHNIQUES,
         "field_baselines": FIELD_BASELINES,
+        "pose_names": POSE_NAMES,
+        "scene_light": {
+            key: {"ev_low": low, "ev_high": high, "label": label, "source": source}
+            for key, (low, high, label, source) in SCENE_LIGHT.items()
+        },
     }
 
     palette = plan.get("palette", ["#3b5d3b","#6b8e4e","#c4a35a","#d9d4c5"])
@@ -305,6 +349,8 @@ def generate_plan_html(plan):
     html = HTML_TEMPLATE
     site_css=(Path(__file__).resolve().parents[1]/"assets"/"site.css").read_text(encoding="utf-8")
     html = html.replace("__SITE_CSS__", site_css)
+    description = f"Diez tomas planificadas en {plan['location']} para Canon 6D, con diagramas a escala y ajustes para día, tarde y noche."
+    html = html.replace("__PLAN_DESCRIPTION__", description.replace('"', "&quot;"))
     html = html.replace("__PLAN_NAME__", plan["name"])
     html = html.replace("__PLAN_LOCATION__", plan["location"])
     html = html.replace("__DISTANCE__", plan["distance_from_home"])

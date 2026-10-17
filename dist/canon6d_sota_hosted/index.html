@@ -9,7 +9,18 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="format-detection" content="telephone=no">
-<title>FocalRuta · Planner Fotográfico de San Isidro</title>
+<title>FocalRuta · Planificador fotográfico de Lima para Canon 6D</title>
+<meta name="description" content="Seis rutas fotográficas por Lima con 60 tomas planificadas para Canon 6D: diagramas a escala, ajustes por hora con filtros ND, horas dorada y azul, y laboratorios de óptica y composición.">
+<link rel="canonical" href="https://pillb.github.io/focalruta/">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="FocalRuta">
+<meta property="og:title" content="FocalRuta · Planificador fotográfico de Lima">
+<meta property="og:description" content="60 tomas en seis rutas de Lima, con ajustes calculados para la luz de día, tarde y noche.">
+<meta property="og:url" content="https://pillb.github.io/focalruta/">
+<meta property="og:image" content="https://pillb.github.io/focalruta/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
 
 
 
@@ -21,9 +32,9 @@
 
 
 <link rel="stylesheet" href="./assets/hosted.css">
-<link rel="apple-touch-icon" href="./assets/icon-192.png">
 </head>
 <body class="bg-paper text-ink">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <!-- ============================================================ -->
 <!-- TOP NAVIGATION (sticky) -->
@@ -40,7 +51,7 @@
         </div>
         <div class="min-w-0">
           <h1 class="text-xs sm:text-base font-bold leading-tight truncate">FocalRuta · San Isidro</h1>
-          <p class="text-[10px] sm:text-xs text-slate-500 hidden sm:block">Hosted/PWA · 6 planes · 120 diagramas · SOTA labs</p>
+          <p class="text-[10px] sm:text-xs text-slate-500 hidden sm:block">Planificador para Canon 6D · Lima</p>
         </div>
       </div>
       <div class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto">
@@ -51,16 +62,17 @@
         <a href="#optics-lab" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Óptica</a>
         <a href="#lens-comparison" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Lentes</a>
         <a href="#tecnicas" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Técnicas</a>
-        <a href="#composicion" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Comp.</a>
+        <a href="#composicion" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Composición</a>
         <button id="visibility-toggle" type="button" class="visibility-toggle" aria-pressed="false">☀️ Modo sol</button>
-        <button type="button" onclick="openSessionRun()" title="Session Run" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Run</button>
-        <button type="button" onclick="openFieldCard()" title="Field Card" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap">📋</button>
+        <button type="button" onclick="openSessionRun()" title="Modo sesión: recorre las 10 tomas una a una" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Sesión</button>
+        <button type="button" onclick="openFieldCard()" title="Tarjeta de campo (Field Card)" aria-label="Abrir tarjeta de campo" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap">📋<span class="hdr-label"> Tarjeta</span></button>
         <button onclick="window.print()" title="Imprimir o guardar como PDF" class="px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold bg-ink text-white rounded-lg hover:bg-slate-700 transition whitespace-nowrap">PDF</button>
       </div>
     </div>
   </div>
 </nav>
 
+<main id="contenido">
 <!-- ============================================================ -->
 <!-- HERO SECTION -->
 <!-- ============================================================ -->
@@ -82,12 +94,12 @@
         Sistema de planificación fotográfica · Lima · San Isidro
       </div>
       <h2 class="hero-safe-title text-4xl md:text-6xl font-extrabold tracking-tight mb-6 animate-slide-up">
-        Planifica 10 técnicas<br/>
+        Planifica 10 tomas<br/>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-pink-400 to-emerald-300">con tu Canon 6D</span>
       </h2>
       <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-8 animate-slide-up" style="animation-delay:0.1s">
-        Diagramas profesionales generados en Python (matplotlib) con visualización de FoV, DoF,
-        ángulos de cámara y poses — para 35mm, 50mm, 85mm y zoom 35–80mm. Variantes con perro y con modelo humano.
+        Seis rutas por Lima con diagramas a escala de campo visual, zona nítida, ángulo y pose,
+        y ajustes de exposición calculados para la luz de día, tarde y noche. Para 35mm, 50mm, 85mm y zoom 35–80mm, con persona o con perro.
       </p>
       <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
         <span class="chip bg-white/10 text-white backdrop-blur">📷 6 planes</span>
@@ -108,9 +120,9 @@
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center rounded-2xl border-2 border-amber-300 bg-white p-5 sm:p-7 shadow-sm">
       <div>
-        <span class="chip bg-amber-100 text-amber-900 mb-3">Challenge especializado · Lima Metropolitana</span>
+        <span class="chip bg-amber-100 text-amber-900 mb-3">Guía especializada · Lima Metropolitana</span>
         <h3 id="architecture-challenge-title" class="text-2xl md:text-3xl font-bold mb-2">Fotografía arquitectónica</h3>
-        <p class="text-slate-700">Investiga 87 lugares y escenas con aprendizaje de perspectiva, ranking transparente, rutas peatonales por distrito, protocolo de campo offline y prevuelo de entrega.</p>
+        <p class="text-slate-700">Investiga 87 lugares y escenas con laboratorios de perspectiva y luz, una comparación transparente, rutas a pie por distrito y un protocolo de campo que funciona sin conexión.</p>
       </div>
       <a href="challenges/arquitectura-en-foco/" class="inline-flex min-h-12 items-center justify-center rounded-xl bg-amber-700 px-5 py-3 font-bold text-white shadow-sm transition hover:bg-amber-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-amber-500">Abrir fotografía arquitectónica →</a>
     </div>
@@ -126,7 +138,7 @@
     <div class="text-center mb-8">
       <span class="chip bg-emerald-100 text-emerald-700 mb-3">Empezar en 5 minutos</span>
       <h3 class="text-2xl md:text-3xl font-bold mb-2">Guía de inicio rápido</h3>
-      <p class="text-slate-600 text-sm">Si nunca has usado este planner, sigue estos 5 pasos.</p>
+      <p class="text-slate-600 text-sm">Si es tu primera vez, sigue estos 5 pasos.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
       <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
@@ -141,14 +153,14 @@
           <span class="step-number">2</span>
           <h4 class="font-bold text-sm">Selecciona sujeto</h4>
         </div>
-        <p class="text-xs text-slate-700">Toggle superior: 👤 Humano (con 10 poses) o 🐶 Perro (con 10 poses caninas).</p>
+        <p class="text-xs text-slate-700">Selector superior: 👤 Humano (10 poses) o 🐶 Perro (10 poses caninas).</p>
       </div>
       <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
         <div class="flex items-center gap-2 mb-2">
           <span class="step-number">3</span>
           <h4 class="font-bold text-sm">Selecciona hora</h4>
         </div>
-        <p class="text-xs text-slate-700">Toggle superior: ☀️ Día, 🌅 Tarde o 🌙 Noche. Los ajustes cambian por hora.</p>
+        <p class="text-xs text-slate-700">Selector superior: ☀️ Día, 🌅 Tarde o 🌙 Noche. Los ajustes, el filtro ND y la luz prevista cambian con la hora.</p>
       </div>
       <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
         <div class="flex items-center gap-2 mb-2">
@@ -160,7 +172,7 @@
       <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
         <div class="flex items-center gap-2 mb-2">
           <span class="step-number">5</span>
-          <h4 class="font-bold text-sm">Imprime el Field Card</h4>
+          <h4 class="font-bold text-sm">Lleva la tarjeta de campo</h4>
         </div>
         <p class="text-xs text-slate-700"><button type="button" onclick="openFieldCard()" class="text-blue-600 font-bold underline bg-transparent border-0 p-0">Abrir Field Card</button> con todas las técnicas, reglas y ajustes. Llévala al campo.</p>
       </div>
@@ -198,7 +210,7 @@
 <!-- OPTICAL_DECISION_LAB_V2_START -->
 <section id="optics-lab" class="py-16 bg-slate-950 text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8"><span class="chip optics-chip mb-3">Optical Decision Lab · geometría dinámica</span><h3 class="text-3xl md:text-4xl font-bold mb-3">Decide por resultado; comprueba la geometría</h3><p class="optics-intro max-w-3xl mx-auto">La focal, apertura, distancia de enfoque y separación del fondo influyen en la profundidad de campo. Este laboratorio separa medidas geométricas calculadas de una previsualización pedagógica del desenfoque.</p></div>
+    <div class="text-center mb-8"><span class="chip optics-chip mb-3">Laboratorio óptico · geometría dinámica</span><h3 class="text-3xl md:text-4xl font-bold mb-3">Decide por resultado; comprueba la geometría</h3><p class="optics-intro max-w-3xl mx-auto">La focal, apertura, distancia de enfoque y separación del fondo influyen en la profundidad de campo. Este laboratorio separa medidas geométricas calculadas de una previsualización pedagógica del desenfoque.</p></div>
     <div class="optics-layout">
       <div class="optics-visual-card">
         <div class="optics-panel-head"><div><span class="optics-eyebrow">MODELO ÓPTICO EN VIVO</span><strong>Plano de enfoque</strong></div><div class="optics-live-state" aria-hidden="true"><span id="opt-live-focal">85 mm</span><span id="opt-live-ap">f/1.8</span></div></div>
@@ -211,13 +223,13 @@
           <polygon id="opt-dof-band" class="opt-dof-band" points="120,250 520,250 570,90 70,90"/>
           <line id="opt-near-line" class="opt-nearfar" x1="90" x2="550" y1="280" y2="280"/><line id="opt-focus-line" class="opt-focus-line" x1="90" x2="550" y1="220" y2="220"/><line id="opt-far-line" class="opt-nearfar" x1="90" x2="550" y1="100" y2="100"/>
           <line id="opt-bg-line" class="opt-bg-line" x1="72" x2="568" y1="55" y2="55"/>
-          <text id="opt-bg-label" x="430" y="48" class="opt-label">FONDO</text><text id="opt-near-label" x="92" y="274" class="opt-label">NEAR</text><text id="opt-far-label" x="92" y="94" class="opt-label">FAR · UMBRAL CoC</text><text id="opt-defocus-label" x="430" y="74" class="opt-defocus-label">DESENFOQUE CRECIENTE</text>
+          <text id="opt-bg-label" x="430" y="48" class="opt-label">FONDO</text><text id="opt-near-label" x="92" y="274" class="opt-label">CERCA</text><text id="opt-far-label" x="92" y="94" class="opt-label">LEJOS · UMBRAL CoC</text><text id="opt-defocus-label" x="430" y="74" class="opt-defocus-label">DESENFOQUE CRECIENTE</text>
           <circle id="opt-subject" class="opt-subject-marker" cx="320" cy="220" r="14"/><text id="opt-subject-label" x="340" y="214" class="opt-label opt-label-focus">FOCO</text>
           <g transform="translate(288 409)" aria-hidden="true"><rect width="64" height="34" rx="6" fill="#fff"/><circle cx="32" cy="17" r="10" fill="#0f172a"/></g>
-          <text id="opt-light-label" x="585" y="438" text-anchor="end" class="opt-scale-note">EV — · exposición —</text><text x="320" y="460" text-anchor="middle" class="opt-scale-note">Escala logarítmica · DoF = umbral, no borde físico</text>
+          <text id="opt-light-label" x="585" y="438" text-anchor="end" class="opt-scale-note">EV — · exposición —</text><text x="320" y="460" text-anchor="middle" class="opt-scale-note">Escala logarítmica · la PDC es un umbral, no un borde físico</text>
         </svg><p class="viz-caption text-sm text-slate-200">Visualización: las líneas comparan campo de visión y profundidad de campo; el gráfico es una guía de relación, no una medición de tu cámara en ese instante.</p>
-        <div class="optics-legend" aria-label="Leyenda"><span><i class="legend-fov"></i>FoV</span><span><i class="legend-dof"></i>DoF aceptable</span><span><i class="legend-blur"></i>Desenfoque &gt; CoC</span><span><i class="legend-focus"></i>Foco</span><span><i class="legend-bg"></i>Fondo</span></div>
-        <div class="optics-preview" aria-label="Previsualización pedagógica de separación"><div class="preview-scene"><div id="opt-preview-bg" class="preview-background"></div><div class="preview-person" aria-hidden="true"></div><span>Previsualización conceptual</span></div><div><div class="optics-kicker">DISCO DE DESENFOQUE ESTIMADO</div><strong id="opt-blur">—</strong><p id="opt-blur-note">Modelo de lente delgada; no simula bokeh, aberraciones, luz ni exposición.</p></div></div>
+        <div class="optics-legend" role="group" aria-label="Leyenda"><span><i class="legend-fov"></i>Campo visual</span><span><i class="legend-dof"></i>PDC aceptable</span><span><i class="legend-blur"></i>Desenfoque &gt; CoC</span><span><i class="legend-focus"></i>Foco</span><span><i class="legend-bg"></i>Fondo</span></div>
+        <div class="optics-preview" role="group" aria-label="Previsualización pedagógica de separación"><div class="preview-scene"><div id="opt-preview-bg" class="preview-background"></div><div class="preview-person" aria-hidden="true"></div><span>Previsualización conceptual</span></div><div><div class="optics-kicker">DISCO DE DESENFOQUE ESTIMADO</div><strong id="opt-blur">—</strong><p id="opt-blur-note">Modelo de lente delgada; no simula bokeh, aberraciones, luz ni exposición.</p></div></div>
         <div class="optics-ab"><div class="optics-kicker">A/B · POSICIÓN Y PERSPECTIVA</div><div id="opt-ab"></div></div>
       </div>
       <div class="optics-control-card">
@@ -229,11 +241,11 @@
           <label>Apertura<select id="opt-ap" aria-describedby="opt-ap-help"></select><small id="opt-ap-help">Sólo pasos utilizables desde la apertura máxima del lente.</small></label>
           <label>Cámara → sujeto <output id="opt-dist-v" for="opt-dist">3.00 m</output><input id="opt-dist" type="range" min="0.9" max="15" step="0.1" value="3"></label>
           <label>Sujeto → fondo <output id="opt-bg-v" for="opt-bg">8.0 m</output><input id="opt-bg" type="range" min="0.5" max="30" step="0.5" value="8"></label>
-          <label>Luz de escena (EV100) <output id="opt-light-v" for="opt-light">EV 12</output><input id="opt-light" type="range" min="-6" max="16" step="1" value="12"><small>Noche oscura −6 · interior 6 · sombra 11 · sol 15.</small></label>
+          <label>Luz de escena (EV100) <output id="opt-light-v" for="opt-light">EV 12</output><input id="opt-light" type="range" min="-6" max="16" step="1" value="12"><small>Referencias ANSI: faroles 3–5 · casa 5–7 · hora azul 9–11 · sombra 12 · sol 15.</small></label>
           <label>Obturador<select id="opt-shutter"><option value="0.0005">1/2000 s</option><option value="0.001">1/1000 s</option><option value="0.002">1/500 s</option><option value="0.004">1/250 s</option><option value="0.008">1/125 s</option><option value="0.0167">1/60 s</option><option value="0.0333">1/30 s</option><option value="0.125">1/8 s</option><option value="0.5">1/2 s</option><option value="1">1 s</option><option value="2">2 s</option><option value="8">8 s</option><option value="15">15 s</option></select></label>
           <label>ISO<select id="opt-iso"><option>100</option><option>200</option><option>400</option><option>800</option><option>1600</option><option>3200</option><option>6400</option></select></label>
         </div>
-        <div class="optics-metrics" aria-live="polite"><div><output id="opt-fov">—</output><span>FoV horizontal</span></div><div><output id="opt-width">—</output><span>Ancho a foco</span></div><div><output id="opt-dof">—</output><span>Near → far</span></div><div><output id="opt-total">—</output><span>DoF total</span></div><div><output id="opt-split">—</output><span>Frente / detrás</span></div><div><output id="opt-hyper">—</output><span>Hiperfocal</span></div></div>
+        <div class="optics-metrics" aria-live="polite"><div><output id="opt-fov">—</output><span>Campo visual horizontal</span></div><div><output id="opt-width">—</output><span>Ancho a foco</span></div><div><output id="opt-dof">—</output><span>Nítido de → a</span></div><div><output id="opt-total">—</output><span>PDC total</span></div><div><output id="opt-split">—</output><span>Frente / detrás</span></div><div><output id="opt-hyper">—</output><span>Hiperfocal</span></div></div>
         <div class="optics-readouts"><div id="opt-status" class="optics-status" role="status" aria-live="polite"></div><div id="opt-exposure" class="optics-exposure" role="status">Exposición: —</div></div>
         <details class="optics-method"><summary>Cómo leer y qué no promete</summary><ul><li><b>FoV/ancho:</b> geometría del sensor 35.8 mm y focal seleccionada.</li><li><b>Near/far/hiperfocal:</b> lente delgada con CoC 0.030 mm, una convención de planificación; la nitidez cae continuamente, no salta en esos límites.</li><li><b>Capa violeta:</b> comienza donde el disco calculado supera el CoC y crece con la magnitud del desenfoque hacia el fondo.</li><li><b>Bokeh:</b> los discos enseñan cantidad de desenfoque, no la estética real, que depende también del diseño óptico, aberraciones y diafragma.</li><li><b>Luz/exposición:</b> EV, apertura, obturador e ISO calculan desviación tonal; luz, shutter e ISO no mueven la DoF geométrica.</li><li><b>Perspectiva:</b> sólo cambia al mover la cámara. Cambiar focal desde el mismo punto cambia encuadre.</li></ul></details>
       </div>
@@ -268,6 +280,137 @@
   </div>
 </section>
 
+<!-- LIMA_SUN_PANEL_START -->
+<section id="luz-lima" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="luz-lima-title">
+
+<div class="sun-panel">
+  <span class="chip bg-amber-100 text-amber-900 mb-2">Se calcula en tu dispositivo · funciona sin conexión</span>
+  <h3 id="luz-lima-title" class="text-2xl md:text-3xl font-bold mb-2">Luz en Lima para tu fecha</h3>
+  <p class="text-sm text-slate-700">Hora dorada: el sol está entre 6° sobre el horizonte y 4° bajo él. Hora azul: entre 4° y 6° bajo el horizonte. Ecuaciones solares de NOAA para San Isidro (UTC−5, sin horario de verano). La garúa puede apagar el color aunque el sol esté en hora.</p>
+  <label class="block text-sm font-bold mt-4" for="sun-date">Fecha de la sesión</label>
+  <input id="sun-date" class="sun-date mt-1" type="date">
+  <div id="sun-grid" class="sun-grid" aria-live="polite"></div>
+  <noscript><p id="sun-noscript" class="text-sm text-slate-700 mt-3">Sin JavaScript no se puede calcular tu fecha. Referencias: 21 de junio: sale 06:28, se pone 17:52 (azimut 294°), hora dorada de tarde 17:22–18:07; 21 de diciembre: sale 05:41, se pone 18:32 (azimut 246°), hora dorada de tarde 18:01–18:46.</p></noscript>
+</div>
+</section>
+<script id="sun-times-js">
+/* Sun times for Lima: JS twin of scripts/sun_times.py (NOAA general solar
+   position equations, https://gml.noaa.gov/grad/solcalc/calcdetails.html).
+   Golden hour: sun between +6° and −4°; blue hour: −4° to −6°. */
+(function (root) {
+  'use strict';
+  var LAT = -12.097, LON = -77.036, UTC_OFFSET_H = -5;
+  var SUNRISE = -0.833, CIVIL = -6, GOLDEN_HIGH = 6, BLUE_GOLDEN = -4;
+  var rad = Math.PI / 180, deg = 180 / Math.PI;
+
+  function julianDay(iso) {
+    var p = iso.split('-').map(Number), y = p[0], m = p[1], d = p[2];
+    if (m <= 2) { y -= 1; m += 12; }
+    var a = Math.floor(y / 100), b = 2 - a + Math.floor(a / 4);
+    return Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + d + b - 1524.5;
+  }
+
+  function declinationAndEot(jd) {
+    var t = (jd - 2451545) / 36525;
+    var l0 = ((280.46646 + t * (36000.76983 + t * 0.0003032)) % 360 + 360) % 360;
+    var m = (357.52911 + t * (35999.05029 - 0.0001537 * t)) * rad;
+    var e = 0.016708634 - t * (0.000042037 + 0.0000001267 * t);
+    var c = Math.sin(m) * (1.914602 - t * (0.004817 + 0.000014 * t)) +
+            Math.sin(2 * m) * (0.019993 - 0.000101 * t) + Math.sin(3 * m) * 0.000289;
+    var omega = (125.04 - 1934.136 * t) * rad;
+    var lambda = (l0 + c - 0.00569 - 0.00478 * Math.sin(omega)) * rad;
+    var meanObliq = 23 + (26 + (21.448 - t * (46.815 + t * (0.00059 - t * 0.001813))) / 60) / 60;
+    var obliq = (meanObliq + 0.00256 * Math.cos(omega)) * rad;
+    var dec = Math.asin(Math.sin(obliq) * Math.sin(lambda)) * deg;
+    var y = Math.pow(Math.tan(obliq / 2), 2), l0r = l0 * rad;
+    var eot = 4 * deg * (y * Math.sin(2 * l0r) - 2 * e * Math.sin(m) + 4 * e * y * Math.sin(m) * Math.cos(2 * l0r) -
+                         0.5 * y * y * Math.sin(4 * l0r) - 1.25 * e * e * Math.sin(2 * m));
+    return [dec, eot];
+  }
+
+  function eventMinutes(iso, elevation, rising, offsetH) {
+    var jd0 = julianDay(iso), minutesUtc = 720 - 4 * LON;
+    for (var i = 0; i < 3; i++) {
+      var de = declinationAndEot(jd0 + minutesUtc / 1440);
+      var phi = LAT * rad, delta = de[0] * rad;
+      var cosH = (Math.sin(elevation * rad) - Math.sin(phi) * Math.sin(delta)) / (Math.cos(phi) * Math.cos(delta));
+      if (cosH < -1 || cosH > 1) return null;
+      var hourAngle = Math.acos(cosH) * deg, noonUtc = 720 - 4 * LON - de[1];
+      minutesUtc = rising ? noonUtc - 4 * hourAngle : noonUtc + 4 * hourAngle;
+    }
+    return minutesUtc + (offsetH === undefined ? UTC_OFFSET_H : offsetH) * 60;
+  }
+
+  function sunsetAzimuth(iso) {
+    var minutesUtc = eventMinutes(iso, SUNRISE, false, 0);
+    var de = declinationAndEot(julianDay(iso) + minutesUtc / 1440);
+    var phi = LAT * rad, delta = de[0] * rad, h = SUNRISE * rad;
+    var cosAz = (Math.sin(delta) - Math.sin(phi) * Math.sin(h)) / (Math.cos(phi) * Math.cos(h));
+    return 360 - Math.acos(Math.max(-1, Math.min(1, cosAz))) * deg;
+  }
+
+  function dayPlan(iso) {
+    return {
+      blue_am_start: eventMinutes(iso, CIVIL, true),
+      golden_am_start: eventMinutes(iso, BLUE_GOLDEN, true),
+      sunrise: eventMinutes(iso, SUNRISE, true),
+      golden_am_end: eventMinutes(iso, GOLDEN_HIGH, true),
+      golden_pm_start: eventMinutes(iso, GOLDEN_HIGH, false),
+      sunset: eventMinutes(iso, SUNRISE, false),
+      golden_pm_end: eventMinutes(iso, BLUE_GOLDEN, false),
+      blue_pm_end: eventMinutes(iso, CIVIL, false),
+      sunset_azimuth: sunsetAzimuth(iso)
+    };
+  }
+
+  function clock(minutes) {
+    var total = Math.round(minutes);
+    return String(Math.floor(total / 60)).padStart(2, '0') + ':' + String(total % 60).padStart(2, '0');
+  }
+
+  function compass(bearing) {
+    var names = ['norte', 'nor-noreste', 'noreste', 'este-noreste', 'este', 'este-sureste', 'sureste', 'sur-sureste',
+                 'sur', 'sur-suroeste', 'suroeste', 'oeste-suroeste', 'oeste', 'oeste-noroeste', 'noroeste', 'nor-noroeste'];
+    return names[Math.round(bearing / 22.5) % 16];
+  }
+
+  // Today's date in Lima for an instant in ms. Peru has kept UTC-5 all year
+  // since 1994, so a fixed shift read with UTC getters is exact; the reader's
+  // own zone, and its daylight-saving changes, never enter the arithmetic.
+  function limaToday(ms) {
+    var lima = new Date(ms - 5 * 3600000);
+    return lima.getUTCFullYear() + '-' + String(lima.getUTCMonth() + 1).padStart(2, '0') + '-' +
+      String(lima.getUTCDate()).padStart(2, '0');
+  }
+
+  var api = { dayPlan: dayPlan, clock: clock, compass: compass, eventMinutes: eventMinutes, limaToday: limaToday };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else root.LimaSun = api;
+})(typeof window !== 'undefined' ? window : this);
+</script>
+<script>
+(function(){
+  var input=document.getElementById('sun-date'), grid=document.getElementById('sun-grid');
+  if(!input||!grid||!window.LimaSun) return;
+  var S=window.LimaSun;
+  input.value=S.limaToday(Date.now());
+  function cell(cls,label,value,note){return '<div class="sun-cell '+cls+'"><span>'+label+'</span><b>'+value+'</b>'+(note?'<span>'+note+'</span>':'')+'</div>';}
+  function render(){
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(input.value)) return;
+    var p=S.dayPlan(input.value), c=S.clock;
+    grid.innerHTML=
+      cell('blue','Hora azul · mañana',c(p.blue_am_start)+'–'+c(p.golden_am_start))+
+      cell('gold','Hora dorada · mañana',c(p.golden_am_start)+'–'+c(p.golden_am_end))+
+      cell('','Sale el sol',c(p.sunrise))+
+      cell('gold','Hora dorada · tarde',c(p.golden_pm_start)+'–'+c(p.golden_pm_end))+
+      cell('','Se pone el sol',c(p.sunset),'por el '+S.compass(p.sunset_azimuth)+', rumbo '+Math.round(p.sunset_azimuth)+'°')+
+      cell('blue','Hora azul · tarde',c(p.golden_pm_end)+'–'+c(p.blue_pm_end));
+  }
+  input.addEventListener('change',render); input.addEventListener('input',render); render();
+})();
+</script>
+<!-- LIMA_SUN_PANEL_END -->
+
 <!-- ============================================================ -->
 <!-- PLANES SECTION -->
 <!-- ============================================================ -->
@@ -275,7 +418,7 @@
   <div class="text-center mb-12">
     <span class="chip bg-blue-100 text-blue-700 mb-3">6 planes alternativos</span>
     <h3 class="text-3xl md:text-4xl font-bold mb-3">Elige tu plan de sesión</h3>
-    <p class="text-slate-600 max-w-2xl mx-auto">Cada plan cubre las 10 fotos solicitadas. Se recuperaron Home/Building Lab y Abtao sin perder los cuatro planes más recientes. Tres ventanas horarias (día / tarde / noche) y dos sujetos (humano / perro) se pueden activar con los toggles superiores.</p>
+    <p class="text-slate-600 max-w-2xl mx-auto">Cada plan cubre las 10 tomas. Cambia la hora (día, tarde o noche) y el sujeto (persona o perro) con los selectores superiores; los ajustes de cada tarjeta se recalculan para esa luz.</p>
   </div>
   <div id="plan-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     <!-- plan cards injected by JS -->
@@ -296,8 +439,8 @@
 <!-- ============================================================ -->
 <section id="tecnicas" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="text-center mb-12">
-    <span class="chip bg-emerald-100 text-emerald-700 mb-3">10 técnicas</span>
-    <h3 class="text-3xl md:text-4xl font-bold mb-3">Las 10 técnicas fotográficas</h3>
+    <span class="chip bg-emerald-100 text-emerald-700 mb-3">8 técnicas</span>
+    <h3 class="text-3xl md:text-4xl font-bold mb-3">Las 8 técnicas de las 10 tomas</h3>
     <p class="text-slate-600 max-w-2xl mx-auto">De mucha profundidad de campo a zooming — cada técnica explicada con su fundamento óptico y los ajustes recomendados.</p>
   </div>
   <div id="techniques-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
@@ -307,15 +450,15 @@
 <!-- SOTA_MOTION_LAB_START -->
 <section id="motion-lab" class="py-16 bg-gradient-to-b from-white to-slate-50 border-y border-slate-200">
  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="text-center mb-9"><span class="chip bg-rose-100 text-rose-700 mb-3">Temporal Motion Lab</span><h3 class="text-3xl md:text-4xl font-bold mb-3">El obturador dibuja tiempo</h3><p class="text-slate-600 max-w-3xl mx-auto">Compara cómo cambia la huella temporal al variar velocidad, movimiento y seguimiento. Es un estimador pedagógico de tendencia, no un exposímetro ni una simulación óptica pixel-perfect.</p></div>
+  <div class="text-center mb-9"><span class="chip bg-rose-100 text-rose-700 mb-3">Laboratorio de movimiento</span><h3 class="text-3xl md:text-4xl font-bold mb-3">El obturador dibuja tiempo</h3><p class="text-slate-600 max-w-3xl mx-auto">Compara cómo cambia la huella temporal al variar velocidad, movimiento y seguimiento. Es un estimador pedagógico de tendencia, no un exposímetro ni una simulación óptica pixel-perfect.</p></div>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-   <div class="motion-stage" id="motion-stage" aria-label="Simulación conceptual de movimiento"><div class="motion-bg-lines" id="motion-bg-lines"></div><div class="motion-road"></div><div class="motion-trail" id="motion-trail"></div><div class="motion-light" id="motion-light" hidden></div><div class="motion-radial" id="motion-radial" hidden></div><div class="motion-ghost" id="motion-ghost" hidden></div><div class="motion-subject" id="motion-subject"></div><div class="motion-caption" id="motion-caption"></div></div>
+   <div class="motion-stage" id="motion-stage" role="group" aria-label="Simulación conceptual de movimiento"><div class="motion-bg-lines" id="motion-bg-lines"></div><div class="motion-road"></div><div class="motion-trail" id="motion-trail"></div><div class="motion-light" id="motion-light" hidden></div><div class="motion-radial" id="motion-radial" hidden></div><div class="motion-ghost" id="motion-ghost" hidden></div><div class="motion-subject" id="motion-subject"></div><div class="motion-caption" id="motion-caption"></div></div>
    <div class="sota-card">
-    <div class="sota-kicker">EFECTO</div><div id="motion-modes" class="sota-actions mt-2 mb-5"><button class="sota-btn is-active" data-motion="freeze">Congelado</button><button class="sota-btn" data-motion="pan">Barrido</button><button class="sota-btn" data-motion="ghost">Fantasma</button><button class="sota-btn" data-motion="trails">Trazas</button><button class="sota-btn" data-motion="paint">Lightpaint</button><button class="sota-btn" data-motion="zoom">Zooming</button></div>
+    <div class="sota-kicker">EFECTO</div><div id="motion-modes" class="sota-actions mt-2 mb-5"><button class="sota-btn is-active" data-motion="freeze">Congelado</button><button class="sota-btn" data-motion="pan">Barrido</button><button class="sota-btn" data-motion="ghost">Fantasma</button><button class="sota-btn" data-motion="trails">Trazas</button><button class="sota-btn" data-motion="paint">Pintura con luz</button><button class="sota-btn" data-motion="zoom">Zooming</button></div>
     <label class="block text-sm font-bold mb-4">Exposición <b id="motion-shutter-v">1/2000 s</b><input id="motion-shutter" type="range" min="0" max="100" value="5" class="w-full mt-2"></label>
     <label class="block text-sm font-bold mb-4">Movimiento relativo <b id="motion-speed-v">rápido</b><input id="motion-speed" type="range" min="1" max="10" value="7" class="w-full mt-2"></label>
     <label class="block text-sm font-bold">Calidad de seguimiento <b id="motion-track-v">80%</b><input id="motion-track" type="range" min="0" max="100" value="80" class="w-full mt-2"></label>
-    <div class="sota-grid3 mt-5"><div class="sota-card"><div id="motion-span" class="sota-metric">—<small>huella relativa</small></div></div><div class="sota-card"><div id="motion-risk" class="sota-metric">—<small>riesgo de blur</small></div></div><div class="sota-card"><div id="motion-target" class="sota-metric">—<small>baseline</small></div></div></div>
+    <div class="sota-grid3 mt-5"><div class="sota-card"><div id="motion-span" class="sota-metric">—<small>huella relativa</small></div></div><div class="sota-card"><div id="motion-risk" class="sota-metric">—<small>riesgo de trepidación</small></div></div><div class="sota-card"><div id="motion-target" class="sota-metric">—<small>referencia</small></div></div></div>
     <p id="motion-lesson" class="text-xs leading-relaxed text-slate-600 mt-4 bg-slate-50 rounded-xl p-3"></p>
    </div>
   </div>
@@ -367,10 +510,10 @@
 <!-- SOTA_COMPOSITION_LAB_START -->
 <section id="composition-lab" class="py-16 bg-white">
  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="text-center mb-9"><span class="chip bg-violet-100 text-violet-700 mb-3">Composition Sandbox</span><h3 class="text-3xl md:text-4xl font-bold mb-3">Mueve el sujeto y prueba la intención</h3><p class="text-slate-600 max-w-3xl mx-auto">Toca o arrastra dentro del frame 3:2 y enciende overlays. El objetivo no es “obedecer reglas”, sino ver cómo cambian balance, tensión, dirección y espacio negativo.</p></div>
+  <div class="text-center mb-9"><span class="chip bg-violet-100 text-violet-700 mb-3">Laboratorio de composición</span><h3 class="text-3xl md:text-4xl font-bold mb-3">Mueve el sujeto y prueba la intención</h3><p class="text-slate-600 max-w-3xl mx-auto">Toca o arrastra dentro del encuadre 3:2 y activa las guías. El objetivo no es “obedecer reglas”, sino ver cómo cambian balance, tensión, dirección y espacio negativo.</p></div>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-    <div class="comp-stage" id="comp-stage" tabindex="0" aria-label="Lienzo interactivo de composición. Usa flechas para mover el sujeto."><div id="comp-third" class="comp-grid-third"></div><div id="comp-center" class="comp-center" hidden></div><div id="comp-frame" class="comp-frame" hidden></div><div id="comp-leading" class="comp-leading" hidden></div><div class="comp-neg">espacio negativo</div><div id="comp-subject" class="comp-subject" role="img" aria-label="Sujeto"></div></div>
-    <div class="sota-card"><div class="sota-kicker">OVERLAYS</div><div class="sota-actions mt-2" id="comp-controls"><button class="sota-btn is-active" data-comp="third">Tercios</button><button class="sota-btn" data-comp="center">Simetría</button><button class="sota-btn" data-comp="frame">Enmarcado</button><button class="sota-btn" data-comp="leading">Perspectiva</button></div><div class="sota-grid2 mt-5"><div class="sota-card"><div class="sota-kicker">POSICIÓN</div><div id="comp-pos" class="font-black text-xl mt-1">66%, 67%</div></div><div class="sota-card"><div class="sota-kicker">LECTURA</div><div id="comp-reading" class="text-sm font-bold mt-1">Tercio inferior derecho</div></div></div><p id="comp-lesson" class="text-xs text-slate-600 leading-relaxed mt-4 bg-slate-50 rounded-xl p-3">Prueba primero un tercio; luego centra el sujeto y enciende simetría. Si la imagen mejora al centrar, la simetría está sirviendo mejor que la regla de tercios.</p></div>
+    <div class="comp-stage" id="comp-stage" tabindex="0" role="application" aria-label="Lienzo interactivo de composición. Usa flechas para mover el sujeto."><div id="comp-third" class="comp-grid-third"></div><div id="comp-center" class="comp-center" hidden></div><div id="comp-frame" class="comp-frame" hidden></div><div id="comp-leading" class="comp-leading" hidden></div><div class="comp-neg">espacio negativo</div><div id="comp-subject" class="comp-subject" role="img" aria-label="Sujeto"></div></div>
+    <div class="sota-card"><div class="sota-kicker">GUÍAS</div><div class="sota-actions mt-2" id="comp-controls"><button class="sota-btn is-active" data-comp="third">Tercios</button><button class="sota-btn" data-comp="center">Simetría</button><button class="sota-btn" data-comp="frame">Enmarcado</button><button class="sota-btn" data-comp="leading">Perspectiva</button></div><div class="sota-grid2 mt-5"><div class="sota-card"><div class="sota-kicker">POSICIÓN</div><div id="comp-pos" class="font-black text-xl mt-1">66%, 67%</div></div><div class="sota-card"><div class="sota-kicker">LECTURA</div><div id="comp-reading" class="text-sm font-bold mt-1">Tercio inferior derecho</div></div></div><p id="comp-lesson" class="text-xs text-slate-600 leading-relaxed mt-4 bg-slate-50 rounded-xl p-3">Prueba primero un tercio; luego centra el sujeto y enciende simetría. Si la imagen mejora al centrar, la simetría está sirviendo mejor que la regla de tercios.</p></div>
   </div>
  </div>
 </section>
@@ -401,20 +544,20 @@
     <div class="space-y-8">
       <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
         <h4 class="font-bold text-xl mb-2">Distancia corta: 2.5m (retrato 3/4)</h4>
-        <p class="text-sm text-slate-600 mb-4">A 2.5m el 35mm da un retrato ambiental con contexto; el 50mm un half-body natural; el 85mm un head-and-shoulders íntimo.</p>
+        <p class="text-sm text-slate-600 mb-4">A 2,5 m el 35mm da un retrato ambiental con contexto; el 50mm, un plano medio natural; el 85mm, un primer plano de cabeza y hombros.</p>
         <div class="diagram-frame rounded-lg overflow-hidden">
           <img src="./diagrams-webp/lens_comparison_25cm.webp" alt="Comparativa 35/50/85 a 2.5m" loading="lazy" />
         </div>
       </div>
       <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-        <h4 class="font-bold text-xl mb-2">Distancia media: 4m (half-body + entorno)</h4>
-        <p class="text-sm text-slate-600 mb-4">A 4m el 35mm permite full-body con fondo; el 50mm aísla más al sujeto; el 85mm da un retrato comprimido con fondo muy desenfocado.</p>
+        <h4 class="font-bold text-xl mb-2">Distancia media: 4 m (plano medio + entorno)</h4>
+        <p class="text-sm text-slate-600 mb-4">A 4 m el 35mm permite cuerpo entero con fondo; el 50mm aísla más al sujeto; el 85mm encuadra sólo el torso y, a f/1.8, deja el fondo muy desenfocado.</p>
         <div class="diagram-frame rounded-lg overflow-hidden">
           <img src="./diagrams-webp/lens_comparison_40cm.webp" alt="Comparativa 35/50/85 a 4m" loading="lazy" />
         </div>
       </div>
       <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-        <h4 class="font-bold text-xl mb-2">Distancia larga: 6m (full-body ambiental)</h4>
+        <h4 class="font-bold text-xl mb-2">Distancia larga: 6 m (cuerpo entero ambiental)</h4>
         <p class="text-sm text-slate-600 mb-4">A 6 m, desde el MISMO punto, el 35mm da un plano amplio, el 50mm uno más cerrado y el 85mm un encuadre mucho más estrecho. La perspectiva geométrica no cambia hasta que mueves la cámara.</p>
         <div class="diagram-frame rounded-lg overflow-hidden">
           <img src="./diagrams-webp/lens_comparison_60cm.webp" alt="Comparativa 35/50/85 a 6m" loading="lazy" />
@@ -422,11 +565,11 @@
       </div>
     </div>
     <div class="mt-8 p-6 bg-amber-50 border-l-4 border-amber-400 rounded-lg">
-      <h4 class="font-bold text-amber-900 mb-2">KEY TAKEAWAYS</h4>
+      <h4 class="font-bold text-amber-900 mb-2">Claves</h4>
       <ul class="text-sm text-amber-900 space-y-1 list-disc list-inside">
-        <li><strong>FoV</strong>: 35mm ve 54°, 50mm 40°, 85mm 24° — el 85mm "recorta" 1/3 de lo que ve el 35mm.</li>
-        <li><strong>Perspectiva</strong>: desde la MISMA posición de cámara, cambiar focal cambia FoV/encuadre, no la relación geométrica entre sujeto y fondo. La “compresión tele” aparece cuando te alejas para conservar un encuadre similar.</li>
-        <li><strong>DoF comparativa justa</strong>: a 2.5m y <strong>f/2 común</strong> → 35mm ≈61cm, 50mm ≈29cm, 85mm ≈10cm (CoC 0.03mm; aproximación de planificación).</li>
+        <li><strong>Campo visual</strong>: en horizontal el 35mm ve 54°, el 50mm 39° y el 85mm 24°; el 85mm abarca ≈2/5 del ancho que ve el 35mm.</li>
+        <li><strong>Perspectiva</strong>: desde la MISMA posición de cámara, cambiar focal cambia el encuadre, no la relación geométrica entre sujeto y fondo. La “compresión tele” aparece cuando te alejas para conservar un encuadre similar.</li>
+        <li><strong>PDC comparada con justicia</strong>: a 2,5 m y <strong>f/2 en los tres</strong> → 35mm ≈62 cm, 50mm ≈30 cm, 85mm ≈10 cm (CoC 0,03 mm; aproximación de planificación).</li>
         <li><strong>Rostro/perspectiva</strong>: la apariencia “estirada” al acercarte con 35mm viene sobre todo de la corta distancia de cámara. Para un retrato más tranquilo, retrocede y reencuadra con 50/85mm.</li>
       </ul>
     </div>
@@ -437,22 +580,22 @@
 <section id="pose-coach" class="py-16 bg-gradient-to-b from-[#f6f0e1] to-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10">
-      <span class="chip bg-amber-100 text-amber-800 mb-3">PoseArt recuperado + actualizado</span>
-      <h3 class="text-3xl md:text-4xl font-bold mb-3">Pose Coach · qué hacer con el cuerpo y por qué</h3>
-      <p class="text-slate-600 max-w-3xl mx-auto">La primera versión tenía instrucciones de pose muy concretas. Las recuperamos sin convertir el planner en otra app: selecciona una familia y úsala como <strong>cue</strong> para la toma humana. El proyecto PoseArt sirve como referencia ampliada para explorar variaciones.</p>
+      <span class="chip bg-amber-100 text-amber-800 mb-3">Guía de poses</span>
+      <h3 class="text-3xl md:text-4xl font-bold mb-3">Guía de poses · qué hacer con el cuerpo y por qué</h3>
+      <p class="text-slate-600 max-w-3xl mx-auto">Elige una familia de pose y úsala como <strong>indicación</strong> para la toma con persona: qué hace el cuerpo, dónde va la cámara y qué error evitar.</p>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-[0.72fr_1.28fr] gap-6 items-start">
       <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4">
         <div id="pose-coach-buttons" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2"></div>
       </div>
       <div class="bg-slate-950 text-white rounded-2xl p-6 shadow-xl min-h-[280px]">
-        <div class="flex flex-wrap items-start justify-between gap-3 mb-5"><div><div class="text-[10px] tracking-[.18em] uppercase text-amber-300 font-black">POSE CUE</div><h4 id="pose-coach-title" class="text-2xl font-black mt-1">S-Curve Stand</h4></div><span id="pose-coach-use" class="chip bg-white/10 text-white">Retrato 3/4</span></div>
+        <div class="flex flex-wrap items-start justify-between gap-3 mb-5"><div><div class="text-[10px] tracking-[.18em] uppercase text-amber-300 font-black">INDICACIÓN</div><h4 id="pose-coach-title" class="text-2xl font-black mt-1">Curva en S</h4></div><span id="pose-coach-use" class="chip bg-white/10 text-white">Retrato 3/4</span></div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div class="bg-white/5 border border-white/10 rounded-xl p-4"><div class="text-xs font-black text-emerald-300 mb-2">CUERPO</div><p id="pose-coach-cue" class="text-slate-200 leading-relaxed"></p></div>
           <div class="bg-white/5 border border-white/10 rounded-xl p-4"><div class="text-xs font-black text-blue-300 mb-2">CÁMARA / COMPOSICIÓN</div><p id="pose-coach-camera" class="text-slate-200 leading-relaxed"></p></div>
         </div>
         <div class="mt-4 bg-amber-400/10 border border-amber-300/20 rounded-xl p-4"><div class="text-xs font-black text-amber-300 mb-1">ERROR TÍPICO</div><p id="pose-coach-avoid" class="text-sm text-slate-200"></p></div>
-        <p class="text-[11px] text-slate-400 mt-4">PoseArt documenta una biblioteca mucho más amplia; aquí usamos sólo familias que ayudan directamente a las 10 consignas fotográficas.</p>
+        <p class="text-[11px] text-slate-400 mt-4">La biblioteca PoseArt reúne muchas más variaciones; aquí sólo están las familias que sirven directamente a las 10 tomas.</p>
       </div>
     </div>
   </div>
@@ -475,21 +618,21 @@
           <span class="step-number">1</span>
           <div>
             <h4 class="text-xl font-bold mb-2">Distancia cámara ↔ sujeto</h4>
-            <p class="text-slate-700 leading-relaxed">La <strong>posición/distancia de cámara</strong> determina la perspectiva: cambia la relación aparente entre nariz, orejas, sujeto y fondo. La focal cambia FoV y magnificación. Si eliges 85mm y retrocedes para conservar el mismo encuadre, es ese retroceso el que produce la apariencia más “comprimida”.</p>
+            <p class="text-slate-700 leading-relaxed">La <strong>posición/distancia de cámara</strong> determina la perspectiva: cambia la relación aparente entre nariz, orejas, sujeto y fondo. La focal cambia el campo visual y el tamaño en el encuadre. Si eliges 85mm y retrocedes para conservar el mismo encuadre, es ese retroceso el que produce la apariencia más “comprimida”.</p>
           </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
           <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
             <div class="text-xs font-bold text-blue-700 mb-1">35mm · 4m</div>
-            <div class="text-xs text-slate-700">Full-body + entorno. Perspectiva natural, fondo visible.</div>
+            <div class="text-xs text-slate-700">Cuerpo entero + entorno (cubre ≈4,1 × 2,7 m). Fondo visible.</div>
           </div>
           <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
             <div class="text-xs font-bold text-blue-700 mb-1">50mm · 3m</div>
-            <div class="text-xs text-slate-700">Half-body. Perspectiva "humana" (similar al ojo).</div>
+            <div class="text-xs text-slate-700">Plano medio a cuerpo entero (cubre ≈2,2 × 1,4 m).</div>
           </div>
           <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
             <div class="text-xs font-bold text-blue-700 mb-1">85mm · 2.5m</div>
-            <div class="text-xs text-slate-700">Head & shoulders. Requiere más distancia para un encuadre equivalente; bokeh fuerte.</div>
+            <div class="text-xs text-slate-700">Busto (cubre ≈1,1 × 0,7 m); fondo muy desenfocado a f/1.8.</div>
           </div>
         </div>
       </div>
@@ -518,7 +661,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
           <div class="bg-purple-50 rounded-lg p-4 border border-purple-100">
             <div class="text-xs font-bold text-purple-700 mb-1">35mm = historia + entorno</div>
-            <div class="text-xs text-slate-700">Para mucho PDC, capas, contexto ambient. El sujeto + su mundo.</div>
+            <div class="text-xs text-slate-700">Para mucha PDC, capas y contexto: el sujeto y su mundo.</div>
           </div>
           <div class="bg-purple-50 rounded-lg p-4 border border-purple-100">
             <div class="text-xs font-bold text-purple-700 mb-1">85mm = aislamiento + retrato</div>
@@ -570,7 +713,7 @@
           <span class="step-number">6</span>
           <div>
             <h4 class="text-xl font-bold mb-2">Composición = jerarquía visual</h4>
-            <p class="text-slate-700 leading-relaxed">La regla aplicada dirige el ojo del espectador. <strong>Tercios</strong>: equilibrio dinámico. <strong>Simetría</strong>: orden, calma. <strong>Perspectiva</strong>: profundidad. <strong>Enmarcado</strong>: foco al sujeto. <strong>Espacio negativo</strong>: aislamiento, respiración. <strong>Capas</strong>: profundidad real con FG/MID/BG.</p>
+            <p class="text-slate-700 leading-relaxed">La regla aplicada dirige el ojo del espectador. <strong>Tercios</strong>: equilibrio dinámico. <strong>Simetría</strong>: orden, calma. <strong>Perspectiva</strong>: profundidad. <strong>Enmarcado</strong>: foco al sujeto. <strong>Espacio negativo</strong>: aislamiento, respiración. <strong>Capas</strong>: profundidad real con primer plano, plano medio y fondo.</p>
           </div>
         </div>
       </div>
@@ -582,15 +725,15 @@
 <!-- LEEME / FOOTER -->
 <!-- ============================================================ -->
 
-<section id="validation" class="py-16 bg-slate-950 text-white">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-10"><span class="chip bg-white/10 text-emerald-300 mb-3">Regression audit</span><h3 class="text-3xl md:text-4xl font-bold mb-3">Lo mejor de cada versión, sin regresiones</h3><p class="text-slate-300 max-w-3xl mx-auto">La versión maestra conserva la interfaz iPhone, Field Card, diagramas 2D/2.5D, horarios, poses y comparador de lentes; recupera el laboratorio óptico, Home Lab, Abtao, QA visible y fuentes.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4"><div class="bg-white/5 border border-white/10 rounded-2xl p-5"><div class="text-emerald-300 font-black mb-2">RECUPERADO</div><p class="text-sm text-slate-300">6 planes, Optical Lab interactivo, Home/Building Lab, Abtao/Distrito Financiero, metodología y fuentes.</p></div><div class="bg-white/5 border border-white/10 rounded-2xl p-5"><div class="text-blue-300 font-black mb-2">CONSERVADO</div><p class="text-sm text-slate-300">iPhone standalone, 120 diagramas, Human/Perro, Día/Tarde/Noche, poses, Field Card, composición y guía.</p></div><div class="bg-white/5 border border-white/10 rounded-2xl p-5"><div class="text-amber-300 font-black mb-2">CORREGIDO</div><p class="text-sm text-slate-300">Nadir↑ vs Cenital↓, óptica de perspectiva, aperturas reales, MFD/filtros, fantasma con persona y larga exposición urbana sin perro.</p></div></div></div></section>
-<section id="sources" class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-8"><span class="chip bg-blue-100 text-blue-700 mb-3">Metodología</span><h3 class="text-3xl font-bold mb-2">Fuentes y supuestos</h3><p class="text-sm text-slate-600">Prioridad a documentación Canon; cálculos ópticos con sensor 35.8×23.9mm y CoC 0.03mm como convención de planificación, no frontera física de nitidez.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm"><a class="source-link" href="https://global.canon/en/c-museum/product/dslr813.html" target="_blank" rel="noopener">Canon Camera Museum · EOS 6D</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef426.html" target="_blank" rel="noopener">Canon Camera Museum · EF 35mm f/2 IS USM</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef451.html" target="_blank" rel="noopener">Canon Camera Museum · EF 50mm f/1.8 STM</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef313.html" target="_blank" rel="noopener">Canon Camera Museum · EF 85mm f/1.8 USM</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef324.html" target="_blank" rel="noopener">Canon Camera Museum · EF 35–80mm f/4–5.6 III</a><a class="source-link" href="https://files.canon-europe.com/files/webcontent/rf-lens-world/knowledge/depth-of-field/index.html" target="_blank" rel="noopener">Canon · Depth of field</a><a class="source-link" href="https://files.canon-europe.com/files/webcontent/rf-lens-world/knowledge/perspective/index.html" target="_blank" rel="noopener">Canon · Perspectiva y focal</a><a class="source-link" href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener">W3C · WCAG 2.2</a><a class="source-link" href="https://github.com/PillB/PoseArt" target="_blank" rel="noopener">PillB/PoseArt · biblioteca y coaching de poses</a></div></div></section>
+
+<section id="sources" class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-8"><span class="chip bg-blue-100 text-blue-700 mb-3">Metodología</span><h3 class="text-3xl font-bold mb-2">Fuentes y supuestos</h3><p class="text-sm text-slate-600">Prioridad a documentación Canon; cálculos ópticos con sensor 35.8×23.9mm y CoC 0.03mm como convención de planificación, no frontera física de nitidez.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm"><a class="source-link" href="https://global.canon/en/c-museum/product/dslr813.html" target="_blank" rel="noopener">Canon Camera Museum · EOS 6D</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef426.html" target="_blank" rel="noopener">Canon Camera Museum · EF 35mm f/2 IS USM</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef451.html" target="_blank" rel="noopener">Canon Camera Museum · EF 50mm f/1.8 STM</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef313.html" target="_blank" rel="noopener">Canon Camera Museum · EF 85mm f/1.8 USM</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef324.html" target="_blank" rel="noopener">Canon Camera Museum · EF 35–80mm f/4–5.6 III</a><a class="source-link" href="https://files.canon-europe.com/files/webcontent/rf-lens-world/knowledge/depth-of-field/index.html" target="_blank" rel="noopener">Canon · Depth of field</a><a class="source-link" href="https://en.wikipedia.org/wiki/Perspective_distortion" target="_blank" rel="noopener">Perspectiva: depende de la posición</a><a class="source-link" href="https://en.wikipedia.org/wiki/Exposure_value#Tabulated_exposure_values" target="_blank" rel="noopener">Tabla de EV por escena (ANSI PH2.7)</a><a class="source-link" href="https://gml.noaa.gov/grad/solcalc/calcdetails.html" target="_blank" rel="noopener">NOAA · cálculo solar</a><a class="source-link" href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener">W3C · WCAG 2.2</a><a class="source-link" href="https://github.com/PillB/PoseArt" target="_blank" rel="noopener">PillB/PoseArt · biblioteca y coaching de poses</a></div></div></section>
+</main>
 <footer class="production-footer bg-ink text-white py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-        <h4 class="font-bold text-lg mb-3">FocalRuta · Planner Fotográfico</h4>
-        <p class="text-sm text-slate-400 leading-relaxed">Sistema de planificación fotográfica para 10 técnicas con diagramas Python (matplotlib). 6 planes × 10 tomas × 2 variantes (perro/humano) = 120 diagramas únicos.</p>
+        <h4 class="font-bold text-lg mb-3">FocalRuta · Planificador fotográfico</h4>
+        <p class="text-sm text-slate-400 leading-relaxed">6 planes × 10 tomas × 2 sujetos (persona o perro) = 120 diagramas a escala, con ajustes para día, tarde y noche.</p>
       </div>
       <div>
         <h4 class="font-bold text-lg mb-3">Recursos</h4>
@@ -610,14 +753,14 @@
         <ul class="space-y-2 text-sm text-slate-400">
           <li>☀️ Día · 🌅 Tarde · 🌙 Noche</li>
           <li>👤 Humano · 🐶 Perro</li>
-          <li class="flex flex-wrap gap-x-2"><span>Planes:</span><a class="hover:text-white" href="plans/plan_a.html" download>A</a><a class="hover:text-white" href="plans/plan_b.html" download>B</a><a class="hover:text-white" href="plans/plan_c.html" download>C</a><a class="hover:text-white" href="plans/plan_d.html" download>D</a><a class="hover:text-white" href="plans/plan_e.html" download>E</a><a class="hover:text-white" href="plans/plan_f.html" download>F</a></li>
+          <li class="flex flex-wrap items-center gap-2"><span>Planes:</span><a class="hover:text-white footer-plan-link" href="plans/plan_a.html" download aria-label="Descargar plan A">A</a><a class="hover:text-white footer-plan-link" href="plans/plan_b.html" download aria-label="Descargar plan B">B</a><a class="hover:text-white footer-plan-link" href="plans/plan_c.html" download aria-label="Descargar plan C">C</a><a class="hover:text-white footer-plan-link" href="plans/plan_d.html" download aria-label="Descargar plan D">D</a><a class="hover:text-white footer-plan-link" href="plans/plan_e.html" download aria-label="Descargar plan E">E</a><a class="hover:text-white footer-plan-link" href="plans/plan_f.html" download aria-label="Descargar plan F">F</a></li>
           <li><a href="downloads/canon6d_photo_planner_assets.zip" class="hover:text-white transition" download>ZIP completo con todos los recursos</a></li>
         </ul>
       </div>
     </div>
     <div class="border-t border-slate-700 mt-8 pt-6 text-xs text-slate-500 flex flex-wrap justify-between gap-3">
-      <span>Python + matplotlib · CSS Tailwind compilado localmente · build final 2026</span>
-      <span class="flex flex-wrap gap-2"><span class="production-badge">✓ CSS local</span><span class="production-badge">✓ QA responsive</span><span class="production-badge">✓ Sin CDN de runtime</span></span>
+      <span>Funciona sin conexión una vez cargada · Ajustes calculados con la tabla de EV de ANSI PH2.7 y óptica de lente delgada (CoC 0,03 mm)</span>
+      <span>Úsala como punto de partida: comprueba siempre el histograma en campo.</span>
     </div>
   </div>
 </footer>
@@ -632,14 +775,14 @@
   <a href="#top" class="active"><span class="ico">▶️</span><span>Inicio</span></a>
   <a href="#planes"><span class="ico">🗺️</span><span>Planes</span></a>
   <a href="#plan-detail"><span class="ico">📷</span><span>Tomas</span></a>
-  <button type="button" onclick="openSessionRun()"><span class="ico">▶️</span><span>Run</span></button>
-  <button type="button" onclick="openFieldCard()"><span class="ico">📋</span><span>Field</span></button>
+  <button type="button" onclick="openSessionRun()"><span class="ico">▶️</span><span>Sesión</span></button>
+  <button type="button" onclick="openFieldCard()"><span class="ico">📋</span><span>Tarjeta</span></button>
   <a href="#guide"><span class="ico">🎓</span><span>Guía</span></a>
 </nav>
 
 <!-- FIELD CARD INTEGRATED -->
 <!-- SOTA_SESSION_RUN_START -->
-<dialog id="session-run-dialog" aria-labelledby="run-title"><div class="run-head"><div><div class="text-[10px] tracking-[.18em] uppercase text-emerald-300 font-black">SESSION RUN</div><strong id="run-title">Toma 1/10</strong></div><button type="button" class="sota-btn" onclick="closeSessionRun()" aria-label="Cerrar Session Run">✕</button></div><div class="run-body"><div class="run-progress mb-4"><div id="run-progress-bar" style="width:0%"></div></div><div id="run-content"></div><div class="run-footer"><button id="run-prev" class="sota-btn">← Anterior</button><button id="run-done" class="sota-btn sota-btn-gold">✓ Marcar</button><button id="run-next" class="sota-btn sota-btn-dark">Siguiente →</button></div></div></dialog>
+<dialog id="session-run-dialog" aria-labelledby="run-title"><div class="run-head"><div><div class="text-[10px] tracking-[.18em] uppercase text-emerald-300 font-black">MODO SESIÓN</div><strong id="run-title">Toma 1/10</strong></div><button type="button" class="sota-btn" onclick="closeSessionRun()" aria-label="Cerrar modo sesión">✕</button></div><div class="run-body"><div class="run-progress mb-4"><div id="run-progress-bar" style="width:0%"></div></div><div id="run-content"></div><div class="run-footer"><button id="run-prev" class="sota-btn">← Anterior</button><button id="run-done" class="sota-btn sota-btn-gold">✓ Marcar</button><button id="run-next" class="sota-btn sota-btn-dark">Siguiente →</button></div></div></dialog>
 <!-- SOTA_SESSION_RUN_END -->
 <div id="field-card-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Field Card FocalRuta">
   <div class="fc-modal-card">
@@ -856,14 +999,42 @@ function baselineForShot(plan, shot) {
 }
 function effectiveSubjectForShot(shot) {
   if (currentVariant === 'dog' && shot.technique === 'fantasma') {
-    return {label:'PERSONA · perro fuera', data:shot.subjects.human, safety:'La Field Card manda: usa una persona como móvil controlado; el perro queda fuera.'};
+    return {label:'PERSONA · perro fuera', kind:'human', data:shot.subjects.human, safety:'La tarjeta de campo manda: usa una persona como móvil controlado; el perro queda fuera.'};
   }
   if (currentVariant === 'dog' && shot.technique === 'larga_exp') {
-    return {label:'SIN SUJETO · perro fuera', data:null, safety:'La Field Card manda: prioriza trazas/escena desde una posición protegida; perro fuera.'};
+    return {label:'SIN SUJETO · perro fuera', kind:null, data:null, safety:'La tarjeta de campo manda: prioriza trazas/escena desde una posición protegida; perro fuera.'};
   }
-  return {label: currentVariant === 'human' ? 'Humano' : 'Perro', data:shot.subjects[currentVariant], safety:''};
+  return {label: currentVariant === 'human' ? 'Humano' : 'Perro', kind:currentVariant, data:shot.subjects[currentVariant], safety:''};
+}
+function poseName(view){
+  const names=(PLANS_DATA.pose_names||{})[view.kind]||{};
+  return names[view.data.pose] || view.data.pose.replace(/_/g,' ');
 }
 
+function ndLabel(stops){
+  if(!stops) return '';
+  const name = stops===10 ? 'ND1000' : 'ND'+(2**stops);
+  return `${name} · ${stops} pasos`;
+}
+function sceneLightText(ts){
+  const light = (PLANS_DATA.scene_light||{})[ts.scene];
+  if(!light) return '';
+  const ev = light.ev_low===light.ev_high ? `EV ${light.ev_low}` : `EV ${light.ev_low} a ${light.ev_high}`;
+  return `${light.label} (${ev})`;
+}
+function settingsChips(ts){
+  return `<span class="chip lens-pill">${ts.lens}</span>`+
+    `<span class="chip aperture-pill">${ts.aperture}</span>`+
+    `<span class="chip shutter-pill">${ts.shutter}</span>`+
+    `<span class="chip iso-pill">ISO ${ts.iso}</span>`+
+    (ts.nd_stops ? `<span class="chip nd-pill" title="Filtro de densidad neutra de ${ts.nd_stops} pasos">${ndLabel(ts.nd_stops)}</span>` : '');
+}
+function slotStatus(ts){
+  const light = sceneLightText(ts);
+  const lightLine = light ? `<div class="scene-light-line"><span aria-hidden="true">☀︎</span> Luz prevista: ${light}</div>` : '';
+  if(ts.viable===false) return `<div class="unviable-note" role="note"><strong>No viable a esta hora.</strong> Cambia el horario arriba o pospón esta toma.</div>`+lightLine;
+  return lightLine;
+}
 function renderShotCard(shot, plan, idx) {
   const diagramPath = `diagrams/${plan.id}_${shot.id}_${currentVariant}.png`;
   const timeSettings = shot.settings_by_time[currentTime];
@@ -883,12 +1054,10 @@ function renderShotCard(shot, plan, idx) {
             ${TECH_EMOJI[shot.technique] || '📷'}&nbsp;${shot.technique_label}
           </span>
         </div>
-        <div class="flex flex-wrap gap-1.5 mb-3">
-          <span class="chip lens-pill">${shot.lens_focal}mm</span>
-          <span class="chip aperture-pill">${shot.aperture}</span>
-          <span class="chip shutter-pill">${timeSettings.shutter}</span>
-          <span class="chip iso-pill">ISO ${timeSettings.iso}</span>
+        <div class="flex flex-wrap gap-1.5 mb-2" role="group" aria-label="Ajustes para ${timeLabels(currentTime).toLowerCase()}">
+          ${settingsChips(timeSettings)}
         </div>
+        ${slotStatus(timeSettings)}
         <div class="text-xs text-slate-600 mb-2">
           <span class="font-bold">Composición:</span> ${shot.composition_label} ·
           <span class="font-bold">Ángulo:</span> ${shot.angle_label} ·
@@ -902,13 +1071,13 @@ function renderShotCard(shot, plan, idx) {
       </div>
       <div class="p-5 space-y-3">
         ${baseline ? `<div class="field-baseline-strip p-3 rounded-lg border border-slate-300 bg-slate-50">
-          <div class="flex items-center justify-between gap-2 mb-1"><span class="text-[10px] font-black tracking-wider text-slate-700">FIELD CARD · BASELINE</span><span class="text-[10px] text-slate-500">punto de partida, no ley</span></div>
+          <div class="flex items-center justify-between gap-2 mb-1"><span class="text-[10px] font-black tracking-wider text-slate-700">TARJETA DE CAMPO · REFERENCIA</span><span class="text-[10px] text-slate-500">punto de partida, no ley</span></div>
           <div class="text-[11px] font-mono text-slate-900">${baseline.lens} · ${baseline.aperture} · ${baseline.shutter} · ISO ${baseline.iso}</div>
           <div class="text-[11px] text-slate-600 mt-1">${baseline.af} · ${baseline.geometry}</div>
           <div class="text-[10px] text-blue-700 mt-1"><strong>Este plan puede variar</strong> por luz/escena; conserva la variable que define el efecto.</div>
         </div>` : ''}
         <div class="reasoning-block p-3 rounded-lg">
-          <div class="text-xs font-bold text-amber-700 mb-1">RAZONAMIENTO</div>
+          <div class="text-xs font-bold text-amber-800 mb-1">RAZONAMIENTO</div>
           <p class="text-xs text-amber-900 leading-relaxed">${shot.reasoning}</p>
         </div>
         <div class="do-block p-3 rounded-lg">
@@ -930,7 +1099,7 @@ function renderShotCard(shot, plan, idx) {
         </div>` : ''}
         <div class="bg-purple-50 border border-purple-200 rounded-lg p-3">
           <div class="text-xs font-bold text-purple-700 mb-1">🎭 SUJETO (${subjectView.label})</div>
-          ${subjectView.data ? `<p class="text-xs text-purple-900"><strong>${subjectView.data.pose.replace(/_/g,' ').toUpperCase()}</strong>: ${subjectView.data.action}</p>` : `<p class="text-xs text-purple-900"><strong>SIN SUJETO</strong>: prioriza el efecto y la seguridad de la escena.</p>`}
+          ${subjectView.data ? `<p class="text-xs text-purple-900"><strong>${poseName(subjectView)}</strong>: ${subjectView.data.action}</p>` : `<p class="text-xs text-purple-900"><strong>SIN SUJETO</strong>: prioriza el efecto y la seguridad de la escena.</p>`}
           ${subjectView.safety ? `<p class="text-[10px] text-red-700 font-bold mt-1">${subjectView.safety}</p>` : ''}
         </div>
         <button type="button" class="sota-btn w-full" onclick="openModal('${plan.id}','${shot.id}')">🔎 Abrir detalle ampliado</button>
@@ -948,7 +1117,7 @@ function renderTechniques() {
   const container = document.getElementById('techniques-grid');
   const b=PLANS_DATA.field_baselines||{};
   const rows={
-    mucha_pdc:{title:'Mucha Profundidad de Campo',color:'emerald',desc:'Foreground, sujeto y fondo legibles. No basta cerrar diafragma: diseña capas y enfoca a una distancia razonada.',baseline:`35mm · f/11 · 1/125+ · foco ≈4m`,why:'Capas, arquitectura y escenas donde el entorno importa.'},
+    mucha_pdc:{title:'Mucha Profundidad de Campo',color:'emerald',desc:'Primer plano, sujeto y fondo legibles. No basta cerrar diafragma: diseña capas y enfoca a una distancia razonada.',baseline:`35mm · f/11 · 1/125+ · foco ≈4m`,why:'Capas, arquitectura y escenas donde el entorno importa.'},
     poca_pdc:{title:'Poca Profundidad de Campo',color:'purple',desc:'Aísla el punto de interés. La separación física sujeto→fondo suele ayudar más que perseguir sólo el f/ más bajo.',baseline:`85mm · f/1.8 · 1/500+ · sujeto ≈3m · fondo ≥8m detrás`,why:'Retrato, detalle y jerarquía visual.'},
     congelado:{title:'Efecto Congelado',color:'blue',desc:'Detener movimiento real con margen de AF.',baseline:`${b.congelado?.lens||'85mm'} · ${b.congelado?.aperture||'f/2.8'} · ${b.congelado?.shutter||'1/2000'} · AI Servo`,why:'Perro corriendo, salto, gesto rápido.'},
     barrido:{title:'Efecto Barrido',color:'amber',desc:'Sujeto reconocible + fondo direccional. La trayectoria lateral predecible es parte de la técnica.',baseline:`50mm · 1/60 → 1/40 → 1/30 · AI Servo`,why:'Mostrar velocidad sin congelar el entorno.'},
@@ -957,7 +1126,7 @@ function renderTechniques() {
     larga_exp:{title:'Larga Exposición',color:'cyan',desc:'Escena fija + movimiento acumulado. En escenas urbanas, perro fuera y trípode en posición protegida.',baseline:`35mm · f/11 · 5–15s · ISO100`,why:'Trazas de autos, agua, flujo urbano.'},
     zooming:{title:'Zooming',color:'rose',desc:'La cámara NO se mueve; sólo gira el anillo 35↔80 durante la exposición.',baseline:`35–80mm · f/8 · 2s · ISO100 · trípode`,why:'Rayos radiales alrededor de un centro fuerte.'}
   };
-  container.innerHTML=Object.entries(rows).map(([key,x])=>`<div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm compos-rule-card"><div class="flex items-center justify-between mb-3"><div class="w-12 h-12 rounded-xl bg-${x.color}-100 flex items-center justify-center"><span class="text-xl">${TECH_EMOJI[key]||'📷'}</span></div><span class="text-[10px] font-mono text-slate-400">BASELINE</span></div><h4 class="font-bold text-base mb-2">${x.title}</h4><p class="text-xs text-slate-600 mb-3 leading-relaxed">${x.desc}</p><div class="bg-slate-950 text-white rounded-lg p-2.5 mb-2 font-mono text-[11px]">${x.baseline}</div><p class="text-xs text-slate-700"><strong>Objetivo:</strong> ${x.why}</p></div>`).join('');
+  container.innerHTML=Object.entries(rows).map(([key,x])=>`<div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm compos-rule-card"><div class="flex items-center justify-between mb-3"><div class="w-12 h-12 rounded-xl bg-${x.color}-100 flex items-center justify-center"><span class="text-xl">${TECH_EMOJI[key]||'📷'}</span></div><span class="text-[10px] font-mono text-slate-500">REFERENCIA</span></div><h4 class="font-bold text-base mb-2">${x.title}</h4><p class="text-xs text-slate-600 mb-3 leading-relaxed">${x.desc}</p><div class="bg-slate-950 text-white rounded-lg p-2.5 mb-2 font-mono text-[11px]">${x.baseline}</div><p class="text-xs text-slate-700"><strong>Objetivo:</strong> ${x.why}</p></div>`).join('');
 }
 
 // ---- Composition grid ----
@@ -974,7 +1143,7 @@ function renderComposition() {
       <div class="w-10 h-10 rounded-lg bg-${colors[i]}-100 flex items-center justify-center mb-2">
         <span class="text-lg font-black">${COMP_EMOJI[k] || '•'}</span>
       </div>
-      <h5 class="font-bold text-sm mb-1">${r.es}</h5>
+      <h4 class="font-bold text-sm mb-1">${r.es}</h4>
       <p class="text-xs text-slate-600 leading-relaxed">${r.tip}</p>
     </div>
   `).join('');
@@ -993,7 +1162,7 @@ function renderAngles() {
       <div class="w-12 h-12 mx-auto rounded-full bg-${colors[i]}-100 flex items-center justify-center mb-2">
         <span class="text-lg font-black">${ANGLE_EMOJI[k] || '↔'}</span>
       </div>
-      <h5 class="font-bold text-sm text-center mb-1">${a.es}</h5>
+      <h4 class="font-bold text-sm text-center mb-1">${a.es}</h4>
       <p class="text-xs text-slate-600 text-center leading-relaxed">${a.effect}</p>
     </div>
   `).join('');
@@ -1004,14 +1173,14 @@ function openModal(planId, shotId) {
   const plan = PLANS_DATA.plans.find(p => p.id === planId);
   const shot = plan.shots.find(s => s.id === shotId);
   const diagramPath = `diagrams/${plan.id}_${shot.id}_${currentVariant}.png`;
+  const ts = shot.settings_by_time[currentTime];
   document.getElementById('modal-title').textContent = `${shot.id} — ${shot.technique_label} [${currentVariant}]`;
   document.getElementById('modal-body').innerHTML = `
     <img loading="eager" decoding="async" src="${assetUrl(diagramPath)}" class="w-full rounded-lg mb-4" alt="Diagrama ampliado" />
     <div class="grid grid-cols-2 gap-3 text-sm">
-      <div><strong>Lente:</strong> ${shot.lens_focal}mm</div>
-      <div><strong>Apertura:</strong> ${shot.aperture}</div>
-      <div><strong>Velocidad:</strong> ${shot.shutter}</div>
-      <div><strong>ISO:</strong> ${shot.iso}</div>
+      <div class="text-xs font-bold text-slate-500" style="grid-column:1/-1">${timeLabels(currentTime)}</div>
+      <div class="flex flex-wrap gap-1.5" style="grid-column:1/-1">${settingsChips(ts)}</div>
+      <div style="grid-column:1/-1">${slotStatus(ts)}</div>
       <div><strong>Distancia:</strong> ${shot.subject_distance_m}m</div>
       <div><strong>Fondo:</strong> ${shot.background_distance_m}m</div>
       <div><strong>Composición:</strong> ${shot.composition_label}</div>
@@ -1020,6 +1189,7 @@ function openModal(planId, shotId) {
     <div class="mt-4 reasoning-block p-4 rounded">
       <strong>RAZONAMIENTO:</strong> ${shot.reasoning}
     </div>
+    ${ts.notes ? `<div class="mt-3 bg-blue-50 border-l-4 border-blue-400 p-3 rounded text-sm"><strong>Nota (${timeLabels(currentTime).toLowerCase()}):</strong> ${ts.notes}</div>` : ''}
   `;
   const dialog=document.getElementById('shot-modal'); if(!dialog.open) dialog.showModal();
 }
@@ -1067,14 +1237,14 @@ window.addEventListener('DOMContentLoaded', () => {
   // PLANS_DATA is embedded in this standalone build
   
 const POSE_COACH = [
-  {id:'s_curve',title:'S-Curve Stand',use:'Retrato · 85/50mm',cue:'Peso mayor sobre una pierna; desplaza ligeramente cadera y hombro en sentidos opuestos. Torso 3/4 y mentón regresa hacia cámara.',camera:'Cámara a nivel de ojos o apenas más baja. Deja aire hacia la dirección de la mirada; con 85mm mantén suficiente distancia para no pegarte al rostro.',avoid:'No “rompas” la cintura ni levantes el hombro cercano a la cara. La curva debe parecer una distribución natural de peso.'},
-  {id:'power',title:'Power Stance',use:'Simetría · arquitectura',cue:'Pies estables, pecho abierto, cuello largo; brazos separados del torso lo suficiente para conservar silueta.',camera:'Central o contrapicado suave. Úsala cuando la geometría del fondo sea fuerte y el cuerpo deba sostener el eje.',avoid:'No abras los pies sin intención ni pegues codos al cuerpo: la figura se vuelve un bloque.'},
-  {id:'wall',title:'Wall Lean',use:'Enmarcado · 50mm',cue:'Apoyo ligero, no descansar todo el peso. Cuerpo 3/4, hombro relajado, cabeza separada visualmente del marco.',camera:'50mm funciona bien para conservar contexto. Mueve la cámara hasta que marco, cabeza y hombros no se fusionen.',avoid:'No aplastes hombro/cara contra pared y no dejes una columna “salir” de la cabeza.'},
-  {id:'hip',title:'Hip Shift',use:'Espacio negativo',cue:'Carga una pierna y desplaza la cadera; deja un triángulo visible entre brazo y cintura.',camera:'Tercios o encuadre vertical. El espacio entre extremidades ayuda a leer la silueta incluso con fondo complejo.',avoid:'No empujes ambas caderas/hombros al mismo lado: elimina la contraposición que da forma.'},
-  {id:'walk',title:'Model Walk',use:'Congelado · barrido · fantasma',cue:'Camina de verdad. Talón delantero entra y brazo opuesto acompaña; el gesto debe venir del movimiento, no de “hacer como que caminas”.',camera:'Es la misma acción para comparar obturadores: ~1/2000 congela; 1/60→1/40→1/30 permite barrido; ~1s crea fantasma con cámara fija.',avoid:'No detengas el cuerpo justo al disparar en barrido. Para fantasma, perro fuera y fondo/trípode inmóviles.'},
-  {id:'arms',title:'Arms Overhead',use:'Nadir · lightpainting',cue:'Brazos altos pero codos suaves; hombros abajo y cuello largo. Busca una silueta simple.',camera:'Funciona con nadir o con una composición central para lightpainting porque la silueta se reconoce fácilmente.',avoid:'No encogerse hacia los hombros ni cruzar manos sobre el rostro.'},
-  {id:'sit',title:'Soft Sit',use:'Retrato sentado',cue:'Siéntate cerca del borde, columna larga, rodillas en planos distintos y manos sin tensión.',camera:'Picado muy suave o central; evita que ambas rodillas y manos queden exactamente al mismo nivel.',avoid:'No hundirse en el asiento ni apoyar todo el peso hacia atrás: acorta torso y cuello.'},
-  {id:'lookback',title:'Look Back',use:'Capas · narrativa',cue:'Cuerpo continúa en una dirección mientras torso/cabeza vuelven hacia cámara. Giro pequeño y cómodo.',camera:'Deja espacio en la dirección original del cuerpo. Útil con 50/85 para separar rostro del fondo.',avoid:'No fuerces cuello a 180° ni escondas ambos hombros detrás de la cabeza.'}
+  {id:'s_curve',title:'Curva en S',use:'Retrato · 85/50mm',cue:'Peso mayor sobre una pierna; desplaza ligeramente cadera y hombro en sentidos opuestos. Torso 3/4 y mentón regresa hacia cámara.',camera:'Cámara a nivel de ojos o apenas más baja. Deja aire hacia la dirección de la mirada; con 85mm mantén suficiente distancia para no pegarte al rostro.',avoid:'No “rompas” la cintura ni levantes el hombro cercano a la cara. La curva debe parecer una distribución natural de peso.'},
+  {id:'power',title:'Postura firme',use:'Simetría · arquitectura',cue:'Pies estables, pecho abierto, cuello largo; brazos separados del torso lo suficiente para conservar silueta.',camera:'Central o contrapicado suave. Úsala cuando la geometría del fondo sea fuerte y el cuerpo deba sostener el eje.',avoid:'No abras los pies sin intención ni pegues codos al cuerpo: la figura se vuelve un bloque.'},
+  {id:'wall',title:'Apoyo en pared',use:'Enmarcado · 50mm',cue:'Apoyo ligero, no descansar todo el peso. Cuerpo 3/4, hombro relajado, cabeza separada visualmente del marco.',camera:'50mm funciona bien para conservar contexto. Mueve la cámara hasta que marco, cabeza y hombros no se fusionen.',avoid:'No aplastes hombro/cara contra pared y no dejes una columna “salir” de la cabeza.'},
+  {id:'hip',title:'Cadera desplazada',use:'Espacio negativo',cue:'Carga una pierna y desplaza la cadera; deja un triángulo visible entre brazo y cintura.',camera:'Tercios o encuadre vertical. El espacio entre extremidades ayuda a leer la silueta incluso con fondo complejo.',avoid:'No empujes ambas caderas/hombros al mismo lado: elimina la contraposición que da forma.'},
+  {id:'walk',title:'Paso de modelo',use:'Congelado · barrido · fantasma',cue:'Camina de verdad. Talón delantero entra y brazo opuesto acompaña; el gesto debe venir del movimiento, no de “hacer como que caminas”.',camera:'Es la misma acción para comparar obturadores: ~1/2000 congela; 1/60→1/40→1/30 permite barrido; ~1s crea fantasma con cámara fija.',avoid:'No detengas el cuerpo justo al disparar en barrido. Para fantasma, perro fuera y fondo/trípode inmóviles.'},
+  {id:'arms',title:'Brazos arriba',use:'Nadir · lightpainting',cue:'Brazos altos pero codos suaves; hombros abajo y cuello largo. Busca una silueta simple.',camera:'Funciona con nadir o con una composición central para lightpainting porque la silueta se reconoce fácilmente.',avoid:'No encogerse hacia los hombros ni cruzar manos sobre el rostro.'},
+  {id:'sit',title:'Sentado suave',use:'Retrato sentado',cue:'Siéntate cerca del borde, columna larga, rodillas en planos distintos y manos sin tensión.',camera:'Picado muy suave o central; evita que ambas rodillas y manos queden exactamente al mismo nivel.',avoid:'No hundirse en el asiento ni apoyar todo el peso hacia atrás: acorta torso y cuello.'},
+  {id:'lookback',title:'Mirada atrás',use:'Capas · narrativa',cue:'Cuerpo continúa en una dirección mientras torso/cabeza vuelven hacia cámara. Giro pequeño y cómodo.',camera:'Deja espacio en la dirección original del cuerpo. Útil con 50/85 para separar rostro del fondo.',avoid:'No fuerces cuello a 180° ni escondas ambos hombros detrás de la cabeza.'}
 ];
 function initPoseCoach(){
  const box=document.getElementById('pose-coach-buttons'); if(!box) return;
@@ -1115,7 +1285,7 @@ function initOpticsLab(){
   const overlay=document.getElementById('opt-exposure-overlay'),over=exposureDelta>0;overlay.setAttribute('fill',over?'#fff7ed':'#020617');overlay.setAttribute('opacity',Math.min(.38,Math.abs(exposureDelta)*.055).toFixed(2));
   document.getElementById('opt-cone').setAttribute('points',`320,416 ${320-topHalf},40 ${320+topHalf},40`);document.getElementById('opt-dof-band').setAttribute('points',`${320-nh},${ny} ${320+nh},${ny} ${320+fh},${fy} ${320-fh},${fy}`);
   [['opt-near-line',ny],['opt-focus-line',sy],['opt-far-line',fy],['opt-bg-line',by]].forEach(([id,y])=>{const e=document.getElementById(id);e.setAttribute('y1',y);e.setAttribute('y2',y)});document.getElementById('opt-subject').setAttribute('cy',sy);
-  const labels=[['opt-near-label',ny,`NEAR ${fmt(near)}`],['opt-far-label',fy,`FAR · CoC ${fmt(far)}`],['opt-bg-label',by,`FONDO ${fmt(bgAbs)}`],['opt-subject-label',sy,`FOCO ${fmt(d)}`]];labels.forEach(([id,y,t])=>{const e=document.getElementById(id);e.setAttribute('y',Math.max(48,Math.min(405,y-7)));e.textContent=t});
+  const labels=[['opt-near-label',ny,`CERCA ${fmt(near)}`],['opt-far-label',fy,`LEJOS · CoC ${fmt(far)}`],['opt-bg-label',by,`FONDO ${fmt(bgAbs)}`],['opt-subject-label',sy,`FOCO ${fmt(d)}`]];labels.forEach(([id,y,t])=>{const e=document.getElementById(id);e.setAttribute('y',Math.max(48,Math.min(405,y-7)));e.textContent=t});
   const tickValues=[.5,1,2,3,5,10,20].filter(x=>x<sceneMax);document.getElementById('opt-axis-ticks').innerHTML=tickValues.map(x=>`<line class="opt-tick-line" x1="44" x2="62" y1="${yFor(x)}" y2="${yFor(x)}"/><text class="opt-tick" x="66" y="${yFor(x)+4}">${x}m</text>`).join('');
   document.getElementById('opt-dist-v').textContent=d.toFixed(1)+' m';document.getElementById('opt-bg-v').textContent=b.toFixed(1)+' m';document.getElementById('opt-light-v').textContent='EV '+sceneEV;document.getElementById('opt-live-focal').textContent=f+' mm';document.getElementById('opt-live-ap').textContent='f/'+N;[dist,bg,light].forEach(e=>e.style.setProperty('--fill',((+e.value-+e.min)/(+e.max-+e.min)*100).toFixed(1)+'%'));document.getElementById('opt-fov').textContent=fov.toFixed(1)+'°';document.getElementById('opt-width').textContent=width.toFixed(2)+' m';document.getElementById('opt-dof').textContent=fmt(near)+' → '+fmt(far);document.getElementById('opt-total').textContent=fmt(total);document.getElementById('opt-split').textContent=fmt(front)+' / '+fmt(behind);document.getElementById('opt-hyper').textContent=fmt(H/1000);document.getElementById('opt-blur').textContent=blur.toFixed(3)+' mm · '+blurCoc.toFixed(1)+'× CoC';
   const previewBlur=Math.min(14,Math.max(0,Math.log2(1+blurCoc)*2.2)),brightness=Math.min(1.8,Math.max(.35,Math.pow(2,exposureDelta*.18)));document.getElementById('opt-preview-bg').style.filter=`blur(${previewBlur.toFixed(1)}px) brightness(${brightness.toFixed(2)})`;
@@ -1133,7 +1303,7 @@ function initMotionLab(){
  const specs={freeze:{base:'1/2000 s',secs:.0005,lesson:'Congelado: el éxito exige que la huella durante la exposición sea mínima.'},pan:{base:'1/40 s',secs:.025,lesson:'Barrido: el seguimiento reduce movimiento relativo del sujeto, mientras el fondo barre.'},ghost:{base:'1 s',secs:1,lesson:'Fantasma: cámara/fondo fijos; el sujeto ocupa muchas posiciones durante la exposición.'},trails:{base:'5–15 s',secs:8,lesson:'Trazas: fuentes de luz móviles integran una trayectoria continua con cámara inmóvil.'},paint:{base:'10 s',secs:10,lesson:'Lightpainting: la linterna es el sujeto móvil; el entorno permanece oscuro y fijo.'},zoom:{base:'2 s',secs:2,lesson:'Zooming: la cámara no se traslada; cambia la focal durante la exposición alrededor de un centro fuerte.'}};
  function secs(){const p=+sh.value/100;return .00025*Math.pow(80000,p)}
  function fmt(v){return v<.01?'1/'+Math.round(1/v)+' s':v<1?v.toFixed(2)+' s':v.toFixed(1)+' s'}
- function update(){const t=secs(),v=+speed.value,q=+track.value/100,relative=mode==='pan'?v*(1-q):v,raw=relative*t/.025,span=Math.min(100,Math.max(1,18*Math.log2(1+raw)));document.getElementById('motion-shutter-v').textContent=fmt(t);document.getElementById('motion-speed-v').textContent=v<4?'lento':v<7?'medio':'rápido';document.getElementById('motion-track-v').textContent=Math.round(q*100)+'%';document.getElementById('motion-span').innerHTML=Math.round(span)+'%<small>huella relativa</small>';document.getElementById('motion-risk').innerHTML=(span<12?'bajo':span<48?'medio':'alto')+'<small>riesgo de blur</small>';document.getElementById('motion-target').innerHTML=specs[mode].base+'<small>baseline</small>';document.getElementById('motion-lesson').textContent=specs[mode].lesson+' La escala visual es logarítmica para que exposiciones cortas y largas sigan siendo comparables; el modelo enseña tendencia, no predice píxeles ni exposición.';document.getElementById('motion-caption').textContent=`${mode.toUpperCase()} · ${fmt(t)} · movimiento ${v}/10 · seguimiento ${Math.round(q*100)}%`;
+ function update(){const t=secs(),v=+speed.value,q=+track.value/100,relative=mode==='pan'?v*(1-q):v,raw=relative*t/.025,span=Math.min(100,Math.max(1,18*Math.log2(1+raw)));document.getElementById('motion-shutter-v').textContent=fmt(t);document.getElementById('motion-speed-v').textContent=v<4?'lento':v<7?'medio':'rápido';document.getElementById('motion-track-v').textContent=Math.round(q*100)+'%';document.getElementById('motion-span').innerHTML=Math.round(span)+'%<small>huella relativa</small>';document.getElementById('motion-risk').innerHTML=(span<12?'bajo':span<48?'medio':'alto')+'<small>riesgo de trepidación</small>';document.getElementById('motion-target').innerHTML=specs[mode].base+'<small>referencia</small>';document.getElementById('motion-lesson').textContent=specs[mode].lesson+' La escala visual es logarítmica para que exposiciones cortas y largas sigan siendo comparables; el modelo enseña tendencia, no predice píxeles ni exposición.';document.getElementById('motion-caption').textContent=`${mode.toUpperCase()} · ${fmt(t)} · movimiento ${v}/10 · seguimiento ${Math.round(q*100)}%`;
   const trail=document.getElementById('motion-trail'),ghost=document.getElementById('motion-ghost'),light=document.getElementById('motion-light'),rad=document.getElementById('motion-radial'),sub=document.getElementById('motion-subject'),bgLines=document.getElementById('motion-bg-lines');trail.hidden=!['freeze','pan'].includes(mode);ghost.hidden=mode!=='ghost';light.hidden=!['trails','paint'].includes(mode);rad.hidden=mode!=='zoom';sub.hidden=['trails','paint','zoom'].includes(mode);trail.style.width=(20+span*2.1)+'px';trail.style.opacity=span/110+.15;ghost.style.filter=`blur(${Math.min(20,span/4)}px)`;ghost.style.opacity=Math.max(.15,.85-span/130);bgLines.style.filter=mode==='pan'?`blur(${Math.min(14,(v*q)*1.4)}px)`:'none';rad.style.opacity=Math.min(.9,.2+t/3);
  }
  modeBox.addEventListener('click',e=>{const b=e.target.closest('[data-motion]');if(!b)return;mode=b.dataset.motion;modeBox.querySelectorAll('button').forEach(x=>x.classList.toggle('is-active',x===b));const target=specs[mode].secs;const p=Math.log(target/.00025)/Math.log(80000);sh.value=Math.max(0,Math.min(100,p*100));if(mode==='pan')track.value=85;else track.value=0;update()});[sh,speed,track].forEach(x=>x.addEventListener('input',update));update();
@@ -1145,7 +1315,7 @@ let runIndex=0,runLastTrigger=null;const RUN_MEMORY={};
 function runKey(){return `canon6d-run-${currentPlan}-${currentVariant}`}
 function runState(){const k=runKey();if(RUN_MEMORY[k])return [...RUN_MEMORY[k]];try{const s=JSON.parse(localStorage.getItem(k)||'[]');RUN_MEMORY[k]=s;return [...s]}catch(e){return []}}
 function saveRun(s){const k=runKey();RUN_MEMORY[k]=[...s];try{localStorage.setItem(k,JSON.stringify(s))}catch(e){}}
-function renderSessionRun(){const dlg=document.getElementById('session-run-dialog'),plan=PLANS_DATA.plans.find(p=>p.id===currentPlan);if(!dlg||!plan)return;runIndex=Math.max(0,Math.min(plan.shots.length-1,runIndex));const shot=plan.shots[runIndex],ts=shot.settings_by_time[currentTime],b=baselineForShot(plan,shot),sv=effectiveSubjectForShot(shot),state=runState(),done=!!state[runIndex],path=`diagrams/${plan.id}_${shot.id}_${currentVariant}.png`;document.getElementById('run-title').textContent=`${plan.id.replace('plan_','').toUpperCase()} · ${runIndex+1}/10 · ${shot.technique_label}`;document.getElementById('run-progress-bar').style.width=((state.filter(Boolean).length/10)*100)+'%';document.getElementById('run-content').innerHTML=`<div class="run-current"><div><img class="run-diagram" loading="eager" decoding="async" src="${assetUrl(path)}" alt="Diagrama ${shot.technique_label}"><div class="sota-kicker mt-3">SUJETO</div><div class="text-sm font-bold">${sv.label}</div><div class="run-delta">${sv.data?.action||sv.safety||''}</div></div><div><div class="sota-kicker">PLAN · ${currentTime}</div><div class="sota-grid2 mt-2"><div class="sota-card"><b>${ts.lens}</b><div class="run-delta">lente</div></div><div class="sota-card"><b>${ts.aperture}</b><div class="run-delta">apertura</div></div><div class="sota-card"><b>${ts.shutter}</b><div class="run-delta">obturador</div></div><div class="sota-card"><b>ISO ${ts.iso}</b><div class="run-delta">sensibilidad</div></div></div>${b?`<div class="run-baseline mt-3"><b>Field baseline:</b> ${b.lens} · ${b.aperture} · ${b.shutter} · ISO ${b.iso}<br>${b.af}<br>${b.geometry}</div>`:''}<div class="sota-card mt-3"><div class="sota-kicker">APRUEBA SI</div><b>${RUN_CRITERIA[shot.technique]||'✓ intención visual conseguida'}</b></div><p class="text-xs text-slate-600 mt-3">${ts.notes}</p></div></div>`;const doneBtn=document.getElementById('run-done');doneBtn.classList.toggle('run-done',done);doneBtn.textContent=done?'✓ Hecha':'✓ Marcar';document.getElementById('run-prev').disabled=runIndex===0;document.getElementById('run-next').disabled=runIndex===9;}
+function renderSessionRun(){const dlg=document.getElementById('session-run-dialog'),plan=PLANS_DATA.plans.find(p=>p.id===currentPlan);if(!dlg||!plan)return;runIndex=Math.max(0,Math.min(plan.shots.length-1,runIndex));const shot=plan.shots[runIndex],ts=shot.settings_by_time[currentTime],b=baselineForShot(plan,shot),sv=effectiveSubjectForShot(shot),state=runState(),done=!!state[runIndex],path=`diagrams/${plan.id}_${shot.id}_${currentVariant}.png`;document.getElementById('run-title').textContent=`${plan.id.replace('plan_','').toUpperCase()} · ${runIndex+1}/10 · ${shot.technique_label}`;document.getElementById('run-progress-bar').style.width=((state.filter(Boolean).length/10)*100)+'%';document.getElementById('run-content').innerHTML=`<div class="run-current"><div><img class="run-diagram" loading="eager" decoding="async" src="${assetUrl(path)}" alt="Diagrama ${shot.technique_label}"><div class="sota-kicker mt-3">SUJETO</div><div class="text-sm font-bold">${sv.label}</div><div class="run-delta">${sv.data?.action||sv.safety||''}</div></div><div><div class="sota-kicker">PLAN · ${timeLabels(currentTime)}</div><div class="sota-grid2 mt-2"><div class="sota-card"><b>${ts.lens}</b><div class="run-delta">lente</div></div><div class="sota-card"><b>${ts.aperture}</b><div class="run-delta">apertura</div></div><div class="sota-card"><b>${ts.shutter}</b><div class="run-delta">obturador</div></div><div class="sota-card"><b>ISO ${ts.iso}</b><div class="run-delta">sensibilidad</div></div>${ts.nd_stops?`<div class="sota-card"><b>${ndLabel(ts.nd_stops)}</b><div class="run-delta">filtro ND</div></div>`:''}</div><div class="mt-2">${slotStatus(ts)}</div>${b?`<div class="run-baseline mt-3"><b>Referencia de la tarjeta:</b> ${b.lens} · ${b.aperture} · ${b.shutter} · ISO ${b.iso}<br>${b.af}<br>${b.geometry}</div>`:''}<div class="sota-card mt-3"><div class="sota-kicker">APRUEBA SI</div><b>${RUN_CRITERIA[shot.technique]||'✓ intención visual conseguida'}</b></div><p class="text-xs text-slate-600 mt-3">${ts.notes}</p></div></div>`;const doneBtn=document.getElementById('run-done');doneBtn.classList.toggle('run-done',done);doneBtn.textContent=done?'✓ Hecha':'✓ Marcar';document.getElementById('run-prev').disabled=runIndex===0;document.getElementById('run-next').disabled=runIndex===9;}
 function openSessionRun(){const d=document.getElementById('session-run-dialog');if(!d)return;runLastTrigger=document.activeElement;renderSessionRun();d.showModal();}
 function closeSessionRun(){const d=document.getElementById('session-run-dialog');if(d?.open)d.close();runLastTrigger?.focus?.()}
 function initSessionRun(){const d=document.getElementById('session-run-dialog');if(!d)return;document.getElementById('run-prev').addEventListener('click',()=>{runIndex--;renderSessionRun()});document.getElementById('run-next').addEventListener('click',()=>{runIndex++;renderSessionRun()});document.getElementById('run-done').addEventListener('click',()=>{const s=runState();s[runIndex]=!s[runIndex];saveRun(s);renderSessionRun()});d.addEventListener('close',()=>runLastTrigger?.focus?.());}
@@ -1177,7 +1347,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeFieldCard()});
 
 <!-- FIELD CARD JS END -->
 </script>
-<div class="hosted-badge no-print" style="position:fixed;right:10px;bottom:74px;z-index:55">● hosted lean</div>
 <script>
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>console.warn('PWA worker unavailable',error)));}
 </script>

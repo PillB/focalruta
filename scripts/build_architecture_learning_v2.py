@@ -14,6 +14,8 @@ LEDGER = ROOT / "architectural_photography" / "research" / "videos" / "VIDEO_LED
 NIKON_PC = "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/the-pc-lens-advantage-what-you-see-is-what-youll-get"
 NIKON_COMPOSITION = "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/5-easy-composition-guidelines"
 GESTALT = "https://pmc.ncbi.nlm.nih.gov/articles/PMC3482144/"
+WORLD_PRESS_EDITING = "https://www.worldpressphoto.org/contest/verification-process/what-counts-as-manipulation"
+ADOBE_UPRIGHT = "https://helpx.adobe.com/lightroom-classic/desktop/process-and-develop-photos/guided-upright-perspective-correction.html"
 
 # Public order of the interactive labs, one per technique family.
 LAB_ORDER = [
@@ -31,7 +33,7 @@ TECHNIQUES = [
     ("gesture-absence", "Gesto decisivo y ausencia significativa", "Una persona importa cuando su verbo revela el diseño; la ausencia importa cuando quedan uso, espera o residuo.", "Precompón una versión con verbo y otra vacía con evidencia social.", "Descarta la figura que solo aporta escala y el vacío que solo aporta pulcritud.", "No escenifiques, invadas privacidad ni fuerces presencia humana.", [GESTALT]),
     ("light-material-weather", "Luz, material, reflejos y clima", "Dirección, tamaño y color de la fuente revelan relieve, volumen, transparencia y reflexión.", "Repite posición con lateral, mediodía, garúa y hora azul; registra qué relación aparece.", "Protege altas luces y separa atmósfera útil de arquitectura ilegible.", "Hora dorada no es universalmente mejor; el clima debe explicar la forma.", [NIKON_COMPOSITION]),
     ("exposure-focus-iso-motion", "Exposición, foco, ISO y movimiento", "Obturador, apertura e ISO responden a gesto, profundidad y altas luces; la nitidez tiene varias causas.", "Fija primero movimiento y PDC; diagnostica foco, trepidación, sujeto, óptica y atmósfera por separado.", "Cambia una sola causa y revisa histograma, alerta y ampliación crítica.", "No existe ISO mágico ni un único obturador que cure toda falta de nitidez.", [NIKON_COMPOSITION]),
-    ("contest-safe-editing", "Edición compatible con cada convocatoria", "Captura, revelado, composición/eliminación y generación son categorías distintas que cada brief puede permitir o prohibir.", "Antes de editar, convierte las reglas vigentes en una lista de operaciones permitidas y dudosas.", "Si una operación cambia contenido o geometría material, detente y consulta la regla o al organizador.", "No generalices las fronteras de un concurso antiguo ni supongas que IA o relleno generativo están permitidos.", [NIKON_COMPOSITION]),
+    ("contest-safe-editing", "Edición según el uso de la foto", "Captura, revelado, limpieza o montaje y generación son categorías distintas; cada uso (registro, encargo, concurso o portafolio) admite unas y excluye otras.", "Antes de editar, convierte las condiciones del encargo o de la convocatoria en una lista de operaciones permitidas y dudosas.", "Si una operación cambia contenido o geometría material, detente y confírmala con quien encarga u organiza.", "No supongas que borrar objetos, montar o usar relleno generativo está permitido: en fotografía documental no lo está.", [WORLD_PRESS_EDITING, ADOBE_UPRIGHT]),
 ]
 
 
@@ -198,7 +200,7 @@ def normalize_ledger(learning: dict) -> None:
 def main() -> None:
     data = json.loads(LEARNING.read_text(encoding="utf-8"))
     data["schema_version"] = "2.0.0"
-    data["learning_path"] = ["SEE", "POSITION", "COMPOSE", "LIGHT", "WORK_THE_SCENE", "FINISH", "COMPETE"]
+    data["learning_path"] = ["SEE", "POSITION", "COMPOSE", "LIGHT", "WORK_THE_SCENE", "FINISH", "DELIVER"]
     data["technique_cards"] = technique_cards()
     data["visual_exemplar_families"] = exemplars()
     update_labs(data)

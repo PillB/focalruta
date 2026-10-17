@@ -19,7 +19,8 @@ HISTORY_PATH = ROOT / "architectural_photography/ranking/ranking_history.json"
 PUBLIC_PATH = ROOT / "data/architecture/ranking.json"
 ROUTES_PATH = ROOT / "data/architecture/routes.json"
 NEW_ASSESSMENTS_PATH = ROOT / "architectural_photography/ranking/new_candidate_assessments.json"
-RUN_ID = "2026-08-31-r4-v7"
+RUN_ID = "2026-10-17-r4-v8"
+GENERATED_AT = "2026-10-17T12:00:00-05:00"
 
 
 def read_json(path: Path):
@@ -40,8 +41,21 @@ def write_immutable_json(path: Path, value) -> None:
         path.write_text(serialized, encoding="utf-8")
 
 
+def ordered_sum(values) -> float:
+    """Add floats strictly left to right.
+
+    Python 3.12 changed the built-in sum() of floats to compensated summation,
+    which moves some scores across a rounding boundary. The ranking runs are
+    immutable records, so the arithmetic must not depend on the interpreter.
+    """
+    total = 0.0
+    for value in values:
+        total += value
+    return total
+
+
 def mean(values: list[float]) -> float:
-    return sum(values) / len(values)
+    return ordered_sum(values) / len(values)
 
 
 def status_score(status: str) -> float:
@@ -86,8 +100,10 @@ def matrix_row(candidate: dict, verified: dict, base: dict) -> dict:
     passes = verified["passes"]
     evidence = mean([status_score(check["status"]) for check in passes.values()])
     criteria = {
-        "creative_aesthetic_proxy": mean([base["story"], base["formal"], base["novelty"]]) * 10,
-        "theme_coherence_proxy": mean([base["brief"], base["story"], base["lived"], base["ephemeris"]]) * 10,
+        # The Master82 "brief" (2026 contest theme fit) and "judge" (2026 jurors) attributes are not read:
+        # the contest closed and the ranking now serves the photographer's own practice.
+        "visual_potential": mean([base["story"], base["formal"], base["novelty"]]) * 10,
+        "architecture_in_use": mean([base["story"], base["lived"], base["ephemeris"]]) * 10,
         "architecture_causality": status_score(passes["architectural_causality"]["status"]),
         "first_read_clarity": base["formal"] * 10,
         "anti_postal_originality": mean([base["novelty"], 10 - base["saturation"]]) * 10,
@@ -98,7 +114,6 @@ def matrix_row(candidate: dict, verified: dict, base: dict) -> dict:
         "technical_feasibility": base["feasibility"] * 10,
         "access_permission": access_score(verified, base),
         "evidence_confidence": evidence,
-        "juror_public_work_intersection": base["judge"] * 10,
     }
     return {
         "canonical_id": candidate["canonical_id"], "name": candidate["name"],
@@ -121,7 +136,7 @@ def assessed_matrix_row(candidate: dict, verified: dict, assessment: dict) -> di
 
 
 def weighted_score(criteria: dict, weights: dict) -> float:
-    return sum(criteria[key] * weight for key, weight in weights.items())
+    return ordered_sum(criteria[key] * weight for key, weight in weights.items())
 
 
 def ranked(rows: list[dict], weights: dict) -> list[dict]:
@@ -132,7 +147,7 @@ def ranked(rows: list[dict], weights: dict) -> list[dict]:
 
 def perturb(weights: dict, rng: random.Random, low: float, high: float) -> dict:
     values = {key: value * rng.uniform(low, high) for key, value in weights.items()}
-    total = sum(values.values())
+    total = ordered_sum(values.values())
     return {key: value / total for key, value in values.items()}
 
 
@@ -206,12 +221,11 @@ def build_run(model: dict, rows: list[dict], verification: dict, route_ids: set[
     return {
         "run_id": RUN_ID,
         "model_version": model["model_version"],
-        "generated_at": "2026-08-30T12:00:00-05:00",
+        "generated_at": GENERATED_AT,
         "candidate_count": len(rows),
         "seed": model["sensitivity"]["seed"],
         "samples_per_scenario": model["sensitivity"]["samples"],
-        "official_proxy_label": model["official_proxy_label"],
-        "calibrated_winning_probability": False,
+        "calibrated_probability": model["calibrated_probability"],
         "scenario_rankings": scenario_rankings,
         "field_ranking": field,
         "top_15_robust_ids": [item["canonical_id"] for item in results[:15]],
@@ -235,7 +249,7 @@ def build_run(model: dict, rows: list[dict], verification: dict, route_ids: set[
 
 
 def public_run(run: dict) -> dict:
-    return {key: run[key] for key in ("run_id", "model_version", "candidate_count", "official_proxy_label", "calibrated_winning_probability", "scenario_rankings", "top_15_robust_ids", "top_5_field", "results")}
+    return {key: run[key] for key in ("run_id", "model_version", "candidate_count", "calibrated_probability", "scenario_rankings", "top_15_robust_ids", "top_5_field", "results")}
 
 
 def update_history(run: dict, run_path: Path) -> None:
