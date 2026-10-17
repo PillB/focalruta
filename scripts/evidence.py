@@ -12,6 +12,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -31,18 +32,26 @@ def fingerprint(paths) -> dict[str, str]:
     return dict(sorted(prints.items()))
 
 
-def current_commit() -> str:
+# The QA reports themselves, at the repository root.
+REPORT_NAME = re.compile(r"[A-Z_]+_QA\.json")
+
+
+def current_commit(root: Path = ROOT) -> str:
     """HEAD the audit ran on, with "+dirty" when the tree had uncommitted changes.
 
     The artefact hashes are what bind a report; the commit says where to look.
+    The root QA reports do not count as changes: the suites run one after
+    another and each writes its own report, so counting them marked every
+    report after the first "+dirty" although nothing it audited had changed.
     """
     try:
-        head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, check=True,
+        head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, check=True,
                               capture_output=True, text=True).stdout.strip()
-        dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=ROOT,
-                               check=True, capture_output=True, text=True).stdout.strip()
+        status = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=root,
+                                check=True, capture_output=True, text=True).stdout
     except (OSError, subprocess.CalledProcessError):
         return ""
+    dirty = [line for line in status.splitlines() if line.strip() and not REPORT_NAME.fullmatch(line[3:].strip())]
     return head + ("+dirty" if dirty else "")
 
 

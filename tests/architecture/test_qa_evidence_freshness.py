@@ -58,3 +58,33 @@ def test_report_still_passes(name):
 def test_no_unbound_qa_report_sits_beside_the_current_evidence():
     # Six August reports with no fingerprints lived at the root next to these.
     assert sorted(path.name for path in ROOT.glob("*QA*.json")) == sorted(REPORTS)
+
+
+@pytest.mark.parametrize("name", REPORTS)
+def test_report_was_produced_on_a_committed_tree(name):
+    """Evidence names a commit a reviewer can check out, not "+dirty" (red-team second pass on PR #19)."""
+    assert not _report(name)["audited_commit"].endswith("+dirty"), f"{name} was produced on an uncommitted tree"
+
+
+def test_a_report_written_by_an_earlier_suite_does_not_make_the_tree_dirty(tmp_path):
+    import shutil
+    import subprocess
+    import sys
+
+    if shutil.which("git") is None:
+        pytest.skip("git is not installed")
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import evidence
+
+    def git(*args):
+        subprocess.run(["git", *args], cwd=tmp_path, check=True, capture_output=True)
+
+    git("init", "-q")
+    (tmp_path / "index.html").write_text("a", encoding="utf-8")
+    (tmp_path / "VISUAL_RESOURCE_QA.json").write_text("{}", encoding="utf-8")
+    git("add", ".")
+    git("-c", "user.name=t", "-c", "user.email=t@example.invalid", "commit", "-q", "-m", "c")
+    (tmp_path / "VISUAL_RESOURCE_QA.json").write_text('{"checks": 1}', encoding="utf-8")
+    assert not evidence.current_commit(tmp_path).endswith("+dirty")
+    (tmp_path / "index.html").write_text("b", encoding="utf-8")
+    assert evidence.current_commit(tmp_path).endswith("+dirty")
