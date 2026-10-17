@@ -105,8 +105,9 @@ def error_log(browser):
     plan = context.new_page()
     plan.goto(base + "plans/plan_b.html?token=secreto#x", wait_until="networkidle", timeout=60000)
     sent.clear()
+    # Both fire after evaluate returns: Playwright would otherwise await the rejected promise itself.
     plan.evaluate("setTimeout(()=>{throw new Error('prueba del registro https://example.org/a?clave=1')},0);"
-                  "Promise.reject(new Error('promesa de prueba'))")
+                  "setTimeout(()=>{Promise.reject(new Error('promesa de prueba'))},0)")
     plan.wait_for_timeout(500)
     record("error log: a thrown error and a rejected promise send no request", sent == [], sent)
     home = context.new_page()

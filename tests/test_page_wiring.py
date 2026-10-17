@@ -29,8 +29,9 @@ import integrate_field_card  # noqa: E402
 HOSTED = ROOT / "dist" / "canon6d_sota_hosted"
 PAGES = [ROOT / "index.html", ROOT / "field_card.html", *sorted((ROOT / "plans").glob("plan_*.html")),
          HOSTED / "index.html", HOSTED / "field_card.html", *sorted((HOSTED / "plans").glob("plan_*.html"))]
-# assets/gear.js runs on every page but draws its picker only where the home page offers one.
-OPTIONAL = {"gear-config"}
+# assets/gear.js runs on every page but draws its picker only where the home page offers one;
+# assets/diagnostics.js records on every scripted page but shows its log only in the home page's footer.
+OPTIONAL = {"gear-config", "diag-list", "diag-empty", "diag-report", "diag-count", "diag-copy", "diag-clear"}
 INLINE_DATA = re.compile(r"data:[a-z]+/[a-z0-9.+-]+;base64,[A-Za-z0-9+/=]+")
 LOOKUP = re.compile(r"getElementById\(\s*['\"]([\w-]+)['\"]\s*\)")
 DECLARED = re.compile(r"\bid=[\"']([\w-]+)[\"']|\.id\s*=\s*['\"]([\w-]+)['\"]")

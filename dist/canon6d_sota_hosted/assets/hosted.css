@@ -5165,6 +5165,13 @@ details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:bord
 .gear-status{margin-top:.6rem;font-size:.875rem;color:#334155}
 .gear-hint{font-size:.8125rem;font-weight:400;color:#475569}
 .gear-custom>summary::before{content:'+';display:inline-block;width:1.2em;font-weight:900}
+.diag{margin-top:1.5rem;border-top:1px solid #334155;padding-top:.5rem;color:#cbd5e1;font-size:.875rem;line-height:1.5}
+.diag>summary{display:flex;align-items:center;gap:.4em;min-height:44px;cursor:pointer;font-weight:700;color:#fff}
+.diag p{margin:.5rem 0;color:#cbd5e1}
+.diag ol{margin:.5rem 0;padding-left:1.25rem;list-style:decimal;color:#e2e8f0;overflow-wrap:anywhere}
+.diag-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+.diag-actions>:is(a,button){display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border:1px solid #94a3b8;border-radius:.5rem;color:#fff;background:transparent;font:inherit;font-weight:600;text-decoration:none;cursor:pointer}
+.diag-actions>:is(a,button):focus-visible,.diag>summary:focus-visible{outline:3px solid #fbbf24;outline-offset:2px}
 .gear-custom[open]>summary::before{content:'−'}
 .gear-line{margin:.35rem 0 .5rem;padding:.5rem .7rem;border-left:4px solid #0f766e;background:#f0fdfa;border-radius:8px;font-size:.8125rem;color:#134e4a;line-height:1.45}
 .gear-line .gear-values{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700}

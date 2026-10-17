@@ -41,6 +41,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <meta name="theme-color" content="#0f172a">
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script id="diagnostics-js">
+__DIAG_JS__</script>
 <title>__PLAN_NAME__ · Plan fotográfico · FocalRuta</title>
 <meta name="description" content="__PLAN_DESCRIPTION__">
 <link rel="icon" href="../assets/app-icon.svg" type="image/svg+xml">
@@ -324,7 +326,7 @@ window.addEventListener('DOMContentLoaded', renderShots);
 // The gear chosen on the home page applies here too (V15).
 window.addEventListener('storage', e => { if (e.key === 'focalruta-equipo-v1') renderShots(); });
 </script>
-<script>if(('serviceWorker' in navigator)&&(location.protocol==='http:'||location.protocol==='https:')){window.addEventListener('load',()=>navigator.serviceWorker.register('../sw.js').catch(()=>{}));}</script>
+<script>if(('serviceWorker' in navigator)&&(location.protocol==='http:'||location.protocol==='https:')){window.addEventListener('load',()=>navigator.serviceWorker.register('../sw.js').catch(e=>FocalRutaDiagnostico.record('trabajador',e&&e.message||String(e),'sw.js')));}</script>
 
 </body>
 </html>
@@ -375,6 +377,7 @@ def generate_plan_html(plan):
     html = html.replace("__PLAN_JSON__", json.dumps(plan_data, ensure_ascii=False))
     html = html.replace("__DIAGRAMS_JSON__", json.dumps(diagrams_b64, ensure_ascii=False))
     html = html.replace("__GEAR_JS__", (Path(__file__).resolve().parents[1] / "assets" / "gear.js").read_text(encoding="utf-8"), 1)
+    html = html.replace("__DIAG_JS__", (Path(__file__).resolve().parents[1] / "assets" / "diagnostics.js").read_text(encoding="utf-8"), 1)
 
     out_path = os.path.join(PLAN_DIR, f"{plan_id}.html")
     with open(out_path, "w", encoding="utf-8") as f:

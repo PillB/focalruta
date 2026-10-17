@@ -42,6 +42,10 @@ if n != 1: raise RuntimeError('sun panel script slot not found')
 gear_js = (ROOT / 'assets' / 'gear.js').read_text(encoding='utf-8')
 t, n = re.subn(r'<script id="gear-js">.*?</script>', lambda _m: '<script id="gear-js">\n' + gear_js + '</script>', t, count=1, flags=re.S)
 if n != 1: raise RuntimeError('gear script slot not found')
+# Error log on this device (X04): first script on the page, so it sees every later one fail.
+diagnostics_js = (ROOT / 'assets' / 'diagnostics.js').read_text(encoding='utf-8')
+t, n = re.subn(r'<script id="diagnostics-js">.*?</script>', lambda _m: '<script id="diagnostics-js">\n' + diagnostics_js + '</script>', t, count=1, flags=re.S)
+if n != 1: raise RuntimeError('error log script slot not found')
 def _solstice(day, label):
     plan = sun_times.day_plan(day)
     return (f"{label}: sale {sun_times.clock(plan['sunrise'])}, se pone {sun_times.clock(plan['sunset'])} "

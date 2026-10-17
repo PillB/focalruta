@@ -49,7 +49,7 @@ def img_hints(m):
     if 'loading=' not in tag: tag=tag[:-1]+' loading="lazy" decoding="async">'
     return tag
 html=re.sub(r'<img\b[^>]*>',img_hints,html)
-registration='''<script>\nif('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>console.warn('PWA worker unavailable',error)));}\n</script>'''
+registration='''<script>\nif('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>FocalRutaDiagnostico.record('trabajador',error&&error.message||String(error),'sw.js')));}\n</script>'''
 html=html.replace('</body>',registration+'\n</body>',1)
 (OUT/'index.html').write_text(html,encoding='utf-8')
 
