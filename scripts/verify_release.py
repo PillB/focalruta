@@ -194,6 +194,8 @@ for report_name, minimum_checks in (
     ("AXE_ACCESSIBILITY_QA.json", 78),
     # 38 for the card itself (V02-V09), 10 for your own gear (V13-V15).
     ("FIELD_CARD_QA.json", 48),
+    # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin).
+    ("PERF_BUDGET_QA.json", 112),
 ):
     check_evidence(report_name, minimum_checks)
 

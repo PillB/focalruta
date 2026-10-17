@@ -43,13 +43,15 @@ CORE = (
     ("build_state_snapshot.py", "measured half of the state file"),
 )
 
-# Need a real Chrome; they fingerprint the artefacts they audit.
+# Need Chromium (qa_matrix.browser_options) and, for axe and Lighthouse, `npm ci`;
+# they fingerprint the artefacts they audit. CI runs each one on every pull request.
 BROWSER_QA = (
     ("visual_resource_audit.py", "image, resource and contrast audit"),
     ("optics_accessibility_qa.py", "optical lab accessibility matrix"),
     ("browser_release_qa.py", "browser regression matrix"),
-    ("axe_accessibility_qa.py", "axe-core on every published page (needs FOCALRUTA_AXE)"),
-    ("field_card_qa.py", "field card on a phone, without JavaScript, offline (needs FOCALRUTA_AXE)"),
+    ("axe_accessibility_qa.py", "axe-core on every published page (axe-core from npm ci)"),
+    ("field_card_qa.py", "field card on a phone, without JavaScript, offline (axe-core from npm ci)"),
+    ("perf_budget_qa.py", "speed budgets per page type (Lighthouse from npm ci)"),
 )
 
 

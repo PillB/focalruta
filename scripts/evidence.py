@@ -39,6 +39,7 @@ QA_REPORTS = frozenset({
     "VISUAL_RESOURCE_QA.json",
     "AXE_ACCESSIBILITY_QA.json",
     "FIELD_CARD_QA.json",
+    "PERF_BUDGET_QA.json",
 })
 
 
