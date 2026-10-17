@@ -36,6 +36,7 @@ CORE = (
     ("generate_plan_pages.py", "six self-contained plan pages"),
     ("generate_field_card.py", "planner field card"),
     ("build_master.py", "root PhotoPlanner index"),
+    ("integrate_field_card.py", "field card in the home page dialog"),
     ("build_download_bundle.py", "downloadable ZIP of plans, card and diagrams"),
     ("build_dual_release.py", "dist/canon6d_sota_hosted"),
     # Last: it measures the artefacts every step above produces.
@@ -48,6 +49,7 @@ BROWSER_QA = (
     ("optics_accessibility_qa.py", "optical lab accessibility matrix"),
     ("browser_release_qa.py", "browser regression matrix"),
     ("axe_accessibility_qa.py", "axe-core on every published page (needs FOCALRUTA_AXE)"),
+    ("field_card_qa.py", "field card on a phone, without JavaScript, offline (needs FOCALRUTA_AXE)"),
 )
 
 

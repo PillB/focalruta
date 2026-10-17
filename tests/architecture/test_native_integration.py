@@ -5,6 +5,7 @@ ROOT = Path(__file__).resolve().parents[2]
 HOME = ROOT / "index.html"
 CHALLENGE = ROOT / "challenges/arquitectura-en-foco/index.html"
 BUILD = ROOT / "scripts/build_dual_release.py"
+SERVICE_WORKER = ROOT / "assets/sw.template.js"
 CANDIDATES = ROOT / "data/architecture/candidates.json"
 VERIFICATION = ROOT / "architectural_photography/research/locations/equal_depth_verification.json"
 MODULE_INVENTORY = ROOT / "architectural_photography/ARCHITECTURE_MODULE_INVENTORY.json"
@@ -117,10 +118,12 @@ def test_no_js_fallback_contains_queue_protocol_and_rules():
 
 
 def test_hosted_build_copies_and_precaches_architecture_core():
-    build = text(BUILD)
-    assert "challenges/arquitectura-en-foco" in build
-    assert "data/architecture" in build
-    assert "./challenges/arquitectura-en-foco/index.html" in build
+    build, worker = text(BUILD), text(SERVICE_WORKER)
+    assert "shutil.copytree(SRC/'challenges',OUT/'challenges')" in build
+    assert "shutil.copytree(SRC/'data'/'architecture',OUT/'data'/'architecture')" in build
+    core = worker.split("const CORE=", 1)[1].split(";", 1)[0]
+    assert "'./challenges/arquitectura-en-foco/index.html'" in core
+    assert "'./data/architecture/routes.json'" in core
 
 
 def test_architecture_page_excludes_irrelevant_pose_and_dog_flows():

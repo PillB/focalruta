@@ -1,0 +1,284 @@
+{
+  "passed": true,
+  "checks": 38,
+  "failures": [],
+  "results": [
+    {
+      "name": "phone: no text under 12 px in any section",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "phone: every control at least 44 × 44 px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "phone: plan C at night shows C01's night settings",
+      "pass": true,
+      "detail": {
+        "shot": "C01",
+        "exposure": "f/8 · 1/125 · ISO 6400",
+        "when": "· a cualquier hora"
+      }
+    },
+    {
+      "name": "phone: only plan C's ten night slots are visible",
+      "pass": true,
+      "detail": {
+        "count": 10,
+        "plans": [
+          "plan_c"
+        ],
+        "slots": [
+          "night"
+        ],
+        "first": {
+          "shot": "C01",
+          "exposure": "f/8 · 1/125 · ISO 6400",
+          "when": "· a cualquier hora"
+        }
+      }
+    },
+    {
+      "name": "phone: packing list follows the plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "phone: section bar stays in the bottom 15% while scrolling",
+      "pass": true,
+      "detail": [
+        777,
+        844,
+        777,
+        844
+      ]
+    },
+    {
+      "name": "phone: plan, light, tick and night screen survive a reload",
+      "pass": true,
+      "detail": [
+        "plan_c",
+        "night",
+        true,
+        "1/10",
+        true
+      ]
+    },
+    {
+      "name": "phone: night screen is black",
+      "pass": true,
+      "detail": "rgb(0, 0, 0)"
+    },
+    {
+      "name": "phone: reset clears this list after a second tap",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "phone: next button stays off the controls, then jumps to the first pending shot",
+      "pass": true,
+      "detail": [
+        true,
+        "plan_a/A02/day"
+      ]
+    },
+    {
+      "name": "phone: arrow keys move between plans with a visible focus ring",
+      "pass": true,
+      "detail": [
+        "solid",
+        3
+      ]
+    },
+    {
+      "name": "phone: no console or page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Lima 15:00Z read from Madrid opens on day",
+      "pass": true,
+      "detail": "Ahora en Lima es de día. En 7 h 37 min empieza la hora dorada (17:37). Puesta de sol: rumbo 260° (oeste)."
+    },
+    {
+      "name": "A01's day window matches the Python ephemeris",
+      "pass": true,
+      "detail": [
+        "· 05:42–17:37",
+        "· 05:42–17:37"
+      ]
+    },
+    {
+      "name": "Lima 22:50Z read from Madrid opens on afternoon",
+      "pass": true,
+      "detail": "Ahora en Lima es de tarde. En 15 min se pone el sol (18:05). Puesta de sol: rumbo 260° (oeste)."
+    },
+    {
+      "name": "Lima 03:30Z read from Madrid opens on night",
+      "pass": true,
+      "detail": "Ahora en Lima es de noche. Mañana sale el sol a las 05:42. Puesta de sol: rumbo 260° (oeste)."
+    },
+    {
+      "name": "no JavaScript: plan C at night shows C01's night settings",
+      "pass": true,
+      "detail": {
+        "shot": "C01",
+        "exposure": "f/8 · 1/125 · ISO 6400",
+        "when": ""
+      }
+    },
+    {
+      "name": "no JavaScript: only plan C's ten night slots are visible",
+      "pass": true,
+      "detail": {
+        "count": 10,
+        "plans": [
+          "plan_c"
+        ],
+        "slots": [
+          "night"
+        ],
+        "first": {
+          "shot": "C01",
+          "exposure": "f/8 · 1/125 · ISO 6400",
+          "when": ""
+        }
+      }
+    },
+    {
+      "name": "no JavaScript: packing list follows the plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "no JavaScript: no text under 12 px in any section",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "no JavaScript: every control at least 44 × 44 px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "reduced motion: nothing animates",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "print: the chosen plan's ten shots and no controls",
+      "pass": true,
+      "detail": [
+        10,
+        "none"
+      ]
+    },
+    {
+      "name": "home page dialog opens the card",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "home page dialog: no text under 12 px in any section",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "home page dialog: every control at least 44 × 44 px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "home page dialog: plan C at night shows C01's night settings",
+      "pass": true,
+      "detail": {
+        "shot": "C01",
+        "exposure": "f/8 · 1/125 · ISO 6400",
+        "when": "· a cualquier hora"
+      }
+    },
+    {
+      "name": "home page dialog: only plan C's ten night slots are visible",
+      "pass": true,
+      "detail": {
+        "count": 10,
+        "plans": [
+          "plan_c"
+        ],
+        "slots": [
+          "night"
+        ],
+        "first": {
+          "shot": "C01",
+          "exposure": "f/8 · 1/125 · ISO 6400",
+          "when": "· a cualquier hora"
+        }
+      }
+    },
+    {
+      "name": "home page dialog: packing list follows the plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "home page dialog closes with Escape, without errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "no horizontal overflow at 320, 390, 430, 844 landscape and 1280",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "axe: no violations on the day card",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "axe: no violations on the dark card",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "axe: no violations on the night screen card",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "a simulated deploy replaces the worker and its caches",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "offline after saving: plan C itself opens with all its diagrams",
+      "pass": true,
+      "detail": [
+        10,
+        [],
+        "San Isidro Nocturno — Interior + Calle Urbana · Plan fotográfico · FocalRuta"
+      ]
+    },
+    {
+      "name": "offline: the card itself opens",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "offline: the home page opens",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "audited_at": "2026-10-17T18:49:42.051315+00:00",
+  "audited_commit": "c4f96bfa11e0eebbaf971dafe7dd4978f3cd87c2+dirty",
+  "audited_artifacts": {
+    "data/plans.json": "002665323bf6ca6d39ac7234e0fc6c9a8bfd7405d4591365cf94a8f729940183",
+    "dist/canon6d_sota_hosted/field_card.html": "9537b330a43d1cf0ffad3e56cc19032f7095d4e556f75ab4b7185dd554af3ffa",
+    "dist/canon6d_sota_hosted/index.html": "c1e2c76568eebd1edd3aeab7c58206f2d1664ca04e60acf2bc5aecba1459b561",
+    "dist/canon6d_sota_hosted/sw.js": "7436bdabd19dbd921b48702587d9decc76c37e06b0dee1598fefd009e3b520bd",
+    "field_card.html": "9537b330a43d1cf0ffad3e56cc19032f7095d4e556f75ab4b7185dd554af3ffa"
+  }
+}

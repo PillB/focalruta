@@ -191,6 +191,7 @@ for report_name, minimum_checks in (
     ("VISUAL_RESOURCE_QA.json", 37),
     # Every shipped page, light phone and dark desktop: 39 pages x 2 passes.
     ("AXE_ACCESSIBILITY_QA.json", 78),
+    ("FIELD_CARD_QA.json", 38),
 ):
     check_evidence(report_name, minimum_checks)
 

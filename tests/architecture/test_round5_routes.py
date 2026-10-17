@@ -329,7 +329,8 @@ def test_route_ui_exposes_district_filter_and_singleton_map_links():
 
 
 def test_hosted_offline_shell_precaches_route_ui_and_help():
-    build = (ROOT / "scripts/build_dual_release.py").read_text(encoding="utf-8")
-    assert "./challenges/arquitectura-en-foco/iphone-maps.html" in build
-    assert "./data/architecture/routes.json" in build
-    assert "u.pathname.endsWith('/')?u.pathname+'index.html'" in build
+    worker = (ROOT / "assets/sw.template.js").read_text(encoding="utf-8")
+    core = worker.split("const CORE=", 1)[1].split(";", 1)[0]
+    assert "'./challenges/arquitectura-en-foco/iphone-maps.html'" in core
+    assert "'./data/architecture/routes.json'" in core
+    assert "u.pathname.endsWith('/')?u.pathname+'index.html'" in worker
