@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import qa_matrix  # noqa: E402  (needs the path above)
 PUBLIC_ROOT = ROOT / "dist/canon6d_sota_hosted"
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME = __import__("os").environ.get("FOCALRUTA_CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 OUT = ROOT / "architectural_photography/qa/final/whole_site_integration"
 VIEWPORTS = qa_matrix.REQUIRED_VIEWPORTS
 

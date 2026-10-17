@@ -971,3 +971,77 @@ suite un 8 % mayor.
 automático) e instalar `pytest-timeout` en local si se quiere la misma red que
 tiene CI. Por lo demás, el enlace peatonal de 854 m entre Puente Villena y
 Larcomar sigue siendo la comprobación de campo con más valor pendiente.
+
+## Ronda 11 · Planificador fotográfico listo para producción (2026-10-17)
+
+Pedido de Pablo: tratar la página como prototipo, investigar técnicas y fuentes,
+verificar lo implementado y dejarla lista para producción.
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| R01 | Ranking igual en cualquier Python | `mean([1e16,1,-1e16])` daba 1.0 en 3.13 (suma compensada de `sum`) | `ordered_sum` → 0.0 en 3.11 y 3.13 |
+| P01 | Exposición de cada franja dentro de ±1 EV de la luz de escena (tabla ANSI PH2.7) | ninguna franja declaraba escena; 8/14 tests fallaban | 180 franjas re-resueltas, 0 violaciones |
+| P02 | ND de catálogo (2, 3, 6, 10 pasos) nombrado en la nota | notas con "sin filtro" y densidades no estándar | ND nombrado; franjas imposibles marcadas "no viable" |
+| P03–P04 | Límites de cámara/lente y envolvente de cada técnica | — | dentro de límites; obturadores escritos como en la 6D (`10"`, no `10`) |
+| P05 | Afirmaciones ópticas del texto = modelo de lente delgada y sensor 35,8×23,9 | A01 hiperfocal 5,1 m (modelo 3,75); B01 5,0; C03 PDC 6 cm (9); C04 10 cm (27); D03 6 cm (9) | 0 discrepancias; mitos de "compresión" y del zoom burst retirados |
+| P06 | `data/plans.json` = `plans_data.to_dict()` | — | igual; incluye `scene_light` y `pose_names` |
+| S01–S04 | Panel solar de Lima (NOAA) dentro de 2 min/1° de `astral` 3.2; JS = Python | test de paridad JS falló sin `assets/sun_times.js` | 22 tests de `tests/planner` en verde |
+| M04 | `regenerate_all.py` cubre datos, páginas de plan, tarjeta y ZIP | "plans_data.py is not reachable from the regeneration entrypoint" | cubierto; segunda regeneración sin cambios |
+
+### Cambios visibles
+
+- Tarjetas, detalle y modo sesión muestran lente, apertura, obturador e ISO **de la
+  franja elegida** (antes mezclaban lente/apertura de cabecera con obturador/ISO de la
+  franja), más filtro ND, luz prevista y aviso "no viable".
+- 120 diagramas redibujados: chips medidos (antes se salían), PDC infinita dibujada
+  (antes se omitía), fondos lejanos acortados y marcados "no a escala", etiquetas y
+  poses en español.
+- Copia en español sin jerga de desarrollo: fuera el panel "Regression audit",
+  "se recuperaron…", créditos de matplotlib, KEY TAKEAWAYS, half-body, etc.
+- Fuentes: la página de Canon Europe que atribuye la compresión a la focal se
+  sustituyó por Wikipedia "Perspective distortion", la tabla EV y NOAA.
+- Plan B: el ocaso va de ≈246° (dic.) a ≈294° (jun.), no 278–288°. Planes A y D ya
+  no llaman "luz dorada" a franjas posteriores a la hora dorada.
+- Producción: descripción, canonical y Open Graph; iconos maskable separados; `id`,
+  `lang`, `dir` en el manifiesto; `robots.txt` y `sitemap.xml`; versión de caché del
+  service worker = hash del contenido; 404 autónoma; fuera la insignia "hosted lean".
+- ZIP de descarga reconstruido de forma determinista (contenía las páginas de plan
+  previas a las correcciones). Páginas de plan en WebP sin pérdida: ~4,5 → ~2,4 MB.
+
+### Comandos y resultados (todos con salida 0)
+
+- `python3 -m pytest -q` → 302 passed, 1 skipped.
+- `python3 scripts/verify_architecture.py` → passed. `python3 scripts/verify_release.py` → passed.
+- `python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-complexity=10'` → All checks passed.
+- `python3 scripts/regenerate_all.py` dos veces → árbol sin cambios.
+- `FOCALRUTA_CHROME=/opt/pw-browsers/chromium` + servidor en `dist/canon6d_sota_hosted` (127.0.0.1:8777):
+  visual/recursos 37/37, óptica/accesibilidad 22/22, matriz de navegador 246/246,
+  y las 5 suites `tests/architecture/browser_*.py` en verde (6 viewports, SW, offline, sin JS).
+- Lighthouse 12.8.2 (móvil simulado): portada 92/100/100/100; `plans/plan_a.html` 46/100/100/100 (antes 35 de rendimiento).
+
+### Compromisos explícitos
+
+- `optics_physics.FULL_FRAME_*` sigue en 36×24 mm para el modelo genérico; el campo
+  visual de la 6D y los tests usan 35,8×23,9. La diferencia es <0,6 %.
+- La escena `oscuridad` (−3 a −1 EV) es una estimación: no tiene fila en la tabla ANSI.
+- Tolerancia de ±1 EV: lo que una foto de prueba y el histograma recuperan sin
+  cambiar de técnica.
+- Tomas de interior con mucha PDC usan ISO hasta 6400 en vez de trípode, para no
+  cambiar la técnica.
+- Se mantiene `skipWaiting()` en el service worker: sitio estático sin estado de
+  formulario; prima recibir la versión nueva.
+- Las páginas de plan siguen autocontenidas (2,4 MB) para uso sin conexión; por eso
+  su rendimiento en Lighthouse es 46.
+- `generate_diagrams.py` queda fuera de `regenerate_all.py` (necesita matplotlib, que
+  CI no instala); los PNG se regeneraron a mano en esta ronda.
+- La tarjeta de campo integrada conserva rótulos breves en inglés ("Eye-level", "FG/BG");
+  se regenera desde `integrate_field_card.py`, fuera del ciclo automático.
+- Los scripts de QA de navegador aceptan `FOCALRUTA_CHROME`; en este runner se
+  enlazó `chromium_headless_shell-1187` → `-1194` porque Playwright 1.55 espera la 1187.
+
+### Pendiente
+
+- Verificar Pages en vivo tras el despliegue.
+- El enlace PMC3482144 citado muestra un captcha; no se pudo comprobar su contenido.

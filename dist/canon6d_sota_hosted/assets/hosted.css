@@ -4925,6 +4925,7 @@ html,body{max-width:100%;overflow-x:clip}
   .aperture-pill { background: #DCFCE7; color: #14532D; border: 1px solid #86EFAC; }
   .shutter-pill { background: #FEE2E2; color: #7F1D1D; border: 1px solid #FCA5A5; }
   .iso-pill { background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; }
+.footer-plan-link { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; min-height: 32px; border: 1px solid #334155; border-radius: 8px; }
 .hdr-label { display: none; }
 @media (min-width: 640px) { .hdr-label { display: inline; } }
 .nd-pill { background: #1F2937; color: #F9FAFB; border: 1px solid #111827; }

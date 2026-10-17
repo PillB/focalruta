@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 import evidence
 
-ROOT=Path(__file__).resolve().parents[1];CHROME='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';checks=[]
+ROOT=Path(__file__).resolve().parents[1];CHROME = __import__('os').environ.get('FOCALRUTA_CHROME', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome');checks=[]  # Linux runners: point FOCALRUTA_CHROME at Playwright's Chromium
 def add(name,ok,detail=''):
     checks.append({'name':name,'pass':bool(ok),'detail':detail})
     if not ok: raise AssertionError(f'{name}: {detail}')

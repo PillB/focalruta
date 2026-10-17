@@ -17,7 +17,7 @@ AUDITED = [
     ROOT / "data/plans.json",
     *sorted((ROOT / "plans").glob("plan_*.html")),
 ]
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME = __import__('os').environ.get('FOCALRUTA_CHROME', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')  # Linux runners: point at Playwright's Chromium
 results = []
 
 

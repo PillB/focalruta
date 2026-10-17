@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 import evidence
 
 ROOT=Path(__file__).resolve().parents[1]
-CHROME='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+CHROME = __import__('os').environ.get('FOCALRUTA_CHROME', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')  # Linux runners: point at Playwright's Chromium
 results=[]
 def check(name,condition,detail=''):
     results.append({'name':name,'pass':bool(condition),'detail':detail})

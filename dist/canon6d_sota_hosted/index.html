@@ -742,7 +742,7 @@
         <ul class="space-y-2 text-sm text-slate-400">
           <li>☀️ Día · 🌅 Tarde · 🌙 Noche</li>
           <li>👤 Humano · 🐶 Perro</li>
-          <li class="flex flex-wrap gap-x-2"><span>Planes:</span><a class="hover:text-white" href="plans/plan_a.html" download>A</a><a class="hover:text-white" href="plans/plan_b.html" download>B</a><a class="hover:text-white" href="plans/plan_c.html" download>C</a><a class="hover:text-white" href="plans/plan_d.html" download>D</a><a class="hover:text-white" href="plans/plan_e.html" download>E</a><a class="hover:text-white" href="plans/plan_f.html" download>F</a></li>
+          <li class="flex flex-wrap items-center gap-2"><span>Planes:</span><a class="hover:text-white footer-plan-link" href="plans/plan_a.html" download aria-label="Descargar plan A">A</a><a class="hover:text-white footer-plan-link" href="plans/plan_b.html" download aria-label="Descargar plan B">B</a><a class="hover:text-white footer-plan-link" href="plans/plan_c.html" download aria-label="Descargar plan C">C</a><a class="hover:text-white footer-plan-link" href="plans/plan_d.html" download aria-label="Descargar plan D">D</a><a class="hover:text-white footer-plan-link" href="plans/plan_e.html" download aria-label="Descargar plan E">E</a><a class="hover:text-white footer-plan-link" href="plans/plan_f.html" download aria-label="Descargar plan F">F</a></li>
           <li><a href="downloads/canon6d_photo_planner_assets.zip" class="hover:text-white transition" download>ZIP completo con todos los recursos</a></li>
         </ul>
       </div>
@@ -1132,7 +1132,7 @@ function renderComposition() {
       <div class="w-10 h-10 rounded-lg bg-${colors[i]}-100 flex items-center justify-center mb-2">
         <span class="text-lg font-black">${COMP_EMOJI[k] || '•'}</span>
       </div>
-      <h5 class="font-bold text-sm mb-1">${r.es}</h5>
+      <h4 class="font-bold text-sm mb-1">${r.es}</h4>
       <p class="text-xs text-slate-600 leading-relaxed">${r.tip}</p>
     </div>
   `).join('');
@@ -1151,7 +1151,7 @@ function renderAngles() {
       <div class="w-12 h-12 mx-auto rounded-full bg-${colors[i]}-100 flex items-center justify-center mb-2">
         <span class="text-lg font-black">${ANGLE_EMOJI[k] || '↔'}</span>
       </div>
-      <h5 class="font-bold text-sm text-center mb-1">${a.es}</h5>
+      <h4 class="font-bold text-sm text-center mb-1">${a.es}</h4>
       <p class="text-xs text-slate-600 text-center leading-relaxed">${a.effect}</p>
     </div>
   `).join('');
