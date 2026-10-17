@@ -1611,8 +1611,7 @@ function renderSessionRun(){const dlg=document.getElementById('session-run-dialo
 function openSessionRun(){const d=document.getElementById('session-run-dialog');if(!d)return;runLastTrigger=document.activeElement;renderSessionRun();d.showModal();}
 function closeSessionRun(){const d=document.getElementById('session-run-dialog');if(d?.open)d.close();runLastTrigger?.focus?.()}
 function initSessionRun(){const d=document.getElementById('session-run-dialog');if(!d)return;document.getElementById('run-prev').addEventListener('click',()=>{runIndex--;renderSessionRun()});document.getElementById('run-next').addEventListener('click',()=>{runIndex++;renderSessionRun()});document.getElementById('run-done').addEventListener('click',()=>{const s=runState();s[runIndex]=!s[runIndex];saveRun(s);renderSessionRun()});d.addEventListener('close',()=>runLastTrigger?.focus?.());}
-function initAccessibleFieldCard(){const m=document.getElementById('field-card-modal');if(!m)return;let last=null,inerted=[];window.openFieldCard=function(){last=document.activeElement;inerted=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));inerted.forEach(el=>el.inert=true);m.classList.add('fc-modal-open');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');const first=m.querySelector('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])');setTimeout(()=>first?.focus(),0)};window.closeFieldCard=function(){m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');inerted.forEach(el=>el.inert=false);inerted=[];last?.focus?.()};m.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],lastEl=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();lastEl.focus()}else if(!e.shiftKey&&document.activeElement===lastEl){e.preventDefault();first.focus()}});}
-document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibilityMode();initMotionLab();initCompositionLab();initSessionRun();initAccessibleFieldCard()});
+document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibilityMode();initMotionLab();initCompositionLab();initSessionRun()});
 
 </script>
 <script>
@@ -1837,9 +1836,13 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
   setInterval(paintWindows, 60000);
 })(typeof window !== 'undefined' ? window : this);
 
-function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m)return;m.classList.add('fc-modal-open');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');setTimeout(()=>m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'}),0);}
-function closeFieldCard(){const m=document.getElementById('field-card-modal');if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeFieldCard()});
+// The one definition of the card dialog: the rest of the page goes inert while it is
+// open, focus stays inside, and Escape or the close button return focus to the opener.
+let fcOpener=null,fcInert=[];
+function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
+function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');setTimeout(()=>{m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus()},0);}
+function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];fcOpener?.focus?.();}
+document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 
 <!-- FIELD CARD JS END -->
 </script>

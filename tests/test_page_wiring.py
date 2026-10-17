@@ -8,7 +8,10 @@ page is guarded with `if (!d) return`.
 
 This holds the wiring statically, on every shipped page: an id the script
 fetches with getElementById('…') must exist in the markup or be created by
-the script. It also holds the card integration to replacing only the card.
+the script, and a function the markup calls (onclick="openFieldCard()") is
+defined once, so the one that runs is not decided by load order (the red
+team found two openFieldCard definitions). It also holds the card
+integration to replacing only the card.
 """
 from __future__ import annotations
 
@@ -31,12 +34,30 @@ OPTIONAL = {"gear-config"}
 INLINE_DATA = re.compile(r"data:[a-z]+/[a-z0-9.+-]+;base64,[A-Za-z0-9+/=]+")
 LOOKUP = re.compile(r"getElementById\(\s*['\"]([\w-]+)['\"]\s*\)")
 DECLARED = re.compile(r"\bid=[\"']([\w-]+)[\"']|\.id\s*=\s*['\"]([\w-]+)['\"]")
+HANDLER = re.compile(r"\son[a-z]+=\"([A-Za-z_$][\w$]*)\(")
+DEFINITION = r"(?:\bfunction\s+{0}\s*\(|\bwindow\.{0}\s*=)"
 
 
 def missing_ids(text: str) -> list[str]:
     text = INLINE_DATA.sub("data:", text)
     declared = {a or b for a, b in DECLARED.findall(text)}
     return sorted(set(LOOKUP.findall(text)) - declared - OPTIONAL)
+
+
+def handlers_not_defined_once(text: str) -> dict[str, int]:
+    text = INLINE_DATA.sub("data:", text)
+    counts = {name: len(re.findall(DEFINITION.format(re.escape(name)), text)) for name in set(HANDLER.findall(text))}
+    return {name: count for name, count in sorted(counts.items()) if count != 1}
+
+
+@pytest.mark.parametrize("page", PAGES, ids=lambda p: str(p.relative_to(ROOT)))
+def test_v05_every_function_the_markup_calls_is_defined_once(page):
+    assert handlers_not_defined_once(page.read_text(encoding="utf-8")) == {}
+
+
+def test_v05_the_handler_scan_sees_a_duplicate_and_a_missing_function():
+    sample = '<button onclick="a()"></button><button onclick="b(1)"></button><script>function a(){}window.a=function(){}</script>'
+    assert handlers_not_defined_once(sample) == {"a": 2, "b": 0}
 
 
 @pytest.mark.parametrize("page", PAGES, ids=lambda p: str(p.relative_to(ROOT)))

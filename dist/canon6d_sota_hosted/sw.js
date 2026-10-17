@@ -7,7 +7,7 @@
            plan pages and every diagram. A new version copies the previous pack
            before deleting old caches, so a deploy never empties a phone that was
            prepared for a session without signal. */
-const VERSION='focalruta-2ee0aebc5a04';
+const VERSION='focalruta-bdbb5ea29e8f';
 const SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime',PACK=VERSION+'-pack';
 const CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./challenges/arquitectura-en-foco/index.html','./challenges/arquitectura-en-foco/iphone-maps.html','./data/architecture/learning.json','./data/architecture/ranking.json','./data/architecture/routes.json','./assets/icon-192.png','./assets/icon-512.png','./assets/icon-maskable-192.png','./assets/icon-maskable-512.png','./assets/app-icon.svg'];
 const PACK_LIMIT=300,PACK_PARALLEL=4;
