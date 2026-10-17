@@ -17,7 +17,9 @@ import functools
 import json
 import math
 import os
+import shutil
 import sys
+import tempfile
 import threading
 import time
 from datetime import date
@@ -26,6 +28,7 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
+import deploy_rehearsal
 import evidence
 import reading_floor
 import sun_times
@@ -37,7 +40,8 @@ CHROME = os.environ.get("FOCALRUTA_CHROME", "/Applications/Google Chrome.app/Con
 AXE = os.environ.get("FOCALRUTA_AXE", "")
 DATA = json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))
 PHONE = {"viewport": {"width": 390, "height": 844}, "is_mobile": True, "has_touch": True}
-AUDITED = [DIST / "field_card.html", DIST / "index.html", DIST / "sw.js", ROOT / "field_card.html", ROOT / "data" / "plans.json"]
+AUDITED = [DIST / "field_card.html", DIST / "index.html", DIST / "sw.js", ROOT / "field_card.html", ROOT / "data" / "plans.json",
+           deploy_rehearsal.LIVE_WORKER]
 checks: list[dict] = []
 
 TEXT_SIZES = """(root)=>{const app=document.querySelector(root);const small=[];const w=document.createTreeWalker(app,NodeFilter.SHOW_TEXT);let n;
@@ -67,21 +71,6 @@ def check(name: str, passed: bool, detail=None) -> bool:
     checks.append({"name": name, "pass": bool(passed), "detail": detail})
     print(("✓ " if passed else "✗ ") + name + ("" if passed else f": {detail}"), flush=True)
     return bool(passed)
-
-
-class DeployHandler(QuietHandler):
-    """Serves a new worker version once `deployed` is set, as a deploy would."""
-    deployed = False
-
-    def do_GET(self):
-        if not (self.deployed and self.path.startswith("/sw.js")):
-            return super().do_GET()
-        body = (DIST / "sw.js").read_text(encoding="utf-8").replace("const VERSION='", "const VERSION='next-", 1).encode()
-        self.send_response(200)
-        self.send_header("Content-Type", "text/javascript")
-        self.send_header("Content-Length", str(len(body)))
-        self.end_headers()
-        self.wfile.write(body)
 
 
 def serve(handler=QuietHandler) -> ThreadingHTTPServer:
@@ -350,38 +339,153 @@ def axe_states(browser, base: str) -> None:
         context.close()
 
 
-def offline_pack(browser) -> None:
-    """V07: after one visit and one tap, plans and diagrams work with the server gone,
-    also after a deploy replaced the worker that saved them."""
-    server = serve(DeployHandler)
-    base = f"http://127.0.0.1:{server.server_address[1]}/"
+ACTIVATED = ("async()=>{const r=await navigator.serviceWorker.getRegistration();"
+             "return !!r&&!r.installing&&!r.waiting&&!!r.active&&r.active.state==='activated'}")
+KEPT = "async([name,key])=>(await (await caches.open(name)).keys()).some(r=>r.url.endsWith(key))"
+DECODED = """async()=>{const xs=[...document.querySelectorAll('.shot-card img')];xs.forEach(x=>x.loading='eager');
+  await Promise.all(xs.map(x=>x.complete?null:new Promise(d=>{x.addEventListener('load',d,{once:true});x.addEventListener('error',d,{once:true});setTimeout(d,20000)})));
+  return [xs.length,xs.filter(x=>!x.naturalWidth).map(x=>x.src.split('/').pop()),document.title,
+  [...document.childNodes].filter(n=>n.nodeType===Node.COMMENT_NODE).map(n=>n.data.trim()).join(' ')]}"""
+UPDATE = "navigator.serviceWorker.getRegistration().then(r=>r.update()).then(()=>true,()=>false)"
+
+
+def visit(page, url: str) -> list:
+    """Load a page and return every response it got, from the worker or the network."""
+    responses = []
+
+    def keep(response):
+        responses.append(response)
+    page.on("response", keep)
+    page.goto(url, wait_until="load")
+    page.wait_for_timeout(1500)
+    page.remove_listener("response", keep)
+    return responses
+
+
+def settle(page) -> None:
+    """Check for a new worker now, as the next visit would, and wait until it has taken over."""
+    page.evaluate(UPDATE)
+    wait_until(page, ACTIVATED, 60)
+
+
+def later(context, page) -> None:
+    """Ten minutes on: Pages' max-age=600 has run out and the HTTP cache no longer answers."""
+    context.new_cdp_session(page).send("Network.clearBrowserCache")
+
+
+def kept_key(site, path: str) -> str:
+    return f"{path}?__rev={deploy_rehearsal.service_worker.revision(site / path)}"
+
+
+def check_fresh(name: str, page, url: str, pages, site) -> None:
+    wrong = deploy_rehearsal.stale(visit(page, url), pages.base, site)
+    check(name, not wrong, wrong)
+
+
+def offline_plan(page, base: str, plan: str, build: str | None = None):
+    page.goto(base + f"plans/{plan}.html", wait_until="load")
+    count, broken, title, comments = page.evaluate(DECODED)
+    name = next(p["name"] for p in DATA["plans"] if p["id"] == plan)
+    # The worker falls back to the home page when a page is not kept; that page has diagrams too.
+    return count == 10 and not broken and title.startswith(name) and (build is None or f"build {build}" in comments), [count, broken, title, comments]
+
+
+def upgrade_from_live(browser, old) -> None:
+    """V16, V17: a reader of the live site (9cd3044) opened plan C, and comes back after a deploy."""
+    pages = deploy_rehearsal.Pages(old)
     context = browser.new_context(**PHONE)
     page = context.new_page()
-    page.goto(base + "field_card.html", wait_until="load")
+    page.goto(pages.base, wait_until="load")
+    page.wait_for_function("navigator.serviceWorker.controller!==null", timeout=30000)
+    for path in ("plans/plan_c.html", "field_card.html"):
+        page.goto(pages.base + path, wait_until="load")
+        page.wait_for_timeout(1500)
+    pages.deploy(DIST)
+    later(context, page)
+    check_fresh("V16 first visit after a deploy, still under the live worker: the home page gets only this build's files",
+                page, pages.base, pages, DIST)
+    settle(page)
+    check_fresh("V16 under the new worker: the home page gets only this build's files", page, pages.base, pages, DIST)
+    pages.stop()
+    later(context, page)
+    passed, detail = offline_plan(page, pages.base, "plan_c")
+    check("V17 offline after the upgrade: plan C, opened before it, still opens with its 10 diagrams", passed, detail)
+    page.goto(pages.base, wait_until="load")
+    check("V16 offline: the home page and its web manifest come from the worker",
+          page.locator("h1").count() == 1 and page.evaluate("fetch('manifest.webmanifest').then(r=>r.ok,()=>false)"))
+    context.close()
+
+
+def install_behind_http_cache(browser, old) -> None:
+    """V16: the new worker installs while the browser's HTTP cache still holds the last build."""
+    pages = deploy_rehearsal.Pages(old)
+    context = browser.new_context(**PHONE)
+    page = context.new_page()
+    page.goto(pages.base, wait_until="load")
+    page.wait_for_function("navigator.serviceWorker.controller!==null", timeout=30000)
+    page.goto(pages.base + "field_card.html", wait_until="load")
+    pages.deploy(DIST)
+    settle(page)
+    later(context, page)
+    for path in ("", "field_card.html"):
+        check_fresh(f"V16 installed behind the HTTP cache: {path or 'the home page'} gets only this build's files",
+                    page, pages.base + path, pages, DIST)
+    pages.stop()
+    context.close()
+
+
+def pack_status(page, words: str) -> bool:
+    page.reload(wait_until="load")
+    pick(page, "fc-tab", "gear")
+    try:
+        page.wait_for_function("(w)=>document.querySelector('#fc-pack-status').textContent.includes(w)", arg=words, timeout=20000)
+        return True
+    except Exception:  # noqa: BLE001 - a status that never arrives is the failure being checked
+        return False
+
+
+def kept_for_the_field(browser, work) -> None:
+    """V07, V17: after one visit and one tap, plans and diagrams work with the server
+    gone; the kept files follow a deploy, and the card says when they could not."""
+    pages = deploy_rehearsal.Pages(DIST)
+    context = browser.new_context(**PHONE)
+    page = context.new_page()
+    page.goto(pages.base + "field_card.html", wait_until="load")
     page.wait_for_function("navigator.serviceWorker.controller!==null", timeout=30000)
     pick(page, "fc-tab", "gear")
     page.locator("#fc-pack").click()
     page.wait_for_function("document.querySelector('#fc-pack-status').textContent.startsWith('Listo')", timeout=120000)
-    DeployHandler.deployed = True
-    page.evaluate("navigator.serviceWorker.ready.then(r=>r.update())")
-    wait_until(page, "async()=>{const k=await caches.keys();return k.some(n=>n.startsWith('next-')&&n.endsWith('-pack'))&&!k.some(n=>!n.startsWith('next-'))}", 60)
-    check("a simulated deploy replaces the worker and its caches", True)
-    # Close the socket too: a stopped loop with an open socket accepts connections
-    # and never answers, which is a hung network, not an absent one.
-    server.shutdown()
-    server.server_close()
-    page.goto(base + "plans/plan_c.html", wait_until="load")
-    missing = page.evaluate("""async()=>{const xs=[...document.querySelectorAll('.shot-card img')];xs.forEach(x=>x.loading='eager');
-      await Promise.all(xs.map(x=>x.complete?null:new Promise(d=>{x.addEventListener('load',d,{once:true});x.addEventListener('error',d,{once:true});setTimeout(d,20000)})));
-      return [xs.length,xs.filter(x=>!x.naturalWidth||!x.src.includes('plan_c_')).map(x=>x.src.split('/').pop()),document.title]}""")
-    # The worker falls back to the home page when a page is not cached; that page has diagrams too.
-    check("offline after saving: plan C itself opens with all its diagrams",
-          missing[0] == 10 and not missing[1] and "San Isidro" in missing[2], missing)
-    page.goto(base + "field_card.html", wait_until="load")
+    following = deploy_rehearsal.build(work, "siguiente", ("plans/plan_c.html",))
+    pages.deploy(following)
+    settle(page)
+    check("V17 a deploy brings the kept plan up to date on install",
+          page.evaluate(KEPT, ["focalruta-pack", kept_key(following, "plans/plan_c.html")]))
+    lagging = deploy_rehearsal.build(work, "con-retraso", ("plans/plan_d.html", "field_card.html"), source=following)
+    shutil.copy2(following / "plans/plan_d.html", lagging / "plans/plan_d.html")  # the server has not caught up on plan D
+    pages.deploy(lagging)
+    settle(page)
+    check("V17 the card says when a kept file is from an earlier version", pack_status(page, "versión anterior"),
+          page.locator("#fc-pack-status").text_content())
+    pages.stop()
+    later(context, page)
+    passed, detail = offline_plan(page, pages.base, "plan_c", "siguiente")
+    check("offline after saving and two deploys: plan C is the new one, with all its diagrams", passed, detail)
+    passed, detail = offline_plan(page, pages.base, "plan_d")
+    check("offline: plan D, which could not be refreshed, still opens with all its diagrams", passed, detail)
+    page.goto(pages.base + "field_card.html", wait_until="load")
     check("offline: the card itself opens", page.locator("#field-card-app").is_visible())
-    page.goto(base + "index.html", wait_until="load")
+    page.goto(pages.base, wait_until="load")
     check("offline: the home page opens", page.locator("h1").count() == 1)
     context.close()
+
+
+def deploys(browser) -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        work = Path(tmp)
+        old = deploy_rehearsal.build(work, "en-vivo", ("assets/hosted.css", "data/plans_embedded.js", "plans/plan_c.html",
+                                                       "field_card.html"), live_worker=True)
+        for step, value in ((upgrade_from_live, old), (install_behind_http_cache, old), (kept_for_the_field, work)):
+            guarded(step, browser, value)
 
 
 def phone(browser, base: str) -> None:
@@ -424,7 +528,7 @@ def main() -> int:
         browser = playwright.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
         for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, your_gear, overflow, axe_states):
             guarded(step, browser, base)
-        guarded(lambda b, _base: offline_pack(b), browser, base)
+        deploys(browser)
         browser.close()
     server.shutdown()
     failures = [c for c in checks if not c["pass"]]

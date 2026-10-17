@@ -153,18 +153,18 @@ def test_t03_published_source_registry_cites_no_contest_material():
 
 
 def test_t03_service_worker_precaches_only_files_the_build_ships():
-    # cache.addAll() rejects the whole install if one URL 404s, which silently disables offline use.
+    # The worker refuses to install without its whole shell, so a missing file would disable offline use.
     sw = (DIST / "sw.js").read_text(encoding="utf-8")
-    core = json.loads(re.search(r"const CORE=(\[[^\]]*\])", sw).group(1).replace("'", '"'))
-    missing = [url for url in core if url != "./" and not (DIST / url.removeprefix("./")).is_file()]
+    core = json.loads(re.search(r"const CORE=(\[[^\]]*\])", sw).group(1))
+    missing = [path for path in core if not (DIST / path).is_file()]
     assert not missing, missing
 
 
 def test_t03_service_worker_precaches_every_manifest_icon():
     # An install prompt or home-screen launch offline asks for these icons.
     sw = (DIST / "sw.js").read_text(encoding="utf-8")
-    core = set(json.loads(re.search(r"const CORE=(\[[^\]]*\])", sw).group(1).replace("'", '"')))
-    icons = {"./" + icon["src"] for icon in load(DIST / "manifest.webmanifest")["icons"]}
+    core = set(json.loads(re.search(r"const CORE=(\[[^\]]*\])", sw).group(1)))
+    icons = {icon["src"].removeprefix("./") for icon in load(DIST / "manifest.webmanifest")["icons"]}
     assert icons <= core, sorted(icons - core)
 
 

@@ -1,3 +1,5 @@
+import json
+import re
 from pathlib import Path
 
 
@@ -5,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[2]
 HOME = ROOT / "index.html"
 CHALLENGE = ROOT / "challenges/arquitectura-en-foco/index.html"
 BUILD = ROOT / "scripts/build_dual_release.py"
-SERVICE_WORKER = ROOT / "assets/sw.template.js"
+SERVICE_WORKER = ROOT / "dist/canon6d_sota_hosted/sw.js"
 CANDIDATES = ROOT / "data/architecture/candidates.json"
 VERIFICATION = ROOT / "architectural_photography/research/locations/equal_depth_verification.json"
 MODULE_INVENTORY = ROOT / "architectural_photography/ARCHITECTURE_MODULE_INVENTORY.json"
@@ -117,13 +119,18 @@ def test_no_js_fallback_contains_queue_protocol_and_rules():
     assert "elegibilidad, tema, archivos, fechas, permisos" in noscript
 
 
+def shipped_core() -> list[str]:
+    """The files the shipped worker keeps on install (scripts/service_worker.py fills them in)."""
+    return json.loads(re.search(r"const CORE=(\[[^\]]*\])", text(SERVICE_WORKER)).group(1))
+
+
 def test_hosted_build_copies_and_precaches_architecture_core():
-    build, worker = text(BUILD), text(SERVICE_WORKER)
+    build = text(BUILD)
     assert "shutil.copytree(SRC/'challenges',OUT/'challenges')" in build
     assert "shutil.copytree(SRC/'data'/'architecture',OUT/'data'/'architecture')" in build
-    core = worker.split("const CORE=", 1)[1].split(";", 1)[0]
-    assert "'./challenges/arquitectura-en-foco/index.html'" in core
-    assert "'./data/architecture/routes.json'" in core
+    core = shipped_core()
+    assert "challenges/arquitectura-en-foco/index.html" in core
+    assert "data/architecture/routes.json" in core
 
 
 def test_architecture_page_excludes_irrelevant_pose_and_dog_flows():

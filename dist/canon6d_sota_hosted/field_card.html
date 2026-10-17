@@ -702,14 +702,24 @@
     document.addEventListener('visibilitychange', function () { if (awake.checked && document.visibilityState === 'visible') request(); });
   }
 
-  // V07: keep the plan pages and diagrams for the field, through the service worker.
+  // V07, V17: keep the plan pages and diagrams for the field, through the service
+  // worker, and say whether the kept copy is this version's, an older one or incomplete.
   var packButton = $('#fc-pack'), packStatus = $('#fc-pack-status');
+  var files = function (n) { return n === 1 ? 'Falta 1 archivo' : 'Faltan ' + n + ' archivos'; };
+  var packText = function (d) {
+    if (d.current === d.total) return 'Guardados para usar sin conexión' + (state.packed ? ' el ' + state.packed : '') + '.';
+    if (!state.packed) return '';
+    if (d.missing) return files(d.missing) + ' de tu copia sin conexión: vuelve a guardarla con señal.';
+    return 'Tu copia sin conexión es de una versión anterior de FocalRuta: vuelve a guardarla con señal para tener los ajustes de ahora.';
+  };
   if (packButton && 'serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+    var packUrls = function () { return JSON.parse(packButton.getAttribute('data-urls')).map(function (u) { return new URL(u, location.href).href; }); };
     navigator.serviceWorker.ready.then(function (registration) {
       $('#fc-offline').hidden = false;
       if (state.packed) packStatus.textContent = 'Guardados para usar sin conexión el ' + state.packed + '.';
+      registration.active.postMessage({ type: 'pack-status', urls: packUrls() });
       packButton.addEventListener('click', function () {
-        var urls = JSON.parse(packButton.getAttribute('data-urls')).map(function (u) { return new URL(u, location.href).href; });
+        var urls = packUrls();
         if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(function () {});
         packButton.disabled = true; packStatus.textContent = 'Guardando 0 de ' + urls.length + '…';
         registration.active.postMessage({ type: 'pack', urls: urls });
@@ -717,10 +727,11 @@
     });
     navigator.serviceWorker.addEventListener('message', function (event) {
       var d = event.data || {};
+      if (d.type === 'pack-status' && !packButton.disabled) { packStatus.textContent = packText(d); return; }
       if (d.type !== 'pack-progress') return;
       if (d.done < d.total) { packStatus.textContent = 'Guardando ' + d.done + ' de ' + d.total + '…'; return; }
       packButton.disabled = false;
-      if (d.failed) { packStatus.textContent = 'Faltan ' + d.failed + ' archivos: vuelve a intentarlo con mejor señal.'; return; }
+      if (d.failed) { packStatus.textContent = files(d.failed) + ': vuelve a intentarlo con mejor señal.'; return; }
       state.packed = today; save();
       packStatus.textContent = 'Listo: ' + d.total + ' archivos guardados para usar sin conexión.';
     });
