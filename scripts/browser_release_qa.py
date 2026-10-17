@@ -37,8 +37,11 @@ class QuietHandler(SimpleHTTPRequestHandler):
         pass
 
 
+# Settle every image on load or error (a cache miss offline ends in error), then
+# list the ones without pixels. decode() alone can reject on a slow load.
 DECODE_ALL = """async()=>{const xs=[...document.querySelectorAll('.shot-card img')];xs.forEach(x=>x.loading='eager');
-await Promise.all(xs.map(x=>x.decode().catch(()=>null)));return xs.filter(x=>x.complete&&x.naturalWidth).length}"""
+await Promise.all(xs.map(x=>x.complete?null:new Promise(done=>{x.addEventListener('load',done,{once:true});x.addEventListener('error',done,{once:true});setTimeout(done,20000)})));
+return xs.filter(x=>!x.naturalWidth).map(x=>x.src.split('/').pop())}"""
 WARMED = """async()=>{let n=0;for(const k of await caches.keys()){for(const r of await (await caches.open(k)).keys()){if(r.url.endsWith('.webp'))n++}}
 return n>=20&&!!(await caches.match(location.href))}"""
 
@@ -60,8 +63,9 @@ def hosted_plan_offline(browser):
     record("hosted plan_a offline after one visit: page itself", "plan-orientation" in page.content())
     for subject in ("human", "dog"):
         page.evaluate("s=>setVariant(s)", subject)
-        decoded = page.evaluate(DECODE_ALL)
-        record(f"hosted plan_a offline after one visit: {subject} diagrams decode", decoded == 10, decoded)
+        missing = page.evaluate(DECODE_ALL)
+        count = page.locator(".shot-card img").count()
+        record(f"hosted plan_a offline after one visit: {subject} diagrams decode", count == 10 and not missing, missing)
     context.close()
 
 

@@ -1303,33 +1303,33 @@
     {
       "name": "hosted plan_a offline after one visit: human diagrams decode",
       "pass": true,
-      "detail": 10
+      "detail": []
     },
     {
       "name": "hosted plan_a offline after one visit: dog diagrams decode",
       "pass": true,
-      "detail": 10
+      "detail": []
     }
   ],
-  "audited_at": "2026-10-17T17:33:58.071105+00:00",
-  "audited_commit": "",
+  "audited_at": "2026-10-17T17:55:26.378731+00:00",
+  "audited_commit": "eec010abe4134a44aa42da9f13c1d325fd0eddb8+dirty",
   "audited_artifacts": {
-    "data/plans.json": "b99ea832d35860a450aca6024dac110f02b81a6e184222739c81fc85d1370f99",
-    "dist/canon6d_sota_hosted/index.html": "8cd29936201c9d26eaf1d8c11e6c543d727afda3c9945ee958caa781f473c4a6",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "c81fefabb88e7381e9c7b184cb858406afe00751365fcc4dce8b9590aaa8cf44",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "6e72e2e11cafd0be13c0d3628d2c06d78ebdc6529b2fcc5b60942a426b945a39",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "f10ded4fa14d960080daf9c1d851f3cfb6825996a8a2c331a3e216d3bfc88ebf",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "9cad0091da5a1fb62d60bb1162d32972ba7818321022d62c040c30db73687018",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "722fde57fb59955d2f9ef4d736d1e9eeeb33e04f2d94b16d5fc1baf08b02e9ac",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "a14ee677955f8675c619bbff5427cf93a77242751bbd162fcbcafd2aea8de5f0",
-    "dist/canon6d_sota_hosted/sw.js": "c11b0e2c3fd35efb43d72e9e5a07257a39a961b4d23e52b9ba2c38796f10e985",
+    "data/plans.json": "864cc194a152a67b3bf30c3a78dfc72d6f4308b590a1ae75ae495bdb1103669f",
+    "dist/canon6d_sota_hosted/index.html": "a06a232588f62a892ce6a36c75801c18b0e4c74540bd26beb1f77bfe8dca6f89",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "e7b3ac54b316573a4be888383bf14b0fe30c7910247dc188bf617402440dcea8",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "4d277a0bef00c57a9d124b6d54976a494bf36768dab77f24c0d40369ba0ae85a",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "cd472053b3bf8e261724f479c77507f794a6ad49b1401ea962044944638ea030",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "ac923b7018b5c8a400bdf683f375ab2c31465211e71c0cb834b8d3f60ef9eb04",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "467a02f77e56635b54d4d034e9d26c8fadb1e5773ca209fec98e51be1b22a8de",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "6773650af4bfb958e400b3ac1244ec300182d0546dcf576e987eb8ec8b27034f",
+    "dist/canon6d_sota_hosted/sw.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467",
     "field_card.html": "130d59c8dead5fda5addcd68e01c6cdd2c829ebbbb66791f1a985fee0933e8fd",
-    "index.html": "143c77b279e49f49d2560804911c74c3db5ede331265dbc84d0f3e8de3cc3ff9",
-    "plans/plan_a.html": "f88207c3c1e07a5c19a413e31538555df5a292d5329598f1a634f16430fae937",
-    "plans/plan_b.html": "b6897046f4ed2523867e870220ef53fdfb5f888f5e9f9b32cbd9d93e83695f25",
-    "plans/plan_c.html": "4e25436fb08b8d9f22953cb4336daacfcbc26b42c22104063b38d4a4a26221d9",
-    "plans/plan_d.html": "209a2dabffa4b650e0709814f0072793cebd967359f71cffbd9f3de82492e968",
-    "plans/plan_e.html": "ceba7e2f74f2c87428a55a15baf79a2e8d3261325fabd20ec1d848ad30a0d898",
-    "plans/plan_f.html": "0c20ce3840601483ab5d0840659b09ccaaeeee5bba732f8dab2cce5423ddc9e3"
+    "index.html": "e0dda216bebc7ba1ab877442ae5754fb1753aaa0748c303ffacb056485d4a392",
+    "plans/plan_a.html": "262a3495260ee57608baf025593ddc5076e69d79246fabe2b57784a1aab5f484",
+    "plans/plan_b.html": "a233e4512b07cff165f946f4926cd771d46de970c091d45a307d081ffccc4173",
+    "plans/plan_c.html": "209ebed7df4e4117bfdd133552db3bd778ce2c0311d69b6185cfcac3c5f1d150",
+    "plans/plan_d.html": "86f03657b7e15b95f20f58a8806777e36b0609830d73c6e7010ff6f61542f88f",
+    "plans/plan_e.html": "7e822a348b3ac355accb0cac7f1791927a7cfcacaeca0af0f0ac384549297f76",
+    "plans/plan_f.html": "6f85cdb60d6f3add34a6a93b0c518ded7c403c339377ff24084293ba65d55fc6"
   }
 }

@@ -1120,3 +1120,68 @@ sección R quedan marcados como sustituidos o archivados.
   bloqueos, 5 hallazgos mayores) en PR #19.
 - Pasos 3 y 4 del plan (UX de campo y endurecimiento de producción) tras la fusión,
   según el hilo de planificación.
+
+## Ronda 13 · Revisión del red team sobre PR #19 (2026-10-17)
+
+Un hilo de red team revisó PR #19 (`/mnt/project-files/qa/FINDINGS_PR19.md`): sin
+bloqueos, 5 hallazgos mayores y una lista de menores. Pablo aprobó el plan de cuatro
+pasos («proceed»); esta ronda cierra el paso 1. Requisitos nuevos en
+`REQUIREMENTS_INVENTORY.md`, sección U (U01–U08).
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| U01 | Velocidades como las muestra la 6D (`0"5`, `3"2`, `30"`); hasta 30" nunca «Bulb» | 6 fallos en `tests/planner/test_shot_physics.py` (20 × `3.2"`, Bulb 20/25/30) | 35 pass; un solo parser en `exposure_model.py` |
+| U02 | Interiores con ventana de día contra una fila de luz de ventana con fuente | 2 fallos: 14 franjas de C y E puntuadas contra «oficina» (EV 7–8) | fila `ventana` EV 8–10 (500–2500 lx con E = 2,5·2^EV); 14 franjas re-resueltas cerca de EV 9 |
+| U03 | La suite mata las 8 mutaciones que sobrevivían | arnés `scratchpad/mut/mutate.py`: la suite de ad248c4 dejó vivas 8/8 | la suite nueva mata 8/8 |
+| U04 | Todas las páginas pasan axe; `lang`, un `main`, un `h1`; contraste sobre degradados | axe 4.10.3 en reposo: 70 de 78 pasadas fallaban (sin `main`, 25 mapas sin `lang`, tarjeta de campo sin `h1`, tira de lentes inaccesible por teclado, `aside` dentro de `main`); `test_page_structure.py` 94 fallos; la auditoría ampliada halló RAZONAMIENTO 3,72:1 y el botón Día 4,22:1 | axe 78/78; 118 pass; auditoría de contraste 37/37 con degradados |
+| U05 | Páginas de plan alojadas sin imágenes en línea y usables offline tras una visita | `test_hosted_plan_pages.py` 12 fallos (2,4–2,6 MB con data URI); con el servidor apagado la página no estaba en caché (el SW devolvía `index.html` y fallaba `PLANS_DATA`) | 18 pass; 148–154 KB; offline página + 10/10 diagramas por sujeto; Lighthouse móvil 100/100/100/100 (antes 35). `verify_release.py` exigía paridad byte a byte con `plans/` y fallaba en las 6 páginas; ahora compara todo salvo el mapa de diagramas y el script de caché, y que cada `.webp` sea la imagen embebida (dos mutaciones detectadas) |
+| U06 | Cada nota nombra la luz con la que se puntúa; alternativas a ≤ ¼ de paso; el panel solar abre en la fecha de Lima | 15 notas «a pleno sol/día» sobre `sol_velado`; fecha: 6 fallos, y el código viejo mostraba 2026-03-28 en Madrid a las 05:30Z del 29 | 3 + 7 pass |
+| U07 | Texto de los planes en español; número y unidad separados | 3 fallos (11 términos en inglés, 23 «3s»/«20s:») | pass; 8 diagramas redibujados porque su pie cita el razonamiento |
+| U08 | Evidencia y build reproducibles | 4 reportes sin `audited_commit`; 10 JSON de QA en la raíz; CI sin archivo de dependencias; iconos maskable fuera del precache; `sources.json` publicado con 6 fuentes del concurso | commit auditado; sólo los 4 reportes con huellas en la raíz (los 6 de agosto, a `archive/qa-2026-08-09/`); `requirements-dev.txt` y `requirements-qa.txt`; iconos precacheados; fuentes del concurso archivadas |
+
+### Lo que el red team midió y lo que resultó ser
+
+- El «4,29:1» de las etiquetas verdes «HACER» se midió a mitad del fundido de entrada:
+  axe mezcla el texto con la opacidad actual de la tarjeta. En reposo pasan con más de
+  5:1. Buscar ese fallo destapó dos huecos reales: axe en reposo fallaba por
+  estructura y la auditoría propia ignoraba el texto sobre degradados.
+- La afirmación del PR «8 de 14 tests nuevos fallaban antes» era inexacta: con los
+  datos de `main` fallan 10, casi todos estructurales (campos ausentes); sólo el de
+  la hiperfocal de A01 es un error físico real. Se corrige en la descripción del PR.
+
+### Compromisos explícitos
+
+- La fila `ventana` (EV 8–10) es una estimación: la tabla ANSI no tiene fila para luz
+  de ventana. Sale de 500–2500 lx junto a la ventana con E = 2,5·2^EV (C = 250).
+- `oscuridad` (−3 a −1): ANSI da −3 a −2 bajo luna llena alta; el paso extra por el
+  resplandor urbano de Lima es un supuesto conservador sin medir. Con ese tope, el
+  light painting de A08–D08 de noche cumple el margen de 3 pasos por 0,00–0,02.
+- Los fundidos de entrada siguen: durante 0,5 s el texto pasa por contrastes bajos.
+  WCAG juzga el contenido presentado y con movimiento reducido no hay fundido.
+- La caché offline de un plan alojado se llena al cargar la página (≈ 2 MB, igual
+  que antes pero después del primer pintado); se omite si el lector pidió ahorrar datos.
+- La tarjeta de campo integrada y algunos textos de la portada conservan etiquetas en
+  inglés («Field Card», «Eye-level», «preflight», «shutter»): el paso 3 del plan la
+  rehace entera en español. Lighthouse marca su texto como pequeño (< 12 px).
+- axe-core no se versiona en el repo: `FOCALRUTA_AXE` apunta a `axe.min.js` 4.10.3 y
+  el script se detiene si falta.
+- Chromium no aplica la emulación offline a las peticiones del service worker; la
+  prueba offline apaga el servidor en vez de emularla.
+
+### Cierre (comandos, código de salida, resumen)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `python3 -m pytest -q` | 0 | 525 pass, 1 skip (`wiki-tecnicas.html` no usa Schlick) |
+| `python3 scripts/verify_architecture.py` | 0 | `checks_failed: []` |
+| `python3 scripts/verify_release.py` | 0 | `checks_failed: []` |
+| `ruff check scripts tests --select C901` (máx. 10) | 0 | sin hallazgos |
+| `python3 scripts/regenerate_all.py && git diff --exit-code` | 0 | 10 pasos, sin cambios |
+| `git diff --cached --check` | 0 | sin espacios sobrantes |
+| QA de navegador (`--with-browser-qa`, Chromium + axe 4.10.3) | 0 | visual 37/37, óptica 22/22, release 249/249, axe 78/78, cinco suites de arquitectura en verde |
+| Lighthouse móvil (rendimiento) | — | portada 92, planes 100, tarjeta de campo 100, guía 91; accesibilidad 100 en todas |
+
+Verificación independiente: el hilo de red team recibe el nuevo commit para su
+segunda pasada; su veredicto se registra en la ronda siguiente.
