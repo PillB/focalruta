@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install test and quality dependencies
-        run: python3 -m pip install pytest pytest-timeout ruff==0.12.11 Pillow==11.3.0
+        run: python3 -m pip install -r requirements-dev.txt
       - name: Enforce cyclomatic complexity ceiling
         run: python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-complexity=10'
       - name: Verify generated artefacts are current

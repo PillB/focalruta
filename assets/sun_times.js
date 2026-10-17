@@ -78,7 +78,16 @@
     return names[Math.round(bearing / 22.5) % 16];
   }
 
-  var api = { dayPlan: dayPlan, clock: clock, compass: compass, eventMinutes: eventMinutes };
+  // Today's date in Lima for an instant in ms. Peru has kept UTC-5 all year
+  // since 1994, so a fixed shift read with UTC getters is exact; the reader's
+  // own zone, and its daylight-saving changes, never enter the arithmetic.
+  function limaToday(ms) {
+    var lima = new Date(ms - 5 * 3600000);
+    return lima.getUTCFullYear() + '-' + String(lima.getUTCMonth() + 1).padStart(2, '0') + '-' +
+      String(lima.getUTCDate()).padStart(2, '0');
+  }
+
+  var api = { dayPlan: dayPlan, clock: clock, compass: compass, eventMinutes: eventMinutes, limaToday: limaToday };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.LimaSun = api;
 })(typeof window !== 'undefined' ? window : this);

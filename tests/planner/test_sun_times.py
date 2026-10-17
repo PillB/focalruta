@@ -80,3 +80,37 @@ def test_browser_panel_uses_the_same_arithmetic():
         py_plan = st.day_plan(date.fromisoformat(day))
         for key in KEYS + ("sunset_azimuth",):
             assert js_plan[key] == pytest.approx(py_plan[key], abs=0.05), (day, key)
+
+
+# S05: the panel opens on today's date in Lima, whatever the reader's own clock says.
+# The old code shifted the instant by the reader's UTC offset and then read local
+# getters; when the reader's zone changed daylight saving in between, it landed on
+# the wrong day (red team: Europe/Madrid at 2026-03-29T05:30Z showed 2026-03-28).
+TODAY_CASES = [
+    ("Europe/Madrid", "2026-03-29T05:30:00Z"),   # Madrid springs forward at 01:00Z that day
+    ("America/New_York", "2026-11-01T05:30:00Z"),  # New York falls back at 06:00Z
+    ("Asia/Tokyo", "2026-10-17T04:59:00Z"),       # Lima still on the 16th
+    ("America/Lima", "2026-10-17T05:00:00Z"),     # Lima midnight exactly
+    ("Pacific/Kiritimati", "2026-01-01T04:59:59Z"),
+]
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node is not installed")
+@pytest.mark.parametrize("zone,instant", TODAY_CASES)
+def test_panel_opens_on_today_in_lima_from_any_reader_time_zone(zone, instant):
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+
+    moment = datetime.fromisoformat(instant.replace("Z", "+00:00"))
+    expected = moment.astimezone(ZoneInfo("America/Lima")).date().isoformat()
+    script = (f"const S=require({json.dumps(str(JS))});"
+              f"process.stdout.write(S.limaToday(Date.parse({json.dumps(instant)})));")
+    env = {"PATH": __import__("os").environ["PATH"], "TZ": zone}
+    shown = subprocess.run(["node", "-e", script], check=True, capture_output=True, text=True, env=env).stdout
+    assert shown == expected, (zone, instant, shown)
+
+
+def test_panel_reads_the_date_from_the_shared_helper():
+    panel = (ROOT / "index.html").read_text(encoding="utf-8").split("<!-- LIMA_SUN_PANEL_END -->")[0][-3000:]
+    assert "S.limaToday(Date.now())" in panel
+    assert "getTimezoneOffset" not in panel

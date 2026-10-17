@@ -1,0 +1,8 @@
+# Local browser QA and diagram drawing, on top of requirements-dev.txt.
+# These need a real Chromium: set FOCALRUTA_CHROME to its binary. The axe audit
+# also needs axe-core 4.10.3 (`npm install axe-core@4.10.3`) with FOCALRUTA_AXE
+# pointing at node_modules/axe-core/axe.min.js.
+-r requirements-dev.txt
+playwright==1.55.0
+beautifulsoup4==4.15.0
+matplotlib==3.11.2

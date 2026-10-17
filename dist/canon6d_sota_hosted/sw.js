@@ -1,6 +1,6 @@
-const VERSION='focalruta-7306964473da';
+const VERSION='focalruta-069db98985ca';
 const SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime';
-const CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./challenges/arquitectura-en-foco/index.html','./challenges/arquitectura-en-foco/iphone-maps.html','./data/architecture/learning.json','./data/architecture/ranking.json','./data/architecture/routes.json','./assets/icon-192.png','./assets/icon-512.png'];
+const CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./challenges/arquitectura-en-foco/index.html','./challenges/arquitectura-en-foco/iphone-maps.html','./data/architecture/learning.json','./data/architecture/ranking.json','./data/architecture/routes.json','./assets/icon-192.png','./assets/icon-512.png','./assets/icon-maskable-192.png','./assets/icon-maskable-512.png','./assets/app-icon.svg'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>![SHELL,RUNTIME].includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('message',e=>{const d=e.data;if(!d||d.type!=='warm'||!Array.isArray(d.urls))return;const urls=d.urls.filter(u=>{try{const x=new URL(u);return x.origin===location.origin&&/\.(?:webp|html)$/.test(x.pathname)}catch(_){return false}}).slice(0,40);e.waitUntil(caches.open(RUNTIME).then(c=>Promise.all(urls.map(u=>c.match(u).then(hit=>hit||fetch(u).then(x=>{if(x.ok)return c.put(u,x)}).catch(()=>{}))))));});

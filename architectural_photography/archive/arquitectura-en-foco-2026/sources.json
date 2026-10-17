@@ -1,0 +1,74 @@
+[
+  {
+    "source_id": "SRC-COMP-2026-PDF",
+    "type": "OFFICIAL",
+    "url_or_path": "architectural_photography/research/competition/Bases_Veo_arte_en_todas_partes_2026_2.pdf",
+    "publisher": "Fundación Actual",
+    "publication_date": "2026-07-27",
+    "event_date": "2026-07-30/2026-10-22",
+    "retrieved_at": "2026-08-27",
+    "independence_cluster": "fundacion_actual_2026",
+    "privacy_class": "PUBLIC_PRIMARY",
+    "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-COMP-2026-PAGE",
+    "type": "OFFICIAL",
+    "url_or_path": "https://fundacionactual.org/noticia/4a-edicion-concurso-de-fotografia-actual-chile-peru-colombia-veo-arte-en-todas-partes-arquitectura-en-foco/",
+    "publisher": "Fundación Actual",
+    "publication_date": "2026-07-27",
+    "event_date": null,
+    "retrieved_at": "2026-08-27",
+    "independence_cluster": "fundacion_actual_2026",
+    "privacy_class": "PUBLIC_PRIMARY",
+    "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-COMP-2026-FORM",
+    "type": "OFFICIAL",
+    "url_or_path": "https://fundacionactual.org/inscripcion-4ta-edicion-concurso-de-fotografia-veo-arte-en-todas-partes-arquitectura-en-foco-2026/",
+    "publisher": "Fundación Actual",
+    "publication_date": null,
+    "event_date": null,
+    "retrieved_at": "2026-08-27",
+    "independence_cluster": "fundacion_actual_2026",
+    "privacy_class": "PUBLIC_PRIMARY",
+    "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-HIST-2023",
+    "type": "OFFICIAL",
+    "url_or_path": "https://fundacionactual.org/noticia/concurso-de-fotografia-conoce-a-los-ganadores-de-veo-arte-en-todas-partes/",
+    "publisher": "Fundación Actual",
+    "publication_date": "2023-09-13",
+    "event_date": "2023",
+    "retrieved_at": "2026-08-27",
+    "independence_cluster": "fundacion_actual_history",
+    "privacy_class": "PUBLIC_PRIMARY",
+    "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-HIST-2024",
+    "type": "OFFICIAL",
+    "url_or_path": "https://fundacionactual.org/noticia/veo-arte-en-todas-partes-capturas-urbanas-ya-tiene-ganador/",
+    "publisher": "Fundación Actual",
+    "publication_date": "2024-10-03",
+    "event_date": "2024",
+    "retrieved_at": "2026-08-27",
+    "independence_cluster": "fundacion_actual_history",
+    "privacy_class": "PUBLIC_PRIMARY",
+    "status": "ACTIVE"
+  },
+  {
+    "source_id": "SRC-HIST-2025",
+    "type": "OFFICIAL",
+    "url_or_path": "https://fundacionactual.org/noticia/concurso-de-fotografia-chile-peru-y-colombia-ya-tiene-ganadores-2/",
+    "publisher": "Fundación Actual",
+    "publication_date": "2025-09-25",
+    "event_date": "2025",
+    "retrieved_at": "2026-08-27",
+    "independence_cluster": "fundacion_actual_history",
+    "privacy_class": "PUBLIC_PRIMARY",
+    "status": "ACTIVE"
+  }
+]

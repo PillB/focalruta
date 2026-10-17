@@ -32,7 +32,7 @@ SCENE_LIGHT: dict[str, tuple[float, float, str, str]] = {
     "trafico_noche": (5, 5, "tráfico de noche", "ANSI PH2.7 · tráfico vehicular nocturno"),
     "iluminado_focos": (3, 5, "parque o monumento con faroles", "ANSI PH2.7 · edificios y monumentos iluminados"),
     "luces_lejanas": (2, 2, "sólo luces lejanas", "ANSI PH2.7 · vistas lejanas de edificios iluminados"),
-    "oscuridad": (-3, -1, "oscuridad sin faroles cercanos", "estimate · sin fila en la tabla ANSI; equivale a paisaje con luna"),
+    "oscuridad": (-3, -1, "oscuridad sin faroles cercanos", "estimate · ANSI PH2.7 da −3 a −2 bajo luna llena alta; el tope de −1 suma un paso por el resplandor urbano de Lima, supuesto conservador sin medir"),
 }
 
 # Daylight a metre or so from a window: a daylight factor of 5-10 % (a room

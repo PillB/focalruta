@@ -6,6 +6,7 @@ Nothing could notice, because none of them records what it looked at.
 """
 import hashlib
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -27,6 +28,7 @@ def _report(name: str) -> dict:
 def test_report_records_what_it_audited(name):
     report = _report(name)
     assert report.get("audited_at"), f"{name} does not say when it ran"
+    assert re.fullmatch(r"[0-9a-f]{40}(\+dirty)?", report.get("audited_commit", "")), f"{name} does not say which commit it audited"
     audited = report.get("audited_artifacts")
     assert isinstance(audited, dict) and audited, f"{name} does not say what it inspected"
     for path in audited:
@@ -51,3 +53,8 @@ def test_report_still_passes(name):
     report = _report(name)
     assert report.get("passed") is True
     assert report.get("checks", 0) > 0
+
+
+def test_no_unbound_qa_report_sits_beside_the_current_evidence():
+    # Six August reports with no fingerprints lived at the root next to these.
+    assert sorted(path.name for path in ROOT.glob("*QA*.json")) == sorted(REPORTS)

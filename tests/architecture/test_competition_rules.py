@@ -4,8 +4,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "architectural_photography" / "archive" / "arquitectura-en-foco-2026"
-# The source registry stays with the public data: other records cite it too.
-SOURCES = ROOT / "data" / "architecture" / "sources.json"
+# The edition's own sources (rules PDF, entry form, past winners) are archived
+# with it; nothing published cites them.
+SOURCES = DATA / "sources.json"
 
 
 def load(name):

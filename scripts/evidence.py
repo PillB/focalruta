@@ -12,6 +12,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -30,10 +31,25 @@ def fingerprint(paths) -> dict[str, str]:
     return dict(sorted(prints.items()))
 
 
+def current_commit() -> str:
+    """HEAD the audit ran on, with "+dirty" when the tree had uncommitted changes.
+
+    The artefact hashes are what bind a report; the commit says where to look.
+    """
+    try:
+        head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, check=True,
+                              capture_output=True, text=True).stdout.strip()
+        dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=ROOT,
+                               check=True, capture_output=True, text=True).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return ""
+    return head + ("+dirty" if dirty else "")
+
+
 def stamp(report: dict, audited_paths) -> dict:
     """Add provenance to a QA report without disturbing its existing shape."""
     report["audited_at"] = datetime.now(timezone.utc).isoformat()
-    report["audited_commit"] = os.environ.get("GITHUB_SHA", "")
+    report["audited_commit"] = os.environ.get("GITHUB_SHA") or current_commit()
     report["audited_artifacts"] = fingerprint(audited_paths)
     return report
 
