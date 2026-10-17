@@ -71,6 +71,11 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 .iso-pill { background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; }
 .nd-pill { background: #1F2937; color: #F9FAFB; border: 1px solid #111827; }
 .scene-light-line { font-size: 13px; color: #475569; margin-bottom: 6px; }
+/* V15: the setting adapted to the reader's gear. */
+.gear-line { margin: .35rem 0 .5rem; padding: .5rem .7rem; border-left: 4px solid #0f766e; background: #f0fdfa; border-radius: 8px; font-size: .8125rem; color: #134e4a; line-height: 1.45; }
+.gear-line .gear-values { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 700; }
+.gear-line .gear-notes { display: block; margin-top: .2rem; }
+.gear-line-no { border-left-color: #b45309; background: #fffbeb; color: #78350f; }
 /* V11: every control at least 44 x 44 px, for a thumb in the field. */
 summary { min-height: 44px; padding-block: 10px; box-sizing: border-box; }
 button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
@@ -175,6 +180,8 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
   </div>
 </footer>
 
+<script id="gear-js">
+__GEAR_JS__</script>
 <script>
 const DATA = __PLAN_JSON__;
 const DIAGRAMS = __DIAGRAMS_JSON__;
@@ -267,6 +274,7 @@ function renderShots() {
             <span class="chip bg-purple-100 text-purple-700">📷&nbsp;${shot.technique_label}</span>
           </div>
           <div class="flex flex-wrap gap-1.5 mb-2">${settingsChips(timeSettings)}</div>
+          ${window.FocalRutaEquipo ? FocalRutaEquipo.lineFor(shot, timeSettings) : ''}
           ${slotStatus(timeSettings)}
           <div class="text-xs text-slate-600 mb-2">
             <span class="font-bold">Composición:</span> ${shot.composition_label} ·
@@ -313,6 +321,8 @@ function renderShots() {
 }
 
 window.addEventListener('DOMContentLoaded', renderShots);
+// The gear chosen on the home page applies here too (V15).
+window.addEventListener('storage', e => { if (e.key === 'focalruta-equipo-v1') renderShots(); });
 </script>
 <script>if(('serviceWorker' in navigator)&&(location.protocol==='http:'||location.protocol==='https:')){window.addEventListener('load',()=>navigator.serviceWorker.register('../sw.js').catch(()=>{}));}</script>
 
@@ -364,6 +374,7 @@ def generate_plan_html(plan):
     html = html.replace("__PLAN_WHY__", plan["why"])
     html = html.replace("__PLAN_JSON__", json.dumps(plan_data, ensure_ascii=False))
     html = html.replace("__DIAGRAMS_JSON__", json.dumps(diagrams_b64, ensure_ascii=False))
+    html = html.replace("__GEAR_JS__", (Path(__file__).resolve().parents[1] / "assets" / "gear.js").read_text(encoding="utf-8"), 1)
 
     out_path = os.path.join(PLAN_DIR, f"{plan_id}.html")
     with open(out_path, "w", encoding="utf-8") as f:

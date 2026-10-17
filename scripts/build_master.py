@@ -38,6 +38,10 @@ from datetime import date as _date
 sun_js = (ROOT / 'assets' / 'sun_times.js').read_text(encoding='utf-8')
 t, n = re.subn(r'<script id="sun-times-js">.*?</script>', lambda _m: '<script id="sun-times-js">\n' + sun_js + '</script>', t, count=1, flags=re.S)
 if n != 1: raise RuntimeError('sun panel script slot not found')
+# Gear picker (V15): the same assets/gear.js the plan pages and the field card inline.
+gear_js = (ROOT / 'assets' / 'gear.js').read_text(encoding='utf-8')
+t, n = re.subn(r'<script id="gear-js">.*?</script>', lambda _m: '<script id="gear-js">\n' + gear_js + '</script>', t, count=1, flags=re.S)
+if n != 1: raise RuntimeError('gear script slot not found')
 def _solstice(day, label):
     plan = sun_times.day_plan(day)
     return (f"{label}: sale {sun_times.clock(plan['sunrise'])}, se pone {sun_times.clock(plan['sunset'])} "

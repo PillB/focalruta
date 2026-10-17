@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Browser checks for the field card, as a reader uses it in the field.
 
-Requirements V02-V09 (see tests/test_field_card.py for the static half). The
+Requirements V02-V09 and V15 (see tests/test_field_card.py and
+tests/test_gear.py for the static half). The
 card is served from dist/ over HTTP, the way GitHub Pages serves it, and
 driven in Chromium at phone and desktop sizes, with JavaScript on and off,
 with a fixed clock in Lima, under keyboard, reduced motion and print, inside
@@ -14,6 +15,7 @@ from __future__ import annotations
 
 import functools
 import json
+import math
 import os
 import sys
 import threading
@@ -25,6 +27,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 import evidence
+import reading_floor
 import sun_times
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -255,6 +258,73 @@ def in_home_dialog(browser, base: str) -> None:
     context.close()
 
 
+# A01 by day is 35 mm, f/11, 1/125, ISO 400 at 4 m, sharp to infinity. On a
+# Canon APS-C sensor (22.3 mm wide) the same field of view is 35 × 22.3/35.8 =
+# 21.8 mm; the same hyperfocal distance with the circle of confusion scaled to
+# 0.0187 mm needs f/6.8, which rounds to f/7.1 and stays sharp to infinity;
+# ISO 400 × (7.1/11)² = 167 rounds to ISO 160. Worked by hand, not by gear.js.
+A01_APSC = "22 mm (zoom 18–55) · f/7.1 · 1/125 · ISO 160"
+
+
+def gear_line(page, selector: str) -> str:
+    # textContent: shot cards use content-visibility:auto, so innerText of an
+    # off-screen card is empty although a reader scrolling to it sees the line.
+    box = page.locator(selector)
+    return " ".join((box.first.text_content() or "").split()) if box.count() and box.first.is_visible() else ""
+
+
+def choose_apsc_kit(page) -> None:
+    page.select_option("#gear-body", "apsc_canon")
+    while page.locator("#gear-lens-list [data-remove]").count():
+        page.locator("#gear-lens-list [data-remove]").first.click()
+    for name in ("Zoom de kit 18–55 mm f/3.5–5.6", "50 mm f/1.8"):
+        page.select_option("#gear-common", label=name)
+
+
+def your_gear(browser, base: str) -> None:
+    """V15: a reader with an APS-C body and a kit zoom gets the equivalent of every setting."""
+    context = browser.new_context(**PHONE)
+    page = context.new_page()
+    errors: list[str] = []
+    page.on("pageerror", lambda e: errors.append(str(e)))
+    page.goto(base + "index.html", wait_until="load")
+    first_card = "#plan-detail-content .shot-card >> nth=0"
+    check("your gear: the picker shows, set to the Canon 6D kit, and shots show no extra line",
+          page.locator("#gear-config").is_visible() and page.input_value("#gear-body") == "canon_6d"
+          and page.locator("#plan-detail-content .gear-line").count() == 0)
+    choose_apsc_kit(page)
+    page.evaluate("()=>{selectPlan('plan_a');setTime('day')}")
+    line = gear_line(page, f"{first_card} >> .gear-line")
+    check("your gear: A01 by day on an APS-C body with an 18–55 reads as worked by hand", A01_APSC in line, line)
+    floor = [page.evaluate(reading_floor.TEXT_UNDER_FLOOR, [reading_floor.HOME_SKIP, reading_floor.MIN_TEXT_PX]),
+             page.evaluate(reading_floor.TARGETS_UNDER_FLOOR, [reading_floor.HOME_SKIP, reading_floor.MIN_TARGET_PX])]
+    check("your gear: the picker and the adapted lines hold 12 px text and 44 px controls", floor == [[], []], floor)
+    focal = float(page.input_value("#opt-lens"))
+    fov = page.locator("#opt-fov").inner_text()
+    want = f"{2 * math.degrees(math.atan(22.3 / (2 * focal))):.1f}°"
+    check("your gear: the optics lab measures the APS-C sensor", fov == want, [focal, fov, want])
+    page.reload(wait_until="load")
+    page.evaluate("()=>{selectPlan('plan_a');setTime('day')}")
+    check("your gear: kept on this device after a reload",
+          page.input_value("#gear-body") == "apsc_canon" and A01_APSC in gear_line(page, f"{first_card} >> .gear-line"))
+    card = context.new_page()
+    card.goto(base + "field_card.html", wait_until="load")
+    pick(card, "fc-plan", "plan_a")
+    pick(card, "fc-slot", "day")
+    slot = '#field-card-app .fc-slot[data-plan=plan_a][data-shot=A01][data-slot=day] .fc-gear'
+    check("your gear: the field card shows the same adapted setting", "f/7.1 · 1/125 · ISO 160" in gear_line(card, slot), gear_line(card, slot))
+    plan_page = context.new_page()
+    plan_page.goto(base + "plans/plan_a.html", wait_until="load")
+    check("your gear: the plan page shows it too", A01_APSC in gear_line(plan_page, "#shots-grid .shot-card >> nth=0 >> .gear-line"))
+    page.click("#gear-reset")
+    card.reload(wait_until="load")
+    check("your gear: back to the Canon 6D kit, the extra lines go",
+          page.locator("#plan-detail-content .gear-line").count() == 0 and card.locator(".fc-gear:visible").count() == 0
+          and page.input_value("#opt-lens") == "85")
+    check("your gear: no page errors", not errors, errors)
+    context.close()
+
+
 def axe_states(browser, base: str) -> None:
     if not AXE or not Path(AXE).is_file():
         sys.exit("FOCALRUTA_AXE must point at axe.min.js (axe-core 4.10.3)")
@@ -344,7 +414,7 @@ def main() -> int:
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
-        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, overflow, axe_states):
+        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, your_gear, overflow, axe_states):
             guarded(step, browser, base)
         guarded(lambda b, _base: offline_pack(b), browser, base)
         browser.close()

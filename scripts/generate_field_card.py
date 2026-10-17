@@ -128,8 +128,16 @@ def slot_block(plan: dict, shot: dict, slot: str, slot_name: str) -> str:
         f'<span class="fc-v-exposure">{esc(setting["aperture"])} · {esc(setting["shutter"])} · ISO {setting["iso"]}</span></p>'
         f'{chips(setting)}'
         f'<p class="fc-light">{esc(scene_text(setting["scene"]))} <span class="fc-when" data-scene="{setting["scene"]}" data-slot="{slot}"></span></p>'
-        f'<p class="fc-v-note">{esc(setting["notes"])}</p></div>'
+        f'<p class="fc-v-note">{esc(setting["notes"])}</p>{gear_slot(shot, setting)}</div>'
     )
+
+
+def gear_slot(shot: dict, setting: dict) -> str:
+    """V15: room for the setting adapted to the reader's gear; assets/gear.js fills it."""
+    data = {"technique": shot["technique"], "lens": setting["lens"], "aperture": setting["aperture"], "shutter": setting["shutter"],
+            "iso": setting["iso"], "nd_stops": setting.get("nd_stops", 0), "distance": shot["subject_distance_m"],
+            "viable": setting.get("viable", True)}
+    return f'<div class="fc-gear" hidden data-gear="{esc(json.dumps(data, ensure_ascii=False, separators=(",", ":")))}"></div>'
 
 
 def geometry(shot: dict) -> str:
@@ -345,7 +353,7 @@ PAGE_CSS = """html{-webkit-text-size-adjust:100%}body{margin:0;background:#f4f1e
 @media(prefers-color-scheme:dark){body{background:#0b1220}.fc-page-top a{color:#f1f5f9}}"""
 
 
-def page(app_html: str, css: str, js: str, sun_js: str) -> str:
+def page(app_html: str, css: str, js: str, sun_js: str, gear_js: str) -> str:
     return f"""<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#061827"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/app-icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icon-192.png">
@@ -355,7 +363,7 @@ def page(app_html: str, css: str, js: str, sun_js: str) -> str:
 {css}</style></head>
 <body><nav class="fc-page-top" aria-label="Sitio"><a href="index.html">← Volver a FocalRuta</a></nav>
 <main>{app_html}</main>
-<script>{sun_js}</script><script>{js}</script>
+<script>{sun_js}</script><script id="gear-js">\n{gear_js}</script><script>{js}</script>
 <script>if(('serviceWorker' in navigator)&&(location.protocol==='http:'||location.protocol==='https:')){{window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{{}}));}}</script>
 </body></html>
 """
@@ -365,7 +373,8 @@ def main() -> None:
     css = card_css()
     js = (ROOT / "assets" / "field_card.js").read_text(encoding="utf-8")
     sun_js = (ROOT / "assets" / "sun_times.js").read_text(encoding="utf-8")
-    OUT.write_text(page(app("h1"), css, js, sun_js), encoding="utf-8")
+    gear_js = (ROOT / "assets" / "gear.js").read_text(encoding="utf-8")
+    OUT.write_text(page(app("h1"), css, js, sun_js, gear_js), encoding="utf-8")
     # The home page shows the card in a dialog next to its own h1.
     (ROOT / "data" / "field_card_fragment.html").write_text(app("p"), encoding="utf-8")
     (ROOT / "data" / "field_card.css").write_text(css, encoding="utf-8")

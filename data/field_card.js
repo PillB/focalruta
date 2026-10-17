@@ -199,7 +199,21 @@
     });
   }
 
+  // V15: next to each setting, the same shot with the reader's gear (assets/gear.js),
+  // unless it is the Canon 6D kit the plans are solved for.
+  function paintGear() {
+    var G = root.FocalRutaEquipo;
+    if (!G) return;
+    var gear = G.load(), same = G.isReference(gear);
+    $$('.fc-gear').forEach(function (el) {
+      el.innerHTML = same ? '' : G.lineHtml(JSON.parse(el.getAttribute('data-gear')), gear);
+      el.hidden = !el.innerHTML;
+    });
+  }
+  document.addEventListener('focalruta:equipo', paintGear);
+  root.addEventListener('storage', function (event) { if (event.key === 'focalruta-equipo-v1') paintGear(); });
+
   if (dateInput) { dateInput.value = today; dateInput.closest('[hidden]') && (dateInput.closest('[hidden]').hidden = false); }
-  restore(); paintWindows(); paintProgress();
+  restore(); paintWindows(); paintProgress(); paintGear();
   setInterval(paintWindows, 60000);
 })(typeof window !== 'undefined' ? window : this);
