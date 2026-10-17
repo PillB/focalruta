@@ -29,6 +29,22 @@ t = re.sub(r'<section id="eli5-orientation".*?</section>\s*', '', t, count=1, fl
 t, n = re.subn(r'<!-- QUICK START GUIDE -->', orientation + '\n<!-- QUICK START GUIDE -->', t, count=1)
 if n != 1: raise RuntimeError('orientation insertion point not found')
 t = t.replace('</svg>\n        <div class="optics-legend"', '</svg><p class="viz-caption text-sm text-slate-200">Visualización: las líneas comparan campo de visión y profundidad de campo; el gráfico es una guía de relación, no una medición de tu cámara en ese instante.</p>\n        <div class="optics-legend"', 1)
+# Lima sun panel: inline the shared JS and a fixed-date fallback for readers without JS.
+import sys
+sys.path.insert(0, str(ROOT / 'scripts'))
+import sun_times
+from datetime import date as _date
+sun_js = (ROOT / 'assets' / 'sun_times.js').read_text(encoding='utf-8')
+t, n = re.subn(r'<script id="sun-times-js">.*?</script>', lambda _m: '<script id="sun-times-js">\n' + sun_js + '</script>', t, count=1, flags=re.S)
+if n != 1: raise RuntimeError('sun panel script slot not found')
+def _solstice(day, label):
+    plan = sun_times.day_plan(day)
+    return (f"{label}: sale {sun_times.clock(plan['sunrise'])}, se pone {sun_times.clock(plan['sunset'])} "
+            f"(azimut {plan['sunset_azimuth']:.0f}°), hora dorada de tarde {sun_times.clock(plan['golden_pm_start'])}–{sun_times.clock(plan['golden_pm_end'])}")
+fallback = 'Sin JavaScript no se puede calcular tu fecha. Referencias: ' + '; '.join(
+    (_solstice(_date(2026, 6, 21), '21 de junio'), _solstice(_date(2026, 12, 21), '21 de diciembre'))) + '.'
+t, n = re.subn(r'<p id="sun-noscript"([^>]*)>.*?</p>', lambda m: f'<p id="sun-noscript"{m.group(1)}>{fallback}</p>', t, count=1, flags=re.S)
+if n != 1: raise RuntimeError('sun panel fallback slot not found')
 # Canonical data script.
 t,n=re.subn(r'<script>\s*const PLANS_DATA = .*?;\s*</script>', '<script>\nconst PLANS_DATA = '+compact+';\n</script>', t, count=1, flags=re.S)
 if n!=1: raise RuntimeError('Could not replace PLANS_DATA')
