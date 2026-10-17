@@ -132,3 +132,19 @@ def test_immutable_writer_rejects_changed_content(tmp_path):
     write_immutable_json(target, {"run_id": "stable"})
     with pytest.raises(RuntimeError, match="immutable ranking run changed"):
         write_immutable_json(target, {"run_id": "changed"})
+
+
+def test_scores_do_not_depend_on_the_interpreters_float_summation():
+    """Python 3.12 made sum() of floats compensated; 3.11 adds left to right.
+
+    The recorded ranking runs are immutable, so a score must be the same on
+    every interpreter. These values separate the two algorithms: compensated
+    summation returns 1.0, left-to-right accumulation returns 0.0.
+    """
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from build_architecture_ranking import mean, weighted_score
+
+    criteria = {"a": 1e16, "b": 1.0, "c": -1e16}
+    weights = {"a": 1.0, "b": 1.0, "c": 1.0}
+    assert weighted_score(criteria, weights) == 0.0
+    assert mean([1e16, 1.0, -1e16]) == 0.0

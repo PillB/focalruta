@@ -40,8 +40,21 @@ def write_immutable_json(path: Path, value) -> None:
         path.write_text(serialized, encoding="utf-8")
 
 
+def ordered_sum(values) -> float:
+    """Add floats strictly left to right.
+
+    Python 3.12 changed the built-in sum() of floats to compensated summation,
+    which moves some scores across a rounding boundary. The ranking runs are
+    immutable records, so the arithmetic must not depend on the interpreter.
+    """
+    total = 0.0
+    for value in values:
+        total += value
+    return total
+
+
 def mean(values: list[float]) -> float:
-    return sum(values) / len(values)
+    return ordered_sum(values) / len(values)
 
 
 def status_score(status: str) -> float:
@@ -121,7 +134,7 @@ def assessed_matrix_row(candidate: dict, verified: dict, assessment: dict) -> di
 
 
 def weighted_score(criteria: dict, weights: dict) -> float:
-    return sum(criteria[key] * weight for key, weight in weights.items())
+    return ordered_sum(criteria[key] * weight for key, weight in weights.items())
 
 
 def ranked(rows: list[dict], weights: dict) -> list[dict]:
@@ -132,7 +145,7 @@ def ranked(rows: list[dict], weights: dict) -> list[dict]:
 
 def perturb(weights: dict, rng: random.Random, low: float, high: float) -> dict:
     values = {key: value * rng.uniform(low, high) for key, value in weights.items()}
-    total = sum(values.values())
+    total = ordered_sum(values.values())
     return {key: value / total for key, value in values.items()}
 
 
