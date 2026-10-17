@@ -10,6 +10,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 import evidence
 import qa_matrix
+import reading_floor
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "CURRENT_BROWSER_QA.json"
@@ -142,6 +143,16 @@ with sync_playwright() as pw:
         record(f"{target_name} interaction errors", not errors, errors)
         page.close()
 
+        # V10-V12: the reading floor, at every size in the matrix, in every state a reader reaches.
+        for width, height in qa_matrix.REQUIRED_VIEWPORTS:
+            page = browser.new_page(viewport={"width": width, "height": height})
+            page.goto(target.as_uri(), wait_until="load", timeout=60000)
+            floor = reading_floor.audit_home(page)
+            record(f"{target_name} {width} no text under 12 px", not floor["small"], floor["small"][:12])
+            record(f"{target_name} {width} every control at least 44 px", not floor["tiny"], floor["tiny"][:12])
+            record(f"{target_name} {width} interface in Spanish", not floor["english"], floor["english"])
+            page.close()
+
     for letter in "abcdef":
         page = browser.new_page(viewport={"width": 390, "height": 844})
         errors = []
@@ -152,6 +163,10 @@ with sync_playwright() as pw:
                 page.evaluate("([s,t])=>{setVariant(s);setTime(t)}", [subject, slot])
                 record(f"plan_{letter} {subject}/{slot} ten cards", page.locator(".shot-card").count() == 10)
         record(f"plan_{letter} correction panel", "35.8 × 23.9 mm" in (page.locator("details").text_content() or ""))
+        floor = reading_floor.audit_plan_page(page)
+        record(f"plan_{letter} no text under 12 px", not floor["small"], floor["small"][:12])
+        record(f"plan_{letter} every control at least 44 px", not floor["tiny"], floor["tiny"][:12])
+        record(f"plan_{letter} interface in Spanish", not floor["english"], floor["english"])
         record(f"plan_{letter} no overflow", page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
         record(f"plan_{letter} no errors", not errors, errors)
         page.close()

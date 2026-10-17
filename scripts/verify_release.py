@@ -102,7 +102,7 @@ for marker in (
     "Guía de poses",
     'id="field-card-modal"',
     'id="shot-modal"',
-    "Home/Building Lab",
+    "Casa / Laboratorio",
     "Abtao/Distrito Financiero",
 ):
     check(marker in index, f"master feature: {marker}")
@@ -122,7 +122,7 @@ correction_phrases = (
     "nadir = cámara debajo",
     "cenital = cámara encima",
     "cámara fija",
-    "Field Card es el punto de partida",
+    "tarjeta de campo es el punto de partida",
 )
 for page in sorted((ROOT / "plans").glob("plan_*.html")):
     text = page.read_text(encoding="utf-8")

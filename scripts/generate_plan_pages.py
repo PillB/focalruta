@@ -54,7 +54,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 .toggle-inactive { background: #F1F5F9; color: #475569; }
 .diagram-frame { box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 0 0 1px #E2E8F0; }
 .diagram-frame img { width: 100%; height: auto; display: block; }
-.chip { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+.chip { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; }
 .reasoning-block { background: linear-gradient(135deg, #FEF3C7 0%, #FED7AA 100%); border-left: 4px solid #F59E0B; }
 .do-block { background: #ECFDF5; border-left: 4px solid #16A34A; }
 .dont-block { background: #FEF2F2; border-left: 4px solid #DC2626; }
@@ -70,7 +70,10 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 .shutter-pill { background: #FEE2E2; color: #7F1D1D; border: 1px solid #FCA5A5; }
 .iso-pill { background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; }
 .nd-pill { background: #1F2937; color: #F9FAFB; border: 1px solid #111827; }
-.scene-light-line { font-size: 11px; color: #475569; margin-bottom: 6px; }
+.scene-light-line { font-size: 13px; color: #475569; margin-bottom: 6px; }
+/* V11: every control at least 44 x 44 px, for a thumb in the field. */
+summary { min-height: 44px; padding-block: 10px; box-sizing: border-box; }
+button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
 .unviable-note { font-size: 12px; color: #7C2D12; background: #FFEDD5; border: 1px solid #FDBA74; border-radius: 8px; padding: 6px 10px; margin-bottom: 6px; }
 .gradient-bg { background: linear-gradient(135deg, #0F172A 0%, #1E40AF 50%, #7C3AED 100%); }
 @media print { .no-print { display: none !important; } .shot-card { page-break-inside: avoid; } }
@@ -126,14 +129,14 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
   <details class="bg-blue-50 border border-blue-200 rounded-xl p-4">
-    <summary class="font-bold text-sm text-blue-950 cursor-pointer">Criterios canónicos · correcciones compartidas con la Field Card</summary>
+    <summary class="font-bold text-sm text-blue-950 cursor-pointer">Criterios canónicos · correcciones compartidas con la tarjeta de campo</summary>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3 text-xs leading-relaxed text-blue-950">
       <p><strong>Equipo real:</strong> EOS 6D Mark I (sensor 35.8 × 23.9 mm); EF 35mm f/2 IS USM; EF 50mm f/1.8 STM; EF 85mm f/1.8 USM; EF 35–80mm f/4–5.6 III.</p>
       <p><strong>Perspectiva:</strong> cambia geométricamente al mover la cámara. Cambiar focal desde el mismo punto cambia ángulo de visión y recorte, no la relación espacial.</p>
       <p><strong>Ángulos:</strong> nadir = cámara debajo apuntando 90° hacia arriba; cenital = cámara encima apuntando 90° hacia abajo.</p>
-      <p><strong>Seguridad:</strong> en modo perro, fantasma usa una persona controlada con el perro fuera; larga exposición de tráfico se hace sin sujeto/perro junto a la calzada; lightpainting nunca dirige luz intensa a los ojos.</p>
-      <p><strong>Zooming:</strong> usa el 35–80 con la cámara fija; cambia la focal durante la exposición alrededor de un centro fuerte.</p>
-      <p><strong>Referencia frente a plan:</strong> la Field Card es el punto de partida. La variación indicada en cada toma responde a luz/escena; conserva la variable que crea el efecto.</p>
+      <p><strong>Seguridad:</strong> en modo perro, fantasma usa una persona controlada con el perro fuera; larga exposición de tráfico se hace sin sujeto/perro junto a la calzada; la pintura con luz nunca dirige luz intensa a los ojos.</p>
+      <p><strong>Efecto zoom:</strong> usa el 35–80 con la cámara fija; cambia la focal durante la exposición alrededor de un centro fuerte.</p>
+      <p><strong>Referencia frente a plan:</strong> la tarjeta de campo es el punto de partida. La variación indicada en cada toma responde a luz/escena; conserva la variable que crea el efecto.</p>
     </div>
   </details>
 </section>
@@ -274,10 +277,10 @@ function renderShots() {
           <div class="text-xs text-slate-700 italic">${shot.scene_notes}</div>
         </div>
         <div class="diagram-frame bg-paper">
-          ${diagramSrc ? `<img src="${diagramSrc}" alt="Diagrama ${shot.id} ${currentVariant}" width="1744" height="1058" loading="${idx<2?'eager':'lazy'}" decoding="async" /><p class="px-4 py-2 text-[11px] leading-relaxed text-slate-600"><strong>Qué mirar:</strong> compara las distancias dibujadas y el borde del encuadre con tu escena. Es una relación orientativa, no una promesa de píxeles.</p>` : '<div class="p-8 text-center text-slate-400">Diagrama no disponible</div>'}
+          ${diagramSrc ? `<img src="${diagramSrc}" alt="Diagrama ${shot.id}, ${currentVariant === 'human' ? 'con persona' : 'con perro'}" width="1744" height="1058" loading="${idx<2?'eager':'lazy'}" decoding="async" /><p class="px-4 py-2 text-xs leading-relaxed text-slate-600"><strong>Qué mirar:</strong> compara las distancias dibujadas y el borde del encuadre con tu escena. Es una relación orientativa, no una promesa de píxeles.</p>` : '<div class="p-8 text-center text-slate-400">Diagrama no disponible</div>'}
         </div>
         <div class="p-5 space-y-3">
-          ${baseline ? `<div class="bg-slate-50 border border-slate-300 rounded-lg p-3"><div class="text-[10px] font-black tracking-wider text-slate-700">TARJETA DE CAMPO · REFERENCIA</div><div class="text-[11px] font-mono mt-1">${baseline.lens} · ${baseline.aperture} · ${baseline.shutter} · ISO ${baseline.iso}</div><div class="text-[11px] text-slate-600">${baseline.af} · ${baseline.geometry}</div><div class="text-[10px] text-blue-700 mt-1">El plan puede variar por escena/luz; conserva la variable que define el efecto.</div></div>` : ''}
+          ${baseline ? `<div class="bg-slate-50 border border-slate-300 rounded-lg p-3"><div class="text-xs font-black tracking-wider text-slate-700">TARJETA DE CAMPO · REFERENCIA</div><div class="text-xs font-mono mt-1">${baseline.lens} · ${baseline.aperture} · ${baseline.shutter} · ISO ${baseline.iso}</div><div class="text-xs text-slate-600">${baseline.af} · ${baseline.geometry}</div><div class="text-xs text-blue-700 mt-1">El plan puede variar por escena/luz; conserva la variable que define el efecto.</div></div>` : ''}
           <div class="reasoning-block p-3 rounded-lg">
             <div class="text-xs font-bold text-amber-800 mb-1">RAZONAMIENTO</div>
             <p class="text-xs text-amber-900 leading-relaxed">${shot.reasoning}</p>

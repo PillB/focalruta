@@ -446,7 +446,7 @@ PLAN_C = {
     "location": "Interior controlado + exteriores públicos seguros de San Isidro",
     "distance_from_home": "Sesión local; elige una ruta pública y segura",
     "best_window": "Noche 19:30–22:30 · Después de las 18:00 en invierno (La Garúa)",
-    "why": "Un interior controlado ofrece dominio de luz y oscuridad para lightpainting, fantasma y zooming. Una calle pública segura con faroles y tránsito visible permite practicar barrido y trazas sin revelar una ubicación residencial.",
+    "why": "Un interior controlado ofrece dominio de luz y oscuridad para pintura con luz, fantasma y efecto zoom. Una calle pública segura con faroles y tránsito visible permite practicar barrido y trazas sin revelar una ubicación residencial.",
     "palette": ["#1a1a2e", "#16213e", "#e94560", "#f5f5f5"],
     "shots": [
         shot("C01", "mucha_pdc", 35, "f/11", "1/125", 3200, 3.5, 8.0,
@@ -919,7 +919,7 @@ PLAN_F = {
              {"pose":"arms_crossed","action":"Silueta limpia para envolver con luz"}),
         shot("F09", "larga_exp", 35, "f/16", "8\"", 100, 12.0, 60.0, "capas", "central", 1.25, POSES_HUMAN["portrait_3_4"],
              "Trazas vehiculares y edificios desde un retiro/vereda protegida; ningún animal en la toma.",
-             "5–15 s deja suficientes autos para líneas continuas sin exigir una exposición extrema. Blue hour conserva detalle del entorno.",
+             "5–15 s deja suficientes autos para líneas continuas sin exigir una exposición extrema. La hora azul conserva detalle del entorno.",
              ["Trípode totalmente dentro de zona peatonal segura", "Revisa altas luces", "Prueba 5, 8, 12 s"],
              ["No pongas trípode en calzada/ciclovía", "No incluyas al perro"],
              {"lens": "35mm", "aperture": "f/9", "shutter": "5\"", "iso": 100, "scene": "sol_velado", "nd_stops": 10, "notes": "Día: 5 s exigen un ND de 10 pasos."},

@@ -1631,7 +1631,7 @@
       "location": "Interior controlado + exteriores públicos seguros de San Isidro",
       "distance_from_home": "Sesión local; elige una ruta pública y segura",
       "best_window": "Noche 19:30–22:30 · Después de las 18:00 en invierno (La Garúa)",
-      "why": "Un interior controlado ofrece dominio de luz y oscuridad para lightpainting, fantasma y zooming. Una calle pública segura con faroles y tránsito visible permite practicar barrido y trazas sin revelar una ubicación residencial.",
+      "why": "Un interior controlado ofrece dominio de luz y oscuridad para pintura con luz, fantasma y efecto zoom. Una calle pública segura con faroles y tránsito visible permite practicar barrido y trazas sin revelar una ubicación residencial.",
       "palette": [
         "#1a1a2e",
         "#16213e",
@@ -4144,7 +4144,7 @@
           "camera_height_m": 1.25,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Trazas vehiculares y edificios desde un retiro/vereda protegida; ningún animal en la toma.",
-          "reasoning": "5–15 s deja suficientes autos para líneas continuas sin exigir una exposición extrema. Blue hour conserva detalle del entorno.",
+          "reasoning": "5–15 s deja suficientes autos para líneas continuas sin exigir una exposición extrema. La hora azul conserva detalle del entorno.",
           "dos": [
             "Trípode totalmente dentro de zona peatonal segura",
             "Revisa altas luces",

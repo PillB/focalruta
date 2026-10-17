@@ -1763,9 +1763,6 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
   font-size: var(--text-xs);
   line-height: var(--tw-leading, var(--text-xs--line-height));
 }
-.text-\[10px\] {
-  font-size: 10px;
-}
 .leading-relaxed {
   --tw-leading: var(--leading-relaxed);
   line-height: var(--leading-relaxed);
@@ -4872,7 +4869,7 @@ html,body{max-width:100%;overflow-x:clip}
 /* READABILITY_OUTDOOR_V2 — shared by standalone route pages */
 :root{--route-ink:#0b1220;--route-muted:#475569;--route-line:#64748b}
 body{font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.55;color:var(--route-ink);text-rendering:optimizeLegibility}
-.text-xs{font-size:.8125rem!important}.text-\[10px\]{font-size:.75rem!important}.text-slate-500,.text-slate-600{color:var(--route-muted)!important}.border-slate-200,.border-slate-300{border-color:var(--route-line)!important}
+.text-xs{font-size:.8125rem!important}.text-slate-500,.text-slate-600{color:var(--route-muted)!important}.border-slate-200,.border-slate-300{border-color:var(--route-line)!important}
 :where(a,button,input,select,summary,[tabindex]):focus-visible{outline:3px solid #facc15!important;outline-offset:3px!important;box-shadow:0 0 0 2px #0f172a!important}
 button,a{min-height:44px}.diagram-frame,.shot-card,details{border-width:1.5px!important}
 @media(prefers-contrast:more){:root{--route-ink:#000;--route-muted:#1f2937;--route-line:#334155}.diagram-frame,.shot-card,details{border-width:2px!important}}
