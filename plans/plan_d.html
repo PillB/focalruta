@@ -5192,11 +5192,11 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
         : 'Acércate a ' + decimal(r.distance) + ' m (el plan está a ' + decimal(plan.distance) + ' m), o quédate y recorta.');
     }
     if (r.apertureLimited) notes.push('Tu lente no abre tanto: habrá más zona nítida y menos desenfoque de fondo que en el plan.');
-    if (r.stoppedDown) notes.push('Cierro el diafragma para no pasarte de luz: algo más de zona nítida.');
-    if (r.opened) notes.push('Abro el diafragma por falta de luz: algo menos de zona nítida.');
-    if (r.slower) notes.push('Exposición más larga por falta de luz: usa trípode.');
-    if (r.nd !== plan.nd) notes.push(r.nd ? 'Filtro ND de ' + r.nd + ' pasos.' : 'Sin filtro ND.');
-    if (r.shortStops) notes.push('Faltan ' + decimal(r.shortStops) + ' pasos de luz con ISO ' + r.iso + ': sube el ISO o acepta una foto más oscura.');
+    if (r.stoppedDown) notes.push('Diafragma más cerrado que el equivalente, para no pasarte de luz: algo más de zona nítida.');
+    if (r.opened) notes.push('Diafragma más abierto que el equivalente, por falta de luz: algo menos de zona nítida.');
+    if (r.slower) notes.push(r.t > r.handheld * 1.05 ? 'Exposición más larga por falta de luz: usa trípode.' : 'Exposición más larga por falta de luz; aún a pulso.');
+    if (r.nd !== plan.nd) notes.push(r.nd ? 'Filtro ND de ' + r.nd + (r.nd === 1 ? ' paso.' : ' pasos.') : 'Sin filtro ND.');
+    if (r.shortStops) notes.push('Faltan ' + decimal(r.shortStops) + ' pasos de luz con ISO ' + r.iso + ': sube tu ISO máximo o acepta una foto más oscura.');
     return notes;
   }
 
@@ -5221,11 +5221,15 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
       focal = pick.focal; r.lensName = pick.lens.name; r.distance = pick.distance; r.widest = widestAt(pick.lens, focal);
       r.lensText = Math.round(focal) + ' mm' + (pick.lens.max > pick.lens.min ? ' (zoom ' + pick.lens.min + '–' + pick.lens.max + ')' : '');
     }
+    // The reciprocal rule on the 35 mm equivalent focal: slower than this, the camera needs support.
+    r.handheld = k / focal;
     var planInfinite = plan.distance * 1000 - plan.focal >= plan.hyperfocal;
     var ideal = apertureFor(plan, focal, r.distance, coc);
     r.apertureLimited = ideal < r.widest - 0.05;
     r.n = snapAperture(Math.min(ideal, NARROWEST), r.widest, planInfinite, focal, r.distance, coc);
     lightBalance(r, plan, limits);
+    // Stopped down for the light, the lens limit no longer shows in the picture.
+    if (r.stoppedDown) r.apertureLimited = false;
     return {
       ok: true, focal: focal, lens: r.lensText, lens_name: r.lensName, distance_m: r.distance, f_number: r.n, aperture: 'f/' + r.n,
       seconds: r.t, shutter: shutterText(r.t), iso: r.iso, nd_stops: r.nd, coc_mm: coc,
@@ -5239,7 +5243,7 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
     var r = adapt(setting, gear);
     if (!r.ok) return '<div class="gear-line gear-line-no"><strong>Con tu equipo:</strong> ' + r.reason + '</div>';
     return '<div class="gear-line"><strong>Con tu equipo:</strong> <span class="gear-values">' + r.lens + ' · ' + r.aperture + ' · ' + r.shutter + ' · ISO ' + r.iso +
-      (r.nd_stops ? ' · ND ' + r.nd_stops + ' pasos' : '') + '</span>' + (r.notes.length ? ' <span class="gear-notes">' + r.notes.join(' ') + '</span>' : '') + '</div>';
+      (r.nd_stops ? ' · ND ' + r.nd_stops + (r.nd_stops === 1 ? ' paso' : ' pasos') : '') + '</span>' + (r.notes.length ? ' <span class="gear-notes">' + r.notes.join(' ') + '</span>' : '') + '</div>';
   }
 
   // The circle of confusion for the reader's sensor: the 6D's 0.03 mm scaled by the width ratio.

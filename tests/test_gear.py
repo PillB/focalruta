@@ -180,6 +180,23 @@ def test_v13_exposure_holds_beyond_the_plans_on_a_grid_of_settings():
     assert sum(len(rows) for rows in out.values()) == 14400 and errors == []
 
 
+def note_errors(slot, r, sensor_w):
+    """Every limit the gear hits is said once, and the notes do not contradict each other."""
+    said = " ".join(r["notes"])
+    errors = []
+    if r["flags"]["apertureLimited"] and "no abre tanto" not in said:
+        errors.append(f"{slot['key']}: lens limit not explained")
+    if r["flags"]["short"] and "Faltan" not in said:
+        errors.append(f"{slot['key']}: missing light not explained")
+    # Reciprocal rule on the 35 mm equivalent focal: a tripod only when the shutter is slower than 1/(equivalent focal).
+    handheld = sensor_w / REF_W / r["focal"]
+    if r["flags"]["slower"] and ("trípode" in said) != (r["seconds"] > handheld * 1.05):
+        errors.append(f"{slot['key']}: tripod advice wrong at {r['shutter']} on {r['focal']} mm")
+    if r["flags"]["apertureLimited"] and r["flags"]["stoppedDown"]:
+        errors.append(f"{slot['key']}: says the lens does not open enough and also that it stops down")
+    return errors
+
+
 @pytest.mark.parametrize("kit", list(REAL_KITS))
 def test_v13_real_kits_stay_within_their_limits_and_say_what_they_lose(results, kit):
     gears, out = results
@@ -201,10 +218,7 @@ def test_v13_real_kits_stay_within_their_limits_and_say_what_they_lose(results, 
         q = exposure_q(r["f_number"], r["seconds"], r["iso"], r["nd_stops"])
         if abs(q - plan_q(slot) - r["flags"]["short"]) > 1 / 3 + 1e-9:
             errors.append(f"{slot['key']}: exposure off by {q - plan_q(slot):+.2f} EV")
-        if r["flags"]["apertureLimited"] and not any("no abre tanto" in n for n in r["notes"]):
-            errors.append(f"{slot['key']}: lens limit not explained")
-        if r["flags"]["short"] and not any("Faltan" in n for n in r["notes"]):
-            errors.append(f"{slot['key']}: missing light not explained")
+        errors += note_errors(slot, r, BODY_W[gear["body"]])
     assert errors == []
 
 

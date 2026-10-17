@@ -137,7 +137,10 @@ def gear_slot(shot: dict, setting: dict) -> str:
     data = {"technique": shot["technique"], "lens": setting["lens"], "aperture": setting["aperture"], "shutter": setting["shutter"],
             "iso": setting["iso"], "nd_stops": setting.get("nd_stops", 0), "distance": shot["subject_distance_m"],
             "viable": setting.get("viable", True)}
-    return f'<div class="fc-gear" hidden data-gear="{esc(json.dumps(data, ensure_ascii=False, separators=(",", ":")))}"></div>'
+    # Single-quoted, so the JSON's double quotes need no escaping: 180 slots, about 20 KB less.
+    value = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    value = value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("'", "&#39;")
+    return f"<div class=\"fc-gear\" hidden data-gear='{value}'></div>"
 
 
 def geometry(shot: dict) -> str:
