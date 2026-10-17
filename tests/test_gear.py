@@ -435,6 +435,9 @@ def test_v13_a_zoom_burst_without_a_zoom_that_covers_it_says_so(results, kit):
     gears, out = results
     zooming = [r for s, r in zip(SLOTS, out[kit]) if s["technique"] == "zooming" and s["viable"] is not False]
     assert zooming and all(not r["ok"] and "zoom" in r["reason"] for r in zooming), [r.get("lens") for r in zooming]
+    # A reader who owns a zoom is told it misses the range, not asked to add a zoom.
+    owns_zoom = any(lens["max"] / lens["min"] >= 1.5 for lens in gears[kit]["lenses"])
+    assert all(("llega" in r["reason"] and " mm con tu cámara" in r["reason"]) == owns_zoom for r in zooming), {r["reason"] for r in zooming}
 
 
 def test_v13_a_plan_sharp_to_infinity_stays_sharp_to_infinity_after_rounding():
@@ -554,3 +557,18 @@ def test_v15_the_stored_gear_is_parsed_once_per_change_not_once_per_shot():
     got = run_node(script)
     assert got["once"] == 1 and got["same"] == 1, got
     assert got["total"] == 2 and got["after"] != got["first"] and "25 mm" in got["after"], got
+
+
+@pytest.mark.parametrize("slowest", [22, 25, 32])
+def test_v13_the_slowest_lens_the_picker_accepts_still_gets_an_aperture(slowest):
+    """The form took a maximum aperture up to f/32, beyond the f/22 the conversion closes to:
+    such a lens drew "f/undefined". A lens the picker accepts must get a real f-number on every slot."""
+    need_node()
+    lens = {"name": "lento", "min": 50, "max": 50, "wide": slowest, "tele": slowest}
+    raw = json.dumps({"body": "full_frame", "iso": 51200, "lenses": [lens]})
+    got = run_node(f"global.localStorage={{getItem:()=>{json.dumps(raw)},setItem(){{}},removeItem(){{}}}};"
+                   f"const G=require({json.dumps(str(GEAR_JS))});const g=G.load();const slots={json.dumps(SLOTS)};"
+                   "process.stdout.write(JSON.stringify({kept:g.lenses.length,apertures:[...new Set(slots.map(s=>G.adapt(s,g)).filter(r=>r.ok).map(r=>r.aperture))]}));")
+    if got["kept"]:
+        assert got["apertures"] and all(re.fullmatch(r"f/\d+(\.\d)?", a) for a in got["apertures"]), got
+    assert got["kept"] == (1 if slowest <= 22 else 0), got

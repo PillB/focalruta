@@ -210,7 +210,12 @@
     var focal;
     if (lens.from) {
       var zoom = chooseZoom(gear.lenses, lens.from * k, lens.to * k);
-      if (!zoom) return { ok: false, reason: 'El efecto zoom necesita un objetivo zoom: añade uno a tu equipo.' };
+      if (!zoom) {
+        var zooms = gear.lenses.filter(function (l) { return l.max / l.min >= 1.5; }).length;
+        return { ok: false, reason: !zooms ? 'El efecto zoom necesita un objetivo zoom: añade uno a tu equipo.'
+          : 'El efecto zoom pide de ' + Math.round(lens.from * k) + ' a ' + Math.round(lens.to * k) + ' mm con tu cámara y ' +
+            (zooms === 1 ? 'tu zoom no llega' : 'ninguno de tus zooms llega') + ': añade uno que cubra ese recorrido.' };
+      }
       focal = zoom.to; r.lensName = zoom.lens.name; r.lensText = Math.round(zoom.from) + '–' + Math.round(zoom.to) + ' mm, girando el anillo durante la exposición';
       // The burst ends on the plan's framing: a zoom whose long end falls short ends it closer.
       r.widest = widestAt(zoom.lens, focal); r.distance = plan.distance * focal / (lens.to * k);
@@ -260,7 +265,7 @@
     if (!l || typeof l !== 'object') return null;
     var n = { name: String(l.name || '').replace(/[<>&"]/g, ''), min: +l.min, max: +l.max, wide: +l.wide, tele: +l.tele };
     if ('filter' in l) n.filter = +l.filter;
-    return n.min >= 4 && n.max >= n.min && n.max <= 1200 && n.wide >= 0.95 && n.tele >= n.wide && n.tele <= 32 ? n : null;
+    return n.min >= 4 && n.max >= n.min && n.max <= 1200 && n.wide >= 0.95 && n.tele >= n.wide && n.tele <= NARROWEST ? n : null;
   }
   // A stored ISO limit comes back as one the picker offers: the nearest, or the body's own when it is not a number.
   function isoLimit(x) { return nearest(ISO_LIMITS, Math.min(Math.max(x, ISO_LIMITS[0]), ISO_LIMITS[ISO_LIMITS.length - 1])); }
@@ -333,8 +338,8 @@
   });
   $('gear-add').addEventListener('click', function () {
     var min = +$('gear-min').value, max = +$('gear-max').value || min, wide = +$('gear-wide').value, tele = +$('gear-tele').value || wide;
-    if (!(min >= 4 && min <= 1200 && max >= min && max <= 1200 && wide >= 0.95 && wide <= 32 && tele >= wide && tele <= 32)) {
-      $('gear-status').textContent = 'Revisa el lente: focal entre 4 y 1200 mm, la larga no menor que la corta, y apertura entre f/0.95 y f/32.';
+    if (!(min >= 4 && min <= 1200 && max >= min && max <= 1200 && wide >= 0.95 && wide <= NARROWEST && tele >= wide && tele <= NARROWEST)) {
+      $('gear-status').textContent = 'Revisa el lente: focal entre 4 y 1200 mm, la larga no menor que la corta, y apertura entre f/0.95 y f/' + NARROWEST + '.';
       return;
     }
     gear.lenses.push({ name: '', min: min, max: max, wide: wide, tele: tele });
