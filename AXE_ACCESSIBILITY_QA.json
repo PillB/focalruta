@@ -23,7 +23,7 @@
       },
       {
         "id": "color-contrast",
-        "count": 191
+        "count": 187
       }
     ],
     "challenges/arquitectura-en-foco/index.html [light-390]": [
@@ -201,43 +201,43 @@
       },
       {
         "id": "color-contrast",
-        "count": 191
+        "count": 187
       }
     ],
     "plans/plan_a.html [light-390]": [
       {
         "id": "color-contrast",
-        "count": 54
+        "count": 52
       }
     ],
     "plans/plan_b.html [light-390]": [
       {
         "id": "color-contrast",
-        "count": 54
+        "count": 52
       }
     ],
     "plans/plan_c.html [light-390]": [
       {
         "id": "color-contrast",
-        "count": 54
+        "count": 52
       }
     ],
     "plans/plan_d.html [light-390]": [
       {
         "id": "color-contrast",
-        "count": 54
+        "count": 52
       }
     ],
     "plans/plan_e.html [light-390]": [
       {
         "id": "color-contrast",
-        "count": 54
+        "count": 52
       }
     ],
     "plans/plan_f.html [light-390]": [
       {
         "id": "color-contrast",
-        "count": 54
+        "count": 52
       }
     ],
     "FocalRuta_STANDALONE.html [dark-1280]": [
@@ -247,7 +247,7 @@
       },
       {
         "id": "color-contrast",
-        "count": 188
+        "count": 187
       }
     ],
     "challenges/arquitectura-en-foco/index.html [dark-1280]": [
@@ -425,7 +425,7 @@
       },
       {
         "id": "color-contrast",
-        "count": 188
+        "count": 187
       }
     ],
     "plans/plan_a.html [dark-1280]": [
@@ -1091,11 +1091,11 @@
       }
     }
   ],
-  "audited_at": "2026-10-17T20:26:03.802547+00:00",
-  "audited_commit": "e25098fc13cfb5840e4286e2732e50f5ca8a2997",
+  "audited_at": "2026-10-17T22:35:04.325888+00:00",
+  "audited_commit": "7f0fe75ce21e1cb675a54fee01b3da17fb4ce52a",
   "audited_artifacts": {
     "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
-    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "163044583976a208fde3df504cca8b385d1669f56b48d2946eb01c793380bc2a",
+    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "3e608c18711b212e10505b0ecdb17d4b6e6fa7460dc078cbaf73e4a865a12e20",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "e6dc816c988561b1dbf7b912f75421d1fa1e3afea72fadcc0d3549dc4ac73773",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "210b9862dcea69155fd26727017d895ab9f112f15e0a04ed016ba508dac86b91",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/iphone-maps.html": "dcf00bc64b53195126e98369ee57281d3754e989551f1d59317bbd41ce99dd78",
@@ -1125,13 +1125,13 @@
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html": "fef1da0075298e0b98be8ad6320c7a12c3b4f33a7e6e38a0378f718fd9937384",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "ee1783c839181086e47e55a50586e167442c5685752e14af1f9b318599a36eea",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "059a7c90cf9ce08c22d5a1f6c481be982b57bdda5f3e5cb404fc08c4141d15b4",
-    "dist/canon6d_sota_hosted/field_card.html": "b286f75441ada9402bae23fdbcf0902c033182dad504c34752832866f5a5a051",
-    "dist/canon6d_sota_hosted/index.html": "bc81c6f3bff765cd463aa381877892651458cb9d3e73253bbe46dc3eed8ee72b",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "59a92a9bb1f80450c06b8aaf081c4c63e3e271b1627ade0164f1669d74ece846",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "ec5124380d0d57d4c704292842236f2806ea3b8868b2ca19ce30a555c7a4ce25",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "b0cea2bdfb922b3b66b6bd85ec7b838d0942aaef776cfec758b3665cf1ee7ecb",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "d5b849218384c4da9f876af8f3b948d115aa8a02411acac97f80985bdb16e346",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "b5d3e729c135fed9dba7ed97f9002a84d10b35d73841846f7ef36bffa0cc2b04",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "438e058aeff0d158ed16d894148ad2df54e26adc172708413e5742e719ff48e5"
+    "dist/canon6d_sota_hosted/field_card.html": "904f1f7d65f19045057b1134c44bec1b56cf6c417a11f7fc31ac78871249e063",
+    "dist/canon6d_sota_hosted/index.html": "6fe94b5eabf9d1cf41d6cb535605aec64e86a69f77c77a046f0acb9608cb7c25",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "9fac1454183e7a878b4ece69498eca3816af061b296f5d458e5ba0dfadf57cbc",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "6a55b6a0305cda927910e1dca8181203fc354a0fdd3b010c4dfd8caafd17a7a9",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "c743132bee7750c93b386c27fc449f0947a64eadc9a4a0f3b97f538da6150949",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "9bd8111c973da49f02ad8f63127ef066bc34186bf8d535aa5a5566dbaa5bd5dd",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "a5adc54edf2ccfcb3c98eda9de201370dce5d9fbbf71d1b3b3687751361e3ca5",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "e63c155b161d34bb8e32bb31b3b9646c9f922ab56b95c1ed1d5ac2d29ad4ac31"
   }
 }
