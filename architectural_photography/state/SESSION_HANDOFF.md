@@ -1213,3 +1213,83 @@ citada arriba se hizo con un script aparte; la del script completo no había cor
 Corregido en 28ef2aa. Evidencia sobre 28ef2aa sin cambios pendientes: visual 37/37,
 óptica 22/22, release 249/249 (con U05), axe 78/78; pytest 530 pass, 1 skip;
 `verify_architecture` y `verify_release` sin fallos; regeneración sin cambios.
+
+## Ronda 14 · Primero el campo, después el público (2026-10-17)
+
+Paso 3 del plan que Pablo aprobó («proceed»): uso en el campo primero (sin conexión,
+con una mano, tarjeta de campo enteramente en español, planes más útiles) y después
+el pulido público (navegación, equipo configurable con el kit de la 6D por defecto).
+El coordinador confirmó que los pasos 3 y 4 no necesitan otra consulta y que van en
+PR nuevos; fusionar sigue necesitando la palabra de Pablo. Requisitos nuevos en
+`REQUIREMENTS_INVENTORY.md`, sección V (V01–V15).
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| V01–V06 | Tarjeta en español, ajustes exactos por franja, nada bajo 12 px, lista de equipaje por plan, la portada embebe la tarjeta generada, franjas según la hora de Lima | `tests/test_field_card.py`: 11 de 11 fallaban (la tarjeta vieja daba diez valores genéricos por técnica, en 8–11 px y medio en inglés) | 11 pass; tarjeta generada desde `data/plans.json` dentro de `regenerate_all.py` |
+| V02–V09 (navegador) | Cambiar plan y luz, hora de Lima, sin JavaScript, imprimir, dentro del diálogo, axe, sin conexión | `field_card_qa.py` sobre la tarjeta vieja: 6 de 12 pasos no podían ni empezar (no había controles que pulsar) | FIELD_CARD_QA 48/48 (38 de la tarjeta y 10 de «tu equipo») |
+| V05 (cableado) | La integración sólo reemplaza la tarjeta; cada `getElementById` de cada página apunta a un elemento que existe; cada función llamada desde el marcado se define una vez | la tarjeta nueva borró el diálogo «Modo sesión», que estaba dentro del bloque de la tarjeta: el botón no hacía nada y ninguna prueba lo vio. `test_page_wiring.py`: 3 fallos (dos portadas sin `session-run-dialog` ni sus 6 elementos; la integración tragaba un diálogo ajeno sin avisar). El red team halló `openFieldCard`/`closeFieldCard` definidas dos veces (en b86aa96: 2 y 2) | diálogo restaurado fuera del bloque; la integración se niega a reemplazar un bloque con otro marcado; una sola definición del diálogo de la tarjeta (inerte el resto, foco atrapado, Escape sólo si está abierta); 37 pass. `reading_floor.audit_home` informa de un diálogo que no se abre en vez de medir la página de detrás |
+| V07 | Planes y diagramas funcionan sin servidor tras una visita y un toque, y sobreviven a un despliegue | el service worker viejo borraba toda caché que no fuera de su versión (`VERSION` = hash del contenido): cada despliegue vaciaba los planes visitados | paquete `focalruta-pack` explícito, fuera del versionado; la QA simula un despliegue y apaga el servidor |
+| V10–V12 | Portada y páginas de plan: nada bajo 12 px, controles de 44 px, interfaz en español | estática: 14 de 16 fallos; navegador a 390 px: 690 textos bajo 12 px, 353 controles bajo 44 px y 13 palabras en inglés en los estados recorridos | 0 / 0 / 0 en las seis vistas obligatorias y en las seis páginas de plan, en todos los estados (`reading_floor.py`) |
+| V13 | Ajuste equivalente para la cámara y los lentes del lector | sin la adaptación, el lector calculaba a mano factor de recorte, apertura equivalente y exposición. Mutaciones de `gear.js` que la suite mata: CoC sin escalar (4 fallos), hiperfocal sin escalar con la distancia (3), apertura copiada del plan (5), focal sin multiplicar por el factor (9), ND ignorado en el ISO (lo detecta la rejilla de 14 400 ajustes) | 31 pass: mismo encuadre (±2 %), misma PDC proporcional (hiperfocal a ⅙ de paso), misma exposición (⅓ de paso salvo luz que falte, y entonces lo dice) |
+| V13 (notas) | Las notas no se contradicen y el trípode sigue la regla recíproca sobre la focal equivalente | con el `gear.js` anterior, 4 de 5 equipos reales fallaban: «tu lente no abre tanto» junto a «cierro el diafragma» (A05, B06…), y «usa trípode» a 1/100 con 31 mm en Micro 4/3 (equivalente 64 mm) | la nota del límite del lente se omite si al final se cierra el diafragma; trípode sólo por debajo de 1/(focal equivalente); «1 paso»; notas impersonales |
+| V14 | El kit de la 6D es el valor por defecto y no cambia nada | — | ninguna línea extra; 180 franjas idénticas |
+| V15 | Selector en la portada; el mismo `gear.js` en portada, páginas de plan, tarjeta y laboratorio óptico; el equipo guardado no puede inyectar marcado | sin limpiar, un lente guardado con `<img onerror>` llegaba tal cual a la página | 8 páginas con el mismo script; nombre limpio y lentes inválidos descartados; paso `your_gear` del navegador (9 comprobaciones, con el A01 calculado a mano: «22 mm (zoom 18–55) · f/7.1 · 1/125 · ISO 160») |
+
+### Cambios visibles
+
+- Tarjeta de campo nueva: plan y luz con un pulgar, barra de secciones abajo, «siguiente
+  toma pendiente», ventanas horarias del día elegido, lista de equipaje por plan,
+  pantalla de noche roja, pantalla siempre encendida, progreso guardado, imprime limpia.
+  Funciona sin JavaScript (radios y `:has()`).
+- Portada y planes: 12 px mínimo (las etiquetas del laboratorio óptico se escalan con
+  el SVG y, por debajo de 520 px, pasan a la leyenda), botones y enlaces de 44 px,
+  «Casa / Laboratorio», «tarjeta de campo», «campo visual», «enfoque mínimo», «efecto
+  zoom», «pintura con luz». 120 diagramas redibujados («campo visual»).
+- «Tu equipo»: cámara (seis formatos), ISO máximo aceptado y lentes (habituales o
+  propios). Cada toma, plan y la tarjeta muestran «Con tu equipo: …» con lo que
+  cambia y por qué; el laboratorio óptico usa el sensor y el círculo de confusión del
+  lector. Se guarda en el dispositivo.
+
+### Compromisos explícitos
+
+- La equivalencia usa lente delgada y conserva la PDC en proporción a la distancia:
+  si el lente obliga a acercarse o alejarse, cambia la perspectiva (lo dice la nota).
+  El círculo de confusión es 0,03 mm × ancho del sensor / 35,8.
+- Límites genéricos de cuerpo: 1/4000 s, f/22, ISO entre 100 y el máximo que el lector
+  acepta. Una cámara con 1/8000 o ISO 50 rinde algo más de lo que se le promete.
+- Con poca luz se quita antes el ND, luego se alarga la exposición (técnicas de
+  apertura) o se abre el diafragma (técnicas de movimiento); si aun así falta luz, la
+  línea dice cuántos pasos.
+- La lista de equipaje sigue nombrando las roscas de filtro del kit de la 6D.
+- El paquete sin conexión es explícito (≈ 11 MB: seis planes y sus 120 diagramas) y no
+  se precachea al instalar: se baja con un toque en la tarjeta. Se copia de un
+  despliegue al siguiente.
+- La tarjeta de campo pesa 280 KB / 42 KB con gzip (antes 227 KB / 32 KB): la tabla de ajustes por
+  franja para «tu equipo» y `gear.js` van dentro para que funcione sin conexión.
+- Los diagramas PNG siguen con texto pequeño cuando el teléfono los reduce; se pueden
+  ampliar en el visor.
+
+### Cierre (comandos, código de salida, resumen)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `python3 -m pytest -q` | 0 | 627 pass, 1 skip |
+| `python3 scripts/verify_architecture.py` | 0 | `checks_failed: []` |
+| `python3 scripts/verify_release.py` | 0 | `checks_failed: []`; mínimos subidos a 315 (release) y 48 (tarjeta) |
+| `ruff check scripts tests --select C901` (máx. 10) | 0 | sin hallazgos |
+| `python3 scripts/regenerate_all.py && git diff --exit-code` | 0 | sin cambios |
+| QA de navegador (`--with-browser-qa`, Chromium + axe 4.10.3) sobre 3a84dc3 limpio | 0 | visual 37/37, óptica 22/22, release 315/315, axe 78/78, tarjeta 48/48 |
+| Cinco suites `tests/architecture/browser_*.py` | 0 | en verde; `whole_site_integration` falló una vez porque regeneré `dist/` mientras corría y pasó al repetirla sola |
+
+Verificación independiente: el red team recibe el PR del paso 3 para revisarlo.
+
+### Errores propios encontrados en esta ronda
+
+- La tarjeta nueva borró «Modo sesión» (ver V05). Lo encontró la QA de release, no
+  una prueba estática; ahora hay una.
+- `browser_release_qa.py` no llegaba a su comprobación offline desde b86aa96 (`time`
+  sombreado por un bucle). Corregido en PR #19 (28ef2aa).
+- Los reportes decían `+dirty` por escribirse uno tras otro; `evidence.QA_REPORTS`
+  exime sólo a los cinco reportes por nombre (pedido del red team).
