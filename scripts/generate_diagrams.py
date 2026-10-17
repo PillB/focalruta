@@ -25,6 +25,7 @@ import sys
 import math
 
 import optics_physics
+from exposure_model import shutter_seconds
 from plans_data import POSE_NAMES
 
 import matplotlib
@@ -131,29 +132,8 @@ def aperture_to_fnum(ap_str):
         return 4.0
 
 def shutter_to_seconds(ss_str):
-    """Convert shutter string to seconds float."""
-    if isinstance(ss_str, (int, float)):
-        return float(ss_str)
-    s = str(ss_str).strip()
-    if s.lower().startswith("bulb"):
-        # Try to parse "Bulb 20\"" -> 20
-        parts = s.replace('"', '').replace("'", '').split()
-        for p in parts[1:]:
-            try:
-                return float(p)
-            except ValueError:
-                continue
-        return 20.0
-    if "/" in s:
-        try:
-            num, den = s.split("/")
-            return float(num) / float(den)
-        except ValueError:
-            return 1.0
-    try:
-        return float(s.replace('"', '').replace("'", ''))
-    except ValueError:
-        return 1.0
+    """Shutter string as the camera shows it (1/250, 3"2, Bulb 60") -> seconds."""
+    return shutter_seconds(ss_str)
 
 
 # ---------------------------------------------------------------------------

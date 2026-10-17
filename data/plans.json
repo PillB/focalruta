@@ -763,7 +763,7 @@
           "technique_label": "Lightpainting",
           "lens_focal": 35,
           "aperture": "f/9",
-          "shutter": "Bulb 20\"",
+          "shutter": "20\"",
           "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 10.0,
@@ -774,7 +774,7 @@
           "camera_height_m": 1.4,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Sujeto quieto a 4 m. Asistente traza con linterna a su alrededor (círculos, espirales, contorno). Oscuridad total salvo la linterna.",
-          "reasoning": "En modo Bulb, unos 20 s. La linterna debe moverse sin parar: cada punto de luz pinta en el sensor. El sujeto debe permanecer muy quieto para no salir como fantasma. Un diafragma intermedio (f/8–f/11) da nitidez sin que el trazo pierda brillo.",
+          "reasoning": "20\" en el dial, sin Bulb: la 6D cronometra hasta 30\". La linterna debe moverse sin parar: cada punto de luz pinta en el sensor. El sujeto debe permanecer muy quieto para no salir como fantasma. Un diafragma intermedio (f/8–f/11) da nitidez sin que el trazo pierda brillo.",
           "dos": [
             "Usa trípode + disparador remoto o 2s retardados",
             "El sujeto lleva ropa oscura para que la luz destaque",
@@ -789,7 +789,7 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "Bulb 30\"",
+              "shutter": "30\"",
               "iso": 100,
               "scene": "sombra_abierta",
               "viable": false,
@@ -798,7 +798,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "Bulb 25\"",
+              "shutter": "25\"",
               "iso": 100,
               "scene": "sombra_abierta",
               "viable": false,
@@ -807,7 +807,7 @@
             "night": {
               "lens": "35mm",
               "aperture": "f/9",
-              "shutter": "Bulb 20\"",
+              "shutter": "20\"",
               "iso": 100,
               "scene": "oscuridad",
               "notes": "Noche: busca un tramo sin faroles cerca; si el fondo sale gris, cierra a f/11."
@@ -1364,7 +1364,7 @@
           "technique_label": "Efecto Fantasma",
           "lens_focal": 35,
           "aperture": "f/8",
-          "shutter": "3.2\"",
+          "shutter": "3\"2",
           "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 20.0,
@@ -1389,7 +1389,7 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 10,
@@ -1398,7 +1398,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "antes_ocaso",
               "nd_stops": 6,
@@ -1407,7 +1407,7 @@
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "calle_noche",
               "nd_stops": 3,
@@ -1431,7 +1431,7 @@
           "technique_label": "Lightpainting",
           "lens_focal": 35,
           "aperture": "f/10",
-          "shutter": "Bulb 25\"",
+          "shutter": "25\"",
           "iso": 100,
           "subject_distance_m": 5.0,
           "background_distance_m": 30.0,
@@ -1442,7 +1442,7 @@
           "camera_height_m": 1.0,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Sujeto en la arena de la playa (baja escaleras del malecón). Solo el sujeto + el trazo de luz. Mar y cielo como fondo negro.",
-          "reasoning": "En modo Bulb, unos 25 s. La playa de noche está casi a oscuras salvo el faro de La Marina. El sujeto se queda quieto mientras un asistente traza espirales alrededor. Minimalismo extremo: sujeto y luz, nada más.",
+          "reasoning": "25\" en el dial, sin Bulb: la 6D cronometra hasta 30\". La playa de noche está casi a oscuras salvo el faro de La Marina. El sujeto se queda quieto mientras un asistente traza espirales alrededor. Minimalismo extremo: sujeto y luz, nada más.",
           "dos": [
             "Baja a la playa con permiso (revisar mareas)",
             "Lleva linterna LED pequeña + guante para no quemar",
@@ -1465,7 +1465,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/22",
-              "shutter": "Bulb 30\"",
+              "shutter": "30\"",
               "iso": 100,
               "scene": "antes_ocaso",
               "viable": false,
@@ -1474,7 +1474,7 @@
             "night": {
               "lens": "35mm",
               "aperture": "f/10",
-              "shutter": "Bulb 25\"",
+              "shutter": "25\"",
               "iso": 100,
               "scene": "oscuridad",
               "notes": "Noche: en la arena, lejos de los faroles del malecón; si el fondo sale gris, cierra a f/13."
@@ -1563,7 +1563,7 @@
           "technique_label": "Zooming",
           "lens_focal": "35-80",
           "aperture": "f/8",
-          "shutter": "3.2\"",
+          "shutter": "3\"2",
           "iso": 500,
           "subject_distance_m": 6.0,
           "background_distance_m": 50.0,
@@ -1588,7 +1588,7 @@
             "day": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 10,
@@ -1597,7 +1597,7 @@
             "afternoon": {
               "lens": "35-80mm",
               "aperture": "f/16",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "antes_ocaso",
               "nd_stops": 6,
@@ -1606,7 +1606,7 @@
             "night": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 500,
               "scene": "luces_lejanas",
               "notes": "Noche: el faro y los faroles crean los rayos; ISO 500 sin filtro."
@@ -2095,7 +2095,7 @@
           "technique_label": "Lightpainting",
           "lens_focal": 35,
           "aperture": "f/11",
-          "shutter": "Bulb 30\"",
+          "shutter": "30\"",
           "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 8.0,
@@ -2106,7 +2106,7 @@
           "camera_height_m": 1.4,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Habitación totalmente a oscuras. Sujeto quieto. Asistente traza contorno del sujeto + espirales alrededor con linterna LED.",
-          "reasoning": "En modo Bulb, unos 30 s en oscuridad total. El sujeto emerge del negro sólo donde la luz lo toca. Punto de interés único: el contorno luminoso. Tres capas: contorno, espiral externa y fondo negro.",
+          "reasoning": "30\" en el dial, el máximo que la 6D cronometra sin Bulb, en oscuridad total. El sujeto emerge del negro sólo donde la luz lo toca. Punto de interés único: el contorno luminoso. Tres capas: contorno, espiral externa y fondo negro.",
           "dos": [
             "Apaga TODAS las luces, hasta el LED del router (cúbrelo)",
             "Sujeto: respira suave, no te muevas 30s",
@@ -2120,7 +2120,7 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "Bulb 30\"",
+              "shutter": "30\"",
               "iso": 100,
               "scene": "oscuridad",
               "notes": "De día sólo con cortinas opacas y la sala realmente a oscuras; si se filtra luz, pospón a la noche."
@@ -2128,7 +2128,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "Bulb 30\"",
+              "shutter": "30\"",
               "iso": 100,
               "scene": "oscuridad",
               "notes": "Tarde: igual que de día, sólo si consigues oscuridad total."
@@ -2136,7 +2136,7 @@
             "night": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "Bulb 30\"",
+              "shutter": "30\"",
               "iso": 100,
               "scene": "oscuridad",
               "notes": "Noche: habitación totalmente a oscuras."
@@ -2226,7 +2226,7 @@
           "technique_label": "Zooming",
           "lens_focal": "35-80",
           "aperture": "f/11",
-          "shutter": "3.2\"",
+          "shutter": "3\"2",
           "iso": 100,
           "subject_distance_m": 6.0,
           "background_distance_m": 20.0,
@@ -2251,7 +2251,7 @@
             "day": {
               "lens": "35-80mm",
               "aperture": "f/10",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "oficina",
               "nd_stops": 3,
@@ -2260,7 +2260,7 @@
             "afternoon": {
               "lens": "35-80mm",
               "aperture": "f/16",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "interior_casa",
               "notes": "Tarde: lámparas interiores, 3 s a f/16 sin filtro."
@@ -2268,7 +2268,7 @@
             "night": {
               "lens": "35-80mm",
               "aperture": "f/11",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "interior_casa",
               "notes": "Noche: lámparas interiores, 3 s a f/11 sin filtro."
@@ -2693,7 +2693,7 @@
           "technique_label": "Efecto Fantasma",
           "lens_focal": 35,
           "aperture": "f/8",
-          "shutter": "3.2\"",
+          "shutter": "3\"2",
           "iso": 100,
           "subject_distance_m": 5.0,
           "background_distance_m": 20.0,
@@ -2718,7 +2718,7 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 10,
@@ -2727,7 +2727,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "antes_ocaso",
               "nd_stops": 6,
@@ -2736,7 +2736,7 @@
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "iluminado_focos",
               "notes": "Noche: monumento iluminado; 3 s a f/8 sin filtro."
@@ -2759,7 +2759,7 @@
           "technique_label": "Lightpainting",
           "lens_focal": 35,
           "aperture": "f/10",
-          "shutter": "Bulb 25\"",
+          "shutter": "25\"",
           "iso": 100,
           "subject_distance_m": 5.0,
           "background_distance_m": 25.0,
@@ -2770,7 +2770,7 @@
           "camera_height_m": 1.0,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Sujeto en una esquina oscura de la plaza (lejos de faroles). Asistente traza con linterna. Solo sujeto + trazo de luz, fondo arquitectónico negro.",
-          "reasoning": "En modo Bulb, unos 25 s. Esquina oscura de la plaza, lejos de los faroles. El sujeto emerge del negro. Minimalismo extremo: sólo el contorno luminoso.",
+          "reasoning": "25\" en el dial, sin Bulb: la 6D cronometra hasta 30\". Esquina oscura de la plaza, lejos de los faroles. El sujeto emerge del negro. Minimalismo extremo: sólo el contorno luminoso.",
           "dos": [
             "Encuentra la esquina más oscura (lejos de faroles)",
             "Sujeto: muy quieto 25s",
@@ -2793,7 +2793,7 @@
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/22",
-              "shutter": "Bulb 30\"",
+              "shutter": "30\"",
               "iso": 100,
               "scene": "antes_ocaso",
               "viable": false,
@@ -2802,7 +2802,7 @@
             "night": {
               "lens": "35mm",
               "aperture": "f/10",
-              "shutter": "Bulb 25\"",
+              "shutter": "25\"",
               "iso": 100,
               "scene": "oscuridad",
               "notes": "Noche: esquina lejos de los faroles; si el fondo sale gris, cierra a f/13."
@@ -2891,7 +2891,7 @@
           "technique_label": "Zooming",
           "lens_focal": "35-80",
           "aperture": "f/8",
-          "shutter": "3.2\"",
+          "shutter": "3\"2",
           "iso": 100,
           "subject_distance_m": 7.0,
           "background_distance_m": 40.0,
@@ -2916,7 +2916,7 @@
             "day": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 10,
@@ -2925,7 +2925,7 @@
             "afternoon": {
               "lens": "35-80mm",
               "aperture": "f/16",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "antes_ocaso",
               "nd_stops": 6,
@@ -2934,7 +2934,7 @@
             "night": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "3.2\"",
+              "shutter": "3\"2",
               "iso": 100,
               "scene": "iluminado_focos",
               "notes": "Noche: fachada iluminada, 3 s a f/8 e ISO 100 sin filtro."

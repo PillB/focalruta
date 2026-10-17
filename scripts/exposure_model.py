@@ -43,12 +43,16 @@ TOLERANCE_STOPS = 1.0
 # exposure, so only the moving light source draws.
 LIGHTPAINTING_AMBIENT_MARGIN_STOPS = 3.0
 
+# Written the way the camera shows them: Canon uses the seconds mark as the
+# decimal point, so "0"5" indicates 0.5 sec and "15"" 15 sec (EOS manual, "Tv:
+# Shutter-Priority AE", cam.start.canon). Timed exposures stop at 30"; longer
+# ones need Bulb.
 THIRD_STOP_SHUTTERS = (
     "1/4000", "1/3200", "1/2500", "1/2000", "1/1600", "1/1250", "1/1000", "1/800", "1/640",
     "1/500", "1/400", "1/320", "1/250", "1/200", "1/160", "1/125", "1/100", "1/80", "1/60",
     "1/50", "1/40", "1/30", "1/25", "1/20", "1/15", "1/13", "1/10", "1/8", "1/6", "1/5",
-    "1/4", "0.3", "0.4", "0.5", "0.6", "0.8", "1", "1.3", "1.6", "2", "2.5", "3.2", "4", "5",
-    "6", "8", "10", "13", "15", "20", "25", "30",
+    "1/4", '0"3', '0"4', '0"5', '0"6', '0"8', '1"', '1"3', '1"6', '2"', '2"5', '3"2', '4"', '5"',
+    '6"', '8"', '10"', '13"', '15"', '20"', '25"', '30"',
 )
 THIRD_STOP_ISOS = (100, 125, 160, 200, 250, 320, 400, 500, 640, 800, 1000, 1250, 1600, 2000,
                    2500, 3200, 4000, 5000, 6400, 8000, 10000, 12800, 16000, 20000, 25600)
@@ -64,15 +68,22 @@ def f_number(aperture: str | float) -> float:
     return float(match.group(1))
 
 
+CANON_SECONDS = re.compile(r'^(\d+)"(\d)?$')
+
+
 def shutter_seconds(shutter: str | float) -> float:
-    """'1/250' -> 0.004, '2"' -> 2, 'Bulb 20"' -> 20, '10 s' -> 10."""
+    """'1/250' -> 0.004, '3"2' -> 3.2, '0"5' -> 0.5, '30"' -> 30, 'Bulb 60"' -> 60."""
     if isinstance(shutter, (int, float)):
         return float(shutter)
-    text = shutter.replace("Bulb", "").replace('"', "").replace("s", "").strip()
+    text = shutter.replace("Bulb", "").strip()
+    canon = CANON_SECONDS.match(text)
+    if canon:
+        whole, tenths = canon.groups()
+        return int(whole) + int(tenths or 0) / 10
     if "/" in text:
         numerator, denominator = text.split("/", 1)
         return float(numerator) / float(denominator)
-    return float(text.replace(",", "."))
+    return float(text.removesuffix("s").strip().replace(",", "."))
 
 
 def settings_ev100(aperture, shutter, iso) -> float:

@@ -163,14 +163,31 @@ def test_settings_stay_inside_camera_and_lens_limits():
         assert 100 <= s["iso"] <= 25600, (shot["id"], time)
 
 
-SHUTTER_DISPLAY = re.compile(r'^(1/\d+|\d+(\.\d)?"|Bulb \d+")$')
+# Canon writes seconds with a mark that doubles as the decimal point: "0"5"
+# indicates 0.5 sec and "15"" 15 sec (EOS manual, Tv: Shutter-Priority AE,
+# cam.start.canon). A bare "10" reads as 1/10 on the top LCD, and "3.2"" is
+# not a form the camera shows.
+SHUTTER_DISPLAY = re.compile(r'^(1/\d+|\d+"\d?|Bulb \d+")$')
 
 
 def test_shutter_speeds_are_written_the_way_the_camera_shows_them():
-    # The 6D shows fractions as 1/250 and whole seconds with a seconds mark
-    # (2", 30"); a bare "10" reads as 1/10 on the top LCD.
     for shot, time, s in slots(load_plans()):
         assert SHUTTER_DISPLAY.match(s["shutter"]), (shot["id"], time, s["shutter"])
+
+
+@pytest.mark.parametrize("shown,seconds", [
+    ('0"3', 0.3), ('0"5', 0.5), ('1"3', 1.3), ('3"2', 3.2), ('15"', 15), ('30"', 30),
+    ("1/250", 1 / 250), ("1/4000", 1 / 4000), ('Bulb 60"', 60),
+])
+def test_shutter_parser_reads_the_cameras_notation(shown, seconds):
+    assert em.shutter_seconds(shown) == pytest.approx(seconds)
+
+
+def test_bulb_is_only_written_where_a_timed_speed_cannot_reach():
+    # The 6D times exposures up to 30"; anything shorter is set on the dial.
+    for shot, time, s in slots(load_plans()):
+        if s["shutter"].startswith("Bulb"):
+            assert em.shutter_seconds(s["shutter"]) > 30, (shot["id"], time, s["shutter"])
 
 
 def test_headline_settings_are_one_of_the_time_slots():
