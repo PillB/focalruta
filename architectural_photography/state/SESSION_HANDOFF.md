@@ -1275,13 +1275,13 @@ PR nuevos; fusionar sigue necesitando la palabra de Pablo. Requisitos nuevos en
 
 | Comando | Salida | Resumen |
 |---|---|---|
-| `python3 -m pytest -q` | 0 | 627 pass, 1 skip |
+| `python3 -m pytest -q` | 0 | 628 pass, 1 skip |
 | `python3 scripts/verify_architecture.py` | 0 | `checks_failed: []` |
 | `python3 scripts/verify_release.py` | 0 | `checks_failed: []`; mínimos subidos a 315 (release) y 48 (tarjeta) |
 | `ruff check scripts tests --select C901` (máx. 10) | 0 | sin hallazgos |
 | `python3 scripts/regenerate_all.py && git diff --exit-code` | 0 | sin cambios |
-| QA de navegador (`--with-browser-qa`, Chromium + axe 4.10.3) sobre 3a84dc3 limpio | 0 | visual 37/37, óptica 22/22, release 315/315, axe 78/78, tarjeta 48/48 |
-| Cinco suites `tests/architecture/browser_*.py` | 0 | en verde; `whole_site_integration` falló una vez porque regeneré `dist/` mientras corría y pasó al repetirla sola |
+| QA de navegador (`--with-browser-qa`, Chromium + axe 4.10.3) sobre e25098f limpio (rama rehecha sobre `main` tras fusionar PR #19) | 0 | visual 37/37, óptica 22/22, release 315/315, axe 78/78, tarjeta 48/48 |
+| Cinco suites `tests/architecture/browser_*.py` | 0 | en verde sobre c60a6e3, una tras otra y sin regenerar en paralelo (antes, `whole_site_integration` falló una vez porque regeneré `dist/` mientras corría) |
 
 Verificación independiente: el red team recibe el PR del paso 3 para revisarlo.
 
