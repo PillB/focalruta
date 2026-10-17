@@ -33,7 +33,7 @@
     "source_id": "SRC-PHOTO-HOFER", "type": "OFFICIAL", "url_or_path": "https://www.smb.museum/en/exhibitions/detail/image-and-space/", "publisher": "Staatliche Museen zu Berlin", "publication_date": "2022-03-25", "event_date": "2022-03-25/2022-08-28", "retrieved_at": "2026-08-27", "independence_cluster": "candida_hofer", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
   },
   {
-    "source_id": "SRC-PHOTO-PRINCEN", "type": "PROFESSIONAL", "url_or_path": "https://www.basprincen.com/", "publisher": "Bas Princen", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "bas_princen", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
+    "source_id": "SRC-PHOTO-PRINCEN", "type": "PROFESSIONAL", "url_or_path": "http://www.basprincen.com/", "publisher": "Bas Princen", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "bas_princen", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
   },
   {
     "source_id": "SRC-PHOTO-BASILICO", "type": "PROFESSIONAL", "url_or_path": "https://www.archiviogabrielebasilico.it/en/scopri/conoscere-gabriele-basilico", "publisher": "Archivio Gabriele Basilico", "publication_date": null, "event_date": null, "retrieved_at": "2026-08-27", "independence_cluster": "gabriele_basilico", "privacy_class": "PUBLIC_PRIMARY", "status": "ACTIVE"
