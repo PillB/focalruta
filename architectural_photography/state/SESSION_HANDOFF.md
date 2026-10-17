@@ -1196,3 +1196,20 @@ prohibía la caché HTTP, así que Chromium podía responder «offline» desde s
 caché de disco. `browser_release_qa.py` ahora sondea con `page.evaluate` y
 sirve con `Cache-Control: no-store`. Con el arnés corregido, U05 sigue en
 verde en este commit y en c4f96bf: página y 10/10 diagramas por sujeto.
+
+### Segunda pasada del red team y evidencia limpia
+
+El red team dio PASS a c4f96bf y b86aa96 (12/12 mutaciones propias muertas, axe en
+reposo sin violaciones, offline con 0 imágenes rotas) con una nota: los reportes
+decían `eec010a…+dirty`. La causa era mecánica: las suites corren una tras otra y
+cada una escribe su reporte en la raíz, así que desde la segunda el árbol parecía
+sucio. `evidence.current_commit` ya no cuenta los `*_QA.json` de la raíz y una prueba
+exige que cada reporte nombre un commit limpio (RED: 3 de 4 reportes).
+
+Al regenerar apareció otro fallo: los bucles de `browser_release_qa.py` reutilizaban
+el nombre `time`, así que `time.monotonic()` fallaba al llegar a la comprobación
+offline de U05 y el script moría sin escribir el reporte. La verificación de U05
+citada arriba se hizo con un script aparte; la del script completo no había corrido.
+Corregido en 28ef2aa. Evidencia sobre 28ef2aa sin cambios pendientes: visual 37/37,
+óptica 22/22, release 249/249 (con U05), axe 78/78; pytest 530 pass, 1 skip;
+`verify_architecture` y `verify_release` sin fallos; regeneración sin cambios.
