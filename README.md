@@ -11,11 +11,11 @@ GitHub Pages deploys the optimized runtime from `dist/canon6d_sota_hosted`.
 The release gate (`python3 scripts/verify_release.py`) fails unless five browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 360 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 371 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
   on the home page and every plan page, no text under 12 px, no control under 44 px, no
-  English in the interface and nothing cut off at the edges; and dialogs that give focus
-  back to the button that opened them
+  English in the interface and nothing cut off at the edges, also with a reader's own
+  lenses; and dialogs that give focus back to the button that opened them
 - `OPTICS_ACCESSIBILITY_QA.json` — 22 optical-lab matrix and accessibility checks
 - `VISUAL_RESOURCE_QA.json` — 37 image, resource-path, font-floor and contrast checks
   (contrast on gradients is checked at every colour stop)

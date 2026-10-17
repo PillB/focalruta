@@ -187,8 +187,8 @@ def check_evidence(report_name: str, minimum_checks: int) -> None:
 
 for report_name, minimum_checks in (
     # 249 before step 3, plus the reading floor (V10-V12) and dialogs at six viewports on two targets (315),
-    # plus 320 px and nothing cut off (V18) and dialogs giving focus back (V19).
-    ("CURRENT_BROWSER_QA.json", 360),
+    # plus 320 px and nothing cut off (V18) and dialogs giving focus back (V19) (360), plus V18 with long lens names.
+    ("CURRENT_BROWSER_QA.json", 371),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
     # Every shipped page, light phone and dark desktop: 39 pages x 2 passes.

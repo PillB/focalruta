@@ -1398,3 +1398,49 @@ fusionar hace falta la palabra de Pablo.
   URL exacta de la página; con las claves por revisión (`?__rev=`) nunca se cumplía y la QA
   completa cayó. Ahora compara rutas; la recarga sin conexión y los diagramas decodificados
   que comprueba después no cambian. Lo encontró la corrida completa, no las sondas parciales.
+
+### Segunda pasada del red team (287f197)
+
+El red team confirmó corregidos los siete mayores anteriores, L1 y L3, reprodujo todas las
+puertas y pidió cuatro cosas nuevas (`FINDINGS_PR20.md`, «Second pass at 287f197»).
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| V18 (N1) | Nada se corta con el equipo propio del lector, con nombres de lente tan largos como los reales | con un 18–55 de kit y un 70–300 guardados, el `<select>` del laboratorio óptico medía lo que su opción más larga y empujaba el laboratorio fuera de la pantalla: 1451 hallazgos a 320 px y 1336 a 375 px en cada portada; «Quitar» se salía de su botón | 0 en ambas portadas a 320 y 375 px, en la tarjeta y en los seis planes (también con un nombre de 72 caracteres sin espacios); comprobación nueva en `browser_release_qa.py` |
+| V16 (N2) | Una página abierta dentro de los 10 minutos de caché HTTP es de esta build | `test_v16_a_page_opened_within_the_http_cache_window_is_this_builds` fallaba (la raíz devolvía la portada anterior); en Chromium, el ensayo sin borrar la caché HTTP fallaba en la portada (`index.html` de la build anterior) | `navigate()` y los archivos de esta build se revalidan (`cache:'no-cache'`); pasa en Node y en Chromium. `install_behind_http_cache` ya no borra la caché HTTP antes de comprobar |
+| V16 (N2, ?v) | Una página de otra build recibe la hoja que nombra | el mutante «`asset()` ignora `?v`» sobrevivía a toda la suite | `test_v16_a_page_from_another_build_gets_the_stylesheet_it_names` lo mata |
+| V16 (N3) | Un 404 o 5xx no reemplaza la copia guardada | la página y el diagrama guardados devolvían 404 | devuelven la copia guardada |
+| V13 (N4) | La luz que falta se dice desde ⅓ de paso, el paso del dial | con kits reales sobre la rejilla, «Faltan 0,3 pasos» a +0,28 EV y «0,2» a 0,17 EV | `test_v13_a_shortfall_is_said_only_from_a_third_of_a_stop` pasa |
+
+Registros: `red_n1_long_gear.log`, `red_n2_n3_sw.log`, `red_green_n2_browser.log`,
+`red_n4_gear.log`, `green_n2_n3_n4.log`.
+
+También: la lista de palabras inglesas suma settings, back, download, close, next,
+previous, print, share y save (un «← Back» en un plan publicado ya falla V12); ninguna
+página la incumple. En Chromium, una página que el worker nunca guardó, abierta con red,
+llega de la red (el `fetch(r,{cache:'no-cache'})` sobre una petición de navegación no
+lanza error).
+
+Compromisos de esta pasada:
+
+- Revalidar páginas y archivos de esta build cuesta una petición condicional (304) cuando
+  el worker no tiene la copia; con copia, no hay red.
+- Una instalación fallida deja en las cachés compartidas los archivos que sí llegaron;
+  son de esta build y verificados, la siguiente instalación los reutiliza y el siguiente
+  `prune` borra los que sobren.
+- Un faltante de luz menor que ⅓ de paso ya no se menciona: queda dentro de la tolerancia
+  que el planificador declara.
+
+Cierre de la segunda pasada:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `python3 -m pytest -q` | 0 | 681 pass, 1 skip |
+| `python3 scripts/verify_architecture.py` | 0 | `checks_failed: []` |
+| `python3 scripts/verify_release.py` | 0 | `checks_failed: []`; mínimo de release subido a 371 |
+| `ruff check scripts tests --select C901` (máx. 10) | 0 | sin hallazgos |
+| `python3 scripts/regenerate_all.py && git diff --exit-code` | 0 | sólo `CURRENT_STATE.json` (360 → 371), en el mismo commit |
+| QA de navegador (`--with-browser-qa`) sobre 13253a4 limpio | 0 | visual 37/37, óptica 22/22, release 371/371, axe 78/78, tarjeta 56/56 |
+| Cinco suites `tests/architecture/browser_*.py`, una tras otra | 0 | en verde en las siete vistas |
+
+Verificación independiente: vuelve al red team. Fusionar sigue necesitando la palabra de Pablo.
