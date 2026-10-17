@@ -6,6 +6,7 @@ tests hold its arithmetic, its page list and its Pages-like server.
 from __future__ import annotations
 
 import gzip
+import os
 import sys
 import urllib.error
 import urllib.request
@@ -14,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import deploy_rehearsal  # noqa: E402
 import perf_budget_qa  # noqa: E402
 import static_server  # noqa: E402
 
@@ -94,3 +96,37 @@ def test_x02_the_local_server_compresses_like_pages_and_mounts_a_prefix():
         assert outside == 404
     finally:
         server.shutdown()
+
+
+def fetch(url: str, **headers):
+    request = urllib.request.Request(url, headers={"Accept-Encoding": "gzip", **headers})
+    try:
+        with urllib.request.urlopen(request) as response:
+            return response.status, response.headers, gzip.decompress(response.read())
+    except urllib.error.HTTPError as error:
+        return error.code, error.headers, b""
+
+
+def test_x02_the_deploy_rehearsals_see_the_same_pages_as_the_speed_check(tmp_path):
+    """One Pages for the speed check and the deploy rehearsals (V16, V17): gzip,
+    max-age=600, and a validator that answers 304 only while the file is unchanged,
+    even when the next build was copied with the same modification times."""
+    sites = []
+    for name in ("anterior", "siguiente"):
+        site = tmp_path / name
+        site.mkdir()
+        (site / "index.html").write_text(f"<!doctype html><title>{name}</title>", encoding="utf-8")
+        os.utime(site / "index.html", (1_700_000_000, 1_700_000_000))
+        sites.append(site)
+    pages = deploy_rehearsal.Pages(sites[0])
+    try:
+        status, headers, body = fetch(pages.base)
+        assert (status, headers["Content-Encoding"], headers["Cache-Control"]) == (200, "gzip", "max-age=600")
+        assert body == (sites[0] / "index.html").read_bytes() and headers["ETag"]
+        revalidate = {"If-None-Match": headers["ETag"], "If-Modified-Since": "Wed, 01 Jan 2031 00:00:00 GMT"}
+        assert fetch(pages.base, **revalidate)[0] == 304
+        pages.deploy(sites[1])
+        status, _headers, body = fetch(pages.base, **revalidate)
+        assert (status, body) == (200, (sites[1] / "index.html").read_bytes())
+    finally:
+        pages.stop()

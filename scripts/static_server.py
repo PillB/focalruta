@@ -7,11 +7,18 @@ home page roughly four times the bytes a reader actually downloads. This
 handler compresses the text types when the browser asks for gzip, sends the
 ten-minute cache lifetime Pages sends, and can mount the site under a prefix
 such as /focalruta/, so the live-site check can be rehearsed on a local copy.
+
+Its validators are content tags, so a revalidation after a deploy gets the new
+file: Python's own Last-Modified answers 304 with the old body when a build
+copied with its modification times is swapped in. deploy_rehearsal.py serves
+its builds with this handler too, so the speed check and the deploy rehearsals
+see the same Pages.
 """
 from __future__ import annotations
 
 import functools
 import gzip
+import hashlib
 import threading
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -46,17 +53,41 @@ class PagesHandler(SimpleHTTPRequestHandler):
             path = path[len(self.prefix):] or "/"
         return super().translate_path(path)
 
+    def send_header(self, keyword: str, value: str) -> None:
+        if keyword != "Last-Modified":
+            super().send_header(keyword, value)
+
     def end_headers(self) -> None:
         self.send_header("Cache-Control", "max-age=600")
+        if getattr(self, "etag", None):
+            self.send_header("ETag", self.etag)
         super().end_headers()
 
-    def do_GET(self) -> None:
+    def target(self) -> Path:
         target = Path(self.translate_path(self.path))
         if target.is_dir() and self.path.split("?", 1)[0].endswith("/"):
             target = target / "index.html"
+        return target
+
+    def send_head(self):
+        target = self.target()
+        self.etag = f'"{hashlib.sha256(target.read_bytes()).hexdigest()[:16]}"' if target.is_file() else None
+        if self.etag and self.headers.get("If-None-Match") == self.etag:
+            self.send_response(304)
+            self.end_headers()
+            return None
+        return super().send_head()
+
+    def do_GET(self) -> None:
+        target = self.target()
         kind = self.guess_type(str(target))
         if not (target.is_file() and kind in COMPRESSIBLE and "gzip" in self.headers.get("Accept-Encoding", "")):
             super().do_GET()
+            return
+        self.etag = f'"{hashlib.sha256(target.read_bytes()).hexdigest()[:16]}-gzip"'
+        if self.headers.get("If-None-Match") == self.etag:
+            self.send_response(304)
+            self.end_headers()
             return
         body = gzip.compress(target.read_bytes(), compresslevel=6, mtime=0)
         self.send_response(200)
@@ -68,9 +99,17 @@ class PagesHandler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
 
-def serve(directory: Path, prefix: str = "") -> ThreadingHTTPServer:
-    """Start a background server on a free port; the caller shuts it down."""
-    handler = functools.partial(PagesHandler, directory=str(directory), prefix=prefix)
+def serve(directory, prefix: str = "") -> ThreadingHTTPServer:
+    """Start a background server on a free port; the caller shuts it down.
+
+    `directory` is a path, or a function returning the build to serve now, which
+    is how a deploy is rehearsed: each request is answered from the build it returns.
+    """
+    if callable(directory):
+        def handler(*args):
+            return PagesHandler(*args, directory=str(directory()), prefix=prefix)
+    else:
+        handler = functools.partial(PagesHandler, directory=str(directory), prefix=prefix)
     server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
     threading.Thread(target=server.serve_forever, daemon=True).start()
     return server
