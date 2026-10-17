@@ -47,6 +47,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <link rel="apple-touch-icon" href="../assets/icon-192.png">
 <style>__SITE_CSS__</style>
 <style>
+.skip-link{position:absolute;left:8px;top:-64px;z-index:200;padding:10px 14px;border-radius:10px;background:#0f172a;color:#fff;font-weight:700;font-size:14px;text-decoration:none}.skip-link:focus{top:8px}
 body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: #0F172A; }
 .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.85); }
 .toggle-active { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: white; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
@@ -57,7 +58,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 .reasoning-block { background: linear-gradient(135deg, #FEF3C7 0%, #FED7AA 100%); border-left: 4px solid #F59E0B; }
 .do-block { background: #ECFDF5; border-left: 4px solid #16A34A; }
 .dont-block { background: #FEF2F2; border-left: 4px solid #DC2626; }
-.time-toggle-day { background: linear-gradient(135deg, #FEF3C7 0%, #F59E0B 100%); color: #78350F; }
+.time-toggle-day { background: linear-gradient(135deg, #FEF3C7 0%, #F59E0B 100%); color: #451A03; }
 .time-toggle-afternoon { background: linear-gradient(135deg, #FED7AA 0%, #EA580C 100%); color: #7C2D12; }
 .time-toggle-night { background: linear-gradient(135deg, #1E293B 0%, #4338CA 100%); color: #F1F5F9; }
 .shot-card { transition: all 0.3s ease; }
@@ -76,8 +77,9 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 </style>
 </head>
 <body class="bg-paper text-ink">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<section id="plan-orientation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" aria-labelledby="plan-orientation-title"><div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4"><h2 id="plan-orientation-title" class="font-bold text-base text-emerald-950">Cómo leer este plan</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 text-xs leading-relaxed text-emerald-950"><p><strong>Qué cambia:</strong> la hora, el sujeto y la toma modifican la luz o la acción. El dibujo te enseña dónde poner cámara, sujeto y fondo.</p><p><strong>Cómo comprobarlo:</strong> haz una foto, amplíala al 100% y revisa foco, movimiento, altas luces y bordes. Si cambia la perspectiva, moviste la cámara.</p><p><strong>Si no funciona:</strong> conserva la posición y cambia una sola variable. Si no hay acceso, luz o actividad, usa el plan B de la tarjeta y anota el motivo.</p></div></div></section>
+
 
 <nav class="glass sticky top-0 z-50 border-b border-slate-200 no-print">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,6 +100,9 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
     </div>
   </div>
 </nav>
+
+<main id="contenido">
+<section id="plan-orientation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" aria-labelledby="plan-orientation-title"><div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4"><h2 id="plan-orientation-title" class="font-bold text-base text-emerald-950">Cómo leer este plan</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 text-xs leading-relaxed text-emerald-950"><p><strong>Qué cambia:</strong> la hora, el sujeto y la toma modifican la luz o la acción. El dibujo te enseña dónde poner cámara, sujeto y fondo.</p><p><strong>Cómo comprobarlo:</strong> haz una foto, amplíala al 100% y revisa foco, movimiento, altas luces y bordes. Si cambia la perspectiva, moviste la cámara.</p><p><strong>Si no funciona:</strong> conserva la posición y cambia una sola variable. Si no hay acceso, luz o actividad, usa el plan B de la tarjeta y anota el motivo.</p></div></div></section>
 
 <section class="sticky top-16 z-40 bg-paper/95 backdrop-blur border-y border-slate-200 no-print py-3">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
@@ -160,6 +165,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
   <div id="shots-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
 </section>
 
+</main>
 <footer class="bg-ink text-white py-8 mt-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <p class="text-sm text-slate-400">__PLAN_NAME__ · Plan individual de FocalRuta</p>
@@ -273,7 +279,7 @@ function renderShots() {
         <div class="p-5 space-y-3">
           ${baseline ? `<div class="bg-slate-50 border border-slate-300 rounded-lg p-3"><div class="text-[10px] font-black tracking-wider text-slate-700">TARJETA DE CAMPO · REFERENCIA</div><div class="text-[11px] font-mono mt-1">${baseline.lens} · ${baseline.aperture} · ${baseline.shutter} · ISO ${baseline.iso}</div><div class="text-[11px] text-slate-600">${baseline.af} · ${baseline.geometry}</div><div class="text-[10px] text-blue-700 mt-1">El plan puede variar por escena/luz; conserva la variable que define el efecto.</div></div>` : ''}
           <div class="reasoning-block p-3 rounded-lg">
-            <div class="text-xs font-bold text-amber-700 mb-1">RAZONAMIENTO</div>
+            <div class="text-xs font-bold text-amber-800 mb-1">RAZONAMIENTO</div>
             <p class="text-xs text-amber-900 leading-relaxed">${shot.reasoning}</p>
           </div>
           <div class="do-block p-3 rounded-lg">

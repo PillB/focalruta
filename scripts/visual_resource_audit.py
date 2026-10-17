@@ -29,7 +29,27 @@ for page in pages:
             if not target.exists():missing.append(ref)
     add(f'{page.relative_to(ROOT)} local links/resources',not missing,missing[:20])
 
-contrast_js=r'''()=>{function rgb(s){if(s.startsWith('oklch(')){const v=s.match(/[\d.]+/g).map(Number),L=v[0],C=v[1],h=v[2]*Math.PI/180,a=C*Math.cos(h),b=C*Math.sin(h),lp=L+.3963377774*a+.2158037573*b,mp=L-.1055613458*a-.0638541728*b,sp=L-.0894841775*a-1.291485548*b,l=lp**3,m=mp**3,q=sp**3,gamma=x=>255*Math.max(0,Math.min(1,x<=.0031308?12.92*x:1.055*x**(1/2.4)-.055));return[gamma(4.0767416621*l-3.3077115913*m+.2309699292*q),gamma(-1.2684380046*l+2.6097574011*m-.3413193965*q),gamma(-.0041960863*l-.7034186147*m+1.707614701*q),1]}const m=s.match(/[\d.]+/g);return m?[+m[0],+m[1],+m[2],m[3]===undefined?1:+m[3]]:null}function lum(c){const q=c.slice(0,3).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4});return .2126*q[0]+.7152*q[1]+.0722*q[2]}function bgFor(e){for(let n=e;n;n=n.parentElement){const s=getComputedStyle(n);if(s.backgroundImage!=='none')return null;const c=rgb(s.backgroundColor);if(c&&c[3]>.98)return c}return[255,255,255,1]}const bad=[];for(const e of document.querySelectorAll('body *')){const s=getComputedStyle(e),r=e.getBoundingClientRect();if(!r.width||!r.height||s.display==='none'||s.visibility==='hidden'||s.opacity==='0'||![...e.childNodes].some(n=>n.nodeType===3&&n.textContent.trim()))continue;const fg=rgb(s.color),bg=bgFor(e);if(!fg||!bg)continue;const ratio=(Math.max(lum(fg),lum(bg))+.05)/(Math.min(lum(fg),lum(bg))+.05),size=parseFloat(s.fontSize),bold=parseInt(s.fontWeight)>=700,large=size>=24||(bold&&size>=18.66),need=large?3:4.5;if(ratio+0.01<need)bad.push({tag:e.tagName,cls:String(e.className).slice(0,80),text:e.textContent.trim().slice(0,55),fg:s.color,bg:`rgb(${bg.slice(0,3).map(x=>Math.round(x))})`,ratio:+ratio.toFixed(2),need,size})}return bad.slice(0,40)}'''
+# Text contrast against what is actually behind it. Solid backgrounds are
+# checked directly; a gradient is checked at every colour stop (the worst stop
+# decides, per WCAG's guidance for varying backgrounds), and gradient-clipped
+# text is checked stop by stop against its backdrop. Until round 13 gradients
+# were skipped, which hid a 3.72:1 label on every shot card. Colours go through
+# a canvas so oklch() and color() resolve exactly as the screen shows them.
+# Emoji-only glyphs are skipped: they render in their own colours.
+contrast_js=r'''()=>{document.getAnimations().forEach(a=>{try{a.finish()}catch(e){}});
+const cv=document.createElement('canvas').getContext('2d',{willReadFrequently:true});
+function rgb(s){cv.clearRect(0,0,1,1);cv.fillStyle='#000';cv.fillStyle=s;cv.fillRect(0,0,1,1);const d=cv.getImageData(0,0,1,1).data;return[d[0],d[1],d[2],d[3]/255]}
+function over(top,base){return[0,1,2].map(i=>top[i]*top[3]+base[i]*(1-top[3])).concat(1)}
+function lum(c){const q=c.slice(0,3).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4});return .2126*q[0]+.7152*q[1]+.0722*q[2]}
+function ratio(a,b){const x=lum(a),y=lum(b);return(Math.max(x,y)+.05)/(Math.min(x,y)+.05)}
+const STOP=/(?:rgba?|hsla?|oklch|oklab|lab|lch|color)\([^)]*\)|#[0-9a-f]{3,8}\b/gi;
+function stops(image){return(image.match(STOP)||[]).map(rgb)}
+function backdrop(e){let layers=[];for(let n=e;n;n=n.parentElement){const s=getComputedStyle(n);if(s.backgroundImage!=='none'){if(!s.backgroundImage.includes('gradient'))return null;if(!(n===e&&s.backgroundClip==='text'))layers.push(stops(s.backgroundImage))}const c=rgb(s.backgroundColor);if(c[3]>.98){return finish(layers,c)}}return finish(layers,[255,255,255,1])}
+function finish(layers,base){let out=[base];for(const stopsOf of layers.reverse()){out=stopsOf.flatMap(st=>out.map(b=>over(st,b)))}return out}
+const bad=[];for(const e of document.querySelectorAll('body *')){const s=getComputedStyle(e),r=e.getBoundingClientRect();const own=[...e.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('');if(!r.width||!r.height||s.display==='none'||s.visibility==='hidden'||s.opacity==='0'||!/[\p{L}\p{N}]/u.test(own))continue;
+const backs=backdrop(e);if(!backs)continue;const clipped=s.backgroundClip==='text'&&s.backgroundImage.includes('gradient');const fgs=clipped?stops(s.backgroundImage):[rgb(s.color)];
+let worst=99;for(const b of backs)for(const f of fgs)worst=Math.min(worst,ratio(over(f,b),b));
+const size=parseFloat(s.fontSize),bold=parseInt(s.fontWeight)>=700,large=size>=24||(bold&&size>=18.66),need=large?3:4.5;if(worst+0.01<need)bad.push({tag:e.tagName,cls:String(e.className).slice(0,80),text:e.textContent.trim().slice(0,55),fg:s.color,gradient:s.backgroundImage==='none'?'':s.backgroundImage.slice(0,90),ratio:+worst.toFixed(2),need,size})}return bad.slice(0,40)}'''
 
 with sync_playwright() as pw:
     browser=pw.chromium.launch(headless=True,executable_path=CHROME,args=['--no-sandbox'])
@@ -48,7 +68,7 @@ with sync_playwright() as pw:
         else:
             state=page.evaluate('''async()=>{const xs=[...document.images];xs.forEach(x=>x.loading='eager');await Promise.all(xs.map(x=>x.decode().catch(()=>null)));return xs.filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src)}''')
             add(f'{name} images decode',not state,state[:10])
-        bad=page.evaluate(contrast_js);add(f'{name} solid-background text contrast',not bad,bad)
+        bad=page.evaluate(contrast_js);add(f'{name} text contrast on solid and gradient backgrounds',not bad,bad)
         tiny=page.evaluate("()=>[...document.querySelectorAll('body *')].filter(e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return r.width&&r.height&&s.display!=='none'&&s.visibility!=='hidden'&&[...e.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&parseFloat(s.fontSize)<11}).map(e=>({text:e.textContent.trim().slice(0,40),size:getComputedStyle(e).fontSize,cls:String(e.className).slice(0,60)})).slice(0,30)")
         add(f'{name} visible font floor 11px',not tiny,tiny);add(f'{name} no page errors',not errors,errors);page.close()
     browser.close()

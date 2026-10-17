@@ -190,3 +190,10 @@ The owner confirmed the contest is over and asked to generalize the site for pro
 - **T02 MUST** — The architecture ranking scores places for the photographer: no criterion reads the contest-brief fit or the jurors' public work; the remaining weights are the v1.1.0 weights renormalized proportionally and recorded under `derived_from`.
 - **T03 MUST** — The hosted build publishes no contest research, and its service worker precaches only files the build ships.
 - **T04 MUST** — The closed edition stays in the repository as a dated archive under `architectural_photography/archive/arquitectura-en-foco-2026/`.
+
+## U. Red-team review of PR #19 (added 2026-10-17)
+An independent red-team session reviewed PR #19 (`/mnt/project-files/qa/FINDINGS_PR19.md`). Each finding became a requirement with a test that failed before the fix.
+- **U01 MUST** — Shutter speeds are written the way the EOS 6D shows them (`0"5`, `3"2`, `30"`); timed exposures up to 30" never say Bulb; one parser in `exposure_model.py` reads every notation the data uses.
+- **U02 MUST** — Interiors lit by a window by day are scored against a sourced window-light row (500–2,500 lx, EV 8–10), not against office lamps.
+- **U03 MUST** — The planner suite kills the eight mutations the red team survived (ANSI table rows, published-table parity, embedded data parity, the ±1 EV tolerance, dial-selectable settings, lens per shot, handheld reciprocal rule).
+- **U04 MUST** — Every published page passes axe-core (WCAG 2.x A/AA and best practice) in a light phone pass and a dark desktop pass, with animations finished; every page has `lang="es"`, one `main` and one `h1`; the contrast audit checks text on gradients at every colour stop.

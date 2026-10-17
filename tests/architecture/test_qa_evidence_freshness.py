@@ -11,7 +11,12 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-REPORTS = ("CURRENT_BROWSER_QA.json", "OPTICS_ACCESSIBILITY_QA.json", "VISUAL_RESOURCE_QA.json")
+REPORTS = (
+    "CURRENT_BROWSER_QA.json",
+    "OPTICS_ACCESSIBILITY_QA.json",
+    "VISUAL_RESOURCE_QA.json",
+    "AXE_ACCESSIBILITY_QA.json",
+)
 
 
 def _report(name: str) -> dict:

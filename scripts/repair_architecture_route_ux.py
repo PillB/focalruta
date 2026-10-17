@@ -32,8 +32,24 @@ def map_html(layer: dict, filename: str) -> None:
     lines = "".join('<polyline points="' + " ".join(f'{xy(p)[0]:.1f},{xy(p)[1]:.1f}' for p in [points[next(i for i, x in enumerate(points) if x["canonical_id"] == leg["from"])] , points[next(i for i, x in enumerate(points) if x["canonical_id"] == leg["to"])]]) + '"/>' for leg in layer["legs"])
     markers = "".join(f'<circle cx="{xy(point)[0]:.1f}" cy="{xy(point)[1]:.1f}" r="10"/><text x="{xy(point)[0]:.1f}" y="{xy(point)[1]:.1f}">{i}</text>' for i, point in enumerate(points, 1))
     rows = "".join(f'<li><strong>{i}. {escape(point["name"])}</strong><br>{escape(point["address"])}<br><code>{point["latitude"]}, {point["longitude"]}</code></li>' for i, point in enumerate(points, 1))
-    content = f'<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mapa offline · {escape(layer["district"])}</title><style>body{{font:16px/1.5 system-ui;max-width:900px;margin:auto;padding:1rem;color:#10211d}}svg{{width:100%;background:#eef0e9;border:1px solid #cbc2b2}}polyline{{fill:none;stroke:#b84c32;stroke-width:7}}circle{{fill:#10211d;stroke:#fff;stroke-width:3}}text{{fill:#fff;font:bold 12px system-ui;text-anchor:middle;dominant-baseline:central}}li{{margin:.8rem 0}}</style><h1>{escape(layer["district"])} · mapa offline</h1><p>Geometría peatonal capturada; confirma cruces y cierres en campo. Google Maps puede recalcular otra ruta.</p><svg viewBox="0 0 800 400" role="img" aria-label="Ruta peatonal con paradas numeradas">{lines}{markers}</svg><p class="viz-caption">Visualización: la línea muestra el trazado peatonal capturado y los números el orden de las paradas; no es navegación en vivo ni una ruta recalculada hoy.</p><ol>{rows}</ol>'
+    content = f'<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mapa offline · {escape(layer["district"])}</title><style>body{{font:16px/1.5 system-ui;max-width:900px;margin:auto;padding:1rem;color:#10211d}}svg{{width:100%;background:#eef0e9;border:1px solid #cbc2b2}}polyline{{fill:none;stroke:#b84c32;stroke-width:7}}circle{{fill:#10211d;stroke:#fff;stroke-width:3}}text{{fill:#fff;font:bold 12px system-ui;text-anchor:middle;dominant-baseline:central}}li{{margin:.8rem 0}}</style><main><h1>{escape(layer["district"])} · mapa offline</h1><p>Geometría peatonal capturada; confirma cruces y cierres en campo. Google Maps puede recalcular otra ruta.</p><svg viewBox="0 0 800 400" role="img" aria-label="Ruta peatonal con paradas numeradas">{lines}{markers}</svg><p class="viz-caption">Visualización: la línea muestra el trazado peatonal capturado y los números el orden de las paradas; no es navegación en vivo ni una ruta recalculada hoy.</p><ol>{rows}</ol></main></html>'
     (MAPS / filename).write_text(content, encoding="utf-8")
+
+
+def render_offline_maps() -> list[str]:
+    """Redraw every offline map page from the committed routes without touching routes.json.
+
+    `main()` rebuilds the route data itself and only runs after a live routing
+    session; the pages it writes are pure functions of routes.json, so they can
+    be regenerated (and checked for drift) on every build.
+    """
+    routes = json.loads(ROUTES.read_text(encoding="utf-8"))
+    names = []
+    for layer in routes["district_layers"]:
+        name = Path(layer["offline_map_path"]).name
+        map_html(layer, name)
+        names.append(name)
+    return names
 
 
 MERGE_PAIRS = (

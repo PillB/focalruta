@@ -31,6 +31,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CORE = (
     ("plans_data.py", "photo planner data/plans.json"),
     ("build_architecture_learning_v2.py", "curriculum and video ledger"),
+    ("render_offline_maps.py", "offline route map pages"),
     ("generate_architecture_pages.py", "challenge, wiki, field card, iPhone help"),
     ("generate_plan_pages.py", "six self-contained plan pages"),
     ("generate_field_card.py", "planner field card"),
@@ -46,6 +47,7 @@ BROWSER_QA = (
     ("visual_resource_audit.py", "image, resource and contrast audit"),
     ("optics_accessibility_qa.py", "optical lab accessibility matrix"),
     ("browser_release_qa.py", "browser regression matrix"),
+    ("axe_accessibility_qa.py", "axe-core on every published page (needs FOCALRUTA_AXE)"),
 )
 
 

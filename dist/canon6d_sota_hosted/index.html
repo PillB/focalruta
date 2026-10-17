@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="./assets/hosted.css">
 </head>
 <body class="bg-paper text-ink">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <!-- ============================================================ -->
 <!-- TOP NAVIGATION (sticky) -->
@@ -71,6 +72,7 @@
   </div>
 </nav>
 
+<main id="contenido">
 <!-- ============================================================ -->
 <!-- HERO SECTION -->
 <!-- ============================================================ -->
@@ -226,8 +228,8 @@
           <g transform="translate(288 409)" aria-hidden="true"><rect width="64" height="34" rx="6" fill="#fff"/><circle cx="32" cy="17" r="10" fill="#0f172a"/></g>
           <text id="opt-light-label" x="585" y="438" text-anchor="end" class="opt-scale-note">EV — · exposición —</text><text x="320" y="460" text-anchor="middle" class="opt-scale-note">Escala logarítmica · la PDC es un umbral, no un borde físico</text>
         </svg><p class="viz-caption text-sm text-slate-200">Visualización: las líneas comparan campo de visión y profundidad de campo; el gráfico es una guía de relación, no una medición de tu cámara en ese instante.</p>
-        <div class="optics-legend" aria-label="Leyenda"><span><i class="legend-fov"></i>Campo visual</span><span><i class="legend-dof"></i>PDC aceptable</span><span><i class="legend-blur"></i>Desenfoque &gt; CoC</span><span><i class="legend-focus"></i>Foco</span><span><i class="legend-bg"></i>Fondo</span></div>
-        <div class="optics-preview" aria-label="Previsualización pedagógica de separación"><div class="preview-scene"><div id="opt-preview-bg" class="preview-background"></div><div class="preview-person" aria-hidden="true"></div><span>Previsualización conceptual</span></div><div><div class="optics-kicker">DISCO DE DESENFOQUE ESTIMADO</div><strong id="opt-blur">—</strong><p id="opt-blur-note">Modelo de lente delgada; no simula bokeh, aberraciones, luz ni exposición.</p></div></div>
+        <div class="optics-legend" role="group" aria-label="Leyenda"><span><i class="legend-fov"></i>Campo visual</span><span><i class="legend-dof"></i>PDC aceptable</span><span><i class="legend-blur"></i>Desenfoque &gt; CoC</span><span><i class="legend-focus"></i>Foco</span><span><i class="legend-bg"></i>Fondo</span></div>
+        <div class="optics-preview" role="group" aria-label="Previsualización pedagógica de separación"><div class="preview-scene"><div id="opt-preview-bg" class="preview-background"></div><div class="preview-person" aria-hidden="true"></div><span>Previsualización conceptual</span></div><div><div class="optics-kicker">DISCO DE DESENFOQUE ESTIMADO</div><strong id="opt-blur">—</strong><p id="opt-blur-note">Modelo de lente delgada; no simula bokeh, aberraciones, luz ni exposición.</p></div></div>
         <div class="optics-ab"><div class="optics-kicker">A/B · POSICIÓN Y PERSPECTIVA</div><div id="opt-ab"></div></div>
       </div>
       <div class="optics-control-card">
@@ -442,7 +444,7 @@
  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="text-center mb-9"><span class="chip bg-rose-100 text-rose-700 mb-3">Laboratorio de movimiento</span><h3 class="text-3xl md:text-4xl font-bold mb-3">El obturador dibuja tiempo</h3><p class="text-slate-600 max-w-3xl mx-auto">Compara cómo cambia la huella temporal al variar velocidad, movimiento y seguimiento. Es un estimador pedagógico de tendencia, no un exposímetro ni una simulación óptica pixel-perfect.</p></div>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-   <div class="motion-stage" id="motion-stage" aria-label="Simulación conceptual de movimiento"><div class="motion-bg-lines" id="motion-bg-lines"></div><div class="motion-road"></div><div class="motion-trail" id="motion-trail"></div><div class="motion-light" id="motion-light" hidden></div><div class="motion-radial" id="motion-radial" hidden></div><div class="motion-ghost" id="motion-ghost" hidden></div><div class="motion-subject" id="motion-subject"></div><div class="motion-caption" id="motion-caption"></div></div>
+   <div class="motion-stage" id="motion-stage" role="group" aria-label="Simulación conceptual de movimiento"><div class="motion-bg-lines" id="motion-bg-lines"></div><div class="motion-road"></div><div class="motion-trail" id="motion-trail"></div><div class="motion-light" id="motion-light" hidden></div><div class="motion-radial" id="motion-radial" hidden></div><div class="motion-ghost" id="motion-ghost" hidden></div><div class="motion-subject" id="motion-subject"></div><div class="motion-caption" id="motion-caption"></div></div>
    <div class="sota-card">
     <div class="sota-kicker">EFECTO</div><div id="motion-modes" class="sota-actions mt-2 mb-5"><button class="sota-btn is-active" data-motion="freeze">Congelado</button><button class="sota-btn" data-motion="pan">Barrido</button><button class="sota-btn" data-motion="ghost">Fantasma</button><button class="sota-btn" data-motion="trails">Trazas</button><button class="sota-btn" data-motion="paint">Pintura con luz</button><button class="sota-btn" data-motion="zoom">Zooming</button></div>
     <label class="block text-sm font-bold mb-4">Exposición <b id="motion-shutter-v">1/2000 s</b><input id="motion-shutter" type="range" min="0" max="100" value="5" class="w-full mt-2"></label>
@@ -502,7 +504,7 @@
  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="text-center mb-9"><span class="chip bg-violet-100 text-violet-700 mb-3">Laboratorio de composición</span><h3 class="text-3xl md:text-4xl font-bold mb-3">Mueve el sujeto y prueba la intención</h3><p class="text-slate-600 max-w-3xl mx-auto">Toca o arrastra dentro del encuadre 3:2 y activa las guías. El objetivo no es “obedecer reglas”, sino ver cómo cambian balance, tensión, dirección y espacio negativo.</p></div>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-    <div class="comp-stage" id="comp-stage" tabindex="0" aria-label="Lienzo interactivo de composición. Usa flechas para mover el sujeto."><div id="comp-third" class="comp-grid-third"></div><div id="comp-center" class="comp-center" hidden></div><div id="comp-frame" class="comp-frame" hidden></div><div id="comp-leading" class="comp-leading" hidden></div><div class="comp-neg">espacio negativo</div><div id="comp-subject" class="comp-subject" role="img" aria-label="Sujeto"></div></div>
+    <div class="comp-stage" id="comp-stage" tabindex="0" role="application" aria-label="Lienzo interactivo de composición. Usa flechas para mover el sujeto."><div id="comp-third" class="comp-grid-third"></div><div id="comp-center" class="comp-center" hidden></div><div id="comp-frame" class="comp-frame" hidden></div><div id="comp-leading" class="comp-leading" hidden></div><div class="comp-neg">espacio negativo</div><div id="comp-subject" class="comp-subject" role="img" aria-label="Sujeto"></div></div>
     <div class="sota-card"><div class="sota-kicker">GUÍAS</div><div class="sota-actions mt-2" id="comp-controls"><button class="sota-btn is-active" data-comp="third">Tercios</button><button class="sota-btn" data-comp="center">Simetría</button><button class="sota-btn" data-comp="frame">Enmarcado</button><button class="sota-btn" data-comp="leading">Perspectiva</button></div><div class="sota-grid2 mt-5"><div class="sota-card"><div class="sota-kicker">POSICIÓN</div><div id="comp-pos" class="font-black text-xl mt-1">66%, 67%</div></div><div class="sota-card"><div class="sota-kicker">LECTURA</div><div id="comp-reading" class="text-sm font-bold mt-1">Tercio inferior derecho</div></div></div><p id="comp-lesson" class="text-xs text-slate-600 leading-relaxed mt-4 bg-slate-50 rounded-xl p-3">Prueba primero un tercio; luego centra el sujeto y enciende simetría. Si la imagen mejora al centrar, la simetría está sirviendo mejor que la regla de tercios.</p></div>
   </div>
  </div>
@@ -717,6 +719,7 @@
 
 
 <section id="sources" class="py-14 bg-white"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-8"><span class="chip bg-blue-100 text-blue-700 mb-3">Metodología</span><h3 class="text-3xl font-bold mb-2">Fuentes y supuestos</h3><p class="text-sm text-slate-600">Prioridad a documentación Canon; cálculos ópticos con sensor 35.8×23.9mm y CoC 0.03mm como convención de planificación, no frontera física de nitidez.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm"><a class="source-link" href="https://global.canon/en/c-museum/product/dslr813.html" target="_blank" rel="noopener">Canon Camera Museum · EOS 6D</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef426.html" target="_blank" rel="noopener">Canon Camera Museum · EF 35mm f/2 IS USM</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef451.html" target="_blank" rel="noopener">Canon Camera Museum · EF 50mm f/1.8 STM</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef313.html" target="_blank" rel="noopener">Canon Camera Museum · EF 85mm f/1.8 USM</a><a class="source-link" href="https://global.canon/en/c-museum/product/ef324.html" target="_blank" rel="noopener">Canon Camera Museum · EF 35–80mm f/4–5.6 III</a><a class="source-link" href="https://files.canon-europe.com/files/webcontent/rf-lens-world/knowledge/depth-of-field/index.html" target="_blank" rel="noopener">Canon · Depth of field</a><a class="source-link" href="https://en.wikipedia.org/wiki/Perspective_distortion" target="_blank" rel="noopener">Perspectiva: depende de la posición</a><a class="source-link" href="https://en.wikipedia.org/wiki/Exposure_value#Tabulated_exposure_values" target="_blank" rel="noopener">Tabla de EV por escena (ANSI PH2.7)</a><a class="source-link" href="https://gml.noaa.gov/grad/solcalc/calcdetails.html" target="_blank" rel="noopener">NOAA · cálculo solar</a><a class="source-link" href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener">W3C · WCAG 2.2</a><a class="source-link" href="https://github.com/PillB/PoseArt" target="_blank" rel="noopener">PillB/PoseArt · biblioteca y coaching de poses</a></div></div></section>
+</main>
 <footer class="production-footer bg-ink text-white py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1043,7 +1046,7 @@ function renderShotCard(shot, plan, idx) {
             ${TECH_EMOJI[shot.technique] || '📷'}&nbsp;${shot.technique_label}
           </span>
         </div>
-        <div class="flex flex-wrap gap-1.5 mb-2" aria-label="Ajustes para ${timeLabels(currentTime).toLowerCase()}">
+        <div class="flex flex-wrap gap-1.5 mb-2" role="group" aria-label="Ajustes para ${timeLabels(currentTime).toLowerCase()}">
           ${settingsChips(timeSettings)}
         </div>
         ${slotStatus(timeSettings)}
@@ -1066,7 +1069,7 @@ function renderShotCard(shot, plan, idx) {
           <div class="text-[10px] text-blue-700 mt-1"><strong>Este plan puede variar</strong> por luz/escena; conserva la variable que define el efecto.</div>
         </div>` : ''}
         <div class="reasoning-block p-3 rounded-lg">
-          <div class="text-xs font-bold text-amber-700 mb-1">RAZONAMIENTO</div>
+          <div class="text-xs font-bold text-amber-800 mb-1">RAZONAMIENTO</div>
           <p class="text-xs text-amber-900 leading-relaxed">${shot.reasoning}</p>
         </div>
         <div class="do-block p-3 rounded-lg">

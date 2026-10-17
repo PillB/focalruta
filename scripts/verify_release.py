@@ -162,6 +162,8 @@ for report_name, minimum_checks in (
     ("CURRENT_BROWSER_QA.json", 234),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
+    # Every shipped page, light phone and dark desktop: 39 pages x 2 passes.
+    ("AXE_ACCESSIBILITY_QA.json", 78),
 ):
     check_evidence(report_name, minimum_checks)
 
