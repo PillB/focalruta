@@ -5145,7 +5145,12 @@ body.sun-mode{--read-ink:#000;--read-muted:#1f2937;--read-line:#475569;backgroun
 .skip-link{position:absolute;left:8px;top:-64px;z-index:200;padding:10px 14px;border-radius:10px;background:#0f172a;color:#fff;font-weight:700;font-size:14px;text-decoration:none}.skip-link:focus{top:8px}
 
 /* V11: every control at least 44 x 44 px, for a thumb in the field. */
-.top-actions>:is(a,button){display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
+.top-actions>:is(a,button){display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:44px;min-height:44px}
+.top-actions{overscroll-behavior-x:contain}
+.top-actions.has-more{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent)}
+.hdr-short{display:inline}
+@media(min-width:641px){.hdr-short{display:none}}
+@media(max-width:640px){.top-actions>.hdr-wide{display:none}}
 .variant-toggles button{min-width:44px;min-height:44px}
 details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:border-box}
 .production-footer li>:is(a,button){display:inline-flex;align-items:center;min-height:44px}
@@ -5157,8 +5162,9 @@ details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:bord
 .gear-config{margin-top:1.5rem;padding:1.25rem;border:2px solid #cbd5e1;border-radius:18px;background:#fff}
 .gear-grid{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));margin:.75rem 0}
 .gear-field{display:flex;flex-direction:column;gap:.3rem;font-size:.875rem;font-weight:700;color:#0f172a}
-.gear-field select,.gear-field input{min-height:44px;border:1px solid #64748b;border-radius:10px;padding:.4rem .6rem;font-size:1rem;background:#fff;color:#0f172a}
-.gear-lenses{border:1px solid #cbd5e1;border-radius:14px;padding:.75rem 1rem}
+.gear-field select,.gear-field input{min-width:0;max-width:100%;min-height:44px;border:1px solid #64748b;border-radius:10px;padding:.4rem .6rem;font-size:1rem;background:#fff;color:#0f172a}
+/* A fieldset is as wide as its widest content (min-inline-size:min-content); let it fit a 320 px screen. */
+.gear-lenses{min-inline-size:0;border:1px solid #cbd5e1;border-radius:14px;padding:.75rem 1rem}
 .gear-lenses legend{font-weight:800;padding:0 .3rem}
 .gear-lens-list{display:grid;gap:.4rem;margin:.25rem 0 .75rem}
 .gear-lens-list li{display:flex;align-items:center;justify-content:space-between;gap:.75rem;border-bottom:1px solid #e2e8f0;padding:.2rem 0;font-size:.9375rem}

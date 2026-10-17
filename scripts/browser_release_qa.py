@@ -19,6 +19,7 @@ AUDITED = [
     ROOT / "index.html",
     ROOT / "dist/canon6d_sota_hosted/index.html",
     ROOT / "field_card.html",
+    ROOT / "dist/canon6d_sota_hosted/field_card.html",
     ROOT / "data/plans.json",
     *sorted((ROOT / "plans").glob("plan_*.html")),
     *sorted((ROOT / "dist/canon6d_sota_hosted/plans").glob("plan_*.html")),
@@ -88,6 +89,29 @@ def hosted_plan_offline(browser):
     context.close()
 
 
+# V19: each dialog opened from the button a reader would press, then closed with
+# Escape, hands focus back to that button and leaves nothing on the page inert.
+DIALOGS = (
+    ("session", "button[onclick='openSessionRun()']:visible", "#session-run-dialog"),
+    ("field card", "button[onclick='openFieldCard()']:visible", "#field-card-modal"),
+    ("shot", "#plan-detail-content button[onclick^='openModal(']:visible", "#shot-modal"),
+)
+FOCUS_INSIDE = "(d)=>{const m=document.querySelector(d);return !!m&&m.contains(document.activeElement)}"
+AFTER_ESCAPE = """(d)=>{const m=document.querySelector(d);return {closed:!(m.open||m.classList.contains('fc-modal-open')),
+back:document.activeElement?.dataset.qaTrigger==='1',inert:[...document.querySelectorAll('[inert]')].map(e=>e.id||e.tagName)}}"""
+
+
+def dialogs_give_focus_back(page, target_name):
+    for name, trigger, dialog in DIALOGS:
+        button = page.locator(trigger).first
+        button.evaluate("b=>{document.querySelectorAll('[data-qa-trigger]').forEach(x=>delete x.dataset.qaTrigger);b.dataset.qaTrigger='1'}")
+        button.click()
+        record(f"{target_name} {name} dialog takes focus from its button", page.evaluate(FOCUS_INSIDE, dialog))
+        page.keyboard.press("Escape")
+        after = page.evaluate(AFTER_ESCAPE, dialog)
+        record(f"{target_name} {name} dialog closes on Escape and gives focus back", after["closed"] and after["back"] and not after["inert"], after)
+
+
 with sync_playwright() as pw:
     browser = pw.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
     targets = {
@@ -139,6 +163,7 @@ with sync_playwright() as pw:
         page.evaluate("openModal('plan_f','F10')")
         record(f"{target_name} shot detail modal", page.locator("#shot-modal").evaluate("e=>e.open"))
         page.keyboard.press("Escape")
+        dialogs_give_focus_back(page, target_name)
         record(f"{target_name} ZIP link resolves", page.locator('a[href="downloads/canon6d_photo_planner_assets.zip"]').first.evaluate("a=>new URL(a.href).protocol==='file:'"))
         record(f"{target_name} interaction errors", not errors, errors)
         page.close()
@@ -152,9 +177,21 @@ with sync_playwright() as pw:
             record(f"{target_name} {width} every control at least 44 px", not floor["tiny"], floor["tiny"][:12])
             record(f"{target_name} {width} interface in Spanish", not floor["english"], floor["english"])
             record(f"{target_name} {width} session and shot dialogs open", not floor["unreached"], floor["unreached"])
+            record(f"{target_name} {width} nothing cut off at the edges", not floor["cut"], floor["cut"][:12])
             page.close()
 
+    narrow = browser.new_page(viewport={"width": 320, "height": 640})
+    narrow.goto((ROOT / "dist/canon6d_sota_hosted/field_card.html").as_uri(), wait_until="load", timeout=60000)
+    narrow.evaluate("document.querySelectorAll('details').forEach(d=>d.open=true)")
+    cut = narrow.evaluate(reading_floor.CUT_OFF, "")
+    record("field_card 320 nothing cut off at the edges", not cut, cut[:12])
+    narrow.close()
     for letter in "abcdef":
+        narrow = browser.new_page(viewport={"width": 320, "height": 640})
+        narrow.goto((ROOT / f"dist/canon6d_sota_hosted/plans/plan_{letter}.html").as_uri(), wait_until="domcontentloaded", timeout=60000)
+        cut = reading_floor.audit_plan_page(narrow)["cut"]
+        record(f"plan_{letter} 320 nothing cut off at the edges", not cut, cut[:12])
+        narrow.close()
         page = browser.new_page(viewport={"width": 390, "height": 844})
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))

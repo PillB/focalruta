@@ -9,9 +9,12 @@ toggles 31 px wide, footer links 17 px tall) and English in the interface:
 "FREEZE", "Lightpainting:", "Zooming:" and diagrams described as "human".
 
 This file holds the static half, which runs in CI on every push: no CSS rule
-or class sets text under 12 px, and no word of the interface is English. The
-browser half, which measures rendered text and every control in several page
-states, runs in scripts/browser_release_qa.py.
+or class sets text under 12 px, and no word of the interface is English. It
+reads the repository's pages and the copies that ship from dist/ (the hosted
+home page keeps its CSS in assets/hosted.css), because the red team showed a
+build step could break only the shipped copy. The browser half, which
+measures rendered text and every control in several page states, runs in
+scripts/browser_release_qa.py.
 """
 from __future__ import annotations
 
@@ -27,8 +30,11 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from reading_floor import MIN_TEXT_PX, english_in  # noqa: E402
 
+DIST = ROOT / "dist" / "canon6d_sota_hosted"
 INDEX = ROOT / "index.html"
-PLAN_PAGES = sorted((ROOT / "plans").glob("plan_*.html"))
+HOME_PAGES = (INDEX, DIST / "index.html")
+PLAN_PAGES = sorted((ROOT / "plans").glob("plan_*.html")) + sorted((DIST / "plans").glob("plan_*.html"))
+HOSTED_CSS = DIST / "assets" / "hosted.css"
 # The field card has its own tests (tests/test_field_card.py); its print rules are in points.
 FIELD_CARD_BLOCKS = (
     ("<!-- FIELD CARD CSS START -->", "<!-- FIELD CARD CSS END -->"),
@@ -116,11 +122,20 @@ def shown_text(path: Path) -> str:
     return " ".join(parser.parts)
 
 
-def test_v10_home_page_sets_no_text_under_12px():
-    assert small_declarations(page_source(INDEX)) == []
+def shipped(path: Path) -> str:
+    return path.relative_to(ROOT).as_posix()
 
 
-@pytest.mark.parametrize("page", PLAN_PAGES, ids=lambda p: p.name)
+@pytest.mark.parametrize("page", HOME_PAGES, ids=shipped)
+def test_v10_home_page_sets_no_text_under_12px(page):
+    assert small_declarations(page_source(page)) == []
+
+
+def test_v10_the_hosted_stylesheet_sets_no_text_under_12px():
+    assert small_declarations(without_print_rules(HOSTED_CSS.read_text(encoding="utf-8"))) == []
+
+
+@pytest.mark.parametrize("page", PLAN_PAGES, ids=shipped)
 def test_v10_plan_pages_set_no_text_under_12px(page):
     assert small_declarations(page_source(page)) == []
 
@@ -132,11 +147,12 @@ def test_v10_the_scan_sees_each_kind_of_small_declaration():
     assert small_declarations(".a{font-size:12px}.b{font-size:.75rem}<p class='text-[12px]'>") == []
 
 
-def test_v12_home_page_interface_is_spanish():
-    assert english_in(shown_text(INDEX)) == []
+@pytest.mark.parametrize("page", HOME_PAGES, ids=shipped)
+def test_v12_home_page_interface_is_spanish(page):
+    assert english_in(shown_text(page)) == []
 
 
-@pytest.mark.parametrize("page", PLAN_PAGES, ids=lambda p: p.name)
+@pytest.mark.parametrize("page", PLAN_PAGES, ids=shipped)
 def test_v12_plan_pages_interface_is_spanish(page):
     assert english_in(shown_text(page)) == []
 

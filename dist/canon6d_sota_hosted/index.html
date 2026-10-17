@@ -31,7 +31,7 @@
 
 
 
-<link rel="stylesheet" href="./assets/hosted.css?v=33b6336fae94">
+<link rel="stylesheet" href="./assets/hosted.css?v=5e34f8fc8a3b">
 </head>
 <body class="bg-paper text-ink">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -50,28 +50,39 @@
           </svg>
         </div>
         <div class="min-w-0">
-          <h1 class="text-xs sm:text-base font-bold leading-tight truncate">FocalRuta · San Isidro</h1>
+          <h1 class="text-xs sm:text-base font-bold leading-tight truncate">FocalRuta<span class="hdr-label"> · San Isidro</span></h1>
           <p class="text-xs text-slate-500 hidden sm:block">Planificador para Canon 6D · Lima</p>
         </div>
       </div>
       <div class="top-actions flex items-center space-x-1 sm:space-x-2 overflow-x-auto">
-        <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">↑</button>
+        <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">↑</button>
         <a href="#quick-start" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Inicio</a>
-        <a href="challenges/arquitectura-en-foco/" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap">Fotografía arquitectónica</a>
-        <a href="#planes" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">Planes</a>
+        <a href="challenges/arquitectura-en-foco/" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap"><span class="hdr-short">Arquitectura</span><span class="hdr-label">Fotografía arquitectónica</span></a>
+        <a href="#planes" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">Planes</a>
         <a href="#optics-lab" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Óptica</a>
         <a href="#gear" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Tu equipo</a>
         <a href="#lens-comparison" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Lentes</a>
         <a href="#tecnicas" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Técnicas</a>
         <a href="#composicion" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Composición</a>
         <button id="visibility-toggle" type="button" class="visibility-toggle" aria-pressed="false">☀️ Modo sol</button>
-        <button type="button" onclick="openSessionRun()" title="Modo sesión: recorre las 10 tomas una a una" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Sesión</button>
-        <button type="button" onclick="openFieldCard()" title="Tarjeta de campo" aria-label="Abrir tarjeta de campo" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap">📋<span class="hdr-label"> Tarjeta</span></button>
+        <button type="button" onclick="openSessionRun()" title="Modo sesión: recorre las 10 tomas una a una" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Sesión</button>
+        <button type="button" onclick="openFieldCard()" title="Tarjeta de campo" aria-label="Abrir tarjeta de campo" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap">📋<span class="hdr-label"> Tarjeta</span></button>
         <button onclick="window.print()" title="Imprimir o guardar como PDF" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold bg-ink text-white rounded-lg hover:bg-slate-700 transition whitespace-nowrap">PDF</button>
       </div>
     </div>
   </div>
 </nav>
+<script>
+// When the header's actions do not fit, fade the last one so it reads as "more to the right".
+(function () {
+  var bar = document.querySelector('.top-actions');
+  if (!bar) return;
+  function hint() { bar.classList.toggle('has-more', bar.scrollLeft + bar.clientWidth < bar.scrollWidth - 2); }
+  bar.addEventListener('scroll', hint, { passive: true });
+  window.addEventListener('resize', hint);
+  hint();
+})();
+</script>
 
 <main id="contenido">
 <!-- ============================================================ -->

@@ -4890,6 +4890,11 @@ button,a{min-height:44px}.diagram-frame,.shot-card,details{border-width:1.5px!im
 .skip-link{position:absolute;left:8px;top:-64px;z-index:200;padding:10px 14px;border-radius:10px;background:#0f172a;color:#fff;font-weight:700;font-size:14px;text-decoration:none}.skip-link:focus{top:8px}
 body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: #0F172A; }
 .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.85); }
+/* The bar is 64 px tall on every screen: the name takes two lines at most, and on a phone
+   the place and the word "Imprimir" give way so neither the name nor the buttons are cut. */
+.plan-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.plan-place { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 640px) { .plan-place, .plan-action-label { display: none; } }
 .toggle-active { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: white; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
 .toggle-inactive { background: #F1F5F9; color: #475569; }
 .diagram-frame { box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 0 0 1px #E2E8F0; }
@@ -4932,18 +4937,18 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
 <nav class="glass sticky top-0 z-50 border-b border-slate-200 no-print">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
+      <div class="flex items-center space-x-3 min-w-0">
+        <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0">
           <span aria-hidden="true" style="font-size:20px">📷</span>
         </div>
-        <div>
-          <h1 class="text-base font-bold leading-tight">Malecón de Miraflores — Costa Verde</h1>
-          <p class="text-xs text-slate-500">Plan individual · Malecón Cisneros / Parque del Amor, Miraflores</p>
+        <div class="min-w-0">
+          <h1 class="plan-title text-sm sm:text-base font-bold leading-tight">Malecón de Miraflores — Costa Verde</h1>
+          <p class="plan-place text-xs text-slate-500">Plan individual · Malecón Cisneros / Parque del Amor, Miraflores</p>
         </div>
       </div>
-      <div class="flex items-center space-x-2">
-        <a href="../index.html" class="px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition">← Volver</a>
-        <button onclick="window.print()" class="px-3 py-2 text-xs font-semibold bg-ink text-white rounded-lg hover:bg-slate-700 transition">🖨 Imprimir</button>
+      <div class="flex items-center space-x-2 flex-shrink-0">
+        <a href="../index.html" class="px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">← Volver</a>
+        <button onclick="window.print()" aria-label="Imprimir" class="px-3 py-2 text-xs font-semibold bg-ink text-white rounded-lg hover:bg-slate-700 transition whitespace-nowrap">🖨<span class="plan-action-label"> Imprimir</span></button>
       </div>
     </div>
   </div>

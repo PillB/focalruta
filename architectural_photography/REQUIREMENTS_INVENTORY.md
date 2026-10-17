@@ -141,7 +141,7 @@ The repeated “iterate 10 times each” request is implemented as **ten differe
 - **M05 MUST** — source → generated → hosted/standalone parity.
 
 ## N. iPhone / accessibility / runtime
-- **N01 MUST** — 390×844, 430×932, 844×390, 932×430, 820×1000, 1440×1100.
+- **N01 MUST** — 320×640 (WCAG 1.4.10 Reflow, added for V18), 390×844, 430×932, 844×390, 932×430, 820×1000, 1440×1100.
 - **N02 MUST** — `scrollWidth <= clientWidth`; no console/page errors.
 - **N03 MUST** — task-critical buttons/toggles/filters and meaningful permutation classes.
 - **N04 MUST** — ~44px touch where practical, visible focus, keyboard, modal focus return, reduced motion, contrast/readability.
@@ -221,3 +221,5 @@ Step 3 of the plan the owner approved ("proceed"): field use first (offline, one
 - **V15 MUST** — The home page offers the gear picker; the home page, the plan pages, the field card and the optics lab carry the same `gear.js` and show the reader's line; gear read back from storage cannot put markup on the page.
 - **V16 MUST** — A page is served this build's files or the network's, never another build's copy: the service worker checks the bytes of every copy it keeps against the build (so neither the HTTP cache, which Pages sets to 10 minutes, nor a CDN node that has not caught up can slip an old file in), the home page names its stylesheet and data by revision (so an older worker still in control fetches the new ones), and every file it keeps, the web manifest included, is served offline. (Red team on PR #20, majors 4 and L1; live check L3.)
 - **V17 MUST** — An upgrade from the worker live at 9cd3044, or from any later one, keeps every page and diagram the reader had offline and downloads nothing that did not change; the files kept for the field are brought up to date on install, the field card says when some are from an earlier version or missing, and caches of the other sites on pillb.github.io are never touched. (Red team on PR #20, major 5 and the stale-pack minor.)
+- **V18 MUST** — From a 320 px wide screen up (WCAG 1.4.10 Reflow), nothing a reader needs on the home page, the plan pages or the field card is cut off: no text or control runs past the edge of the screen outside a strip that scrolls sideways, no control's label is clipped or runs out of it, and no control sits on top of another, in every state a reader reaches. The tests read the pages that ship in `dist/`, not only their sources. (Red team on PR #20, majors 6 and 7.)
+- **V19 MUST** — The session, field card and shot dialogs, opened from the button a reader presses and closed with Escape, take focus while open and give it back to that button, and leave nothing on the page inert. (Red team on PR #20, major 7.)
