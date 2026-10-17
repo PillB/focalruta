@@ -1,22 +1,75 @@
-"""Comprehensive post-deploy E2E and live-vs-local differential QA."""
+"""Comprehensive post-deploy E2E and live-vs-local differential QA.
+
+Requirement X03. CI runs this after every Pages deploy and every morning
+(.github/workflows/live-check.yml). It first waits, up to --wait-seconds, until
+the live home page is byte-identical to this commit's build: Pages' CDN keeps
+the previous build for up to ten minutes, and checking it would report on the
+wrong site. Then it drives the live pages and records every request; nothing
+may go to another origin. FOCALRUTA_LIVE_URL points it at another copy, such
+as a local server that mounts dist/ under /focalruta/ for a rehearsal.
+"""
 from __future__ import annotations
 
+import argparse
+import hashlib
 import json
 import os
+import sys
+import time
+import urllib.request
 from pathlib import Path
+from urllib.parse import urlsplit
 from playwright.sync_api import sync_playwright
+import evidence
 import qa_matrix
 
 ROOT = Path(__file__).resolve().parents[1]
-URL = "https://pillb.github.io/focalruta/"
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+URL = os.environ.get("FOCALRUTA_LIVE_URL", "https://pillb.github.io/focalruta/").rstrip("/") + "/"
+ORIGIN = "{0.scheme}://{0.netloc}".format(urlsplit(URL))
+BUILD = ROOT / "dist/canon6d_sota_hosted/index.html"
 OUT = ROOT / "LIVE_PAGES_QA.json"
 results: list[dict] = []
+foreign: set[str] = set()
 FAST_PHASE = os.environ.get('LIVE_QA_FAST_PHASE') == '1'
 
 
 def record(name, condition, detail=""):
     results.append({"name": name, "pass": bool(condition), "detail": detail})
+
+
+def watch_origins(page) -> None:
+    """Remember any request a live page makes to another origin."""
+    page.on("request", lambda request: request.url.startswith("http") and not request.url.startswith(ORIGIN)
+            and foreign.add(request.url))
+
+
+def wait_for_build(seconds: int) -> dict:
+    """Poll the live home page until it is this commit's build, or give up."""
+    want = hashlib.sha256(BUILD.read_bytes()).hexdigest()
+    deadline, seen = time.monotonic() + seconds, ""
+    while True:
+        try:
+            with urllib.request.urlopen(URL, timeout=30) as response:
+                seen = hashlib.sha256(response.read()).hexdigest()
+        except OSError as error:
+            seen = f"unreachable: {error}"
+        if seen == want or time.monotonic() >= deadline:
+            return {"expected": want, "served": seen}
+        time.sleep(20)
+
+
+arguments = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+arguments.add_argument("--wait-seconds", type=int, default=0,
+                       help="wait this long for the live site to serve this commit's build")
+arguments.add_argument("--report", type=Path, default=OUT, help="where to write the report")
+options = arguments.parse_args()
+OUT = options.report
+build = wait_for_build(options.wait_seconds)
+record("live serves this commit's build", build["served"] == build["expected"], build)
+if build["served"] != build["expected"]:
+    evidence.write_report(OUT, {"url": URL, "passed": False, "checks": len(results), "failures": results,
+                                "results": results}, [BUILD])
+    sys.exit(f"{URL} does not serve this commit's build after {options.wait_seconds} s: {build}")
 
 
 def semantic_snapshot(page):
@@ -31,11 +84,12 @@ def semantic_snapshot(page):
 
 
 with sync_playwright() as pw:
-    browser = pw.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
+    browser = pw.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
 
     # Responsive navigation/runtime checks against the actual public origin.
     for width, height in (() if FAST_PHASE else qa_matrix.REQUIRED_VIEWPORTS):
         page = browser.new_page(viewport={"width": width, "height": height})
+        watch_origins(page)
         errors, failed = [], []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.on("requestfailed", lambda request: failed.append(request.url))
@@ -49,6 +103,7 @@ with sync_playwright() as pw:
 
     context = browser.new_context(viewport={"width": 390, "height": 844})
     page = context.new_page()
+    watch_origins(page)
     errors, failed, console_errors = [], [], []
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.on("requestfailed", lambda request: failed.append(request.url))
@@ -73,6 +128,7 @@ with sync_playwright() as pw:
     page.close(); context.close()
     context = browser.new_context(viewport={"width": 390, "height": 844})
     page = context.new_page()
+    watch_origins(page)
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.on("requestfailed", lambda request: failed.append(request.url))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
@@ -102,7 +158,8 @@ with sync_playwright() as pw:
         page.locator("#motion-shutter").fill("90"); high = page.locator("#motion-span").inner_text()
         motion_states.append([mode, low, high, page.locator("#motion-caption").inner_text()])
     record("live Motion six modes differential", all(x[1] != x[2] for x in motion_states), motion_states)
-    record("live Motion visual captions track mode", all(x[0].upper() in x[3] for x in motion_states), motion_states)
+    captions = {"freeze": "CONGELADO", "pan": "BARRIDO", "ghost": "FANTASMA", "trails": "TRAZAS", "paint": "PINTURA CON LUZ", "zoom": "EFECTO ZOOM"}
+    record("live Motion visual captions track mode", all(x[3].startswith(captions[x[0]] + " ·") for x in motion_states), motion_states)
     before = page.locator("#comp-pos").inner_text(); page.locator("#comp-stage").focus(); page.keyboard.press("ArrowLeft"); after = page.locator("#comp-pos").inner_text()
     record("live Composition keyboard movement", before != after, [before, after])
     overlays = []
@@ -120,6 +177,7 @@ with sync_playwright() as pw:
     page.close(); context.close()
     context = browser.new_context(viewport={"width": 390, "height": 844})
     page = context.new_page()
+    watch_origins(page)
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.on("requestfailed", lambda request: failed.append(request.url))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
@@ -157,7 +215,7 @@ with sync_playwright() as pw:
 
     # Every same-origin authored route/resource must return successfully.
     resources = page.evaluate(qa_matrix.bounded_async(
-        "(async()=>{const urls=[...new Set([...document.querySelectorAll('a[href],link[href],script[src],img[src]')].map(e=>new URL(e.getAttribute('href')||e.getAttribute('src'),location.href).href).filter(x=>x.startsWith(location.origin)&&!x.startsWith('data:')))];const rows=[];for(const url of urls){try{const r=await fetch(url,{signal:AbortSignal.timeout(15000)});rows.push([url,r.status,r.ok,r.headers.get('content-type')])}catch(e){rows.push([url,0,false,String(e)])}}return rows}()", 120000))
+        "(async()=>{const urls=[...new Set([...document.querySelectorAll('a[href],link[href],script[src],img[src]')].map(e=>new URL(e.getAttribute('href')||e.getAttribute('src'),location.href).href).filter(x=>x.startsWith(location.origin)&&!x.startsWith('data:')))];const rows=[];for(const url of urls){try{const r=await fetch(url,{signal:AbortSignal.timeout(15000)});rows.push([url,r.status,r.ok,r.headers.get('content-type')])}catch(e){rows.push([url,0,false,String(e)])}}return rows})()", 120000))
     record("live all authored same-origin resources resolve", all(row[2] for row in resources), [row for row in resources if not row[2]])
     record("live no accumulated runtime errors", not errors, errors)
     record("live no failed project requests", not [x for x in failed if x.startswith(URL)], failed[:20])
@@ -167,6 +225,7 @@ with sync_playwright() as pw:
     # Six self-contained route pages: state permutations, images, and corrections.
     for letter in "abcdef":
         route = context.new_page(); route_errors = []; route.on("pageerror", lambda error: route_errors.append(str(error)))
+        watch_origins(route)
         response = route.goto(f"{URL}plans/plan_{letter}.html", wait_until="domcontentloaded", timeout=90000)
         matrix = route.evaluate("""()=>{const failures=[];for(const s of ['human','dog'])for(const t of ['day','afternoon','night']){setVariant(s);setTime(t);if(document.querySelectorAll('.shot-card').length!==10)failures.push([s,t])}return failures}""")
         record(f"live plan_{letter} route 200", response and response.status == 200, response.status if response else "no response")
@@ -184,7 +243,8 @@ with sync_playwright() as pw:
     record("live/local semantic snapshot parity", live_snapshot == local_snapshot, {"live": live_snapshot, "local": local_snapshot})
     local.close(); context.close(); browser.close()
 
+record("live: no request to another origin", not foreign, sorted(foreign)[:20])
 report = {"url": URL, "passed": all(x["pass"] for x in results), "checks": len(results), "failures": [x for x in results if not x["pass"]], "results": results}
-OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+evidence.write_report(OUT, report, [BUILD])
 print(json.dumps({"passed": report["passed"], "checks": report["checks"], "failures": report["failures"]}, ensure_ascii=False, indent=2))
 raise SystemExit(0 if report["passed"] else 1)
