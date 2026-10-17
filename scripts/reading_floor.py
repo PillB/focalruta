@@ -70,10 +70,14 @@ def audit_home(page) -> dict:
 
     States: as loaded; every plan with the dog at night (the longest notes);
     every motion lab mode; every <details> open; the session dialog; a shot dialog.
+    `unreached` names the dialogs that did not open.
     """
-    small, tiny, words = set(), set(), []
+    small, tiny, words, unreached = set(), set(), [], []
 
-    def measure(state: str) -> None:
+    def measure(state: str, shown: str = "") -> None:
+        # A state that never opens would be measured as the page behind it and pass.
+        if shown and not page.evaluate("(s)=>!!document.querySelector(s)?.open", shown):
+            unreached.append(state)
         small.update(f"{state}: {x}" for x in page.evaluate(TEXT_UNDER_FLOOR, [HOME_SKIP, MIN_TEXT_PX]))
         tiny.update(f"{state}: {x}" for x in page.evaluate(TARGETS_UNDER_FLOOR, [HOME_SKIP, MIN_TARGET_PX]))
         words.append(page.evaluate(SHOWN_WORDS, HOME_SPANISH_SKIP))
@@ -89,12 +93,12 @@ def audit_home(page) -> dict:
     page.evaluate("()=>document.querySelectorAll('details').forEach(d=>{if(!d.closest('#field-card-modal'))d.open=true})")
     measure("details open")
     page.evaluate("openSessionRun()")
-    measure("session dialog")
+    measure("session dialog", "#session-run-dialog")
     page.keyboard.press("Escape")
     page.evaluate("openModal('plan_c','C08')")
-    measure("shot dialog")
+    measure("shot dialog", "#shot-modal")
     page.keyboard.press("Escape")
-    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words))}
+    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words)), "unreached": unreached}
 
 
 def audit_plan_page(page) -> dict:

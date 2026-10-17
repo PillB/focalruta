@@ -303,6 +303,14 @@ def your_gear(browser, base: str) -> None:
     fov = page.locator("#opt-fov").inner_text()
     want = f"{2 * math.degrees(math.atan(22.3 / (2 * focal))):.1f}°"
     check("your gear: the optics lab measures the APS-C sensor", fov == want, [focal, fov, want])
+    page.evaluate("openModal('plan_a','A01')")
+    in_dialog = gear_line(page, "#shot-modal .gear-line")
+    page.keyboard.press("Escape")
+    page.evaluate("()=>{runIndex=0;openSessionRun()}")
+    in_session = gear_line(page, "#session-run-dialog .gear-line")
+    page.keyboard.press("Escape")
+    check("your gear: the shot dialog and the session mode show it too",
+          A01_APSC in in_dialog and A01_APSC in in_session, [in_dialog, in_session])
     page.reload(wait_until="load")
     page.evaluate("()=>{selectPlan('plan_a');setTime('day')}")
     check("your gear: kept on this device after a reload",

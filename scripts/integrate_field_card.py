@@ -58,12 +58,29 @@ def replace_block(text: str, pattern: str, block: str, label: str) -> str:
     return text
 
 
+def only_the_card(text: str) -> None:
+    """The dialog block is replaced wholesale, so it may hold nothing but the card.
+
+    The session-run dialog once sat inside it and vanished when the card was
+    rebuilt; anything else found there is reported instead of dropped.
+    """
+    block = re.search(r"<!-- FIELD CARD INTEGRATED -->(.*?)<!-- FIELD CARD INTEGRATED END -->", text, flags=re.S)
+    if not block:
+        return
+    card = re.search(r'<div id="field-card-modal".*', block.group(1), flags=re.S)
+    outside = block.group(1)[: card.start()] if card else block.group(1)
+    if outside.strip():
+        ids = re.findall(r'\bid="([\w-]+)"', outside) or [outside.strip()[:60]]
+        raise RuntimeError(f"index.html keeps other markup inside the field card block ({', '.join(ids)}); move it out first")
+
+
 def patch(text: str) -> str:
     fragment = (ROOT / "data" / "field_card_fragment.html").read_text(encoding="utf-8").strip()
     css = (ROOT / "data" / "field_card.css").read_text(encoding="utf-8").strip()
     js = (ROOT / "data" / "field_card.js").read_text(encoding="utf-8").strip()
     text = replace_block(text, r"<!-- FIELD CARD CSS START -->.*?<!-- FIELD CARD CSS END -->",
                          f"<!-- FIELD CARD CSS START -->\n{css}\n{MODAL_CSS}\n<!-- FIELD CARD CSS END -->", "card styles")
+    only_the_card(text)
     text = replace_block(text, r"<!-- FIELD CARD INTEGRATED -->.*?<!-- FIELD CARD INTEGRATED END -->", modal(fragment), "card dialog")
     return replace_block(text, r"<!-- FIELD CARD JS START -->.*?<!-- FIELD CARD JS END -->",
                          f"<!-- FIELD CARD JS START -->\n{js}\n{MODAL_JS}\n<!-- FIELD CARD JS END -->", "card script")

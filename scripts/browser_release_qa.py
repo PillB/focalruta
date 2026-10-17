@@ -151,6 +151,7 @@ with sync_playwright() as pw:
             record(f"{target_name} {width} no text under 12 px", not floor["small"], floor["small"][:12])
             record(f"{target_name} {width} every control at least 44 px", not floor["tiny"], floor["tiny"][:12])
             record(f"{target_name} {width} interface in Spanish", not floor["english"], floor["english"])
+            record(f"{target_name} {width} session and shot dialogs open", not floor["unreached"], floor["unreached"])
             page.close()
 
     for letter in "abcdef":

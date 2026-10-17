@@ -1,6 +1,6 @@
 # FocalRuta
 
-An offline-capable, Spanish-language photography field and teaching planner for a full-frame camera and a specific four-lens kit. It includes six ten-shot location plans, 120 subject diagrams, a dynamic Optical Decision Lab, motion and composition teaching tools, a pose coach, and an accessible Field Card.
+An offline-capable, Spanish-language photography field and teaching planner. The plans are solved for a Canon EOS 6D and four lenses; readers with another camera or other lenses set their gear once and every shot also shows the equivalent setting for it. It includes six ten-shot location plans, 120 subject diagrams, a dynamic Optical Decision Lab, motion and composition teaching tools, a pose coach, and a field card in Spanish that works one-handed and offline.
 
 ## Live site
 
@@ -8,7 +8,7 @@ GitHub Pages deploys the optimized runtime from `dist/canon6d_sota_hosted`.
 
 ## Validation
 
-The release gate (`python3 scripts/verify_release.py`) fails unless four browser QA
+The release gate (`python3 scripts/verify_release.py`) fails unless five browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
 - `CURRENT_BROWSER_QA.json` — 249 browser regression checks across six viewports,
