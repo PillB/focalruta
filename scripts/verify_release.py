@@ -186,14 +186,16 @@ def check_evidence(report_name: str, minimum_checks: int) -> None:
 
 
 for report_name, minimum_checks in (
-    # 249 before step 3, plus the reading floor (V10-V12) and dialogs at six viewports on two targets.
-    ("CURRENT_BROWSER_QA.json", 315),
+    # 249 before step 3, plus the reading floor (V10-V12) and dialogs at six viewports on two targets (315),
+    # plus 320 px and nothing cut off (V18) and dialogs giving focus back (V19).
+    ("CURRENT_BROWSER_QA.json", 360),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
     # Every shipped page, light phone and dark desktop: 39 pages x 2 passes.
     ("AXE_ACCESSIBILITY_QA.json", 78),
-    # 38 for the card itself (V02-V09), 10 for your own gear (V13-V15).
-    ("FIELD_CARD_QA.json", 48),
+    # 38 for the card itself (V02-V09), 10 for your own gear (V13-V15), and the deploy
+    # rehearsals for V16-V17 in place of the single simulated deploy.
+    ("FIELD_CARD_QA.json", 56),
 ):
     check_evidence(report_name, minimum_checks)
 

@@ -4,6 +4,22 @@
   "records": [
     {
       "viewport": [
+        320,
+        640
+      ],
+      "status": 200,
+      "overflow": false,
+      "anchor_clearance": 106.4375,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "district_cards": 35,
+      "iphone_help_status": 200,
+      "screenshot": "architectural_photography/qa/rounds/round5/route-320x640.png",
+      "forensic_description": "320px portrait route capture: 35 district-tour cards arranged in 1 responsive column(s). No horizontal overflow was detected; headings, distance disclosure, Google Maps actions and downloads remain inside the route section."
+    },
+    {
+      "viewport": [
         390,
         844
       ],

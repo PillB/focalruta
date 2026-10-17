@@ -3,6 +3,17 @@
   "viewports": [
     {
       "viewport": [
+        320,
+        640
+      ],
+      "page_errors": [],
+      "horizontal_overflow": false,
+      "entry_not_occluded": true,
+      "challenge_navigation": true,
+      "round_trip_complete": true
+    },
+    {
+      "viewport": [
         390,
         844
       ],

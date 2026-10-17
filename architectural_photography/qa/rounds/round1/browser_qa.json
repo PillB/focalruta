@@ -4,6 +4,22 @@
   "records": [
     {
       "viewport": [
+        320,
+        640
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "failed_resources": [],
+      "focus_reached": true,
+      "firewall_count": 1,
+      "ranking_all_count": 87,
+      "ranking_r2_first": "#1",
+      "ranking_top_five_count": 5
+    },
+    {
+      "viewport": [
         390,
         844
       ],
