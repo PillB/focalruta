@@ -1,7 +1,10 @@
 """Fresh browser matrix for current standalone, hosted and individual-plan targets."""
 from __future__ import annotations
 
+import functools
 import json
+import threading
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 import evidence
@@ -16,6 +19,8 @@ AUDITED = [
     ROOT / "field_card.html",
     ROOT / "data/plans.json",
     *sorted((ROOT / "plans").glob("plan_*.html")),
+    *sorted((ROOT / "dist/canon6d_sota_hosted/plans").glob("plan_*.html")),
+    ROOT / "dist/canon6d_sota_hosted/sw.js",
 ]
 CHROME = __import__('os').environ.get('FOCALRUTA_CHROME', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')  # Linux runners: point at Playwright's Chromium
 results = []
@@ -25,6 +30,39 @@ def record(name, passed, detail=""):
     results.append({"name": name, "pass": bool(passed), "detail": detail})
     if not passed:
         raise AssertionError(f"{name}: {detail}")
+
+
+class QuietHandler(SimpleHTTPRequestHandler):
+    def log_message(self, *args):
+        pass
+
+
+DECODE_ALL = """async()=>{const xs=[...document.querySelectorAll('.shot-card img')];xs.forEach(x=>x.loading='eager');
+await Promise.all(xs.map(x=>x.decode().catch(()=>null)));return xs.filter(x=>x.complete&&x.naturalWidth).length}"""
+WARMED = """async()=>{let n=0;for(const k of await caches.keys()){for(const r of await (await caches.open(k)).keys()){if(r.url.endsWith('.webp'))n++}}
+return n>=20&&!!(await caches.match(location.href))}"""
+
+
+def hosted_plan_offline(browser):
+    """U05: a hosted plan page visited once works offline, both subjects, all ten diagrams."""
+    server = ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(ROOT / "dist/canon6d_sota_hosted")))
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    context = browser.new_context(viewport={"width": 390, "height": 844})
+    page = context.new_page()
+    page.goto(f"http://127.0.0.1:{server.server_address[1]}/plans/plan_a.html", wait_until="load", timeout=60000)
+    page.wait_for_function("navigator.serviceWorker.controller!==null", timeout=30000)
+    page.wait_for_function(WARMED, timeout=30000)
+    # Stop the server rather than emulate offline: Chromium's offline emulation
+    # does not reach requests the service worker makes, so it cannot fail.
+    server.shutdown()
+    server.server_close()
+    page.reload(wait_until="load")
+    record("hosted plan_a offline after one visit: page itself", "plan-orientation" in page.content())
+    for subject in ("human", "dog"):
+        page.evaluate("s=>setVariant(s)", subject)
+        decoded = page.evaluate(DECODE_ALL)
+        record(f"hosted plan_a offline after one visit: {subject} diagrams decode", decoded == 10, decoded)
+    context.close()
 
 
 with sync_playwright() as pw:
@@ -95,6 +133,7 @@ with sync_playwright() as pw:
         record(f"plan_{letter} no overflow", page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
         record(f"plan_{letter} no errors", not errors, errors)
         page.close()
+    hosted_plan_offline(browser)
     browser.close()
 
 report = {"passed": all(item["pass"] for item in results), "checks": len(results),

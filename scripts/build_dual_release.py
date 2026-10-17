@@ -60,7 +60,19 @@ shutil.copytree(SRC/'data'/'architecture',OUT/'data'/'architecture')
 # Standalone canonical file kept separately, unmodified behavior.
 shutil.copy2(SRC/'index.html',OUT/'FocalRuta_STANDALONE.html')
 shutil.copy2(SRC/'field_card.html',OUT/'field_card.html')
-for p in (SRC/'plans').glob('*.html'): shutil.copy2(p,OUT/'plans'/p.name)
+# Hosted plan pages load the diagrams the hosted index already ships, as lazy
+# files, instead of ~2.4 MB of inline base64 per page (Lighthouse 46 on a phone).
+# Once a page has loaded it asks the worker to cache itself and its diagrams
+# (the first visit happens before the worker controls the page), so one visit
+# still leaves the whole plan usable offline. plans/ in the repo and
+# the download ZIP keep the self-contained copies for the iPhone Files app.
+WARM_DIAGRAMS = """<script>window.addEventListener('load',()=>{const c=navigator.connection;if(!('serviceWorker' in navigator)||(c&&c.saveData))return;const urls=[location.href.split('#')[0],...Object.values(DIAGRAMS).map(u=>new URL(u,location.href).href)];navigator.serviceWorker.ready.then(r=>r.active&&r.active.postMessage({type:'warm',urls})).catch(()=>{});});</script>"""
+for p in sorted((SRC/'plans').glob('plan_*.html')):
+    page=p.read_text(encoding='utf-8')
+    files={key:f'../diagrams-webp/{p.stem}_{key}.webp' for key in json.loads(re.search(r'const DIAGRAMS = (\{.*?\});\n',page,re.S).group(1))}
+    page,n=re.subn(r'const DIAGRAMS = \{.*?\};\n',lambda _m:'const DIAGRAMS = '+json.dumps(files)+';\n',page,count=1,flags=re.S)
+    if n!=1: raise RuntimeError('DIAGRAMS map not found in '+p.name)
+    (OUT/'plans'/p.name).write_text(page.replace('</body>',WARM_DIAGRAMS+'\n</body>',1),encoding='utf-8')
 shutil.copy2(SRC/'downloads/canon6d_photo_planner_assets.zip',OUT/'downloads/canon6d_photo_planner_assets.zip')
 for name in ['404.html','manifest.webmanifest']:
     if (SRC/name).exists(): shutil.copy2(SRC/name,OUT/name)
@@ -79,7 +91,7 @@ content_hash=hashlib.sha256()
 for f in sorted(x for x in OUT.rglob('*') if x.is_file()):
     content_hash.update(f.relative_to(OUT).as_posix().encode()); content_hash.update(f.read_bytes())
 cache_version='focalruta-'+content_hash.hexdigest()[:12]
-sw='''const VERSION='__CACHE_VERSION__';\nconst SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime';\nconst CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./challenges/arquitectura-en-foco/index.html','./challenges/arquitectura-en-foco/iphone-maps.html','./data/architecture/learning.json','./data/architecture/ranking.json','./data/architecture/routes.json','./assets/icon-192.png','./assets/icon-512.png'];\nself.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));\nself.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>![SHELL,RUNTIME].includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));\nself.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;if(r.mode==='navigate'){e.respondWith(fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(async()=>await caches.match(r)||await caches.match(new URL(u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname,location.origin))||await caches.match('./index.html')));return;}if(/\\.(?:webp|png|svg|css|js|json)$/.test(u.pathname)){e.respondWith(caches.match(r).then(cached=>{const fresh=fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(()=>cached);return cached||fresh}));}});\n'''
+sw='''const VERSION='__CACHE_VERSION__';\nconst SHELL=VERSION+'-shell',RUNTIME=VERSION+'-runtime';\nconst CORE=['./','./index.html','./assets/hosted.css','./data/plans_embedded.js','./manifest.webmanifest','./field_card.html','./challenges/arquitectura-en-foco/index.html','./challenges/arquitectura-en-foco/iphone-maps.html','./data/architecture/learning.json','./data/architecture/ranking.json','./data/architecture/routes.json','./assets/icon-192.png','./assets/icon-512.png'];\nself.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));\nself.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>![SHELL,RUNTIME].includes(k)).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));\nself.addEventListener('message',e=>{const d=e.data;if(!d||d.type!=='warm'||!Array.isArray(d.urls))return;const urls=d.urls.filter(u=>{try{const x=new URL(u);return x.origin===location.origin&&/\\.(?:webp|html)$/.test(x.pathname)}catch(_){return false}}).slice(0,40);e.waitUntil(caches.open(RUNTIME).then(c=>Promise.all(urls.map(u=>c.match(u).then(hit=>hit||fetch(u).then(x=>{if(x.ok)return c.put(u,x)}).catch(()=>{}))))));});\nself.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;if(r.mode==='navigate'){e.respondWith(fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(async()=>await caches.match(r)||await caches.match(new URL(u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname,location.origin))||await caches.match('./index.html')));return;}if(/\\.(?:webp|png|svg|css|js|json)$/.test(u.pathname)){e.respondWith(caches.match(r).then(cached=>{const fresh=fetch(r).then(x=>{if(x.ok)caches.open(RUNTIME).then(c=>c.put(r,x.clone()));return x}).catch(()=>cached);return cached||fresh}));}});\n'''
 (OUT/'sw.js').write_text(sw.replace('__CACHE_VERSION__',cache_version),encoding='utf-8')
 
 # Pages workflow from official artifact pattern.
