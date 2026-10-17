@@ -103,14 +103,52 @@ def test_light_painting_keeps_the_ambient_light_well_under_the_exposure():
         assert ev - ambient_high >= em.LIGHTPAINTING_AMBIENT_MARGIN_STOPS, (shot["id"], time)
 
 
+# ANSI PH2.7-1973/1986 as reproduced in Wikipedia "Exposure value", table 2.
+ANSI_ROWS = {
+    "sol_pleno": (15, 15),        # typical scene, full or slightly hazy sunlight
+    "sol_velado": (14, 14),       # typical scene, hazy sunlight (soft shadows)
+    "nublado_claro": (13, 13),    # cloudy bright (no shadows)
+    "sombra_abierta": (12, 12),   # heavy overcast / open shade, clear sunlight
+    "antes_ocaso": (12, 14),      # just before sunset
+    "tras_ocaso": (9, 11),        # just after sunset
+    "galeria": (8, 11),           # galleries
+    "calle_noche": (7, 8),        # night street scenes and window displays
+    "oficina": (7, 8),            # offices and work areas
+    "interior_casa": (5, 7),      # home interiors
+    "trafico_noche": (5, 5),      # night vehicle traffic
+    "iluminado_focos": (3, 5),    # floodlit buildings, monuments and fountains
+    "luces_lejanas": (2, 2),      # distant views of lighted buildings
+}
+
+
 def test_scene_table_follows_the_published_ev_values():
-    # ANSI PH2.7-1986 as reproduced in Wikipedia "Exposure value", table 2.
-    assert em.scene_range("sol_pleno") == (15, 15)
-    assert em.scene_range("sombra_abierta") == (12, 12)
-    assert em.scene_range("antes_ocaso") == (12, 14)
-    assert em.scene_range("tras_ocaso") == (9, 11)
-    assert em.scene_range("interior_casa") == (5, 7)
-    assert em.scene_range("iluminado_focos") == (3, 5)
+    for scene, expected in ANSI_ROWS.items():
+        assert em.scene_range(scene) == expected, scene
+        assert em.SCENE_LIGHT[scene][3].startswith("ANSI PH2.7"), scene
+    estimates = set(em.SCENE_LIGHT) - set(ANSI_ROWS)
+    assert all(em.SCENE_LIGHT[key][3].startswith("estimate") for key in estimates), estimates
+
+
+def test_published_scene_table_is_the_one_the_tests_check():
+    # The cards print these labels and ranges; they must be the model's, not a copy.
+    published = load_plans()["scene_light"]
+    assert set(published) == set(em.SCENE_LIGHT)
+    for key, (low, high, label, source) in em.SCENE_LIGHT.items():
+        assert published[key] == {"ev_low": low, "ev_high": high, "label": label, "source": source}, key
+
+
+@pytest.mark.parametrize("page", ["index.html", *(f"plans/plan_{x}.html" for x in "abcdef")])
+def test_every_page_embeds_the_canonical_plan_data(page):
+    html = (ROOT / page).read_text(encoding="utf-8")
+    match = re.search(r"const (?:PLANS_DATA|DATA) = (\{.*?\});\n", html, re.S)
+    embedded = json.loads(match.group(1))
+    canonical = load_plans()
+    assert embedded["scene_light"] == canonical["scene_light"], page
+    if "plans" in embedded:
+        assert embedded["plans"] == canonical["plans"], page
+    else:
+        plan = next(item for item in canonical["plans"] if item["id"] == embedded["plan"]["id"])
+        assert embedded["plan"]["shots"] == plan["shots"], page
 
 
 WINDOW_LIGHT = re.compile(r"luz (?:natural )?de ventana|junto a una ventana|ventana (?:lateral|frontal)", re.I)
@@ -174,13 +212,77 @@ def test_unviable_slots_tell_the_reader_to_move_the_shot():
 
 
 def test_settings_stay_inside_camera_and_lens_limits():
-    for shot, time, s in viable_slots(load_plans()):
+    # Non-viable slots are still shown to the reader, so they must be settable too.
+    for shot, time, s in slots(load_plans()):
         n = em.f_number(s["aperture"])
         assert max_aperture(s["lens"]) - 1e-9 <= n <= 22, (shot["id"], time, s["lens"], s["aperture"])
         t = em.shutter_seconds(s["shutter"])
         assert 1 / 4000 - 1e-12 <= t, (shot["id"], time)
         assert t <= 30 or "Bulb" in s["shutter"], (shot["id"], time)
         assert 100 <= s["iso"] <= 25600, (shot["id"], time)
+
+
+def test_the_exposure_check_flags_a_slot_one_and_a_half_stops_off():
+    # A widened tolerance would let a 2-3 stop error through silently.
+    data = load_plans()
+    shot, time, s = next((shot, time, s) for shot, time, s in viable_slots(data)
+                         if len(set(em.scene_range(s["scene"]))) == 1 and abs(em.exposure_error_stops(s)) < 0.2)
+    for stops, flagged in ((1.5, True), (-1.5, True), (0.5, False)):
+        s_iso = s["iso"]
+        s["iso"] = s_iso * 2 ** stops
+        hits = [line for line in exposure_violations(data) if line.startswith(f"{shot['id']} {time}:")]
+        s["iso"] = s_iso
+        assert bool(hits) is flagged, (stops, hits)
+
+
+THIRD_STOP_APERTURES = (1.8, 2, 2.2, 2.5, 2.8, 3.2, 3.5, 4, 4.5, 5, 5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22)
+
+
+def headline_and_slots(data: dict):
+    for _plan, shot in all_shots(data):
+        yield shot, "headline", {"aperture": shot["aperture"], "shutter": shot["shutter"], "iso": shot["iso"]}
+        for time in TIMES:
+            yield shot, time, shot["settings_by_time"][time]
+
+
+def test_every_setting_is_a_value_the_dials_can_select():
+    # The 6D steps aperture, shutter and ISO in thirds of a stop.
+    for shot, time, s in headline_and_slots(load_plans()):
+        if not s["shutter"].startswith("Bulb"):
+            assert s["shutter"] in em.THIRD_STOP_SHUTTERS, (shot["id"], time, s["shutter"])
+        assert s["iso"] in em.THIRD_STOP_ISOS, (shot["id"], time, s["iso"])
+        assert em.f_number(s["aperture"]) in THIRD_STOP_APERTURES, (shot["id"], time, s["aperture"])
+
+
+def lens_label(lens_focal) -> str:
+    """'85' -> '85mm', '35-80@50' -> '35-80mm @50', as the slots write it."""
+    base, _, at = str(lens_focal).partition("@")
+    return f"{base}mm" + (f" @{at}" if at else "")
+
+
+def test_every_slot_uses_the_lens_its_shot_is_planned_for():
+    for shot, time, s in slots(load_plans()):
+        assert s["lens"] == lens_label(shot["lens_focal"]), (shot["id"], time, s["lens"], shot["lens_focal"])
+
+
+HANDHELD = {"congelado", "poca_pdc", "mucha_pdc"}
+SUPPORTED = re.compile(r"apoya|trípode", re.I)
+
+
+def slot_focal_mm(lens: str) -> float:
+    at = re.search(r"@(\d+)", lens)
+    if at:
+        return float(at.group(1))
+    return 80.0 if "35-80" in lens else float(re.match(r"\d+", lens).group(0))
+
+
+def test_handheld_slots_respect_the_reciprocal_rule_or_say_how_to_support_the_camera():
+    # Full frame: slower than 1/focal-length needs support (or stabilisation the notes name).
+    for shot, time, s in viable_slots(load_plans()):
+        if shot["technique"] not in HANDHELD:
+            continue
+        if em.shutter_seconds(s["shutter"]) > 1 / slot_focal_mm(s["lens"]) + 1e-12:
+            assert SUPPORTED.search(s["notes"]), (shot["id"], time, s["lens"], s["shutter"], s["notes"])
 
 
 # Canon writes seconds with a mark that doubles as the decimal point: "0"5"
