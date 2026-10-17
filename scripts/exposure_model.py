@@ -26,13 +26,21 @@ SCENE_LIGHT: dict[str, tuple[float, float, str, str]] = {
     "tras_ocaso": (9, 11, "hora azul, justo después del ocaso", "ANSI PH2.7 · justo después del ocaso"),
     "galeria": (8, 11, "interior muy iluminado", "ANSI PH2.7 · galerías"),
     "calle_noche": (7, 8, "calle iluminada de noche", "ANSI PH2.7 · escenas de calle nocturnas"),
-    "oficina": (7, 8, "interior con luz de ventana", "ANSI PH2.7 · oficinas y áreas de trabajo"),
+    "ventana": (8, 10, "interior junto a una ventana, de día", "estimate · sin fila en la tabla ANSI; 500–2500 lx junto a la ventana con E = 2,5·2^EV (C = 250)"),
+    "oficina": (7, 8, "oficina con luz artificial", "ANSI PH2.7 · oficinas y áreas de trabajo"),
     "interior_casa": (5, 7, "interior de casa con lámparas", "ANSI PH2.7 · interiores de vivienda"),
     "trafico_noche": (5, 5, "tráfico de noche", "ANSI PH2.7 · tráfico vehicular nocturno"),
     "iluminado_focos": (3, 5, "parque o monumento con faroles", "ANSI PH2.7 · edificios y monumentos iluminados"),
     "luces_lejanas": (2, 2, "sólo luces lejanas", "ANSI PH2.7 · vistas lejanas de edificios iluminados"),
     "oscuridad": (-3, -1, "oscuridad sin faroles cercanos", "estimate · sin fila en la tabla ANSI; equivale a paisaje con luna"),
 }
+
+# Daylight a metre or so from a window: a daylight factor of 5-10 % (a room
+# reads as strongly daylit from 5 %, VELUX Daylight Energy and Indoor Climate
+# book) of 10 000-25 000 lx of daylight without direct sun (Wikipedia, "Lux").
+# The ANSI table has no row for it, so the "ventana" scene is derived from this
+# range with the incident-meter relation E = 2.5 * 2**EV (C = 250).
+WINDOW_DAYLIGHT_LUX = (500, 2500)
 
 # How much a planned setting may differ from the scene before it stops being a
 # useful starting point. One stop is what a single test frame and the

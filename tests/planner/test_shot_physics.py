@@ -113,6 +113,26 @@ def test_scene_table_follows_the_published_ev_values():
     assert em.scene_range("iluminado_focos") == (3, 5)
 
 
+WINDOW_LIGHT = re.compile(r"luz (?:natural )?de ventana|junto a una ventana|ventana (?:lateral|frontal)", re.I)
+
+
+def test_daylit_window_slots_are_scored_against_window_light_not_office_lamps():
+    # ANSI's "offices and work areas" row (EV 7-8) is artificial light; a subject
+    # by a window in daytime is brighter, so it needs its own, sourced row.
+    for shot, time, s in viable_slots(load_plans()):
+        if time == "day" and WINDOW_LIGHT.search(s["notes"]):
+            assert s["scene"] == "ventana", (shot["id"], time, s["scene"], s["notes"])
+
+
+def test_window_light_row_follows_from_its_stated_illuminance():
+    # Incident-meter calibration C = 250 gives E = 2.5 * 2**EV lux at ISO 100
+    # (Wikipedia, "Exposure value", EV as an indicator of illuminance).
+    low_lux, high_lux = em.WINDOW_DAYLIGHT_LUX
+    low, high = em.scene_range("ventana")
+    assert (low, high) == (round(math.log2(low_lux / 2.5)), round(math.log2(high_lux / 2.5)))
+    assert "estimate" in em.SCENE_LIGHT["ventana"][3]
+
+
 def test_exposure_error_has_the_photographic_sign():
     # f/16 1/125 ISO 100 is the classic full-sun exposure (EV 15). On a lit
     # street (EV 7-8) it is seven stops too dark; opened to f/5.6 in full sun
