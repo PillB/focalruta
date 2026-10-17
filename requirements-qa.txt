@@ -1,7 +1,9 @@
-# Local browser QA and diagram drawing, on top of requirements-dev.txt.
-# These need a real Chromium: set FOCALRUTA_CHROME to its binary. The axe audit
-# also needs axe-core 4.10.3 (`npm install axe-core@4.10.3`) with FOCALRUTA_AXE
-# pointing at node_modules/axe-core/axe.min.js.
+# Browser QA and diagram drawing, on top of requirements-dev.txt; the CI browser
+# jobs install this file (.github/workflows/quality.yml and live-check.yml).
+# Playwright is pinned with the Chromium build it downloads
+# (`python -m playwright install chromium`), which every suite uses unless
+# FOCALRUTA_CHROME names another binary. axe-core and Lighthouse are pinned in
+# package-lock.json: `npm ci`.
 -r requirements-dev.txt
 playwright==1.55.0
 beautifulsoup4==4.15.0

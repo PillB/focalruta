@@ -6,8 +6,9 @@ from urllib.parse import urlsplit,unquote
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 import evidence
+import qa_matrix
 
-ROOT=Path(__file__).resolve().parents[1];CHROME = __import__('os').environ.get('FOCALRUTA_CHROME', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome');checks=[]  # Linux runners: point FOCALRUTA_CHROME at Playwright's Chromium
+ROOT=Path(__file__).resolve().parents[1];checks=[]
 def add(name,ok,detail=''):
     checks.append({'name':name,'pass':bool(ok),'detail':detail})
     if not ok: raise AssertionError(f'{name}: {detail}')
@@ -52,7 +53,7 @@ let worst=99;for(const b of backs)for(const f of fgs)worst=Math.min(worst,ratio(
 const size=parseFloat(s.fontSize),bold=parseInt(s.fontWeight)>=700,large=size>=24||(bold&&size>=18.66),need=large?3:4.5;if(worst+0.01<need)bad.push({tag:e.tagName,cls:String(e.className).slice(0,80),text:e.textContent.trim().slice(0,55),fg:s.color,gradient:s.backgroundImage==='none'?'':s.backgroundImage.slice(0,90),ratio:+worst.toFixed(2),need,size})}return bad.slice(0,40)}'''
 
 with sync_playwright() as pw:
-    browser=pw.chromium.launch(headless=True,executable_path=CHROME,args=['--no-sandbox'])
+    browser=pw.chromium.launch(headless=True,args=['--no-sandbox'],**qa_matrix.browser_options())
     for name,path in {'standalone':ROOT/'index.html','hosted':ROOT/'dist/canon6d_sota_hosted/index.html','field':ROOT/'field_card.html','plan_a':ROOT/'plans/plan_a.html','plan_f':ROOT/'plans/plan_f.html'}.items():
         page=browser.new_page(viewport={'width':390,'height':844});errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.goto(path.as_uri(),wait_until='domcontentloaded',timeout=60000)
         if name in ('standalone','hosted'):

@@ -16,8 +16,6 @@ from __future__ import annotations
 import functools
 import json
 import math
-import os
-import sys
 import threading
 import time
 from datetime import date
@@ -27,14 +25,13 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 import evidence
+import qa_matrix
 import reading_floor
 import sun_times
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist" / "canon6d_sota_hosted"
 REPORT = ROOT / "FIELD_CARD_QA.json"
-CHROME = os.environ.get("FOCALRUTA_CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
-AXE = os.environ.get("FOCALRUTA_AXE", "")
 DATA = json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))
 PHONE = {"viewport": {"width": 390, "height": 844}, "is_mobile": True, "has_touch": True}
 AUDITED = [DIST / "field_card.html", DIST / "index.html", DIST / "sw.js", ROOT / "field_card.html", ROOT / "data" / "plans.json"]
@@ -334,9 +331,7 @@ def your_gear(browser, base: str) -> None:
 
 
 def axe_states(browser, base: str) -> None:
-    if not AXE or not Path(AXE).is_file():
-        sys.exit("FOCALRUTA_AXE must point at axe.min.js (axe-core 4.10.3)")
-    source = Path(AXE).read_text(encoding="utf-8")
+    source = qa_matrix.axe_source()
     run = "async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice']}});return r.violations.map(v=>v.id+':'+v.nodes.length)}"
     for label, scheme, night in (("day", "light", False), ("dark", "dark", False), ("night screen", "light", True)):
         context = browser.new_context(color_scheme=scheme, **PHONE)
@@ -421,7 +416,7 @@ def main() -> int:
     server = serve()
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
+        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
         for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, your_gear, overflow, axe_states):
             guarded(step, browser, base)
         guarded(lambda b, _base: offline_pack(b), browser, base)

@@ -5,9 +5,9 @@ import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 import evidence
+import qa_matrix
 
 ROOT=Path(__file__).resolve().parents[1]
-CHROME = __import__('os').environ.get('FOCALRUTA_CHROME', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')  # Linux runners: point at Playwright's Chromium
 results=[]
 def check(name,condition,detail=''):
     results.append({'name':name,'pass':bool(condition),'detail':detail})
@@ -23,7 +23,7 @@ MATRIX=r'''mode=>{const q=s=>document.querySelector(s),fire=(e,t='input')=>e.dis
  return{optical,exposure,failures,floors,exposureStates:exposureStates.size,balanced,bgChanged:JSON.stringify(bgA)!==JSON.stringify(bgB),dofFixed:JSON.stringify(fixedA)===JSON.stringify(fixedB)}}'''
 
 with sync_playwright() as pw:
-    browser=pw.chromium.launch(headless=True,executable_path=CHROME,args=['--no-sandbox'])
+    browser=pw.chromium.launch(headless=True,args=['--no-sandbox'],**qa_matrix.browser_options())
     live_url=os.environ.get('OPTICS_QA_URL')
     targets={'live':live_url} if live_url else {'standalone':ROOT/'index.html','hosted':ROOT/'dist/canon6d_sota_hosted/index.html'}
     for target_name,target in targets.items():

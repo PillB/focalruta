@@ -1,0 +1,12 @@
+{
+  "name": "focalruta-qa",
+  "private": true,
+  "description": "Browser QA tools only; the site itself ships no npm code.",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "devDependencies": {
+    "axe-core": "4.10.3",
+    "lighthouse": "13.5.0"
+  }
+}

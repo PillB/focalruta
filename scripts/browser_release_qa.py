@@ -3,10 +3,12 @@ from __future__ import annotations
 
 import functools
 import json
+import re
 import threading
 import time
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 from playwright.sync_api import sync_playwright
 import evidence
 import qa_matrix
@@ -24,7 +26,6 @@ AUDITED = [
     *sorted((ROOT / "dist/canon6d_sota_hosted/plans").glob("plan_*.html")),
     ROOT / "dist/canon6d_sota_hosted/sw.js",
 ]
-CHROME = __import__('os').environ.get('FOCALRUTA_CHROME', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')  # Linux runners: point at Playwright's Chromium
 results = []
 
 
@@ -88,8 +89,52 @@ def hosted_plan_offline(browser):
     context.close()
 
 
+PANEL_FLOOR = """()=>{const small=[],tiny=[];for(const e of document.querySelectorAll('#diag, #diag *')){const r=e.getBoundingClientRect();
+if(!r.width||!r.height)continue;if([...e.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&parseFloat(getComputedStyle(e).fontSize)<12)small.push(e.tagName);
+if(e.matches('summary,button,a')&&(r.width<44||r.height<44))tiny.push(e.textContent.trim().slice(0,20))}return {small,tiny}}"""
+
+
+def error_log(browser):
+    """X04: failures on a plan page reach the home page's log, cleaned, and nothing is sent."""
+    server = ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(ROOT / "dist/canon6d_sota_hosted")))
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    base = f"http://127.0.0.1:{server.server_address[1]}/"
+    context = browser.new_context(viewport={"width": 390, "height": 844})
+    sent = []
+    context.on("request", lambda request: sent.append(request.method + " " + request.url))
+    plan = context.new_page()
+    plan.goto(base + "plans/plan_b.html?token=secreto#x", wait_until="networkidle", timeout=60000)
+    sent.clear()
+    plan.evaluate("setTimeout(()=>{throw new Error('prueba del registro https://example.org/a?clave=1')},0);"
+                  "Promise.reject(new Error('promesa de prueba'))")
+    plan.wait_for_timeout(500)
+    record("error log: a thrown error and a rejected promise send no request", sent == [], sent)
+    home = context.new_page()
+    home.goto(base, wait_until="load", timeout=60000)
+    home.locator("#diag > summary").click()
+    items = home.locator("#diag-list li").all_inner_texts()
+    record("error log: the home page lists both, with the page they came from",
+           len(items) == 2 and all("/plans/plan_b.html" in item for item in items)
+           and any("prueba del registro https://example.org/a" in item for item in items), items)
+    stored = home.evaluate("localStorage.getItem('focalruta-errores-v1')")
+    record("error log: no query string, fragment or browser identity is kept",
+           not re.search(r"secreto|clave|token|Mozilla|HeadlessChrome", stored), stored)
+    record("error log: the report link carries the log to a new GitHub issue",
+           (home.locator("#diag-report").get_attribute("href") or "").startswith("https://github.com/PillB/focalruta/issues/new?")
+           and "promesa de prueba" in parse_qs(urlsplit(home.locator("#diag-report").get_attribute("href")).query)["body"][0])
+    floor = home.evaluate(PANEL_FLOOR)
+    record("error log: 12 px text and 44 px controls in the open panel", not floor["small"] and not floor["tiny"], floor)
+    home.locator("#diag-clear").click()
+    kept = home.locator("#diag-list li").count()
+    home.locator("#diag-clear").click()
+    record("error log: clearing takes a second tap", kept == 2 and home.locator("#diag-list li").count() == 0
+           and home.locator("#diag-empty").is_visible(), kept)
+    context.close()
+    server.shutdown()
+
+
 with sync_playwright() as pw:
-    browser = pw.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
+    browser = pw.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
     targets = {
         "standalone": ROOT / "index.html",
         "hosted": ROOT / "dist/canon6d_sota_hosted/index.html",
@@ -172,6 +217,7 @@ with sync_playwright() as pw:
         record(f"plan_{letter} no errors", not errors, errors)
         page.close()
     hosted_plan_offline(browser)
+    error_log(browser)
     browser.close()
 
 report = {"passed": all(item["pass"] for item in results), "checks": len(results),
