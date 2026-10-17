@@ -311,8 +311,8 @@
           "technique_label": "Mucha Profundidad de Campo",
           "lens_focal": 35,
           "aperture": "f/11",
-          "shutter": "1/250",
-          "iso": 200,
+          "shutter": "1/125",
+          "iso": 400,
           "subject_distance_m": 4.0,
           "background_distance_m": 12.0,
           "composition": "capas",
@@ -322,7 +322,7 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Sendero central de olivos, sujeto a 4 m, hileras de olivos que convergen al fondo. Sujeto en tercio izquierdo del encuadre.",
-          "reasoning": "El 35mm en FF da un FoV horizontal de 54°, suficiente para incluir 2-3 hileras de olivos como capas. A f/11 y 4 m de distancia el hiperfocal cae a ~5.1 m, así que TODO desde ~2.5 m hasta infinito queda nítido — exactamente lo que necesita 'mucha PDC'. El fondo a 12 m queda enfocado, mostrando las capas de árboles.",
+          "reasoning": "El 35 mm en full frame da un campo horizontal de 54°, suficiente para incluir 2–3 hileras de olivos como capas. A f/11 la hiperfocal es ≈3,7 m; enfocando al sujeto a 4 m (algo más allá de ella) queda nítido desde ≈1,9 m hasta el infinito, así que el fondo a 12 m también se lee. Eso es exactamente lo que pide 'mucha PDC'.",
           "dos": [
             "Dispara en modo Av con f/11, enfoque al sujeto, deja que la cámara elija velocidad",
             "Usa un pie de foto para evitar trepidación si la velocidad baja de 1/100",
@@ -336,23 +336,26 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1/250",
-              "iso": 200,
-              "notes": "Mañana: luz lateral cálida, olivos a contraluz suave. Equilibra exposiciones con -0.3 EV."
+              "shutter": "1/125",
+              "iso": 400,
+              "scene": "sombra_abierta",
+              "notes": "Mañana: luz lateral cálida filtrada por los olivos. Si el cielo entra en cuadro, compensa -0.3 EV para no quemarlo."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
               "shutter": "1/125",
               "iso": 400,
+              "scene": "sombra_abierta",
               "notes": "Tarde: sol bajo, sombras largas. Cuidado con sombras duras en el rostro."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
               "shutter": "1/30",
-              "iso": 1600,
-              "notes": "Noche: faroles del parque. Sube ISO, abre a f/8 para mantener algo de PDC. Usa columna de trípode improvisada (muro bajo)."
+              "iso": 6400,
+              "scene": "iluminado_focos",
+              "notes": "Noche: faroles del parque. ISO 6400 es utilizable en la 6D; apoya la cámara en un muro bajo para sostener 1/30 s."
             }
           },
           "subjects": {
@@ -372,7 +375,7 @@
           "technique_label": "Mucha Profundidad de Campo",
           "lens_focal": "35-80@35",
           "aperture": "f/8",
-          "shutter": "1/200",
+          "shutter": "1/125",
           "iso": 200,
           "subject_distance_m": 6.0,
           "background_distance_m": 20.0,
@@ -383,7 +386,7 @@
           "camera_height_m": 1.65,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Paseo peatonal entre dos hileras de palmeras/olivos. Sujeto en el centro exacto, ejes bilaterales a izquierda y derecha.",
-          "reasoning": "La simetría exige que el sujeto esté en el centro óptico y la cámara perfectamente nivelada (usa el nivel del 6D). El zoom a 35mm f/8 da menor nitidez que el prime pero suficiente para Web/print mediano. Distancia 6 m para que el sujeto llene 1/3 del alto del encuadre.",
+          "reasoning": "La simetría exige que el sujeto esté en el centro óptico y la cámara perfectamente nivelada (usa el nivel electrónico de la 6D). El zoom a 35 mm y f/8 rinde algo menos que el fijo, pero sobra para web e impresión mediana. A 6 m el encuadre horizontal mide ≈4,1 m de alto, así que una persona de pie ocupa ≈40 % de la altura.",
           "dos": [
             "Verifica simetría con la rejilla de pantalla del 6D",
             "Usa nivel electrónico o de zapata",
@@ -397,23 +400,26 @@
             "day": {
               "lens": "35-80mm @35",
               "aperture": "f/8",
-              "shutter": "1/200",
+              "shutter": "1/125",
               "iso": 200,
+              "scene": "sombra_abierta",
               "notes": "Mañana: buena luz, busca alineación solar perfecta para sombras simétricas."
             },
             "afternoon": {
               "lens": "35-80mm @35",
               "aperture": "f/8",
-              "shutter": "1/100",
-              "iso": 400,
+              "shutter": "1/125",
+              "iso": 200,
+              "scene": "sombra_abierta",
               "notes": "Tarde: sombras largas pueden romper la simetría; dispara cuando el sol está alto."
             },
             "night": {
               "lens": "35-80mm @35",
-              "aperture": "f/5.6",
-              "shutter": "1/15",
-              "iso": 1600,
-              "notes": "Noche: con faroles simétricos, sube ISO a 3200 si es necesario."
+              "aperture": "f/8",
+              "shutter": "1/30",
+              "iso": 6400,
+              "scene": "iluminado_focos",
+              "notes": "Noche: faroles simétricos. Apoya la cámara o usa trípode; si el sujeto puede quedarse quieto, baja a 1/8 s e ISO 1600."
             }
           },
           "subjects": {
@@ -433,8 +439,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 85,
           "aperture": "f/1.8",
-          "shutter": "1/500",
-          "iso": 200,
+          "shutter": "1/1250",
+          "iso": 100,
           "subject_distance_m": 3.0,
           "background_distance_m": 8.0,
           "composition": "punto_interes",
@@ -444,7 +450,7 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Retrato de cabeza y hombros. Sujeto contra un seto verde a 8 m. Fondo desenfocado en verde suave.",
-          "reasoning": "El 85mm f/1.8 es EL retrato clásico: a 3 m da una distancia de enfoque de ~14 cm, así que ojos nítidos, orejas y pelo ya borrosos. Fondo a 8 m se convierte en mancha verde uniforme. El punto de interés único es el ojo más cercano.",
+          "reasoning": "El 85 mm f/1.8 es el retrato clásico: a 3 m la profundidad de campo total es de ≈13 cm, así que los ojos quedan nítidos y orejas y pelo empiezan a ablandarse. El seto a 8 m se convierte en una mancha verde uniforme. El único punto de interés es el ojo más cercano.",
           "dos": [
             "Enfoca EXACTAMENTE en el ojo más cercano (usa AF punto central + recomposición)",
             "Dispara a f/1.8 o f/2 — no tengo miedo a abrir de más",
@@ -459,22 +465,25 @@
               "lens": "85mm",
               "aperture": "f/2",
               "shutter": "1/1000",
-              "iso": 200,
+              "iso": 100,
+              "scene": "sombra_abierta",
               "notes": "Mañana: sol suave lateral, fondo verde se satura con contraluz."
             },
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/500",
-              "iso": 200,
+              "shutter": "1/1250",
+              "iso": 100,
+              "scene": "sombra_abierta",
               "notes": "Tarde: hora dorada — el fondo verde brilla, sujeto con luz cálida."
             },
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/60",
-              "iso": 3200,
-              "notes": "Noche: retrato con farol — cuidado con WB, prueba 3200K."
+              "shutter": "1/125",
+              "iso": 1600,
+              "scene": "iluminado_focos",
+              "notes": "Noche: retrato junto a un farol. Ajusta el balance de blancos a unos 3200 K para que la piel no salga naranja."
             }
           },
           "subjects": {
@@ -494,8 +503,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 50,
           "aperture": "f/1.8",
-          "shutter": "1/250",
-          "iso": 200,
+          "shutter": "1/1250",
+          "iso": 100,
           "subject_distance_m": 2.5,
           "background_distance_m": 5.0,
           "composition": "espacio_neg",
@@ -505,7 +514,7 @@
           "camera_height_m": 1.4,
           "pose": "De espaldas, gira torso y cabeza sobre el hombro",
           "scene_notes": "Sujeto de espaldas girándose sobre el hombro. Mucho espacio vacío a la derecha (dirección de la mirada). Fondo: olivo solitario desenfocado.",
-          "reasoning": "El 50mm a f/1.8 y 2.5 m da ~25 cm de PDC — perfecto para medio cuerpo. El espacio negativo (3/4 del encuadre a la derecha) dirige la mirada del espectador hacia donde mira el sujeto. Fondo a 5 m con 50mm f/1.8 = mancha abstracta.",
+          "reasoning": "El 50 mm a f/1.8 y 2,5 m da ≈26 cm de profundidad de campo, suficiente para medio cuerpo. El espacio negativo (3/4 del encuadre a la derecha) lleva la mirada del espectador hacia donde mira el sujeto. El olivo a 5 m se convierte en una mancha abstracta.",
           "dos": [
             "Coloca al sujeto en el tercio IZQUIERDO, mirando hacia el espacio vacío",
             "Espera un gesto natural del girarse (no pose rígida)",
@@ -518,23 +527,26 @@
           "settings_by_time": {
             "day": {
               "lens": "50mm",
-              "aperture": "f/2.2",
-              "shutter": "1/500",
-              "iso": 200,
+              "aperture": "f/2",
+              "shutter": "1/1000",
+              "iso": 100,
+              "scene": "sombra_abierta",
               "notes": "Mañana: luz trasera, pelo brilla (rim light)."
             },
             "afternoon": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/250",
-              "iso": 200,
+              "shutter": "1/1250",
+              "iso": 100,
+              "scene": "sombra_abierta",
               "notes": "Tarde dorada:WB cálido 5500K, contraste suave."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/60",
-              "iso": 3200,
+              "shutter": "1/125",
+              "iso": 1600,
+              "scene": "iluminado_focos",
               "notes": "Noche: usa un farol como contraluz detrás del sujeto."
             }
           },
@@ -556,7 +568,7 @@
           "lens_focal": 85,
           "aperture": "f/2.8",
           "shutter": "1/2000",
-          "iso": 400,
+          "iso": 100,
           "subject_distance_m": 6.0,
           "background_distance_m": 15.0,
           "composition": "minimalismo",
@@ -566,7 +578,7 @@
           "camera_height_m": 0.6,
           "pose": "Salto vertical, brazos arriba, sonrisa amplia",
           "scene_notes": "Sujeto saltando contra cielo despejado. Cámara baja (0.6 m) mirando hacia arriba, solo cielo como fondo.",
-          "reasoning": "1/2000s congela el salto perfectamente. 85mm a 6 m da encuadre de medio cuerpo en el aire. Contrapicado agranda al sujeto y aísla contra el cielo (minimalismo por eliminación de fondo). f/2.8 mantiene algo de margen de enfoque en movimiento.",
+          "reasoning": "1/2000 s congela el salto. A 6 m el 85 mm cubre ≈2,5 × 1,7 m: en horizontal entra el cuerpo entero con poco aire, en vertical sobra para los brazos arriba. El contrapicado agranda al sujeto y lo aísla contra el cielo (minimalismo por eliminación del fondo). f/2.8 deja algo de margen de enfoque mientras el sujeto se mueve.",
           "dos": [
             "Usa AF AI Servo + selección de punto + burst de 4.5 fps",
             "Cuenta regresiva 3-2-1 con el sujeto para sincronizar el salto",
@@ -581,14 +593,16 @@
               "lens": "85mm",
               "aperture": "f/4",
               "shutter": "1/4000",
-              "iso": 200,
+              "iso": 400,
+              "scene": "antes_ocaso",
               "notes": "Mañana: cielo azul, sombras duras — usa reflector o flash de relleno."
             },
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/2.8",
               "shutter": "1/2000",
-              "iso": 400,
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde dorada: cielo con color, salto contraluz."
             },
             "night": {
@@ -596,7 +610,9 @@
               "aperture": "f/2.8",
               "shutter": "1/1000",
               "iso": 6400,
-              "notes": "Noche: difícil, requiere flash; mejor posponer a día."
+              "scene": "iluminado_focos",
+              "viable": false,
+              "notes": "Noche: no viable sin flash. Con faroles a 1/1000 s haría falta ISO por encima de 25 600; pospón al día."
             }
           },
           "subjects": {
@@ -615,9 +631,9 @@
           "technique": "barrido",
           "technique_label": "Efecto Barrido",
           "lens_focal": 50,
-          "aperture": "f/11",
+          "aperture": "f/13",
           "shutter": "1/30",
-          "iso": 100,
+          "iso": 125,
           "subject_distance_m": 6.0,
           "background_distance_m": 25.0,
           "composition": "tercios",
@@ -627,7 +643,7 @@
           "camera_height_m": 1.0,
           "pose": "Corriendo, en aire, brazos en oposición",
           "scene_notes": "Sujeto corriendo / perro corriendo de izquierda a derecha. Cámara sigue el movimiento en arco. Fondo: árboles del parque a 25 m (serán streaks horizontales).",
-          "reasoning": "1/30s con seguimiento horizontal: sujeto nítido, fondo en streaks. El 50mm a 6 m encuadra medio cuerpo en movimiento. Coloca al sujeto en el tercio derecho para que el movimiento 'entre' al encuadre. f/11 da algo de margen si falla el seguimiento.",
+          "reasoning": "1/30 s con seguimiento horizontal: sujeto nítido y fondo en estelas. A 6 m el 50 mm cubre ≈4,3 × 2,9 m, así que entra el cuerpo entero con aire para el movimiento. Coloca al sujeto en el tercio derecho para que el movimiento 'entre' al encuadre. Cerrar el diafragma da margen de foco si el seguimiento falla.",
           "dos": [
             "Gira el torso siguiendo al sujeto antes, durante y DESPUÉS del disparo (no pares al clic)",
             "Usa AF AI Servo con punto central + burst",
@@ -641,24 +657,27 @@
           "settings_by_time": {
             "day": {
               "lens": "50mm",
-              "aperture": "f/11",
+              "aperture": "f/13",
               "shutter": "1/30",
-              "iso": 100,
-              "notes": "Mañana: luz fuerte permite 1/30 a ISO 100."
+              "iso": 125,
+              "scene": "sombra_abierta",
+              "notes": "Mañana: en sombra de los olivos basta con f/13; si el sendero está a pleno sol, cierra a f/16 o añade ND de 2 pasos."
             },
             "afternoon": {
               "lens": "50mm",
-              "aperture": "f/8",
+              "aperture": "f/13",
               "shutter": "1/30",
-              "iso": 200,
-              "notes": "Tarde: luz más suave, mantén 1/30."
+              "iso": 125,
+              "scene": "sombra_abierta",
+              "notes": "Tarde: misma luz de sombra; conserva 1/30 s y deja que la apertura absorba los cambios."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/4",
               "shutter": "1/30",
               "iso": 1600,
-              "notes": "Noche: con faroles, sube ISO; el barrido funciona con cualquier luz."
+              "scene": "iluminado_focos",
+              "notes": "Noche: con faroles, ISO 1600 y f/4; el barrido funciona igual porque lo define la velocidad, no la luz."
             }
           },
           "subjects": {
@@ -677,7 +696,7 @@
           "technique": "fantasma",
           "technique_label": "Efecto Fantasma",
           "lens_focal": 35,
-          "aperture": "f/11",
+          "aperture": "f/8",
           "shutter": "2\"",
           "iso": 100,
           "subject_distance_m": 5.0,
@@ -689,7 +708,7 @@
           "camera_height_m": 1.8,
           "pose": "Riendo, cabeza ligeramente atrás, mano cerca de la boca",
           "scene_notes": "Sujeto semi-quieto en arco de olivos (enmarcado natural). 2s de exposición: partes quietas (troncos, pies) nítidas, partes en movimiento (cabeza riendo, manos) ghost.",
-          "reasoning": "2s a f/11 ISO 100 con luz ambiente del parque. El sujeto debe permanecer ~80% quieto — solo mover cabeza/manos. El arco de olivos enmarca y estabiliza visualmente. Picado ligero da superioridad al espectador y muestra el suelo con hojas.",
+          "reasoning": "Una exposición de unos 2 s con la luz ambiente del parque. El sujeto debe permanecer ~80 % quieto y mover sólo cabeza y manos. El arco de olivos enmarca y estabiliza la imagen. Un picado ligero da superioridad al espectador y muestra el suelo con hojas.",
           "dos": [
             "Usa trípode IMPRESCINDIBLE o superficie estable",
             "Pide al sujeto: 'quédate quieto, mueve solo la cabeza al reír'",
@@ -703,23 +722,28 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "2",
-              "iso": 100,
-              "notes": "Mañana: difícil — luz fuerte. Usa filtro ND si tienes."
+              "shutter": "2\"",
+              "iso": 200,
+              "scene": "sombra_abierta",
+              "nd_stops": 6,
+              "notes": "Mañana: incluso en sombra, 2 s piden un ND de 6 pasos. Si no tienes el filtro, deja esta toma para el anochecer."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "2",
-              "iso": 100,
-              "notes": "Tarde: luz baja, ideal para 2s sin ND."
+              "shutter": "2\"",
+              "iso": 200,
+              "scene": "sombra_abierta",
+              "nd_stops": 6,
+              "notes": "Tarde: antes del ocaso todavía sobra luz para 2 s; usa el ND de 6 pasos o espera a la hora azul."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "2",
-              "iso": 400,
-              "notes": "Noche: con faroles, 2s a f/8 ISO 400 es perfecto."
+              "shutter": "2\"",
+              "iso": 100,
+              "scene": "iluminado_focos",
+              "notes": "Noche: con faroles, 2 s a f/8 e ISO 100 sin filtro."
             }
           },
           "subjects": {
@@ -738,7 +762,7 @@
           "technique": "lightpainting",
           "technique_label": "Lightpainting",
           "lens_focal": 35,
-          "aperture": "f/8",
+          "aperture": "f/9",
           "shutter": "Bulb 20\"",
           "iso": 100,
           "subject_distance_m": 4.0,
@@ -750,7 +774,7 @@
           "camera_height_m": 1.4,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Sujeto quieto a 4 m. Asistente traza con linterna a su alrededor (círculos, espirales, contorno). Oscuridad total salvo la linterna.",
-          "reasoning": "Bulb 20s a f/8 ISO 100. La linterna debe moverse continuamente; cada punto de luz pinta en el sensor. El sujeto debe permanecer MUY quieto para no salir como ghost. f/8 da nitidez suficiente sin que el lightpainting se vea borroso.",
+          "reasoning": "En modo Bulb, unos 20 s. La linterna debe moverse sin parar: cada punto de luz pinta en el sensor. El sujeto debe permanecer muy quieto para no salir como fantasma. Un diafragma intermedio (f/8–f/11) da nitidez sin que el trazo pierda brillo.",
           "dos": [
             "Usa trípode + disparador remoto o 2s retardados",
             "El sujeto lleva ropa oscura para que la luz destaque",
@@ -767,21 +791,26 @@
               "aperture": "f/16",
               "shutter": "Bulb 30",
               "iso": 100,
-              "notes": "Mañana: imposible sin ND extremo. Mejor de noche."
+              "scene": "sombra_abierta",
+              "viable": false,
+              "notes": "No viable de día: la luz ambiente taparía el trazo. Hazla de noche o en una sala a oscuras."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/16",
               "shutter": "Bulb 25",
               "iso": 100,
-              "notes": "Tarde: solo en zona muy sombreada o túnel."
+              "scene": "sombra_abierta",
+              "viable": false,
+              "notes": "No viable de tarde: ni a la sombra hay oscuridad suficiente. Pospón a la noche."
             },
             "night": {
               "lens": "35mm",
-              "aperture": "f/8",
-              "shutter": "Bulb 20",
+              "aperture": "f/9",
+              "shutter": "Bulb 20\"",
               "iso": 100,
-              "notes": "Noche: ideal, oscuridad total del parque a las 19:30."
+              "scene": "oscuridad",
+              "notes": "Noche: busca un tramo sin faroles cerca; si el fondo sale gris, cierra a f/11."
             }
           },
           "subjects": {
@@ -800,8 +829,8 @@
           "technique": "larga_exp",
           "technique_label": "Larga Exposición",
           "lens_focal": "35-80@50",
-          "aperture": "f/11",
-          "shutter": "15\"",
+          "aperture": "f/16",
+          "shutter": "20\"",
           "iso": 100,
           "subject_distance_m": 20.0,
           "background_distance_m": 100.0,
@@ -812,10 +841,10 @@
           "camera_height_m": 1.65,
           "pose": "Caminando hacia la cámara, paso natural, mirada al frente",
           "scene_notes": "Cámara en trípode apuntando al cielo con copas de olivos. Sujeto camina lentamente por sendero lejano. 15s: el caminante se desvanece en ghost, las ramas quedan nítidas, las nubes en streaks.",
-          "reasoning": "15s a f/11 ISO 100 con ND opcional. La larga exposición capta: nubes en movimiento (streaks), peatones como ghosts, ramas estáticas. Distancia 20 m para que el sujeto sea pequeño (punto de interés mínimo, mucho espacio negativo).",
+          "reasoning": "Entre 15 y 20 s con trípode. De día eso exige un ND fuerte; de noche no. La larga exposición capta nubes en movimiento como estelas, peatones como fantasmas y ramas estáticas. A 20 m el caminante es pequeño: punto de interés mínimo y mucho espacio negativo.",
           "dos": [
             "Trípode + disparador remoto IMPRESCINDIBLES",
-            "Si hay mucho sol: ND8 o ND10",
+            "Con sol hace falta un ND de 10 pasos (ND1000); un ND8 no basta para 15 s",
             "Encuadra con cabeza fría antes de disparar — luego no puedes recomponer"
           ],
           "donts": [
@@ -825,24 +854,29 @@
           "settings_by_time": {
             "day": {
               "lens": "35-80mm @50",
-              "aperture": "f/16",
-              "shutter": "15",
+              "aperture": "f/11",
+              "shutter": "15\"",
               "iso": 100,
-              "notes": "Mañana: ND10 obligatorio, algo de viento ayuda."
+              "scene": "antes_ocaso",
+              "nd_stops": 10,
+              "notes": "Mañana: 15 s a pleno día exigen un ND de 10 pasos; algo de viento en las copas ayuda."
             },
             "afternoon": {
               "lens": "35-80mm @50",
-              "aperture": "f/16",
-              "shutter": "15",
+              "aperture": "f/11",
+              "shutter": "15\"",
               "iso": 100,
-              "notes": "Tarde: ND8 suficiente, hora dorada añade color."
+              "scene": "antes_ocaso",
+              "nd_stops": 10,
+              "notes": "Tarde: antes del ocaso sigue haciendo falta el ND de 10 pasos; la hora dorada añade color."
             },
             "night": {
               "lens": "35-80mm @50",
-              "aperture": "f/11",
-              "shutter": "20",
-              "iso": 200,
-              "notes": "Noche: sin ND, faroles como estrellas de 6 puntas a f/11."
+              "aperture": "f/16",
+              "shutter": "20\"",
+              "iso": 100,
+              "scene": "iluminado_focos",
+              "notes": "Noche: sin filtro. A f/16 los faroles salen como estrellas."
             }
           },
           "subjects": {
@@ -861,7 +895,7 @@
           "technique": "zooming",
           "technique_label": "Zooming",
           "lens_focal": "35-80",
-          "aperture": "f/11",
+          "aperture": "f/8",
           "shutter": "2\"",
           "iso": 100,
           "subject_distance_m": 8.0,
@@ -873,7 +907,7 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Sujeto a 8 m en sendero. Durante los 2s de exposición gira el anillo del zoom de 35 a 80mm (o viceversa). El sujeto queda como punto fijo + estallido radial.",
-          "reasoning": "2s a f/11 ISO 100. Gira el zoom uniformemente durante toda la exposición. El sujeto debe estar PERFECTAMENTE centrado — el zoom crea un efecto radial desde el centro óptico. Perspectiva forzada por las líneas de fuga del efecto zoom.",
+          "reasoning": "Unos 2 s con trípode. Gira el zoom de forma continua durante toda la exposición. El sujeto debe estar perfectamente centrado: el zoom escala la imagen desde el centro y los puntos más alejados del centro dejan los trazos más largos. Las líneas radiales imitan líneas de fuga.",
           "dos": [
             "Practica el giro del zoom en seco: debe ser uniforme, ni rápido al inicio ni al final",
             "Sujeto al centro EXACTO del encuadre",
@@ -887,23 +921,28 @@
             "day": {
               "lens": "35-80mm",
               "aperture": "f/16",
-              "shutter": "2",
-              "iso": 100,
-              "notes": "Mañana: ND8 necesario para 2s."
+              "shutter": "2\"",
+              "iso": 200,
+              "scene": "sombra_abierta",
+              "nd_stops": 6,
+              "notes": "Mañana: 2 s en sombra piden un ND de 6 pasos."
             },
             "afternoon": {
               "lens": "35-80mm",
               "aperture": "f/16",
-              "shutter": "2",
-              "iso": 100,
-              "notes": "Tarde: hora dorada + zoom burst = dramático."
+              "shutter": "2\"",
+              "iso": 200,
+              "scene": "sombra_abierta",
+              "nd_stops": 6,
+              "notes": "Tarde: con ND de 6 pasos; la luz cálida hace más vistoso el estallido."
             },
             "night": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "2",
-              "iso": 800,
-              "notes": "Noche: con faroles, 2s a f/8 ISO 800 funciona."
+              "shutter": "2\"",
+              "iso": 100,
+              "scene": "iluminado_focos",
+              "notes": "Noche: con faroles, 2 s a f/8 e ISO 100 sin filtro."
             }
           },
           "subjects": {
@@ -939,8 +978,8 @@
           "technique_label": "Mucha Profundidad de Campo",
           "lens_focal": 35,
           "aperture": "f/11",
-          "shutter": "1/500",
-          "iso": 200,
+          "shutter": "1/125",
+          "iso": 100,
           "subject_distance_m": 5.0,
           "background_distance_m": 50.0,
           "composition": "capas",
@@ -950,7 +989,7 @@
           "camera_height_m": 1.65,
           "pose": "Recargado en muro, un pie apoyado, relajado",
           "scene_notes": "Sujeto recargado en baranda del malecón. Capas: 1) baranda (FG), 2) sujeto (midground), 3) paseantes/parapentes (mid-far), 4) mar y horizonte (background), 5) cielo.",
-          "reasoning": "El 35mm a 5 m cubre todos los planos. f/11 con hiperfocal ~5m da nitidez desde 2.5 m a infinito. Las capas se construyen con profundidad real: la baranda ocupa 1/6 inferior, el sujeto 1/3, el horizonte en el tercio superior.",
+          "reasoning": "El 35 mm a 5 m cubre todos los planos. A f/11 la hiperfocal es ≈3,7 m; enfocando a 5 m queda nítido desde ≈2,1 m hasta el infinito. Las capas se construyen con profundidad real: la baranda ocupa el sexto inferior, el sujeto un tercio y el horizonte va en el tercio superior.",
           "dos": [
             "Encuadra la baranda como línea diagonal FG",
             "Pon el horizonte en el tercio superior (no al centro)",
@@ -964,23 +1003,26 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1/500",
-              "iso": 200,
+              "shutter": "1/125",
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Mañana: cielo despejado, mar azul."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1/250",
-              "iso": 200,
+              "shutter": "1/125",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde: hora dorada, todo brilla."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "1/15",
-              "iso": 1600,
-              "notes": "Noche: faroles del malecón + largos tiempos."
+              "shutter": "1/125",
+              "iso": 3200,
+              "scene": "calle_noche",
+              "notes": "Noche: faroles del malecón. ISO 3200 permite 1/125 s a mano; con trípode puedes bajar ISO y alargar el tiempo."
             }
           },
           "subjects": {
@@ -1001,7 +1043,7 @@
           "lens_focal": "35-80@35",
           "aperture": "f/8",
           "shutter": "1/250",
-          "iso": 200,
+          "iso": 100,
           "subject_distance_m": 8.0,
           "background_distance_m": 100.0,
           "composition": "espacio_neg",
@@ -1011,7 +1053,7 @@
           "camera_height_m": 1.7,
           "pose": "Caminando hacia la cámara, paso natural, mirada al frente",
           "scene_notes": "Sujeto caminando por la ciclovía del malecón. Mucho espacio a la izquierda (mar y cielo). Sujeto pequeño, horizonte en tercio inferior.",
-          "reasoning": "El zoom a 35mm (no es tan nítido como el prime) a f/8 da suficiente PDC. 8 m de distancia para que el sujeto ocupe 1/4 del encuadre. Espacio negativo: 60% cielo+mar a la izquierda, sujeto como punto focal mínimo.",
+          "reasoning": "El zoom a 35 mm (algo menos nítido que el fijo) a f/8 da profundidad de campo suficiente. A 8 m el encuadre mide ≈5,5 m de alto, así que el sujeto ocupa ≈1/3 de la altura. Espacio negativo: 60 % de cielo y mar a la izquierda, sujeto como punto focal mínimo.",
           "dos": [
             "Espera un momento sin peatones cruzando",
             "Mantén el horizonte perfectamente horizontal",
@@ -1026,22 +1068,25 @@
               "lens": "35-80mm @35",
               "aperture": "f/8",
               "shutter": "1/250",
-              "iso": 200,
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Mañana: brisa marina refresca, cielo azul profundo."
             },
             "afternoon": {
               "lens": "35-80mm @35",
               "aperture": "f/8",
               "shutter": "1/125",
-              "iso": 400,
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde: hora dorada, contraste suave."
             },
             "night": {
               "lens": "35-80mm @35",
-              "aperture": "f/5.6",
-              "shutter": "1/8",
+              "aperture": "f/8",
+              "shutter": "1/125",
               "iso": 3200,
-              "notes": "Noche: necesitas trípode para 1/8; mejor posponer a día."
+              "scene": "calle_noche",
+              "notes": "Noche: ISO 3200 a 1/125 s sostiene a un sujeto que camina; con trípode y sujeto quieto, baja a ISO 800."
             }
           },
           "subjects": {
@@ -1061,8 +1106,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 85,
           "aperture": "f/1.8",
-          "shutter": "1/1000",
-          "iso": 200,
+          "shutter": "1/1600",
+          "iso": 100,
           "subject_distance_m": 2.5,
           "background_distance_m": 15.0,
           "composition": "punto_interes",
@@ -1072,7 +1117,7 @@
           "camera_height_m": 1.55,
           "pose": "Riendo, cabeza ligeramente atrás, mano cerca de la boca",
           "scene_notes": "Retrato de medio cuerpo contra el horizonte del mar. Fondo desenfocado: mar como mancha azul/verde, sin horizonte definido.",
-          "reasoning": "85mm a 2.5 m y f/1.8: PDC ≈ 8 cm. Ojos nítidos, resto del rostro ya blando. El mar a 15 m se convierte en textura abstracta. El punto de interés es el ojo más cercano, reforzado por la sonrisa natural.",
+          "reasoning": "85 mm a 2,5 m y f/1.8: profundidad de campo ≈9 cm. Ojos nítidos, el resto del rostro ya blando. El mar a 15 m se convierte en textura abstracta. El punto de interés es el ojo más cercano, reforzado por una sonrisa natural.",
           "dos": [
             "Enfoca con punto central + recomposición suave (sin mover la distancia)",
             "Dispara en ráfaga para capturar el pico de la sonrisa",
@@ -1086,23 +1131,26 @@
             "day": {
               "lens": "85mm",
               "aperture": "f/2",
-              "shutter": "1/2000",
-              "iso": 200,
+              "shutter": "1/4000",
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Mañana: sol fuerte, usa sombra natural."
             },
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/1000",
-              "iso": 200,
+              "shutter": "1/1600",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde dorada: luz cálida, ideal."
             },
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/60",
-              "iso": 6400,
-              "notes": "Noche: retrato con farol, problema de WB."
+              "shutter": "1/125",
+              "iso": 200,
+              "scene": "calle_noche",
+              "notes": "Noche: retrato junto a un farol. Ajusta el balance de blancos a unos 3200 K."
             }
           },
           "subjects": {
@@ -1122,8 +1170,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 50,
           "aperture": "f/1.8",
-          "shutter": "1/500",
-          "iso": 200,
+          "shutter": "1/1600",
+          "iso": 100,
           "subject_distance_m": 3.0,
           "background_distance_m": 8.0,
           "composition": "enmarcado",
@@ -1147,22 +1195,25 @@
             "day": {
               "lens": "50mm",
               "aperture": "f/2",
-              "shutter": "1/1000",
-              "iso": 200,
+              "shutter": "1/4000",
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Mañana: sol lateral ilumina el marco y el sujeto por igual."
             },
             "afternoon": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/500",
-              "iso": 200,
+              "shutter": "1/1600",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde: luz dorada, el marco se ve más cálido."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/30",
-              "iso": 3200,
+              "shutter": "1/125",
+              "iso": 200,
+              "scene": "calle_noche",
               "notes": "Noche: con farol detrás del marco, efecto contraluz."
             }
           },
@@ -1183,8 +1234,8 @@
           "technique_label": "Efecto Congelado",
           "lens_focal": 85,
           "aperture": "f/2.8",
-          "shutter": "1/2500",
-          "iso": 400,
+          "shutter": "1/2000",
+          "iso": 100,
           "subject_distance_m": 15.0,
           "background_distance_m": 200.0,
           "composition": "tercios",
@@ -1193,8 +1244,8 @@
           "angle_label": "Central",
           "camera_height_m": 1.65,
           "pose": "Corriendo, en aire, brazos en oposición",
-          "scene_notes": "Parapente en vuelo bajo sobre el malecón. Cámara sigue al parapente. 1/2500s congela la vela y al piloto.",
-          "reasoning": "El 85mm a 15 m encuadra un parapente medio. 1/2500s congela TODO incluyendo el viento en la vela. El parapente en el tercio superior derecho del encuadre (regla de tercios) deja espacio inferior para el mar/parque.",
+          "scene_notes": "Parapente en vuelo bajo sobre el malecón. Cámara sigue al parapente. 1/2000 s o más rápido congela la vela y al piloto.",
+          "reasoning": "1/2000 s congela al piloto y la tela de la vela. A 15 m el 85 mm cubre sólo ≈6,3 m de ancho: entran el piloto y el centro de la vela; para el ala completa (≈10 m) necesitas unos 25 m o más. Coloca el parapente en el tercio superior derecho y deja espacio inferior para el mar.",
           "dos": [
             "AF AI Servo + punto central + burst",
             "Pre-enfoca en la zona por donde pasan los parapentes",
@@ -1202,21 +1253,23 @@
           ],
           "donts": [
             "No uses 1/500 — el parapente saldrá blando",
-            "No abras a f/1.8 — el margen de PDC es mínimo a 15 m"
+            "No abras a f/1.8 sin necesidad: el AI Servo acierta más con algo de margen de foco"
           ],
           "settings_by_time": {
             "day": {
               "lens": "85mm",
               "aperture": "f/4",
               "shutter": "1/4000",
-              "iso": 200,
-              "notes": "Mañana: sol fuerte, parapentes tempranos."
+              "iso": 400,
+              "scene": "sol_velado",
+              "notes": "Mañana: pleno sol; 1/4000 s a f/4 deja margen de enfoque para seguir la vela."
             },
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/2.8",
-              "shutter": "1/2500",
-              "iso": 400,
+              "shutter": "1/2000",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde: luz dorada sobre las velas."
             },
             "night": {
@@ -1224,7 +1277,9 @@
               "aperture": "f/2.8",
               "shutter": "1/1250",
               "iso": 6400,
-              "notes": "Noche: raro que haya parapentes nocturnos."
+              "scene": "calle_noche",
+              "viable": false,
+              "notes": "Noche: no viable, no hay parapentes y a 1/2000 s no habría luz."
             }
           },
           "subjects": {
@@ -1243,9 +1298,9 @@
           "technique": "barrido",
           "technique_label": "Efecto Barrido",
           "lens_focal": 50,
-          "aperture": "f/11",
+          "aperture": "f/13",
           "shutter": "1/30",
-          "iso": 100,
+          "iso": 125,
           "subject_distance_m": 8.0,
           "background_distance_m": 50.0,
           "composition": "tercios",
@@ -1255,7 +1310,7 @@
           "camera_height_m": 1.1,
           "pose": "Corriendo, en aire, brazos en oposición",
           "scene_notes": "Ciclista o corredor del malecón. Cámara sigue el movimiento horizontal. Fondo: mar y malecón en streaks horizontales.",
-          "reasoning": "1/30s con seguimiento lateral. 50mm a 8 m encuadra medio cuerpo en movimiento. El sujeto en el tercio derecho entrante, mirando hacia el espacio libre. f/11 da margen para fallos de seguimiento.",
+          "reasoning": "1/30 s con seguimiento lateral. A 8 m el 50 mm cubre ≈5,7 × 3,8 m: cuerpo entero con contexto del malecón. Sujeto en el tercio derecho, entrando hacia el espacio libre. Cerrar el diafragma da margen si el seguimiento falla.",
           "dos": [
             "Posiciónate donde los ciclistas pasan predeciblemente",
             "Gira el torso: prep → dispara → continúa el giro 1s más",
@@ -1268,24 +1323,28 @@
           "settings_by_time": {
             "day": {
               "lens": "50mm",
-              "aperture": "f/11",
+              "aperture": "f/13",
               "shutter": "1/30",
-              "iso": 100,
-              "notes": "Mañana: luz fuerte, ideal."
+              "iso": 125,
+              "scene": "sol_velado",
+              "nd_stops": 2,
+              "notes": "Mañana: a pleno sol 1/30 s pide f/13 y un ND de 2 pasos; si no tienes el filtro, sube a 1/60 s y acepta menos arrastre."
             },
             "afternoon": {
               "lens": "50mm",
-              "aperture": "f/8",
+              "aperture": "f/16",
               "shutter": "1/30",
-              "iso": 200,
-              "notes": "Tarde dorada: streaks más cálidos."
+              "iso": 100,
+              "scene": "antes_ocaso",
+              "notes": "Tarde dorada: f/16 sin filtro; las estelas salen más cálidas."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/4",
               "shutter": "1/30",
-              "iso": 1600,
-              "notes": "Noche: faroles crean streaks luminosos."
+              "iso": 200,
+              "scene": "calle_noche",
+              "notes": "Noche: faroles del malecón; 1/30 s a f/4 e ISO 200."
             }
           },
           "subjects": {
@@ -1304,8 +1363,8 @@
           "technique": "fantasma",
           "technique_label": "Efecto Fantasma",
           "lens_focal": 35,
-          "aperture": "f/11",
-          "shutter": "3\"",
+          "aperture": "f/8",
+          "shutter": "3.2\"",
           "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 20.0,
@@ -1316,7 +1375,7 @@
           "camera_height_m": 1.8,
           "pose": "Sentado, codo en rodilla, mano en mentón",
           "scene_notes": "Sujeto sentado en un banco del malecón, mirando al mar. 3s: el sujeto quieto es nítido, los paseantes detrás son ghosts.",
-          "reasoning": "3s a f/11 ISO 100. Sujeto quieto en banco (enmarcado por baranda), paseantes detrás se mueven y salen como ghosts. Picado ligero muestra el suelo del malecón y aísla al sujeto.",
+          "reasoning": "Unos 3 s con trípode. El sujeto quieto en el banco (enmarcado por la baranda) sale nítido y los paseantes de detrás salen como fantasmas. Un picado ligero muestra el suelo del malecón y aísla al sujeto.",
           "dos": [
             "Trípode obligatorio",
             "Pide al sujeto: respira suave, no te muevas",
@@ -1329,24 +1388,30 @@
           "settings_by_time": {
             "day": {
               "lens": "35mm",
-              "aperture": "f/16",
-              "shutter": "3",
-              "iso": 100,
-              "notes": "Mañana: ND10 obligatorio, difícil."
+              "aperture": "f/8",
+              "shutter": "3.2\"",
+              "iso": 125,
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Mañana: 3 s a pleno sol exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "3",
+              "shutter": "3.2\"",
               "iso": 100,
-              "notes": "Tarde: hora dorada, ideal."
+              "scene": "antes_ocaso",
+              "nd_stops": 6,
+              "notes": "Tarde: antes del ocaso aún hace falta un ND de 6 pasos; en la hora azul ya no."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "3",
-              "iso": 400,
-              "notes": "Noche: con faroles, perfecto."
+              "shutter": "3.2\"",
+              "iso": 100,
+              "scene": "calle_noche",
+              "nd_stops": 3,
+              "notes": "Noche: los faroles todavía dan luz de sobra para 3 s; usa un ND de 3 pasos o baja a 1 s."
             }
           },
           "subjects": {
@@ -1365,7 +1430,7 @@
           "technique": "lightpainting",
           "technique_label": "Lightpainting",
           "lens_focal": 35,
-          "aperture": "f/8",
+          "aperture": "f/10",
           "shutter": "Bulb 25\"",
           "iso": 100,
           "subject_distance_m": 5.0,
@@ -1377,7 +1442,7 @@
           "camera_height_m": 1.0,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Sujeto en la arena de la playa (baja escaleras del malecón). Solo el sujeto + el trazo de luz. Mar y cielo como fondo negro.",
-          "reasoning": "Bulb 25s a f/8 ISO 100. Playa de noche = oscuridad casi total salvo el faro de La Marina. El sujeto quieto, asistente traza espirales alrededor. Minimalismo extremo: sujeto + luz, nada más.",
+          "reasoning": "En modo Bulb, unos 25 s. La playa de noche está casi a oscuras salvo el faro de La Marina. El sujeto se queda quieto mientras un asistente traza espirales alrededor. Minimalismo extremo: sujeto y luz, nada más.",
           "dos": [
             "Baja a la playa con permiso (revisar mareas)",
             "Lleva linterna LED pequeña + guante para no quemar",
@@ -1393,21 +1458,26 @@
               "aperture": "f/22",
               "shutter": "Bulb 60",
               "iso": 100,
-              "notes": "Mañana: imposible sin ND enorme."
+              "scene": "sol_velado",
+              "viable": false,
+              "notes": "No viable de día: la luz ambiente taparía el trazo. Hazla de noche."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/22",
               "shutter": "Bulb 30",
               "iso": 100,
-              "notes": "Tarde: solo en cueva o túnel."
+              "scene": "antes_ocaso",
+              "viable": false,
+              "notes": "No viable de tarde: pospón a la noche."
             },
             "night": {
               "lens": "35mm",
-              "aperture": "f/8",
-              "shutter": "Bulb 25",
+              "aperture": "f/10",
+              "shutter": "Bulb 25\"",
               "iso": 100,
-              "notes": "Noche: ideal en playa a las 20:00."
+              "scene": "oscuridad",
+              "notes": "Noche: en la arena, lejos de los faroles del malecón; si el fondo sale gris, cierra a f/13."
             }
           },
           "subjects": {
@@ -1427,7 +1497,7 @@
           "technique_label": "Larga Exposición",
           "lens_focal": "35-80@50",
           "aperture": "f/11",
-          "shutter": "20\"",
+          "shutter": "30\"",
           "iso": 100,
           "subject_distance_m": 25.0,
           "background_distance_m": 500.0,
@@ -1438,11 +1508,11 @@
           "camera_height_m": 1.65,
           "pose": "Caminando hacia la cámara, paso natural, mirada al frente",
           "scene_notes": "Cámara en trípode apuntando al horizonte del mar. 20s: el mar se convierte en niebla, las nubes en streaks, el sujeto caminando desaparece casi completamente.",
-          "reasoning": "20s a f/11 ISO 100 con trípode. El mar en larga exposición pierde olas y se vuelve bruma. Sujeto caminando queda como ghost casi invisible. Simetría: horizonte perfecto al centro (excepción a la regla de tercios, justificada por simetría mar-cielo).",
+          "reasoning": "20–30 s con trípode. El mar pierde las olas y se vuelve bruma; un caminante queda como fantasma casi invisible. Simetría: horizonte al centro, una excepción a la regla de tercios justificada por el espejo mar-cielo.",
           "dos": [
             "Trípode en roca firme (no arena suelta)",
             "Disparador remoto o 2s retardados",
-            "Si hay sol: ND10 para 20s"
+            "Con sol hace falta un ND de 10 pasos (ND1000) para 20 s"
           ],
           "donts": [
             "No dispares con marea subiendo cerca de ti",
@@ -1452,23 +1522,28 @@
             "day": {
               "lens": "35-80mm @50",
               "aperture": "f/16",
-              "shutter": "20",
+              "shutter": "20\"",
               "iso": 100,
-              "notes": "Mañana: ND10 obligatorio."
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Mañana: 20 s a pleno día exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35-80mm @50",
               "aperture": "f/16",
-              "shutter": "20",
+              "shutter": "20\"",
               "iso": 100,
-              "notes": "Tarde: hora dorada, ND8."
+              "scene": "antes_ocaso",
+              "nd_stops": 10,
+              "notes": "Tarde: antes del ocaso sigue haciendo falta el ND de 10 pasos."
             },
             "night": {
               "lens": "35-80mm @50",
               "aperture": "f/11",
-              "shutter": "30",
-              "iso": 200,
-              "notes": "Noche: sin ND, 30s para más efecto niebla."
+              "shutter": "30\"",
+              "iso": 100,
+              "scene": "luces_lejanas",
+              "notes": "Noche: sin filtro; 30 s convierten el mar en bruma."
             }
           },
           "subjects": {
@@ -1487,9 +1562,9 @@
           "technique": "zooming",
           "technique_label": "Zooming",
           "lens_focal": "35-80",
-          "aperture": "f/11",
-          "shutter": "3\"",
-          "iso": 100,
+          "aperture": "f/8",
+          "shutter": "3.2\"",
+          "iso": 500,
           "subject_distance_m": 6.0,
           "background_distance_m": 50.0,
           "composition": "punto_interes",
@@ -1499,7 +1574,7 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Sujeto a 6 m contra el faro de La Marina al fondo. Durante 3s gira el zoom de 35 a 80mm. El faro queda como estallido radial, el sujeto como punto fijo.",
-          "reasoning": "3s a f/11 ISO 100. El giro del zoom crea líneas radiales desde el centro. El faro lejano se estira más (mayor cambio angular relativo). El sujeto al centro queda relativamente estable.",
+          "reasoning": "Unos 3 s con trípode. El giro del zoom escala la imagen desde el centro: cuanto más lejos del centro del encuadre está un punto, más largo es su trazo, sin importar a qué distancia esté de la cámara. Por eso el sujeto centrado queda casi estable y las luces de los bordes estallan.",
           "dos": [
             "Practica el giro: uniforme, ni muy rápido ni muy lento",
             "Sujeto al centro exacto",
@@ -1512,24 +1587,29 @@
           "settings_by_time": {
             "day": {
               "lens": "35-80mm",
-              "aperture": "f/16",
-              "shutter": "3",
-              "iso": 100,
-              "notes": "Mañana: ND8 necesario."
+              "aperture": "f/8",
+              "shutter": "3.2\"",
+              "iso": 125,
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Mañana: 3 s a pleno sol exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35-80mm",
               "aperture": "f/16",
-              "shutter": "3",
+              "shutter": "3.2\"",
               "iso": 100,
-              "notes": "Tarde dorada: efecto más cálido."
+              "scene": "antes_ocaso",
+              "nd_stops": 6,
+              "notes": "Tarde: con ND de 6 pasos; la luz cálida tiñe el estallido."
             },
             "night": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "3",
-              "iso": 800,
-              "notes": "Noche: faroles crean explosiones luminosas."
+              "shutter": "3.2\"",
+              "iso": 500,
+              "scene": "luces_lejanas",
+              "notes": "Noche: el faro y los faroles crean los rayos; ISO 500 sin filtro."
             }
           },
           "subjects": {
@@ -1565,8 +1645,8 @@
           "technique_label": "Mucha Profundidad de Campo",
           "lens_focal": 35,
           "aperture": "f/11",
-          "shutter": "1/60",
-          "iso": 800,
+          "shutter": "1/125",
+          "iso": 6400,
           "subject_distance_m": 3.5,
           "background_distance_m": 8.0,
           "composition": "capas",
@@ -1576,9 +1656,9 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Interior de la casa: sala con vista al jardín. Sujeto a 3.5 m, fondo: muebles + ventana al jardín con farol lejano. Capas: sofá (FG), sujeto (mid), ventana+jardín (BG).",
-          "reasoning": "35mm en interior es ideal (no demasiado angular). f/11 con ISO 800 da 1/60s — suficiente para evitar trepidación si el sujeto se mantiene quieto. Las capas construyen profundidad: sofá, sujeto, ventana-jardín.",
+          "reasoning": "El 35 mm en interior conserva contexto sin deformar demasiado. Con f/11 a mano y 1/125 s la casa pide ISO alto; si el sujeto puede quedarse quieto, el trípode permite bajar ISO alargando el tiempo. Las capas construyen profundidad: sofá, sujeto, ventana y jardín.",
           "dos": [
-            "Sube ISO a 800-1600 si necesario, prioridad a f/11",
+            "Sube ISO (hasta 6400) antes que bajar de 1/125 s a mano; prioridad a f/11",
             "Usa luz ambiente (no flash directo) para mantener atmósfera",
             "Enciende lámparas cálidas para crear capas de luz"
           ],
@@ -1590,23 +1670,26 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1/60",
-              "iso": 800,
-              "notes": "Mañana: luz natural de ventana, ISO 200 suficiente."
+              "shutter": "1/125",
+              "iso": 6400,
+              "scene": "oficina",
+              "notes": "Mañana: luz de ventana. A f/11 y 1/125 s hace falta ISO 6400; con trípode y sujeto quieto, baja a 1/15 s e ISO 800."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1/30",
-              "iso": 400,
-              "notes": "Tarde: mezcla luz ventana + lámparas."
+              "shutter": "1/60",
+              "iso": 6400,
+              "scene": "interior_casa",
+              "notes": "Tarde: mezcla de ventana y lámparas; iguala la temperatura de color o apaga una de las dos."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "1/30",
-              "iso": 1600,
-              "notes": "Noche: solo lámparas de casa, sube ISO a 1600-3200."
+              "shutter": "1/125",
+              "iso": 6400,
+              "scene": "interior_casa",
+              "notes": "Noche: sólo lámparas. ISO 6400 a mano, o trípode, 1/8 s e ISO 1600 si el sujeto se queda quieto."
             }
           },
           "subjects": {
@@ -1626,8 +1709,8 @@
           "technique_label": "Mucha Profundidad de Campo",
           "lens_focal": "35-80@50",
           "aperture": "f/8",
-          "shutter": "1/30",
-          "iso": 800,
+          "shutter": "1/125",
+          "iso": 3200,
           "subject_distance_m": 5.0,
           "background_distance_m": 12.0,
           "composition": "simetria",
@@ -1637,7 +1720,7 @@
           "camera_height_m": 1.65,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Pasillo central de la casa o escalera simétrica. Sujeto al centro exacto, elementos laterales idénticos (cuadros, lámparas).",
-          "reasoning": "El zoom a 50mm comprime un poco más que el prime 35mm, ideal para pasillos. f/8 da PDC suficiente. La simetría requiere nivel perfecto y sujeto centrado.",
+          "reasoning": "A 50 mm el encuadre se cierra sobre el pasillo; desde la misma posición no cambia la perspectiva, sólo el recorte. f/8 da profundidad de campo suficiente. La simetría requiere nivel perfecto y sujeto centrado.",
           "dos": [
             "Usa nivel del 6D (en LiveView)",
             "Enciende todas las luces simétricas",
@@ -1651,23 +1734,26 @@
             "day": {
               "lens": "35-80mm @50",
               "aperture": "f/8",
-              "shutter": "1/30",
-              "iso": 800,
+              "shutter": "1/125",
+              "iso": 3200,
+              "scene": "oficina",
               "notes": "Mañana: luz lateral puede romper simetría."
             },
             "afternoon": {
               "lens": "35-80mm @50",
               "aperture": "f/8",
-              "shutter": "1/30",
-              "iso": 800,
+              "shutter": "1/125",
+              "iso": 6400,
+              "scene": "interior_casa",
               "notes": "Tarde: igual, cuidado con sombras laterales."
             },
             "night": {
               "lens": "35-80mm @50",
-              "aperture": "f/5.6",
-              "shutter": "1/15",
-              "iso": 3200,
-              "notes": "Noche: con lámparas simétricas, ISO 3200."
+              "aperture": "f/8",
+              "shutter": "1/125",
+              "iso": 6400,
+              "scene": "interior_casa",
+              "notes": "Noche: lámparas simétricas; con trípode puedes bajar a ISO 1600 y 1/30 s."
             }
           },
           "subjects": {
@@ -1688,7 +1774,7 @@
           "lens_focal": 85,
           "aperture": "f/1.8",
           "shutter": "1/125",
-          "iso": 800,
+          "iso": 400,
           "subject_distance_m": 2.5,
           "background_distance_m": 6.0,
           "composition": "punto_interes",
@@ -1698,7 +1784,7 @@
           "camera_height_m": 1.55,
           "pose": "Riendo, cabeza ligeramente atrás, mano cerca de la boca",
           "scene_notes": "Retrato en casa con fondo de lámpara encendida a 6 m. La lámpara sale como bokeh circular brillante.",
-          "reasoning": "85mm f/1.8 a 2.5 m: PDC ~6 cm. La lámpara del fondo se convierte en círculos de luz (bokeh) — efecto clásico de retrato nocturno. El ojo es el único punto de interés.",
+          "reasoning": "85 mm f/1.8 a 2,5 m: profundidad de campo ≈9 cm. La lámpara del fondo se convierte en círculos de luz (bokeh), el efecto clásico del retrato nocturno. El ojo es el único punto de interés.",
           "dos": [
             "Apaga otras luces para que solo la lámpara del fondo destaque",
             "Equilibra con luz suave frontal (ventana o reflector blanco)",
@@ -1714,6 +1800,7 @@
               "aperture": "f/2.5",
               "shutter": "1/125",
               "iso": 400,
+              "scene": "oficina",
               "notes": "Mañana: luz natural de ventana frontal."
             },
             "afternoon": {
@@ -1721,13 +1808,15 @@
               "aperture": "f/2",
               "shutter": "1/125",
               "iso": 400,
+              "scene": "interior_casa",
               "notes": "Tarde: lámpara encendida como acento."
             },
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/60",
-              "iso": 1600,
+              "shutter": "1/125",
+              "iso": 400,
+              "scene": "interior_casa",
               "notes": "Noche: solo la lámpara del fondo + luz suave frontal."
             }
           },
@@ -1748,8 +1837,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 50,
           "aperture": "f/1.8",
-          "shutter": "1/60",
-          "iso": 800,
+          "shutter": "1/125",
+          "iso": 400,
           "subject_distance_m": 2.5,
           "background_distance_m": 5.0,
           "composition": "espacio_neg",
@@ -1759,7 +1848,7 @@
           "camera_height_m": 1.4,
           "pose": "De espaldas, gira torso y cabeza sobre el hombro",
           "scene_notes": "Sujeto de espaldas mirando por la ventana a la calle iluminada. Mucho espacio vacío a la derecha (la pared).",
-          "reasoning": "50mm a 2.5 m y f/1.8 da PDC ~10 cm. El espacio negativo es la pared oscura a la derecha (3/4 del encuadre). El sujeto en el tercio izquierdo, mirando hacia el espacio NEGATIVO.",
+          "reasoning": "50 mm a 2,5 m y f/1.8: profundidad de campo ≈26 cm. El espacio negativo es la pared oscura a la derecha (3/4 del encuadre). El sujeto va en el tercio izquierdo, mirando hacia ese espacio.",
           "dos": [
             "Subexpón para preservar las luces de la calle por la ventana",
             "Pide al sujeto que gire solo la cabeza, no el cuerpo",
@@ -1772,23 +1861,26 @@
           "settings_by_time": {
             "day": {
               "lens": "50mm",
-              "aperture": "f/2.2",
-              "shutter": "1/60",
-              "iso": 400,
+              "aperture": "f/2",
+              "shutter": "1/125",
+              "iso": 200,
+              "scene": "oficina",
               "notes": "Mañana: luz exterior fuerte, contraste alto."
             },
             "afternoon": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/60",
-              "iso": 800,
+              "shutter": "1/125",
+              "iso": 400,
+              "scene": "interior_casa",
               "notes": "Tarde: luces exteriores empiezan a encenderse."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/30",
-              "iso": 1600,
+              "shutter": "1/125",
+              "iso": 400,
+              "scene": "interior_casa",
               "notes": "Noche: luces de calle + faroles, perfecto."
             }
           },
@@ -1808,9 +1900,9 @@
           "technique": "congelado",
           "technique_label": "Efecto Congelado",
           "lens_focal": 50,
-          "aperture": "f/2",
+          "aperture": "f/2.8",
           "shutter": "1/2000",
-          "iso": 1600,
+          "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 10.0,
           "composition": "minimalismo",
@@ -1819,8 +1911,8 @@
           "angle_label": "Contrapicado",
           "camera_height_m": 0.5,
           "pose": "Salto vertical, brazos arriba, sonrisa amplia",
-          "scene_notes": "Sujeto saltando en el patio/jardín de la casa de noche. Solo un farol ilumina. Cámara baja mirando arriba contra cielo oscuro.",
-          "reasoning": "1/2000s congela el salto. ISO 1600 compensa la poca luz. f/2 da margen de PDC en movimiento. Contrapicado aísla al sujeto contra el cielo. Minimalismo: solo sujeto+cielo.",
+          "scene_notes": "Sujeto saltando en el patio o jardín de la casa con luz de día o al atardecer. Cámara baja mirando hacia arriba contra el cielo.",
+          "reasoning": "1/2000 s congela el salto. Hazlo con luz de día o al atardecer: con un solo farol de noche haría falta flash. f/2.8 da margen de foco en movimiento. El contrapicado aísla al sujeto contra el cielo. Minimalismo: sólo sujeto y cielo.",
           "dos": [
             "Usa un farol potente o linterna direccional como luz principal",
             "Pre-enfoca donde saltará el sujeto (MF)",
@@ -1835,14 +1927,16 @@
               "lens": "50mm",
               "aperture": "f/4",
               "shutter": "1/4000",
-              "iso": 200,
-              "notes": "Mañana: luz natural, fácil."
+              "iso": 400,
+              "scene": "sol_velado",
+              "notes": "Mañana: luz natural, 1/4000 s a f/4."
             },
             "afternoon": {
               "lens": "50mm",
               "aperture": "f/2.8",
               "shutter": "1/2000",
-              "iso": 800,
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde: sol bajo, contraste alto."
             },
             "night": {
@@ -1850,7 +1944,9 @@
               "aperture": "f/2",
               "shutter": "1/2000",
               "iso": 3200,
-              "notes": "Noche: con farol fuerte, ISO 3200-6400."
+              "scene": "interior_casa",
+              "viable": false,
+              "notes": "Noche: no viable con un solo farol; necesitarías flash. Pospón al día."
             }
           },
           "subjects": {
@@ -1869,9 +1965,9 @@
           "technique": "barrido",
           "technique_label": "Efecto Barrido",
           "lens_focal": 50,
-          "aperture": "f/8",
-          "shutter": "1/30",
-          "iso": 800,
+          "aperture": "f/11",
+          "shutter": "1/60",
+          "iso": 100,
           "subject_distance_m": 8.0,
           "background_distance_m": 30.0,
           "composition": "tercios",
@@ -1881,36 +1977,39 @@
           "camera_height_m": 1.0,
           "pose": "Corriendo, en aire, brazos en oposición",
           "scene_notes": "Calle urbana pública de noche: auto o motocicleta pasando. Cámara sigue el movimiento. Streaks de faroles detrás.",
-          "reasoning": "1/30s con seguimiento. El 50mm a 8 m encuadra un auto completo. f/8 ISO 800 da exposición correcta con faroles. Sujeto en tercio derecho, moviéndose hacia la izquierda (espacio libre).",
+          "reasoning": "Velocidad lenta con seguimiento. A 8 m el 50 mm cubre ≈5,7 m de ancho: entra un auto completo. Sujeto en el tercio derecho, moviéndose hacia la izquierda, hacia el espacio libre.",
           "dos": [
             "Posiciónate en la vereda donde los autos pasan predeciblemente (cruce o semáforo)",
             "Gira el torso siguiendo al auto",
             "Cuidado con tu seguridad: no te bajes de la vereda"
           ],
           "donts": [
-            "No dispares con ISO 100 — saldrá oscura",
+            "De noche no bajes de ISO 200 si eso te obliga a abrir más allá de f/4",
             "No uses 1/250 — congela el auto"
           ],
           "settings_by_time": {
             "day": {
               "lens": "50mm",
-              "aperture": "f/11",
+              "aperture": "f/16",
               "shutter": "1/125",
               "iso": 200,
-              "notes": "Mañana: autos a velocidad alta, 1/125 mantiene algo de barrido."
+              "scene": "sol_velado",
+              "notes": "Mañana: autos rápidos; 1/125 s todavía deja algo de barrido."
             },
             "afternoon": {
               "lens": "50mm",
-              "aperture": "f/8",
+              "aperture": "f/11",
               "shutter": "1/60",
-              "iso": 400,
-              "notes": "Tarde: luz baja, ISO 400, 1/60."
+              "iso": 100,
+              "scene": "antes_ocaso",
+              "notes": "Tarde: luz baja; baja a 1/60 s para más arrastre."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/4",
               "shutter": "1/30",
-              "iso": 1600,
+              "iso": 200,
+              "scene": "calle_noche",
               "notes": "Noche: faroles crean streaks luminosos preciosos."
             }
           },
@@ -1930,9 +2029,9 @@
           "technique": "fantasma",
           "technique_label": "Efecto Fantasma",
           "lens_focal": 35,
-          "aperture": "f/11",
+          "aperture": "f/16",
           "shutter": "4\"",
-          "iso": 200,
+          "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 12.0,
           "composition": "enmarcado",
@@ -1942,7 +2041,7 @@
           "camera_height_m": 1.55,
           "pose": "Riendo, cabeza ligeramente atrás, mano cerca de la boca",
           "scene_notes": "Sujeto en sala, marco natural de puerta abierta. 4s: sujeto ríe (movimiento de cabeza y manos sale como ghost), muebles quietos nítidos.",
-          "reasoning": "4s a f/11 ISO 200 con trípode. Sujeto enmarca la puerta abierta (enmarcado natural). El movimiento de cabeza y manos al reír produce ghosts sobre el cuerpo quieto. La puerta crea profundidad.",
+          "reasoning": "Unos 4 s con trípode. El sujeto se coloca en el marco de la puerta abierta (enmarcado natural). El movimiento de cabeza y manos al reír produce fantasmas sobre el cuerpo quieto. La puerta crea profundidad.",
           "dos": [
             "Trípode obligatorio",
             "Pide al sujeto: ríe suave, no muevas el cuerpo",
@@ -1955,23 +2054,27 @@
           "settings_by_time": {
             "day": {
               "lens": "35mm",
-              "aperture": "f/16",
-              "shutter": "4",
+              "aperture": "f/11",
+              "shutter": "4\"",
               "iso": 100,
-              "notes": "Mañana: ND8 necesario para 4s."
+              "scene": "oficina",
+              "nd_stops": 3,
+              "notes": "Mañana: la sala con luz de ventana aún pide un ND de 3 pasos para 4 s; o cierra las cortinas a medias."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "4",
+              "shutter": "4\"",
               "iso": 100,
-              "notes": "Tarde: posible sin ND."
+              "scene": "interior_casa",
+              "notes": "Tarde: lámparas interiores; 4 s sin filtro."
             },
             "night": {
               "lens": "35mm",
-              "aperture": "f/11",
-              "shutter": "4",
-              "iso": 200,
+              "aperture": "f/16",
+              "shutter": "4\"",
+              "iso": 100,
+              "scene": "interior_casa",
               "notes": "Noche: con lámparas interiores, ideal."
             }
           },
@@ -1991,7 +2094,7 @@
           "technique": "lightpainting",
           "technique_label": "Lightpainting",
           "lens_focal": 35,
-          "aperture": "f/8",
+          "aperture": "f/11",
           "shutter": "Bulb 30\"",
           "iso": 100,
           "subject_distance_m": 4.0,
@@ -2003,7 +2106,7 @@
           "camera_height_m": 1.4,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Habitación totalmente a oscuras. Sujeto quieto. Asistente traza contorno del sujeto + espirales alrededor con linterna LED.",
-          "reasoning": "Bulb 30s a f/8 ISO 100. Oscuridad total. El sujeto emerge del negro solo donde la luz lo toca. Punto de interés único: el contorno luminoso del sujeto. Tres capas: contorno, espiral externa, fondo negro.",
+          "reasoning": "En modo Bulb, unos 30 s en oscuridad total. El sujeto emerge del negro sólo donde la luz lo toca. Punto de interés único: el contorno luminoso. Tres capas: contorno, espiral externa y fondo negro.",
           "dos": [
             "Apaga TODAS las luces, hasta el LED del router (cúbrelo)",
             "Sujeto: respira suave, no te muevas 30s",
@@ -2016,24 +2119,27 @@
           "settings_by_time": {
             "day": {
               "lens": "35mm",
-              "aperture": "f/22",
-              "shutter": "Bulb 60",
+              "aperture": "f/11",
+              "shutter": "Bulb 30\"",
               "iso": 100,
-              "notes": "Mañana: imposible sin ND enorme, mejor de noche."
+              "scene": "oscuridad",
+              "notes": "De día sólo con cortinas opacas y la sala realmente a oscuras; si se filtra luz, pospón a la noche."
             },
             "afternoon": {
               "lens": "35mm",
-              "aperture": "f/22",
-              "shutter": "Bulb 60",
+              "aperture": "f/11",
+              "shutter": "Bulb 30\"",
               "iso": 100,
-              "notes": "Tarde: habitación oscura con cortinas cerradas, posible."
+              "scene": "oscuridad",
+              "notes": "Tarde: igual que de día, sólo si consigues oscuridad total."
             },
             "night": {
               "lens": "35mm",
-              "aperture": "f/8",
-              "shutter": "Bulb 30",
+              "aperture": "f/11",
+              "shutter": "Bulb 30\"",
               "iso": 100,
-              "notes": "Noche: ideal, habitación totalmente a oscuras."
+              "scene": "oscuridad",
+              "notes": "Noche: habitación totalmente a oscuras."
             }
           },
           "subjects": {
@@ -2052,9 +2158,9 @@
           "technique": "larga_exp",
           "technique_label": "Larga Exposición",
           "lens_focal": "35-80@35",
-          "aperture": "f/11",
+          "aperture": "f/9",
           "shutter": "20\"",
-          "iso": 200,
+          "iso": 100,
           "subject_distance_m": 15.0,
           "background_distance_m": 100.0,
           "composition": "perspectiva",
@@ -2064,7 +2170,7 @@
           "camera_height_m": 1.65,
           "pose": "Caminando hacia la cámara, paso natural, mirada al frente",
           "scene_notes": "Calle urbana pública de noche, cámara en trípode desde una zona peatonal segura. 20s: faroles como estrellas y autos como líneas rojas/blancas.",
-          "reasoning": "20s a f/11 ISO 200 con trípode. La perspectiva de la calle crea líneas convergentes hacia el fondo. La larga exposición transforma los autos en streaks de luz. Sujeto caminando desaparece casi por completo (ghost).",
+          "reasoning": "Unos 20 s con trípode. La perspectiva de la calle crea líneas convergentes hacia el fondo. La larga exposición convierte los autos en estelas de luz y un peatón casi desaparece.",
           "dos": [
             "Trípode en vereda firme (no al borde)",
             "Disparador remoto",
@@ -2078,23 +2184,29 @@
             "day": {
               "lens": "35-80mm @35",
               "aperture": "f/16",
-              "shutter": "10",
-              "iso": 100,
-              "notes": "Mañana: ND10 obligatorio para 10s."
+              "shutter": "10\"",
+              "iso": 160,
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Mañana: 10 s a pleno día exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35-80mm @35",
-              "aperture": "f/16",
-              "shutter": "10",
+              "aperture": "f/11",
+              "shutter": "10\"",
               "iso": 100,
-              "notes": "Tarde: ND8 o ND10."
+              "scene": "antes_ocaso",
+              "nd_stops": 10,
+              "notes": "Tarde: antes del ocaso todavía hace falta el ND de 10 pasos."
             },
             "night": {
               "lens": "35-80mm @35",
-              "aperture": "f/11",
-              "shutter": "20",
-              "iso": 200,
-              "notes": "Noche: ideal, faroles como estrellas de 6 puntas."
+              "aperture": "f/9",
+              "shutter": "20\"",
+              "iso": 100,
+              "scene": "trafico_noche",
+              "nd_stops": 3,
+              "notes": "Noche: 20 s con tráfico piden un ND de 3 pasos; si no tienes el filtro, baja a 3 s y f/11."
             }
           },
           "subjects": {
@@ -2114,8 +2226,8 @@
           "technique_label": "Zooming",
           "lens_focal": "35-80",
           "aperture": "f/11",
-          "shutter": "3\"",
-          "iso": 200,
+          "shutter": "3.2\"",
+          "iso": 100,
           "subject_distance_m": 6.0,
           "background_distance_m": 20.0,
           "composition": "capas",
@@ -2125,7 +2237,7 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Sujeto a 6 m en la sala, lámparas encendidas a diferentes distancias. Durante 3s gira el zoom de 35 a 80mm. Cada lámpara crea su propio estallido radial.",
-          "reasoning": "3s a f/11 ISO 200. El giro del zoom crea líneas radiales desde el centro. Las lámparas a diferentes distancias (capas de luz) generan estallidos de diferente longitud. Sujeto al centro queda estable.",
+          "reasoning": "Unos 3 s con trípode. El giro del zoom escala la imagen desde el centro: cada lámpara deja un trazo cuya longitud depende de lo lejos que esté del centro del encuadre, no de su distancia a la cámara. El sujeto centrado queda estable.",
           "dos": [
             "Practica el giro uniformemente",
             "Sujeto al centro exacto",
@@ -2138,24 +2250,28 @@
           "settings_by_time": {
             "day": {
               "lens": "35-80mm",
-              "aperture": "f/16",
-              "shutter": "3",
+              "aperture": "f/10",
+              "shutter": "3.2\"",
               "iso": 100,
-              "notes": "Mañana: ND8 necesario."
+              "scene": "oficina",
+              "nd_stops": 3,
+              "notes": "Mañana: luz de ventana; 3 s piden un ND de 3 pasos."
             },
             "afternoon": {
               "lens": "35-80mm",
               "aperture": "f/16",
-              "shutter": "3",
+              "shutter": "3.2\"",
               "iso": 100,
-              "notes": "Tarde: ND4 o ND8."
+              "scene": "interior_casa",
+              "notes": "Tarde: lámparas interiores, 3 s a f/16 sin filtro."
             },
             "night": {
               "lens": "35-80mm",
-              "aperture": "f/8",
-              "shutter": "3",
-              "iso": 800,
-              "notes": "Noche: con lámparas interiores, ISO 800."
+              "aperture": "f/11",
+              "shutter": "3.2\"",
+              "iso": 100,
+              "scene": "interior_casa",
+              "notes": "Noche: lámparas interiores, 3 s a f/11 sin filtro."
             }
           },
           "subjects": {
@@ -2191,8 +2307,8 @@
           "technique_label": "Mucha Profundidad de Campo",
           "lens_focal": 35,
           "aperture": "f/11",
-          "shutter": "1/250",
-          "iso": 200,
+          "shutter": "1/125",
+          "iso": 100,
           "subject_distance_m": 5.0,
           "background_distance_m": 30.0,
           "composition": "perspectiva",
@@ -2202,7 +2318,7 @@
           "camera_height_m": 1.65,
           "pose": "Caminando hacia la cámara, paso natural, mirada al frente",
           "scene_notes": "Jirón de la Unión peatonal. Cámara en eje central de la calle. Balcones coloniales a ambos lados convergen al fondo (cúpula de la Catedral visible).",
-          "reasoning": "35mm en FF: FoV amplio suficiente para abarcar la calle. f/11 da PDC de 2.5 m a infinito. La perspectiva de un solo punto (cámara en eje) crea líneas convergentes de balcones, cornisas y banderas hacia el fondo. El sujeto caminando da escala.",
+          "reasoning": "El 35 mm en full frame abarca la calle. A f/11, enfocando al sujeto a 5 m, queda nítido desde ≈2,1 m hasta el infinito. La perspectiva de un punto (cámara en el eje) hace converger balcones, cornisas y banderas hacia el fondo. El sujeto caminando da escala.",
           "dos": [
             "Encuadra PERFECTAMENTE en el eje central de la calle",
             "Espera un momento sin demasiada gente (temprano)",
@@ -2216,23 +2332,26 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1/250",
-              "iso": 200,
+              "shutter": "1/125",
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Mañana: 7-8am luz lateral cálida, menos gente."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
               "shutter": "1/125",
-              "iso": 400,
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde: luz dorada, más gente — espera momentos vacíos."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "1/15",
-              "iso": 1600,
-              "notes": "Noche: faroles del jirón, triple difícil por gente."
+              "shutter": "1/125",
+              "iso": 3200,
+              "scene": "calle_noche",
+              "notes": "Noche: faroles del jirón; ISO 3200 a 1/125 s congela a la gente que pasa."
             }
           },
           "subjects": {
@@ -2252,8 +2371,8 @@
           "technique_label": "Mucha Profundidad de Campo",
           "lens_focal": "35-80@35",
           "aperture": "f/8",
-          "shutter": "1/200",
-          "iso": 200,
+          "shutter": "1/250",
+          "iso": 100,
           "subject_distance_m": 8.0,
           "background_distance_m": 25.0,
           "composition": "simetria",
@@ -2277,23 +2396,26 @@
             "day": {
               "lens": "35-80mm @35",
               "aperture": "f/8",
-              "shutter": "1/200",
-              "iso": 200,
+              "shutter": "1/250",
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Mañana: mejor momento, plaza vacía."
             },
             "afternoon": {
               "lens": "35-80mm @35",
               "aperture": "f/8",
-              "shutter": "1/100",
-              "iso": 400,
+              "shutter": "1/125",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde: sombras largas pueden romper simetría."
             },
             "night": {
               "lens": "35-80mm @35",
-              "aperture": "f/5.6",
-              "shutter": "1/15",
-              "iso": 1600,
-              "notes": "Noche: iluminación del monumento, cuidado con WB."
+              "aperture": "f/8",
+              "shutter": "1/30",
+              "iso": 6400,
+              "scene": "iluminado_focos",
+              "notes": "Noche: monumento iluminado; cuida el balance de blancos y apoya la cámara para 1/30 s."
             }
           },
           "subjects": {
@@ -2313,8 +2435,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 85,
           "aperture": "f/1.8",
-          "shutter": "1/500",
-          "iso": 200,
+          "shutter": "1/1600",
+          "iso": 100,
           "subject_distance_m": 2.5,
           "background_distance_m": 12.0,
           "composition": "punto_interes",
@@ -2324,7 +2446,7 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Retrato 3/4 contra la fachada del Hotel Bolívar o Club Nacional. Fachada arquitectónica detallada desenfocada como textura.",
-          "reasoning": "85mm a 2.5 m y f/1.8: PDC ~6 cm. La fachada colonial a 12 m se convierte en textura marrón-crema uniforme. El sujeto es el único punto nítido de interés.",
+          "reasoning": "85 mm a 2,5 m y f/1.8: profundidad de campo ≈9 cm. La fachada a 12 m se convierte en una textura uniforme. El sujeto es el único punto nítido.",
           "dos": [
             "Enfoca el ojo más cercano con punto central + recomposición suave",
             "Si hay sol directo, busca sombra del arco para luz pareja",
@@ -2338,23 +2460,26 @@
             "day": {
               "lens": "85mm",
               "aperture": "f/2",
-              "shutter": "1/1000",
-              "iso": 200,
+              "shutter": "1/4000",
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Mañana: sombra de arco, luz suave."
             },
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/500",
-              "iso": 200,
+              "shutter": "1/1600",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde dorada: fachada brilla."
             },
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/60",
-              "iso": 3200,
-              "notes": "Noche: con iluminación del monumento, ISO alto."
+              "shutter": "1/125",
+              "iso": 1600,
+              "scene": "iluminado_focos",
+              "notes": "Noche: iluminación del monumento; ISO 1600 a f/1.8."
             }
           },
           "subjects": {
@@ -2374,8 +2499,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 50,
           "aperture": "f/1.8",
-          "shutter": "1/250",
-          "iso": 200,
+          "shutter": "1/1600",
+          "iso": 100,
           "subject_distance_m": 3.0,
           "background_distance_m": 6.0,
           "composition": "enmarcado",
@@ -2399,22 +2524,25 @@
             "day": {
               "lens": "50mm",
               "aperture": "f/2",
-              "shutter": "1/500",
-              "iso": 200,
+              "shutter": "1/4000",
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Mañana: luz lateral del arco, ideal."
             },
             "afternoon": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/250",
-              "iso": 200,
+              "shutter": "1/1600",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde dorada: arco cálido, sujeto iluminado."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/30",
-              "iso": 3200,
+              "shutter": "1/125",
+              "iso": 1600,
+              "scene": "iluminado_focos",
               "notes": "Noche: iluminación interior del arco, mágico."
             }
           },
@@ -2435,8 +2563,8 @@
           "technique_label": "Efecto Congelado",
           "lens_focal": 85,
           "aperture": "f/2.8",
-          "shutter": "1/2500",
-          "iso": 400,
+          "shutter": "1/2000",
+          "iso": 100,
           "subject_distance_m": 10.0,
           "background_distance_m": 100.0,
           "composition": "minimalismo",
@@ -2446,7 +2574,7 @@
           "camera_height_m": 0.6,
           "pose": "Salto vertical, brazos arriba, sonrisa amplia",
           "scene_notes": "Sujeto saltando en Plaza Mayor contra cielo despejado. Cámara baja mirando hacia arriba. Palomas en vuelo pueden sumarse.",
-          "reasoning": "1/2500s congela el salto + las palomas en vuelo. 85mm a 10 m encuadra medio cuerpo en el aire. Contrapicado aísla al sujeto contra el cielo azul. Minimalismo por eliminación.",
+          "reasoning": "1/2000 s congela el salto y las palomas en vuelo. A 10 m el 85 mm cubre ≈4,2 × 2,8 m: el cuerpo entero en el aire con margen. El contrapicado aísla al sujeto contra el cielo. Minimalismo por eliminación.",
           "dos": [
             "AF AI Servo + punto central + burst",
             "Coordina salto con movimiento de palomas (un asistente las asusta)",
@@ -2461,14 +2589,16 @@
               "lens": "85mm",
               "aperture": "f/4",
               "shutter": "1/4000",
-              "iso": 200,
+              "iso": 400,
+              "scene": "sol_velado",
               "notes": "Mañana: cielo azul, sombras duras."
             },
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/2.8",
-              "shutter": "1/2500",
-              "iso": 400,
+              "shutter": "1/2000",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde dorada: cielo cálido."
             },
             "night": {
@@ -2476,7 +2606,9 @@
               "aperture": "f/2.8",
               "shutter": "1/1250",
               "iso": 6400,
-              "notes": "Noche: muy difícil, mejor día."
+              "scene": "iluminado_focos",
+              "viable": false,
+              "notes": "Noche: no viable sin flash; pospón al día."
             }
           },
           "subjects": {
@@ -2495,9 +2627,9 @@
           "technique": "barrido",
           "technique_label": "Efecto Barrido",
           "lens_focal": 50,
-          "aperture": "f/11",
+          "aperture": "f/13",
           "shutter": "1/30",
-          "iso": 100,
+          "iso": 125,
           "subject_distance_m": 8.0,
           "background_distance_m": 40.0,
           "composition": "tercios",
@@ -2507,7 +2639,7 @@
           "camera_height_m": 1.0,
           "pose": "Corriendo, en aire, brazos en oposición",
           "scene_notes": "Peatón o ciclista en Jirón de la Unión. Cámara sigue el movimiento. Fachadas coloniales en streaks horizontales.",
-          "reasoning": "1/30s con seguimiento. 50mm a 8 m encuadra medio cuerpo en movimiento. El sujeto en el tercio derecho entrante. f/11 da margen para fallos de seguimiento. Las fachadas en streaks crean dinamismo.",
+          "reasoning": "1/30 s con seguimiento. A 8 m el 50 mm cubre ≈5,7 × 3,8 m: cuerpo entero con las fachadas alrededor. Sujeto en el tercio derecho, entrando. Las fachadas en estelas crean dinamismo.",
           "dos": [
             "Posiciónate donde los peatones pasen predeciblemente (esquina)",
             "Gira torso: prep → dispara → continúa 1s",
@@ -2520,24 +2652,28 @@
           "settings_by_time": {
             "day": {
               "lens": "50mm",
-              "aperture": "f/11",
+              "aperture": "f/13",
               "shutter": "1/30",
-              "iso": 100,
-              "notes": "Mañana: luz fuerte, ideal."
+              "iso": 125,
+              "scene": "sol_velado",
+              "nd_stops": 2,
+              "notes": "Mañana: a pleno sol 1/30 s pide f/13 y un ND de 2 pasos; si no tienes el filtro, sube a 1/60 s."
             },
             "afternoon": {
               "lens": "50mm",
-              "aperture": "f/8",
+              "aperture": "f/16",
               "shutter": "1/30",
-              "iso": 200,
-              "notes": "Tarde dorada: streaks cálidos."
+              "iso": 100,
+              "scene": "antes_ocaso",
+              "notes": "Tarde dorada: f/16 sin filtro; estelas cálidas."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/4",
               "shutter": "1/30",
-              "iso": 1600,
-              "notes": "Noche: faroles crean streaks luminosos."
+              "iso": 200,
+              "scene": "calle_noche",
+              "notes": "Noche: faroles del jirón; 1/30 s a f/4 e ISO 200."
             }
           },
           "subjects": {
@@ -2556,8 +2692,8 @@
           "technique": "fantasma",
           "technique_label": "Efecto Fantasma",
           "lens_focal": 35,
-          "aperture": "f/11",
-          "shutter": "3\"",
+          "aperture": "f/8",
+          "shutter": "3.2\"",
           "iso": 100,
           "subject_distance_m": 5.0,
           "background_distance_m": 20.0,
@@ -2568,7 +2704,7 @@
           "camera_height_m": 1.8,
           "pose": "Sentado, codo en rodilla, mano en mentón",
           "scene_notes": "Sujeto sentado en un banco de la plaza, enmarcado por el monumento. 3s: sujeto quieto nítido, transeúntes detrás como ghosts.",
-          "reasoning": "3s a f/11 ISO 100. Sujeto quieto en banco, transeúntes detrás ghosts. El monumento enmarca el encuadre. Picado ligero muestra los adoquines.",
+          "reasoning": "Unos 3 s con trípode. Sujeto quieto en el banco y transeúntes detrás como fantasmas. El monumento enmarca la escena. Un picado ligero muestra los adoquines.",
           "dos": [
             "Trípode obligatorio",
             "Pide al sujeto: respira suave, no te muevas",
@@ -2581,24 +2717,29 @@
           "settings_by_time": {
             "day": {
               "lens": "35mm",
-              "aperture": "f/16",
-              "shutter": "3",
-              "iso": 100,
-              "notes": "Mañana: ND10 obligatorio, difícil."
+              "aperture": "f/8",
+              "shutter": "3.2\"",
+              "iso": 125,
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Mañana: 3 s a pleno sol exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "3",
+              "shutter": "3.2\"",
               "iso": 100,
-              "notes": "Tarde: hora dorada, posible sin ND."
+              "scene": "antes_ocaso",
+              "nd_stops": 6,
+              "notes": "Tarde: antes del ocaso aún hace falta un ND de 6 pasos; en la hora azul ya no."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "3",
-              "iso": 400,
-              "notes": "Noche: con iluminación del monumento, perfecto."
+              "shutter": "3.2\"",
+              "iso": 100,
+              "scene": "iluminado_focos",
+              "notes": "Noche: monumento iluminado; 3 s a f/8 sin filtro."
             }
           },
           "subjects": {
@@ -2617,7 +2758,7 @@
           "technique": "lightpainting",
           "technique_label": "Lightpainting",
           "lens_focal": 35,
-          "aperture": "f/8",
+          "aperture": "f/10",
           "shutter": "Bulb 25\"",
           "iso": 100,
           "subject_distance_m": 5.0,
@@ -2629,7 +2770,7 @@
           "camera_height_m": 1.0,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Sujeto en una esquina oscura de la plaza (lejos de faroles). Asistente traza con linterna. Solo sujeto + trazo de luz, fondo arquitectónico negro.",
-          "reasoning": "Bulb 25s a f/8 ISO 100. Esquina oscura de la plaza. El sujeto emerge del negro. Minimalismo extremo: solo el contorno luminoso.",
+          "reasoning": "En modo Bulb, unos 25 s. Esquina oscura de la plaza, lejos de los faroles. El sujeto emerge del negro. Minimalismo extremo: sólo el contorno luminoso.",
           "dos": [
             "Encuentra la esquina más oscura (lejos de faroles)",
             "Sujeto: muy quieto 25s",
@@ -2645,21 +2786,26 @@
               "aperture": "f/22",
               "shutter": "Bulb 60",
               "iso": 100,
-              "notes": "Mañana: imposible sin ND enorme."
+              "scene": "sol_velado",
+              "viable": false,
+              "notes": "No viable de día: la luz ambiente taparía el trazo."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/22",
               "shutter": "Bulb 30",
               "iso": 100,
-              "notes": "Tarde: solo en zona muy sombreada."
+              "scene": "antes_ocaso",
+              "viable": false,
+              "notes": "No viable de tarde: pospón a la noche."
             },
             "night": {
               "lens": "35mm",
-              "aperture": "f/8",
-              "shutter": "Bulb 25",
+              "aperture": "f/10",
+              "shutter": "Bulb 25\"",
               "iso": 100,
-              "notes": "Noche: ideal, esquina oscura de la plaza."
+              "scene": "oscuridad",
+              "notes": "Noche: esquina lejos de los faroles; si el fondo sale gris, cierra a f/13."
             }
           },
           "subjects": {
@@ -2678,7 +2824,7 @@
           "technique": "larga_exp",
           "technique_label": "Larga Exposición",
           "lens_focal": "35-80@50",
-          "aperture": "f/11",
+          "aperture": "f/16",
           "shutter": "20\"",
           "iso": 100,
           "subject_distance_m": 20.0,
@@ -2690,7 +2836,7 @@
           "camera_height_m": 1.65,
           "pose": "Caminando hacia la cámara, paso natural, mirada al frente",
           "scene_notes": "Cámara en trípode apuntando a la Plaza Mayor desde la galería. 20s: palomas como ghosts, autos lejanos como streaks, adoquines nítidos, fuentes del agua en niebla.",
-          "reasoning": "20s a f/11 ISO 100. Las palomas en vuelo desaparecen, los autos lejanos se estiran en líneas rojas. Las capas: adoquines (FG), fuente (mid), Catedral (BG). La larga exposición transforma la escena caótica en algo onírico.",
+          "reasoning": "Unos 15–20 s con trípode. Las palomas en vuelo desaparecen y los autos lejanos se estiran en líneas rojas. Capas: adoquines delante, fuente en medio y Catedral al fondo. La larga exposición vuelve onírica una escena caótica.",
           "dos": [
             "Trípode en roca firme (no madera de bancas)",
             "Disparador remoto",
@@ -2704,23 +2850,28 @@
             "day": {
               "lens": "35-80mm @50",
               "aperture": "f/16",
-              "shutter": "15",
+              "shutter": "15\"",
               "iso": 100,
-              "notes": "Mañana: ND10 obligatorio para 15s."
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Mañana: 15 s a pleno día exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35-80mm @50",
-              "aperture": "f/16",
-              "shutter": "15",
+              "aperture": "f/11",
+              "shutter": "15\"",
               "iso": 100,
-              "notes": "Tarde: ND8 suficiente."
+              "scene": "antes_ocaso",
+              "nd_stops": 10,
+              "notes": "Tarde: antes del ocaso sigue haciendo falta el ND de 10 pasos."
             },
             "night": {
               "lens": "35-80mm @50",
-              "aperture": "f/11",
-              "shutter": "20",
-              "iso": 200,
-              "notes": "Noche: con iluminación del monumento, ideal."
+              "aperture": "f/16",
+              "shutter": "20\"",
+              "iso": 100,
+              "scene": "iluminado_focos",
+              "notes": "Noche: plaza iluminada; 20 s a f/16 sin filtro."
             }
           },
           "subjects": {
@@ -2739,8 +2890,8 @@
           "technique": "zooming",
           "technique_label": "Zooming",
           "lens_focal": "35-80",
-          "aperture": "f/11",
-          "shutter": "3\"",
+          "aperture": "f/8",
+          "shutter": "3.2\"",
           "iso": 100,
           "subject_distance_m": 7.0,
           "background_distance_m": 40.0,
@@ -2751,7 +2902,7 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Sujeto a 7 m contra la fachada iluminada de la Catedral. Durante 3s gira el zoom de 35 a 80mm. La fachada se estira en estallido radial.",
-          "reasoning": "3s a f/11 ISO 100. Giro del zoom crea líneas radiales desde el centro. La fachada iluminada se convierte en estallido. Sujeto al centro queda relativamente estable.",
+          "reasoning": "Unos 3 s con trípode. El giro del zoom crea líneas radiales desde el centro; la fachada iluminada estalla hacia los bordes. El sujeto centrado queda casi estable.",
           "dos": [
             "Practica el giro uniformemente",
             "Sujeto al centro exacto",
@@ -2764,24 +2915,29 @@
           "settings_by_time": {
             "day": {
               "lens": "35-80mm",
-              "aperture": "f/16",
-              "shutter": "3",
-              "iso": 100,
-              "notes": "Mañana: ND8 obligatorio."
+              "aperture": "f/8",
+              "shutter": "3.2\"",
+              "iso": 125,
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Mañana: 3 s a pleno sol exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35-80mm",
               "aperture": "f/16",
-              "shutter": "3",
+              "shutter": "3.2\"",
               "iso": 100,
-              "notes": "Tarde: ND4 o ND8."
+              "scene": "antes_ocaso",
+              "nd_stops": 6,
+              "notes": "Tarde: con ND de 6 pasos."
             },
             "night": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "3",
-              "iso": 800,
-              "notes": "Noche: fachada iluminada, ISO 800."
+              "shutter": "3.2\"",
+              "iso": 100,
+              "scene": "iluminado_focos",
+              "notes": "Noche: fachada iluminada, 3 s a f/8 e ISO 100 sin filtro."
             }
           },
           "subjects": {
@@ -2818,7 +2974,7 @@
           "lens_focal": 35,
           "aperture": "f/11",
           "shutter": "1/125",
-          "iso": 800,
+          "iso": 6400,
           "subject_distance_m": 3.5,
           "background_distance_m": 8.0,
           "composition": "capas",
@@ -2843,22 +2999,25 @@
               "lens": "35mm",
               "aperture": "f/11",
               "shutter": "1/125",
-              "iso": 800,
-              "notes": "Día: usa luz de ventana; evita mezclar demasiadas temperaturas."
+              "iso": 6400,
+              "scene": "oficina",
+              "notes": "Día: luz de ventana. ISO 6400 sostiene 1/125 s a f/11; con trípode y sujeto quieto, baja a 1/15 s e ISO 800."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1/125",
-              "iso": 1600,
-              "notes": "Tarde: prioriza 1/125 si el sujeto puede moverse."
+              "shutter": "1/60",
+              "iso": 6400,
+              "scene": "interior_casa",
+              "notes": "Tarde: 1/60 s basta si el sujeto se queda quieto; si se mueve, vuelve a 1/125 s."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "1/80",
-              "iso": 3200,
-              "notes": "Noche: acepta ISO mayor o usa sujeto/objeto totalmente estático."
+              "shutter": "1/125",
+              "iso": 6400,
+              "scene": "interior_casa",
+              "notes": "Noche: acepta ISO 6400 o usa trípode con un sujeto u objeto totalmente quieto."
             }
           },
           "subjects": {
@@ -2879,7 +3038,7 @@
           "lens_focal": 35,
           "aperture": "f/8",
           "shutter": "1/125",
-          "iso": 800,
+          "iso": 3200,
           "subject_distance_m": 5.0,
           "background_distance_m": 10.0,
           "composition": "simetria",
@@ -2903,21 +3062,24 @@
               "lens": "35mm",
               "aperture": "f/8",
               "shutter": "1/125",
-              "iso": 800,
+              "iso": 3200,
+              "scene": "oficina",
               "notes": "Día: corredor con luz de ventana."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "1/100",
-              "iso": 1600,
+              "shutter": "1/125",
+              "iso": 6400,
+              "scene": "interior_casa",
               "notes": "Tarde: conserva simetría, no subexpongas por miedo al ISO."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "1/60",
-              "iso": 3200,
+              "shutter": "1/125",
+              "iso": 6400,
+              "scene": "interior_casa",
               "notes": "Noche: trípode si no hay sujeto en movimiento."
             }
           },
@@ -2938,8 +3100,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 85,
           "aperture": "f/1.8",
-          "shutter": "1/500",
-          "iso": 1600,
+          "shutter": "1/125",
+          "iso": 400,
           "subject_distance_m": 3.0,
           "background_distance_m": 11.0,
           "composition": "tercios",
@@ -2962,22 +3124,25 @@
             "day": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/500",
-              "iso": 800,
+              "shutter": "1/125",
+              "iso": 200,
+              "scene": "oficina",
               "notes": "Día: ventana lateral; cuida altas luces."
             },
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/500",
-              "iso": 1600,
+              "shutter": "1/125",
+              "iso": 400,
+              "scene": "interior_casa",
               "notes": "Tarde: mantén shutter y deja subir ISO."
             },
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/320",
-              "iso": 6400,
+              "shutter": "1/125",
+              "iso": 400,
+              "scene": "interior_casa",
               "notes": "Noche: busca una fuente suave grande o reubica cerca de ventana/lámpara."
             }
           },
@@ -2998,8 +3163,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 50,
           "aperture": "f/1.8",
-          "shutter": "1/250",
-          "iso": 1600,
+          "shutter": "1/125",
+          "iso": 400,
           "subject_distance_m": 2.2,
           "background_distance_m": 8.0,
           "composition": "enmarcado",
@@ -3022,22 +3187,25 @@
             "day": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/320",
-              "iso": 800,
+              "shutter": "1/125",
+              "iso": 200,
+              "scene": "oficina",
               "notes": "Día: marco claro + fondo más oscuro funciona muy bien."
             },
             "afternoon": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/250",
-              "iso": 1600,
+              "shutter": "1/125",
+              "iso": 400,
+              "scene": "interior_casa",
               "notes": "Tarde: usa luz lateral de puerta/ventana."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/200",
-              "iso": 3200,
+              "shutter": "1/125",
+              "iso": 400,
+              "scene": "interior_casa",
               "notes": "Noche: acerca luz, no sujeto al fondo."
             }
           },
@@ -3057,9 +3225,9 @@
           "technique": "congelado",
           "technique_label": "Efecto Congelado",
           "lens_focal": 50,
-          "aperture": "f/2.8",
+          "aperture": "f/2",
           "shutter": "1/1600",
-          "iso": 3200,
+          "iso": 5000,
           "subject_distance_m": 5.0,
           "background_distance_m": 12.0,
           "composition": "punto_interes",
@@ -3084,22 +3252,26 @@
               "lens": "50mm",
               "aperture": "f/2.8",
               "shutter": "1/2000",
-              "iso": 1600,
-              "notes": "Día: cerca de ventana grande."
+              "iso": 6400,
+              "scene": "oficina",
+              "notes": "Día: junto a una ventana grande; ISO 6400 es preferible a un salto movido."
             },
             "afternoon": {
               "lens": "50mm",
-              "aperture": "f/2.8",
+              "aperture": "f/2",
               "shutter": "1/1600",
-              "iso": 3200,
-              "notes": "Tarde: ISO alto es preferible a motion blur."
+              "iso": 5000,
+              "scene": "interior_casa",
+              "notes": "Tarde: abre a f/2 e ISO 5000; si aún falta luz, usa flash o pospón."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/2.8",
               "shutter": "1/1000",
               "iso": 6400,
-              "notes": "Noche: si no hay luz suficiente, pospón esta toma."
+              "scene": "interior_casa",
+              "viable": false,
+              "notes": "Noche: no viable sin flash; pospón esta toma."
             }
           },
           "subjects": {
@@ -3118,7 +3290,7 @@
           "technique": "barrido",
           "technique_label": "Efecto Barrido",
           "lens_focal": 35,
-          "aperture": "f/8",
+          "aperture": "f/4",
           "shutter": "1/40",
           "iso": 800,
           "subject_distance_m": 4.0,
@@ -3142,23 +3314,26 @@
           "settings_by_time": {
             "day": {
               "lens": "35mm",
-              "aperture": "f/8",
+              "aperture": "f/4",
               "shutter": "1/40",
               "iso": 400,
-              "notes": "Día: si sobra luz, cierra más o busca sombra."
+              "scene": "oficina",
+              "notes": "Día: luz de ventana en el pasillo; 1/40 s a f/4."
             },
             "afternoon": {
               "lens": "35mm",
-              "aperture": "f/8",
+              "aperture": "f/4",
               "shutter": "1/40",
               "iso": 800,
+              "scene": "interior_casa",
               "notes": "Tarde: ideal para repetir series."
             },
             "night": {
               "lens": "35mm",
-              "aperture": "f/5.6",
+              "aperture": "f/4",
               "shutter": "1/40",
-              "iso": 1600,
+              "iso": 800,
+              "scene": "interior_casa",
               "notes": "Noche: líneas de luces ayudan a visualizar el barrido."
             }
           },
@@ -3179,7 +3354,7 @@
           "technique_label": "Efecto Fantasma",
           "lens_focal": 35,
           "aperture": "f/8",
-          "shutter": "1 s",
+          "shutter": "1\"",
           "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 10.0,
@@ -3203,22 +3378,25 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "1",
+              "shutter": "1\"",
               "iso": 100,
-              "notes": "Día: puede requerir sombra o ND."
+              "scene": "oficina",
+              "notes": "Día: luz de ventana; 1 s a f/16 sin filtro."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1",
+              "shutter": "1\"",
               "iso": 100,
+              "scene": "interior_casa",
               "notes": "Tarde: muy controlable en pasillo."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "1",
-              "iso": 200,
+              "shutter": "1\"",
+              "iso": 100,
+              "scene": "interior_casa",
               "notes": "Noche: suficiente luz para leer el fondo."
             }
           },
@@ -3239,7 +3417,7 @@
           "technique_label": "Lightpainting",
           "lens_focal": 35,
           "aperture": "f/8",
-          "shutter": "10 s",
+          "shutter": "10\"",
           "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 10.0,
@@ -3263,23 +3441,26 @@
           "settings_by_time": {
             "day": {
               "lens": "35mm",
-              "aperture": "f/11",
-              "shutter": "10",
+              "aperture": "f/8",
+              "shutter": "10\"",
               "iso": 100,
-              "notes": "Día: oscurece por completo el ambiente."
+              "scene": "oscuridad",
+              "notes": "Día: oscurece por completo la sala; si entra luz, pospón a la noche."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "10",
+              "shutter": "10\"",
               "iso": 100,
-              "notes": "Tarde: control de cortinas/luces."
+              "scene": "oscuridad",
+              "notes": "Tarde: controla cortinas y luces hasta que la sala quede a oscuras."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "10",
+              "shutter": "10\"",
               "iso": 100,
+              "scene": "oscuridad",
               "notes": "Noche: escenario ideal."
             }
           },
@@ -3299,8 +3480,8 @@
           "technique": "larga_exp",
           "technique_label": "Larga Exposición",
           "lens_focal": 35,
-          "aperture": "f/11",
-          "shutter": "10 s",
+          "aperture": "f/16",
+          "shutter": "8\"",
           "iso": 100,
           "subject_distance_m": 10.0,
           "background_distance_m": 40.0,
@@ -3324,24 +3505,29 @@
           "settings_by_time": {
             "day": {
               "lens": "35mm",
-              "aperture": "f/16",
-              "shutter": "5",
+              "aperture": "f/9",
+              "shutter": "5\"",
               "iso": 100,
-              "notes": "Día: ND fuerte si quieres segundos."
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Día: 5 s a pleno día exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "5",
+              "shutter": "5\"",
               "iso": 100,
-              "notes": "Blue hour: equilibrio excelente entre ciudad y trazas."
+              "scene": "tras_ocaso",
+              "nd_stops": 6,
+              "notes": "Hora azul: todavía sobra luz para 5 s; usa un ND de 6 pasos o espera a que oscurezca."
             },
             "night": {
               "lens": "35mm",
-              "aperture": "f/11",
-              "shutter": "10",
+              "aperture": "f/16",
+              "shutter": "8\"",
               "iso": 100,
-              "notes": "Noche: ajusta a 5–15 s según densidad de tráfico."
+              "scene": "trafico_noche",
+              "notes": "Noche: ajusta a 5–15 s según la densidad del tráfico."
             }
           },
           "subjects": {
@@ -3361,7 +3547,7 @@
           "technique_label": "Zooming",
           "lens_focal": "35-80",
           "aperture": "f/8",
-          "shutter": "2 s",
+          "shutter": "2\"",
           "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 12.0,
@@ -3385,23 +3571,26 @@
           "settings_by_time": {
             "day": {
               "lens": "35-80mm",
-              "aperture": "f/11",
-              "shutter": "2",
+              "aperture": "f/16",
+              "shutter": "2\"",
               "iso": 100,
-              "notes": "Día: ND/sombra si necesitas 2 s."
+              "scene": "oficina",
+              "notes": "Día: luz de ventana, 2 s a f/16 sin filtro."
             },
             "afternoon": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "2",
+              "shutter": "2\"",
               "iso": 100,
+              "scene": "interior_casa",
               "notes": "Tarde: luces puntuales empiezan a destacar."
             },
             "night": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "2",
+              "shutter": "2\"",
               "iso": 100,
+              "scene": "interior_casa",
               "notes": "Noche: ideal; prueba ambos sentidos del zoom."
             }
           },
@@ -3438,8 +3627,8 @@
           "technique_label": "Mucha Profundidad de Campo",
           "lens_focal": 35,
           "aperture": "f/11",
-          "shutter": "1/160",
-          "iso": 200,
+          "shutter": "1/125",
+          "iso": 100,
           "subject_distance_m": 4.0,
           "background_distance_m": 14.0,
           "composition": "capas",
@@ -3462,22 +3651,25 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1/250",
-              "iso": 200,
+              "shutter": "1/125",
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Día: luz lateral en fachada."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1/160",
-              "iso": 400,
+              "shutter": "1/125",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde: conservar 3 planos."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "1/80",
-              "iso": 1600,
+              "shutter": "1/125",
+              "iso": 3200,
+              "scene": "calle_noche",
               "notes": "Noche: trípode si escena sin sujeto móvil."
             }
           },
@@ -3499,7 +3691,7 @@
           "lens_focal": 35,
           "aperture": "f/8",
           "shutter": "1/160",
-          "iso": 200,
+          "iso": 100,
           "subject_distance_m": 5.0,
           "background_distance_m": 14.0,
           "composition": "simetria",
@@ -3522,21 +3714,24 @@
               "lens": "35mm",
               "aperture": "f/8",
               "shutter": "1/250",
-              "iso": 200,
+              "iso": 100,
+              "scene": "sol_velado",
               "notes": "Día."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/8",
               "shutter": "1/160",
-              "iso": 400,
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "1/60",
-              "iso": 1600,
+              "shutter": "1/125",
+              "iso": 3200,
+              "scene": "calle_noche",
               "notes": "Noche: trípode si hace falta."
             }
           },
@@ -3557,8 +3752,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 85,
           "aperture": "f/1.8",
-          "shutter": "1/500",
-          "iso": 200,
+          "shutter": "1/1600",
+          "iso": 100,
           "subject_distance_m": 3.0,
           "background_distance_m": 15.0,
           "composition": "tercios",
@@ -3579,23 +3774,26 @@
           "settings_by_time": {
             "day": {
               "lens": "85mm",
-              "aperture": "f/1.8",
-              "shutter": "1/800",
+              "aperture": "f/2",
+              "shutter": "1/4000",
               "iso": 100,
+              "scene": "sol_velado",
               "notes": "Día."
             },
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/500",
-              "iso": 200,
+              "shutter": "1/1600",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde dorada."
             },
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/320",
-              "iso": 3200,
+              "shutter": "1/125",
+              "iso": 200,
+              "scene": "calle_noche",
               "notes": "Noche: busca fachada iluminada lejana."
             }
           },
@@ -3616,8 +3814,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 50,
           "aperture": "f/1.8",
-          "shutter": "1/320",
-          "iso": 200,
+          "shutter": "1/1600",
+          "iso": 100,
           "subject_distance_m": 2.2,
           "background_distance_m": 10.0,
           "composition": "enmarcado",
@@ -3638,23 +3836,26 @@
           "settings_by_time": {
             "day": {
               "lens": "50mm",
-              "aperture": "f/1.8",
-              "shutter": "1/500",
+              "aperture": "f/2",
+              "shutter": "1/4000",
               "iso": 100,
+              "scene": "sol_velado",
               "notes": "Día."
             },
             "afternoon": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/320",
-              "iso": 200,
+              "shutter": "1/1600",
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/1.8",
-              "shutter": "1/200",
-              "iso": 1600,
+              "shutter": "1/125",
+              "iso": 200,
+              "scene": "calle_noche",
               "notes": "Noche."
             }
           },
@@ -3676,7 +3877,7 @@
           "lens_focal": 85,
           "aperture": "f/2.8",
           "shutter": "1/2000",
-          "iso": 400,
+          "iso": 100,
           "subject_distance_m": 8.0,
           "background_distance_m": 20.0,
           "composition": "espacio_neg",
@@ -3700,14 +3901,16 @@
               "lens": "85mm",
               "aperture": "f/2.8",
               "shutter": "1/2000",
-              "iso": 400,
-              "notes": "Día/tarde."
+              "iso": 100,
+              "scene": "sol_velado",
+              "notes": "Día: 1/2000 s a f/2.8 deja margen de enfoque."
             },
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/2.8",
               "shutter": "1/2000",
-              "iso": 800,
+              "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde."
             },
             "night": {
@@ -3715,7 +3918,9 @@
               "aperture": "f/2.8",
               "shutter": "1/1000",
               "iso": 6400,
-              "notes": "Noche: mejor posponer si falta luz."
+              "scene": "calle_noche",
+              "viable": false,
+              "notes": "Noche: no viable sin flash; pospón."
             }
           },
           "subjects": {
@@ -3734,7 +3939,7 @@
           "technique": "barrido",
           "technique_label": "Efecto Barrido",
           "lens_focal": 50,
-          "aperture": "f/8",
+          "aperture": "f/11",
           "shutter": "1/40",
           "iso": 100,
           "subject_distance_m": 8.0,
@@ -3758,23 +3963,27 @@
           "settings_by_time": {
             "day": {
               "lens": "50mm",
-              "aperture": "f/11",
+              "aperture": "f/10",
               "shutter": "1/40",
               "iso": 100,
-              "notes": "Día."
+              "scene": "sol_velado",
+              "nd_stops": 2,
+              "notes": "Día: a pleno sol 1/40 s pide f/10 y un ND de 2 pasos; si no tienes el filtro, sube a 1/80 s."
             },
             "afternoon": {
               "lens": "50mm",
-              "aperture": "f/8",
+              "aperture": "f/11",
               "shutter": "1/40",
               "iso": 100,
+              "scene": "antes_ocaso",
               "notes": "Tarde."
             },
             "night": {
               "lens": "50mm",
               "aperture": "f/4",
               "shutter": "1/40",
-              "iso": 800,
+              "iso": 400,
+              "scene": "calle_noche",
               "notes": "Noche: luces del fondo ayudan."
             }
           },
@@ -3794,8 +4003,8 @@
           "technique": "fantasma",
           "technique_label": "Efecto Fantasma",
           "lens_focal": 35,
-          "aperture": "f/8",
-          "shutter": "1 s",
+          "aperture": "f/16",
+          "shutter": "1\"",
           "iso": 100,
           "subject_distance_m": 5.0,
           "background_distance_m": 14.0,
@@ -3818,22 +4027,27 @@
             "day": {
               "lens": "35mm",
               "aperture": "f/16",
-              "shutter": "1",
+              "shutter": "1\"",
               "iso": 100,
-              "notes": "Día: sombra/ND."
+              "scene": "sol_velado",
+              "nd_stops": 6,
+              "notes": "Día: 1 s a pleno sol exige un ND de 6 pasos."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "1",
+              "shutter": "1\"",
               "iso": 100,
-              "notes": "Tarde."
+              "scene": "antes_ocaso",
+              "nd_stops": 6,
+              "notes": "Tarde: antes del ocaso aún hace falta un ND de 6 pasos."
             },
             "night": {
               "lens": "35mm",
-              "aperture": "f/8",
-              "shutter": "1",
-              "iso": 200,
+              "aperture": "f/16",
+              "shutter": "1\"",
+              "iso": 100,
+              "scene": "calle_noche",
               "notes": "Noche."
             }
           },
@@ -3854,7 +4068,7 @@
           "technique_label": "Lightpainting",
           "lens_focal": 35,
           "aperture": "f/8",
-          "shutter": "10 s",
+          "shutter": "10\"",
           "iso": 100,
           "subject_distance_m": 5.0,
           "background_distance_m": 12.0,
@@ -3879,20 +4093,25 @@
               "aperture": "f/16",
               "shutter": "10",
               "iso": 100,
-              "notes": "Día: sólo interior oscuro/ND."
+              "scene": "sol_velado",
+              "viable": false,
+              "notes": "No viable al aire libre de día; hazla en un interior a oscuras o de noche."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
               "shutter": "10",
               "iso": 100,
-              "notes": "Tarde."
+              "scene": "antes_ocaso",
+              "viable": false,
+              "notes": "No viable de tarde: pospón a la noche."
             },
             "night": {
               "lens": "35mm",
               "aperture": "f/8",
-              "shutter": "10",
+              "shutter": "10\"",
               "iso": 100,
+              "scene": "oscuridad",
               "notes": "Noche ideal."
             }
           },
@@ -3912,8 +4131,8 @@
           "technique": "larga_exp",
           "technique_label": "Larga Exposición",
           "lens_focal": 35,
-          "aperture": "f/11",
-          "shutter": "8 s",
+          "aperture": "f/16",
+          "shutter": "8\"",
           "iso": 100,
           "subject_distance_m": 12.0,
           "background_distance_m": 60.0,
@@ -3937,23 +4156,28 @@
           "settings_by_time": {
             "day": {
               "lens": "35mm",
-              "aperture": "f/16",
-              "shutter": "5",
+              "aperture": "f/9",
+              "shutter": "5\"",
               "iso": 100,
-              "notes": "Día: ND fuerte."
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Día: 5 s exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35mm",
               "aperture": "f/11",
-              "shutter": "5",
+              "shutter": "5\"",
               "iso": 100,
-              "notes": "Blue hour."
+              "scene": "tras_ocaso",
+              "nd_stops": 6,
+              "notes": "Hora azul: todavía hace falta un ND de 6 pasos para 5 s."
             },
             "night": {
               "lens": "35mm",
-              "aperture": "f/11",
-              "shutter": "8",
+              "aperture": "f/16",
+              "shutter": "8\"",
               "iso": 100,
+              "scene": "trafico_noche",
               "notes": "Noche."
             }
           },
@@ -3974,7 +4198,7 @@
           "technique_label": "Zooming",
           "lens_focal": "35-80",
           "aperture": "f/8",
-          "shutter": "2 s",
+          "shutter": "2\"",
           "iso": 100,
           "subject_distance_m": 6.0,
           "background_distance_m": 20.0,
@@ -3998,23 +4222,28 @@
           "settings_by_time": {
             "day": {
               "lens": "35-80mm",
-              "aperture": "f/11",
-              "shutter": "2",
-              "iso": 100,
-              "notes": "Día: ND."
+              "aperture": "f/8",
+              "shutter": "2\"",
+              "iso": 200,
+              "scene": "sol_velado",
+              "nd_stops": 10,
+              "notes": "Día: 2 s a pleno sol exigen un ND de 10 pasos."
             },
             "afternoon": {
               "lens": "35-80mm",
-              "aperture": "f/8",
-              "shutter": "2",
+              "aperture": "f/16",
+              "shutter": "2\"",
               "iso": 100,
-              "notes": "Tarde."
+              "scene": "antes_ocaso",
+              "nd_stops": 6,
+              "notes": "Tarde: con ND de 6 pasos."
             },
             "night": {
               "lens": "35-80mm",
               "aperture": "f/8",
-              "shutter": "2",
+              "shutter": "2\"",
               "iso": 100,
+              "scene": "iluminado_focos",
               "notes": "Noche ideal."
             }
           },
@@ -4031,5 +4260,91 @@
         }
       ]
     }
-  ]
+  ],
+  "scene_light": {
+    "sol_pleno": {
+      "ev_low": 15,
+      "ev_high": 15,
+      "label": "sol pleno o levemente velado",
+      "source": "ANSI PH2.7 · escena típica a pleno sol"
+    },
+    "sol_velado": {
+      "ev_low": 14,
+      "ev_high": 14,
+      "label": "sol velado",
+      "source": "ANSI PH2.7 · sol con bruma"
+    },
+    "nublado_claro": {
+      "ev_low": 13,
+      "ev_high": 13,
+      "label": "nublado claro (garúa sin sombras)",
+      "source": "ANSI PH2.7 · nublado brillante"
+    },
+    "sombra_abierta": {
+      "ev_low": 12,
+      "ev_high": 12,
+      "label": "sombra abierta o nublado denso",
+      "source": "ANSI PH2.7 · sombra abierta con cielo despejado"
+    },
+    "antes_ocaso": {
+      "ev_low": 12,
+      "ev_high": 14,
+      "label": "sol bajo, antes del ocaso",
+      "source": "ANSI PH2.7 · justo antes del ocaso"
+    },
+    "tras_ocaso": {
+      "ev_low": 9,
+      "ev_high": 11,
+      "label": "hora azul, justo después del ocaso",
+      "source": "ANSI PH2.7 · justo después del ocaso"
+    },
+    "galeria": {
+      "ev_low": 8,
+      "ev_high": 11,
+      "label": "interior muy iluminado",
+      "source": "ANSI PH2.7 · galerías"
+    },
+    "calle_noche": {
+      "ev_low": 7,
+      "ev_high": 8,
+      "label": "calle iluminada de noche",
+      "source": "ANSI PH2.7 · escenas de calle nocturnas"
+    },
+    "oficina": {
+      "ev_low": 7,
+      "ev_high": 8,
+      "label": "interior con luz de ventana",
+      "source": "ANSI PH2.7 · oficinas y áreas de trabajo"
+    },
+    "interior_casa": {
+      "ev_low": 5,
+      "ev_high": 7,
+      "label": "interior de casa con lámparas",
+      "source": "ANSI PH2.7 · interiores de vivienda"
+    },
+    "trafico_noche": {
+      "ev_low": 5,
+      "ev_high": 5,
+      "label": "tráfico de noche",
+      "source": "ANSI PH2.7 · tráfico vehicular nocturno"
+    },
+    "iluminado_focos": {
+      "ev_low": 3,
+      "ev_high": 5,
+      "label": "parque o monumento con faroles",
+      "source": "ANSI PH2.7 · edificios y monumentos iluminados"
+    },
+    "luces_lejanas": {
+      "ev_low": 2,
+      "ev_high": 2,
+      "label": "sólo luces lejanas",
+      "source": "ANSI PH2.7 · vistas lejanas de edificios iluminados"
+    },
+    "oscuridad": {
+      "ev_low": -3,
+      "ev_high": -1,
+      "label": "oscuridad sin faroles cercanos",
+      "source": "estimate · sin fila en la tabla ANSI; equivale a paisaje con luna"
+    }
+  }
 }
