@@ -4,11 +4,22 @@ An offline-capable, Spanish-language photography field and teaching planner. The
 
 ## Live site
 
-GitHub Pages deploys the optimized runtime from `dist/canon6d_sota_hosted`.
+GitHub Pages deploys the optimized runtime from `dist/canon6d_sota_hosted`
+(`.github/workflows/pages.yml`). After every deploy, and every morning at 06:17 in
+Lima, `.github/workflows/live-check.yml` waits until the live site serves that
+commit's build, then runs `scripts/live_pages_qa.py` and the speed budgets against
+it; a failed run emails the repository owner.
+
+## Privacy
+
+No page asks another site for anything: no fonts, scripts, analytics or trackers,
+and the speed and live checks fail if one does. Errors are kept only on the reader's
+device (`assets/diagnostics.js`, shown at the foot of the home page) and leave it only
+if the reader copies the log or sends the prefilled GitHub report themselves.
 
 ## Validation
 
-The release gate (`python3 scripts/verify_release.py`) fails unless five browser QA
+The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
 - `CURRENT_BROWSER_QA.json` — 315 browser regression checks across six viewports,
@@ -23,9 +34,14 @@ reports at the repository root still match the files they audited, byte for byte
 - `FIELD_CARD_QA.json` — 48 field card checks on a phone: each plan's settings per light,
   the Lima clock, no JavaScript, print, keyboard, the home page dialog, axe, offline after
   a simulated deploy, and another camera and lenses
+- `PERF_BUDGET_QA.json` — 112 speed checks: Lighthouse on a simulated phone and slow
+  4G network, median of three runs, for the home page, the field card, all six plan
+  pages and every challenge page type; Lighthouse's "good" marks for every timing,
+  a byte budget per page type and no request to another origin
 
 Set up with `python3 -m pip install -r requirements-dev.txt` (what CI installs, on
-Python 3.11) and, for browser QA, `requirements-qa.txt`.
+Python 3.11). For browser QA add `requirements-qa.txt`, `npm ci` (axe-core and
+Lighthouse, pinned in `package-lock.json`) and `python3 -m playwright install chromium`.
 
 ## Regenerating the architecture photography guide
 
@@ -47,10 +63,12 @@ python3 -m ruff check scripts tests --select C901 --config 'lint.mccabe.max-comp
 it depends on a live OSM router, so route data is regenerated only in a session
 where that service is confirmed available.
 
-Browser QA is not run by CI. Point `FOCALRUTA_CHROME` at a Chromium binary and
-`FOCALRUTA_AXE` at axe-core 4.10.3's `axe.min.js`, serve two roots and run the
-scripts in `scripts/` listed under `BROWSER_QA` in `regenerate_all.py` and each
-`tests/architecture/browser_*.py`:
+CI runs every browser suite on every pull request (`.github/workflows/quality.yml`):
+each script listed under `BROWSER_QA` in `regenerate_all.py`, and each
+`tests/architecture/browser_*.py`. They find Chromium by themselves
+(`qa_matrix.browser_options`: `FOCALRUTA_CHROME` if set, else Chrome on a Mac, else
+Playwright's Chromium) and axe-core in `node_modules` (or `FOCALRUTA_AXE`). The
+architecture suites need two roots served:
 
 ```bash
 python3 -m http.server 8766 &                                  # repo root
