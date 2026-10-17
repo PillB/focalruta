@@ -12,6 +12,7 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
+# The same names scripts/evidence.py exempts when it decides a tree is dirty.
 REPORTS = (
     "CURRENT_BROWSER_QA.json",
     "OPTICS_ACCESSIBILITY_QA.json",
@@ -86,5 +87,20 @@ def test_a_report_written_by_an_earlier_suite_does_not_make_the_tree_dirty(tmp_p
     git("-c", "user.name=t", "-c", "user.email=t@example.invalid", "commit", "-q", "-m", "c")
     (tmp_path / "VISUAL_RESOURCE_QA.json").write_text('{"checks": 1}', encoding="utf-8")
     assert not evidence.current_commit(tmp_path).endswith("+dirty")
+    # Only the suites' own reports are exempt, by name: another evidence-looking file still counts.
+    (tmp_path / "OLD_BROWSER_QA.json").write_text("{}", encoding="utf-8")
+    git("add", "OLD_BROWSER_QA.json")
+    assert evidence.current_commit(tmp_path).endswith("+dirty")
+    git("reset", "-q", "OLD_BROWSER_QA.json")
+    (tmp_path / "OLD_BROWSER_QA.json").unlink()
     (tmp_path / "index.html").write_text("b", encoding="utf-8")
     assert evidence.current_commit(tmp_path).endswith("+dirty")
+
+
+def test_the_dirty_check_exempts_exactly_the_reports_this_file_holds_to_account():
+    import sys
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import evidence
+
+    assert evidence.QA_REPORTS == set(REPORTS)

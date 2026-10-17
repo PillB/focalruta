@@ -12,7 +12,6 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-import re
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -32,8 +31,14 @@ def fingerprint(paths) -> dict[str, str]:
     return dict(sorted(prints.items()))
 
 
-# The QA reports themselves, at the repository root.
-REPORT_NAME = re.compile(r"[A-Z_]+_QA\.json")
+# The reports the browser QA suites write at the repository root, by name: a
+# stale or hand-made file elsewhere still counts as an uncommitted change.
+QA_REPORTS = frozenset({
+    "CURRENT_BROWSER_QA.json",
+    "OPTICS_ACCESSIBILITY_QA.json",
+    "VISUAL_RESOURCE_QA.json",
+    "AXE_ACCESSIBILITY_QA.json",
+})
 
 
 def current_commit(root: Path = ROOT) -> str:
@@ -51,7 +56,7 @@ def current_commit(root: Path = ROOT) -> str:
                                 check=True, capture_output=True, text=True).stdout
     except (OSError, subprocess.CalledProcessError):
         return ""
-    dirty = [line for line in status.splitlines() if line.strip() and not REPORT_NAME.fullmatch(line[3:].strip())]
+    dirty = [line for line in status.splitlines() if line.strip() and line[3:].strip() not in QA_REPORTS]
     return head + ("+dirty" if dirty else "")
 
 
