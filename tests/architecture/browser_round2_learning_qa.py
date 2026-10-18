@@ -64,7 +64,7 @@ def check_perspective(page) -> dict:
     wide_angle, wide_text = _cone_half_angle(page), page.locator("#perspective-feedback").inner_text()
     page.locator("#perspective-focal").select_option("85")
     long_angle, long_text = _cone_half_angle(page), page.locator("#perspective-feedback").inner_text()
-    ratio = re.compile(r"proyecta ([0-9,]+)×")
+    ratio = re.compile(r"proyecta ([0-9]+(?:\.[0-9]+)?)×")
     page.locator("#perspective-position").fill("7")
     far_text = page.locator("#perspective-feedback").inner_text()
     return {
@@ -105,17 +105,13 @@ def check_light(page) -> dict:
     hard = _number(page, "#light-penumbra-blur", "stdDeviation")
     page.locator("#light-source").select_option("garua")
     soft, diffuse_text = _number(page, "#light-penumbra-blur", "stdDeviation"), page.locator("#light-feedback").inner_text()
-    metres = re.compile(r"sombra mide ([0-9,]+) m")
+    metres = re.compile(r"sombra mide ([0-9]+(?:\.[0-9]+)?) m")
     return {
         "shadow_opposes_the_source": (right_sun > left_sun) and (right_shadow < left_shadow),
-        "low_sun_casts_longer_shadow": _comma_float(metres.search(low_text).group(1)) > _comma_float(metres.search(high_text).group(1)),
+        "low_sun_casts_longer_shadow": float(metres.search(low_text).group(1)) > float(metres.search(high_text).group(1)),
         "wide_source_softens_the_edge": soft > hard,
         "diffuse_source_drops_the_umbra": "umbra desaparece" in diffuse_text,
     }
-
-
-def _comma_float(text: str) -> float:
-    return float(text.replace(",", "."))
 
 
 def check_depth_and_edges(page) -> dict:

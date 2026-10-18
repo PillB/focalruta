@@ -22,7 +22,7 @@ if the reader copies the log or sends the prefilled GitHub report themselves.
 The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 377 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 414 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
   on the home page and every plan page, no text under 12 px, no control under 44 px, no
   English in the interface and nothing cut off at the edges, also with a reader's own

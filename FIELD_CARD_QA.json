@@ -383,14 +383,14 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-17T23:59:44.325250+00:00",
-  "audited_commit": "db20d36929f7f5ad1b791ed655c77eac3c072243",
+  "audited_at": "2026-10-18T01:00:12.428616+00:00",
+  "audited_commit": "79d645a3ebd4f405f954adeb4159e465537beb7b+dirty",
   "audited_artifacts": {
-    "data/plans.json": "04ed789b72c2db92cd061d56116990924767d352ffd413c5125734f2b62cfd14",
-    "dist/canon6d_sota_hosted/field_card.html": "7111f585cbcdee48d495d094370de60df92ff87595e77a2ed0d50dd4b0e8266b",
-    "dist/canon6d_sota_hosted/index.html": "cf14fc298375c347013a8b3265de07c503b52bc70bf88fa7e4c7b30f2c3ae973",
-    "dist/canon6d_sota_hosted/sw.js": "cb374179f540f4317329791a54d6c5680fa7645ee85da865d3d52ed1d65a7aec",
-    "field_card.html": "7111f585cbcdee48d495d094370de60df92ff87595e77a2ed0d50dd4b0e8266b",
+    "data/plans.json": "39fd27cd7e62372b72b815791e84ba4f90eeff4ce9e34a1a3eb09f3343aa24cd",
+    "dist/canon6d_sota_hosted/field_card.html": "4920e721badf9190270f42d0fcbe8e97117768c1f2b2638b43a0edb60b2b3bee",
+    "dist/canon6d_sota_hosted/index.html": "490bb3cdaff82e42ecaf2415498cebd7b013da6f95aa1808ae73f472d087f4f3",
+    "dist/canon6d_sota_hosted/sw.js": "f3fa3c6c21e600971b90f054e28277828fa05bf0f2ceb70afe7096b7707182ef",
+    "field_card.html": "4920e721badf9190270f42d0fcbe8e97117768c1f2b2638b43a0edb60b2b3bee",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
 }

@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 377,
+  "checks": 414,
   "viewports": [
     [
       320,
@@ -537,6 +537,15 @@
       "detail": ""
     },
     {
+      "name": "standalone session dialog keeps the rest of the page out of reach while open",
+      "pass": true,
+      "detail": {
+        "modal": true,
+        "rest_inert": false,
+        "tab_reached": []
+      }
+    },
+    {
       "name": "standalone session dialog closes on Escape and gives focus back",
       "pass": true,
       "detail": {
@@ -551,6 +560,15 @@
       "detail": ""
     },
     {
+      "name": "standalone field card dialog keeps the rest of the page out of reach while open",
+      "pass": true,
+      "detail": {
+        "modal": false,
+        "rest_inert": true,
+        "tab_reached": []
+      }
+    },
+    {
       "name": "standalone field card dialog closes on Escape and gives focus back",
       "pass": true,
       "detail": {
@@ -563,6 +581,15 @@
       "name": "standalone shot dialog takes focus from its button",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "standalone shot dialog keeps the rest of the page out of reach while open",
+      "pass": true,
+      "detail": {
+        "modal": true,
+        "rest_inert": false,
+        "tab_reached": []
+      }
     },
     {
       "name": "standalone shot dialog closes on Escape and gives focus back",
@@ -599,6 +626,11 @@
       "detail": []
     },
     {
+      "name": "standalone 320 numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "standalone 320 session and shot dialogs open",
       "pass": true,
       "detail": []
@@ -620,6 +652,11 @@
     },
     {
       "name": "standalone 390 interface in Spanish",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 390 numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -649,6 +686,11 @@
       "detail": []
     },
     {
+      "name": "standalone 430 numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "standalone 430 session and shot dialogs open",
       "pass": true,
       "detail": []
@@ -670,6 +712,11 @@
     },
     {
       "name": "standalone 844 interface in Spanish",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 844 numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -699,6 +746,11 @@
       "detail": []
     },
     {
+      "name": "standalone 932 numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "standalone 932 session and shot dialogs open",
       "pass": true,
       "detail": []
@@ -724,6 +776,11 @@
       "detail": []
     },
     {
+      "name": "standalone 820 numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "standalone 820 session and shot dialogs open",
       "pass": true,
       "detail": []
@@ -745,6 +802,11 @@
     },
     {
       "name": "standalone 1440 interface in Spanish",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 1440 numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1262,6 +1324,15 @@
       "detail": ""
     },
     {
+      "name": "hosted session dialog keeps the rest of the page out of reach while open",
+      "pass": true,
+      "detail": {
+        "modal": true,
+        "rest_inert": false,
+        "tab_reached": []
+      }
+    },
+    {
       "name": "hosted session dialog closes on Escape and gives focus back",
       "pass": true,
       "detail": {
@@ -1276,6 +1347,15 @@
       "detail": ""
     },
     {
+      "name": "hosted field card dialog keeps the rest of the page out of reach while open",
+      "pass": true,
+      "detail": {
+        "modal": false,
+        "rest_inert": true,
+        "tab_reached": []
+      }
+    },
+    {
       "name": "hosted field card dialog closes on Escape and gives focus back",
       "pass": true,
       "detail": {
@@ -1288,6 +1368,15 @@
       "name": "hosted shot dialog takes focus from its button",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "hosted shot dialog keeps the rest of the page out of reach while open",
+      "pass": true,
+      "detail": {
+        "modal": true,
+        "rest_inert": false,
+        "tab_reached": []
+      }
     },
     {
       "name": "hosted shot dialog closes on Escape and gives focus back",
@@ -1324,6 +1413,11 @@
       "detail": []
     },
     {
+      "name": "hosted 320 numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "hosted 320 session and shot dialogs open",
       "pass": true,
       "detail": []
@@ -1345,6 +1439,11 @@
     },
     {
       "name": "hosted 390 interface in Spanish",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 390 numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1374,6 +1473,11 @@
       "detail": []
     },
     {
+      "name": "hosted 430 numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "hosted 430 session and shot dialogs open",
       "pass": true,
       "detail": []
@@ -1395,6 +1499,11 @@
     },
     {
       "name": "hosted 844 interface in Spanish",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 844 numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1424,6 +1533,11 @@
       "detail": []
     },
     {
+      "name": "hosted 932 numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "hosted 932 session and shot dialogs open",
       "pass": true,
       "detail": []
@@ -1449,6 +1563,11 @@
       "detail": []
     },
     {
+      "name": "hosted 820 numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "hosted 820 session and shot dialogs open",
       "pass": true,
       "detail": []
@@ -1470,6 +1589,11 @@
     },
     {
       "name": "hosted 1440 interface in Spanish",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 1440 numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1544,6 +1668,11 @@
       "detail": []
     },
     {
+      "name": "plan_a numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "plan_a no overflow",
       "pass": true,
       "detail": ""
@@ -1605,6 +1734,11 @@
     },
     {
       "name": "plan_b interface in Spanish",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_b numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1674,6 +1808,11 @@
       "detail": []
     },
     {
+      "name": "plan_c numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "plan_c no overflow",
       "pass": true,
       "detail": ""
@@ -1735,6 +1874,11 @@
     },
     {
       "name": "plan_d interface in Spanish",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "plan_d numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1804,6 +1948,11 @@
       "detail": []
     },
     {
+      "name": "plan_e numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "plan_e no overflow",
       "pass": true,
       "detail": ""
@@ -1869,6 +2018,11 @@
       "detail": []
     },
     {
+      "name": "plan_f numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "plan_f no overflow",
       "pass": true,
       "detail": ""
@@ -1884,7 +2038,17 @@
       "detail": []
     },
     {
+      "name": "index.html 320 with your own gear: numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "dist/canon6d_sota_hosted/index.html 320 with long lens names: nothing cut off",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/index.html 320 with your own gear: numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1894,7 +2058,17 @@
       "detail": []
     },
     {
+      "name": "index.html 375 with your own gear: numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "dist/canon6d_sota_hosted/index.html 375 with long lens names: nothing cut off",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/index.html 375 with your own gear: numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1904,7 +2078,17 @@
       "detail": []
     },
     {
+      "name": "dist/canon6d_sota_hosted/field_card.html 320 with your own gear: numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "dist/canon6d_sota_hosted/plans/plan_a.html 320 with long lens names: nothing cut off",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_a.html 320 with your own gear: numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1914,7 +2098,17 @@
       "detail": []
     },
     {
+      "name": "dist/canon6d_sota_hosted/plans/plan_b.html 320 with your own gear: numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "dist/canon6d_sota_hosted/plans/plan_c.html 320 with long lens names: nothing cut off",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_c.html 320 with your own gear: numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1924,12 +2118,27 @@
       "detail": []
     },
     {
+      "name": "dist/canon6d_sota_hosted/plans/plan_d.html 320 with your own gear: numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "dist/canon6d_sota_hosted/plans/plan_e.html 320 with long lens names: nothing cut off",
       "pass": true,
       "detail": []
     },
     {
+      "name": "dist/canon6d_sota_hosted/plans/plan_e.html 320 with your own gear: numbers written the Peruvian way",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "dist/canon6d_sota_hosted/plans/plan_f.html 320 with long lens names: nothing cut off",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_f.html 320 with your own gear: numbers written the Peruvian way",
       "pass": true,
       "detail": []
     },
@@ -1952,23 +2161,23 @@
       "name": "error log: a thrown error and a rejected promise send no request",
       "pass": true,
       "detail": [
-        "GET http://127.0.0.1:38429/",
-        "GET http://127.0.0.1:38429/assets/hosted.css?v=2db4493d4d89",
-        "GET http://127.0.0.1:38429/data/plans_embedded.js?v=75d8e47aed72"
+        "GET http://127.0.0.1:44213/",
+        "GET http://127.0.0.1:44213/assets/hosted.css?v=0aa2d757e96a",
+        "GET http://127.0.0.1:44213/data/plans_embedded.js?v=c6313b3d3bd6"
       ]
     },
     {
       "name": "error log: the home page lists both, with the page they came from",
       "pass": true,
       "detail": [
-        "1 vez · 2026-10-17 23:58Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
-        "1 vez · 2026-10-17 23:58Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
+        "1 vez · 2026-10-18 00:58Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
+        "1 vez · 2026-10-18 00:58Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
       ]
     },
     {
       "name": "error log: no query string, fragment or browser identity is kept",
       "pass": true,
-      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-17T23:58Z\",\"last\":\"2026-10-17T23:58Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-17T23:58Z\",\"last\":\"2026-10-17T23:58Z\"}]"
+      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-18T00:58Z\",\"last\":\"2026-10-18T00:58Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-18T00:58Z\",\"last\":\"2026-10-18T00:58Z\"}]"
     },
     {
       "name": "error log: the report link carries the log to a new GitHub issue",
@@ -1989,26 +2198,26 @@
       "detail": 2
     }
   ],
-  "audited_at": "2026-10-17T23:58:31.378307+00:00",
-  "audited_commit": "db20d36929f7f5ad1b791ed655c77eac3c072243",
+  "audited_at": "2026-10-18T00:58:58.824790+00:00",
+  "audited_commit": "79d645a3ebd4f405f954adeb4159e465537beb7b+dirty",
   "audited_artifacts": {
-    "data/plans.json": "04ed789b72c2db92cd061d56116990924767d352ffd413c5125734f2b62cfd14",
-    "dist/canon6d_sota_hosted/field_card.html": "7111f585cbcdee48d495d094370de60df92ff87595e77a2ed0d50dd4b0e8266b",
-    "dist/canon6d_sota_hosted/index.html": "cf14fc298375c347013a8b3265de07c503b52bc70bf88fa7e4c7b30f2c3ae973",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "4992109ddfa0d45399e9fc1dfdeee17f13cdf8eddaca7feb64978d53871841ee",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "6bfff3a378be863949972c24e78c349387bec5d5f65f8fdc97374ba144da71c3",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "954fdb862c13d5de587eedde2c6eb46fa9f49fa5295e7d6fca0338f7cca62e1b",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "d279600df47eee173d179b6dac7eb5148e6be6d9637d75ad2ee7f8413c45d842",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "d6f02b761055ccee07fb60039dbd8ed53a62994d74b6d1724726100ddd8ccf7f",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "f47001e818be57ef2e4daaa9f9c204c2b471091a7e8d7c4d81e80415e2c173e1",
-    "dist/canon6d_sota_hosted/sw.js": "cb374179f540f4317329791a54d6c5680fa7645ee85da865d3d52ed1d65a7aec",
-    "field_card.html": "7111f585cbcdee48d495d094370de60df92ff87595e77a2ed0d50dd4b0e8266b",
-    "index.html": "bac1fbfbaa986524c522bef76b04294bc6ffc8dc8f128ea715b46183b587b4c8",
-    "plans/plan_a.html": "7f8a9ecd763f7e7b5ffedcc0308ef33029595395de4ec32bf6fecb30696635b3",
-    "plans/plan_b.html": "d9449300dc15e8c9b9efd27c5415fad1983db80108d20d939b0c1981de9708dd",
-    "plans/plan_c.html": "5ef739907432e948564110b7d4d2e013c5bbfb53bb989eeb04167753cefafc9f",
-    "plans/plan_d.html": "40f06d1fa3995639e074c7eb9b38271731613af032eee2355d0a15de65ec7dfb",
-    "plans/plan_e.html": "e608403daceeb2be27cf7a2c61585d1a5f3a31d57bb6530a50d23713868e59e4",
-    "plans/plan_f.html": "8a20ffd081a34a98f025c8e2393db2cd087f2eda6a4f5ab0a2c0dba2b874e509"
+    "data/plans.json": "39fd27cd7e62372b72b815791e84ba4f90eeff4ce9e34a1a3eb09f3343aa24cd",
+    "dist/canon6d_sota_hosted/field_card.html": "4920e721badf9190270f42d0fcbe8e97117768c1f2b2638b43a0edb60b2b3bee",
+    "dist/canon6d_sota_hosted/index.html": "490bb3cdaff82e42ecaf2415498cebd7b013da6f95aa1808ae73f472d087f4f3",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "2301c85becc9028b69e6f7c8edcc3407982694b63420bf189a6265173838db16",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "3f2f00a539419862588f6cb3fe0ed997c23438e9d5c352ed9ff20bf23a979c0d",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "5485d09f2693942f44bcf08316ea6e6e41eec8a862bfab4c6af56d6138f36355",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "7444641eb5194034930c67dd48e65f840fde76e0806d7af12e7c9214686bf748",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "18f476b7c2de43c861e9ad5d23b0edf1e74e93c425faae9e3b87a859e3d39b0e",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "9b5089296209e1ad7deb1742f9145d4a40a2328fb01c31af10204fe0eed29537",
+    "dist/canon6d_sota_hosted/sw.js": "f3fa3c6c21e600971b90f054e28277828fa05bf0f2ceb70afe7096b7707182ef",
+    "field_card.html": "4920e721badf9190270f42d0fcbe8e97117768c1f2b2638b43a0edb60b2b3bee",
+    "index.html": "dd5bd959d7637522de3f39d65d4f2fc10058557c315df9957deab707f50ea218",
+    "plans/plan_a.html": "c2b7993d3b1329c94cbf0c579fae9c797e9c6a974519d14abc0818e85fd1b0e3",
+    "plans/plan_b.html": "b3e64515e3d0bcff33829110933f888071b9a7613474ba3478b68b092e999fba",
+    "plans/plan_c.html": "7f0f32a2f76b0a86c1d4fd14795a8fd497c3a64dcf12f508ec6183612f19f5c6",
+    "plans/plan_d.html": "2eee427109cb6f6cf18a3646afc178751dd7a0f309ad19353565a5231ebc5485",
+    "plans/plan_e.html": "e6152d8c08dcd08b027ea61b93dd83ad10672e18ea24fc62da2e7402ccb2b81c",
+    "plans/plan_f.html": "0d3ef8eba0ebee62a4b4fcec644545b2d7ca6f108bd0ada2f3a7c7de32a82b65"
   }
 }
