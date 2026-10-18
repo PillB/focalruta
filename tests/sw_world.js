@@ -104,10 +104,12 @@ class World {
         return { body: Buffer.from(await res.arrayBuffer()).toString(), status: res.status, network: world.requests.length > before,
           ...(location ? { location } : {}) };
       },
-      async message(data) {
-        const posted = [];
-        await dispatch('message', { data, source: { postMessage: m => posted.push(m) } });
-        return posted;
+      // A page's message; what the worker posts back to it, and on a MessageChannel port, is returned.
+      async message(data, withPort = false) {
+        const posted = [], answered = [];
+        const ports = withPort ? [{ postMessage: m => answered.push(m) }] : [];
+        await dispatch('message', { data, ports, source: { postMessage: m => posted.push(m) } });
+        return withPort ? { posted, answered } : posted;
       },
     };
   }

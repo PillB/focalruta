@@ -259,6 +259,26 @@ out.landing=(await sw.request('index.html?sin-conexion=plans%2Fplan_c.html','nav
     assert out["landing"] == B["index.html"]
 
 
+def test_v16_the_worker_says_which_build_it_is_and_the_last_worker_does_not():
+    """CI run 39089226401: registration.update() settled while the page still saw only the
+    last worker, so the field card rehearsal checked the new build under the old worker.
+    scripts/field_card_qa.py now waits until the active worker answers with this build's
+    VERSION; the worker live at 9cd3044 never answers, so it cannot pass for the new one."""
+    out = run("""
+const source=w=>w.template(B,CORE);
+const w=new World();w.deploy(B);const sw=ours(w,B);await sw.upgrade();
+out.expected=/const VERSION='([^']+)'/.exec(source(w))[1];
+out.ours=await sw.message({type:'version'},true);
+out.withoutPort=await sw.message({type:'version'});
+const old=new World();old.deploy(A);const prior=live(old);await prior.install();
+out.live=await prior.message({type:'version'},true);
+""", A=A, B=B)
+    assert out["ours"] == {"posted": [], "answered": [{"version": out["expected"]}]}
+    assert re.fullmatch(r"focalruta-[0-9a-f]{12}", out["expected"])
+    assert out["withoutPort"] == []
+    assert out["live"] == {"posted": [], "answered": []}
+
+
 def test_v17_caches_of_other_sites_on_the_origin_survive_an_upgrade():
     out = run("""
 const w=new World();for(const name of ['poseart-shell','workbox-precache-v2-https://pillb.github.io/otro/'])await w.caches.open(name);

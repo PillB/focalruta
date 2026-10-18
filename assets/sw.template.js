@@ -169,6 +169,8 @@ self.addEventListener('install',e=>e.waitUntil(install().then(()=>self.skipWaiti
 self.addEventListener('activate',e=>e.waitUntil(prune().then(()=>self.clients.claim())));
 self.addEventListener('message',e=>{
   const d=e.data;
+  // Which build this worker is, so a check can tell the new worker from the one it replaces.
+  if(d&&d.type==='version'&&e.ports[0]){e.ports[0].postMessage({version:VERSION});return}
   if(!d||!Array.isArray(d.urls))return;
   const paths=[...new Set(d.urls.map(pathOf).filter(known))];
   if(d.type==='warm')e.waitUntil(warm(paths.slice(0,40)));

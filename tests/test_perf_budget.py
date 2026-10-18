@@ -8,6 +8,7 @@ from __future__ import annotations
 import gzip
 import os
 import sys
+import types
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -137,9 +138,9 @@ def test_x02_the_deploy_rehearsals_see_the_same_pages_as_the_speed_check(tmp_pat
 def test_x01_a_missing_chromium_stops_the_speed_check_with_the_reason(monkeypatch, tmp_path):
     """Playwright names the Chromium build it expects; when that build is not
     installed, the run stops before serving anything and says what to do, not
-    with a chrome-launcher stack trace from inside Lighthouse."""
-    import playwright.sync_api
-
+    with a chrome-launcher stack trace from inside Lighthouse. Playwright itself
+    is stood in for, so the check also runs where it is not installed (CI's
+    lint-and-test job)."""
     class Missing:
         def __enter__(self):
             return type("P", (), {"chromium": type("C", (), {"executable_path": str(tmp_path / "chromium-0000/chrome")})})
@@ -149,7 +150,10 @@ def test_x01_a_missing_chromium_stops_the_speed_check_with_the_reason(monkeypatc
 
     monkeypatch.delenv("FOCALRUTA_CHROME", raising=False)
     monkeypatch.setattr(perf_budget_qa.qa_matrix, "MAC_CHROME", str(tmp_path / "no-mac-chrome"))
-    monkeypatch.setattr(playwright.sync_api, "sync_playwright", Missing)
+    sync_api = types.ModuleType("playwright.sync_api")
+    sync_api.sync_playwright = Missing
+    monkeypatch.setitem(sys.modules, "playwright", types.ModuleType("playwright"))
+    monkeypatch.setitem(sys.modules, "playwright.sync_api", sync_api)
     with pytest.raises(SystemExit) as stopped:
         perf_budget_qa.chrome_path()
     assert "chromium-0000" in str(stopped.value) and "playwright install chromium" in str(stopped.value)

@@ -62,6 +62,11 @@ def build(into: Path, name: str, changes: tuple[str, ...] = (), live_worker: boo
     return site
 
 
+def version(site: Path) -> str:
+    """The VERSION a build's worker answers with when asked which build it is."""
+    return re.search(r"const VERSION='([^']+)'", (site / "sw.js").read_text(encoding="utf-8")).group(1)
+
+
 class Pages:
     """A Pages-like server whose build can be swapped, and stopped like a lost signal.
 
