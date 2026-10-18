@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 371,
+  "checks": 377,
   "viewports": [
     [
       320,
@@ -1947,28 +1947,68 @@
       "name": "hosted plan_a offline after one visit: dog diagrams decode",
       "pass": true,
       "detail": []
+    },
+    {
+      "name": "error log: a thrown error and a rejected promise send no request",
+      "pass": true,
+      "detail": [
+        "GET http://127.0.0.1:38429/",
+        "GET http://127.0.0.1:38429/assets/hosted.css?v=2db4493d4d89",
+        "GET http://127.0.0.1:38429/data/plans_embedded.js?v=75d8e47aed72"
+      ]
+    },
+    {
+      "name": "error log: the home page lists both, with the page they came from",
+      "pass": true,
+      "detail": [
+        "1 vez · 2026-10-17 23:58Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
+        "1 vez · 2026-10-17 23:58Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
+      ]
+    },
+    {
+      "name": "error log: no query string, fragment or browser identity is kept",
+      "pass": true,
+      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-17T23:58Z\",\"last\":\"2026-10-17T23:58Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-17T23:58Z\",\"last\":\"2026-10-17T23:58Z\"}]"
+    },
+    {
+      "name": "error log: the report link carries the log to a new GitHub issue",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "error log: 12 px text and 44 px controls in the open panel",
+      "pass": true,
+      "detail": {
+        "small": [],
+        "tiny": []
+      }
+    },
+    {
+      "name": "error log: clearing takes a second tap",
+      "pass": true,
+      "detail": 2
     }
   ],
-  "audited_at": "2026-10-17T23:37:52.638789+00:00",
-  "audited_commit": "13253a405bd8c704f8557a1fc5c5047e72ef81aa",
+  "audited_at": "2026-10-17T23:58:31.378307+00:00",
+  "audited_commit": "db20d36929f7f5ad1b791ed655c77eac3c072243",
   "audited_artifacts": {
     "data/plans.json": "04ed789b72c2db92cd061d56116990924767d352ffd413c5125734f2b62cfd14",
-    "dist/canon6d_sota_hosted/field_card.html": "32ccf751f41d3ede06ebfff2978b070f9594b7be39c377c234ac10aee2142f38",
-    "dist/canon6d_sota_hosted/index.html": "9447c2f617d47ec65b117dcd5842da2fc06f2fccf49149f277b415d368a96329",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "b25128a391592da5c1babbccf4caa982bb1871d1c5f4fd28d87de3c48b1623dd",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "c71516bfebd8e706824b1c2665ff1e60afb7a9538edcead3a24172f6571a0419",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "f7eeca3211dd2212b9a179b7640651ae5b994192f949fb3adb3a5c6455f73937",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "a447941bc96685230aa7f53706961b6aa8f6a699104ec36cea7705daba132359",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "b60a87e6ebe6e505f769cf154d51c2bf541cbe11ce379555eceb2db4e1875669",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "33d87eb48742453b5661483d0619b81fb4999c47b10c12d333bfc415b2140f9a",
-    "dist/canon6d_sota_hosted/sw.js": "21378215a265e24b777ad89dec4b630a4d62b1244dc36cb84e06fe349f1bf5c2",
-    "field_card.html": "32ccf751f41d3ede06ebfff2978b070f9594b7be39c377c234ac10aee2142f38",
-    "index.html": "69dcbc7abc85e57ea21b562ab565b7b71fcdbc418ae82b01a4f5706970de8421",
-    "plans/plan_a.html": "bead2dfa68d943c6aaa5aaaee2d2c34ee35bd472f444be2d99c40fd728151240",
-    "plans/plan_b.html": "530d7bcf7f2d31c2632f7eff191f9d7bd14489faa4570dd2ac355facc604a393",
-    "plans/plan_c.html": "1cc42aab989726d9cbaf37ee11c951de79bdf0f79303e2644bba5946694ce571",
-    "plans/plan_d.html": "add5ffa3d7485a75378a5fb810cddb3ba4b7e17b8113b8d420df5a1ea1bd32fd",
-    "plans/plan_e.html": "6252ef1faf8a681e842b63a2eab83cca7d5cc847ed89318ecd1db4918e4d5b74",
-    "plans/plan_f.html": "a30b56bc2a02c1d10d067fc74ff8f16f5b07eadc29eb527c278ad01c8d84992c"
+    "dist/canon6d_sota_hosted/field_card.html": "7111f585cbcdee48d495d094370de60df92ff87595e77a2ed0d50dd4b0e8266b",
+    "dist/canon6d_sota_hosted/index.html": "cf14fc298375c347013a8b3265de07c503b52bc70bf88fa7e4c7b30f2c3ae973",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "4992109ddfa0d45399e9fc1dfdeee17f13cdf8eddaca7feb64978d53871841ee",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "6bfff3a378be863949972c24e78c349387bec5d5f65f8fdc97374ba144da71c3",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "954fdb862c13d5de587eedde2c6eb46fa9f49fa5295e7d6fca0338f7cca62e1b",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "d279600df47eee173d179b6dac7eb5148e6be6d9637d75ad2ee7f8413c45d842",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "d6f02b761055ccee07fb60039dbd8ed53a62994d74b6d1724726100ddd8ccf7f",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "f47001e818be57ef2e4daaa9f9c204c2b471091a7e8d7c4d81e80415e2c173e1",
+    "dist/canon6d_sota_hosted/sw.js": "cb374179f540f4317329791a54d6c5680fa7645ee85da865d3d52ed1d65a7aec",
+    "field_card.html": "7111f585cbcdee48d495d094370de60df92ff87595e77a2ed0d50dd4b0e8266b",
+    "index.html": "bac1fbfbaa986524c522bef76b04294bc6ffc8dc8f128ea715b46183b587b4c8",
+    "plans/plan_a.html": "7f8a9ecd763f7e7b5ffedcc0308ef33029595395de4ec32bf6fecb30696635b3",
+    "plans/plan_b.html": "d9449300dc15e8c9b9efd27c5415fad1983db80108d20d939b0c1981de9708dd",
+    "plans/plan_c.html": "5ef739907432e948564110b7d4d2e013c5bbfb53bb989eeb04167753cefafc9f",
+    "plans/plan_d.html": "40f06d1fa3995639e074c7eb9b38271731613af032eee2355d0a15de65ec7dfb",
+    "plans/plan_e.html": "e608403daceeb2be27cf7a2c61585d1a5f3a31d57bb6530a50d23713868e59e4",
+    "plans/plan_f.html": "8a20ffd081a34a98f025c8e2393db2cd087f2eda6a4f5ab0a2c0dba2b874e509"
   }
 }

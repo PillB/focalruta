@@ -5148,6 +5148,11 @@ body.sun-mode{--read-ink:#000;--read-muted:#1f2937;--read-line:#475569;backgroun
 /* V11: every control at least 44 x 44 px, for a thumb in the field. */
 .top-actions>:is(a,button){display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:44px;min-height:44px}
 .top-actions{overscroll-behavior-x:contain}
+/* X02: the sections below the first screen are laid out only as they come near it
+   (content-visibility, Baseline 2024). They stay in the accessibility tree, in
+   find-in-page and as anchor targets; once drawn they keep their measured height. */
+main>section:not(#top):not(.sticky){content-visibility:auto;contain-intrinsic-size:auto 1000px}
+@media print{main>section{content-visibility:visible}}
 .top-actions.has-more{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent)}
 .hdr-short{display:inline}
 @media(min-width:641px){.hdr-short{display:none}}

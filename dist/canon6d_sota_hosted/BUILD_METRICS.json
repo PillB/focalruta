@@ -1,10 +1,10 @@
 {
-  "hosted_html_bytes": 393226,
-  "standalone_html_bytes": 15536060,
-  "css_bytes": 147702,
+  "hosted_html_bytes": 393241,
+  "standalone_html_bytes": 15536475,
+  "css_bytes": 148102,
   "data_js_bytes": 116042,
   "diagram_count": 131,
   "diagram_webp_bytes": 10828824,
-  "hosted_html_sha256": "cf14fc298375c347013a8b3265de07c503b52bc70bf88fa7e4c7b30f2c3ae973",
-  "standalone_sha256": "bac1fbfbaa986524c522bef76b04294bc6ffc8dc8f128ea715b46183b587b4c8"
+  "hosted_html_sha256": "ea0dc841615d260d8e75063619efec2de83c71f362907720121ca3173084a234",
+  "standalone_sha256": "893a1406c00d635f63975f58d57343fc6ed2441457e73297dba3c6058efb7046"
 }

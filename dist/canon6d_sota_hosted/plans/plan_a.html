@@ -5030,9 +5030,10 @@ button,a{min-height:44px}.diagram-frame,.shot-card,details{border-width:1.5px!im
 body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: #0F172A; }
 .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.85); }
 /* The bar is 64 px tall on every screen: the name takes two lines at most, and on a phone
-   the place and the word "Imprimir" give way so neither the name nor the buttons are cut. */
+   the label and the word "Imprimir" give way so neither the name nor the buttons are cut.
+   The place is the page's first line, not the bar's: a long one would be cut there. */
 .plan-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
-.plan-place { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.plan-place { white-space: nowrap; }
 @media (max-width: 640px) { .plan-place, .plan-action-label { display: none; } }
 .toggle-active { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: white; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
 .toggle-inactive { background: #F1F5F9; color: #475569; }
@@ -5082,7 +5083,7 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
         </div>
         <div class="min-w-0">
           <h1 class="plan-title text-sm sm:text-base font-bold leading-tight">Parque El Olivar — Bosque Histórico</h1>
-          <p class="plan-place text-xs text-slate-500">Plan individual · Parque El Olivar, San Isidro (Av. La Encalada / Calle La Colonia)</p>
+          <p class="plan-place text-xs text-slate-500">Plan individual</p>
         </div>
       </div>
       <div class="flex items-center space-x-2 flex-shrink-0">

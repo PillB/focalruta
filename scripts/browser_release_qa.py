@@ -136,8 +136,9 @@ def error_log(browser):
     server.shutdown()
 
 
-# V19: each dialog opened from the button a reader would press, then closed with
-# Escape, hands focus back to that button and leaves nothing on the page inert.
+# V19: each dialog opened from the button a reader would press keeps the rest of the
+# page out of reach while open (a native modal, or everything else inert), then, closed
+# with Escape, hands focus back to that button and leaves nothing on the page inert.
 DIALOGS = (
     ("session", "button[onclick='openSessionRun()']:visible", "#session-run-dialog"),
     ("field card", "button[onclick='openFieldCard()']:visible", "#field-card-modal"),
@@ -146,6 +147,22 @@ DIALOGS = (
 FOCUS_INSIDE = "(d)=>{const m=document.querySelector(d);return !!m&&m.contains(document.activeElement)}"
 AFTER_ESCAPE = """(d)=>{const m=document.querySelector(d);return {closed:!(m.open||m.classList.contains('fc-modal-open')),
 back:document.activeElement?.dataset.qaTrigger==='1',inert:[...document.querySelectorAll('[inert]')].map(e=>e.id||e.tagName)}}"""
+# Blocked: the dialog is :modal, or every other child of <body> is inert.
+BLOCKS_THE_REST = """(d)=>{const m=document.querySelector(d),rest=[...document.body.children].filter(el=>!el.contains(m)&&!['SCRIPT','STYLE','TEMPLATE'].includes(el.tagName));
+return {modal:m.matches(':modal'),rest_inert:rest.every(el=>el.inert)}}"""
+# Where Tab leaves focus: outside the dialog counts only if it lands on the page, not the browser.
+FOCUS_ESCAPED = "(d)=>{const m=document.querySelector(d),a=document.activeElement;return !!a&&a!==document.body&&!m.contains(a)?(a.id||a.tagName):''}"
+TABS = 30
+
+
+def keeps_the_rest_out_of_reach(page, dialog):
+    blocked = page.evaluate(BLOCKS_THE_REST, dialog)
+    escaped = []
+    for _ in range(TABS):
+        page.keyboard.press("Tab")
+        escaped.append(page.evaluate(FOCUS_ESCAPED, dialog))
+    escaped = sorted({e for e in escaped if e})
+    return (blocked["modal"] or blocked["rest_inert"]) and not escaped, {**blocked, "tab_reached": escaped}
 
 
 def dialogs_give_focus_back(page, target_name):
@@ -154,6 +171,8 @@ def dialogs_give_focus_back(page, target_name):
         button.evaluate("b=>{document.querySelectorAll('[data-qa-trigger]').forEach(x=>delete x.dataset.qaTrigger);b.dataset.qaTrigger='1'}")
         button.click()
         record(f"{target_name} {name} dialog takes focus from its button", page.evaluate(FOCUS_INSIDE, dialog))
+        record(f"{target_name} {name} dialog keeps the rest of the page out of reach while open",
+               *keeps_the_rest_out_of_reach(page, dialog))
         page.keyboard.press("Escape")
         after = page.evaluate(AFTER_ESCAPE, dialog)
         record(f"{target_name} {name} dialog closes on Escape and gives focus back", after["closed"] and after["back"] and not after["inert"], after)

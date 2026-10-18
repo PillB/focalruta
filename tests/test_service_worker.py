@@ -139,6 +139,18 @@ out.page=(await b.request('plans/plan_c.html','navigate')).body;
     assert out == {"root": B["index.html"], "page": B["plans/plan_c.html"]}
 
 
+def test_v16_a_file_opened_within_the_http_cache_window_is_this_builds():
+    """The same ten minutes for a file the page names without a revision, such as a diagram
+    the reader never kept: it is revalidated, so the last build's copy is not handed back
+    (red team, third pass on PR #20)."""
+    out = run("""
+const w=new World();w.deploy(A);await ours(w,A).upgrade();w.rememberHttp();
+w.deploy(B);const b=ours(w,B);await b.upgrade();
+out.diagram=(await b.request('diagrams-webp/plan_c_1.webp')).body;
+""", A=A, B=B)
+    assert out == {"diagram": B["diagrams-webp/plan_c_1.webp"]}
+
+
 def test_v16_a_page_from_another_build_gets_the_stylesheet_it_names():
     """A home page the HTTP cache kept from the last build names that build's stylesheet; the
     worker must not answer it with this build's, and answers this build's from its cache."""

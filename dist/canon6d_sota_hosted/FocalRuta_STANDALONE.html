@@ -5305,6 +5305,11 @@ body.sun-mode{--read-ink:#000;--read-muted:#1f2937;--read-line:#475569;backgroun
 /* V11: every control at least 44 x 44 px, for a thumb in the field. */
 .top-actions>:is(a,button){display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:44px;min-height:44px}
 .top-actions{overscroll-behavior-x:contain}
+/* X02: the sections below the first screen are laid out only as they come near it
+   (content-visibility, Baseline 2024). They stay in the accessibility tree, in
+   find-in-page and as anchor targets; once drawn they keep their measured height. */
+main>section:not(#top):not(.sticky){content-visibility:auto;contain-intrinsic-size:auto 1000px}
+@media print{main>section{content-visibility:visible}}
 .top-actions.has-more{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent)}
 .hdr-short{display:inline}
 @media(min-width:641px){.hdr-short{display:none}}
@@ -5353,7 +5358,7 @@ details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:bord
 <nav class="glass sticky top-0 z-50 border-b border-slate-200 no-print">
   <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
     <div class="flex items-center justify-between h-14 sm:h-16">
-      <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
+      <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
         <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl gradient-bg flex items-center justify-center animate-pulse-slow flex-shrink-0">
           <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.66-.9l.82-1.2A2 2 0 0110.07 4h3.86a2 2 0 011.66.9l.82 1.2a2 2 0 001.66.9H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
@@ -5361,7 +5366,7 @@ details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:bord
           </svg>
         </div>
         <div class="min-w-0">
-          <h1 class="text-xs sm:text-base font-bold leading-tight truncate">FocalRuta<span class="hdr-label"> · San Isidro</span></h1>
+          <h1 class="text-xs sm:text-base font-bold leading-tight whitespace-nowrap">FocalRuta<span class="hdr-label"> · San Isidro</span></h1>
           <p class="text-xs text-slate-500 hidden sm:block">Planificador para Canon 6D · Lima</p>
         </div>
       </div>
