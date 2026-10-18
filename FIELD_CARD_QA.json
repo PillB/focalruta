@@ -1,0 +1,396 @@
+{
+  "passed": true,
+  "checks": 56,
+  "failures": [],
+  "results": [
+    {
+      "name": "phone: no text under 12 px in any section",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "phone: every control at least 44 × 44 px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "phone: plan C at night shows C01's night settings",
+      "pass": true,
+      "detail": {
+        "shot": "C01",
+        "exposure": "f/8 · 1/125 · ISO 6400",
+        "when": "· a cualquier hora"
+      }
+    },
+    {
+      "name": "phone: only plan C's ten night slots are visible",
+      "pass": true,
+      "detail": {
+        "count": 10,
+        "plans": [
+          "plan_c"
+        ],
+        "slots": [
+          "night"
+        ],
+        "first": {
+          "shot": "C01",
+          "exposure": "f/8 · 1/125 · ISO 6400",
+          "when": "· a cualquier hora"
+        }
+      }
+    },
+    {
+      "name": "phone: packing list follows the plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "phone: section bar stays in the bottom 15% while scrolling",
+      "pass": true,
+      "detail": [
+        777,
+        844,
+        777,
+        844
+      ]
+    },
+    {
+      "name": "phone: plan, light, tick and night screen survive a reload",
+      "pass": true,
+      "detail": [
+        "plan_c",
+        "night",
+        true,
+        "1/10",
+        true
+      ]
+    },
+    {
+      "name": "phone: night screen is black",
+      "pass": true,
+      "detail": "rgb(0, 0, 0)"
+    },
+    {
+      "name": "phone: reset clears this list after a second tap",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "phone: next button stays off the controls, then jumps to the first pending shot",
+      "pass": true,
+      "detail": [
+        true,
+        "plan_a/A02/day"
+      ]
+    },
+    {
+      "name": "phone: arrow keys move between plans with a visible focus ring",
+      "pass": true,
+      "detail": [
+        "solid",
+        3
+      ]
+    },
+    {
+      "name": "phone: no console or page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Lima 15:00Z read from Madrid opens on day",
+      "pass": true,
+      "detail": "Ahora en Lima es de día. En 7 h 37 min empieza la hora dorada (17:37). Puesta de sol: rumbo 260° (oeste)."
+    },
+    {
+      "name": "A01's day window matches the Python ephemeris",
+      "pass": true,
+      "detail": [
+        "· 05:42–17:37",
+        "· 05:42–17:37"
+      ]
+    },
+    {
+      "name": "Lima 22:50Z read from Madrid opens on afternoon",
+      "pass": true,
+      "detail": "Ahora en Lima es de tarde. En 15 min se pone el sol (18:05). Puesta de sol: rumbo 260° (oeste)."
+    },
+    {
+      "name": "Lima 03:30Z read from Madrid opens on night",
+      "pass": true,
+      "detail": "Ahora en Lima es de noche. Mañana sale el sol a las 05:42. Puesta de sol: rumbo 260° (oeste)."
+    },
+    {
+      "name": "no JavaScript: plan C at night shows C01's night settings",
+      "pass": true,
+      "detail": {
+        "shot": "C01",
+        "exposure": "f/8 · 1/125 · ISO 6400",
+        "when": ""
+      }
+    },
+    {
+      "name": "no JavaScript: only plan C's ten night slots are visible",
+      "pass": true,
+      "detail": {
+        "count": 10,
+        "plans": [
+          "plan_c"
+        ],
+        "slots": [
+          "night"
+        ],
+        "first": {
+          "shot": "C01",
+          "exposure": "f/8 · 1/125 · ISO 6400",
+          "when": ""
+        }
+      }
+    },
+    {
+      "name": "no JavaScript: packing list follows the plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "no JavaScript: no text under 12 px in any section",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "no JavaScript: every control at least 44 × 44 px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "reduced motion: nothing animates",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "print: the chosen plan's ten shots and no controls",
+      "pass": true,
+      "detail": [
+        10,
+        "none"
+      ]
+    },
+    {
+      "name": "home page dialog opens the card",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "home page dialog: no text under 12 px in any section",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "home page dialog: every control at least 44 × 44 px",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "home page dialog: plan C at night shows C01's night settings",
+      "pass": true,
+      "detail": {
+        "shot": "C01",
+        "exposure": "f/8 · 1/125 · ISO 6400",
+        "when": "· a cualquier hora"
+      }
+    },
+    {
+      "name": "home page dialog: only plan C's ten night slots are visible",
+      "pass": true,
+      "detail": {
+        "count": 10,
+        "plans": [
+          "plan_c"
+        ],
+        "slots": [
+          "night"
+        ],
+        "first": {
+          "shot": "C01",
+          "exposure": "f/8 · 1/125 · ISO 6400",
+          "when": "· a cualquier hora"
+        }
+      }
+    },
+    {
+      "name": "home page dialog: packing list follows the plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "home page dialog closes with Escape, without errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "your gear: the picker shows, set to the Canon 6D kit, and shots show no extra line",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "your gear: A01 by day on an APS-C body with an 18–55 reads as worked by hand",
+      "pass": true,
+      "detail": "Con tu equipo: 22 mm (zoom 18–55) · f/7.1 · 1/125 · ISO 160"
+    },
+    {
+      "name": "your gear: the picker and the adapted lines hold 12 px text and 44 px controls",
+      "pass": true,
+      "detail": [
+        [],
+        []
+      ]
+    },
+    {
+      "name": "your gear: the optics lab measures the APS-C sensor",
+      "pass": true,
+      "detail": [
+        55.0,
+        "22.9°",
+        "22.9°"
+      ]
+    },
+    {
+      "name": "your gear: the shot dialog and the session mode show it too",
+      "pass": true,
+      "detail": [
+        "Con tu equipo: 22 mm (zoom 18–55) · f/7.1 · 1/125 · ISO 160",
+        "Con tu equipo: 22 mm (zoom 18–55) · f/7.1 · 1/125 · ISO 160"
+      ]
+    },
+    {
+      "name": "your gear: kept on this device after a reload",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "your gear: the field card shows the same adapted setting",
+      "pass": true,
+      "detail": "Con tu equipo: 22 mm (zoom 18–55) · f/7.1 · 1/125 · ISO 160"
+    },
+    {
+      "name": "your gear: the plan page shows it too",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "your gear: back to the Canon 6D kit, the extra lines go",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "your gear: no page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "no horizontal overflow at 320, 390, 430, 844 landscape and 1280",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "axe: no violations on the day card",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "axe: no violations on the dark card",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "axe: no violations on the night screen card",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "V16 first visit after a deploy, still under the live worker: the home page gets only this build's files",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "V16 under the new worker: the home page gets only this build's files",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "V17 offline after the upgrade: plan C, opened before it, still opens with its 10 diagrams",
+      "pass": true,
+      "detail": [
+        10,
+        [],
+        "San Isidro Nocturno — Interior + Calle Urbana · Plan fotográfico · FocalRuta",
+        "build en-vivo"
+      ]
+    },
+    {
+      "name": "V16 offline: the home page and its web manifest come from the worker",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "V16 installed behind the HTTP cache: the home page gets only this build's files",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "V16 installed behind the HTTP cache: field_card.html gets only this build's files",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "V17 a deploy brings the kept plan up to date on install",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "V17 the card says when a kept file is from an earlier version",
+      "pass": true,
+      "detail": "Tu copia sin conexión es de una versión anterior de FocalRuta: vuelve a guardarla con señal para tener los ajustes de ahora."
+    },
+    {
+      "name": "offline after saving and two deploys: plan C is the new one, with all its diagrams",
+      "pass": true,
+      "detail": [
+        10,
+        [],
+        "San Isidro Nocturno — Interior + Calle Urbana · Plan fotográfico · FocalRuta",
+        "build siguiente"
+      ]
+    },
+    {
+      "name": "offline: plan D, which could not be refreshed, still opens with all its diagrams",
+      "pass": true,
+      "detail": [
+        10,
+        [],
+        "Centro Histórico — Plaza San Martín & Jirón de la Unión · Plan fotográfico · FocalRuta",
+        ""
+      ]
+    },
+    {
+      "name": "offline: the card itself opens",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "offline: the home page opens",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "audited_at": "2026-10-17T23:39:09.810019+00:00",
+  "audited_commit": "13253a405bd8c704f8557a1fc5c5047e72ef81aa",
+  "audited_artifacts": {
+    "data/plans.json": "04ed789b72c2db92cd061d56116990924767d352ffd413c5125734f2b62cfd14",
+    "dist/canon6d_sota_hosted/field_card.html": "32ccf751f41d3ede06ebfff2978b070f9594b7be39c377c234ac10aee2142f38",
+    "dist/canon6d_sota_hosted/index.html": "9447c2f617d47ec65b117dcd5842da2fc06f2fccf49149f277b415d368a96329",
+    "dist/canon6d_sota_hosted/sw.js": "21378215a265e24b777ad89dec4b630a4d62b1244dc36cb84e06fe349f1bf5c2",
+    "field_card.html": "32ccf751f41d3ede06ebfff2978b070f9594b7be39c377c234ac10aee2142f38",
+    "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
+  }
+}

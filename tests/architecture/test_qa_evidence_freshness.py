@@ -18,6 +18,7 @@ REPORTS = (
     "OPTICS_ACCESSIBILITY_QA.json",
     "VISUAL_RESOURCE_QA.json",
     "AXE_ACCESSIBILITY_QA.json",
+    "FIELD_CARD_QA.json",
 )
 
 

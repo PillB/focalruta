@@ -17,6 +17,7 @@ from __future__ import annotations
 
 # N01: the responsive matrix every browser-facing round must cover.
 REQUIRED_VIEWPORTS: tuple[tuple[int, int], ...] = (
+    (320, 640),  # WCAG 1.4.10 Reflow: content must work at 320 CSS px wide (V18)
     (390, 844),
     (430, 932),
     (844, 390),

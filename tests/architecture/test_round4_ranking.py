@@ -1,4 +1,5 @@
 import json
+import re
 import hashlib
 import subprocess
 import sys
@@ -93,8 +94,8 @@ def test_ranking_history_is_append_only_and_points_to_immutable_runs():
 
 
 def test_ranking_is_precached_and_route_status_comes_from_verified_layers():
-    build = (ROOT / "scripts/build_dual_release.py").read_text(encoding="utf-8")
-    assert "./data/architecture/ranking.json" in build
+    worker = (ROOT / "dist/canon6d_sota_hosted/sw.js").read_text(encoding="utf-8")
+    assert "data/architecture/ranking.json" in json.loads(re.search(r"const CORE=(\[[^\]]*\])", worker).group(1))
     public = load(PUBLIC)
     assert all(item["ranking_eligible"] for item in public["results"])
     routes = load(ROOT / "data/architecture/routes.json")

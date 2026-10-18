@@ -133,12 +133,14 @@ with sync_playwright() as pw:
     page.evaluate("openFieldCard()"); page.wait_for_timeout(50)
     inert = page.evaluate("[...document.body.children].filter(e=>e.id!=='field-card-modal'&&!['SCRIPT','STYLE'].includes(e.tagName)).every(e=>e.inert)")
     record("live Field Card background inert", inert)
-    tab_ids = []
-    for button in page.locator("#field-card-modal .fc-tab").all():
-        button.click(); tab_ids.append(page.locator("#field-card-modal .fc-panel.fc-active").get_attribute("id"))
-    record("live Field Card all tabs functional", tab_ids == ["fc-field", "fc-rescue", "fc-compose", "fc-gear"], tab_ids)
-    page.locator("#field-card-modal .fc-tab").first.click(); checkbox = page.locator("#field-card-modal .fc-check").first; checkbox.check(); progress = page.locator("#field-card-modal #fc-count").inner_text()
+    shown = []
+    for tab in page.locator("#field-card-modal label.fc-tab").all():
+        tab.click(); shown.append(page.locator("#field-card-modal .fc-panel:visible > h2").first.inner_text())
+    record("live Field Card all sections open", shown == ["Tomas", "Técnicas · valores de partida", "Cuando la foto no sale", "Composición y ángulo", "Qué llevar"], shown)
+    page.locator("#field-card-modal label.fc-tab").first.click()
+    page.locator("#field-card-modal .fc-slot:visible .fc-check-wrap").first.click(); progress = page.locator("#field-card-modal #fc-count").inner_text()
     record("live Field Card progress", progress == "1/10", progress)
+    page.locator("#field-card-modal .fc-slot:visible .fc-check-wrap").first.click()
     page.keyboard.press("Escape")
     page.evaluate("openModal('plan_f','F10')"); record("live shot detail dialog", page.locator("#shot-modal").evaluate("e=>e.open")); page.keyboard.press("Escape")
 

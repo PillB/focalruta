@@ -514,7 +514,7 @@ def render_topdown_panel(fig, rect, shot, variant, focal_mm, h_fov, v_fov, near_
     ax.set_ylim(-1.5, scene_h + 1)
 
     # Title
-    ax.text(0.02, 0.97, f"PLANTA 2D · {shot['composition_label']} · FoV H ≈ {h_fov:.1f}°",
+    ax.text(0.02, 0.97, f"PLANTA 2D · {shot['composition_label']} · campo visual H ≈ {h_fov:.1f}°",
             transform=ax.transAxes, fontsize=11, fontweight="bold",
             color=PALETTE["ink"], va="top")
     ax.text(0.02, 0.93, f"Lente: {LENS_LABELS.get(shot['lens_focal'], shot['lens_focal'])}  ·  Cámara→sujeto {sd:.1f} m  ·  Sujeto→fondo {max(0, bd - sd):.1f} m",
@@ -843,7 +843,7 @@ def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
     ax.set_ylim(-0.5, 4)
 
     # Title
-    ax.text(0.02, 0.97, f"ELEVACIÓN 2.5D · {shot['angle_label']} · FoV V ≈ {v_fov:.1f}°",
+    ax.text(0.02, 0.97, f"ELEVACIÓN 2.5D · {shot['angle_label']} · campo visual V ≈ {v_fov:.1f}°",
             transform=ax.transAxes, fontsize=11, fontweight="bold",
             color=PALETTE["ink"], va="top")
     ax.text(0.02, 0.93, f"Altura cámara: {cam_h:.2f} m  ·  Altura sujeto: ~1.65 m",

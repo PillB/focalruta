@@ -4,6 +4,42 @@
   "viewports": [
     {
       "viewport": [
+        320,
+        640
+      ],
+      "status": 200,
+      "overflow": false,
+      "page_errors": [],
+      "console_errors": [],
+      "labs": 9,
+      "lessons": 17,
+      "videos": 6,
+      "anchor_clear": true,
+      "fov_narrows_with_focal": true,
+      "fov_matches_optics": true,
+      "focal_preserves_depth_ratio": true,
+      "distance_changes_depth_ratio": true,
+      "level_verticals_stay_parallel": true,
+      "tilt_makes_verticals_converge": true,
+      "convergence_grows_with_tilt": true,
+      "shadow_opposes_the_source": true,
+      "low_sun_casts_longer_shadow": true,
+      "wide_source_softens_the_edge": true,
+      "diffuse_source_drops_the_umbra": true,
+      "haze_flattens_the_far_plane": true,
+      "tangency_only_warns_when_tight": true,
+      "reading_order_follows_the_variant": true,
+      "slow_shutter_lengthens_the_streak": true,
+      "stopping_down_widens_the_sharp_zone": true,
+      "grazing_angle_raises_the_reflection": true,
+      "interior_fades_as_reflection_rises": true,
+      "brighter_exposure_grows_the_halo": true,
+      "composition_states_distinct": true,
+      "reset_ok": true,
+      "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-320x640.png"
+    },
+    {
+      "viewport": [
         390,
         844
       ],

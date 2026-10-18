@@ -29,11 +29,7 @@ t = re.sub(r'<section id="eli5-orientation".*?</section>\s*', '', t, count=1, fl
 t, n = re.subn(r'<!-- QUICK START GUIDE -->', orientation + '\n<!-- QUICK START GUIDE -->', t, count=1)
 if n != 1: raise RuntimeError('orientation insertion point not found')
 t = t.replace('</svg>\n        <div class="optics-legend"', '</svg><p class="viz-caption text-sm text-slate-200">Visualización: las líneas comparan campo de visión y profundidad de campo; el gráfico es una guía de relación, no una medición de tu cámara en ese instante.</p>\n        <div class="optics-legend"', 1)
-# The field card modal embeds the canonical fragment; keep it in step with the
-# standalone card instead of trusting a one-off integration run.
-fc_fragment = (ROOT / 'data' / 'field_card_fragment.html').read_text(encoding='utf-8').strip()
-t, n = re.subn(r'<div id="field-card-app">.*?</section>\n</div>', lambda _m: fc_fragment, t, count=1, flags=re.S)
-if n != 1: raise RuntimeError('embedded field card not found')
+# The field card dialog is filled by integrate_field_card.py, which runs next.
 # Lima sun panel: inline the shared JS and a fixed-date fallback for readers without JS.
 import sys
 sys.path.insert(0, str(ROOT / 'scripts'))
@@ -42,6 +38,10 @@ from datetime import date as _date
 sun_js = (ROOT / 'assets' / 'sun_times.js').read_text(encoding='utf-8')
 t, n = re.subn(r'<script id="sun-times-js">.*?</script>', lambda _m: '<script id="sun-times-js">\n' + sun_js + '</script>', t, count=1, flags=re.S)
 if n != 1: raise RuntimeError('sun panel script slot not found')
+# Gear picker (V15): the same assets/gear.js the plan pages and the field card inline.
+gear_js = (ROOT / 'assets' / 'gear.js').read_text(encoding='utf-8')
+t, n = re.subn(r'<script id="gear-js">.*?</script>', lambda _m: '<script id="gear-js">\n' + gear_js + '</script>', t, count=1, flags=re.S)
+if n != 1: raise RuntimeError('gear script slot not found')
 def _solstice(day, label):
     plan = sun_times.day_plan(day)
     return (f"{label}: sale {sun_times.clock(plan['sunrise'])}, se pone {sun_times.clock(plan['sunset'])} "

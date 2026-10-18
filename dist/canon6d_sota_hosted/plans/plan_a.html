@@ -1775,9 +1775,6 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
   font-size: var(--text-xs);
   line-height: var(--tw-leading, var(--text-xs--line-height));
 }
-.text-\[10px\] {
-  font-size: 10px;
-}
 .leading-relaxed {
   --tw-leading: var(--leading-relaxed);
   line-height: var(--leading-relaxed);
@@ -4884,7 +4881,7 @@ html,body{max-width:100%;overflow-x:clip}
 /* READABILITY_OUTDOOR_V2 — shared by standalone route pages */
 :root{--route-ink:#0b1220;--route-muted:#475569;--route-line:#64748b}
 body{font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.55;color:var(--route-ink);text-rendering:optimizeLegibility}
-.text-xs{font-size:.8125rem!important}.text-\[10px\]{font-size:.75rem!important}.text-slate-500,.text-slate-600{color:var(--route-muted)!important}.border-slate-200,.border-slate-300{border-color:var(--route-line)!important}
+.text-xs{font-size:.8125rem!important}.text-slate-500,.text-slate-600{color:var(--route-muted)!important}.border-slate-200,.border-slate-300{border-color:var(--route-line)!important}
 :where(a,button,input,select,summary,[tabindex]):focus-visible{outline:3px solid #facc15!important;outline-offset:3px!important;box-shadow:0 0 0 2px #0f172a!important}
 button,a{min-height:44px}.diagram-frame,.shot-card,details{border-width:1.5px!important}
 @media(prefers-contrast:more){:root{--route-ink:#000;--route-muted:#1f2937;--route-line:#334155}.diagram-frame,.shot-card,details{border-width:2px!important}}
@@ -4893,11 +4890,16 @@ button,a{min-height:44px}.diagram-frame,.shot-card,details{border-width:1.5px!im
 .skip-link{position:absolute;left:8px;top:-64px;z-index:200;padding:10px 14px;border-radius:10px;background:#0f172a;color:#fff;font-weight:700;font-size:14px;text-decoration:none}.skip-link:focus{top:8px}
 body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: #0F172A; }
 .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.85); }
+/* The bar is 64 px tall on every screen: the name takes two lines at most, and on a phone
+   the place and the word "Imprimir" give way so neither the name nor the buttons are cut. */
+.plan-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.plan-place { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 640px) { .plan-place, .plan-action-label { display: none; } }
 .toggle-active { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: white; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
 .toggle-inactive { background: #F1F5F9; color: #475569; }
 .diagram-frame { box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 0 0 1px #E2E8F0; }
 .diagram-frame img { width: 100%; height: auto; display: block; }
-.chip { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+.chip { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; }
 .reasoning-block { background: linear-gradient(135deg, #FEF3C7 0%, #FED7AA 100%); border-left: 4px solid #F59E0B; }
 .do-block { background: #ECFDF5; border-left: 4px solid #16A34A; }
 .dont-block { background: #FEF2F2; border-left: 4px solid #DC2626; }
@@ -4913,7 +4915,15 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 .shutter-pill { background: #FEE2E2; color: #7F1D1D; border: 1px solid #FCA5A5; }
 .iso-pill { background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; }
 .nd-pill { background: #1F2937; color: #F9FAFB; border: 1px solid #111827; }
-.scene-light-line { font-size: 11px; color: #475569; margin-bottom: 6px; }
+.scene-light-line { font-size: 13px; color: #475569; margin-bottom: 6px; }
+/* V15: the setting adapted to the reader's gear. */
+.gear-line { margin: .35rem 0 .5rem; padding: .5rem .7rem; border-left: 4px solid #0f766e; background: #f0fdfa; border-radius: 8px; font-size: .8125rem; color: #134e4a; line-height: 1.45; }
+.gear-line .gear-values { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 700; }
+.gear-line .gear-notes { display: block; margin-top: .2rem; }
+.gear-line-no { border-left-color: #b45309; background: #fffbeb; color: #78350f; }
+/* V11: every control at least 44 x 44 px, for a thumb in the field. */
+summary { min-height: 44px; padding-block: 10px; box-sizing: border-box; }
+button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
 .unviable-note { font-size: 12px; color: #7C2D12; background: #FFEDD5; border: 1px solid #FDBA74; border-radius: 8px; padding: 6px 10px; margin-bottom: 6px; }
 .gradient-bg { background: linear-gradient(135deg, #0F172A 0%, #1E40AF 50%, #7C3AED 100%); }
 @media print { .no-print { display: none !important; } .shot-card { page-break-inside: avoid; } }
@@ -4927,18 +4937,18 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 <nav class="glass sticky top-0 z-50 border-b border-slate-200 no-print">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
+      <div class="flex items-center space-x-3 min-w-0">
+        <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0">
           <span aria-hidden="true" style="font-size:20px">📷</span>
         </div>
-        <div>
-          <h1 class="text-base font-bold leading-tight">Parque El Olivar — Bosque Histórico</h1>
-          <p class="text-xs text-slate-500">Plan individual · Parque El Olivar, San Isidro (Av. La Encalada / Calle La Colonia)</p>
+        <div class="min-w-0">
+          <h1 class="plan-title text-sm sm:text-base font-bold leading-tight">Parque El Olivar — Bosque Histórico</h1>
+          <p class="plan-place text-xs text-slate-500">Plan individual · Parque El Olivar, San Isidro (Av. La Encalada / Calle La Colonia)</p>
         </div>
       </div>
-      <div class="flex items-center space-x-2">
-        <a href="../index.html" class="px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition">← Volver</a>
-        <button onclick="window.print()" class="px-3 py-2 text-xs font-semibold bg-ink text-white rounded-lg hover:bg-slate-700 transition">🖨 Imprimir</button>
+      <div class="flex items-center space-x-2 flex-shrink-0">
+        <a href="../index.html" class="px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">← Volver</a>
+        <button onclick="window.print()" aria-label="Imprimir" class="px-3 py-2 text-xs font-semibold bg-ink text-white rounded-lg hover:bg-slate-700 transition whitespace-nowrap">🖨<span class="plan-action-label"> Imprimir</span></button>
       </div>
     </div>
   </div>
@@ -4969,14 +4979,14 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
   <details class="bg-blue-50 border border-blue-200 rounded-xl p-4">
-    <summary class="font-bold text-sm text-blue-950 cursor-pointer">Criterios canónicos · correcciones compartidas con la Field Card</summary>
+    <summary class="font-bold text-sm text-blue-950 cursor-pointer">Criterios canónicos · correcciones compartidas con la tarjeta de campo</summary>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3 text-xs leading-relaxed text-blue-950">
       <p><strong>Equipo real:</strong> EOS 6D Mark I (sensor 35.8 × 23.9 mm); EF 35mm f/2 IS USM; EF 50mm f/1.8 STM; EF 85mm f/1.8 USM; EF 35–80mm f/4–5.6 III.</p>
       <p><strong>Perspectiva:</strong> cambia geométricamente al mover la cámara. Cambiar focal desde el mismo punto cambia ángulo de visión y recorte, no la relación espacial.</p>
       <p><strong>Ángulos:</strong> nadir = cámara debajo apuntando 90° hacia arriba; cenital = cámara encima apuntando 90° hacia abajo.</p>
-      <p><strong>Seguridad:</strong> en modo perro, fantasma usa una persona controlada con el perro fuera; larga exposición de tráfico se hace sin sujeto/perro junto a la calzada; lightpainting nunca dirige luz intensa a los ojos.</p>
-      <p><strong>Zooming:</strong> usa el 35–80 con la cámara fija; cambia la focal durante la exposición alrededor de un centro fuerte.</p>
-      <p><strong>Referencia frente a plan:</strong> la Field Card es el punto de partida. La variación indicada en cada toma responde a luz/escena; conserva la variable que crea el efecto.</p>
+      <p><strong>Seguridad:</strong> en modo perro, fantasma usa una persona controlada con el perro fuera; larga exposición de tráfico se hace sin sujeto/perro junto a la calzada; la pintura con luz nunca dirige luz intensa a los ojos.</p>
+      <p><strong>Efecto zoom:</strong> usa el 35–80 con la cámara fija; cambia la focal durante la exposición alrededor de un centro fuerte.</p>
+      <p><strong>Referencia frente a plan:</strong> la tarjeta de campo es el punto de partida. La variación indicada en cada toma responde a luz/escena; conserva la variable que crea el efecto.</p>
     </div>
   </details>
 </section>
@@ -5015,8 +5025,364 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: 
   </div>
 </footer>
 
+<script id="gear-js">
+/* Your gear (requirements V13 to V15). The plans are solved for a Canon EOS 6D
+   and its four lenses. A reader with another camera or other lenses gets, next
+   to each planned setting, the equivalent for their gear:
+   - the same framing: the focal that gives the plan's field of view on their
+     sensor, or their nearest lens and the distance that keeps the subject the
+     same size;
+   - the same depth of field in proportion to the subject distance: the
+     hyperfocal distance scales with the camera distance, with the circle of
+     confusion scaled to the sensor;
+   - the same exposure, keeping the variable that makes the effect: the shutter
+     for motion techniques, the aperture for depth-of-field techniques.
+   Pure helpers are exported for tests/test_gear.py; the rest needs a page. */
+(function (root) {
+  'use strict';
+  var REF_W = 35.8, REF_COC = 0.03, BASE_ISO = 100, FASTEST = 1 / 4000, NARROWEST = 22, KEY = 'focalruta-equipo-v1';
+  var APERTURES = [1, 1.1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.5, 2.8, 3.2, 3.5, 4, 4.5, 5, 5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22];
+  var ISOS = [100, 125, 160, 200, 250, 320, 400, 500, 640, 800, 1000, 1250, 1600, 2000, 2500, 3200, 4000, 5000, 6400, 8000, 10000, 12800, 16000, 20000, 25600, 32000, 40000, 51200];
+  // The highest ISO the reader allows, as the picker offers it.
+  var ISO_LIMITS = [1600, 3200, 6400, 12800, 25600, 51200];
+  var SHUTTERS = [1 / 4000, 1 / 3200, 1 / 2500, 1 / 2000, 1 / 1600, 1 / 1250, 1 / 1000, 1 / 800, 1 / 640, 1 / 500, 1 / 400, 1 / 320, 1 / 250, 1 / 200, 1 / 160, 1 / 125,
+    1 / 100, 1 / 80, 1 / 60, 1 / 50, 1 / 40, 1 / 30, 1 / 25, 1 / 20, 1 / 15, 1 / 13, 1 / 10, 1 / 8, 1 / 6, 1 / 5, 1 / 4, 0.3, 0.4, 0.5, 0.6, 0.8, 1, 1.3, 1.6, 2, 2.5,
+    3.2, 4, 5, 6, 8, 10, 13, 15, 20, 25, 30];
+  // Techniques whose effect is the depth of field keep their aperture; the rest keep their shutter.
+  var APERTURE_LED = ['mucha_pdc', 'poca_pdc'];
+  var BODIES = [
+    { id: 'canon_6d', name: 'Canon EOS 6D (la de los planes)', w: 35.8, iso: 25600, sensor: 'Sensor de 35,8 × 23,9 mm.' },
+    { id: 'full_frame', name: 'Otra de formato completo', w: 36, iso: 25600, sensor: 'Sensor de 36 × 24 mm: casi igual que la 6D.' },
+    { id: 'apsc_canon', name: 'APS-C de Canon (factor 1,6)', w: 22.3, iso: 12800, sensor: 'Sensor de 22,3 × 14,9 mm (EOS 2000D a R7).' },
+    { id: 'apsc', name: 'APS-C de otras marcas (factor 1,5)', w: 23.5, iso: 12800, sensor: 'Sensor de 23,5 × 15,6 mm (Nikon DX, Sony APS-C, Fujifilm X).' },
+    { id: 'm43', name: 'Micro Cuatro Tercios (factor 2)', w: 17.3, iso: 6400, sensor: 'Sensor de 17,3 × 13 mm (OM System, Panasonic Lumix G).' },
+    { id: 'one_inch', name: 'Sensor de 1 pulgada (factor 2,7)', w: 13.2, iso: 6400, sensor: 'Sensor de 13,2 × 8,8 mm (compactas avanzadas).' }
+  ];
+  var KIT = [
+    { name: 'EF 35mm f/2 IS USM', min: 35, max: 35, wide: 2, tele: 2, filter: 67 },
+    { name: 'EF 50mm f/1.8 STM', min: 50, max: 50, wide: 1.8, tele: 1.8, filter: 49 },
+    { name: 'EF 85mm f/1.8 USM', min: 85, max: 85, wide: 1.8, tele: 1.8, filter: 58 },
+    { name: 'EF 35–80mm f/4–5.6 III', min: 35, max: 80, wide: 4, tele: 5.6, filter: 52 }
+  ];
+  // Common lenses a reader can add with one tap; filter threads vary by model, so they are left out.
+  var COMMON = [
+    { name: 'Zoom de kit 18–55 mm f/3.5–5.6', min: 18, max: 55, wide: 3.5, tele: 5.6 },
+    { name: 'Zoom de kit 16–50 mm f/3.5–5.6', min: 16, max: 50, wide: 3.5, tele: 5.6 },
+    { name: 'Zoom de kit 14–42 mm f/3.5–5.6', min: 14, max: 42, wide: 3.5, tele: 5.6 },
+    { name: 'Zoom 24–70 mm f/2.8', min: 24, max: 70, wide: 2.8, tele: 2.8 },
+    { name: 'Zoom 24–105 mm f/4', min: 24, max: 105, wide: 4, tele: 4 },
+    { name: 'Zoom 70–200 mm f/4', min: 70, max: 200, wide: 4, tele: 4 },
+    { name: '23 mm f/2', min: 23, max: 23, wide: 2, tele: 2 },
+    { name: '35 mm f/1.8', min: 35, max: 35, wide: 1.8, tele: 1.8 },
+    { name: '50 mm f/1.8', min: 50, max: 50, wide: 1.8, tele: 1.8 },
+    { name: '85 mm f/1.8', min: 85, max: 85, wide: 1.8, tele: 1.8 }
+  ];
+
+  function reference() { return { body: 'canon_6d', iso: 25600, lenses: KIT.map(function (l) { return Object.assign({}, l); }) }; }
+  function bodyOf(gear) { return BODIES.filter(function (b) { return b.id === gear.body; })[0] || BODIES[0]; }
+  function isReference(gear) { return JSON.stringify(gear) === JSON.stringify(reference()); }
+
+  function nearest(list, value) {
+    return list.reduce(function (best, x) { return Math.abs(Math.log(x / value)) < Math.abs(Math.log(best / value)) ? x : best; }, list[0]);
+  }
+  function fNumber(text) { return parseFloat(String(text).replace('f/', '')); }
+  function seconds(text) {
+    var s = String(text).replace('Bulb', '').trim(), canon = /^(\d+)"(\d)?$/.exec(s);
+    if (canon) return +canon[1] + (canon[2] ? +canon[2] / 10 : 0);
+    if (s.indexOf('/') > 0) return +s.split('/')[0] / +s.split('/')[1];
+    return parseFloat(s);
+  }
+  function shutterText(t) {
+    if (t > 30) return 'Bulb ' + Math.round(t) + '"';
+    var x = nearest(SHUTTERS, t);
+    if (x < 0.3) return '1/' + Math.round(1 / x);
+    var whole = Math.floor(x + 1e-9), tenth = Math.round((x - whole) * 10);
+    return whole + '"' + (tenth ? tenth : '');
+  }
+  function decimal(x) { return (Math.round(x * 10) / 10).toFixed(1).replace('.', ','); }
+
+  // A zoom's widest aperture narrows from the wide end to the tele end.
+  function widestAt(lens, focal) {
+    if (lens.max === lens.min) return lens.wide;
+    var share = (focal - lens.min) / (lens.max - lens.min);
+    return lens.wide + Math.max(0, Math.min(1, share)) * (lens.tele - lens.wide);
+  }
+
+  // '35mm' -> {focal: 35}; '35-80mm @50' -> {focal: 50}; '35-80mm' (zooming during the exposure) -> {from: 35, to: 80}.
+  function planLens(text) {
+    var m = /^(\d+)(?:-(\d+))?mm(?:\s*@\s*(\d+))?/.exec(String(text).replace('–', '-'));
+    if (!m) return null;
+    if (m[2] && !m[3]) return { from: +m[1], to: +m[2] };
+    return { focal: +(m[3] || m[1]) };
+  }
+
+  // The lens that comes closest to the plan: framing missed (the reader has to
+  // move) plus depth of field lost to a lens that cannot open far enough.
+  function chooseLens(lenses, wanted, plan, coc) {
+    var best = null;
+    lenses.forEach(function (lens) {
+      var focal = Math.max(lens.min, Math.min(lens.max, wanted)), miss = Math.abs(Math.log(focal / wanted));
+      var distance = plan.distance * focal / wanted, widest = widestAt(lens, focal);
+      var lost = Math.max(0, 2 * Math.log2(widest / apertureFor(plan, focal, distance, coc)));
+      var score = (miss < 0.03 ? 0 : miss) + lost / 2 + widest / 1000;
+      if (!best || score < best.score) best = { lens: lens, focal: focal, distance: distance, score: score };
+    });
+    return best;
+  }
+
+  // The zoom that runs over most of the planned range; one that misses it (no overlap) cannot make the burst.
+  function chooseZoom(lenses, from, to) {
+    var best = null;
+    lenses.filter(function (l) { return l.max / l.min >= 1.5; }).forEach(function (lens) {
+      var a = Math.max(lens.min, from), b = Math.min(lens.max, to), span = b > a ? Math.log(b / a) : 0;
+      if (span > 0 && (!best || span > best.span)) best = { lens: lens, from: a, to: b, span: span };
+    });
+    return best;
+  }
+
+  // Same hyperfocal in proportion to the subject distance: the sharp zone
+  // scales with the camera distance (thin lens, f much shorter than d).
+  function apertureFor(plan, focal, distanceM, coc) {
+    var target = plan.hyperfocal * distanceM / plan.distance;
+    return target > focal ? focal * focal / (coc * (target - focal)) : Infinity;
+  }
+
+  // Sharp to infinity when the hyperfocal distance does not pass the subject.
+  function sharpToInfinity(n, focal, distanceM, coc) { return focal * focal / (n * coc) + focal <= distanceM * 1000 - focal; }
+  // Far limit of the sharp zone, in metres (thin lens).
+  function farLimit(n, focal, distanceM, coc) {
+    var h = focal * focal / (n * coc) + focal, s = distanceM * 1000;
+    return h * s / (h - s + focal) / 1000;
+  }
+
+  function snapAperture(n, widest, planFarIsInfinite, focal, distance, coc) {
+    var allowed = APERTURES.filter(function (x) { return x >= widest - 0.05; });
+    var snapped = nearest(allowed, Math.max(n, widest));
+    // A plan sharp to infinity stays sharp to infinity: round toward more depth.
+    if (planFarIsInfinite && !sharpToInfinity(snapped, focal, distance, coc) && snapped < NARROWEST) {
+      snapped = allowed[Math.min(allowed.length - 1, allowed.indexOf(snapped) + 1)];
+    }
+    return snapped;
+  }
+
+  // ISO that keeps log2(N²/t) − log2(ISO/100) + ND equal to the plan's.
+  function isoNeeded(r, plan) { return plan.iso * Math.pow(r.n / plan.n, 2) * plan.t / r.t * Math.pow(2, r.nd - plan.nd); }
+
+  function tooMuchLight(r, plan) {
+    var extra = Math.log2(BASE_ISO / isoNeeded(r, plan));
+    if (r.apertureLed) {
+      r.t = r.t / Math.pow(2, extra);
+      if (r.t < FASTEST) { var nd = Math.ceil(Math.log2(FASTEST / r.t) - 1e-9); r.nd += nd; r.t *= Math.pow(2, nd); }
+      r.t = nearest(SHUTTERS, r.t);
+      return;
+    }
+    var target = Math.min(16, r.n * Math.pow(2, extra / 2)), n = APERTURES.filter(function (x) { return x >= r.n && x <= target * 1.03; }).pop();
+    if (n > r.n) { r.n = n; r.stoppedDown = true; }
+    var left = Math.log2(BASE_ISO / isoNeeded(r, plan));
+    if (left > 1 / 6) r.nd += Math.ceil(left - 1e-9);
+  }
+
+  function tooLittleLight(r, plan, body) {
+    var short = Math.log2(isoNeeded(r, plan) / body.iso);
+    if (r.nd > 0) { r.nd -= Math.min(r.nd, Math.ceil(short - 1e-9)); short = Math.log2(isoNeeded(r, plan) / body.iso); }
+    if (short <= 0) return;
+    if (r.apertureLed) { r.t = r.t * Math.pow(2, short); r.slower = true; r.t = r.t > 30 ? Math.round(r.t) : nearest(SHUTTERS, r.t); return; }
+    var open = APERTURES.filter(function (x) { return x >= r.widest - 0.05 && x >= r.n / Math.pow(2, short / 2) * 0.97; })[0];
+    if (open < r.n) { r.n = open; r.opened = true; }
+  }
+
+  function lightBalance(r, plan, body) {
+    if (isoNeeded(r, plan) < BASE_ISO / Math.pow(2, 1 / 6)) tooMuchLight(r, plan);
+    else if (isoNeeded(r, plan) > body.iso * Math.pow(2, 1 / 6)) tooLittleLight(r, plan, body);
+    var iso = isoNeeded(r, plan), allowed = ISOS.filter(function (x) { return x <= body.iso; });
+    r.iso = nearest(allowed, Math.max(BASE_ISO, Math.min(body.iso, iso)));
+    var short = Math.log2(iso / body.iso);
+    // Exposure is held to a third of a stop, the dial's step: a shortfall under that is not one.
+    if (short >= 1 / 3 - 0.01) r.shortStops = short;
+    return r;
+  }
+
+  function notesFor(r, plan) {
+    var notes = [];
+    if (r.distance && Math.abs(r.distance / plan.distance - 1) > 0.05) {
+      notes.push(r.distance > plan.distance ? 'Retrocede a ' + decimal(r.distance) + ' m (el plan está a ' + decimal(plan.distance) + ' m) para el mismo encuadre.'
+        : 'Acércate a ' + decimal(r.distance) + ' m (el plan está a ' + decimal(plan.distance) + ' m), o quédate y recorta.');
+    }
+    if (r.apertureLimited) notes.push('Tu lente no abre tanto: habrá más zona nítida y menos desenfoque de fondo que en el plan.');
+    if (r.narrow) {
+      notes.push('Ni cerrando a f/' + NARROWEST + ' alcanza con esta focal: ' + (r.sharpTo ? 'nítido sólo hasta ' + decimal(r.sharpTo) + ' m, no hasta el infinito como en el plan.'
+        : 'habrá menos zona nítida que en el plan.'));
+    }
+    if (r.stoppedDown) notes.push('Diafragma más cerrado que el equivalente, para no pasarte de luz: algo más de zona nítida.');
+    if (r.opened) notes.push('Diafragma más abierto que el equivalente, por falta de luz: algo menos de zona nítida.');
+    var shaky = r.t > r.handheld * 1.05;
+    if (r.slower) notes.push(shaky ? 'Exposición más larga por falta de luz: usa trípode.' : 'Exposición más larga por falta de luz; aún a pulso.');
+    // A shutter the plan holds by hand on the 6D can need support on a longer equivalent focal (panning moves the camera on purpose).
+    if (!r.slower && shaky && !r.panned && plan.t <= 1.05 / plan.focal) {
+      notes.push('Con tu focal (equivale a ' + Math.round(1 / r.handheld) + ' mm), ' + shutterText(r.t) + ' ya no se sostiene a pulso: usa trípode o apoya la cámara.');
+    }
+    if (r.nd !== plan.nd) notes.push(r.nd ? 'Filtro ND de ' + r.nd + (r.nd === 1 ? ' paso.' : ' pasos.') : 'Sin filtro ND.');
+    if (r.shortStops) notes.push('Faltan ' + decimal(r.shortStops) + ' pasos de luz con ISO ' + r.iso + ': sube tu ISO máximo o acepta una foto más oscura.');
+    return notes;
+  }
+
+  /* The plan's setting for one light slot, adapted to `gear`.
+     setting: {technique, lens, aperture, shutter, iso, nd_stops, distance}. */
+  function adapt(setting, gear) {
+    var body = bodyOf(gear), k = body.w / REF_W, coc = REF_COC * k, lens = planLens(setting.lens);
+    var limits = { iso: +gear.iso || body.iso };
+    if (!lens || !gear.lenses.length) return { ok: false, reason: 'Añade al menos un lente a tu equipo.' };
+    var plan = { n: fNumber(setting.aperture), t: seconds(setting.shutter), iso: +setting.iso, nd: +(setting.nd_stops || 0), distance: +setting.distance };
+    var r = { ok: true, nd: plan.nd, t: plan.t, apertureLed: APERTURE_LED.indexOf(setting.technique) >= 0 };
+    plan.focal = lens.from ? lens.to : lens.focal;
+    plan.hyperfocal = plan.focal * plan.focal / (plan.n * REF_COC) + plan.focal;
+    var focal;
+    if (lens.from) {
+      var zoom = chooseZoom(gear.lenses, lens.from * k, lens.to * k);
+      if (!zoom) {
+        var zooms = gear.lenses.filter(function (l) { return l.max / l.min >= 1.5; }).length;
+        return { ok: false, reason: !zooms ? 'El efecto zoom necesita un objetivo zoom: añade uno a tu equipo.'
+          : 'El efecto zoom pide de ' + Math.round(lens.from * k) + ' a ' + Math.round(lens.to * k) + ' mm con tu cámara y ' +
+            (zooms === 1 ? 'tu zoom no llega' : 'ninguno de tus zooms llega') + ': añade uno que cubra ese recorrido.' };
+      }
+      focal = zoom.to; r.lensName = zoom.lens.name; r.lensText = Math.round(zoom.from) + '–' + Math.round(zoom.to) + ' mm, girando el anillo durante la exposición';
+      // The burst ends on the plan's framing: a zoom whose long end falls short ends it closer.
+      r.widest = widestAt(zoom.lens, focal); r.distance = plan.distance * focal / (lens.to * k);
+    } else {
+      var pick = chooseLens(gear.lenses, lens.focal * k, plan, coc);
+      focal = pick.focal; r.lensName = pick.lens.name; r.distance = pick.distance; r.widest = widestAt(pick.lens, focal);
+      r.lensText = Math.round(focal) + ' mm' + (pick.lens.max > pick.lens.min ? ' (zoom ' + pick.lens.min + '–' + pick.lens.max + ')' : '');
+    }
+    // The reciprocal rule on the 35 mm equivalent focal: slower than this, the camera needs support.
+    r.handheld = k / focal; r.panned = setting.technique === 'barrido';
+    var planInfinite = plan.distance * 1000 - plan.focal >= plan.hyperfocal;
+    var ideal = apertureFor(plan, focal, r.distance, coc);
+    r.apertureLimited = ideal < r.widest - 0.05;
+    r.n = snapAperture(Math.min(ideal, NARROWEST), r.widest, planInfinite, focal, r.distance, coc);
+    lightBalance(r, plan, limits);
+    // Stopped down for the light, the lens limit no longer shows in the picture.
+    if (r.stoppedDown) r.apertureLimited = false;
+    // A long lens can need more than f/22 for the plan's sharp zone: say what is lost, and where it ends if the plan reached infinity.
+    var lostFar = planInfinite && !sharpToInfinity(r.n, focal, r.distance, coc);
+    r.narrow = r.n >= NARROWEST && (ideal > NARROWEST * Math.pow(2, 1 / 6) || lostFar);
+    r.sharpTo = r.narrow && lostFar ? farLimit(r.n, focal, r.distance, coc) : 0;
+    return {
+      ok: true, focal: focal, lens: r.lensText, lens_name: r.lensName, distance_m: r.distance, f_number: r.n, aperture: 'f/' + r.n,
+      seconds: r.t, shutter: shutterText(r.t), iso: r.iso, nd_stops: r.nd, coc_mm: coc,
+      flags: { apertureLimited: r.apertureLimited, narrowLimited: r.narrow, stoppedDown: !!r.stoppedDown, opened: !!r.opened, slower: !!r.slower, short: r.shortStops || 0 },
+      notes: notesFor(r, plan)
+    };
+  }
+
+  function lineHtml(setting, gear) {
+    if (!gear || isReference(gear) || setting.viable === false) return '';
+    var r = adapt(setting, gear);
+    if (!r.ok) return '<div class="gear-line gear-line-no"><strong>Con tu equipo:</strong> ' + r.reason + '</div>';
+    return '<div class="gear-line"><strong>Con tu equipo:</strong> <span class="gear-values">' + r.lens + ' · ' + r.aperture + ' · ' + r.shutter + ' · ISO ' + r.iso +
+      (r.nd_stops ? ' · ND ' + r.nd_stops + (r.nd_stops === 1 ? ' paso' : ' pasos') : '') + '</span>' + (r.notes.length ? ' <span class="gear-notes">' + r.notes.join(' ') + '</span>' : '') + '</div>';
+  }
+
+  // The circle of confusion for the reader's sensor: the 6D's 0.03 mm scaled by the width ratio.
+  function cocOf(gear) { return REF_COC * bodyOf(gear).w / REF_W; }
+
+  var api = { REF_W: REF_W, REF_COC: REF_COC, cocOf: cocOf, BODIES: BODIES, KIT: KIT, COMMON: COMMON, reference: reference, isReference: isReference, planLens: planLens,
+              widestAt: widestAt, seconds: seconds, shutterText: shutterText, adapt: adapt, lineHtml: lineHtml, bodyOf: bodyOf };
+
+  // A stored lens is the reader's own data but still goes into the page as
+  // HTML: keep the numbers and a name without markup, or drop it.
+  function cleanLens(l) {
+    if (!l || typeof l !== 'object') return null;
+    var n = { name: String(l.name || '').replace(/[<>&"]/g, ''), min: +l.min, max: +l.max, wide: +l.wide, tele: +l.tele };
+    if ('filter' in l) n.filter = +l.filter;
+    return n.min >= 4 && n.max >= n.min && n.max <= 1200 && n.wide >= 0.95 && n.tele >= n.wide && n.tele <= NARROWEST ? n : null;
+  }
+  // A stored ISO limit comes back as one the picker offers: the nearest, or the body's own when it is not a number.
+  function isoLimit(x) { return nearest(ISO_LIMITS, Math.min(Math.max(x, ISO_LIMITS[0]), ISO_LIMITS[ISO_LIMITS.length - 1])); }
+  function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function parse(raw) {
+    try {
+      var g = JSON.parse(raw || 'null');
+      if (g && BODIES.some(function (b) { return b.id === g.body; }) && Array.isArray(g.lenses)) {
+        return { body: g.body, iso: isoLimit(+g.iso > 0 ? +g.iso : bodyOf(g).iso), lenses: g.lenses.map(cleanLens).filter(Boolean) };
+      }
+    } catch (e) {}
+    return reference();
+  }
+  function load() { return parse(stored()); }
+  function save(gear) { try { if (isReference(gear)) localStorage.removeItem(KEY); else localStorage.setItem(KEY, JSON.stringify(gear)); } catch (e) {} }
+  api.load = load;
+  api.save = save;
+  // The adapted line for a shot in the light slot the page shows. A page draws every shot at once,
+  // so the stored gear is parsed again only when it has changed.
+  var last = null;
+  api.lineFor = function (shot, setting) {
+    var raw = stored();
+    if (!last || raw !== last.raw) last = { raw: raw, gear: parse(raw) };
+    return lineHtml(Object.assign({ technique: shot.technique, distance: shot.subject_distance_m }, setting), last.gear);
+  };
+  if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
+  root.FocalRutaEquipo = api;
+
+  // The gear picker on the home page (#gear-config). Without JavaScript it stays
+  // hidden and the page describes the Canon 6D kit the plans are solved for.
+  var panel = document.getElementById('gear-config');
+  if (!panel) return;
+  var $ = function (id) { return document.getElementById(id); };
+  var gear = load();
+  function lensName(l) {
+    var focal = l.max > l.min ? l.min + '–' + l.max + ' mm' : l.min + ' mm';
+    return l.name || focal + ' f/' + l.wide + (l.tele !== l.wide ? '–' + l.tele : '');
+  }
+  function changed() {
+    save(gear); paint();
+    document.dispatchEvent(new CustomEvent('focalruta:equipo', { detail: gear }));
+  }
+  function paint() {
+    var body = bodyOf(gear);
+    $('gear-body').value = body.id;
+    $('gear-body-hint').textContent = body.sensor;
+    $('gear-iso').value = String(gear.iso);
+    $('gear-lens-list').innerHTML = gear.lenses.map(function (l, i) {
+      return '<li><span>' + lensName(l) + '</span><button type="button" class="sota-btn" data-remove="' + i + '" aria-label="Quitar ' + lensName(l) + '">Quitar</button></li>';
+    }).join('') || '<li class="gear-empty">Sin lentes: añade al menos uno.</li>';
+    $('gear-status').textContent = isReference(gear) ? 'Usas el equipo de los planes: cada toma muestra sus ajustes tal cual.'
+      : 'Planes adaptados a ' + body.name.split(' (')[0] + ' con ' + gear.lenses.length + (gear.lenses.length === 1 ? ' lente' : ' lentes') + ': cada toma muestra también «Con tu equipo».';
+  }
+  $('gear-body').innerHTML = BODIES.map(function (b) { return '<option value="' + b.id + '">' + b.name + '</option>'; }).join('');
+  $('gear-iso').innerHTML = ISO_LIMITS.map(function (x) { return '<option value="' + x + '">ISO ' + x + '</option>'; }).join('');
+  $('gear-common').innerHTML = '<option value="">Elige un lente…</option>' + COMMON.map(function (l, i) { return '<option value="' + i + '">' + l.name + '</option>'; }).join('');
+  $('gear-body').addEventListener('change', function () {
+    gear.body = this.value;
+    gear.iso = bodyOf(gear).iso;
+    changed();
+  });
+  $('gear-iso').addEventListener('change', function () { gear.iso = +this.value; changed(); });
+  $('gear-common').addEventListener('change', function () {
+    if (this.value === '') return;
+    gear.lenses.push(Object.assign({}, COMMON[+this.value])); this.value = ''; changed();
+  });
+  $('gear-lens-list').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-remove]');
+    if (b) { gear.lenses.splice(+b.getAttribute('data-remove'), 1); changed(); }
+  });
+  $('gear-add').addEventListener('click', function () {
+    var min = +$('gear-min').value, max = +$('gear-max').value || min, wide = +$('gear-wide').value, tele = +$('gear-tele').value || wide;
+    if (!(min >= 4 && min <= 1200 && max >= min && max <= 1200 && wide >= 0.95 && wide <= NARROWEST && tele >= wide && tele <= NARROWEST)) {
+      $('gear-status').textContent = 'Revisa el lente: focal entre 4 y 1200 mm, la larga no menor que la corta, y apertura entre f/0.95 y f/' + NARROWEST + '.';
+      return;
+    }
+    gear.lenses.push({ name: '', min: min, max: max, wide: wide, tele: tele });
+    gear.lenses[gear.lenses.length - 1].name = lensName(gear.lenses[gear.lenses.length - 1]);
+    ['gear-min', 'gear-max', 'gear-wide', 'gear-tele'].forEach(function (id) { $(id).value = ''; });
+    changed();
+  });
+  $('gear-reset').addEventListener('click', function () { gear = reference(); changed(); });
+  panel.hidden = false;
+  paint();
+})(typeof window !== 'undefined' ? window : this);
+</script>
 <script>
-const DATA = {"plan": {"id": "plan_a", "name": "Parque El Olivar — Bosque Histórico", "location": "Parque El Olivar, San Isidro (Av. La Encalada / Calle La Colonia)", "distance_from_home": "Acceso local; verifica tu ruta antes de salir", "best_window": "Mañana del amanecer a las 08:00 (luz dorada ≈45 min tras salir el sol) · Tarde 17:00–18:30", "why": "Olivares centenarios, senderos rectos, capas naturales de follaje, faroles coloniales. Permite mucha PDC con capas, poca PDC para aislar, barrido con perros o ciclistas y larga exposición con faroles al anochecer.", "palette": ["#3b5d3b", "#6b8e4e", "#c4a35a", "#d9d4c5"], "shots": [{"id": "A01", "technique": "mucha_pdc", "technique_label": "Mucha Profundidad de Campo", "lens_focal": 35, "aperture": "f/11", "shutter": "1/125", "iso": 400, "subject_distance_m": 4.0, "background_distance_m": 12.0, "composition": "capas", "composition_label": "Capas", "angle": "central", "angle_label": "Central", "camera_height_m": 1.55, "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara", "scene_notes": "Sendero central de olivos, sujeto a 4 m, hileras de olivos que convergen al fondo. Sujeto en tercio izquierdo del encuadre.", "reasoning": "El 35 mm en formato completo da un campo horizontal de 54°, suficiente para incluir 2–3 hileras de olivos como capas. A f/11 la hiperfocal es ≈3,7 m; enfocando al sujeto a 4 m (algo más allá de ella) queda nítido desde ≈1,9 m hasta el infinito, así que el fondo a 12 m también se lee. Eso es exactamente lo que pide 'mucha PDC'.", "dos": ["Dispara en modo Av con f/11, enfoque al sujeto, deja que la cámara elija velocidad", "Usa un trípode para evitar trepidación si la velocidad baja de 1/100", "Equilibra el horizonte con la regla de tercios vertical"], "donts": ["No uses 35mm a f/2 — perderías las capas del fondo, clave de esta composición", "No coloques al sujeto pegado al fondo (necesitas separación para que las capas se distingan)"], "settings_by_time": {"day": {"lens": "35mm", "aperture": "f/11", "shutter": "1/125", "iso": 400, "scene": "sombra_abierta", "notes": "Mañana: luz lateral cálida filtrada por los olivos. Si el cielo entra en cuadro, compensa -0.3 EV para no quemarlo."}, "afternoon": {"lens": "35mm", "aperture": "f/11", "shutter": "1/125", "iso": 400, "scene": "sombra_abierta", "notes": "Tarde: sol bajo, sombras largas. Cuidado con sombras duras en el rostro."}, "night": {"lens": "35mm", "aperture": "f/8", "shutter": "1/30", "iso": 6400, "scene": "iluminado_focos", "notes": "Noche: faroles del parque. ISO 6400 es utilizable en la 6D; apoya la cámara en un muro bajo para sostener 1/30 s."}}, "subjects": {"dog": {"pose": "treat_focus", "action": "Perro sentado atendiendo un snack en tu mano, mirada fija hacia la cámara"}, "human": {"pose": "portrait_3_4", "action": "Modelo 3/4, cuerpo girado 45° hacia la luz, manos relajadas"}}}, {"id": "A02", "technique": "mucha_pdc", "technique_label": "Mucha Profundidad de Campo", "lens_focal": "35-80@35", "aperture": "f/8", "shutter": "1/125", "iso": 200, "subject_distance_m": 6.0, "background_distance_m": 20.0, "composition": "simetria", "composition_label": "Simetría", "angle": "central", "angle_label": "Central", "camera_height_m": 1.65, "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa", "scene_notes": "Paseo peatonal entre dos hileras de palmeras/olivos. Sujeto en el centro exacto, ejes bilaterales a izquierda y derecha.", "reasoning": "La simetría exige que el sujeto esté en el centro óptico y la cámara perfectamente nivelada (usa el nivel electrónico de la 6D). El zoom a 35 mm y f/8 rinde algo menos que el fijo, pero sobra para web e impresión mediana. A 6 m el encuadre horizontal mide ≈4,1 m de alto, así que una persona de pie ocupa ≈40 % de la altura.", "dos": ["Verifica simetría con la rejilla de pantalla del 6D", "Usa nivel electrónico o de zapata", "Equilibra luz izquierda/derecha (si hay sol lateral, busca sombra pareja)"], "donts": ["No rompas la simetría con elementos laterales asimétricos (basura, personas)", "No dispares descentrado — 5 cm arruinan el efecto"], "settings_by_time": {"day": {"lens": "35-80mm @35", "aperture": "f/8", "shutter": "1/125", "iso": 200, "scene": "sombra_abierta", "notes": "Mañana: buena luz, busca alineación solar perfecta para sombras simétricas."}, "afternoon": {"lens": "35-80mm @35", "aperture": "f/8", "shutter": "1/125", "iso": 200, "scene": "sombra_abierta", "notes": "Tarde: sombras largas pueden romper la simetría; dispara cuando el sol está alto."}, "night": {"lens": "35-80mm @35", "aperture": "f/8", "shutter": "1/30", "iso": 6400, "scene": "iluminado_focos", "notes": "Noche: faroles simétricos. Apoya la cámara o usa trípode; si el sujeto puede quedarse quieto, baja a 1/8 s e ISO 1600."}}, "subjects": {"dog": {"pose": "sit_stay", "action": "Perro sentado perfectamente centrado, atendiendo"}, "human": {"pose": "arms_crossed", "action": "Modelo de pie, brazos cruzados, simetría frontal"}}}, {"id": "A03", "technique": "poca_pdc", "technique_label": "Poca Profundidad de Campo", "lens_focal": 85, "aperture": "f/1.8", "shutter": "1/1250", "iso": 100, "subject_distance_m": 3.0, "background_distance_m": 8.0, "composition": "punto_interes", "composition_label": "Punto de interés", "angle": "central", "angle_label": "Central", "camera_height_m": 1.55, "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara", "scene_notes": "Retrato de cabeza y hombros. Sujeto contra un seto verde a 8 m. Fondo desenfocado en verde suave.", "reasoning": "El 85 mm f/1.8 es el retrato clásico: a 3 m la profundidad de campo total es de ≈13 cm, así que los ojos quedan nítidos y orejas y pelo empiezan a ablandarse. El seto a 8 m se convierte en una mancha verde uniforme. El único punto de interés es el ojo más cercano.", "dos": ["Enfoca EXACTAMENTE en el ojo más cercano (usa AF punto central + recomposición)", "Dispara a f/1.8 o f/2 — no tengo miedo a abrir de más", "Si hay viento, dispara en ráfaga para capturar el instante de quietud del pelo"], "donts": ["No uses 85mm a f/8 — mata la razón de ser del lente", "No dispares demasiado lejos: a 6 m el 85mm da poca PDC y el sujeto queda chico en el encuadre"], "settings_by_time": {"day": {"lens": "85mm", "aperture": "f/2", "shutter": "1/1000", "iso": 100, "scene": "sombra_abierta", "notes": "Mañana: sol suave lateral, fondo verde se satura con contraluz."}, "afternoon": {"lens": "85mm", "aperture": "f/1.8", "shutter": "1/1250", "iso": 100, "scene": "sombra_abierta", "notes": "Tarde: hora dorada — el fondo verde brilla, sujeto con luz cálida."}, "night": {"lens": "85mm", "aperture": "f/1.8", "shutter": "1/125", "iso": 1600, "scene": "iluminado_focos", "notes": "Noche: retrato junto a un farol. Ajusta el balance de blancos a unos 3200 K para que la piel no salga naranja."}}, "subjects": {"dog": {"pose": "head_tilt", "action": "Perro con cabeza ladeada, ojos fijos en cámara"}, "human": {"pose": "portrait_3_4", "action": "Modelo girada 45°, mirada directa a cámara"}}}, {"id": "A04", "technique": "poca_pdc", "technique_label": "Poca Profundidad de Campo", "lens_focal": 50, "aperture": "f/1.8", "shutter": "1/1250", "iso": 100, "subject_distance_m": 2.5, "background_distance_m": 5.0, "composition": "espacio_neg", "composition_label": "Espacio negativo", "angle": "central", "angle_label": "Central", "camera_height_m": 1.4, "pose": "De espaldas, gira torso y cabeza sobre el hombro", "scene_notes": "Sujeto de espaldas girándose sobre el hombro. Mucho espacio vacío a la derecha (dirección de la mirada). Fondo: olivo solitario desenfocado.", "reasoning": "El 50 mm a f/1.8 y 2,5 m da ≈26 cm de profundidad de campo, suficiente para medio cuerpo. El espacio negativo (3/4 del encuadre a la derecha) lleva la mirada del espectador hacia donde mira el sujeto. El olivo a 5 m se convierte en una mancha abstracta.", "dos": ["Coloca al sujeto en el tercio IZQUIERDO, mirando hacia el espacio vacío", "Espera un gesto natural del girarse (no pose rígida)", "Equilibra la exposición con -0.3 EV para preservar luces del cielo"], "donts": ["No llenes el espacio negativo con elementos extra (vaciado intencional)", "No dispares de frente — pierde el punto de 'sobre el hombro'"], "settings_by_time": {"day": {"lens": "50mm", "aperture": "f/2", "shutter": "1/1000", "iso": 100, "scene": "sombra_abierta", "notes": "Mañana: luz trasera; el pelo brilla con luz de contorno."}, "afternoon": {"lens": "50mm", "aperture": "f/1.8", "shutter": "1/1250", "iso": 100, "scene": "sombra_abierta", "notes": "Tarde dorada: balance de blancos cálido, 5500 K, contraste suave."}, "night": {"lens": "50mm", "aperture": "f/1.8", "shutter": "1/125", "iso": 1600, "scene": "iluminado_focos", "notes": "Noche: usa un farol como contraluz detrás del sujeto."}}, "subjects": {"dog": {"pose": "backlit_silhouette", "action": "Perro de perfil contra luz trasera, contorno del pelo brilla"}, "human": {"pose": "looking_back", "action": "Modela girándose sobre el hombro, mirada a cámara"}}}, {"id": "A05", "technique": "congelado", "technique_label": "Efecto Congelado", "lens_focal": 85, "aperture": "f/2.8", "shutter": "1/2000", "iso": 100, "subject_distance_m": 6.0, "background_distance_m": 15.0, "composition": "minimalismo", "composition_label": "Minimalismo", "angle": "contrapicado", "angle_label": "Contrapicado", "camera_height_m": 0.6, "pose": "Salto vertical, brazos arriba, sonrisa amplia", "scene_notes": "Sujeto saltando contra cielo despejado. Cámara baja (0.6 m) mirando hacia arriba, solo cielo como fondo.", "reasoning": "1/2000 s congela el salto. A 6 m el 85 mm cubre ≈2,5 × 1,7 m: en horizontal entra el cuerpo entero con poco aire, en vertical sobra para los brazos arriba. El contrapicado agranda al sujeto y lo aísla contra el cielo (minimalismo por eliminación del fondo). f/2.8 deja algo de margen de enfoque mientras el sujeto se mueve.", "dos": ["Usa AF AI Servo + selección de punto + ráfaga de 4,5 fps", "Cuenta regresiva 3-2-1 con el sujeto para sincronizar el salto", "Dispara en JPG+RAW por si el AF falla en algunas tomas"], "donts": ["No dispares a 1/500 — el salto saldrá borroso", "No uses f/1.8 — el margen de PDC es tan fino que fallarás el enfoque"], "settings_by_time": {"day": {"lens": "85mm", "aperture": "f/4", "shutter": "1/4000", "iso": 400, "scene": "antes_ocaso", "notes": "Mañana: cielo azul, sombras duras — usa reflector o flash de relleno."}, "afternoon": {"lens": "85mm", "aperture": "f/2.8", "shutter": "1/2000", "iso": 100, "scene": "antes_ocaso", "notes": "Tarde dorada: cielo con color, salto contraluz."}, "night": {"lens": "85mm", "aperture": "f/2.8", "shutter": "1/1000", "iso": 6400, "scene": "iluminado_focos", "viable": false, "notes": "Noche: no viable sin flash. Con faroles a 1/1000 s haría falta ISO por encima de 25 600; pospón al día."}}, "subjects": {"dog": {"pose": "jumping_catch", "action": "Perro saltando a atrapar snack/frisbee, patas recogidas"}, "human": {"pose": "jumping_joy", "action": "Modelo saltando vertical, brazos arriba, sonrisa"}}}, {"id": "A06", "technique": "barrido", "technique_label": "Efecto Barrido", "lens_focal": 50, "aperture": "f/13", "shutter": "1/30", "iso": 125, "subject_distance_m": 6.0, "background_distance_m": 25.0, "composition": "tercios", "composition_label": "Regla de tercios", "angle": "central", "angle_label": "Central", "camera_height_m": 1.0, "pose": "Corriendo, en aire, brazos en oposición", "scene_notes": "Sujeto corriendo / perro corriendo de izquierda a derecha. Cámara sigue el movimiento en arco. Fondo: árboles del parque a 25 m (serán estelas horizontales).", "reasoning": "1/30 s con seguimiento horizontal: sujeto nítido y fondo en estelas. A 6 m el 50 mm cubre ≈4,3 × 2,9 m, así que entra el cuerpo entero con aire para el movimiento. Coloca al sujeto en el tercio derecho para que el movimiento 'entre' al encuadre. Cerrar el diafragma da margen de foco si el seguimiento falla.", "dos": ["Gira el torso siguiendo al sujeto antes, durante y DESPUÉS del disparo (no pares al clic)", "Usa AF AI Servo con punto central + ráfaga", "Practica el movimiento en seco 3-4 veces antes"], "donts": ["No dispares estático — el barrido requiere movimiento de cámara", "No uses 1/250 — congela todo, pierde el efecto", "No dispares a f/1.8 — fallarás el enfoque en movimiento"], "settings_by_time": {"day": {"lens": "50mm", "aperture": "f/13", "shutter": "1/30", "iso": 125, "scene": "sombra_abierta", "notes": "Mañana: en sombra de los olivos basta con f/13; si el sendero queda al sol directo, pon el ND de 2 pasos, ISO 100 y f/16."}, "afternoon": {"lens": "50mm", "aperture": "f/13", "shutter": "1/30", "iso": 125, "scene": "sombra_abierta", "notes": "Tarde: misma luz de sombra; conserva 1/30 s y deja que la apertura absorba los cambios."}, "night": {"lens": "50mm", "aperture": "f/4", "shutter": "1/30", "iso": 1600, "scene": "iluminado_focos", "notes": "Noche: con faroles, ISO 1600 y f/4; el barrido funciona igual porque lo define la velocidad, no la luz."}}, "subjects": {"dog": {"pose": "running_fetch", "action": "Perro corriendo horizontal a buscar pelota"}, "human": {"pose": "running_dynamic", "action": "Modelo corriendo, brazos en oposición"}}}, {"id": "A07", "technique": "fantasma", "technique_label": "Efecto Fantasma", "lens_focal": 35, "aperture": "f/8", "shutter": "2\"", "iso": 100, "subject_distance_m": 5.0, "background_distance_m": 15.0, "composition": "enmarcado", "composition_label": "Enmarcado", "angle": "picado", "angle_label": "Picado", "camera_height_m": 1.8, "pose": "Riendo, cabeza ligeramente atrás, mano cerca de la boca", "scene_notes": "Sujeto semi-quieto en arco de olivos (enmarcado natural). 2 s de exposición: partes quietas (troncos, pies) nítidas, partes en movimiento (cabeza riendo, manos) fantasma.", "reasoning": "Una exposición de unos 2 s con la luz ambiente del parque. El sujeto debe permanecer ~80 % quieto y mover sólo cabeza y manos. El arco de olivos enmarca y estabiliza la imagen. Un picado ligero da superioridad al espectador y muestra el suelo con hojas.", "dos": ["Usa trípode IMPRESCINDIBLE o superficie estable", "Pide al sujeto: 'quédate quieto, mueve solo la cabeza al reír'", "Toma 3-4 versiones — el fantasma es aleatorio"], "donts": ["No dispares sin trípode — el fondo también saldrá movido", "No expongas más de 4 s — el fantasma se desvanece demasiado"], "settings_by_time": {"day": {"lens": "35mm", "aperture": "f/16", "shutter": "2\"", "iso": 200, "scene": "sombra_abierta", "nd_stops": 6, "notes": "Mañana: incluso en sombra, 2 s piden un ND de 6 pasos. Si no tienes el filtro, deja esta toma para el anochecer."}, "afternoon": {"lens": "35mm", "aperture": "f/16", "shutter": "2\"", "iso": 200, "scene": "sombra_abierta", "nd_stops": 6, "notes": "Tarde: antes del ocaso todavía sobra luz para 2 s; usa el ND de 6 pasos o espera a la hora azul."}, "night": {"lens": "35mm", "aperture": "f/8", "shutter": "2\"", "iso": 100, "scene": "iluminado_focos", "notes": "Noche: con faroles, 2 s a f/8 e ISO 100 sin filtro."}}, "subjects": {"dog": {"pose": "walking_candid", "action": "Perro fuera de esta toma; usa una persona como sujeto móvil controlado."}, "human": {"pose": "candid_laugh", "action": "Modela riendo, cabeza atrás, manos cerca de la boca"}}}, {"id": "A08", "technique": "lightpainting", "technique_label": "Lightpainting", "lens_focal": 35, "aperture": "f/9", "shutter": "20\"", "iso": 100, "subject_distance_m": 4.0, "background_distance_m": 10.0, "composition": "punto_interes", "composition_label": "Punto de interés", "angle": "central", "angle_label": "Central", "camera_height_m": 1.4, "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa", "scene_notes": "Sujeto quieto a 4 m. Asistente traza con linterna a su alrededor (círculos, espirales, contorno). Oscuridad total salvo la linterna.", "reasoning": "20\" en el dial, sin Bulb: la 6D cronometra hasta 30\". La linterna debe moverse sin parar: cada punto de luz pinta en el sensor. El sujeto debe permanecer muy quieto para no salir como fantasma. Un diafragma intermedio (f/8–f/11) da nitidez sin que el trazo pierda brillo.", "dos": ["Usa trípode + disparador remoto o 2 s retardados", "El sujeto lleva ropa oscura para que la luz destaque", "La linterna: LED pequeño,_color blanco cálido o RGB"], "donts": ["No muevas la cámara — cualquier movimiento arruina el trazo", "No dejes la linterna apuntando al lente — crearás flare", "No uses ISO alto — se quemará la imagen"], "settings_by_time": {"day": {"lens": "35mm", "aperture": "f/16", "shutter": "30\"", "iso": 100, "scene": "sombra_abierta", "viable": false, "notes": "No viable de día: la luz ambiente taparía el trazo. Hazla de noche o en una sala a oscuras."}, "afternoon": {"lens": "35mm", "aperture": "f/16", "shutter": "25\"", "iso": 100, "scene": "sombra_abierta", "viable": false, "notes": "No viable de tarde: ni a la sombra hay oscuridad suficiente. Pospón a la noche."}, "night": {"lens": "35mm", "aperture": "f/9", "shutter": "20\"", "iso": 100, "scene": "oscuridad", "notes": "Noche: busca un tramo sin faroles cerca; si el fondo sale gris, cierra a f/11."}}, "subjects": {"dog": {"pose": "sit_stay", "action": "Perro sentado MUY quieto, dueño traza luz a su alrededor"}, "human": {"pose": "arms_crossed", "action": "Modela con brazos cruzados, asistente traza luz"}}}, {"id": "A09", "technique": "larga_exp", "technique_label": "Larga Exposición", "lens_focal": "35-80@50", "aperture": "f/16", "shutter": "20\"", "iso": 100, "subject_distance_m": 20.0, "background_distance_m": 100.0, "composition": "espacio_neg", "composition_label": "Espacio negativo", "angle": "central", "angle_label": "Central", "camera_height_m": 1.65, "pose": "Caminando hacia la cámara, paso natural, mirada al frente", "scene_notes": "Cámara en trípode apuntando al cielo con copas de olivos. Sujeto camina lentamente por sendero lejano. 15 s: el caminante se desvanece en fantasma, las ramas quedan nítidas, las nubes en estelas.", "reasoning": "Entre 15 y 20 s con trípode. De día eso exige un ND fuerte; de noche no. La larga exposición capta nubes en movimiento como estelas, peatones como fantasmas y ramas estáticas. A 20 m el caminante es pequeño: punto de interés mínimo y mucho espacio negativo.", "dos": ["Trípode + disparador remoto IMPRESCINDIBLES", "Con sol hace falta un ND de 10 pasos (ND1000); un ND8 no basta para 15 s", "Encuadra con cabeza fría antes de disparar — luego no puedes recomponer"], "donts": ["No toques la cámara durante la exposición", "No dispares con viento fuerte — las ramas también saldrán movidas"], "settings_by_time": {"day": {"lens": "35-80mm @50", "aperture": "f/11", "shutter": "15\"", "iso": 100, "scene": "nublado_claro", "nd_stops": 10, "notes": "Mañana: con el cielo nublado claro de Lima, 15 s exigen un ND de 10 pasos; si sale el sol, cierra a f/16. Algo de viento en las copas ayuda."}, "afternoon": {"lens": "35-80mm @50", "aperture": "f/11", "shutter": "15\"", "iso": 100, "scene": "antes_ocaso", "nd_stops": 10, "notes": "Tarde: antes del ocaso sigue haciendo falta el ND de 10 pasos; la hora dorada añade color."}, "night": {"lens": "35-80mm @50", "aperture": "f/16", "shutter": "20\"", "iso": 100, "scene": "iluminado_focos", "notes": "Noche: sin filtro. A f/16 los faroles salen como estrellas."}}, "subjects": {"dog": {"pose": "sit_stay", "action": "Perro fuera de esta toma; prioriza trazas/escena y una posición protegida."}, "human": {"pose": "walking_candid", "action": "Modela caminando lentamente — será fantasma"}}}, {"id": "A10", "technique": "zooming", "technique_label": "Zooming", "lens_focal": "35-80", "aperture": "f/8", "shutter": "2\"", "iso": 100, "subject_distance_m": 8.0, "background_distance_m": 30.0, "composition": "perspectiva", "composition_label": "Perspectiva", "angle": "central", "angle_label": "Central", "camera_height_m": 1.55, "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara", "scene_notes": "Sujeto a 8 m en sendero. Durante los 2 s de exposición gira el anillo del zoom de 35 a 80mm (o viceversa). El sujeto queda como punto fijo + estallido radial.", "reasoning": "Unos 2 s con trípode. Gira el zoom de forma continua durante toda la exposición. El sujeto debe estar perfectamente centrado: el zoom escala la imagen desde el centro y los puntos más alejados del centro dejan los trazos más largos. Las líneas radiales imitan líneas de fuga.", "dos": ["Practica el giro del zoom en seco: debe ser uniforme, ni rápido al inicio ni al final", "Sujeto al centro EXACTO del encuadre", "Trípode obligatorio"], "donts": ["No muevas la cámara mientras haces zoom — arruinarás el centro fijo", "No uses 1 s — no da tiempo al giro completo"], "settings_by_time": {"day": {"lens": "35-80mm", "aperture": "f/16", "shutter": "2\"", "iso": 200, "scene": "sombra_abierta", "nd_stops": 6, "notes": "Mañana: 2 s en sombra piden un ND de 6 pasos."}, "afternoon": {"lens": "35-80mm", "aperture": "f/16", "shutter": "2\"", "iso": 200, "scene": "sombra_abierta", "nd_stops": 6, "notes": "Tarde: con ND de 6 pasos; la luz cálida hace más vistoso el estallido."}, "night": {"lens": "35-80mm", "aperture": "f/8", "shutter": "2\"", "iso": 100, "scene": "iluminado_focos", "notes": "Noche: con faroles, 2 s a f/8 e ISO 100 sin filtro."}}, "subjects": {"dog": {"pose": "sit_stay", "action": "Perro sentado al centro, quieto absoluto"}, "human": {"pose": "portrait_3_4", "action": "Modela 3/4 al centro, muy quieta"}}}]}, "composition_rules": {"tercios": {"es": "Regla de tercios", "en": "Rule of thirds", "tip": "Coloca elementos clave en los tercios o intersecciones. No abuses: simetría central a veces comunica más."}, "perspectiva": {"es": "Perspectiva", "en": "Perspective", "tip": "Líneas convergentes dan profundidad. La perspectiva cambia al MOVER la cámara; cambiar de focal desde el mismo punto sólo cambia el encuadre."}, "simetria": {"es": "Simetría", "en": "Symmetry", "tip": "Reflejo exacto alrededor de un eje. Ideal en arquitectura; evita si la escena es caótica."}, "enmarcado": {"es": "Enmarcado", "en": "Framing", "tip": "Usa elementos del entorno (arcos, ramas) para enmarcar al sujeto. Cuidado con recortes raros."}, "espacio_neg": {"es": "Espacio negativo", "en": "Negative space", "tip": "Deja aire alrededor del sujeto para aislarlo y dar respiración. No dejes tanto que el sujeto se pierda."}, "punto_interes": {"es": "Punto de interés", "en": "Point of interest", "tip": "Un único foco visual claro. Si hay varios compitiendo, la imagen pierde fuerza."}, "minimalismo": {"es": "Minimalismo", "en": "Minimalism", "tip": "Resta elementos hasta lo esencial. Cuidado: minimalismo ≠ vacío sin intención."}, "capas": {"es": "Capas", "en": "Layers", "tip": "Primer plano, plano medio y fondo para profundidad real, no sólo por perspectiva."}}, "camera_angles": {"central": {"es": "Central", "en": "Eye-level", "height_factor": 1.0, "tilt": 0, "effect": "Neutro, igualdad sujeto-espectador"}, "picado": {"es": "Picado", "en": "High angle", "height_factor": 1.5, "tilt": -20, "effect": "Sujeto se ve menor, vulnerable"}, "contrapicado": {"es": "Contrapicado", "en": "Low angle", "height_factor": 0.4, "tilt": 20, "effect": "Sujeto agrandado, dominante, heroico"}, "nadir": {"es": "Nadir", "en": "Nadir", "height_factor": 0.15, "tilt": 90, "effect": "Cámara debajo del sujeto, eje vertical hacia arriba; dramático y abstracto"}, "cenital": {"es": "Cenital", "en": "Top-down", "height_factor": 2.5, "tilt": -90, "effect": "Cámara sobre el sujeto, eje vertical hacia abajo; orden y geometría"}, "dutch": {"es": "Plano holandés", "en": "Dutch angle", "height_factor": 1.0, "tilt": 0, "roll": 15, "effect": "Tensión, desequilibrio"}}, "techniques": {"mucha_pdc": {"es": "Mucha Profundidad de Campo", "en": "Deep DoF", "icon": "layer-group"}, "poca_pdc": {"es": "Poca Profundidad de Campo", "en": "Shallow DoF", "icon": "circle-dot"}, "congelado": {"es": "Efecto Congelado", "en": "Frozen motion", "icon": "snowflake"}, "barrido": {"es": "Efecto Barrido", "en": "Panning", "icon": "arrows-left-right"}, "fantasma": {"es": "Efecto Fantasma", "en": "Ghost effect", "icon": "ghost"}, "lightpainting": {"es": "Lightpainting", "en": "Light painting", "icon": "wand-magic-sparkles"}, "larga_exp": {"es": "Larga Exposición", "en": "Long exposure", "icon": "hourglass-half"}, "zooming": {"es": "Zooming", "en": "Zoom burst", "icon": "magnifying-glass-arrow"}}, "field_baselines": {"mucha_pdc_1": {"lens": "35mm", "aperture": "f/11", "shutter": "1/125+", "iso": "100–400", "af": "One Shot · foco ≈4 m", "geometry": "primer plano ≥2 m · sujeto ≈4 m · fondo ≥10 m"}, "mucha_pdc_2": {"lens": "35mm / zoom @35", "aperture": "f/8–11", "shutter": "1/125+", "iso": "100–400", "af": "One Shot · eje central", "geometry": "sujeto ≈5–6 m · cámara nivelada"}, "poca_pdc_1": {"lens": "85mm", "aperture": "f/1.8", "shutter": "1/500+", "iso": "Auto", "af": "One Shot · ojo cercano", "geometry": "sujeto ≈3 m · fondo ≥8 m DETRÁS"}, "poca_pdc_2": {"lens": "50mm", "aperture": "f/1.8", "shutter": "1/250+", "iso": "Auto", "af": "One Shot · ojo/detalle", "geometry": "sujeto ≈2–2.5 m · fondo ≥5 m detrás"}, "congelado": {"lens": "85mm", "aperture": "f/2.8", "shutter": "1/2000", "iso": "Auto", "af": "AI Servo · centro · ráfaga", "geometry": "sujeto ≈6–8 m · pre-seguir"}, "barrido": {"lens": "50mm", "aperture": "Tv / auto", "shutter": "1/40", "iso": "100", "af": "AI Servo · seguimiento", "geometry": "trayectoria lateral / casi paralela"}, "fantasma": {"lens": "35mm", "aperture": "f/8", "shutter": "1 s", "iso": "100", "af": "pre-enfoca → MF · trípode", "geometry": "fondo fijo · persona cruza cuadro"}, "lightpainting": {"lens": "35mm", "aperture": "f/8", "shutter": "10 s", "iso": "100", "af": "pre-enfoca → MF · trípode", "geometry": "oscuridad · sujeto/objeto quieto"}, "larga_exp": {"lens": "35mm", "aperture": "f/11", "shutter": "5–15 s", "iso": "100", "af": "pre-enfoca → MF · trípode", "geometry": "hora azul/noche · posición protegida"}, "zooming": {"lens": "35–80mm", "aperture": "f/8", "shutter": "2 s", "iso": "100", "af": "pre-enfoca → MF · trípode", "geometry": "centro fuerte · cámara fija · 35↔80"}}, "pose_names": {"human": {"s_curve_standing": "De pie en S", "walking_candid": "Caminando natural", "looking_back": "Mirada atrás", "thinking_seated": "Sentado pensativo", "candid_laugh": "Risa espontánea", "arms_crossed": "Brazos cruzados", "leaning_wall": "Apoyado en pared", "running_dynamic": "Carrera", "jumping_joy": "Salto", "portrait_3_4": "Retrato 3/4"}, "dog": {"sit_stay": "Sentado quieto", "lying_down": "Echado", "running_fetch": "Corre a la pelota", "standing_alert": "De pie, alerta", "jumping_catch": "Salta a atrapar", "walking_candid": "Paseo natural", "head_tilt": "Cabeza ladeada", "play_bow": "Invita a jugar", "backlit_silhouette": "Silueta a contraluz", "treat_focus": "Atento al premio"}}, "scene_light": {"sol_pleno": {"ev_low": 15, "ev_high": 15, "label": "sol pleno o levemente velado", "source": "ANSI PH2.7 · escena típica a pleno sol"}, "sol_velado": {"ev_low": 14, "ev_high": 14, "label": "sol velado", "source": "ANSI PH2.7 · sol con bruma"}, "nublado_claro": {"ev_low": 13, "ev_high": 13, "label": "nublado claro (garúa sin sombras)", "source": "ANSI PH2.7 · nublado brillante"}, "sombra_abierta": {"ev_low": 12, "ev_high": 12, "label": "sombra abierta o nublado denso", "source": "ANSI PH2.7 · sombra abierta con cielo despejado"}, "antes_ocaso": {"ev_low": 12, "ev_high": 14, "label": "sol bajo, antes del ocaso", "source": "ANSI PH2.7 · justo antes del ocaso"}, "tras_ocaso": {"ev_low": 9, "ev_high": 11, "label": "hora azul, justo después del ocaso", "source": "ANSI PH2.7 · justo después del ocaso"}, "galeria": {"ev_low": 8, "ev_high": 11, "label": "interior muy iluminado", "source": "ANSI PH2.7 · galerías"}, "calle_noche": {"ev_low": 7, "ev_high": 8, "label": "calle iluminada de noche", "source": "ANSI PH2.7 · escenas de calle nocturnas"}, "ventana": {"ev_low": 8, "ev_high": 10, "label": "interior junto a una ventana, de día", "source": "estimate · sin fila en la tabla ANSI; 500–2500 lx junto a la ventana con E = 2,5·2^EV (C = 250)"}, "oficina": {"ev_low": 7, "ev_high": 8, "label": "oficina con luz artificial", "source": "ANSI PH2.7 · oficinas y áreas de trabajo"}, "interior_casa": {"ev_low": 5, "ev_high": 7, "label": "interior de casa con lámparas", "source": "ANSI PH2.7 · interiores de vivienda"}, "trafico_noche": {"ev_low": 5, "ev_high": 5, "label": "tráfico de noche", "source": "ANSI PH2.7 · tráfico vehicular nocturno"}, "iluminado_focos": {"ev_low": 3, "ev_high": 5, "label": "parque o monumento con faroles", "source": "ANSI PH2.7 · edificios y monumentos iluminados"}, "luces_lejanas": {"ev_low": 2, "ev_high": 2, "label": "sólo luces lejanas", "source": "ANSI PH2.7 · vistas lejanas de edificios iluminados"}, "oscuridad": {"ev_low": -3, "ev_high": -1, "label": "oscuridad sin faroles cercanos", "source": "estimate · ANSI PH2.7 da −3 a −2 bajo luna llena alta; el tope de −1 suma un paso por el resplandor urbano de Lima, supuesto conservador sin medir"}}};
+const DATA = {"plan": {"id": "plan_a", "name": "Parque El Olivar — Bosque Histórico", "location": "Parque El Olivar, San Isidro (Av. La Encalada / Calle La Colonia)", "distance_from_home": "Acceso local; verifica tu ruta antes de salir", "best_window": "Mañana del amanecer a las 08:00 (luz dorada ≈45 min tras salir el sol) · Tarde 17:00–18:30", "why": "Olivares centenarios, senderos rectos, capas naturales de follaje, faroles coloniales. Permite mucha PDC con capas, poca PDC para aislar, barrido con perros o ciclistas y larga exposición con faroles al anochecer.", "palette": ["#3b5d3b", "#6b8e4e", "#c4a35a", "#d9d4c5"], "shots": [{"id": "A01", "technique": "mucha_pdc", "technique_label": "Mucha Profundidad de Campo", "lens_focal": 35, "aperture": "f/11", "shutter": "1/125", "iso": 400, "subject_distance_m": 4.0, "background_distance_m": 12.0, "composition": "capas", "composition_label": "Capas", "angle": "central", "angle_label": "Central", "camera_height_m": 1.55, "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara", "scene_notes": "Sendero central de olivos, sujeto a 4 m, hileras de olivos que convergen al fondo. Sujeto en tercio izquierdo del encuadre.", "reasoning": "El 35 mm en formato completo da un campo horizontal de 54°, suficiente para incluir 2–3 hileras de olivos como capas. A f/11 la hiperfocal es ≈3,7 m; enfocando al sujeto a 4 m (algo más allá de ella) queda nítido desde ≈1,9 m hasta el infinito, así que el fondo a 12 m también se lee. Eso es exactamente lo que pide 'mucha PDC'.", "dos": ["Dispara en modo Av con f/11, enfoque al sujeto, deja que la cámara elija velocidad", "Usa un trípode para evitar trepidación si la velocidad baja de 1/100", "Equilibra el horizonte con la regla de tercios vertical"], "donts": ["No uses 35mm a f/2 — perderías las capas del fondo, clave de esta composición", "No coloques al sujeto pegado al fondo (necesitas separación para que las capas se distingan)"], "settings_by_time": {"day": {"lens": "35mm", "aperture": "f/11", "shutter": "1/125", "iso": 400, "scene": "sombra_abierta", "notes": "Mañana: luz lateral cálida filtrada por los olivos. Si el cielo entra en cuadro, compensa -0.3 EV para no quemarlo."}, "afternoon": {"lens": "35mm", "aperture": "f/11", "shutter": "1/125", "iso": 400, "scene": "sombra_abierta", "notes": "Tarde: sol bajo, sombras largas. Cuidado con sombras duras en el rostro."}, "night": {"lens": "35mm", "aperture": "f/8", "shutter": "1/30", "iso": 6400, "scene": "iluminado_focos", "notes": "Noche: faroles del parque. ISO 6400 es utilizable en la 6D; apoya la cámara en un muro bajo para sostener 1/30 s."}}, "subjects": {"dog": {"pose": "treat_focus", "action": "Perro sentado atendiendo un snack en tu mano, mirada fija hacia la cámara"}, "human": {"pose": "portrait_3_4", "action": "Modelo 3/4, cuerpo girado 45° hacia la luz, manos relajadas"}}}, {"id": "A02", "technique": "mucha_pdc", "technique_label": "Mucha Profundidad de Campo", "lens_focal": "35-80@35", "aperture": "f/8", "shutter": "1/125", "iso": 200, "subject_distance_m": 6.0, "background_distance_m": 20.0, "composition": "simetria", "composition_label": "Simetría", "angle": "central", "angle_label": "Central", "camera_height_m": 1.65, "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa", "scene_notes": "Paseo peatonal entre dos hileras de palmeras/olivos. Sujeto en el centro exacto, ejes bilaterales a izquierda y derecha.", "reasoning": "La simetría exige que el sujeto esté en el centro óptico y la cámara perfectamente nivelada (usa el nivel electrónico de la 6D). El zoom a 35 mm y f/8 rinde algo menos que el fijo, pero sobra para web e impresión mediana. A 6 m el encuadre horizontal mide ≈4,1 m de alto, así que una persona de pie ocupa ≈40 % de la altura.", "dos": ["Verifica simetría con la rejilla de pantalla del 6D", "Usa nivel electrónico o de zapata", "Equilibra luz izquierda/derecha (si hay sol lateral, busca sombra pareja)"], "donts": ["No rompas la simetría con elementos laterales asimétricos (basura, personas)", "No dispares descentrado — 5 cm arruinan el efecto"], "settings_by_time": {"day": {"lens": "35-80mm @35", "aperture": "f/8", "shutter": "1/125", "iso": 200, "scene": "sombra_abierta", "notes": "Mañana: buena luz, busca alineación solar perfecta para sombras simétricas."}, "afternoon": {"lens": "35-80mm @35", "aperture": "f/8", "shutter": "1/125", "iso": 200, "scene": "sombra_abierta", "notes": "Tarde: sombras largas pueden romper la simetría; dispara cuando el sol está alto."}, "night": {"lens": "35-80mm @35", "aperture": "f/8", "shutter": "1/30", "iso": 6400, "scene": "iluminado_focos", "notes": "Noche: faroles simétricos. Apoya la cámara o usa trípode; si el sujeto puede quedarse quieto, baja a 1/8 s e ISO 1600."}}, "subjects": {"dog": {"pose": "sit_stay", "action": "Perro sentado perfectamente centrado, atendiendo"}, "human": {"pose": "arms_crossed", "action": "Modelo de pie, brazos cruzados, simetría frontal"}}}, {"id": "A03", "technique": "poca_pdc", "technique_label": "Poca Profundidad de Campo", "lens_focal": 85, "aperture": "f/1.8", "shutter": "1/1250", "iso": 100, "subject_distance_m": 3.0, "background_distance_m": 8.0, "composition": "punto_interes", "composition_label": "Punto de interés", "angle": "central", "angle_label": "Central", "camera_height_m": 1.55, "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara", "scene_notes": "Retrato de cabeza y hombros. Sujeto contra un seto verde a 8 m. Fondo desenfocado en verde suave.", "reasoning": "El 85 mm f/1.8 es el retrato clásico: a 3 m la profundidad de campo total es de ≈13 cm, así que los ojos quedan nítidos y orejas y pelo empiezan a ablandarse. El seto a 8 m se convierte en una mancha verde uniforme. El único punto de interés es el ojo más cercano.", "dos": ["Enfoca EXACTAMENTE en el ojo más cercano (usa AF punto central + recomposición)", "Dispara a f/1.8 o f/2 — no tengo miedo a abrir de más", "Si hay viento, dispara en ráfaga para capturar el instante de quietud del pelo"], "donts": ["No uses 85mm a f/8 — mata la razón de ser del lente", "No dispares demasiado lejos: a 6 m el 85mm da poca PDC y el sujeto queda chico en el encuadre"], "settings_by_time": {"day": {"lens": "85mm", "aperture": "f/2", "shutter": "1/1000", "iso": 100, "scene": "sombra_abierta", "notes": "Mañana: sol suave lateral, fondo verde se satura con contraluz."}, "afternoon": {"lens": "85mm", "aperture": "f/1.8", "shutter": "1/1250", "iso": 100, "scene": "sombra_abierta", "notes": "Tarde: hora dorada — el fondo verde brilla, sujeto con luz cálida."}, "night": {"lens": "85mm", "aperture": "f/1.8", "shutter": "1/125", "iso": 1600, "scene": "iluminado_focos", "notes": "Noche: retrato junto a un farol. Ajusta el balance de blancos a unos 3200 K para que la piel no salga naranja."}}, "subjects": {"dog": {"pose": "head_tilt", "action": "Perro con cabeza ladeada, ojos fijos en cámara"}, "human": {"pose": "portrait_3_4", "action": "Modelo girada 45°, mirada directa a cámara"}}}, {"id": "A04", "technique": "poca_pdc", "technique_label": "Poca Profundidad de Campo", "lens_focal": 50, "aperture": "f/1.8", "shutter": "1/1250", "iso": 100, "subject_distance_m": 2.5, "background_distance_m": 5.0, "composition": "espacio_neg", "composition_label": "Espacio negativo", "angle": "central", "angle_label": "Central", "camera_height_m": 1.4, "pose": "De espaldas, gira torso y cabeza sobre el hombro", "scene_notes": "Sujeto de espaldas girándose sobre el hombro. Mucho espacio vacío a la derecha (dirección de la mirada). Fondo: olivo solitario desenfocado.", "reasoning": "El 50 mm a f/1.8 y 2,5 m da ≈26 cm de profundidad de campo, suficiente para medio cuerpo. El espacio negativo (3/4 del encuadre a la derecha) lleva la mirada del espectador hacia donde mira el sujeto. El olivo a 5 m se convierte en una mancha abstracta.", "dos": ["Coloca al sujeto en el tercio IZQUIERDO, mirando hacia el espacio vacío", "Espera un gesto natural del girarse (no pose rígida)", "Equilibra la exposición con -0.3 EV para preservar luces del cielo"], "donts": ["No llenes el espacio negativo con elementos extra (vaciado intencional)", "No dispares de frente — pierde el punto de 'sobre el hombro'"], "settings_by_time": {"day": {"lens": "50mm", "aperture": "f/2", "shutter": "1/1000", "iso": 100, "scene": "sombra_abierta", "notes": "Mañana: luz trasera; el pelo brilla con luz de contorno."}, "afternoon": {"lens": "50mm", "aperture": "f/1.8", "shutter": "1/1250", "iso": 100, "scene": "sombra_abierta", "notes": "Tarde dorada: balance de blancos cálido, 5500 K, contraste suave."}, "night": {"lens": "50mm", "aperture": "f/1.8", "shutter": "1/125", "iso": 1600, "scene": "iluminado_focos", "notes": "Noche: usa un farol como contraluz detrás del sujeto."}}, "subjects": {"dog": {"pose": "backlit_silhouette", "action": "Perro de perfil contra luz trasera, contorno del pelo brilla"}, "human": {"pose": "looking_back", "action": "Modela girándose sobre el hombro, mirada a cámara"}}}, {"id": "A05", "technique": "congelado", "technique_label": "Efecto Congelado", "lens_focal": 85, "aperture": "f/2.8", "shutter": "1/2000", "iso": 100, "subject_distance_m": 6.0, "background_distance_m": 15.0, "composition": "minimalismo", "composition_label": "Minimalismo", "angle": "contrapicado", "angle_label": "Contrapicado", "camera_height_m": 0.6, "pose": "Salto vertical, brazos arriba, sonrisa amplia", "scene_notes": "Sujeto saltando contra cielo despejado. Cámara baja (0.6 m) mirando hacia arriba, solo cielo como fondo.", "reasoning": "1/2000 s congela el salto. A 6 m el 85 mm cubre ≈2,5 × 1,7 m: en horizontal entra el cuerpo entero con poco aire, en vertical sobra para los brazos arriba. El contrapicado agranda al sujeto y lo aísla contra el cielo (minimalismo por eliminación del fondo). f/2.8 deja algo de margen de enfoque mientras el sujeto se mueve.", "dos": ["Usa AF AI SERVO + selección de punto + ráfaga de 4,5 fps", "Cuenta regresiva 3-2-1 con el sujeto para sincronizar el salto", "Dispara en JPG+RAW por si el AF falla en algunas tomas"], "donts": ["No dispares a 1/500 — el salto saldrá borroso", "No uses f/1.8 — el margen de PDC es tan fino que fallarás el enfoque"], "settings_by_time": {"day": {"lens": "85mm", "aperture": "f/4", "shutter": "1/4000", "iso": 400, "scene": "antes_ocaso", "notes": "Mañana: cielo azul, sombras duras — usa reflector o flash de relleno."}, "afternoon": {"lens": "85mm", "aperture": "f/2.8", "shutter": "1/2000", "iso": 100, "scene": "antes_ocaso", "notes": "Tarde dorada: cielo con color, salto contraluz."}, "night": {"lens": "85mm", "aperture": "f/2.8", "shutter": "1/1000", "iso": 6400, "scene": "iluminado_focos", "viable": false, "notes": "Noche: no viable sin flash. Con faroles a 1/1000 s haría falta ISO por encima de 25 600; pospón al día."}}, "subjects": {"dog": {"pose": "jumping_catch", "action": "Perro saltando a atrapar snack/frisbee, patas recogidas"}, "human": {"pose": "jumping_joy", "action": "Modelo saltando vertical, brazos arriba, sonrisa"}}}, {"id": "A06", "technique": "barrido", "technique_label": "Efecto Barrido", "lens_focal": 50, "aperture": "f/13", "shutter": "1/30", "iso": 125, "subject_distance_m": 6.0, "background_distance_m": 25.0, "composition": "tercios", "composition_label": "Regla de tercios", "angle": "central", "angle_label": "Central", "camera_height_m": 1.0, "pose": "Corriendo, en aire, brazos en oposición", "scene_notes": "Sujeto corriendo / perro corriendo de izquierda a derecha. Cámara sigue el movimiento en arco. Fondo: árboles del parque a 25 m (serán estelas horizontales).", "reasoning": "1/30 s con seguimiento horizontal: sujeto nítido y fondo en estelas. A 6 m el 50 mm cubre ≈4,3 × 2,9 m, así que entra el cuerpo entero con aire para el movimiento. Coloca al sujeto en el tercio derecho para que el movimiento 'entre' al encuadre. Cerrar el diafragma da margen de foco si el seguimiento falla.", "dos": ["Gira el torso siguiendo al sujeto antes, durante y DESPUÉS del disparo (no pares al clic)", "Usa AF AI SERVO con punto central + ráfaga", "Practica el movimiento en seco 3-4 veces antes"], "donts": ["No dispares estático — el barrido requiere movimiento de cámara", "No uses 1/250 — congela todo, pierde el efecto", "No dispares a f/1.8 — fallarás el enfoque en movimiento"], "settings_by_time": {"day": {"lens": "50mm", "aperture": "f/13", "shutter": "1/30", "iso": 125, "scene": "sombra_abierta", "notes": "Mañana: en sombra de los olivos basta con f/13; si el sendero queda al sol directo, pon el ND de 2 pasos, ISO 100 y f/16."}, "afternoon": {"lens": "50mm", "aperture": "f/13", "shutter": "1/30", "iso": 125, "scene": "sombra_abierta", "notes": "Tarde: misma luz de sombra; conserva 1/30 s y deja que la apertura absorba los cambios."}, "night": {"lens": "50mm", "aperture": "f/4", "shutter": "1/30", "iso": 1600, "scene": "iluminado_focos", "notes": "Noche: con faroles, ISO 1600 y f/4; el barrido funciona igual porque lo define la velocidad, no la luz."}}, "subjects": {"dog": {"pose": "running_fetch", "action": "Perro corriendo horizontal a buscar pelota"}, "human": {"pose": "running_dynamic", "action": "Modelo corriendo, brazos en oposición"}}}, {"id": "A07", "technique": "fantasma", "technique_label": "Efecto Fantasma", "lens_focal": 35, "aperture": "f/8", "shutter": "2\"", "iso": 100, "subject_distance_m": 5.0, "background_distance_m": 15.0, "composition": "enmarcado", "composition_label": "Enmarcado", "angle": "picado", "angle_label": "Picado", "camera_height_m": 1.8, "pose": "Riendo, cabeza ligeramente atrás, mano cerca de la boca", "scene_notes": "Sujeto semi-quieto en arco de olivos (enmarcado natural). 2 s de exposición: partes quietas (troncos, pies) nítidas, partes en movimiento (cabeza riendo, manos) fantasma.", "reasoning": "Una exposición de unos 2 s con la luz ambiente del parque. El sujeto debe permanecer ~80 % quieto y mover sólo cabeza y manos. El arco de olivos enmarca y estabiliza la imagen. Un picado ligero da superioridad al espectador y muestra el suelo con hojas.", "dos": ["Usa trípode IMPRESCINDIBLE o superficie estable", "Pide al sujeto: 'quédate quieto, mueve solo la cabeza al reír'", "Toma 3-4 versiones — el fantasma es aleatorio"], "donts": ["No dispares sin trípode — el fondo también saldrá movido", "No expongas más de 4 s — el fantasma se desvanece demasiado"], "settings_by_time": {"day": {"lens": "35mm", "aperture": "f/16", "shutter": "2\"", "iso": 200, "scene": "sombra_abierta", "nd_stops": 6, "notes": "Mañana: incluso en sombra, 2 s piden un ND de 6 pasos. Si no tienes el filtro, deja esta toma para el anochecer."}, "afternoon": {"lens": "35mm", "aperture": "f/16", "shutter": "2\"", "iso": 200, "scene": "sombra_abierta", "nd_stops": 6, "notes": "Tarde: antes del ocaso todavía sobra luz para 2 s; usa el ND de 6 pasos o espera a la hora azul."}, "night": {"lens": "35mm", "aperture": "f/8", "shutter": "2\"", "iso": 100, "scene": "iluminado_focos", "notes": "Noche: con faroles, 2 s a f/8 e ISO 100 sin filtro."}}, "subjects": {"dog": {"pose": "walking_candid", "action": "Perro fuera de esta toma; usa una persona como sujeto móvil controlado."}, "human": {"pose": "candid_laugh", "action": "Modela riendo, cabeza atrás, manos cerca de la boca"}}}, {"id": "A08", "technique": "lightpainting", "technique_label": "Pintura con luz", "lens_focal": 35, "aperture": "f/9", "shutter": "20\"", "iso": 100, "subject_distance_m": 4.0, "background_distance_m": 10.0, "composition": "punto_interes", "composition_label": "Punto de interés", "angle": "central", "angle_label": "Central", "camera_height_m": 1.4, "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa", "scene_notes": "Sujeto quieto a 4 m. Asistente traza con linterna a su alrededor (círculos, espirales, contorno). Oscuridad total salvo la linterna.", "reasoning": "20\" en el dial, sin Bulb: la 6D cronometra hasta 30\". La linterna debe moverse sin parar: cada punto de luz pinta en el sensor. El sujeto debe permanecer muy quieto para no salir como fantasma. Un diafragma intermedio (f/8–f/11) da nitidez sin que el trazo pierda brillo.", "dos": ["Usa trípode + disparador remoto o 2 s retardados", "El sujeto lleva ropa oscura para que la luz destaque", "La linterna: LED pequeño,_color blanco cálido o RGB"], "donts": ["No muevas la cámara — cualquier movimiento arruina el trazo", "No dejes la linterna apuntando al lente — crearás flare", "No uses ISO alto — se quemará la imagen"], "settings_by_time": {"day": {"lens": "35mm", "aperture": "f/16", "shutter": "30\"", "iso": 100, "scene": "sombra_abierta", "viable": false, "notes": "No viable de día: la luz ambiente taparía el trazo. Hazla de noche o en una sala a oscuras."}, "afternoon": {"lens": "35mm", "aperture": "f/16", "shutter": "25\"", "iso": 100, "scene": "sombra_abierta", "viable": false, "notes": "No viable de tarde: ni a la sombra hay oscuridad suficiente. Pospón a la noche."}, "night": {"lens": "35mm", "aperture": "f/9", "shutter": "20\"", "iso": 100, "scene": "oscuridad", "notes": "Noche: busca un tramo sin faroles cerca; si el fondo sale gris, cierra a f/11."}}, "subjects": {"dog": {"pose": "sit_stay", "action": "Perro sentado MUY quieto, dueño traza luz a su alrededor"}, "human": {"pose": "arms_crossed", "action": "Modela con brazos cruzados, asistente traza luz"}}}, {"id": "A09", "technique": "larga_exp", "technique_label": "Larga Exposición", "lens_focal": "35-80@50", "aperture": "f/16", "shutter": "20\"", "iso": 100, "subject_distance_m": 20.0, "background_distance_m": 100.0, "composition": "espacio_neg", "composition_label": "Espacio negativo", "angle": "central", "angle_label": "Central", "camera_height_m": 1.65, "pose": "Caminando hacia la cámara, paso natural, mirada al frente", "scene_notes": "Cámara en trípode apuntando al cielo con copas de olivos. Sujeto camina lentamente por sendero lejano. 15 s: el caminante se desvanece en fantasma, las ramas quedan nítidas, las nubes en estelas.", "reasoning": "Entre 15 y 20 s con trípode. De día eso exige un ND fuerte; de noche no. La larga exposición capta nubes en movimiento como estelas, peatones como fantasmas y ramas estáticas. A 20 m el caminante es pequeño: punto de interés mínimo y mucho espacio negativo.", "dos": ["Trípode + disparador remoto IMPRESCINDIBLES", "Con sol hace falta un ND de 10 pasos (ND1000); un ND8 no basta para 15 s", "Encuadra con cabeza fría antes de disparar — luego no puedes recomponer"], "donts": ["No toques la cámara durante la exposición", "No dispares con viento fuerte — las ramas también saldrán movidas"], "settings_by_time": {"day": {"lens": "35-80mm @50", "aperture": "f/11", "shutter": "15\"", "iso": 100, "scene": "nublado_claro", "nd_stops": 10, "notes": "Mañana: con el cielo nublado claro de Lima, 15 s exigen un ND de 10 pasos; si sale el sol, cierra a f/16. Algo de viento en las copas ayuda."}, "afternoon": {"lens": "35-80mm @50", "aperture": "f/11", "shutter": "15\"", "iso": 100, "scene": "antes_ocaso", "nd_stops": 10, "notes": "Tarde: antes del ocaso sigue haciendo falta el ND de 10 pasos; la hora dorada añade color."}, "night": {"lens": "35-80mm @50", "aperture": "f/16", "shutter": "20\"", "iso": 100, "scene": "iluminado_focos", "notes": "Noche: sin filtro. A f/16 los faroles salen como estrellas."}}, "subjects": {"dog": {"pose": "sit_stay", "action": "Perro fuera de esta toma; prioriza trazas/escena y una posición protegida."}, "human": {"pose": "walking_candid", "action": "Modela caminando lentamente — será fantasma"}}}, {"id": "A10", "technique": "zooming", "technique_label": "Efecto zoom", "lens_focal": "35-80", "aperture": "f/8", "shutter": "2\"", "iso": 100, "subject_distance_m": 8.0, "background_distance_m": 30.0, "composition": "perspectiva", "composition_label": "Perspectiva", "angle": "central", "angle_label": "Central", "camera_height_m": 1.55, "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara", "scene_notes": "Sujeto a 8 m en sendero. Durante los 2 s de exposición gira el anillo del zoom de 35 a 80mm (o viceversa). El sujeto queda como punto fijo + estallido radial.", "reasoning": "Unos 2 s con trípode. Gira el zoom de forma continua durante toda la exposición. El sujeto debe estar perfectamente centrado: el zoom escala la imagen desde el centro y los puntos más alejados del centro dejan los trazos más largos. Las líneas radiales imitan líneas de fuga.", "dos": ["Practica el giro del zoom en seco: debe ser uniforme, ni rápido al inicio ni al final", "Sujeto al centro EXACTO del encuadre", "Trípode obligatorio"], "donts": ["No muevas la cámara mientras haces zoom — arruinarás el centro fijo", "No uses 1 s — no da tiempo al giro completo"], "settings_by_time": {"day": {"lens": "35-80mm", "aperture": "f/16", "shutter": "2\"", "iso": 200, "scene": "sombra_abierta", "nd_stops": 6, "notes": "Mañana: 2 s en sombra piden un ND de 6 pasos."}, "afternoon": {"lens": "35-80mm", "aperture": "f/16", "shutter": "2\"", "iso": 200, "scene": "sombra_abierta", "nd_stops": 6, "notes": "Tarde: con ND de 6 pasos; la luz cálida hace más vistoso el estallido."}, "night": {"lens": "35-80mm", "aperture": "f/8", "shutter": "2\"", "iso": 100, "scene": "iluminado_focos", "notes": "Noche: con faroles, 2 s a f/8 e ISO 100 sin filtro."}}, "subjects": {"dog": {"pose": "sit_stay", "action": "Perro sentado al centro, quieto absoluto"}, "human": {"pose": "portrait_3_4", "action": "Modela 3/4 al centro, muy quieta"}}}]}, "composition_rules": {"tercios": {"es": "Regla de tercios", "en": "Rule of thirds", "tip": "Coloca elementos clave en los tercios o intersecciones. No abuses: simetría central a veces comunica más."}, "perspectiva": {"es": "Perspectiva", "en": "Perspective", "tip": "Líneas convergentes dan profundidad. La perspectiva cambia al MOVER la cámara; cambiar de focal desde el mismo punto sólo cambia el encuadre."}, "simetria": {"es": "Simetría", "en": "Symmetry", "tip": "Reflejo exacto alrededor de un eje. Ideal en arquitectura; evita si la escena es caótica."}, "enmarcado": {"es": "Enmarcado", "en": "Framing", "tip": "Usa elementos del entorno (arcos, ramas) para enmarcar al sujeto. Cuidado con recortes raros."}, "espacio_neg": {"es": "Espacio negativo", "en": "Negative space", "tip": "Deja aire alrededor del sujeto para aislarlo y dar respiración. No dejes tanto que el sujeto se pierda."}, "punto_interes": {"es": "Punto de interés", "en": "Point of interest", "tip": "Un único foco visual claro. Si hay varios compitiendo, la imagen pierde fuerza."}, "minimalismo": {"es": "Minimalismo", "en": "Minimalism", "tip": "Resta elementos hasta lo esencial. Cuidado: minimalismo ≠ vacío sin intención."}, "capas": {"es": "Capas", "en": "Layers", "tip": "Primer plano, plano medio y fondo para profundidad real, no sólo por perspectiva."}}, "camera_angles": {"central": {"es": "Central", "en": "Eye-level", "height_factor": 1.0, "tilt": 0, "effect": "Neutro, igualdad sujeto-espectador"}, "picado": {"es": "Picado", "en": "High angle", "height_factor": 1.5, "tilt": -20, "effect": "Sujeto se ve menor, vulnerable"}, "contrapicado": {"es": "Contrapicado", "en": "Low angle", "height_factor": 0.4, "tilt": 20, "effect": "Sujeto agrandado, dominante, heroico"}, "nadir": {"es": "Nadir", "en": "Nadir", "height_factor": 0.15, "tilt": 90, "effect": "Cámara debajo del sujeto, eje vertical hacia arriba; dramático y abstracto"}, "cenital": {"es": "Cenital", "en": "Top-down", "height_factor": 2.5, "tilt": -90, "effect": "Cámara sobre el sujeto, eje vertical hacia abajo; orden y geometría"}, "dutch": {"es": "Plano holandés", "en": "Dutch angle", "height_factor": 1.0, "tilt": 0, "roll": 15, "effect": "Tensión, desequilibrio"}}, "techniques": {"mucha_pdc": {"es": "Mucha Profundidad de Campo", "en": "Deep DoF", "icon": "layer-group"}, "poca_pdc": {"es": "Poca Profundidad de Campo", "en": "Shallow DoF", "icon": "circle-dot"}, "congelado": {"es": "Efecto Congelado", "en": "Frozen motion", "icon": "snowflake"}, "barrido": {"es": "Efecto Barrido", "en": "Panning", "icon": "arrows-left-right"}, "fantasma": {"es": "Efecto Fantasma", "en": "Ghost effect", "icon": "ghost"}, "lightpainting": {"es": "Pintura con luz", "en": "Light painting", "icon": "wand-magic-sparkles"}, "larga_exp": {"es": "Larga Exposición", "en": "Long exposure", "icon": "hourglass-half"}, "zooming": {"es": "Efecto zoom", "en": "Zoom burst", "icon": "magnifying-glass-arrow"}}, "field_baselines": {"mucha_pdc_1": {"lens": "35mm", "aperture": "f/11", "shutter": "1/125+", "iso": "100–400", "af": "AF ONE SHOT · foco a ≈4 m", "geometry": "primer plano ≥2 m · sujeto ≈4 m · fondo ≥10 m"}, "mucha_pdc_2": {"lens": "35mm / zoom @35", "aperture": "f/8–11", "shutter": "1/125+", "iso": "100–400", "af": "AF ONE SHOT · eje central", "geometry": "sujeto ≈5–6 m · cámara nivelada"}, "poca_pdc_1": {"lens": "85mm", "aperture": "f/1.8", "shutter": "1/500+", "iso": "Auto", "af": "AF ONE SHOT · ojo más cercano", "geometry": "sujeto ≈3 m · fondo ≥8 m DETRÁS"}, "poca_pdc_2": {"lens": "50mm", "aperture": "f/1.8", "shutter": "1/250+", "iso": "Auto", "af": "AF ONE SHOT · ojo o detalle", "geometry": "sujeto ≈2–2.5 m · fondo ≥5 m detrás"}, "congelado": {"lens": "85mm", "aperture": "f/2.8", "shutter": "1/2000", "iso": "Auto", "af": "AF AI SERVO · punto central · ráfaga", "geometry": "sujeto a ≈6–8 m · síguelo antes de disparar"}, "barrido": {"lens": "50mm", "aperture": "modo Tv", "shutter": "1/40", "iso": "100", "af": "AF AI SERVO · sigue al sujeto", "geometry": "trayectoria lateral / casi paralela"}, "fantasma": {"lens": "35mm", "aperture": "f/8", "shutter": "1\"", "iso": "100", "af": "enfoca antes y pasa a MF · trípode", "geometry": "fondo fijo · persona cruza cuadro"}, "lightpainting": {"lens": "35mm", "aperture": "f/8", "shutter": "10\"", "iso": "100", "af": "enfoca antes y pasa a MF · trípode", "geometry": "oscuridad · sujeto/objeto quieto"}, "larga_exp": {"lens": "35mm", "aperture": "f/11", "shutter": "5\"–15\"", "iso": "100", "af": "enfoca antes y pasa a MF · trípode", "geometry": "hora azul/noche · posición protegida"}, "zooming": {"lens": "35–80mm", "aperture": "f/8", "shutter": "2\"", "iso": "100", "af": "enfoca antes y pasa a MF · trípode", "geometry": "centro fuerte · cámara fija · 35↔80"}}, "pose_names": {"human": {"s_curve_standing": "De pie en S", "walking_candid": "Caminando natural", "looking_back": "Mirada atrás", "thinking_seated": "Sentado pensativo", "candid_laugh": "Risa espontánea", "arms_crossed": "Brazos cruzados", "leaning_wall": "Apoyado en pared", "running_dynamic": "Carrera", "jumping_joy": "Salto", "portrait_3_4": "Retrato 3/4"}, "dog": {"sit_stay": "Sentado quieto", "lying_down": "Echado", "running_fetch": "Corre a la pelota", "standing_alert": "De pie, alerta", "jumping_catch": "Salta a atrapar", "walking_candid": "Paseo natural", "head_tilt": "Cabeza ladeada", "play_bow": "Invita a jugar", "backlit_silhouette": "Silueta a contraluz", "treat_focus": "Atento al premio"}}, "scene_light": {"sol_pleno": {"ev_low": 15, "ev_high": 15, "label": "sol pleno o levemente velado", "source": "ANSI PH2.7 · escena típica a pleno sol"}, "sol_velado": {"ev_low": 14, "ev_high": 14, "label": "sol velado", "source": "ANSI PH2.7 · sol con bruma"}, "nublado_claro": {"ev_low": 13, "ev_high": 13, "label": "nublado claro (garúa sin sombras)", "source": "ANSI PH2.7 · nublado brillante"}, "sombra_abierta": {"ev_low": 12, "ev_high": 12, "label": "sombra abierta o nublado denso", "source": "ANSI PH2.7 · sombra abierta con cielo despejado"}, "antes_ocaso": {"ev_low": 12, "ev_high": 14, "label": "sol bajo, antes del ocaso", "source": "ANSI PH2.7 · justo antes del ocaso"}, "tras_ocaso": {"ev_low": 9, "ev_high": 11, "label": "hora azul, justo después del ocaso", "source": "ANSI PH2.7 · justo después del ocaso"}, "galeria": {"ev_low": 8, "ev_high": 11, "label": "interior muy iluminado", "source": "ANSI PH2.7 · galerías"}, "calle_noche": {"ev_low": 7, "ev_high": 8, "label": "calle iluminada de noche", "source": "ANSI PH2.7 · escenas de calle nocturnas"}, "ventana": {"ev_low": 8, "ev_high": 10, "label": "interior junto a una ventana, de día", "source": "estimate · sin fila en la tabla ANSI; 500–2500 lx junto a la ventana con E = 2,5·2^EV (C = 250)"}, "oficina": {"ev_low": 7, "ev_high": 8, "label": "oficina con luz artificial", "source": "ANSI PH2.7 · oficinas y áreas de trabajo"}, "interior_casa": {"ev_low": 5, "ev_high": 7, "label": "interior de casa con lámparas", "source": "ANSI PH2.7 · interiores de vivienda"}, "trafico_noche": {"ev_low": 5, "ev_high": 5, "label": "tráfico de noche", "source": "ANSI PH2.7 · tráfico vehicular nocturno"}, "iluminado_focos": {"ev_low": 3, "ev_high": 5, "label": "parque o monumento con faroles", "source": "ANSI PH2.7 · edificios y monumentos iluminados"}, "luces_lejanas": {"ev_low": 2, "ev_high": 2, "label": "sólo luces lejanas", "source": "ANSI PH2.7 · vistas lejanas de edificios iluminados"}, "oscuridad": {"ev_low": -3, "ev_high": -1, "label": "oscuridad sin faroles cercanos", "source": "estimate · ANSI PH2.7 da −3 a −2 bajo luna llena alta; el tope de −1 suma un paso por el resplandor urbano de Lima, supuesto conservador sin medir"}}};
 const DIAGRAMS = {"A01_human": "../diagrams-webp/plan_a_A01_human.webp", "A01_dog": "../diagrams-webp/plan_a_A01_dog.webp", "A02_human": "../diagrams-webp/plan_a_A02_human.webp", "A02_dog": "../diagrams-webp/plan_a_A02_dog.webp", "A03_human": "../diagrams-webp/plan_a_A03_human.webp", "A03_dog": "../diagrams-webp/plan_a_A03_dog.webp", "A04_human": "../diagrams-webp/plan_a_A04_human.webp", "A04_dog": "../diagrams-webp/plan_a_A04_dog.webp", "A05_human": "../diagrams-webp/plan_a_A05_human.webp", "A05_dog": "../diagrams-webp/plan_a_A05_dog.webp", "A06_human": "../diagrams-webp/plan_a_A06_human.webp", "A06_dog": "../diagrams-webp/plan_a_A06_dog.webp", "A07_human": "../diagrams-webp/plan_a_A07_human.webp", "A07_dog": "../diagrams-webp/plan_a_A07_dog.webp", "A08_human": "../diagrams-webp/plan_a_A08_human.webp", "A08_dog": "../diagrams-webp/plan_a_A08_dog.webp", "A09_human": "../diagrams-webp/plan_a_A09_human.webp", "A09_dog": "../diagrams-webp/plan_a_A09_dog.webp", "A10_human": "../diagrams-webp/plan_a_A10_human.webp", "A10_dog": "../diagrams-webp/plan_a_A10_dog.webp"};
 let currentVariant = 'human';
 let currentTime = 'day';
@@ -5107,6 +5473,7 @@ function renderShots() {
             <span class="chip bg-purple-100 text-purple-700">📷&nbsp;${shot.technique_label}</span>
           </div>
           <div class="flex flex-wrap gap-1.5 mb-2">${settingsChips(timeSettings)}</div>
+          ${window.FocalRutaEquipo ? FocalRutaEquipo.lineFor(shot, timeSettings) : ''}
           ${slotStatus(timeSettings)}
           <div class="text-xs text-slate-600 mb-2">
             <span class="font-bold">Composición:</span> ${shot.composition_label} ·
@@ -5117,10 +5484,10 @@ function renderShots() {
           <div class="text-xs text-slate-700 italic">${shot.scene_notes}</div>
         </div>
         <div class="diagram-frame bg-paper">
-          ${diagramSrc ? `<img src="${diagramSrc}" alt="Diagrama ${shot.id} ${currentVariant}" width="1744" height="1058" loading="${idx<2?'eager':'lazy'}" decoding="async" /><p class="px-4 py-2 text-[11px] leading-relaxed text-slate-600"><strong>Qué mirar:</strong> compara las distancias dibujadas y el borde del encuadre con tu escena. Es una relación orientativa, no una promesa de píxeles.</p>` : '<div class="p-8 text-center text-slate-400">Diagrama no disponible</div>'}
+          ${diagramSrc ? `<img src="${diagramSrc}" alt="Diagrama ${shot.id}, ${currentVariant === 'human' ? 'con persona' : 'con perro'}" width="1744" height="1058" loading="${idx<2?'eager':'lazy'}" decoding="async" /><p class="px-4 py-2 text-xs leading-relaxed text-slate-600"><strong>Qué mirar:</strong> compara las distancias dibujadas y el borde del encuadre con tu escena. Es una relación orientativa, no una promesa de píxeles.</p>` : '<div class="p-8 text-center text-slate-400">Diagrama no disponible</div>'}
         </div>
         <div class="p-5 space-y-3">
-          ${baseline ? `<div class="bg-slate-50 border border-slate-300 rounded-lg p-3"><div class="text-[10px] font-black tracking-wider text-slate-700">TARJETA DE CAMPO · REFERENCIA</div><div class="text-[11px] font-mono mt-1">${baseline.lens} · ${baseline.aperture} · ${baseline.shutter} · ISO ${baseline.iso}</div><div class="text-[11px] text-slate-600">${baseline.af} · ${baseline.geometry}</div><div class="text-[10px] text-blue-700 mt-1">El plan puede variar por escena/luz; conserva la variable que define el efecto.</div></div>` : ''}
+          ${baseline ? `<div class="bg-slate-50 border border-slate-300 rounded-lg p-3"><div class="text-xs font-black tracking-wider text-slate-700">TARJETA DE CAMPO · REFERENCIA</div><div class="text-xs font-mono mt-1">${baseline.lens} · ${baseline.aperture} · ${baseline.shutter} · ISO ${baseline.iso}</div><div class="text-xs text-slate-600">${baseline.af} · ${baseline.geometry}</div><div class="text-xs text-blue-700 mt-1">El plan puede variar por escena/luz; conserva la variable que define el efecto.</div></div>` : ''}
           <div class="reasoning-block p-3 rounded-lg">
             <div class="text-xs font-bold text-amber-800 mb-1">RAZONAMIENTO</div>
             <p class="text-xs text-amber-900 leading-relaxed">${shot.reasoning}</p>
@@ -5153,6 +5520,8 @@ function renderShots() {
 }
 
 window.addEventListener('DOMContentLoaded', renderShots);
+// The gear chosen on the home page applies here too (V15).
+window.addEventListener('storage', e => { if (e.key === 'focalruta-equipo-v1') renderShots(); });
 </script>
 <script>if(('serviceWorker' in navigator)&&(location.protocol==='http:'||location.protocol==='https:')){window.addEventListener('load',()=>navigator.serviceWorker.register('../sw.js').catch(()=>{}));}</script>
 

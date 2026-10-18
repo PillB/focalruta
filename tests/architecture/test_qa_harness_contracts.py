@@ -110,12 +110,16 @@ def optics_drift(html: str) -> list[str]:
     """
     import optics_physics
 
-    match = re.search(r"const coc=([\d.]+),sw=([\d.]+)", html)
-    if not match:
+    # The lab starts on the 6D; a reader's own gear (assets/gear.js) rescales both from the same reference.
+    match = re.search(r"(?:const|let) coc=([\d.]+),sw=([\d.]+)", html)
+    gear = re.search(r"var REF_W = ([\d.]+), REF_COC = ([\d.]+)", html)
+    if not (match and gear):
         return ["the optical-lab constants are no longer present"]
     shipped = (
         ("circle of confusion", float(match.group(1)), optics_physics.FULL_FRAME_COC_MM),
         ("sensor width", float(match.group(2)), optics_physics.CANON_6D_WIDTH_MM),
+        ("gear reference circle of confusion", float(gear.group(2)), optics_physics.FULL_FRAME_COC_MM),
+        ("gear reference sensor width", float(gear.group(1)), optics_physics.CANON_6D_WIDTH_MM),
     )
     return [
         f"{name} drifted: page ships {found}, optics_physics has {expected}"
@@ -131,11 +135,16 @@ def test_shipped_optics_constants_agree_with_the_python_module(page):
 
 def test_the_optics_guard_actually_detects_a_drifted_constant():
     """Proof the guard can fail, without mutating a shipped page to find out."""
-    assert optics_drift("const coc=.03,sw=35.8,stops=[]") == []
-    assert optics_drift("const coc=.03,sw=36.0,stops=[]") == [
+    gear = "var REF_W = 35.8, REF_COC = 0.03, BASE_ISO = 100"
+    assert optics_drift(gear + " let coc=.03,sw=35.8;const stops=[]") == []
+    assert optics_drift(gear + " let coc=.03,sw=36.0;const stops=[]") == [
         "sensor width drifted: page ships 36.0, optics_physics has 35.8"
     ]
-    assert len(optics_drift("const coc=.031,sw=36.0,stops=[]")) == 2
+    assert len(optics_drift(gear + " const coc=.031,sw=36.0,stops=[]")) == 2
+    assert optics_drift("var REF_W = 36, REF_COC = 0.03 let coc=.03,sw=35.8;") == [
+        "gear reference sensor width drifted: page ships 36.0, optics_physics has 35.8"
+    ]
+    assert optics_drift("let coc=.03,sw=35.8;") == ["the optical-lab constants are no longer present"]
     assert optics_drift("<html>no optical lab here</html>") == [
         "the optical-lab constants are no longer present"
     ]

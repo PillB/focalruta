@@ -1,6 +1,6 @@
 # FocalRuta
 
-An offline-capable, Spanish-language photography field and teaching planner for a full-frame camera and a specific four-lens kit. It includes six ten-shot location plans, 120 subject diagrams, a dynamic Optical Decision Lab, motion and composition teaching tools, a pose coach, and an accessible Field Card.
+An offline-capable, Spanish-language photography field and teaching planner. The plans are solved for a Canon EOS 6D and four lenses; readers with another camera or other lenses set their gear once and every shot also shows the equivalent setting for it. It includes six ten-shot location plans, 120 subject diagrams, a dynamic Optical Decision Lab, motion and composition teaching tools, a pose coach, and a field card in Spanish that works one-handed and offline.
 
 ## Live site
 
@@ -8,16 +8,23 @@ GitHub Pages deploys the optimized runtime from `dist/canon6d_sota_hosted`.
 
 ## Validation
 
-The release gate (`python3 scripts/verify_release.py`) fails unless four browser QA
+The release gate (`python3 scripts/verify_release.py`) fails unless five browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 249 browser regression checks across six viewports,
-  including a hosted plan page that must work offline after one visit
+- `CURRENT_BROWSER_QA.json` — 371 browser regression checks across seven viewports
+  from 320 px wide, including a hosted plan page that must work offline after one visit;
+  on the home page and every plan page, no text under 12 px, no control under 44 px, no
+  English in the interface and nothing cut off at the edges, also with a reader's own
+  lenses; and dialogs that give focus back to the button that opened them
 - `OPTICS_ACCESSIBILITY_QA.json` — 22 optical-lab matrix and accessibility checks
 - `VISUAL_RESOURCE_QA.json` — 37 image, resource-path, font-floor and contrast checks
   (contrast on gradients is checked at every colour stop)
 - `AXE_ACCESSIBILITY_QA.json` — axe-core on all 39 published pages, light phone and
   dark desktop passes, zero violations
+- `FIELD_CARD_QA.json` — 56 field card checks on a phone: each plan's settings per light,
+  the Lima clock, no JavaScript, print, keyboard, the home page dialog, axe, offline after
+  rehearsed deploys (an upgrade from the worker live at 9cd3044, the HTTP cache Pages
+  keeps for 10 minutes), and another camera and lenses
 
 Set up with `python3 -m pip install -r requirements-dev.txt` (what CI installs, on
 Python 3.11) and, for browser QA, `requirements-qa.txt`.

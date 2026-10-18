@@ -169,7 +169,7 @@
       "icon": "ghost"
     },
     "lightpainting": {
-      "es": "Lightpainting",
+      "es": "Pintura con luz",
       "en": "Light painting",
       "icon": "wand-magic-sparkles"
     },
@@ -179,7 +179,7 @@
       "icon": "hourglass-half"
     },
     "zooming": {
-      "es": "Zooming",
+      "es": "Efecto zoom",
       "en": "Zoom burst",
       "icon": "magnifying-glass-arrow"
     }
@@ -214,7 +214,7 @@
       "aperture": "f/11",
       "shutter": "1/125+",
       "iso": "100–400",
-      "af": "One Shot · foco ≈4 m",
+      "af": "AF ONE SHOT · foco a ≈4 m",
       "geometry": "primer plano ≥2 m · sujeto ≈4 m · fondo ≥10 m"
     },
     "mucha_pdc_2": {
@@ -222,7 +222,7 @@
       "aperture": "f/8–11",
       "shutter": "1/125+",
       "iso": "100–400",
-      "af": "One Shot · eje central",
+      "af": "AF ONE SHOT · eje central",
       "geometry": "sujeto ≈5–6 m · cámara nivelada"
     },
     "poca_pdc_1": {
@@ -230,7 +230,7 @@
       "aperture": "f/1.8",
       "shutter": "1/500+",
       "iso": "Auto",
-      "af": "One Shot · ojo cercano",
+      "af": "AF ONE SHOT · ojo más cercano",
       "geometry": "sujeto ≈3 m · fondo ≥8 m DETRÁS"
     },
     "poca_pdc_2": {
@@ -238,7 +238,7 @@
       "aperture": "f/1.8",
       "shutter": "1/250+",
       "iso": "Auto",
-      "af": "One Shot · ojo/detalle",
+      "af": "AF ONE SHOT · ojo o detalle",
       "geometry": "sujeto ≈2–2.5 m · fondo ≥5 m detrás"
     },
     "congelado": {
@@ -246,47 +246,47 @@
       "aperture": "f/2.8",
       "shutter": "1/2000",
       "iso": "Auto",
-      "af": "AI Servo · centro · ráfaga",
-      "geometry": "sujeto ≈6–8 m · pre-seguir"
+      "af": "AF AI SERVO · punto central · ráfaga",
+      "geometry": "sujeto a ≈6–8 m · síguelo antes de disparar"
     },
     "barrido": {
       "lens": "50mm",
-      "aperture": "Tv / auto",
+      "aperture": "modo Tv",
       "shutter": "1/40",
       "iso": "100",
-      "af": "AI Servo · seguimiento",
+      "af": "AF AI SERVO · sigue al sujeto",
       "geometry": "trayectoria lateral / casi paralela"
     },
     "fantasma": {
       "lens": "35mm",
       "aperture": "f/8",
-      "shutter": "1 s",
+      "shutter": "1\"",
       "iso": "100",
-      "af": "pre-enfoca → MF · trípode",
+      "af": "enfoca antes y pasa a MF · trípode",
       "geometry": "fondo fijo · persona cruza cuadro"
     },
     "lightpainting": {
       "lens": "35mm",
       "aperture": "f/8",
-      "shutter": "10 s",
+      "shutter": "10\"",
       "iso": "100",
-      "af": "pre-enfoca → MF · trípode",
+      "af": "enfoca antes y pasa a MF · trípode",
       "geometry": "oscuridad · sujeto/objeto quieto"
     },
     "larga_exp": {
       "lens": "35mm",
       "aperture": "f/11",
-      "shutter": "5–15 s",
+      "shutter": "5\"–15\"",
       "iso": "100",
-      "af": "pre-enfoca → MF · trípode",
+      "af": "enfoca antes y pasa a MF · trípode",
       "geometry": "hora azul/noche · posición protegida"
     },
     "zooming": {
       "lens": "35–80mm",
       "aperture": "f/8",
-      "shutter": "2 s",
+      "shutter": "2\"",
       "iso": "100",
-      "af": "pre-enfoca → MF · trípode",
+      "af": "enfoca antes y pasa a MF · trípode",
       "geometry": "centro fuerte · cámara fija · 35↔80"
     }
   },
@@ -580,7 +580,7 @@
           "scene_notes": "Sujeto saltando contra cielo despejado. Cámara baja (0.6 m) mirando hacia arriba, solo cielo como fondo.",
           "reasoning": "1/2000 s congela el salto. A 6 m el 85 mm cubre ≈2,5 × 1,7 m: en horizontal entra el cuerpo entero con poco aire, en vertical sobra para los brazos arriba. El contrapicado agranda al sujeto y lo aísla contra el cielo (minimalismo por eliminación del fondo). f/2.8 deja algo de margen de enfoque mientras el sujeto se mueve.",
           "dos": [
-            "Usa AF AI Servo + selección de punto + ráfaga de 4,5 fps",
+            "Usa AF AI SERVO + selección de punto + ráfaga de 4,5 fps",
             "Cuenta regresiva 3-2-1 con el sujeto para sincronizar el salto",
             "Dispara en JPG+RAW por si el AF falla en algunas tomas"
           ],
@@ -646,7 +646,7 @@
           "reasoning": "1/30 s con seguimiento horizontal: sujeto nítido y fondo en estelas. A 6 m el 50 mm cubre ≈4,3 × 2,9 m, así que entra el cuerpo entero con aire para el movimiento. Coloca al sujeto en el tercio derecho para que el movimiento 'entre' al encuadre. Cerrar el diafragma da margen de foco si el seguimiento falla.",
           "dos": [
             "Gira el torso siguiendo al sujeto antes, durante y DESPUÉS del disparo (no pares al clic)",
-            "Usa AF AI Servo con punto central + ráfaga",
+            "Usa AF AI SERVO con punto central + ráfaga",
             "Practica el movimiento en seco 3-4 veces antes"
           ],
           "donts": [
@@ -760,7 +760,7 @@
         {
           "id": "A08",
           "technique": "lightpainting",
-          "technique_label": "Lightpainting",
+          "technique_label": "Pintura con luz",
           "lens_focal": 35,
           "aperture": "f/9",
           "shutter": "20\"",
@@ -893,7 +893,7 @@
         {
           "id": "A10",
           "technique": "zooming",
-          "technique_label": "Zooming",
+          "technique_label": "Efecto zoom",
           "lens_focal": "35-80",
           "aperture": "f/8",
           "shutter": "2\"",
@@ -1247,13 +1247,13 @@
           "scene_notes": "Parapente en vuelo bajo sobre el malecón. Cámara sigue al parapente. 1/2000 s o más rápido congela la vela y al piloto.",
           "reasoning": "1/2000 s congela al piloto y la tela de la vela. A 15 m el 85 mm cubre sólo ≈6,3 m de ancho: entran el piloto y el centro de la vela; para el ala completa (≈10 m) necesitas unos 25 m o más. Coloca el parapente en el tercio superior derecho y deja espacio inferior para el mar.",
           "dos": [
-            "AF AI Servo + punto central + ráfaga",
+            "AF AI SERVO + punto central + ráfaga",
             "Pre-enfoca en la zona por donde pasan los parapentes",
             "Dispara en JPG+RAW, descarta los no nítidos"
           ],
           "donts": [
             "No uses 1/500 — el parapente saldrá blando",
-            "No abras a f/1.8 sin necesidad: el AI Servo acierta más con algo de margen de foco"
+            "No abras a f/1.8 sin necesidad: el AF AI SERVO acierta más con algo de margen de foco"
           ],
           "settings_by_time": {
             "day": {
@@ -1314,7 +1314,7 @@
           "dos": [
             "Posiciónate donde los ciclistas pasan predeciblemente",
             "Gira el torso: prepárate → dispara → continúa el giro 1 s más",
-            "Punto central AF + AI Servo + ráfaga"
+            "Punto AF central + AF AI SERVO + ráfaga"
           ],
           "donts": [
             "No pares el giro al disparar",
@@ -1428,7 +1428,7 @@
         {
           "id": "B08",
           "technique": "lightpainting",
-          "technique_label": "Lightpainting",
+          "technique_label": "Pintura con luz",
           "lens_focal": 35,
           "aperture": "f/10",
           "shutter": "25\"",
@@ -1560,7 +1560,7 @@
         {
           "id": "B10",
           "technique": "zooming",
-          "technique_label": "Zooming",
+          "technique_label": "Efecto zoom",
           "lens_focal": "35-80",
           "aperture": "f/8",
           "shutter": "3\"2",
@@ -1631,7 +1631,7 @@
       "location": "Interior controlado + exteriores públicos seguros de San Isidro",
       "distance_from_home": "Sesión local; elige una ruta pública y segura",
       "best_window": "Noche 19:30–22:30 · Después de las 18:00 en invierno (La Garúa)",
-      "why": "Un interior controlado ofrece dominio de luz y oscuridad para lightpainting, fantasma y zooming. Una calle pública segura con faroles y tránsito visible permite practicar barrido y trazas sin revelar una ubicación residencial.",
+      "why": "Un interior controlado ofrece dominio de luz y oscuridad para pintura con luz, fantasma y efecto zoom. Una calle pública segura con faroles y tránsito visible permite practicar barrido y trazas sin revelar una ubicación residencial.",
       "palette": [
         "#1a1a2e",
         "#16213e",
@@ -2092,7 +2092,7 @@
         {
           "id": "C08",
           "technique": "lightpainting",
-          "technique_label": "Lightpainting",
+          "technique_label": "Pintura con luz",
           "lens_focal": 35,
           "aperture": "f/11",
           "shutter": "30\"",
@@ -2223,7 +2223,7 @@
         {
           "id": "C10",
           "technique": "zooming",
-          "technique_label": "Zooming",
+          "technique_label": "Efecto zoom",
           "lens_focal": "35-80",
           "aperture": "f/11",
           "shutter": "3\"2",
@@ -2576,7 +2576,7 @@
           "scene_notes": "Sujeto saltando en Plaza Mayor contra cielo despejado. Cámara baja mirando hacia arriba. Palomas en vuelo pueden sumarse.",
           "reasoning": "1/2000 s congela el salto y las palomas en vuelo. A 10 m el 85 mm cubre ≈4,2 × 2,8 m: el cuerpo entero en el aire con margen. El contrapicado aísla al sujeto contra el cielo. Minimalismo por eliminación.",
           "dos": [
-            "AF AI Servo + punto central + ráfaga",
+            "AF AI SERVO + punto central + ráfaga",
             "Coordina salto con movimiento de palomas (un asistente las asusta)",
             "Pre-enfoca en la altura esperada del salto"
           ],
@@ -2643,7 +2643,7 @@
           "dos": [
             "Posiciónate donde los peatones pasen predeciblemente (esquina)",
             "Gira el torso: prepárate → dispara → continúa 1 s",
-            "Punto central AF + AI Servo + ráfaga"
+            "Punto AF central + AF AI SERVO + ráfaga"
           ],
           "donts": [
             "No pares el giro al disparar",
@@ -2756,7 +2756,7 @@
         {
           "id": "D08",
           "technique": "lightpainting",
-          "technique_label": "Lightpainting",
+          "technique_label": "Pintura con luz",
           "lens_focal": 35,
           "aperture": "f/10",
           "shutter": "25\"",
@@ -2888,7 +2888,7 @@
         {
           "id": "D10",
           "technique": "zooming",
-          "technique_label": "Zooming",
+          "technique_label": "Efecto zoom",
           "lens_focal": "35-80",
           "aperture": "f/8",
           "shutter": "3\"2",
@@ -2955,7 +2955,7 @@
     },
     {
       "id": "plan_e",
-      "name": "Home / Building Lab — Control Total",
+      "name": "Casa / Laboratorio — Control total",
       "location": "Interior controlado + ventana o retiro privado seguro",
       "distance_from_home": "Sin ubicación fija; usa un espacio con permiso",
       "best_window": "Cualquier hora · ideal con garúa, poco tiempo o para repetir pruebas A/B",
@@ -3113,7 +3113,7 @@
           "scene_notes": "Retrato junto a ventana; sujeto a ~3 m y fondo del corredor/habitación al menos 8 m detrás.",
           "reasoning": "A 85mm f/1.8 y ~3 m la PDC es muy estrecha. El gran salto visual viene de alejar el fondo: no de abrir 1/3 de paso con el sujeto pegado a una pared.",
           "dos": [
-            "One Shot y foco en el ojo cercano",
+            "AF ONE SHOT y foco en el ojo cercano",
             "Mueve al sujeto hacia delante para aumentar sujeto↔fondo"
           ],
           "donts": [
@@ -3239,7 +3239,7 @@
           "scene_notes": "Salto corto, tela o cabello en movimiento en un área sin piso resbaloso. Cámara baja y espacio alrededor.",
           "reasoning": "En interior el costo real es ISO. Para cumplir 'congelado', conserva primero 1/1600–1/2000; f/2.8 da más tolerancia de foco que f/1.8; abre a f/2 sólo cuando falte luz.",
           "dos": [
-            "AI Servo + punto central + ráfaga",
+            "AF AI SERVO + punto central + ráfaga",
             "Pre-sigue antes del salto",
             "Usa movimiento pequeño y repetible"
           ],
@@ -3414,7 +3414,7 @@
         {
           "id": "E08",
           "technique": "lightpainting",
-          "technique_label": "Lightpainting",
+          "technique_label": "Pintura con luz",
           "lens_focal": 35,
           "aperture": "f/8",
           "shutter": "10\"",
@@ -3544,7 +3544,7 @@
         {
           "id": "E10",
           "technique": "zooming",
-          "technique_label": "Zooming",
+          "technique_label": "Efecto zoom",
           "lens_focal": "35-80",
           "aperture": "f/8",
           "shutter": "2\"",
@@ -3890,7 +3890,7 @@
           "scene_notes": "Carrera/salto en parque, lejos de tránsito; espacio delante del movimiento.",
           "reasoning": "1/2000 s es la variable no negociable; 85mm desde ~8 m reduce el cambio angular aparente y da más tiempo para seguir con el AF de 11 puntos de la 6D.",
           "dos": [
-            "AI Servo + punto central + ráfaga",
+            "AF AI SERVO + punto central + ráfaga",
             "Pre-sigue 1–2 s antes"
           ],
           "donts": [
@@ -4066,7 +4066,7 @@
         {
           "id": "F08",
           "technique": "lightpainting",
-          "technique_label": "Lightpainting",
+          "technique_label": "Pintura con luz",
           "lens_focal": 35,
           "aperture": "f/8",
           "shutter": "10\"",
@@ -4144,7 +4144,7 @@
           "camera_height_m": 1.25,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Trazas vehiculares y edificios desde un retiro/vereda protegida; ningún animal en la toma.",
-          "reasoning": "5–15 s deja suficientes autos para líneas continuas sin exigir una exposición extrema. Blue hour conserva detalle del entorno.",
+          "reasoning": "5–15 s deja suficientes autos para líneas continuas sin exigir una exposición extrema. La hora azul conserva detalle del entorno.",
           "dos": [
             "Trípode totalmente dentro de zona peatonal segura",
             "Revisa altas luces",
@@ -4196,7 +4196,7 @@
         {
           "id": "F10",
           "technique": "zooming",
-          "technique_label": "Zooming",
+          "technique_label": "Efecto zoom",
           "lens_focal": "35-80",
           "aperture": "f/8",
           "shutter": "2\"",

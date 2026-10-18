@@ -1,147 +1,389 @@
+#!/usr/bin/env python3
+"""Build the field card: each plan's exact settings for the light you are in.
+
+Requirements V01-V06 (tests/test_field_card.py). The card is generated from
+data/plans.json, so it can never disagree with the plans: for every plan, shot
+and light slot it prints the lens, aperture, shutter, ISO and ND filter the
+plan computed, and marks the slots that cannot be shot.
+
+Everything a reader switches (plan, light, subject, section) is a radio
+button, and CSS :has() shows the matching cards, so the card works with
+JavaScript off and printed. assets/field_card.js adds what needs a clock or
+memory: the slot for the time in Lima, each shot's time window, saved
+progress, the next pending shot and keeping the screen awake.
+
+Outputs field_card.html (its own page) and the three parts the home page
+embeds in its dialog: data/field_card_fragment.html, data/field_card.css and
+data/field_card.js (integrate_field_card.py puts them in index.html).
+"""
+from __future__ import annotations
+
+import html
+import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'field_card.html'
-
-LENSES = [
-    ('35', 'EF 35mm f/2 IS USM', 'f/2', '0.24 m', '67 mm'),
-    ('50', 'EF 50mm f/1.8 STM', 'f/1.8', '0.35 m', '49 mm'),
-    ('85', 'EF 85mm f/1.8 USM', 'f/1.8', '0.85 m', '58 mm'),
-    ('Z', 'EF 35–80mm f/4–5.6 III', 'f/4–5.6', '0.40 m', '52 mm'),
-]
-
-# id, icon, technique, lens, exposure, af, geometry, pass criterion
-SHOTS = [
-    ('01','▤','Mucha PDC · capas','35','f/11 · 1/125+ · ISO 100–400','One Shot · foco ≈4 m','FG ≥2 m · sujeto ≈4 m · fondo ≥10 m','3 planos se leen nítidos'),
-    ('02','↔','Mucha PDC · simetría','35 / Z@35','f/8–11 · 1/125+ · ISO 100–400','One Shot · eje central','sujeto ≈5–6 m · cámara nivelada','eje centrado + detalle delante/detrás'),
-    ('03','◎','Poca PDC · retrato','85','f/1.8 · 1/500+ · Auto ISO','One Shot · ojo cercano','sujeto ≈3 m · fondo ≥8 m DETRÁS','ojo clavado + fondo se derrite'),
-    ('04','▣','Poca PDC · enmarcado','50','f/1.8 · 1/250+ · Auto ISO','One Shot · ojo/detalle','sujeto ≈2–2.5 m · fondo ≥5 m detrás','marco suave + sujeto aislado'),
-    ('05','❄','Congelado','85','f/2.8 · 1/2000 · Auto ISO','AI Servo · centro · ráfaga','sujeto ≈6–8 m · pre-seguir','ojo/patas/cabello SIN blur'),
-    ('06','→','Barrido','50','Tv 1/40 · ISO 100 · apertura auto','AI Servo · seguimiento','trayectoria LATERAL / casi paralela','sujeto reconocible + fondo streak'),
-    ('07','◌','Fantasma','35','f/8 · 1 s · ISO 100','pre-enfoca → MF · trípode','fondo fijo · persona cruza cuadro','fondo nítido + sujeto translúcido'),
-    ('08','✦','Lightpainting','35','f/8 · 10 s · ISO 100','pre-enfoca → MF · trípode','oscuridad · sujeto/objeto quieto','trazo limpio + cámara inmóvil'),
-    ('09','≈','Larga exposición','35','f/11 · 5–15 s · ISO 100','pre-enfoca → MF · trípode','blue hour/noche · posición protegida','trazas continuas + luces conservadas'),
-    ('10','⇆','Zooming','Z','f/8 · 2 s · ISO 100','pre-enfoca → MF · trípode','centro fuerte · cámara fija · 35↔80','centro legible + rayos radiales'),
-]
+DATA = json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))
+OUT = ROOT / "field_card.html"
+SLOTS = (("day", "Día", "☀"), ("afternoon", "Tarde", "🌇"), ("night", "Noche", "🌙"))
+SUBJECTS = (("human", "Persona"), ("dog", "Perro"))
+TABS = (("shots", "Tomas", "📷"), ("techniques", "Técnicas", "🎯"), ("rescue", "Rescate", "🛟"),
+        ("framing", "Encuadre", "▦"), ("gear", "Equipo", "🎒"))
+esc = html.escape
 
 RESCUE = [
-    ('🎯','Foco falla','Estático: cierra f/1.8 → f/2.2–2.8. Acción: centro + AI Servo + pre-seguimiento. No bajes el shutter que define el efecto.'),
-    ('🌫','Fondo no se borra','Primero ALEJA sujeto del fondo. Después abre diafragma / usa 85. Cambiar sólo f/ no compensa un fondo pegado.'),
-    ('💨','Barrido parece congelado','Baja 1/60 → 1/40 → 1/30. Mantén trayectoria lateral y continúa el giro después de disparar.'),
-    ('🫨','Barrido: todo borroso','Sube a 1/60, suaviza el giro desde la cintura y apunta a un detalle estable del sujeto.'),
-    ('👻','Fantasma demasiado tenue','Haz que la persona se mueva más lento o haga una micro-pausa. Si queda sólida, haz lo contrario.'),
-    ('🌟','Luces quemadas','ISO 100 → cierra a f/11–16 → reduce tiempo. De día, una exposición de segundos puede requerir ND/sombra.'),
-    ('🔭','Zooming sin rayos','Usa luces/patrones contrastados, 2–4 s y recorre más rango 35↔80 sin mover el trípode.'),
-    ('▰','Noche vibra','Trípode firme + temporizador 2 s/remoto + no tocar cámara. Revisa nitidez al 100% antes de seguir.'),
+    ("🎯", "El foco falla", "Retrato quieto: cierra de f/1.8 a f/2.2–2.8. Acción: punto central, AF AI SERVO y sigue al sujeto antes de disparar. No bajes la velocidad que crea el efecto."),
+    ("🌫", "El fondo no se desenfoca", "Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm. Abrir un tercio de paso no compensa un fondo pegado."),
+    ("💨", "El barrido sale congelado", "Baja de 1/60 a 1/40 y luego a 1/30. Mantén la trayectoria lateral y sigue girando después del disparo."),
+    ("🫨", "El barrido sale todo movido", "Sube a 1/60, gira desde la cintura y apunta a un detalle estable del sujeto."),
+    ("👻", "El fantasma queda muy tenue", "Pide a la persona que cruce más despacio o que se detenga un instante. Si sale sólida, que se mueva más."),
+    ("🌟", "Las luces se queman", "ISO 100, luego cierra a f/11–16 y por último acorta el tiempo. De día, varios segundos piden un filtro ND."),
+    ("🔭", "El efecto zoom no traza rayos", "Busca luces o patrones con contraste, expón de 2\" a 4\" y recorre todo el rango 35↔80 sin mover el trípode."),
+    ("▰", "De noche la foto vibra", "Trípode firme, retardo de 2 s o disparador remoto, y no toques la cámara. Revisa la nitidez al 100 % antes de seguir."),
 ]
-
 COMPOSITION = [
-    ('▦','Tercios','Sujeto/ojos cerca de intersección; aire hacia mirada o movimiento.'),
-    ('↗','Perspectiva','Líneas llevan al sujeto. Cambia POSICIÓN antes de cambiar lente.'),
-    ('↔','Simetría','Eje central perfecto; nivelar antes de disparar.'),
-    ('▣','Enmarcado','Rama/puerta/arco rodea sin tapar ojos ni articulaciones.'),
-    ('□','Espacio negativo','Deja aire útil; no vacío accidental.'),
-    ('◎','Punto de interés','Una cosa debe ganar la atención en <1 segundo.'),
-    ('•','Minimalismo','Quita elementos hasta que nada compita.'),
-    ('▤','Capas','Foreground + sujeto + background físicamente separados.'),
+    ("▦", "Tercios", "Ojos o sujeto cerca de una intersección; deja aire hacia donde mira o se mueve."),
+    ("↗", "Perspectiva", "Las líneas llevan al sujeto. Cambia de posición antes de cambiar de objetivo."),
+    ("↔", "Simetría", "Eje central exacto; nivela la cámara antes de disparar."),
+    ("▣", "Enmarcado", "Una rama, puerta o arco rodea al sujeto sin tapar ojos ni articulaciones."),
+    ("□", "Espacio negativo", "Aire útil alrededor del sujeto, no vacío por accidente."),
+    ("◎", "Punto de interés", "Un solo elemento gana la atención en menos de un segundo."),
+    ("•", "Minimalismo", "Quita elementos hasta que nada compita con el sujeto."),
+    ("▤", "Capas", "Primer plano, sujeto y fondo separados de verdad en distancia."),
 ]
 ANGLES = [
-    ('↔','Eye-level','Lente a ojos: perro ~30–50 cm; humano según altura de ojos.'),
-    ('↘','Picado','Cámara arriba → abajo; reduce presencia.'),
-    ('↗','Contrapicado','Cámara abajo → arriba; aumenta presencia y convergencia.'),
-    ('↑','Nadir','90° ARRIBA. Copa/edificios; vigila bordes con 35 mm.'),
-    ('↓','Cenital','90° ABAJO. Patrón / lectura gráfica.'),
-    ('◇','Holandés','Roll 10–15° sólo con intención de tensión.'),
+    ("↔", "A la altura de los ojos", "Objetivo a la altura de sus ojos: perro a 30–50 cm del suelo; persona, según su estatura."),
+    ("↘", "Picado", "Cámara arriba mirando abajo; resta presencia al sujeto."),
+    ("↗", "Contrapicado", "Cámara abajo mirando arriba; da presencia y hace converger las verticales."),
+    ("↑", "Nadir", "A 90° hacia arriba: copas y edificios. Vigila los bordes con el 35 mm."),
+    ("↓", "Cenital", "A 90° hacia abajo: patrones y lectura gráfica."),
+    ("◇", "Holandés", "Inclina 10–15° sólo si quieres tensión."),
 ]
-PREP = [
-    ('RAW','Archivo','RAW · espacio en SD · batería · lente limpio'),
-    ('AF','Enfoque','quieto = One Shot · acción = AI Servo + centro'),
-    ('▰','Soporte','≥0.5 s = trípode + 2 s/remoto; no tocar cámara'),
-    ('100%','Chequeo','acción: ojo/patas · PDC: FG/BG · noche: altas luces'),
-    ('🐶','Perro','correa y trayectoria segura; nunca junto a calzada activa'),
-    ('HIST','Exposición','histograma/altas luces después de cada serie, no de cada frame'),
+BEFORE_LEAVING = [
+    ("RAW", "Archivo", "RAW, tarjeta con espacio, batería cargada y objetivo limpio."),
+    ("AF", "Enfoque", "Sujeto quieto: AF ONE SHOT. Acción: AF AI SERVO y punto central."),
+    ("▰", "Soporte", "Desde 0\"5: trípode y retardo de 2 s o remoto; no toques la cámara."),
+    ("100 %", "Revisión", "Acción: ojos y patas. Profundidad: primer plano y fondo. Noche: altas luces."),
+    ("🐶", "Perro", "Correa y trayectoria segura; nunca junto a una calzada con tráfico."),
+    ("▟", "Exposición", "Mira el histograma y las altas luces después de cada serie, no de cada foto."),
 ]
+TECHNIQUE_ICONS = {"mucha_pdc": "▤", "poca_pdc": "◎", "congelado": "❄", "barrido": "→", "fantasma": "◌",
+                   "lightpainting": "✦", "larga_exp": "≈", "zooming": "⇆"}
 
-shot_rows=''.join(f'''<label class="fc-shot" data-shot="{n}">
-<input class="fc-check" type="checkbox" aria-label="Marcar toma {n}">
-<span class="fc-id"><b>{n}</b><i>{ico}</i></span>
-<span class="fc-core"><strong>{title}</strong><em>{lens}</em><small>{exp}</small><small>{af}</small></span>
-<span class="fc-proof"><small>{geo}</small><b>✓ {ok}</b></span>
-</label>''' for n,ico,title,lens,exp,af,geo,ok in SHOTS)
 
-rescue_cards=''.join(f'<article class="fc-mini fc-rescue"><span>{ico}</span><div><b>{title}</b><p>{tip}</p></div></article>' for ico,title,tip in RESCUE)
-comp_cards=''.join(f'<article class="fc-mini"><span>{ico}</span><div><b>{title}</b><p>{tip}</p></div></article>' for ico,title,tip in COMPOSITION)
-angle_cards=''.join(f'<article class="fc-mini"><span>{ico}</span><div><b>{title}</b><p>{tip}</p></div></article>' for ico,title,tip in ANGLES)
-prep_cards=''.join(f'<article class="fc-mini"><span>{ico}</span><div><b>{title}</b><p>{tip}</p></div></article>' for ico,title,tip in PREP)
-lens_cards=''.join(f'<article class="fc-lens"><b>{code}</b><div><strong>{name}</strong><small>máx. {maxap} · MFD {mfd} · filtro {flt}</small></div></article>' for code,name,maxap,mfd,flt in LENSES)
+def number(value: float) -> str:
+    return f"{value:g}".replace(".", ",")
 
-CSS=r'''
-:root{--fc-ink:#0b1724;--fc-muted:#60707d;--fc-line:#dbe3e9;--fc-paper:#f4f1e9;--fc-navy:#061827;--fc-teal:#0e6b68;--fc-gold:#e1b72e;--fc-green:#087f5b;--fc-red:#a52a20}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--fc-paper);color:var(--fc-ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Arial,sans-serif}
-#field-card-app{max-width:1040px;margin:auto;padding:10px 10px calc(76px + env(safe-area-inset-bottom));font-variant-numeric:tabular-nums}
-.fc-hero{background:linear-gradient(145deg,#06131f,#0e3c48 58%,#29345b);color:#fff;border-radius:18px;padding:13px 13px 11px;box-shadow:0 12px 28px rgba(15,23,42,.14)}
-.fc-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.fc-title b{font-size:16px;letter-spacing:-.02em}.fc-h1{margin:0;font:inherit}.fc-title small{display:block;font-size:9.5px;color:#cce1e5;margin-top:2px}.fc-progress{min-width:61px;text-align:center;padding:6px;border-radius:12px;background:#ffffff12;border:1px solid #ffffff20}.fc-progress b{font-size:18px}.fc-progress small{display:block;font-size:8px;color:#dce9ed}
-.fc-lensline{display:flex;flex-wrap:wrap;gap:4px;padding:8px 0 2px}.fc-pill{flex:0 0 auto;padding:4px 6px;border-radius:999px;background:#ffffff10;border:1px solid #ffffff18;font-size:9px;font-weight:800}.fc-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:8px}.fc-principles div{background:#ffffff0d;border-radius:9px;padding:6px}.fc-principles b{display:block;color:#f4d975;font-size:8.5px}.fc-principles span{font-size:8.6px;line-height:1.22;color:#edf6f7}
-.fc-tabs{position:sticky;top:calc(4px + env(safe-area-inset-top));z-index:15;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;padding:7px 0 6px;background:rgba(244,241,233,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}.fc-tab{min-height:44px;border:1px solid var(--fc-line);border-radius:11px;background:#fff;color:#334155;font-size:9.5px;font-weight:900}.fc-tab.fc-active{background:var(--fc-navy);border-color:var(--fc-navy);color:#fff}.fc-panel{display:none}.fc-panel.fc-active{display:block}.fc-panelhead{display:flex;align-items:end;justify-content:space-between;gap:8px;margin:3px 1px 7px}.fc-panelhead h2{font-size:13px;margin:0}.fc-panelhead p{font-size:9px;color:var(--fc-muted);margin:1px 0 0}.fc-reset{border:0;background:transparent;color:#64748b;text-decoration:underline;font-size:9px;padding:6px}
-.fc-shots{display:grid;gap:5px}.fc-shot{display:grid;grid-template-columns:23px 34px minmax(0,1.08fr) minmax(0,.92fr);gap:6px;align-items:center;background:#fff;border:1px solid var(--fc-line);border-radius:12px;padding:7px;box-shadow:0 2px 9px rgba(15,23,42,.035);min-width:0;cursor:pointer}.fc-shot.fc-done{background:#f0fbf6;border-color:#9ad5c2}.fc-check{appearance:none;-webkit-appearance:none;width:21px;height:21px;border:2px solid #a7b3bd;border-radius:6px;margin:0;display:grid;place-items:center}.fc-check:checked{background:var(--fc-green);border-color:var(--fc-green)}.fc-check:checked:after{content:'✓';color:#fff;font-size:14px;font-weight:900}.fc-id{display:grid;place-items:center}.fc-id b{font-size:7.5px;color:#71808d}.fc-id i{font-style:normal;font-size:17px;line-height:1}.fc-core,.fc-proof{min-width:0}.fc-core strong{display:inline;font-size:10.4px;line-height:1.12}.fc-core em{display:inline-block;margin-left:5px;background:#e9f4f4;color:#0e5a58;border-radius:6px;padding:2px 4px;font-style:normal;font-size:8px;font-weight:900}.fc-core small,.fc-proof small{display:block;font-size:8.6px;line-height:1.2;color:#4e5e6a;overflow-wrap:anywhere;margin-top:2px}.fc-proof{border-left:1px solid #edf0f2;padding-left:6px}.fc-proof b{display:block;color:var(--fc-green);font-size:8.4px;line-height:1.18;margin-top:3px}
-.fc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.fc-mini{display:flex;gap:8px;min-width:0;background:#fff;border:1px solid var(--fc-line);border-radius:11px;padding:8px}.fc-mini>span{flex:0 0 27px;width:27px;height:27px;border-radius:8px;background:#edf4f5;display:grid;place-items:center;font-size:11px;font-weight:900}.fc-mini b{font-size:9.5px}.fc-mini p{font-size:8.6px;line-height:1.28;margin:2px 0 0;color:#52616c}.fc-rescue{border-left:3px solid #e4aa31}.fc-lenses{display:grid;gap:5px;margin-bottom:7px}.fc-lens{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--fc-line);border-radius:11px;padding:8px}.fc-lens>b{display:grid;place-items:center;min-width:31px;height:31px;border-radius:9px;background:var(--fc-navy);color:#fff;font-size:10px}.fc-lens strong{display:block;font-size:9.7px}.fc-lens small{font-size:8.7px;color:#586874}.fc-note{margin-top:6px;padding:8px 9px;border-radius:11px;background:#fff8dc;border:1px solid #ead68d;color:#514823;font-size:8.7px;line-height:1.3}.fc-note b{color:#725a0b}.fc-danger{background:#fff2ee;border-color:#f0c4bb;color:#76251a}.fc-printstrip{display:none}
-.fc-bottom{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:6px;padding:6px 9px calc(6px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid #dfe6eb;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}.fc-bottom button,.fc-bottom a{min-height:44px;border:1px solid var(--fc-line);border-radius:11px;background:#fff;color:#334155;text-decoration:none;display:grid;place-items:center;font-size:9px;font-weight:900}.fc-bottom .fc-primary{background:var(--fc-navy);color:#fff;border-color:var(--fc-navy)}
-@media(max-width:390px){#field-card-app{padding-left:7px;padding-right:7px}.fc-hero{border-radius:15px;padding:11px 10px}.fc-principles{grid-template-columns:1fr}.fc-principles div{display:flex;gap:6px}.fc-principles b{flex:0 0 auto}.fc-shot{grid-template-columns:21px 30px minmax(0,1.14fr) minmax(0,.86fr);gap:4px;padding:6px 5px}.fc-core strong{font-size:9.8px}.fc-core small,.fc-proof small{font-size:8.1px}.fc-proof b{font-size:8px}.fc-grid{grid-template-columns:1fr 1fr}.fc-mini{padding:7px 6px;gap:6px}.fc-mini>span{width:24px;height:24px;flex-basis:24px}.fc-mini p{font-size:8.2px}}
-@media(min-width:700px){#field-card-app{padding:18px 18px 22px}.fc-shots{grid-template-columns:1fr 1fr}.fc-grid{grid-template-columns:repeat(4,1fr)}.fc-lenses{grid-template-columns:1fr 1fr}.fc-bottom{display:none}.fc-shot{min-height:72px}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-@media print{@page{size:A4 landscape;margin:5.5mm}body{background:#fff!important}#field-card-app{max-width:none;padding:0}.fc-hero{border-radius:0;box-shadow:none;padding:6px 8px}.fc-title b{font-size:12px}.fc-title small,.fc-progress small{font-size:6.5px}.fc-progress b{font-size:12px}.fc-lensline{padding-top:3px}.fc-pill{font-size:6.7px;padding:2px 4px}.fc-principles{display:none}.fc-tabs,.fc-bottom,.fc-panelhead,.fc-check{display:none!important}.fc-panel{display:none!important}#fc-field{display:block!important}.fc-shots{grid-template-columns:1fr 1fr;gap:2.5px;margin-top:4px}.fc-shot{grid-template-columns:28px minmax(0,1.1fr) minmax(0,.9fr);padding:4px 5px;border-radius:5px;box-shadow:none}.fc-id{grid-column:1}.fc-core{grid-column:2}.fc-proof{grid-column:3}.fc-core strong{font-size:7.6px}.fc-core em{font-size:6px}.fc-core small,.fc-proof small,.fc-proof b{font-size:6.5px}.fc-printstrip{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:4px;margin-top:4px}.fc-printstrip>div{border:1px solid var(--fc-line);border-radius:5px;padding:4px;font-size:6.5px;line-height:1.25}.fc-printstrip b{font-size:7px}.fc-note{display:none}}
-'''
 
-CSS += r'''
-/* READABILITY_OUTDOOR_V2 */
-:root{--fc-muted:#334155;--fc-line:#64748b}body{font-size:16px;line-height:1.5;text-rendering:optimizeLegibility}.fc-hero,.fc-shot,.fc-mini,.fc-lens,.fc-note{border-width:1.5px}.fc-title small,.fc-pill,.fc-principles b,.fc-principles span,.fc-progress small,.fc-tab,.fc-panelhead p,.fc-reset,.fc-id b,.fc-core strong,.fc-core em,.fc-core small,.fc-proof small,.fc-proof b,.fc-mini b,.fc-mini p,.fc-lens strong,.fc-lens small,.fc-note,.fc-bottom button,.fc-bottom a{font-size:max(11px,0.69rem);line-height:1.35}.fc-title small,.fc-progress small,.fc-principles span{color:#f1f5f9}.fc-principles b{color:#fde68a}.fc-core small,.fc-proof small,.fc-mini p,.fc-lens small{color:#334155}.fc-id b{color:#475569}.fc-proof{border-color:#94a3b8}.fc-proof b{color:#066342}.fc-check{border-color:#475569}.fc-tab{border-width:2px}.fc-tab.fc-active{background:#061827!important;color:#fff!important}.fc-reset{color:#475569}:where(a,button,input,label):focus-visible{outline:3px solid #facc15;outline-offset:2px;box-shadow:0 0 0 2px #0f172a}
-@media(max-width:520px){.fc-shot{grid-template-columns:24px 32px minmax(0,1fr);gap:5px}.fc-check{grid-column:1;grid-row:1/3}.fc-id{grid-column:2;grid-row:1/3}.fc-core{grid-column:3}.fc-proof{grid-column:3;border-left:0;border-top:1.5px solid #94a3b8;padding:5px 0 0}.fc-grid{grid-template-columns:1fr}.fc-mini p{font-size:12px}.fc-principles{grid-template-columns:1fr}.fc-panelhead h2{font-size:16px}}
-@media(prefers-contrast:more){:root{--fc-muted:#111827;--fc-line:#334155}.fc-shot,.fc-mini,.fc-lens{border-width:2px}}
-'''
+def lens_label(lens: str) -> str:
+    """'35-80mm @50' → '35–80 mm a 50 mm'."""
+    match = re.fullmatch(r"(\d+)(?:-(\d+))?mm(?: @(\d+))?", lens)
+    if not match:
+        raise ValueError(f"unknown lens {lens!r}")
+    short, long_, at = match.groups()
+    label = f"{short}–{long_} mm" if long_ else f"{short} mm"
+    return label + (f" a {at} mm" if at else "")
 
-APP=f'''
-<div id="field-card-app">
-<header class="fc-hero">
-<div class="fc-head"><div class="fc-title"><b>FOCALRUTA · FIELD CARD</b><small>10 tomas · consulta en 5 segundos · valores de ARRANQUE</small></div><div class="fc-progress"><b id="fc-count">0/10</b><small>LISTAS</small></div></div>
-<div class="fc-lensline"><span class="fc-pill">35 · f/2 IS</span><span class="fc-pill">50 · f/1.8 STM</span><span class="fc-pill">85 · f/1.8 USM</span><span class="fc-pill">35–80 · f/4–5.6 III</span></div>
-<div class="fc-principles"><div><b>PDC PROFUNDA</b><span>35 · f/8–11 · tres distancias reales</span></div><div><b>PDC CORTA</b><span>85 f/1.8 · sujeto cerca · fondo LEJOS</span></div><div><b>MOVIMIENTO</b><span>manda el shutter: 1/2000 / 1/40 / 1 s</span></div></div>
-</header>
-<nav class="fc-tabs" aria-label="Secciones de la Field Card"><button class="fc-tab fc-active" data-fc-tab="fc-field">📷 CAMPO</button><button class="fc-tab" data-fc-tab="fc-rescue">⚡ RESCATE</button><button class="fc-tab" data-fc-tab="fc-compose">▦ COMPO</button><button class="fc-tab" data-fc-tab="fc-gear">⚙ EQUIPO</button></nav>
-<section id="fc-field" class="fc-panel fc-active"><div class="fc-panelhead"><div><h2>Toca ✓ sólo después de revisar al 100%</h2><p>Si no aparece el criterio verde, repite antes de avanzar.</p></div><button class="fc-reset" id="fc-reset">reiniciar</button></div><div class="fc-shots">{shot_rows}</div><div class="fc-note"><b>REGLA MAESTRA:</b> Poca PDC = apertura + focal + cámara↔sujeto + sujeto↔fondo. Para más blur, la separación del FONDO suele cambiar más la imagen que abrir 1/3 de stop.</div>
-<div class="fc-printstrip"><div><b>RESCATE</b><br>foco falla → f/2.2–2.8 · barrido congelado → 1/40→1/30 · noche vibra → 2 s timer</div><div><b>COMPO</b><br>▦ tercios · ↔ simetría · ▣ marco · □ negativo · ▤ capas</div><div><b>ÁNGULOS</b><br>↔ ojos · ↘ picado · ↗ contrapicado · ↑ nadir · ↓ cenital</div></div>
-</section>
-<section id="fc-rescue" class="fc-panel"><div class="fc-panelhead"><div><h2>Cuando la foto “no sale”</h2><p>Cambia una variable por vez; conserva la variable que define el efecto.</p></div></div><div class="fc-grid">{rescue_cards}</div><div class="fc-note fc-danger"><b>NO NEGOCIABLE:</b> para congelado no sacrifiques 1/2000; para barrido no “arregles” 1/40 subiendo a 1/250; para fantasma/larga/zooming no muevas la cámara.</div></section>
-<section id="fc-compose" class="fc-panel"><div class="fc-panelhead"><div><h2>Composición + ángulo</h2><p>Una intención dominante; no “colecciones” reglas.</p></div></div><div class="fc-grid">{comp_cards}{angle_cards}</div></section>
-<section id="fc-gear" class="fc-panel"><div class="fc-panelhead"><div><h2>Equipo real + preflight</h2><p>Máxima del lente no significa que debas usarla en todas las tomas.</p></div></div><div class="fc-lenses">{lens_cards}</div><div class="fc-grid">{prep_cards}</div><div class="fc-note"><b>FUENTE DE SPECS:</b> Canon Camera Museum / Canon. El 35–80 del proyecto es la versión III; si el texto del barril de tu unidad dice otra variante, conserva lo que indique el lente físico.</div></section>
-</div>
-'''
 
-JS=r'''
-(function(){
- const app=document.getElementById('field-card-app'); if(!app) return;
- const KEY='canon6d-fieldcard-v4';
- const checks=[...app.querySelectorAll('.fc-check')];
- function sync(){checks.forEach(c=>c.closest('.fc-shot')?.classList.toggle('fc-done',c.checked)); const n=checks.filter(c=>c.checked).length; const count=app.querySelector('#fc-count'); if(count) count.textContent=`${n}/10`; try{localStorage.setItem(KEY,JSON.stringify(checks.map(c=>c.checked)))}catch(e){}}
- try{const saved=JSON.parse(localStorage.getItem(KEY)||'[]'); checks.forEach((c,i)=>c.checked=!!saved[i])}catch(e){}
- checks.forEach(c=>c.addEventListener('change',sync)); sync();
- app.querySelector('#fc-reset')?.addEventListener('click',()=>{checks.forEach(c=>c.checked=false);sync()});
- function tab(id){app.querySelectorAll('.fc-tab').forEach(b=>b.classList.toggle('fc-active',b.dataset.fcTab===id)); app.querySelectorAll('.fc-panel').forEach(p=>p.classList.toggle('fc-active',p.id===id)); const scroller=app.closest('.fc-modal-scroll'); if(scroller) scroller.scrollTo({top:0,behavior:'auto'}); else window.scrollTo({top:0,behavior:'auto'});}
- app.querySelectorAll('.fc-tab').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.fcTab)));
- app.querySelector('[data-fc-open-field]')?.addEventListener('click',()=>tab('fc-field'));
- window.Canon6DFieldCard={tab,sync};
-})();
-'''
+def lens_key(lens: str) -> str:
+    return lens.split()[0].replace("mm", "").replace("-", "–")
 
-# The standalone page is its own document: the app is its main landmark and the
-# card title its h1. Embedded in index.html it sits inside a dialog, where the
-# page's own h1 and main already exist, so the fragment keeps a div and a <b>.
-PAGE_APP=(APP.replace('<div id="field-card-app">','<main id="field-card-app">',1)
-          .replace('<b>FOCALRUTA · FIELD CARD</b>','<h1 class="fc-h1"><b>FOCALRUTA · FIELD CARD</b></h1>',1))
-PAGE_APP=PAGE_APP[:PAGE_APP.rindex('</div>')]+'</main>'+PAGE_APP[PAGE_APP.rindex('</div>')+len('</div>'):]
-html=f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#061827"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/app-icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icon-192.png"><meta name="description" content="Tarjeta de campo de FocalRuta: ajustes de partida para las 8 técnicas, rescates rápidos y equipo Canon 6D, lista para imprimir o usar sin conexión."><meta name="apple-mobile-web-app-capable" content="yes"><title>Tarjeta de campo · FocalRuta</title><style>{CSS}</style></head><body>{PAGE_APP}<nav class="fc-bottom" aria-label="Acciones"><a href="index.html">← SITIO</a><button class="fc-primary" type="button" onclick="Canon6DFieldCard.tab('fc-field')">📷 CAMPO</button><button type="button" onclick="window.print()">🖨 IMPRIMIR</button></nav><script>{JS}</script><script>if(('serviceWorker' in navigator)&&(location.protocol==='http:'||location.protocol==='https:')){{window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{{}}));}}</script></body></html>'''
-OUT.write_text(html,encoding='utf-8')
-# Also export reusable fragments for the integrator.
-(ROOT/'data'/'field_card_fragment.html').write_text(APP,encoding='utf-8')
-(ROOT/'data'/'field_card.css').write_text(CSS,encoding='utf-8')
-(ROOT/'data'/'field_card.js').write_text(JS,encoding='utf-8')
-print(OUT)
+
+def nd_name(stops: int) -> str:
+    # Sold as ND4, ND8, ND64; ten stops (×1024) is sold as ND1000.
+    return "ND1000" if stops == 10 else f"ND{2 ** stops}"
+
+
+def needs_support(shutter: str) -> bool:
+    return '"' in shutter or shutter.startswith("Bulb")
+
+
+def scene_text(scene: str) -> str:
+    light = DATA["scene_light"][scene]
+    ev = f"EV {light['ev_low']}" if light["ev_low"] == light["ev_high"] else f"EV {light['ev_low']} a {light['ev_high']}"
+    return f"{light['label'][0].upper()}{light['label'][1:]} · {ev}"
+
+
+def chips(setting: dict) -> str:
+    out = []
+    if setting.get("nd_stops"):
+        out.append(f'<span class="fc-chip fc-chip-nd"><span class="fc-v-nd">{nd_name(setting["nd_stops"])} · {setting["nd_stops"]} pasos</span></span>')
+    if needs_support(setting["shutter"]):
+        out.append('<span class="fc-chip">Trípode · retardo de 2 s</span>')
+    if setting.get("viable") is False:
+        out.append('<span class="fc-chip fc-chip-off">No viable con esta luz</span>')
+    return f'<p class="fc-chips">{"".join(out)}</p>' if out else ""
+
+
+def slot_block(plan: dict, shot: dict, slot: str, slot_name: str) -> str:
+    setting = shot["settings_by_time"][slot]
+    key = f"{plan['id']}/{shot['id']}/{slot}"
+    off = " fc-off" if setting.get("viable") is False else ""
+    return (
+        f'<div class="fc-slot{off}" data-plan="{plan["id"]}" data-shot="{shot["id"]}" data-slot="{slot}">'
+        f'<label class="fc-check-wrap"><input class="fc-check" type="checkbox" data-key="{key}"><span class="fc-box" aria-hidden="true"></span>'
+        f'<span class="fc-sr">{shot["id"]} hecha ({slot_name.lower()})</span></label>'
+        f'<p class="fc-settings"><span class="fc-v-lens">{lens_label(setting["lens"])}</span>'
+        f'<span class="fc-v-exposure">{esc(setting["aperture"])} · {esc(setting["shutter"])} · ISO {setting["iso"]}</span></p>'
+        f'{chips(setting)}'
+        f'<p class="fc-light">{esc(scene_text(setting["scene"]))} <span class="fc-when" data-scene="{setting["scene"]}" data-slot="{slot}"></span></p>'
+        f'<p class="fc-v-note">{esc(setting["notes"])}</p>{gear_slot(shot, setting)}</div>'
+    )
+
+
+def gear_slot(shot: dict, setting: dict) -> str:
+    """V15: room for the setting adapted to the reader's gear; assets/gear.js fills it."""
+    data = {"technique": shot["technique"], "lens": setting["lens"], "aperture": setting["aperture"], "shutter": setting["shutter"],
+            "iso": setting["iso"], "nd_stops": setting.get("nd_stops", 0), "distance": shot["subject_distance_m"],
+            "viable": setting.get("viable", True)}
+    # Single-quoted, so the JSON's double quotes need no escaping: 180 slots, about 20 KB less.
+    value = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    value = value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("'", "&#39;")
+    return f"<div class=\"fc-gear\" hidden data-gear='{value}'></div>"
+
+
+def geometry(shot: dict) -> str:
+    parts = [f"Sujeto a {number(shot['subject_distance_m'])} m", f"fondo a {number(shot['background_distance_m'])} m",
+             f"cámara a {number(shot['camera_height_m'])} m de altura"]
+    if shot["angle"] != "central":
+        parts.append(shot["angle_label"].lower())
+    return " · ".join(parts)
+
+
+def shot_card(plan: dict, shot: dict) -> str:
+    slots = "".join(slot_block(plan, shot, slot, name) for slot, name, _icon in SLOTS)
+    who = "".join(f'<p class="fc-who fc-who-{key}"><b>{name}:</b> {esc(shot["subjects"][key]["action"])}</p>' for key, name in SUBJECTS)
+    dos = "".join(f"<li>{esc(item)}</li>" for item in shot["dos"])
+    donts = "".join(f"<li>{esc(item)}</li>" for item in shot["donts"])
+    return (
+        f'<li class="fc-shot" data-plan="{plan["id"]}" data-shot="{shot["id"]}">'
+        f'<h3 class="fc-name"><span class="fc-id" aria-hidden="true">{TECHNIQUE_ICONS[shot["technique"]]}</span>'
+        f'{shot["id"]} · {esc(shot["technique_label"])} · {esc(shot["composition_label"])}</h3>'
+        f'{slots}<p class="fc-geo">{esc(geometry(shot))}</p>{who}'
+        f'<details class="fc-more"><summary>Qué hacer y qué evitar</summary><ul class="fc-do">{dos}</ul><ul class="fc-dont">{donts}</ul></details></li>'
+    )
+
+
+def radio_group(name: str, legend: str, options, extra_class: str = "", checked_first: bool = True) -> str:
+    """options: (value, visible label HTML, extra words for screen readers or '')."""
+    inputs = "".join(
+        f'<label class="fc-option"><input type="radio" name="{name}" value="{value}"{" checked" if checked_first and i == 0 else ""}>'
+        f'<span>{label}{f"<span class=fc-sr> · {esc(spoken)}</span>" if spoken else ""}</span></label>'
+        for i, (value, label, spoken) in enumerate(options))
+    return f'<fieldset class="fc-group {extra_class}"><legend>{legend}</legend><div class="fc-options">{inputs}</div></fieldset>'
+
+
+def plan_letter(plan: dict) -> str:
+    return plan["id"].split("_")[1].upper()
+
+
+def plans_settings(plan: dict) -> list[dict]:
+    return [s for shot in plan["shots"] for s in shot["settings_by_time"].values() if s.get("viable") is not False]
+
+
+def nd_items(plan: dict, threads: dict) -> list[str]:
+    by_stops: dict[int, set[str]] = {}
+    for setting in plans_settings(plan):
+        if setting.get("nd_stops"):
+            by_stops.setdefault(setting["nd_stops"], set()).add(lens_key(setting["lens"]))
+    items = []
+    for stops in sorted(by_stops):
+        lenses = sorted(by_stops[stops], key=lambda k: threads[k])
+        sizes = " y ".join(f"{threads[k]} mm para el {k} mm" for k in lenses)
+        items.append(f"<li><b>{nd_name(stops)}</b> ({stops} pasos): rosca de {sizes}.</li>")
+    sizes = {threads[k] for lenses in by_stops.values() for k in lenses}
+    if len(sizes) > 1:
+        items.append(f"<li>Un juego de filtros de {max(sizes)} mm con aros adaptadores "
+                     f"{', '.join(f'{s}→{max(sizes)}' for s in sorted(sizes - {max(sizes)}))} sirve para todos.</li>")
+    return items
+
+
+def packing_list(plan: dict) -> str:
+    threads = {str(lens["focal"]).replace("-", "–"): lens["filter_mm"] for lens in DATA["gear"]["lenses"]}
+    settings = plans_settings(plan)
+    lenses = sorted({lens_key(s["lens"]) for s in settings}, key=lambda k: int(k.split("–")[0]) * 10 + len(k))
+    items = ["<li><b>Objetivos:</b> " + ", ".join(f"{k} mm (rosca de {threads[k]} mm)" for k in lenses) + ".</li>"]
+    items += nd_items(plan, threads)
+    if any(needs_support(s["shutter"]) for s in settings):
+        items.append("<li><b>Trípode</b> y disparador remoto, o retardo de 2 s.</li>")
+    if any(shot["technique"] == "lightpainting" for shot in plan["shots"]):
+        items.append("<li><b>Linterna</b> o tira de luz para pintar.</li>")
+    items.append("<li><b>Para el perro:</b> correa, premios y agua.</li>")
+    items.append("<li>Batería de repuesto y tarjeta vacía.</li>")
+    return f'<ul class="fc-pack" data-plan="{plan["id"]}">{"".join(items)}</ul>'
+
+
+def mini_cards(rows, extra: str = "") -> str:
+    return "".join(f'<li class="fc-mini{extra}"><span aria-hidden="true">{esc(icon)}</span><div><b>{esc(title)}</b><p>{esc(tip)}</p></div></li>'
+                   for icon, title, tip in rows)
+
+
+def technique_rows() -> str:
+    labels = {key: value["es"] for key, value in DATA["techniques"].items()}
+    rows = []
+    for key, base in DATA["field_baselines"].items():
+        technique = re.sub(r"_\d$", "", key)
+        rows.append(f'<li class="fc-mini"><span aria-hidden="true">{TECHNIQUE_ICONS[technique]}</span><div><b>{esc(labels[technique])}</b>'
+                    f'<p class="fc-base">{esc(lens_text(base["lens"]))} · {esc(base["aperture"])} · {esc(base["shutter"])} · ISO {esc(base["iso"])}</p>'
+                    f'<p>{esc(base["af"])}</p><p>{esc(base["geometry"])}</p></div></li>')
+    return "".join(rows)
+
+
+def lens_text(text: str) -> str:
+    return re.sub(r"(\d)mm", r"\1 mm", text).replace(" @", " a ")
+
+
+def gear_list() -> str:
+    camera = DATA["gear"]["camera"]
+    lenses = "".join(f'<li class="fc-mini"><span aria-hidden="true">{esc(str(lens["focal"]).replace("-", "–"))}</span><div><b>{esc(lens["name"])}</b>'
+                     f'<p>Apertura máxima f/{esc(str(lens["max_ap"]).replace("-", "–"))} · enfoca desde {number(lens["min_focus_m"])} m · rosca de {lens["filter_mm"]} mm</p></div></li>'
+                     for lens in DATA["gear"]["lenses"])
+    return (f'<p class="fc-body-text"><b>{esc(camera["name"])}</b>: {esc(camera["sensor"])}, ISO {esc(camera["iso"])}, '
+            f'hasta 1/4000 s, {camera["af_points"]} puntos de enfoque.</p><ul class="fc-grid">{lenses}</ul>')
+
+
+def offline_pack() -> str:
+    """Plan pages and every diagram, for the service worker to keep (V07)."""
+    pages = [f"plans/{plan['id']}.html" for plan in DATA["plans"]]
+    diagrams = [f"diagrams-webp/{png.stem}.webp" for png in sorted((ROOT / "diagrams").glob("*.png"))]
+    urls = json.dumps(pages + diagrams, separators=(",", ":"))
+    return ('<section class="fc-offline" id="fc-offline" hidden aria-labelledby="fc-h-offline"><h3 class="fc-h3" id="fc-h-offline">Sin conexión</h3>'
+            '<p class="fc-body-text">Esta tarjeta ya funciona sin conexión. Guarda también los seis planes con sus '
+            f'{len(diagrams)} diagramas para consultarlos donde no hay señal; ocupa unos 11 MB.</p>'
+            f"<button type=\"button\" id=\"fc-pack\" class=\"fc-reset fc-pack-button\" data-urls='{urls}'>Guardar planes y diagramas</button>"
+            '<p id="fc-pack-status" class="fc-body-text" role="status"></p></section>')
+
+
+def sun_strip() -> str:
+    chips_html = "".join(f'<li><span aria-hidden="true">{icon}</span> {name} <b data-slot-window="{slot}">—</b></li>' for slot, name, icon in SLOTS)
+    return (
+        '<section class="fc-sun" aria-labelledby="fc-sun-title"><h2 id="fc-sun-title">Luz en Lima</h2>'
+        f'<ul class="fc-sun-slots">{chips_html}</ul>'
+        '<p id="fc-now" class="fc-now" aria-live="polite">Con JavaScript verás la hora de cada luz para hoy. '
+        'Día: del amanecer a una hora antes de la puesta. Tarde: la última hora de sol y la hora azul. Noche: desde que termina la hora azul.</p>'
+        '<div class="fc-tools"><label class="fc-date" hidden>Otro día <input id="fc-date" type="date"></label>'
+        '<label class="fc-toggle"><input id="fc-night" type="checkbox"> Pantalla de noche</label>'
+        '<label class="fc-toggle" hidden><input id="fc-awake" type="checkbox"> No apagar la pantalla</label></div></section>'
+    )
+
+
+def controls() -> str:
+    plans = DATA["plans"]
+    plan_options = [(p["id"], f'<b>{plan_letter(p)}</b>', p["name"]) for p in plans]
+    names = "".join(f'<p class="fc-plan-name" data-plan="{p["id"]}"><b>Plan {plan_letter(p)}</b> · {esc(p["name"])}<br><small>{esc(p["location"])}</small></p>' for p in plans)
+    slot_options = [(slot, f'<span aria-hidden="true">{icon}</span> {name}', "") for slot, name, icon in SLOTS]
+    subject_options = [(key, name, "") for key, name in SUBJECTS]
+    return (radio_group("fc-plan", "Plan", plan_options, "fc-plans") + names +
+            radio_group("fc-slot", "Luz", slot_options, "fc-slots") +
+            radio_group("fc-subject", "Con quién", subject_options, "fc-subjects"))
+
+
+def panel(tab: str, title: str, intro: str, body: str) -> str:
+    return (f'<section class="fc-panel fc-panel-{tab}" aria-labelledby="fc-h-{tab}"><h2 id="fc-h-{tab}">{title}</h2>'
+            f'<p class="fc-intro">{intro}</p>{body}</section>')
+
+
+def shots_panel() -> str:
+    cards = "".join(shot_card(plan, shot) for plan in DATA["plans"] for shot in plan["shots"])
+    head = ('<div class="fc-listhead"><p class="fc-intro">Marca cada toma sólo después de revisarla al 100 %. '
+            'Los valores son los del plan para esa luz.</p><button type="button" id="fc-reset" class="fc-reset">Reiniciar esta lista</button></div>'
+            '<p id="fc-status" class="fc-sr" role="status"></p>')
+    return (f'<section class="fc-panel fc-panel-shots" aria-labelledby="fc-h-shots"><h2 id="fc-h-shots">Tomas</h2>'
+            f'{controls()}{head}<ol class="fc-shots">{cards}</ol>'
+            '<p class="fc-note"><b>Regla maestra:</b> poca profundidad de campo depende de la apertura, la focal, la distancia al sujeto '
+            'y la del sujeto al fondo. Alejar el fondo suele cambiar la foto más que abrir un tercio de paso.</p></section>')
+
+
+def tab_bar() -> str:
+    options = "".join(
+        f'<label class="fc-tab"><input type="radio" name="fc-tab" value="{tab}"{" checked" if i == 0 else ""}>'
+        f'<span aria-hidden="true">{icon}</span><span>{name}</span></label>'
+        for i, (tab, name, icon) in enumerate(TABS))
+    return f'<fieldset class="fc-tabs"><legend class="fc-sr">Sección</legend>{options}</fieldset>'
+
+
+def app(title_tag: str) -> str:
+    gear = "".join(packing_list(plan) for plan in DATA["plans"])
+    return (
+        f'<div id="field-card-app" class="fc-app">'
+        f'<header class="fc-hero"><div class="fc-headrow"><{title_tag} class="fc-title">Tarjeta de campo</{title_tag}>'
+        '<p class="fc-progress" aria-live="polite"><b id="fc-count">0/10</b> hechas</p></div>'
+        '<p class="fc-sub">Canon 6D · los ajustes exactos de cada toma para la luz en la que estás</p>'
+        f'{sun_strip()}</header>'
+        f'{tab_bar()}{shots_panel()}'
+        + panel("techniques", "Técnicas · valores de partida", "Para improvisar fuera de un plan: el punto de partida de cada técnica.",
+                f'<ul class="fc-grid">{technique_rows()}</ul>')
+        + panel("rescue", "Cuando la foto no sale", "Cambia una sola variable cada vez y conserva la que crea el efecto.",
+                f'<ul class="fc-grid">{mini_cards(RESCUE, " fc-rescue")}</ul>'
+                '<p class="fc-note fc-danger"><b>No negociable:</b> para congelar no sacrifiques 1/2000; para barrer no subas de 1/40 a 1/250; '
+                'para fantasma, larga exposición o efecto zoom no muevas la cámara.</p>')
+        + panel("framing", "Composición y ángulo", "Una intención dominante; no colecciones reglas.",
+                f'<ul class="fc-grid">{mini_cards(COMPOSITION)}{mini_cards(ANGLES)}</ul>')
+        + panel("gear", "Qué llevar", "Calculado a partir de las tomas viables del plan elegido.",
+                f'{gear}<h3 class="fc-h3">Antes de salir</h3><ul class="fc-grid">{mini_cards(BEFORE_LEAVING)}</ul>'
+                f'{offline_pack()}<h3 class="fc-h3">Tu equipo</h3>{gear_list()}')
+        + '<button type="button" id="fc-next" class="fc-next" hidden>Siguiente toma ↓</button></div>'
+    )
+
+
+def visibility_rules() -> str:
+    """Show the cards of the chosen plan, light, subject and section; :has() needs no script."""
+    rules = []
+    for plan in DATA["plans"]:
+        pid = plan["id"]
+        rules.append(f'.fc-app:has(input[name=fc-plan][value={pid}]:checked) :is(.fc-shot,.fc-plan-name,.fc-pack)[data-plan={pid}]{{display:block}}')
+    for slot, _name, _icon in SLOTS:
+        chosen = f'.fc-app:has(input[name=fc-slot][value={slot}]:checked)'
+        rules.append(f'{chosen} .fc-slot[data-slot={slot}]{{display:block}}')
+        rules.append(f'{chosen} .fc-shot:has(.fc-slot[data-slot={slot}] .fc-check:checked){{border-color:var(--fc-ok);background:var(--fc-ok-bg)}}')
+    for key, _name in SUBJECTS:
+        rules.append(f'.fc-app:has(input[name=fc-subject][value={key}]:checked) .fc-who-{key}{{display:block}}')
+    for tab, _name, _icon in TABS:
+        rules.append(f'.fc-app:has(input[name=fc-tab][value={tab}]:checked) .fc-panel-{tab}{{display:block}}')
+    return "\n".join(rules)
+
+
+CSS_FILE = ROOT / "assets" / "field_card.css"
+
+
+def card_css() -> str:
+    return CSS_FILE.read_text(encoding="utf-8").replace("/* VISIBILITY_RULES */", visibility_rules())
+
+
+PAGE_CSS = """html{-webkit-text-size-adjust:100%}body{margin:0;background:#f4f1e9}body:has(#fc-night:checked){background:#000}body:has(#fc-night:checked) .fc-page-top a{color:#ff6b5e}
+.fc-page-top{max-width:760px;margin:0 auto;padding:12px 12px 0}.fc-page-top a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font:600 15px/1.2 system-ui,sans-serif;color:#0b1724}
+@media(prefers-color-scheme:dark){body{background:#0b1220}.fc-page-top a{color:#f1f5f9}}"""
+
+
+def page(app_html: str, css: str, js: str, sun_js: str, gear_js: str) -> str:
+    return f"""<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#061827"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/app-icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta name="description" content="Tarjeta de campo de FocalRuta: los ajustes exactos de cada toma de los seis planes para la luz de día, tarde o noche, la hora de cada luz en Lima y qué llevar. Funciona sin conexión.">
+<meta name="apple-mobile-web-app-capable" content="yes"><title>Tarjeta de campo · FocalRuta</title>
+<style>{PAGE_CSS}
+{css}</style></head>
+<body><nav class="fc-page-top" aria-label="Sitio"><a href="index.html">← Volver a FocalRuta</a></nav>
+<main>{app_html}</main>
+<script>{sun_js}</script><script id="gear-js">\n{gear_js}</script><script>{js}</script>
+<script>if(('serviceWorker' in navigator)&&(location.protocol==='http:'||location.protocol==='https:')){{window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{{}}));}}</script>
+</body></html>
+"""
+
+
+def main() -> None:
+    css = card_css()
+    js = (ROOT / "assets" / "field_card.js").read_text(encoding="utf-8")
+    sun_js = (ROOT / "assets" / "sun_times.js").read_text(encoding="utf-8")
+    gear_js = (ROOT / "assets" / "gear.js").read_text(encoding="utf-8")
+    OUT.write_text(page(app("h1"), css, js, sun_js, gear_js), encoding="utf-8")
+    # The home page shows the card in a dialog next to its own h1.
+    (ROOT / "data" / "field_card_fragment.html").write_text(app("p"), encoding="utf-8")
+    (ROOT / "data" / "field_card.css").write_text(css, encoding="utf-8")
+    (ROOT / "data" / "field_card.js").write_text(js, encoding="utf-8")
+    print(f"{OUT.relative_to(ROOT)}: {OUT.stat().st_size} bytes")
+
+
+if __name__ == "__main__":
+    main()

@@ -141,7 +141,7 @@ The repeated “iterate 10 times each” request is implemented as **ten differe
 - **M05 MUST** — source → generated → hosted/standalone parity.
 
 ## N. iPhone / accessibility / runtime
-- **N01 MUST** — 390×844, 430×932, 844×390, 932×430, 820×1000, 1440×1100.
+- **N01 MUST** — 320×640 (WCAG 1.4.10 Reflow, added for V18), 390×844, 430×932, 844×390, 932×430, 820×1000, 1440×1100.
 - **N02 MUST** — `scrollWidth <= clientWidth`; no console/page errors.
 - **N03 MUST** — task-critical buttons/toggles/filters and meaningful permutation classes.
 - **N04 MUST** — ~44px touch where practical, visible focus, keyboard, modal focus return, reduced motion, contrast/readability.
@@ -201,3 +201,25 @@ An independent red-team session reviewed PR #19 (`/mnt/project-files/qa/FINDINGS
 - **U06 MUST** — A plan note names the light its slot is scored against; alternatives in notes ("si no tienes el filtro…") land within a quarter stop of the slot's scene. The Lima sun panel opens on today's date in Lima from any reader time zone.
 - **U07 MUST** — Reader-facing plan text is Spanish (no leftover English photo jargon; a space between a number and its unit). The integrated field card's remaining English labels are tracked for the field-first round.
 - **U08 MUST** — Evidence and builds are reproducible and honest: QA reports record the commit they audited; only fingerprinted reports sit at the root; CI installs from `requirements-dev.txt`; the service worker precaches every manifest icon; the published source registry carries no contest material.
+
+## V. Field use first, then the public (added 2026-10-17)
+Step 3 of the plan the owner approved ("proceed"): field use first (offline, one-handed, a field card fully in Spanish, stronger planning), then public polish (navigation, configurable gear with the Canon 6D kit as default). Static halves in `tests/test_field_card.py`, `tests/test_home_page.py` and `tests/test_gear.py`; browser halves in `scripts/field_card_qa.py` and `scripts/browser_release_qa.py`.
+- **V01 MUST** — Every word a reader sees on the field card is Spanish; camera labels stay as the 6D prints them (ONE SHOT, AI SERVO, Tv, Av, MF).
+- **V02 MUST** — For every plan, shot and light slot the card shows that slot's lens, aperture, shutter, ISO and ND filter from `data/plans.json`, and marks slots that cannot be shot.
+- **V03 MUST** — No card text under 12 px, on the card or in the home page's copy of it.
+- **V04 MUST** — A packing list per plan names every lens, ND filter (with its thread) and support the plan's shots need.
+- **V05 MUST** — The home page embeds exactly the card `generate_field_card.py` builds, through `regenerate_all.py`, and the integration replaces nothing but the card; every element a shipped page's script looks up by id is on that page.
+- **V06 MUST** — The light slot follows the clock in Lima from any time zone, and each shot shows the time window its light occurs in on the chosen date.
+- **V07 MUST** — After one visit and one tap, the plan pages and every diagram work with the server gone, and the offline pack survives a deploy.
+- **V08 MUST** — One-handed use: the section bar stays in the bottom 15 % of a phone screen, a "next pending shot" button jumps to the first unticked shot, and arrow keys move between plans with a visible focus ring.
+- **V09 MUST** — The card remembers the plan, light, ticks and night screen across reloads; clearing a list takes a second tap; the night screen is black and red.
+- **V10 MUST** — No text a reader sees on the home page or the plan pages is under 12 px (SVG text measured as drawn), in every state a reader reaches.
+- **V11 MUST** — Every control on the home page and the plan pages is at least 44 × 44 px; links inside a sentence are exempt (WCAG 2.5.8).
+- **V12 MUST** — The interface of the home page and the plan pages is Spanish; cited English sources keep their published titles.
+- **V13 MUST** — `assets/gear.js` adapts each planned setting to the reader's gear with the same framing, the same depth of field in proportion to the subject distance, the same exposure, and the plan's creative variable kept (shutter for motion, depth of field for depth-of-field shots); every limit of the gear (a lens that does not open enough, missing light, no zoom for a zoom burst) is said in the line, and light is said missing only from a third of a stop, the dial's step.
+- **V14 MUST** — The Canon 6D kit is the default and changes nothing: no extra line, the same settings.
+- **V15 MUST** — The home page offers the gear picker; the home page, the plan pages, the field card and the optics lab carry the same `gear.js` and show the reader's line; gear read back from storage cannot put markup on the page.
+- **V16 MUST** — A page is served this build's files or the network's, never another build's copy: the service worker checks the bytes of every copy it keeps against the build (so neither the HTTP cache, which Pages sets to 10 minutes, nor a CDN node that has not caught up can slip an old file in), the home page names its stylesheet and data by revision (so an older worker still in control fetches the new ones), and every file it keeps, the web manifest included, is served offline. Pages and this build's files are revalidated with the server, so the HTTP cache cannot answer a page with the last build's; a page from another build gets the revision it names; a 404 or 5xx never replaces a copy the reader kept. (Red team on PR #20, majors 4 and L1; live check L3; second pass N2, N3.)
+- **V17 MUST** — An upgrade from the worker live at 9cd3044, or from any later one, keeps every page and diagram the reader had offline and downloads nothing that did not change; the files kept for the field are brought up to date on install, the field card says when some are from an earlier version or missing, and caches of the other sites on pillb.github.io are never touched. (Red team on PR #20, major 5 and the stale-pack minor.)
+- **V18 MUST** — From a 320 px wide screen up (WCAG 1.4.10 Reflow), nothing a reader needs on the home page, the plan pages or the field card is cut off: no text or control runs past the edge of the screen outside a strip that scrolls sideways, no control's label is clipped or runs out of it, and no control sits on top of another, in every state a reader reaches, with the default kit and with a reader's own lenses whose names are as long as real ones (320 and 375 px; second pass N1). The tests read the pages that ship in `dist/`, not only their sources. (Red team on PR #20, majors 6 and 7.)
+- **V19 MUST** — The session, field card and shot dialogs, opened from the button a reader presses and closed with Escape, take focus while open and give it back to that button, and leave nothing on the page inert. (Red team on PR #20, major 7.)
