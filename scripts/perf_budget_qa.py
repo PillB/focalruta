@@ -75,13 +75,21 @@ def lighthouse_command() -> list[str]:
 
 
 def chrome_path() -> str:
-    """The Chromium every other suite uses; Lighthouse needs it by path."""
-    configured = qa_matrix.browser_options().get("executable_path")
-    if configured:
-        return configured
-    from playwright.sync_api import sync_playwright
-    with sync_playwright() as playwright:
-        return playwright.chromium.executable_path
+    """The Chromium every other suite uses; Lighthouse needs it by path.
+
+    Playwright names the build it expects whether or not it is installed, and
+    Lighthouse would then fail inside chrome-launcher, page after page: stop
+    here with the reason instead (X01).
+    """
+    path = qa_matrix.browser_options().get("executable_path")
+    if not path:
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as playwright:
+            path = playwright.chromium.executable_path
+    if not Path(path).is_file():
+        sys.exit(f"Lighthouse needs Chromium at {path}, which is not there: run "
+                 "`python3 -m playwright install chromium` or set FOCALRUTA_CHROME")
+    return path
 
 
 def run_lighthouse(url: str, chrome: str) -> dict:
