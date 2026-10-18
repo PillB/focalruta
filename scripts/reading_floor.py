@@ -14,6 +14,9 @@ V18 nothing a reader needs is cut off, from a 320 px screen up (WCAG 1.4.10
     scrolls sideways, no control's label is clipped or runs out of it, no text
     is cut with an ellipsis, and no control is squeezed on top of another.
 
+V20 numbers are written the way Peru reads them: a decimal point, and a space
+    between a number and its unit.
+
 The checks live here so the static tests and the browser QA measure the same
 thing.
 """
@@ -81,6 +84,19 @@ if(Math.min(a.right,b.right)-Math.max(a.left,b.left)>2&&Math.min(a.bottom,b.bott
 drawn.remove();return out}"""
 
 
+# V20: numbers written the way Peru reads them. es-PE in CLDR, like the RAE's Ortografía
+# (2010), takes the point as the decimal mark, and a unit symbol stands one space from its
+# number ("2.5 m"). Lens names keep Canon's "35mm", and f-numbers their point.
+DECIMAL_COMMA = re.compile(r"(?<![\d.,])\d+,\d{1,2}(?!\d)")
+GLUED_METRES = re.compile(r"\b\d+(?:\.\d+)?(?:m|cm|km)\b")
+
+
+def numbers_in(text: str) -> list[str]:
+    """Numbers in `text` written another way: a decimal comma, or metres glued to the number."""
+    found = [m.group(0) for m in DECIMAL_COMMA.finditer(text)] + [m.group(0) for m in GLUED_METRES.finditer(text)]
+    return list(dict.fromkeys(found))
+
+
 def english_in(text: str) -> list[str]:
     """English interface words in `text`, each once, in order of appearance."""
     return list(dict.fromkeys(m.group(0) for m in ENGLISH_UI.finditer(text)))
@@ -128,8 +144,9 @@ def audit_home(page) -> dict:
     page.evaluate("openModal('plan_c','C08')")
     measure("shot dialog", "#shot-modal")
     page.keyboard.press("Escape")
-    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words)), "unreached": unreached,
-            "cut": sorted(cut)}
+    shown = " ".join(words)
+    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(shown), "numbers": numbers_in(shown),
+            "unreached": unreached, "cut": sorted(cut)}
 
 
 def audit_plan_page(page) -> dict:
@@ -142,4 +159,5 @@ def audit_plan_page(page) -> dict:
             small.update(f"{subject}/{slot}: {x}" for x in page.evaluate(TEXT_UNDER_FLOOR, ["", MIN_TEXT_PX]))
             tiny.update(f"{subject}/{slot}: {x}" for x in page.evaluate(TARGETS_UNDER_FLOOR, ["", MIN_TARGET_PX]))
             words.append(page.evaluate(SHOWN_WORDS, "cite"))
-    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words)), "cut": sorted(cut)}
+    shown = " ".join(words)
+    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(shown), "numbers": numbers_in(shown), "cut": sorted(cut)}

@@ -23,12 +23,12 @@
   // Techniques whose effect is the depth of field keep their aperture; the rest keep their shutter.
   var APERTURE_LED = ['mucha_pdc', 'poca_pdc'];
   var BODIES = [
-    { id: 'canon_6d', name: 'Canon EOS 6D (la de los planes)', w: 35.8, iso: 25600, sensor: 'Sensor de 35,8 × 23,9 mm.' },
+    { id: 'canon_6d', name: 'Canon EOS 6D (la de los planes)', w: 35.8, iso: 25600, sensor: 'Sensor de 35.8 × 23.9 mm.' },
     { id: 'full_frame', name: 'Otra de formato completo', w: 36, iso: 25600, sensor: 'Sensor de 36 × 24 mm: casi igual que la 6D.' },
-    { id: 'apsc_canon', name: 'APS-C de Canon (factor 1,6)', w: 22.3, iso: 12800, sensor: 'Sensor de 22,3 × 14,9 mm (EOS 2000D a R7).' },
-    { id: 'apsc', name: 'APS-C de otras marcas (factor 1,5)', w: 23.5, iso: 12800, sensor: 'Sensor de 23,5 × 15,6 mm (Nikon DX, Sony APS-C, Fujifilm X).' },
-    { id: 'm43', name: 'Micro Cuatro Tercios (factor 2)', w: 17.3, iso: 6400, sensor: 'Sensor de 17,3 × 13 mm (OM System, Panasonic Lumix G).' },
-    { id: 'one_inch', name: 'Sensor de 1 pulgada (factor 2,7)', w: 13.2, iso: 6400, sensor: 'Sensor de 13,2 × 8,8 mm (compactas avanzadas).' }
+    { id: 'apsc_canon', name: 'APS-C de Canon (factor 1.6)', w: 22.3, iso: 12800, sensor: 'Sensor de 22.3 × 14.9 mm (EOS 2000D a R7).' },
+    { id: 'apsc', name: 'APS-C de otras marcas (factor 1.5)', w: 23.5, iso: 12800, sensor: 'Sensor de 23.5 × 15.6 mm (Nikon DX, Sony APS-C, Fujifilm X).' },
+    { id: 'm43', name: 'Micro Cuatro Tercios (factor 2)', w: 17.3, iso: 6400, sensor: 'Sensor de 17.3 × 13 mm (OM System, Panasonic Lumix G).' },
+    { id: 'one_inch', name: 'Sensor de 1 pulgada (factor 2.7)', w: 13.2, iso: 6400, sensor: 'Sensor de 13.2 × 8.8 mm (compactas avanzadas).' }
   ];
   var KIT = [
     { name: 'EF 35mm f/2 IS USM', min: 35, max: 35, wide: 2, tele: 2, filter: 67 },
@@ -71,7 +71,7 @@
     var whole = Math.floor(x + 1e-9), tenth = Math.round((x - whole) * 10);
     return whole + '"' + (tenth ? tenth : '');
   }
-  function decimal(x) { return (Math.round(x * 10) / 10).toFixed(1).replace('.', ','); }
+  function decimal(x) { return (Math.round(x * 10) / 10).toFixed(1); }
 
   // A zoom's widest aperture narrows from the wide end to the tele end.
   function widestAt(lens, focal) {

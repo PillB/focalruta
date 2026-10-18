@@ -71,8 +71,8 @@ alt_to_file={
  'Tercios':'composition_tercios.png','Perspectiva':'composition_perspectiva.png','Simetría':'composition_simetria.png',
  'Enmarcado':'composition_enmarcado.png','Espacio negativo':'composition_espacio_neg.png','Punto de interés':'composition_punto_interes.png',
  'Minimalismo':'composition_minimalismo.png','Capas':'composition_capas.png',
- 'Comparativa 35/50/85 a 2.5m':'lens_comparison_25cm.png','Comparativa 35/50/85 a 4m':'lens_comparison_40cm.png',
- 'Comparativa 35/50/85 a 6m':'lens_comparison_60cm.png'}
+ 'Comparativa 35/50/85 a 2.5 m':'lens_comparison_25cm.png','Comparativa 35/50/85 a 4 m':'lens_comparison_40cm.png',
+ 'Comparativa 35/50/85 a 6 m':'lens_comparison_60cm.png'}
 for alt,fn in alt_to_file.items():
     uri=assets['diagrams/'+fn]
     pattern=r'(<img\s+src=")[^"]+("\s+alt="'+re.escape(alt)+r'")'

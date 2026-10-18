@@ -460,9 +460,9 @@ def draw_dof_zone(ax, camera_xy, subject_distance_m, h_fov_deg, near_m, far_m, b
     cx, cy = camera_xy
     half_angle = math.radians(h_fov_deg / 2)
     if far_m and far_m < 1000:
-        span = f"{near_m:.1f}–{far_m:.1f} m".replace(".", ",")
+        span = f"{near_m:.1f}–{far_m:.1f} m"
     else:
-        span = f"{near_m:.1f} m → ∞".replace(".", ",")
+        span = f"{near_m:.1f} m → ∞"
     ax.text(cx - near_m * math.tan(half_angle) - 0.2, cy + near_m,
             f"zona nítida {span}", fontsize=7.5, color=PALETTE["dof_line"],
             fontweight="bold", ha="right", va="center", zorder=5,
@@ -990,7 +990,7 @@ def render_diagram(shot, plan, variant, output_path):
     fig.text(0.02, 0.045, wrapped, fontsize=8, color=PALETTE["muted"],
              ha="left", va="top", style="italic", wrap=True,
              fontfamily='DejaVu Sans')
-    fig.text(0.98, 0.045, "Geometría a escala · PDC con CoC 0,03 mm",
+    fig.text(0.98, 0.045, "Geometría a escala · PDC con CoC 0.03 mm",
              fontsize=7.5, color=PALETTE["soft"], ha="right", va="top")
 
     fig.savefig(output_path, dpi=110, facecolor=PALETTE["bg"],

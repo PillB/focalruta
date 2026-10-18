@@ -327,7 +327,7 @@ def test_v13_exposure_and_depth_hold_beyond_the_plans_on_a_grid_of_settings():
 
 def said_number(pattern: str, said: str) -> float | None:
     match = re.search(pattern, said)
-    return float(match[1].replace(",", ".")) if match else None
+    return float(match[1]) if match else None
 
 
 def light_note_errors(slot, r, lens, sensor_w):
@@ -337,11 +337,21 @@ def light_note_errors(slot, r, lens, sensor_w):
     if n < w - 0.05 and r["f_number"] <= dial_open(w) + 1e-9 and "no abre tanto" not in said:
         errors.append(f"{slot['key']}: the lens cannot open to f/{n:.1f} and the line does not say so")
     dark = exposure_q(r["f_number"], r["seconds"], r["iso"], r["nd_stops"]) - plan_q(slot)
-    missing = said_number(r"Faltan (\d+,\d) pasos", said)
+    missing = said_number(r"Faltan (\d+\.\d) pasos", said)
     # The planner holds the exposure to a third of a stop (the 6D's dial step), so a shortfall is said from a third up.
     if (dark > 1 / 3 + 0.02 and (missing is None or abs(missing - dark) > 0.1)) or (dark < 1 / 3 - 0.02 and missing is not None):
         errors.append(f"{slot['key']}: {dark:+.2f} EV darker than the plan, the line says {missing} stops missing")
     return errors
+
+
+def test_v20_the_notes_write_numbers_the_peruvian_way(results):
+    """Every note for every real kit on every plan slot: a decimal point and spaced units,
+    like the rest of the site ("Faltan 0,3 pasos" sat beside the lab's "0.24 m")."""
+    from reading_floor import numbers_in
+    gears, adapted = results
+    written = [" ".join(r.get("notes", []) + [r.get("reason", "")]) for name in REAL_KITS for r in adapted[name]]
+    assert any(any(ch.isdigit() for ch in text) for text in written), "no note carried a number"
+    assert numbers_in(" ".join(written)) == []
 
 
 def test_v13_a_shortfall_is_said_only_from_a_third_of_a_stop():
@@ -367,7 +377,7 @@ def depth_note_errors(slot, r, sensor_w):
     said = " ".join(r["notes"])
     far = op.depth_of_field(r["focal"], r["f_number"], r["distance_m"], coc_of(sensor_w))["far"]
     if plan_sharp_to_infinity(slot) and not math.isinf(far):
-        shown = said_number(r"hasta (\d+,\d) m", said)
+        shown = said_number(r"hasta (\d+\.\d) m", said)
         return [] if shown is not None and abs(shown - far) <= 0.051 else [f"{slot['key']}: sharp only to {far:.1f} m at f/22, the line says {shown}"]
     return [] if "menos zona nítida" in said else [f"{slot['key']}: depth of field lost at f/22 without a note"]
 
@@ -393,7 +403,7 @@ def distance_note_errors(slot, r):
     """A changed camera distance is said, with the distance."""
     if abs(r["distance_m"] / slot["distance"] - 1) <= 0.05:
         return []
-    shown = said_number(r"(?:Acércate|Retrocede) a (\d+,\d) m", " ".join(r["notes"]))
+    shown = said_number(r"(?:Acércate|Retrocede) a (\d+\.\d) m", " ".join(r["notes"]))
     return [] if shown is not None and abs(shown - r["distance_m"]) <= 0.051 else [f"{slot['key']}: camera at {r['distance_m']:.1f} m, the line says {shown}"]
 
 

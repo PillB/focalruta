@@ -291,7 +291,7 @@ def field_card_page() -> str:
 
 PHYSICS_REFERENCE = (
     ("Campo de visión", "semiángulo = atan(d / 2f)",
-     "Con 36 mm de sensor, un 35 mm abre 27,2° a cada lado y un 85 mm sólo 11,9°. Alargar la focal cierra el campo: nunca lo abre.",
+     "Con 36 mm de sensor, un 35 mm abre 27.2° a cada lado y un 85 mm sólo 11.9°. Alargar la focal cierra el campo: nunca lo abre.",
      "https://scantips.com/lights/fieldofviewmath.html"),
     ("Tamaño proyectado", "h = f · H / z",
      "La altura en el sensor cae con la distancia. Por eso dos fachadas cambian de relación cuando mueves los pies, y no cuando cambias de objetivo.",
@@ -303,10 +303,10 @@ PHYSICS_REFERENCE = (
      "El tono de una fachada difusa depende del ángulo entre la luz y su perpendicular. En incidencia rasante llega a cero y sólo queda la luz ambiente.",
      "https://en.wikipedia.org/wiki/Lambert%27s_cosine_law"),
     ("Longitud de sombra", "L = h / tan(altura solar)",
-     "Un volumen de 8 m proyecta 2,9 m de sombra con el sol a 70° y 45 m con el sol a 10°. La sombra crece sin límite cuando el sol baja.",
+     "Un volumen de 8 m proyecta 2.9 m de sombra con el sol a 70° y 45 m con el sol a 10°. La sombra crece sin límite cuando el sol baja.",
      "https://farside.ph.utexas.edu/teaching/316/lectures/node126.html"),
     ("Umbra y penumbra", "penumbra ≈ distancia · tan(tamaño angular)",
-     "El sol mide 0,53°, así que su borde de sombra es duro. Un cielo de garúa cubre decenas de grados: la umbra desaparece y sólo queda una transición.",
+     "El sol mide 0.53°, así que su borde de sombra es duro. Un cielo de garúa cubre decenas de grados: la umbra desaparece y sólo queda una transición.",
      "https://en.wikipedia.org/wiki/Shadow"),
     ("Reflejo en vidrio", "R = F0 + (1 − F0)(1 − cos θ)⁵",
      "El vidrio devuelve un 4 % de frente y casi el 100 % en ángulo rasante. Lo que decide si ves el interior es el contraste entre el cielo reflejado y el interior transmitido.",

@@ -138,12 +138,12 @@ def check_depth_and_edges(page) -> dict:
 
 
 def check_exposure_and_reflection(page) -> dict:
-    page.locator("#exposure-aperture").select_option("5,6")
+    page.locator("#exposure-aperture").select_option("5.6")
     page.locator("#exposure-shutter").select_option("500")
     fast = _number(page, "#exposure-streak", "width")
     page.locator("#exposure-shutter").select_option("15")
     slow = _number(page, "#exposure-streak", "width")
-    page.locator("#exposure-aperture").select_option("1,8")
+    page.locator("#exposure-aperture").select_option("1.8")
     shallow = _number(page, "#exposure-sharp", "width")
     page.locator("#exposure-aperture").select_option("11")
     deep = _number(page, "#exposure-sharp", "width")

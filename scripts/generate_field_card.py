@@ -73,7 +73,7 @@ TECHNIQUE_ICONS = {"mucha_pdc": "▤", "poca_pdc": "◎", "congelado": "❄", "b
 
 
 def number(value: float) -> str:
-    return f"{value:g}".replace(".", ",")
+    return f"{value:g}"
 
 
 def lens_label(lens: str) -> str:

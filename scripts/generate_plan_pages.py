@@ -287,8 +287,8 @@ function renderShots() {
           <div class="text-xs text-slate-600 mb-2">
             <span class="font-bold">Composición:</span> ${shot.composition_label} ·
             <span class="font-bold">Ángulo:</span> ${shot.angle_label} ·
-            <span class="font-bold">Distancia:</span> ${shot.subject_distance_m}m ·
-            <span class="font-bold">Fondo:</span> ${shot.background_distance_m}m
+            <span class="font-bold">Distancia:</span> ${shot.subject_distance_m} m ·
+            <span class="font-bold">Fondo:</span> ${shot.background_distance_m} m
           </div>
           <div class="text-xs text-slate-700 italic">${shot.scene_notes}</div>
         </div>

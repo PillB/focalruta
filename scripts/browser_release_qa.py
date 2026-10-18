@@ -194,21 +194,27 @@ def long_gear_page(browser, width, path):
     return context, page
 
 
+def field_card_floor(page) -> dict:
+    page.evaluate("document.querySelectorAll('details').forEach(d=>d.open=true)")
+    return {"cut": page.evaluate(reading_floor.CUT_OFF, ""), "numbers": reading_floor.numbers_in(page.evaluate(reading_floor.SHOWN_WORDS, ""))}
+
+
+def record_long_gear(path, width, floor):
+    record(f"{path} {width} with long lens names: nothing cut off", not floor["cut"], floor["cut"][:12])
+    # V20: the "Con tu equipo" lines are written only for a reader's own gear.
+    record(f"{path} {width} with your own gear: numbers written the Peruvian way", not floor["numbers"], floor["numbers"][:12])
+
+
 def nothing_cut_with_long_gear(browser):
     for width in LONG_GEAR_WIDTHS:
         for path in ("index.html", "dist/canon6d_sota_hosted/index.html"):
             context, page = long_gear_page(browser, width, path)
-            cut = reading_floor.audit_home(page)["cut"]
-            record(f"{path} {width} with long lens names: nothing cut off", not cut, cut[:12])
+            record_long_gear(path, width, reading_floor.audit_home(page))
             context.close()
     for path in ("dist/canon6d_sota_hosted/field_card.html", *[f"dist/canon6d_sota_hosted/plans/plan_{x}.html" for x in "abcdef"]):
         context, page = long_gear_page(browser, LONG_GEAR_WIDTHS[0], path)
-        if "plans/" in path:
-            cut = reading_floor.audit_plan_page(page)["cut"]
-        else:
-            page.evaluate("document.querySelectorAll('details').forEach(d=>d.open=true)")
-            cut = page.evaluate(reading_floor.CUT_OFF, "")
-        record(f"{path} {LONG_GEAR_WIDTHS[0]} with long lens names: nothing cut off", not cut, cut[:12])
+        floor = reading_floor.audit_plan_page(page) if "plans/" in path else field_card_floor(page)
+        record_long_gear(path, LONG_GEAR_WIDTHS[0], floor)
         context.close()
 
 
@@ -276,6 +282,7 @@ with sync_playwright() as pw:
             record(f"{target_name} {width} no text under 12 px", not floor["small"], floor["small"][:12])
             record(f"{target_name} {width} every control at least 44 px", not floor["tiny"], floor["tiny"][:12])
             record(f"{target_name} {width} interface in Spanish", not floor["english"], floor["english"])
+            record(f"{target_name} {width} numbers written the Peruvian way", not floor["numbers"], floor["numbers"][:12])
             record(f"{target_name} {width} session and shot dialogs open", not floor["unreached"], floor["unreached"])
             record(f"{target_name} {width} nothing cut off at the edges", not floor["cut"], floor["cut"][:12])
             page.close()
@@ -305,6 +312,7 @@ with sync_playwright() as pw:
         record(f"plan_{letter} no text under 12 px", not floor["small"], floor["small"][:12])
         record(f"plan_{letter} every control at least 44 px", not floor["tiny"], floor["tiny"][:12])
         record(f"plan_{letter} interface in Spanish", not floor["english"], floor["english"])
+        record(f"plan_{letter} numbers written the Peruvian way", not floor["numbers"], floor["numbers"][:12])
         record(f"plan_{letter} no overflow", page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
         record(f"plan_{letter} no errors", not errors, errors)
         page.close()

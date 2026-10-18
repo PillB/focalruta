@@ -120,7 +120,7 @@ NEW_LABS = [
         "manipulation": "Cambia el ángulo con el que miras el vidrio y la exposición.",
         "observable_feedback": "El porcentaje reflejado sigue Schlick: 4 % de frente y casi 100 % en ángulo rasante; el halo se contrae al cerrar pasos.",
         "diagnostic_rule": "Si el reflejo tapa el interior, camina hacia un ángulo más frontal antes de tocar la cámara.",
-        "model_limit": "Aproximación de Schlick para vidrio (n≈1,5); no modela recubrimientos, polarizadores ni vidrio tintado.",
+        "model_limit": "Aproximación de Schlick para vidrio (n≈1.5); no modela recubrimientos, polarizadores ni vidrio tintado.",
         "field_drill": "Rodea una fachada vidriada y anota en qué ángulo el interior se vuelve legible.",
         "misconception_warning": "Un polarizador no elimina el reflejo en cualquier ángulo: depende de la geometría.",
         "sources": [NIKON_COMPOSITION, NIKON_PC],
