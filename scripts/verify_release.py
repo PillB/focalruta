@@ -193,8 +193,9 @@ for report_name, minimum_checks in (
     ("CURRENT_BROWSER_QA.json", 414),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
-    # Every shipped page, light phone and dark desktop: 39 pages x 2 passes.
-    ("AXE_ACCESSIBILITY_QA.json", 78),
+    # Every shipped page, light phone and dark desktop: 39 pages x 2 passes, plus the home
+    # page's offline notice (M7).
+    ("AXE_ACCESSIBILITY_QA.json", 80),
     # 38 for the card itself (V02-V09), 10 for your own gear (V13-V15), and the deploy
     # rehearsals for V16-V17 in place of the single simulated deploy.
     ("FIELD_CARD_QA.json", 56),

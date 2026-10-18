@@ -4,8 +4,8 @@
 Requirement U04. The repo's own contrast audit only reads solid backgrounds on
 five pages, so a reviewer running axe found landmark, heading and keyboard
 issues it never looked for. This audit serves dist/ over HTTP (the way GitHub
-Pages does), loads every published HTML page in a light phone viewport and a
-dark desktop viewport, and runs axe with the WCAG 2.x A/AA and best-practice
+Pages does), loads every published HTML page, and the states only a URL reaches
+(STATES), in a light phone viewport and a dark desktop viewport, and runs axe with the WCAG 2.x A/AA and best-practice
 rule sets.
 
 Animations are finished before axe runs. Shot cards fade in with a staggered
@@ -42,6 +42,9 @@ PASSES = (
     {"label": "light-390", "viewport": {"width": 390, "height": 844}, "color_scheme": "light"},
     {"label": "dark-1280", "viewport": {"width": 1280, "height": 800}, "color_scheme": "dark"},
 )
+# States only a URL reaches: the home page as the service worker opens it offline in place
+# of a page never kept on the device (live check of 56a6e97, M7).
+STATES = ["index.html?sin-conexion=plans/plan_c.html"]
 RUN_AXE = """async (tags) => {
   document.getAnimations().forEach(animation => { try { animation.finish(); } catch (e) {} });
   const result = await axe.run(document, {runOnly: {type: 'tag', values: tags}, resultTypes: ['violations', 'incomplete']});
@@ -88,7 +91,7 @@ def main() -> int:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
         for settings in PASSES:
-            results += [audit_page(browser, base, page_path, settings, source) for page_path in pages]
+            results += [audit_page(browser, base, page_path, settings, source) for page_path in pages + STATES]
         browser.close()
     server.shutdown()
     checks = [

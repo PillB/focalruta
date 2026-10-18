@@ -242,6 +242,23 @@ out.query=(await sw.request('challenges/arquitectura-en-foco/?ruta=barranco#mapa
     assert out == {"folder": B[guide], "query": B[guide]}
 
 
+def test_v16_offline_a_page_never_kept_sends_the_reader_to_the_home_page_with_its_name():
+    """Live check of 56a6e97, M7: the home page's bytes served under plans/plan_c.html resolved
+    its stylesheet, images and links under plans/, so the reader got an unstyled page whose
+    every link led to another broken copy. The worker now redirects to the home page, which
+    says which page was not kept."""
+    unkept = ["plans/plan_c.html", "challenges/arquitectura-en-foco/wiki-tecnicas.html", "plans/plan_z.html"]
+    out = run("""
+const w=new World();w.deploy(B);const sw=ours(w,B);await sw.upgrade();w.online=false;
+for(const p of UNKEPT){const r=await sw.request(p,'navigate');out[p]=[r.status,r.location??null,r.body??null]}
+out.landing=(await sw.request('index.html?sin-conexion=plans%2Fplan_c.html','navigate')).body;
+""", B=B, UNKEPT=unkept)
+    scope = "https://pillb.github.io/focalruta/"
+    for path in unkept:
+        assert out[path] == [302, scope + "index.html?sin-conexion=" + path.replace("/", "%2F"), ""], (path, out[path])
+    assert out["landing"] == B["index.html"]
+
+
 def test_v17_caches_of_other_sites_on_the_origin_survive_an_upgrade():
     out = run("""
 const w=new World();for(const name of ['poseart-shell','workbox-precache-v2-https://pillb.github.io/otro/'])await w.caches.open(name);

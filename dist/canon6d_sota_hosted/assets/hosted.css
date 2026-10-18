@@ -5176,6 +5176,12 @@ details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:bord
 .gear-lens-list li{display:flex;align-items:center;justify-content:space-between;gap:.75rem;border-bottom:1px solid #e2e8f0;padding:.2rem 0;font-size:.9375rem}
 .gear-lens-list li>span{min-width:0;overflow-wrap:anywhere}.gear-lens-list li>button{flex:0 0 auto}
 .gear-status{margin-top:.6rem;font-size:.875rem;color:#334155}
+/* Offline, the service worker sends a page never kept on this device here, named in ?sin-conexion=. */
+.offline-notice{margin:.75rem max(1rem,calc((100% - 72rem)/2));padding:1rem 1.25rem;border:2px solid #b45309;border-radius:1rem;background:#fffbeb;color:#422006;font-size:1rem;line-height:1.5;overflow-wrap:anywhere}
+.offline-notice p+p{margin-top:.5rem}
+.offline-notice-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+.offline-notice-actions a{display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border-radius:.75rem;background:#78350f;color:#fff;font-weight:600;text-decoration:none}
+.offline-notice-actions a:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px}
 .gear-hint{font-size:.8125rem;font-weight:400;color:#475569}
 .gear-custom>summary::before{content:'+';display:inline-block;width:1.2em;font-weight:900}
 .diag{margin-top:1.5rem;border-top:1px solid #334155;padding-top:.5rem;color:#cbd5e1;font-size:.875rem;line-height:1.5}

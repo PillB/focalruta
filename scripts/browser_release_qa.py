@@ -8,7 +8,7 @@ import threading
 import time
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, quote, urlsplit
 from playwright.sync_api import sync_playwright
 import evidence
 import qa_matrix
@@ -91,7 +91,7 @@ def hosted_plan_offline(browser):
     context.close()
 
 
-PANEL_FLOOR = """()=>{const small=[],tiny=[];for(const e of document.querySelectorAll('#diag, #diag *')){const r=e.getBoundingClientRect();
+PANEL_FLOOR = """(panel)=>{const small=[],tiny=[];for(const e of document.querySelectorAll(panel+', '+panel+' *')){const r=e.getBoundingClientRect();
 if(!r.width||!r.height)continue;if([...e.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&parseFloat(getComputedStyle(e).fontSize)<12)small.push(e.tagName);
 if(e.matches('summary,button,a')&&(r.width<44||r.height<44))tiny.push(e.textContent.trim().slice(0,20))}return {small,tiny}}"""
 
@@ -125,7 +125,7 @@ def error_log(browser):
     record("error log: the report link carries the log to a new GitHub issue",
            (home.locator("#diag-report").get_attribute("href") or "").startswith("https://github.com/PillB/focalruta/issues/new?")
            and "promesa de prueba" in parse_qs(urlsplit(home.locator("#diag-report").get_attribute("href")).query)["body"][0])
-    floor = home.evaluate(PANEL_FLOOR)
+    floor = home.evaluate(PANEL_FLOOR, "#diag")
     record("error log: 12 px text and 44 px controls in the open panel", not floor["small"] and not floor["tiny"], floor)
     home.locator("#diag-clear").click()
     kept = home.locator("#diag-list li").count()
@@ -134,6 +134,51 @@ def error_log(browser):
            and home.locator("#diag-empty").is_visible(), kept)
     context.close()
     server.shutdown()
+
+
+NOTICE = "#offline-notice"
+# The home page's own stylesheet, as the page applied it: the copy served under another
+# path resolved it under that path and got nothing.
+LANDED = """(base)=>({path:location.pathname+location.search,
+rules:[...document.styleSheets].filter(s=>s.href&&s.href.startsWith(base+'assets/hosted.css')).map(s=>{try{return s.cssRules.length}catch(e){return -1}})})"""
+FORGED = ("javascript:alert(1)", "//example.org/x.html", "<img src=x onerror=alert(1)>.html", "../../x.html", "plans/plan_c.html#x")
+
+
+def unsaved_page_offline(browser):
+    """Live check of 56a6e97, M7: offline, a page never saved opens the home page, which says
+    which page it was and links back to it and to the field card; a forged name shows nothing."""
+    server = ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(ROOT / "dist/canon6d_sota_hosted")))
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    base = f"http://127.0.0.1:{server.server_address[1]}/"
+    context = browser.new_context(viewport={"width": 320, "height": 640})
+    page = context.new_page()
+    shown = []
+    for forged in FORGED:
+        page.goto(base + "index.html?sin-conexion=" + quote(forged, safe=""), wait_until="domcontentloaded", timeout=60000)
+        if page.locator(NOTICE).is_visible():
+            shown.append([forged, page.evaluate("s=>[...document.querySelectorAll(s+' a')].map(a=>a.href)", NOTICE)])
+    record("offline notice: a forged page name shows nothing", not shown, shown)
+    page.goto(base, wait_until="load", timeout=60000)
+    page.wait_for_function("navigator.serviceWorker.controller!==null", timeout=30000)
+    # A real cut, as in U05: Chromium's offline emulation does not reach the worker's own requests.
+    server.shutdown()
+    server.server_close()
+    for path, name in (("plans/plan_c.html", "el plan C"), ("challenges/arquitectura-en-foco/wiki-tecnicas.html", "«wiki-tecnicas»")):
+        page.goto(base + path, wait_until="load", timeout=60000)
+        landed = page.evaluate(LANDED, base)
+        record(f"offline: {path}, never saved, opens the styled home page", landed["path"] == "/index.html"
+               and len(landed["rules"]) == 1 and landed["rules"][0] > 100, landed)
+        notice = page.locator(NOTICE)
+        said = notice.inner_text() if notice.is_visible() else None
+        links = page.evaluate("s=>[...document.querySelectorAll(s+' a')].map(a=>a.href)", NOTICE)
+        record(f"offline: the home page says {name} was not saved, with links back to it and to the field card",
+               bool(said) and name in said and links == [base + path, base + "field_card.html"], [said, links])
+        floor = page.evaluate(PANEL_FLOOR, NOTICE)
+        fits = page.evaluate("s=>{const n=document.querySelector(s),d=document.documentElement;"
+                             "return !!n&&n.scrollWidth<=n.clientWidth&&d.scrollWidth<=d.clientWidth}", NOTICE)
+        record(f"offline notice for {path} at 320 px: 12 px text, 44 px controls, nothing past the edge",
+               bool(said) and not floor["small"] and not floor["tiny"] and fits, [floor, fits])
+    context.close()
 
 
 # V19: each dialog opened from the button a reader would press keeps the rest of the
@@ -318,6 +363,7 @@ with sync_playwright() as pw:
         page.close()
     nothing_cut_with_long_gear(browser)
     hosted_plan_offline(browser)
+    unsaved_page_offline(browser)
     error_log(browser)
     browser.close()
 

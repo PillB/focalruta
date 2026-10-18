@@ -3,11 +3,10 @@
 from __future__ import annotations
 
 import json
-import os
 import re
 from pathlib import Path
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import Error as PlaywrightError, sync_playwright
 import sys
 
 
@@ -15,25 +14,44 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import qa_matrix  # noqa: E402  (needs the path above)
+import static_server  # noqa: E402
 OUT = ROOT / "architectural_photography" / "qa" / "final" / "architecture_release"
 # Serve dist/canon6d_sota_hosted: only the hosted build registers the service
-# worker, and navigator.serviceWorker.ready never resolves without one.
-BASE = os.environ.get("FOCALRUTA_QA_URL", "http://127.0.0.1:8777/")
+# worker, and navigator.serviceWorker.ready never resolves without one. The suite
+# serves it itself so that it can stop the server: Playwright's offline switch
+# leaves the service worker's own requests on the network (live check of 56a6e97,
+# T1), so an offline check built on it passes with nothing kept.
+DIST = ROOT / "dist" / "canon6d_sota_hosted"
+
+
+def no_js_core(browser, base: str) -> tuple[bool, int]:
+    nojs = browser.new_context(viewport={"width": 390, "height": 844}, java_script_enabled=False)
+    fallback = nojs.new_page()
+    qa_matrix.harden(fallback)
+    fallback.goto(base + "challenges/arquitectura-en-foco/", wait_until="domcontentloaded")
+    nojs_text = fallback.locator("noscript").inner_text()
+    # one camera-only exercise per lab must survive without JavaScript
+    exercises = len(re.findall(r"^\d+\. ", nojs_text, flags=re.M))
+    nojs.close()
+    return exercises == 9 and all(term in nojs_text for term in ("Secuencia", "CONTRATO vs USO", "Encargo")), exercises
 
 
 def run() -> dict:
     errors: list[str] = []
     console_errors: list[str] = []
     failed: list[str] = []
+    server = static_server.serve(DIST)
+    base = static_server.base_url(server)
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
+        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
+        nojs_ok, exercises = no_js_core(browser, base)
         context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="allow")
         page = context.new_page()
         qa_matrix.harden(page)
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
         page.on("requestfailed", lambda request: failed.append(request.url))
-        page.goto(BASE, wait_until="networkidle")
+        page.goto(base, wait_until="networkidle")
         # `ready` never rejects by specification and page.evaluate cannot time a
         # promise out (microsoft/playwright#13253), so the bound goes in the JS.
         page.evaluate(qa_matrix.bounded_async("navigator.serviceWorker.ready"))
@@ -50,22 +68,17 @@ def run() -> dict:
         page.keyboard.press("ArrowRight")
         after = page.locator("#perspective-feedback").inner_text()
         keyboard = bool(after) and after != before
-        context.set_offline(True)
-        page.reload(wait_until="domcontentloaded")
-        offline = page.locator("#learn").is_visible() and page.locator(".learning-lab").count() == 9
-        context.set_offline(False)
+        # A real cut: the requests the reload makes, the worker's included, find no server.
+        server.shutdown()
+        server.server_close()
+        try:
+            page.reload(wait_until="domcontentloaded")
+            offline = page.locator("#learn").is_visible() and page.locator(".learning-lab").count() == 9
+        except PlaywrightError as error:  # nothing kept: the page itself does not load
+            offline = False
+            errors.append(f"offline reload: {str(error).splitlines()[0]}")
         page.screenshot(path=OUT / "offline-persisted-390x844.png", full_page=False)
         context.close()
-
-        nojs = browser.new_context(viewport={"width": 390, "height": 844}, java_script_enabled=False)
-        fallback = nojs.new_page()
-        qa_matrix.harden(fallback)
-        fallback.goto(BASE + "challenges/arquitectura-en-foco/", wait_until="domcontentloaded")
-        nojs_text = fallback.locator("noscript").inner_text()
-        # one camera-only exercise per lab must survive without JavaScript
-        exercises = len(re.findall(r"^\d+\. ", nojs_text, flags=re.M))
-        nojs_ok = exercises == 9 and all(term in nojs_text for term in ("Secuencia", "CONTRATO vs USO", "Encargo"))
-        nojs.close()
         browser.close()
     return {
         "passed": all((persisted, controlled, composition, keyboard, offline, nojs_ok))

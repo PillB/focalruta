@@ -140,7 +140,13 @@ async function navigate(e,r,path){
     if(known(path))e.waitUntil(remember(path,res.clone()).catch(()=>{}));
     return res;
   }catch(_){
-    return (known(path)&&await kept(path))||await kept('index.html')||Response.error();
+    const hit=known(path)&&await kept(path);
+    if(hit)return hit;
+    // A page never kept here: send the reader to the home page, which says which one it was.
+    // The home page's bytes under this URL would resolve its stylesheet, images and links
+    // under this page's folder (live check of 56a6e97, M7).
+    if(path!=='index.html'&&await kept('index.html'))return Response.redirect(SCOPE+'index.html?sin-conexion='+encodeURIComponent(path),302);
+    return Response.error();
   }
 }
 async function asset(e,r,path){

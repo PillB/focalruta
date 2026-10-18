@@ -100,7 +100,9 @@ class World {
         // A request the worker leaves alone goes to the network, which may be gone.
         if (!res) try { res = await world.fetch(request); } catch (e) { return { error: String(e) }; }
         if (res.type === 'error') return { error: 'the worker answered with a network error' };
-        return { body: Buffer.from(await res.arrayBuffer()).toString(), status: res.status, network: world.requests.length > before };
+        const location = res.headers.get('location');
+        return { body: Buffer.from(await res.arrayBuffer()).toString(), status: res.status, network: world.requests.length > before,
+          ...(location ? { location } : {}) };
       },
       async message(data) {
         const posted = [];

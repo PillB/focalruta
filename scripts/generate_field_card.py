@@ -124,7 +124,8 @@ def slot_block(plan: dict, shot: dict, slot: str, slot_name: str) -> str:
         f'<div class="fc-slot{off}" data-plan="{plan["id"]}" data-shot="{shot["id"]}" data-slot="{slot}">'
         f'<label class="fc-check-wrap"><input class="fc-check" type="checkbox" data-key="{key}"><span class="fc-box" aria-hidden="true"></span>'
         f'<span class="fc-sr">{shot["id"]} hecha ({slot_name.lower()})</span></label>'
-        f'<p class="fc-settings"><span class="fc-v-lens">{lens_label(setting["lens"])}</span>'
+        # The space keeps the two apart when the line is copied or read aloud; on screen the flex gap does.
+        f'<p class="fc-settings"><span class="fc-v-lens">{lens_label(setting["lens"])}</span> '
         f'<span class="fc-v-exposure">{esc(setting["aperture"])} · {esc(setting["shutter"])} · ISO {setting["iso"]}</span></p>'
         f'{chips(setting)}'
         f'<p class="fc-light">{esc(scene_text(setting["scene"]))} <span class="fc-when" data-scene="{setting["scene"]}" data-slot="{slot}"></span></p>'
