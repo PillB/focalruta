@@ -1444,3 +1444,219 @@ Cierre de la segunda pasada:
 | Cinco suites `tests/architecture/browser_*.py`, una tras otra | 0 | en verde en las siete vistas |
 
 Verificación independiente: vuelve al red team. Fusionar sigue necesitando la palabra de Pablo.
+
+## Ronda 16 · Listo para producción (2026-10-17/18)
+
+Paso 4 del plan que Pablo aprobó («proceed»): una puerta de release en cada PR,
+presupuestos de velocidad que incluyen las páginas de plan, comprobaciones del sitio
+publicado y un registro de errores que respeta la privacidad. Va en un PR propio,
+sobre el paso 3 (PR #20) ya fusionado; fusionar sigue necesitando la palabra de Pablo.
+Requisitos nuevos en `REQUIREMENTS_INVENTORY.md`: sección X (X01–X04; la letra W ya
+nombra fuentes de Bonilla), y V20–V21 en la sección V, que salieron de la última pasada
+del red team y de la comprobación del sitio publicado.
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X01 | Cada suite de navegador corre en CI en cada PR, en Linux, con herramientas fijadas; ninguna supone el Mac del dueño | en Linux sin `FOCALRUTA_CHROME`, 5 de 6 suites morían al lanzar el navegador («executable doesn't exist at /Applications/Google Chrome.app…») y axe pedía una ruta a mano; CI no corría ninguna: aprobaba con reportes de otra ejecución. `test_ci_contract.py`: 4 de 4 fallaban | `qa_matrix.browser_options()` y `axe_source()`; Playwright 1.55.0 en `requirements-qa.txt`, axe-core 4.10.3 y Lighthouse 13.5.0 en `package-lock.json`; `quality.yml` corre las seis suites en paralelo y las cinco de arquitectura; 4 pass |
+| X02 | Presupuestos de velocidad por tipo de página, servidas como las sirve Pages | no había presupuesto. Cuatro copias estropeadas de la portada los rompen: un rastreador de otro origen («no request to another origin»), 300 KB más (transferencia 419 KB > 180; LCP 3.0 s; puntuación 0.89), un script que bloquea 0.9 s (TBT 3620 ms; 0.70) y un salto de diseño (CLS 0.68; 0.77). En las pruebas unitarias, cinco mutaciones caen (`<` en vez de `≤`, juzgar la peor corrida, ignorar otros orígenes, quitar la 404, ignorar los bytes) | 14 páginas × 8 = 112 comprobaciones en verde: todas puntúan 100; portada LCP 1.2 s y 127 KB; planes 0.9 s y 211–230 KB; tarjeta 1.1 s y 47 KB |
+| X03 | Tras cada despliegue y cada mañana, CI espera a que el sitio sirva ese commit y lo comprueba entero | `live_pages_qa.py` sólo corría en el Mac (Chrome fijo), nunca en CI, y desde 2140c41 tenía un error de sintaxis en la comprobación de recursos que lo detenía antes de terminar; además buscaba «FREEZE» en subtítulos que el paso 3 pasó al español. Contra un servidor con la build anterior, la espera falla: «does not serve this commit's build» | `live-check.yml` (después de `deploy` en `pages.yml`, a diario 06:17 en Lima, y a mano); espera hasta 15 min por el CDN; ensayo local bajo `/focalruta/`: 88/88, sin peticiones a otros orígenes; presupuestos sobre la URL publicada |
+| X04 | Registro de errores sólo en el dispositivo, limpio, sin forma de enviar nada | no existía: un fallo en el teléfono de un lector no dejaba rastro. Seis mutaciones de `diagnostics.js` caen: guardar la consulta, no agrupar repetidos, no limitar a 20, guardar el navegador, enviar a un servidor, dejar escapar un error del almacenamiento | `assets/diagnostics.js` es el primer script de las 19 páginas con script; panel «Registro de errores de este dispositivo» al pie de la portada (copiar, aviso prellenado en GitHub que envía el lector, borrar con dos toques); 9 pruebas en Node y 6 en navegador |
+
+### Al juntarlo con el paso 3
+
+El paso 4 se escribió sobre eb3c101 y la ronda 15 cambió después el worker, las pruebas
+de despliegue y la QA del navegador. Al fusionarlos:
+
+- Las suites suman lo de ambos: `browser_release_qa.py` lleva el registro de errores
+  (X04) y los diálogos y el equipo largo (V18, V19); `field_card_qa.py` encuentra Chromium
+  y axe-core solo (X01) y conserva los ensayos de despliegue (V16, V17).
+- Había dos servidores «como Pages»: el del ensayo de despliegue de la ronda 15 (ETag de
+  contenido, sin gzip) y el de los presupuestos de velocidad (gzip, con el
+  `Last-Modified` de Python, que tras copiar una build con sus fechas responde 304 con el
+  cuerpo viejo). Ahora hay uno: `static_server.PagesHandler` comprime, manda ETag de
+  contenido y no `Last-Modified`, y sirve la build que un despliegue puso;
+  `deploy_rehearsal.Pages` es ese mismo servidor bajo `/focalruta/`.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X02 (V16, V17) | Los ensayos de despliegue y la medición de velocidad ven el mismo Pages: gzip, `max-age=600` y un validador que sólo responde 304 mientras el archivo no cambió, aunque la build siguiente se copiara con las mismas fechas | `test_x02_the_deploy_rehearsals_see_the_same_pages_as_the_speed_check` con el `Pages` de la ronda 15: «Not a gzipped file»; mutante sin 304 en la rama comprimida: `assert 200 == 304` | pasa; `field_card_qa.py` 56/56 con los ensayos servidos comprimidos |
+
+| X01 | Sin el Chromium que Playwright espera, la medición de velocidad se detiene al empezar y dice qué hacer | en este contenedor Playwright 1.55.0 pide `chromium-1187` y sólo hay 1194: Lighthouse falló dentro de chrome-launcher en la primera página, tras arrancar el servidor; `test_x01_a_missing_chromium_stops_the_speed_check_with_the_reason`: «DID NOT RAISE SystemExit» | se detiene antes de servir nada: «Lighthouse needs Chromium at …chromium-1187…: run `python3 -m playwright install chromium` or set FOCALRUTA_CHROME» |
+| X02 (portada) | La portada queda dentro del presupuesto con margen, también en un CI más lento | con el paso 3 dentro, el bloqueo de la portada medía 196 ms de mediana (236, 196, 174.5) frente a 200 ms: el diseño inicial de 5667 elementos, 3909 de ellos en la tarjeta oculta, cae en tareas de 150–260 ms | `content-visibility:auto` en las secciones bajo la primera pantalla: 50–85 ms en tres corridas, puntuación 1.00; con todo dentro, mediana de tres: bloqueo 87 ms, LCP 1.2 s, 127 KB, puntuación 1.00 |
+
+Registros: `red_x02_one_pages_new_static_old_rehearsal.log`, `mutant_x02_no_304_on_gzip.log`,
+`green_x02_one_pages.log`, `red_x01_missing_chromium.log`, `green_x01_missing_chromium.log`;
+mediciones: `lh_variants.py`.
+
+### Lo que el red team dejó para este PR (tercera pasada sobre PR #20)
+
+El red team aprobó PR #20 en d60d6ee («PASS, ready to merge») y dejó tres cosas que no
+bloqueaban (`FINDINGS_PR20.md`, «Third pass»), y después una cuarta: el sitio mezclaba
+la coma y el punto decimal. Pablo fusionó PR #20 el 2026-10-18 (56a6e97).
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| V16 | Un archivo que la página nombra sin revisión, abierto dentro de los 10 minutos de caché HTTP, es de esta build | sin `cache:'no-cache'` en `asset()` las 15 pruebas de Node pasaban; la nueva `test_v16_a_file_opened_within_the_http_cache_window_is_this_builds` falla con ese mutante («plan_c_1.webp · 1» en vez de «· B») | 16/16 |
+| V19 | Mientras un diálogo está abierto, el resto de la página queda fuera de alcance | sólo se comprobaba la tarjeta; con la sesión o la toma abiertas con `show()` en vez de `showModal()`, o la tarjeta sin `inert`, ninguna comprobación fallaba | «keeps the rest of the page out of reach while open»: `:modal` o todo lo demás inerte, y 30 Tab nunca salen del diálogo; falla con los tres mutantes, pasa en ambas portadas a 390 y 1440 |
+| V18 | Ningún texto se corta con puntos suspensivos | el título «FocalRuta · San Isidro» quedaba en «FocalRuta · S…» de 700 a 1024 px (69–122 px de 136) y el lugar del plan C en la barra a 700 px (419 de 483); la comprobación sólo miraba etiquetas de controles | la comprobación cuenta cualquier texto con `text-overflow:ellipsis` que no cabe; 0 en ambas portadas y los seis planes a 320, 390, 700, 768, 820, 844, 932, 1024 y 1440 px |
+| V20 | Cada número se escribe como se lee en el Perú: punto decimal (es-PE en CLDR; la Ortografía de la RAE de 2010 lo recomienda) y un espacio entre el número y su unidad | `gear.js` y las notas de los planes decían «Faltan 0,3 pasos» y «2,5 m» junto al «0.24 m» del laboratorio óptico, y las páginas de plan «Distancia: 2.5m». Con `reading_floor.numbers_in`: fallaban la portada, la tarjeta y las dos guías del desafío publicadas, las etiquetas de los diagramas («1,9», «2,8») y las notas que da el equipo propio («2,8», «3,0») | 0 en las 38 páginas publicadas (la copia autónoma es la portada), en las notas de todos los equipos y franjas, en las etiquetas de los diagramas (los 120 redibujados) y en el navegador en cada estado, también con el equipo propio; los nombres de lente conservan el «35mm» del fabricante |
+
+Registros: `red_followup1_asset_revalidate.log`, `green_followup1_asset_revalidate.log`,
+`red_green_followup2_dialogs.log`, `red_followup3_ellipsis.log`, `green_followup3_ellipsis.log`,
+`red_v20_numbers.log`, `green_v20_numbers.log`.
+
+### Lo que encontró la comprobación del sitio publicado (56a6e97)
+
+Tras fusionar PR #20, el hilo de comprobación en vivo revisó el sitio publicado
+(`qa/LIVE_CHECK_PR20.md`): 244/244 archivos idénticos a main, el paquete sin conexión
+funciona y sobrevive a un despliegue, axe sin infracciones, L1–L5 cerrados. Dejó un mayor,
+un fallo de método y un detalle; su L6 (`live_pages_qa.py` roto) ya estaba corregido en X03.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| V21 (M7) | Sin conexión, una página nunca guardada abre la portada en su propia dirección, con estilo, diciendo cuál era y con enlaces a ella y a la tarjeta | el worker devolvía los bytes de la portada bajo `plans/plan_c.html`: hoja de estilo, imágenes y enlaces resolvían bajo `plans/` (0/11 imágenes, enlaces a `plans/plans/plan_a.html`). `test_v16_offline_a_page_never_kept_sends_the_reader_to_the_home_page_with_its_name`: «[200, None, 'index.html · B']»; en Chromium con el servidor parado, 6 de 7 comprobaciones nuevas fallan («path: /plans/plan_c.html, rules: []») | redirección 302 a `index.html?sin-conexion=<página>`; la portada dice «el plan C» o «la página «wiki-tecnicas»» y enlaza «Volver a intentar» y «Abrir la tarjeta de campo»; 7/7, también a 320 px y con axe (80/80). Un mutante que no valida el nombre deja «Volver a intentar» en `javascript:alert(1)` y en `example.org`: la comprobación falla |
+| V21 (T1) | Las pruebas sin conexión cortan la red de verdad | `browser_architecture_release_qa.py` usaba `context.set_offline`, que deja en la red las peticiones del propio worker: con un worker que no guarda nada (`navigate` devuelve `fetch(r)`) pasaba igual | la suite sirve el sitio ella misma y para el servidor, como U05; con ese worker falla («offline reload: net::ERR_FAILED»), con el real pasa |
+| V02 (detalle) | La línea de ajustes de la tarjeta se lee como dos palabras al copiarla o escucharla | `<span class="fc-v-lens">50 mm</span><span class="fc-v-exposure">f/13…` sin espacio: «50 mmf/13» en las 180 franjas de las cuatro copias (la flexbox lo ocultaba en pantalla) | un espacio entre ambas; `test_v02_the_lens_and_the_exposure_read_as_two_words` pasa en las cuatro |
+
+Registros: `red_m7_node.log`, `green_m7_node.log`, `red_m7_browser.log`, `green_m7_browser.log`,
+`mutant_m7_no_name_check.log`, `red_t1_old_method_mutant.log`, `red_t1_new_method_mutant.log`,
+`green_t1_arch_release.log`, `red_nit_lens_exposure.log`, `green_nit_lens_exposure.log`.
+
+### Cambios visibles
+
+- Al pie de la portada, «Registro de errores de este dispositivo»: vacío si nada
+  falló; si algo falló aquí, en un plan o en la tarjeta, lo lista y permite copiarlo o
+  abrirlo como aviso en GitHub. Nada sale del teléfono sin que el lector lo envíe.
+- Los números usan el punto decimal y separan la unidad («2.5 m», «Faltan 0.3 pasos»)
+  en todo el sitio, también en los diagramas.
+- El título de la portada ya no se corta entre 700 y 1024 px; la barra de los planes
+  muestra «Plan individual» en vez del lugar, que ya encabeza el plan.
+- Sin conexión, abrir una página que nunca se guardó lleva a la portada con un aviso
+  ámbar: «Sin conexión: el plan C no se guardó en este teléfono, así que se abrió la
+  portada», con «Volver a intentar» y «Abrir la tarjeta de campo». Antes se veía una
+  portada rota, sin estilo ni imágenes y con enlaces que no llevaban a ninguna parte.
+- Nada más cambia a la vista: el resto es CI y comprobaciones.
+
+### Compromisos explícitos
+
+- La velocidad es de laboratorio (Lighthouse simula un teléfono y 4G lenta), no de
+  lectores reales: no hay medición de campo porque exigiría enviar datos. Mediana de
+  tres corridas; Lighthouse recomienda más para comparar versiones, pero tres bastan
+  para un umbral con margen.
+- Presupuestos de bytes ≈ 1.5 veces el peso actual de cada tipo; los de tiempo son la
+  marca «buena» de Lighthouse para móvil.
+- `FocalRuta_STANDALONE.html` (15 MB) no tiene presupuesto: es la copia que se
+  descarga una vez, no una página que se navega. Los 25 mapas de ruta comparten
+  plantilla: se mide uno.
+- El registro sólo conoce los errores de quien lo envía; los de un lector que no
+  avisa no se ven. A cambio, FocalRuta no recoge nada de nadie. Las páginas sin
+  script (guías del desafío, mapas, 404) no lo llevan.
+- Sin Content-Security-Policy: GitHub Pages no deja enviar cabeceras y una política
+  en `<meta>` necesitaría `'unsafe-inline'` para los scripts en línea, así que
+  bloquearía poco; en su lugar, las comprobaciones de velocidad y del sitio publicado
+  fallan ante cualquier petición a otro origen.
+- La comprobación diaria se desactiva si el repositorio pasa 60 días sin actividad
+  (regla de GitHub para flujos programados); GitHub avisa por correo antes.
+- Que un PR no pueda fusionarse con CI en rojo depende de una regla de rama en
+  GitHub (Settings → Branches), que sólo puede activar el dueño.
+- `content-visibility:auto` deja las secciones lejanas con una altura provisional de
+  1000 px hasta que se acercan: la barra de desplazamiento cambia de largo la primera vez
+  que se recorre la página (el anclaje de desplazamiento mantiene quieto lo que se lee).
+  Al imprimir se dibuja todo. La auditoría V18 mide con todo dibujado, como lo ve el
+  lector al llegar a cada sección.
+- La barra de los planes ya no dice el lugar; lo dice entero la primera línea del plan.
+- Los 120 diagramas se redibujaron para el punto decimal: quien guardó el paquete sin
+  conexión vuelve a descargar los diagramas una vez (unos 11 MB) en la siguiente visita con red.
+- El aviso sin conexión nombra la página por su ruta («el plan C», «la página
+  «wiki-tecnicas»»), no por su título: el título está en la página que no se guardó. La
+  dirección de la portada pierde el `?sin-conexion=` al mostrarlo, para que recargar con
+  señal no repita el aviso.
+- Una página nunca guardada sigue sin verse sin conexión: sólo se evita la portada rota.
+- Los nombres de lente conservan la grafía del fabricante («EF 35mm f/2»): es un nombre,
+  no una medida, y es como el lector lo busca.
+- Las vistas previas de los planes en la portada siguen recortadas a tres líneas
+  (`line-clamp`): el texto completo está en la página de cada plan, a un toque. La
+  comprobación V18 cuenta los puntos suspensivos, no ese recorte.
+- Lighthouse aconseja cinco corridas para comparar versiones; se mantienen tres porque la
+  portada queda ahora a 115 ms o más del presupuesto de bloqueo.
+- Los servidores sencillos de las demás suites (`QuietHandler`) siguen siendo el de
+  Python sin compresión: comprueban funciones, no transferencias ni cachés, y cambiarlos
+  no compraría nada.
+- CI tarda más en cada PR: las suites de navegador corren en paralelo; la más lenta, la
+  de velocidad, tardó unos ocho minutos aquí.
+
+### Cierre (comandos, código de salida, resumen)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `python3 -m pytest -q` | 0 | 752 pass, 1 skip |
+| `python3 scripts/verify_architecture.py` | 0 | `checks_failed: []` (incluye el escaneo de privacidad) |
+| `python3 scripts/verify_release.py` | 0 | `checks_failed: []`; mínimos subidos a 421 (release), 80 (axe) y 112 (velocidad) |
+| `ruff check scripts tests --select C901` (máx. 10) | 0 | sin hallazgos |
+| `python3 scripts/regenerate_all.py && git diff --exit-code` | 0 | sin cambios |
+| Seis suites con reporte (`visual_resource_audit`, `optics_accessibility_qa`, `browser_release_qa`, `axe_accessibility_qa`, `field_card_qa`, `perf_budget_qa`) sobre 1296b48 limpio | 0 | visual 37/37, óptica 22/22, release 421/421, axe 80/80, tarjeta 56/56, velocidad 112/112 |
+| Cinco suites `tests/architecture/browser_*.py`, una tras otra | 0 | en verde en las siete vistas; la de release corta la red parando el servidor |
+| Ensayo de X03 bajo `/focalruta/` (`live_pages_qa.py` y presupuestos sobre esa URL) | 0 | 88/88 y 24/24 |
+
+Verificación independiente: el PR va al red team y al hilo de comprobación en vivo, que
+repite su revisión tras el despliegue. Fusionar sigue necesitando la palabra de Pablo.
+
+### Referencia de experto por decisión
+
+- X01: herramientas fijadas por versión (`package-lock.json`, `requirements-qa.txt`), como
+  piden las guías de GitHub Actions para builds reproducibles; un experto rechazaría un CI
+  que aprueba con reportes hechos en otra máquina, que es lo que pasaba.
+- X02: los umbrales «buenos» de Core Web Vitals y de Lighthouse para móvil (web.dev); el
+  ahorro de diseño con `content-visibility:auto` y `contain-intrinsic-size:auto` sigue la
+  guía de web.dev (Baseline 2024: Chrome 85, Firefox 125, Safari 18).
+- X03: comprobación sintética del sitio publicado tras cada despliegue y a diario; un
+  experto rechazaría dar por desplegado lo que el CDN aún no sirve, por eso espera el commit.
+- X04: privacidad desde el diseño: el registro no tiene forma de enviar nada; enviar es un
+  acto del lector.
+- V21: la página de respaldo sin conexión de web.dev y Workbox (una página guardada que se
+  muestra cuando la red falla). Se redirige en vez de servir los bytes en otra dirección
+  porque una navegación acepta una respuesta de redirección (modo «manual» de Fetch) y así
+  las rutas relativas resuelven bien; un experto rechazaría una portada rota como respaldo.
+  Las pruebas cortan la red parando el servidor porque el interruptor de Playwright no
+  alcanza las peticiones del worker (11 peticiones medidas con `navigator.onLine=false`).
+- V20: CLDR para es-PE (punto decimal), la Ortografía de la RAE (2010), que recomienda el
+  punto, y el folleto del SI de la BIPM (9.ª ed., 5.4.3), que separa siempre el número de
+  su unidad con un espacio. Un experto rechazaría dos marcas decimales en una misma página.
+
+### Errores propios encontrados en esta ronda
+
+- El primer `content-visibility` hizo que la auditoría de solapes viera 16–164 «solapes»
+  por portada: mide posiciones con las secciones lejanas aún a su altura provisional.
+  Ahora mide con todo dibujado.
+- La medición de velocidad se probó al principio con `FOCALRUTA_CHROME` puesto a mano; sin
+  él, en este contenedor, caía dentro de Lighthouse. Ahora se detiene con el motivo.
+
+- Creé `requirements-browser.txt` sin ver que `requirements-qa.txt` ya fijaba lo
+  mismo; lo borré y CI usa el existente.
+- La primera medición de la portada dio LCP 3.4 s porque el servidor de Python no
+  comprime: el sitio real sí. El servidor de QA (`static_server.py`) comprime como
+  Pages y la portada mide 1.2 s.
+- `live_pages_qa.py` llevaba roto desde 2140c41 (un paréntesis) sin que nadie lo
+  notara porque nunca corría en CI.
+- El primer cambio de comas por puntos en `index.html` pasó también por los datos en
+  base64 y los bloques generados, y los estropeó; lo deshice y lo rehíce saltando esas líneas.
+- `browser_round2_learning_qa.py` leía «proyecta 1,3×» con un patrón de dígitos y comas:
+  con V20 no encontró nada y la suite se detuvo. Lo encontró la corrida completa; ahora lee
+  sólo el punto, así que una coma que vuelva falla en V20 en vez de pasar aquí.
+- Los reportes de la primera corrida sobre V20 quedaron «+dirty» porque las capturas de
+  la corrida anterior seguían sin commit; se volvieron a generar sobre el árbol limpio.
+
+Escalada de investigación: ninguna hipótesis de arreglo falló en esta ronda (cada RED se
+explicó a la primera y su arreglo pasó), así que no se activó.
+
+### Pendiente
+
+- Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
+  aquí ni en el hilo de comprobación en vivo.
+- Diez enlaces externos están detrás de controles anti-bots y no se pueden verificar desde
+  un centro de datos (pnas.org, interbank.pe, Adobe, casadelaliteratura, urbipedia, w3.org).
+- La regla de rama que exige CI verde antes de fusionar la activa el dueño en Settings →
+  Branches.
+- Los minutos de CI de las suites de navegador se miden en el primer PR que las corre.
