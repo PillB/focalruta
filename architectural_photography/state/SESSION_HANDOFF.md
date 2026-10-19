@@ -1660,7 +1660,7 @@ Cierre de esta pasada, en un árbol limpio con las fuentes de CI (DejaVu como `s
 | `visual_resource_audit.py`, `optics_accessibility_qa.py`, `axe_accessibility_qa.py`, `field_card_qa.py`, `perf_budget_qa.py` en 27e9759 | 0 | 37/37, 22/22, 80/80, 56/56, 112/112 |
 | las cinco suites de `tests/architecture/browser_*.py` en 27e9759 | 0 | todas en verde |
 | `browser_release_qa.py` en f2446e5 | 0 | 422/422 |
-| `pytest -q` | 0 | 762 pasan, 1 omitida (sin matplotlib) |
+| `pytest -q` | 0 | 762 pasan, 1 omitida (`test_editorial_contracts.py`: `wiki-tecnicas.html` no usa Schlick) |
 | `pytest tests/architecture -q` | 0 | 344 pasan, 1 omitida |
 | `verify_architecture.py`, `verify_release.py` | 0 | ningún fallo |
 | `ruff … C901` a 10 | 0 | limpio |
@@ -1712,7 +1712,7 @@ Cierre de esta pasada, en un árbol limpio con las fuentes de CI y el Chromium c
 |---|---|---|
 | las seis suites con reporte en fd4c8de | 0 | release 428/428, axe 80/80, tarjeta 56/56, velocidad 112/112, visual 37/37, óptica 22/22 |
 | las cinco suites de `tests/architecture/browser_*.py` en fd4c8de | 0 | todas en verde |
-| `pytest -q` | 0 | 764 pasan, 1 omitida (sin matplotlib) |
+| `pytest -q` | 0 | 764 pasan, 1 omitida (`test_editorial_contracts.py`: `wiki-tecnicas.html` no usa Schlick) |
 | `pytest tests/architecture -q` | 0 | 344 pasan, 1 omitida |
 | `verify_architecture.py`, `verify_release.py` (mínimo de release 428) | 0 | ningún fallo |
 | `ruff … C901` a 10 | 0 | limpio |
