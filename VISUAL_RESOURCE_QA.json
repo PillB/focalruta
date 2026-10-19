@@ -195,8 +195,8 @@
       }
     }
   ],
-  "audited_at": "2026-10-18T01:45:11.305505+00:00",
-  "audited_commit": "1296b488cf381dd32542234ef3ee766825816408",
+  "audited_at": "2026-10-18T02:34:55.971920+00:00",
+  "audited_commit": "d053729b2a428759244353f85ebe48e62c5e5e63",
   "audited_artifacts": {
     "dist/canon6d_sota_hosted/field_card.html": "35e4fbd15a2bcae52e0d44f5fd4a8950aff41072811aa08e2fd672700cb06939",
     "dist/canon6d_sota_hosted/index.html": "6fe2b48ca84f7124b45dedf04bd7114b43fd2d1f42688ee0fc752002efeb35d5",
