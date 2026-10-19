@@ -1524,6 +1524,59 @@ Registros: `red_m7_node.log`, `green_m7_node.log`, `red_m7_browser.log`, `green_
 `mutant_m7_no_name_check.log`, `red_t1_old_method_mutant.log`, `red_t1_new_method_mutant.log`,
 `green_t1_arch_release.log`, `red_nit_lens_exposure.log`, `green_nit_lens_exposure.log`.
 
+### El primer CI de PR #21 (corrida 39089226401)
+
+El primer CI que corrió las suites de navegador en Linux falló en tres trabajos que aquí
+pasaban. Ninguno era un fallo del sitio publicado en un teléfono; dos eran fallos de las
+pruebas y uno, el título del desafío, lo sería en una pantalla de 320 px con una fuente ancha.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X01 (fuentes de CI) | Las suites pasan con las fuentes que el Chromium de Linux usa por defecto, no sólo con las de la máquina que las corrió | con DejaVu Sans, la fuente que el Chromium de CI usa para `system-ui`, «arquitectónica» mide 327 px y la columna del título a 320 px mide 272: `browser_round1_qa`, `browser_round2_learning_qa` y `browser_round5_route_qa` fallan sólo por desbordamiento a 320 px, en CI y aquí con la configuración de fuentes de CI (`FONTCONFIG_FILE` sin Inter) | el tamaño mínimo del título baja de 2.5 a 2 rem y una palabra que aún no quepa se parte en vez de desbordar; las cinco suites en verde con las fuentes de CI |
+| X01 (sin Playwright) | La prueba de «falta Chromium» corre donde Playwright no está instalado | el trabajo `lint-and-test` no instala Playwright: «ModuleNotFoundError: No module named 'playwright'»; aquí igual con `sys.modules['playwright']=None` (`red_x01_without_playwright.log`) | la prueba sustituye el módulo de Playwright; 7/7 con y sin Playwright; el mutante sin la comprobación del archivo sigue fallando («DID NOT RAISE SystemExit») |
+| V16 (relevo del worker en el ensayo) | El ensayo de despliegue comprueba el build nuevo bajo el worker nuevo | CI: «installed behind the HTTP cache: the home page gets only this build's files: ['assets/hosted.css', 'data/plans_embedded.js', 'index.html']» y lo mismo para `field_card.html`. Si la primera `update()` tras el despliegue no encuentra nada, el `settle()` de f74b454 da esas dos líneas exactas (`red_settle_lost_update_old.log`); la prueba de Node del mensaje falla con la plantilla de f74b454 (`answered: []`) | el worker responde `{type:'version'}` por un MessageChannel con su VERSION, y `settle()` espera a que el worker activo diga que es el build desplegado, pidiendo otra actualización cada pocos segundos: con la misma primera `update()` perdida, 2/2 (`green_settle_lost_update_new.log`); la prueba de Node pasa |
+| X01 (diagnóstico) | Un CI en rojo dice qué suite falló y deja su reporte | la primera suite de arquitectura imprimió sólo `{"passed": false}` y, con `bash -e`, las otras cuatro no corrieron | cada suite corre aunque falle otra, el registro nombra la que falla y los reportes quedan como artefacto del trabajo |
+
+Registros en el scratchpad: `ci_r1/*.log`, `ci_x01/*.log`, `ci_fc/*.log`.
+
+Escalada de investigación (activada, V16). La primera hipótesis fue que la `update()` del
+ensayo se juntaba con otra en curso porque el `sw.js` anterior tardaba en llegar; con un
+`sw.js` lento a propósito no se reprodujo. Fuentes:
+
+- Especificación de Service Workers, «Schedule Job»: un trabajo de actualización equivalente
+  a uno cuya promesa aún no se resolvió se agrega a ese y recibe su resultado (citado en
+  `service_worker_jobs.cc` de Cobalt).
+- Matt Falkenhagen (Chrome), public-webapps-github, enero de 2016: Chrome programa una
+  actualización un segundo después de cargar una página dentro del alcance del worker, y
+  programar otra aplaza el temporizador.
+
+Parecido: el ensayo navega a `field_card.html`, despliega y llama a `update()` en
+milisegundos, con la actualización de Chrome pendiente. Diferencia: CI usa Chromium 140 en
+una máquina más lenta; aquí, 141. Hipótesis cambiada: sea cual sea el orden (una `update()`
+unida a otra que vio el build anterior, o la página que ve el resultado antes que el worker
+nuevo), «nada instalando y el activo activado» también se cumple con el worker anterior, así
+que no prueba que el nuevo mande; hace falta evidencia positiva, la versión. Prueba falsable:
+perder a propósito la primera `update()` reproduce las dos líneas de CI con el `settle()`
+anterior y pasa con el nuevo; en CI el ensayo debe pasar, y si el worker nuevo no llegara a
+instalarse fallaría con «never took over in 60 s; the active one says …», que separa ese caso.
+
+Compromisos de esta corrección:
+
+- A 320 px el título del desafío pasa de 40 a 32 px (a 360 px, de 40 a 36; desde 400 px no
+  cambia). Con una fuente aún más ancha, la palabra se parte con guion donde el navegador
+  sabe hacerlo en español y sin guion donde no.
+- El worker responde un mensaje más, `version`, y sólo por un MessageChannel; dice lo que ya
+  está escrito en `sw.js`.
+- Las cinco suites de arquitectura siguen en un solo trabajo de CI y no en una matriz: un
+  fallo ya no oculta los siguientes y se instala el navegador una vez en vez de cinco.
+- Este contenedor prefería Inter para `system-ui` (la regla `56-prefer-inter.conf`, una
+  aproximación a la fuente del Mac del dueño). El cierre anterior usó Inter y este usa las
+  fuentes de CI, así que las dos configuraciones quedan probadas.
+
+Errores propios: di por buenas las suites de arquitectura con una sola configuración de
+fuentes; la columna del título a 320 px no dejaba margen. Y el primer `settle()` daba por
+hecho que, cuando `update()` termina, la página ya ve el worker nuevo.
+
 ### Cambios visibles
 
 - Al pie de la portada, «Registro de errores de este dispositivo»: vacío si nada
@@ -1537,6 +1590,8 @@ Registros: `red_m7_node.log`, `green_m7_node.log`, `red_m7_browser.log`, `green_
   ámbar: «Sin conexión: el plan C no se guardó en este teléfono, así que se abrió la
   portada», con «Volver a intentar» y «Abrir la tarjeta de campo». Antes se veía una
   portada rota, sin estilo ni imágenes y con enlaces que no llevaban a ninguna parte.
+- El título de la página del desafío es algo más pequeño en pantallas de menos de 400 px
+  (32 px a 320 px), para que «arquitectónica» quepa con cualquier fuente.
 - Nada más cambia a la vista: el resto es CI y comprobaciones.
 
 ### Compromisos explícitos
@@ -1600,6 +1655,12 @@ Registros: `red_m7_node.log`, `green_m7_node.log`, `red_m7_browser.log`, `green_
 | Cinco suites `tests/architecture/browser_*.py`, una tras otra | 0 | en verde en las siete vistas; la de release corta la red parando el servidor |
 | Ensayo de X03 bajo `/focalruta/` (`live_pages_qa.py` y presupuestos sobre esa URL) | 0 | 88/88 y 24/24 |
 
+Tras el primer CI de PR #21, sobre 92506cd limpio y con las fuentes de CI: visual 37/37,
+óptica 22/22, release 421/421, axe 80/80, tarjeta 56/56, velocidad 112/112 y las cinco suites
+de arquitectura en verde. `pytest -q` 753 pass, 1 skip; `verify_architecture.py` y
+`verify_release.py` con `checks_failed: []`; `ruff … C901` sin hallazgos;
+`regenerate_all.py && git diff --exit-code` sin cambios (todos con salida 0).
+
 Verificación independiente: el PR va al red team y al hilo de comprobación en vivo, que
 repite su revisión tras el despliegue. Fusionar sigue necesitando la palabra de Pablo.
 
@@ -1648,8 +1709,8 @@ repite su revisión tras el despliegue. Fusionar sigue necesitando la palabra de
 - Los reportes de la primera corrida sobre V20 quedaron «+dirty» porque las capturas de
   la corrida anterior seguían sin commit; se volvieron a generar sobre el árbol limpio.
 
-Escalada de investigación: ninguna hipótesis de arreglo falló en esta ronda (cada RED se
-explicó a la primera y su arreglo pasó), así que no se activó.
+Escalada de investigación: se activó una vez, por el relevo del worker en el ensayo de la
+tarjeta (ver «El primer CI de PR #21»); los demás RED se explicaron a la primera.
 
 ### Pendiente
 
@@ -1660,3 +1721,5 @@ explicó a la primera y su arreglo pasó), así que no se activó.
 - La regla de rama que exige CI verde antes de fusionar la activa el dueño en Settings →
   Branches.
 - Los minutos de CI de las suites de navegador se miden en el primer PR que las corre.
+- Si el ensayo de la tarjeta vuelve a fallar en CI, el mensaje «never took over in 60 s; the
+  active one says …» dice si el worker nuevo llegó a instalarse.

@@ -383,13 +383,13 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-18T01:48:42.859499+00:00",
-  "audited_commit": "1296b488cf381dd32542234ef3ee766825816408",
+  "audited_at": "2026-10-19T14:08:53.514217+00:00",
+  "audited_commit": "92506cdbddb7364dc3d4874487386ac66fb197e9",
   "audited_artifacts": {
     "data/plans.json": "39fd27cd7e62372b72b815791e84ba4f90eeff4ce9e34a1a3eb09f3343aa24cd",
     "dist/canon6d_sota_hosted/field_card.html": "35e4fbd15a2bcae52e0d44f5fd4a8950aff41072811aa08e2fd672700cb06939",
     "dist/canon6d_sota_hosted/index.html": "6fe2b48ca84f7124b45dedf04bd7114b43fd2d1f42688ee0fc752002efeb35d5",
-    "dist/canon6d_sota_hosted/sw.js": "f3014fb49c51684980fb9dd91d81c75cbc81685653c04467b8d1a1eff2bc1a53",
+    "dist/canon6d_sota_hosted/sw.js": "41a435e938ebbba0eddeb7061c1146c69c85634418a48c304f13d636db0f2219",
     "field_card.html": "35e4fbd15a2bcae52e0d44f5fd4a8950aff41072811aa08e2fd672700cb06939",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
