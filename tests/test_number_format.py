@@ -48,14 +48,16 @@ def test_v20_the_scan_sees_seconds_millimetres_and_long_decimals_but_not_lens_na
     assert numbers_in(sample) == ["0,030", "0,125", "2000s", "15s", "2.5s", "24mm", "23.9mm"]
 
 
-def test_v20_a_point_after_a_word_ends_a_sentence_not_a_number():
-    """The browser reads a page as one run of text, so a card's last sentence can touch the
-    next card's lens ("exposición.35–80mm"). A point after a digit is a decimal point; after a
-    word it ends a sentence, and the lens after it keeps its name. The release QA on 3558853
-    flagged "80mm" there, beside a real one: "gira el zoom de 35 a 80mm"."""
+def test_v20_a_number_is_read_from_its_own_start_whatever_touches_it():
+    """The browser QA reads a page as the text of its elements run together (textContent, which
+    adds nothing where one element ends and the next begins), so a card's last sentence or a
+    heading can touch the next card's lens: "exposición.35–80mm", "REFERENCIA35–80mm". The
+    scan read "80mm" there, the end of the kit's zoom, on 3558853 and on 27e9759. A number
+    starts wherever the character before it is not part of a number."""
     assert numbers_in("gira el anillo durante la exposición.35–80mm · f/8 · 2 s") == []
+    assert numbers_in("TARJETA DE CAMPO · REFERENCIA35–80mm · f/8 · 2\" · ISO 100") == []
     assert numbers_in("gira el zoom de 35 a 80mm. El faro") == ["80mm"]
-    assert numbers_in("35.8 × 23.9mm") == ["23.9mm"]
+    assert numbers_in("35.8 × 23.9mm · DISTANCIA24mm") == ["23.9mm", "24mm"]
 
 
 def test_v20_every_plan_text_writes_numbers_the_peruvian_way():
