@@ -1913,7 +1913,12 @@ botones heredan `font-variant-numeric`.
   `-moz-`, `-ms-` y `-o-`, una propiedad estándar escrita junto a su gemela `-webkit-` en el
   mismo bloque (`line-clamp`), propiedades personalizadas (cualquier valor es válido hasta
   usarse), selectores anidados con `&` y los bloques de descriptores (`@font-face`, `@page`,
-  `@property`). Un error dentro de esas excepciones pasa sin verse.
+  `@property`). Un error dentro de esas excepciones pasa sin verse; por ejemplo, un valor mal
+  escrito en una propiedad `-webkit-` que Chromium sí usa (`-webkit-line-clamp:2x`), o uno
+  estándar escrito junto a su gemela (nota del red team; hoy no hay ninguno).
+- X05 lee hojas de estilo, no los atributos `style` ni los estilos que pone el JavaScript. El red
+  team los revisó a mano en 873df78 y son válidos; una comprobación automática queda fuera de
+  este PR.
 - La comparación de V05 mira lo que ve un lector: si el elemento se dibuja, su fondo, relleno,
   esquinas y cada borde visible y, si tiene texto propio, color, tamaño, peso, fuente,
   interlineado y dígitos. Deja fuera los bordes de 0 px (la base de Tailwind del inicio da a
@@ -1967,9 +1972,18 @@ Sobre el árbol limpio, con las fuentes de CI y el Chromium completo
 | `ruff … C901` a 10 | 0 | limpio |
 | `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
 
-Sin fallos abiertos. Verificación independiente: pendiente; el red team revisa de nuevo PR #21
-con este cambio, y el hilo de comprobación en vivo, tras el despliegue. Fusionar sigue
-necesitando la palabra de Pablo.
+Sin fallos abiertos.
+
+Verificación independiente: el red team aprobó 873df78 (`qa/FINDINGS_PR21.md`, «Recheck at
+873df78»). Reprodujo el error en main con su propio lector de CSS (tinycss2) y Chromium:
+`hosted.css` pierde los dos selectores con marcador, la tarjeta del inicio en oscuro tiene el
+texto rgb(15,23,42) sobre fondo transparente y `--focus-ring` está vacío. En 873df78, sobre 40
+hojas, sólo quedan las gemelas con prefijo y lo escrito para otro motor; la tarjeta del inicio
+coincide con su página de día y en oscuro, a 320 y 390 px, en las dos portadas, y nada se sale a
+320 px. `test_css_audit.py` falla 3 y pasa 47 en el árbol de main, y pasa 50 de 50 en 873df78.
+Revisó a mano los atributos `style` y los valores que pone el JavaScript: todos válidos. Dejó dos
+notas que no bloquean, ahora en los compromisos. Falta el hilo de comprobación en vivo, tras el
+despliegue; fusionar sigue necesitando la palabra de Pablo.
 
 ### Pendiente
 
