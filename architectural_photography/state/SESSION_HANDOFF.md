@@ -1577,6 +1577,97 @@ Errores propios: di por buenas las suites de arquitectura con una sola configura
 fuentes; la columna del título a 320 px no dejaba margen. Y el primer `settle()` daba por
 hecho que, cuando `update()` termina, la página ya ve el worker nuevo.
 
+### Segunda pasada del red team sobre PR #21 (f74b454, `qa/FINDINGS_PR21.md`)
+
+El red team reprodujo todo lo demás y dejó un mayor, un medio y cinco menores. CI en aada8b2,
+con las correcciones de la sección anterior, ya estaba en verde en los ocho trabajos.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| F1 (V16, X02) | Un despliegue ensayado sirve el build nuevo a cada petición posterior, también por una conexión abierta antes | `static_server.serve` fijaba el build al aceptar la conexión; Chromium abre sockets antes de usarlos. `test_v16_a_connection_opened_before_a_deploy_gets_the_new_build`: «b"const VERSION='anterior';" == b"const VERSION='siguiente';"». El red team: tarjeta 53/56 en 3 de 3 corridas | el build se elige en `parse_request`, por petición; la prueba pasa. `settle()` pide una sola actualización y espera la versión del build desplegado: un segundo intento habría ocultado este fallo |
+| F2 (X04, privacidad) | El registro no guarda carpetas del lector ni lo que escribió | con la copia abierta desde un archivo guardaba `/home/maria.perez/Descargas/…` como página y en los mensajes; el error de `JSON.parse` de Chrome guardaba «"Mi equipo Pablo 85mm"». Dos pruebas nuevas fallan (`red_f2_privacy.log`) | una página abierta desde un archivo queda con su nombre; una URL `file:` en un mensaje, `file://…/<nombre>`; el texto entre comillas queda «…», salvo un carácter o una dirección web. Las dos pruebas pasan |
+| F3 (X01) | Toda suite usa el navegador que nombra CI | `browser_round1_qa`, `round2` y `round5` lanzaban el Chromium de Playwright: con `FOCALRUTA_CHROME=/no/such/chrome` round1 pasó igual; la prueba de contrato nueva los nombra | usan `qa_matrix.browser_options()`; con esa ruta, round1 se detiene con el motivo; la prueba pasa |
+| F4 (X03) | Sólo el trabajo que publica puede escribir en Pages | `pages.yml` daba `pages: write` e `id-token: write` a todo el flujo, también a la comprobación que llama; la prueba nueva: «pages.yml grants writes to every job» | permisos de lectura arriba y de escritura sólo en `deploy` |
+| F5 (V20) | La revisión de números ve segundos, milímetros y decimales largos | no veía «0,030 mm» (en el desafío y su guía de técnicas), «1/2000s» y «5–15s» (laboratorio de movimiento), «(24mm)» ni «35.8×23.9mm» | ve las tres formas y respeta los nombres de lente («EF 35mm f/2», «XF 35mmF2», y 35mm, 50mm, 85mm y 35–80mm del equipo); el sitio escribe «0.030 mm», «1/2000 s», «(24 mm)», «35.8 × 23.9 mm» e «ISO 100» |
+| F6 (V21) | El aviso sin conexión no enlaza a una página que Pages no sirve | «plans/PLAN_C.html» mostraba el aviso con un enlace que da 404 (Pages distingue mayúsculas) | sólo rutas en minúscula, como todas las que guarda el worker; 7/7 con el caso nuevo |
+| F7 (X02, X04) | `--dist` responde por el build que sirvió; `--only` desconocido lo dice; «Copiar» sin portapapeles avisa | el reporte de `--dist` tomaba las huellas de `dist/`; `--only plans/plan_z.html` caía con `IndexError`; sin portapapeles el botón no hacía nada («Copiar el registro», selección vacía) | huellas del build servido; `--only` desconocido sale con el código 2 y la lista de páginas; «Selecciona y copia el texto» y el registro queda seleccionado |
+
+Al repetir las suites sobre 3558853, la release QA se detuvo en «standalone 320 numbers written
+the Peruvian way: ['80mm']». Dos causas:
+
+- Real: cuatro notas de «zooming» decían «gira el zoom de 35 a 80mm». Ahora, «de 35 a 80 mm».
+  Una prueba nueva lee todo texto de `data/plans.json`, que llega al lector por JavaScript, así
+  que un error así falla en pytest y no sólo en el navegador. Encontró además «E = 2,5·2^EV» en
+  la fuente de la luz de ventana (ahora «2.5»). RED: `['2,5', '80mm']`; GREEN en 27e9759.
+- Falso positivo de mi cambio de F5, en «exposición.35–80mm». Primera hipótesis: sólo el punto
+  final de una frase toca la lente siguiente; un punto después de una palabra cierra la frase
+  (27e9759). Falló: sobre 27e9759 las seis páginas de plan dieron «['80mm']» en
+  «REFERENCIA35–80mm».
+
+Escalada de investigación tras esa hipótesis fallida:
+
+- Fuentes: MDN, `Node.textContent`, «Diferencias para o innerText» (textContent devuelve el
+  texto de todos los nodos sin tener en cuenta el estilo); MDN, `HTMLElement.innerText` («If the
+  element itself is not being rendered (for example, is detached from the document…), the
+  returned value is the same as the Node.textContent property»); Juriy Zaytsev, «The poor,
+  misunderstood innerText» (perfectionkills.com): textContent «ignores newlines created by <br>
+  and around styled-as-block elements».
+- Semejanzas y diferencias: el escaneo (`SHOWN_WORDS`) lee `textContent` de una copia separada
+  del documento en Chromium, así que no hay corte entre elementos aunque se vean en líneas
+  distintas, y `innerText` sobre esa copia daría lo mismo. Sobre el documento vivo, `innerText`
+  sí separaría bloques, pero dejaría fuera lo oculto (diálogos cerrados) que el escaneo debe leer.
+- Hipótesis nueva: cualquier carácter puede tocar el inicio de un número (una letra, un punto,
+  un cierre de comillas), no sólo un punto. Un número debe leerse desde su propio inicio: el
+  escaneo sólo evita empezar dentro de un número (después de una cifra, o de un punto o un guion
+  que siguen a una cifra).
+- Prueba falsable: `test_v20_a_number_is_read_from_its_own_start_whatever_touches_it` falla con
+  `['80mm']` en «REFERENCIA35–80mm» y debe pasar, seguir viendo «de 35 a 80mm» y ver
+  «DISTANCIA24mm» (un largo pegado a un título, que la regla anterior no veía). Pasa en d38d22f,
+  y las seis páginas de plan y las dos portadas quedan sin largos pegados en el navegador.
+
+Corrección de la investigación de la sección anterior: la causa del fallo de la tarjeta en CI
+era F1, el servidor del ensayo, no el orden de los trabajos de actualización de Chrome. La
+`update()` «perdida» que reproducía las líneas de CI era el mismo síntoma: la petición de
+`sw.js` por un socket abierto antes del despliegue recibía el `sw.js` anterior, y la
+actualización no encontraba nada nuevo. Los reintentos de `settle()` lo tapaban; por eso ahora
+hay un solo intento. El apretón de manos con la versión se queda: es la prueba positiva de que
+manda el worker nuevo.
+
+Compromisos de esta pasada:
+
+- Un mensaje de error pierde lo que iba entre comillas: «Cannot read properties of null
+  (reading '…')» ya no dice qué propiedad. El archivo, la línea y la columna siguen ahí y
+  ubican el fallo en el código; a cambio, nada que el lector escribió queda en el registro.
+- Un apodo de lente pegado («el 85mm») sólo pasa si es una lente del equipo de los planes;
+  otro número pegado a «mm» cuenta como medida y lleva espacio.
+- Las acciones de GitHub siguen fijadas por etiqueta mayor y no por SHA: esta sesión sólo puede
+  leer este repositorio, así que no puede verificar los SHA. Fijarlos (con Dependabot para
+  mantenerlos) queda pendiente.
+- El aviso sin conexión sigue apareciendo con señal si alguien abre a mano un enlace con
+  `?sin-conexion=`: `navigator.onLine` dice «en línea» con wifi sin internet, y el aviso
+  faltaría justo cuando hace falta.
+
+Errores propios: al juntar los dos servidores de Pages en uno (X02) cambié de leer el build por
+petición a leerlo por conexión, y mi primera explicación del fallo de CI culpó a Chrome; la
+reproducción forzada mostró el síntoma, no la causa. Y probé la revisión de números de F5 sólo
+con frases sueltas, no con el texto que lee el navegador: la release QA encontró el falso
+positivo, dos veces, porque mi primer arreglo cubrió el caso visto y no la causa.
+
+Cierre de esta pasada, en un árbol limpio con las fuentes de CI (DejaVu como `system-ui`):
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `visual_resource_audit.py`, `optics_accessibility_qa.py`, `axe_accessibility_qa.py`, `field_card_qa.py`, `perf_budget_qa.py` en 27e9759 | 0 | 37/37, 22/22, 80/80, 56/56, 112/112 |
+| las cinco suites de `tests/architecture/browser_*.py` en 27e9759 | 0 | todas en verde |
+| `browser_release_qa.py` en f2446e5 | 0 | 422/422 |
+| `pytest -q` | 0 | 762 pasan, 1 omitida (sin matplotlib) |
+| `pytest tests/architecture -q` | 0 | 344 pasan, 1 omitida |
+| `verify_architecture.py`, `verify_release.py` | 0 | ningún fallo |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+
+Sin fallos abiertos. Queda la revisión del red team sobre la cabeza nueva y el CI del PR.
+
 ### Cambios visibles
 
 - Al pie de la portada, «Registro de errores de este dispositivo»: vacío si nada
@@ -1592,6 +1683,11 @@ hecho que, cuando `update()` termina, la página ya ve el worker nuevo.
   portada rota, sin estilo ni imágenes y con enlaces que no llevaban a ninguna parte.
 - El título de la página del desafío es algo más pequeño en pantallas de menos de 400 px
   (32 px a 320 px), para que «arquitectónica» quepa con cualquier fuente.
+- Los tiempos del laboratorio de movimiento separan la unidad («1/2000 s», «10 s», «ISO 100»), y
+  la nota de óptica dice «35.8 × 23.9 mm» y «0.03 mm»; el desafío, «0.030 mm»; las notas de
+  «zooming», «de 35 a 80 mm».
+- «Copiar el registro», sin portapapeles, dice «Selecciona y copia el texto» y deja el registro
+  seleccionado.
 - Nada más cambia a la vista: el resto es CI y comprobaciones.
 
 ### Compromisos explícitos
@@ -1710,7 +1806,9 @@ repite su revisión tras el despliegue. Fusionar sigue necesitando la palabra de
   la corrida anterior seguían sin commit; se volvieron a generar sobre el árbol limpio.
 
 Escalada de investigación: se activó una vez, por el relevo del worker en el ensayo de la
-tarjeta (ver «El primer CI de PR #21»); los demás RED se explicaron a la primera.
+tarjeta (ver «El primer CI de PR #21»), cuya causa real encontró el red team (F1), y por la
+revisión de números, que leía «80mm» en la lente del equipo (ver «Segunda pasada del red team
+sobre PR #21»). Los demás RED se explicaron a la primera.
 
 ### Pendiente
 
