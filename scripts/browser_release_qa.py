@@ -220,9 +220,17 @@ def keeps_the_rest_out_of_reach(page, dialog):
     return (blocked["modal"] or blocked["rest_inert"]) and not escaped, {**blocked, "tab_reached": escaped}
 
 
+# Focus is inside the dialog in the task that opened it, as showModal() does: a dialog
+# that moves focus a task later leaves a moment with focus behind it, and a check that
+# reads focus right after the click (CI run 39275854658, the field card).
+FOCUS_ON_OPEN = "(b,d)=>{b.click();return document.querySelector(d).contains(document.activeElement)}"
+
+
 def dialogs_give_focus_back(page, target_name):
     for name, trigger, dialog in DIALOGS:
         button = page.locator(trigger).first
+        record(f"{target_name} {name} dialog has focus in the task that opens it", button.evaluate(FOCUS_ON_OPEN, dialog))
+        page.keyboard.press("Escape")
         button.evaluate("b=>{document.querySelectorAll('[data-qa-trigger]').forEach(x=>delete x.dataset.qaTrigger);b.dataset.qaTrigger='1'}")
         button.click()
         record(f"{target_name} {name} dialog takes focus from its button", page.evaluate(FOCUS_INSIDE, dialog))
