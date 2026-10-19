@@ -16,6 +16,7 @@ import threading
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import urlsplit
 import sys
 
 
@@ -174,9 +175,10 @@ def check_composition(page) -> dict:
 def inspect(browser, width: int, height: int, url: str = URL) -> dict:
     page = browser.new_page(viewport={"width": width, "height": height})
     qa_matrix.harden(page)
-    errors, console_errors = [], []
+    errors, console_errors, failed_resources = [], [], []
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
+    page.on("response", lambda answer: failed_resources.append(f"{answer.status} {urlsplit(answer.url).path}") if answer.status >= 400 else None)
     response = page.goto(url, wait_until="networkidle", timeout=60_000)
     page.emulate_media(reduced_motion="reduce")
     page.locator('nav a[href="#learn"]').click()
@@ -189,6 +191,7 @@ def inspect(browser, width: int, height: int, url: str = URL) -> dict:
         "overflow": page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth"),
         "page_errors": errors,
         "console_errors": console_errors,
+        "failed_resources": failed_resources,
         "labs": page.locator(".learning-lab").count(),
         "lessons": page.locator(".lesson-card").count(),
         "videos": page.locator(".video-transfer").count(),
@@ -218,6 +221,7 @@ def row_failures(row: dict) -> list[str]:
     conditions = {
         "status_200": row["status"] == 200, "no_overflow": not row["overflow"],
         "no_page_errors": not row["page_errors"], "no_console_errors": not row["console_errors"],
+        "no_failed_resources": not row["failed_resources"],
         "nine_labs": row["labs"] == 9, "seventeen_lessons": row["lessons"] == 17, "six_videos": row["videos"] >= 6,
     }
     conditions.update((key, bool(row[key])) for key in BOOLEAN_CHECKS)
@@ -248,7 +252,7 @@ def main() -> int:
     for row in rows:
         for name in row_failures(row):
             failures.setdefault(name, []).append(row["viewport"])
-    errors = sorted({error for row in rows for error in row["page_errors"] + row["console_errors"]})
+    errors = sorted({error for row in rows for error in row["page_errors"] + row["console_errors"] + row["failed_resources"]})
     passed = not failures
     report = {"passed": passed, "url": "hosted-public-root", "viewports": rows, "failed_checks": failures, "errors": errors}
     (OUT / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
