@@ -1875,3 +1875,20 @@ sobre PR #21»). Los demás RED se explicaron a la primera.
 - Los minutos de CI de las suites de navegador se miden en el primer PR que las corre.
 - Si el ensayo de la tarjeta vuelve a fallar en CI, el mensaje «never took over in 60 s; the
   active one says …» dice si el worker nuevo llegó a instalarse.
+- Abrir la tarjeta de campo desde el inicio tarda más que la marca «buena» de INP (200 ms)
+  en el laboratorio. El red team anotó el tamaño del DOM (inicio 5676 elementos, la tarjeta
+  3922, un plan 606); 3910 de los del inicio son la tarjeta, oculta hasta que se abre, y la
+  revisión de tamaño del DOM de Lighthouse 13.5 pasa en el inicio, porque juzga trabajo de
+  estilo o de diseño de 40 ms o más sobre más de 300 elementos, no la cuenta. Medido con Event
+  Timing (la API de INP) a 390 px y con la CPU 4× más lenta, como Lighthouse en móvil, en una
+  máquina de benchmarkIndex 1673 con las fuentes de CI: abrir la tarjeta desde el inicio,
+  192–288 ms en 14 aperturas (mediana 232); el manejador se lleva 162–246 ms, sobre todo el
+  diseño de la tarjeta (103–126 ms) y su estilo (34–57 ms). Con `content-visibility:auto` en
+  cada toma, 192–248 ms en 14 aperturas (mediana 208). Forzar `sans-serif` en la tarjeta baja
+  su diseño de 186 a 98 ms (medianas de tres): parte del costo es buscar en Linux las fuentes
+  de la pila que no están, que en un teléfono debería pesar menos (inferido; aquí no hay
+  teléfono para medirlo). Abrir el detalle de una toma: 112–176 ms, hasta 248 tras abrir
+  paneles y cambiar el equipo. Los controles de la tarjeta
+  sola, 104 ms o menos; un plan, 40 ms o menos. No lo trajo este PR (la tarjeta en el inicio
+  viene del paso 3). Queda para el siguiente: medir estos toques en la revisión de velocidad y
+  aligerar la apertura.
