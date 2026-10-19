@@ -110,6 +110,19 @@ def test_x04_what_the_reader_typed_is_not_kept():
     assert messages[4] == "Failed to load 'https://pillb.github.io/focalruta/assets/hosted.css'"
 
 
+def test_x04_an_apostrophe_does_not_open_a_quote():
+    """Red team's recheck at 518b9a3: the apostrophe in "can't" paired with the next quote,
+    so the quoted name after it was kept. An apostrophe sits between letters; a quote opens
+    after a space or a sign and closes before one, and a quote left open still loses the rest."""
+    out = sandbox("""for(const m of ["TypeError: can't read 'Lente de maria.perez'", "JSON: 'Lente de maría's 85mm' isn't valid",
+  "can't parse 'Lente de maria.perez", "Unexpected token 'M', can't continue"])
+  fire('unhandledrejection',{reason:new Error(m)});""")
+    messages = [item["message"] for item in reversed(out["stored"])]
+    assert "maria" not in out["raw"] and "maría" not in out["raw"], out["raw"]
+    assert messages == ["TypeError: can't read '…'", "JSON: '…' isn't valid", "can't parse '…",
+                        "Unexpected token 'M', can't continue"], messages
+
+
 def test_x04_a_failed_image_is_named_by_its_file():
     out = sandbox("fire('error',{target:{tagName:'IMG',src:'https://pillb.github.io/focalruta/diagrams-webp/plan_a_A01_human.webp?v=2'}});")
     assert out["stored"][0]["kind"] == "recurso"

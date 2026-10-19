@@ -30,20 +30,25 @@
   }
   // Quoted text can be what the reader typed (Chrome's JSON.parse error quotes its input), so
   // only the quotes stay; a one-character token and a web address are kept (red team, F2).
-  var QUOTED = [/"([^"]*)"/g, /“([^”]*)”/g, /«([^»]*)»/g, /‘([^’]*)’/g, /'([^']*)'/g];
+  var QUOTED = [/"([^"]*)"/g, /“([^”]*)”/g, /«([^»]*)»/g, /‘([^’]*)’/g];
+  // A straight single quote is also an apostrophe ("can't", "maría's"): it opens a quote only
+  // after a space or a sign, and closes one only before them (red team's recheck of F2).
+  var LETTER = 'A-Za-z0-9\u00C0-\u024F';
+  var SINGLE = new RegExp("(^|[^" + LETTER + "])'((?:[^']|'(?=[" + LETTER + "]))*)'(?![" + LETTER + "])", 'g');
+  var SINGLE_OPEN = new RegExp("(^|[^" + LETTER + "])'(?=[^\\s'])(?:[^']|'(?=[" + LETTER + "]))*$");
+  function kept(inside) { return inside.length < 2 || /^https?:\/\//.test(inside); }
   function unquote(text) {
     var out = QUOTED.reduce(function (done, pattern) {
-      return done.replace(pattern, function (whole, inside) {
-        return inside.length < 2 || /^https?:\/\//.test(inside) ? whole : whole[0] + '…' + whole[whole.length - 1];
-      });
+      return done.replace(pattern, function (whole, inside) { return kept(inside) ? whole : whole[0] + '…' + whole[whole.length - 1]; });
     }, stripUrls(String(text == null ? '' : text)));
+    out = out.replace(SINGLE, function (whole, before, inside) { return kept(inside) ? whole : before + "'…'"; });
     // A quote left open (the message was cut) loses what follows it.
     [['"', '"'], ['“', '”'], ['«', '»']].forEach(function (pair) {
       var open = out.lastIndexOf(pair[0]);
       var unclosed = pair[0] === pair[1] ? out.split(pair[0]).length % 2 === 0 : open > out.lastIndexOf(pair[1]);
       if (open >= 0 && unclosed) out = out.slice(0, open + 1) + '…';
     });
-    return out;
+    return out.replace(SINGLE_OPEN, "$1'…");
   }
   // The page's path on the site; a page opened from a file keeps only its name.
   function pageOf(location) {
