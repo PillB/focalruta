@@ -190,6 +190,9 @@
 .fc-app:has(#fc-night:checked){--fc-bg:#000;--fc-card:#0a0000;--fc-ink:#ff6b5e;--fc-muted:#f0645a;--fc-line:#4a1410;--fc-accent:#ff6b5e;--fc-on-accent:#000;--fc-ok:#ff8a7a;--fc-ok-bg:#140302;--fc-chip:#1a0503;--fc-nd-bg:#1a0503;--fc-nd:#ff8a7a;--fc-off-bg:#1a0503;--fc-off:#ffa196;--fc-hero:#000;--fc-hero-ink:#ff6b5e;--fc-hero-muted:#f0645a;--fc-focus:#ff6b5e}
 .fc-app *,.fc-app *::before,.fc-app *::after{box-sizing:border-box}
 .fc-app :is(h1,h2,h3,p,ul,ol,fieldset){margin:0}
+/* The home page sets p and li to its own leading; in its dialog the card keeps the card's.
+   :where() keeps this under every class rule below, so a class that sets leading still wins. */
+.fc-app :where(p,li){line-height:inherit}
 .fc-app :focus-visible{outline:3px solid var(--fc-focus);outline-offset:2px}
 .fc-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .fc-app [hidden]{display:none!important}
@@ -221,7 +224,7 @@
 .fc-plan-name{display:none;margin-top:8px;font-size:15px;line-height:1.35}.fc-plan-name small{font-size:13px;color:var(--fc-muted)}
 
 .fc-listhead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:16px}
-.fc-reset{flex:0 0 auto;min-height:44px;padding:0 12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);color:var(--fc-ink);font:600 14px/1.2 inherit;cursor:pointer}
+.fc-reset{flex:0 0 auto;min-height:44px;padding:0 12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);color:var(--fc-ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;font-variant-numeric:inherit;cursor:pointer}
 .fc-shots{list-style:none;padding:0;margin-top:10px}
 .fc-shot{display:none;position:relative;margin:0 0 10px;padding:12px;border:1.5px solid var(--fc-line);border-radius:14px;background:var(--fc-card)}
 .fc-name{padding-right:58px;font-size:16px;line-height:1.3;font-weight:800}.fc-id{display:inline-block;width:1.4em;font-weight:400}
@@ -257,7 +260,7 @@
 .fc-tab{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;border-radius:12px;font-size:12px;font-weight:800;color:var(--fc-muted);cursor:pointer}
 .fc-tab span[aria-hidden]{font-size:19px;line-height:1}
 .fc-tab:has(input:checked){background:var(--fc-chip);color:var(--fc-ink)}
-.fc-next{position:fixed;right:14px;bottom:calc(78px + env(safe-area-inset-bottom));z-index:41;min-height:52px;padding:0 18px;border:0;border-radius:26px;background:var(--fc-accent);color:var(--fc-on-accent);font:800 16px/1 inherit;box-shadow:0 6px 18px rgba(0,0,0,.28);cursor:pointer}
+.fc-next{position:fixed;right:14px;bottom:calc(78px + env(safe-area-inset-bottom));z-index:41;min-height:52px;padding:0 18px;border:0;border-radius:26px;background:var(--fc-accent);color:var(--fc-on-accent);font-family:inherit;font-size:16px;font-weight:800;line-height:1;font-variant-numeric:inherit;box-shadow:0 6px 18px rgba(0,0,0,.28);cursor:pointer}
 .fc-app:not(:has(input[name=fc-tab][value=shots]:checked)) .fc-next,.fc-next:not(.fc-next-on){display:none}
 .fc-app:has(#fc-night:checked) :is(.fc-tab,.fc-sun-slots,.fc-option) span[aria-hidden]{filter:grayscale(1) brightness(.55)}
 

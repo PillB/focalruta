@@ -10,14 +10,18 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, quote, urlsplit
 from playwright.sync_api import sync_playwright
+import css_audit
 import evidence
 import qa_matrix
 import reading_floor
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "CURRENT_BROWSER_QA.json"
+# X05: every page that ships, whose stylesheets the browser is asked about.
+STYLED = [*sorted((ROOT / "dist/canon6d_sota_hosted").rglob("*.html")), ROOT / "index.html", ROOT / "field_card.html",
+          *sorted((ROOT / "plans").glob("plan_*.html"))]
 # Every artefact this matrix actually loads, fingerprinted into the report.
-AUDITED = [
+AUDITED = list(dict.fromkeys([
     ROOT / "index.html",
     ROOT / "dist/canon6d_sota_hosted/index.html",
     ROOT / "field_card.html",
@@ -26,7 +30,9 @@ AUDITED = [
     *sorted((ROOT / "plans").glob("plan_*.html")),
     *sorted((ROOT / "dist/canon6d_sota_hosted/plans").glob("plan_*.html")),
     ROOT / "dist/canon6d_sota_hosted/sw.js",
-]
+    ROOT / "dist/canon6d_sota_hosted/assets/hosted.css",
+    *STYLED,
+]))
 results = []
 
 
@@ -241,6 +247,43 @@ def dialogs_give_focus_back(page, target_name):
         record(f"{target_name} {name} dialog closes on Escape and gives focus back", after["closed"] and after["back"] and not after["inert"], after)
 
 
+def stylesheets_kept(browser):
+    """X05: the browser keeps every declaration and selector the site ships (css_audit.py)."""
+    sheets = {}
+    for path in STYLED:
+        for name, text in css_audit.page_css(path):
+            sheets.setdefault(text, f"{path.relative_to(ROOT).as_posix()} · {name}")
+    page = browser.new_page()
+    for text, label in sheets.items():
+        dropped = page.evaluate(css_audit.DROPPED, css_audit.checkable(css_audit.parse(text)))
+        record(f"{label}: the browser keeps every declaration and selector", not dropped["declarations"] and not dropped["selectors"], dropped)
+    page.close()
+
+
+def card_in_its_dialog(context, home: str):
+    page = context.new_page()
+    page.goto((ROOT / home).as_uri(), wait_until="load", timeout=60000)
+    page.evaluate("openFieldCard()")
+    return page
+
+
+def home_card_looks_like_the_card(browser):
+    """X05 and V05: the home page's card is drawn like the card's own page, in each palette."""
+    for home, card in (("index.html", "field_card.html"), ("dist/canon6d_sota_hosted/index.html", "dist/canon6d_sota_hosted/field_card.html")):
+        for palette in ("light", "dark", "night"):
+            context = browser.new_context(viewport={"width": 390, "height": 844}, color_scheme="dark" if palette == "dark" else "light")
+            own = context.new_page()
+            own.goto((ROOT / card).as_uri(), wait_until="load", timeout=60000)
+            embedded = card_in_its_dialog(context, home)
+            if palette == "night":
+                own.locator("#fc-night").check()
+                embedded.locator("#field-card-modal #fc-night").check()
+            differences = css_audit.card_differences(own.evaluate(css_audit.CARD_LOOK, ".fc-app"),
+                                                     embedded.evaluate(css_audit.CARD_LOOK, "#field-card-modal .fc-app"))
+            record(f"{home} {palette}: the card in the dialog looks like {card}", not differences, differences[:12])
+            context.close()
+
+
 # V18 with a reader's own gear: lens names as long as real ones, which a select
 # sizes itself to (red team, second pass on PR #20). 375 px is the iPhone SE and mini.
 LONG_GEAR = {"body": "apsc_canon", "iso": 12800, "lenses": [
@@ -383,6 +426,8 @@ with sync_playwright() as pw:
     hosted_plan_offline(browser)
     unsaved_page_offline(browser)
     error_log(browser)
+    stylesheets_kept(browser)
+    home_card_looks_like_the_card(browser)
     browser.close()
 
 report = {"passed": all(item["pass"] for item in results), "checks": len(results),

@@ -43,6 +43,10 @@ document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key
 """
 
 
+CSS_START, CSS_END = "/* FIELD CARD CSS START */", "/* FIELD CARD CSS END */"
+CSS_BLOCK = r"(?:<!--|/\*) FIELD CARD CSS START (?:-->|\*/).*?(?:<!--|/\*) FIELD CARD CSS END (?:-->|\*/)"
+
+
 def modal(fragment: str) -> str:
     return (
         '<!-- FIELD CARD INTEGRATED -->\n'
@@ -83,8 +87,10 @@ def patch(text: str) -> str:
     fragment = (ROOT / "data" / "field_card_fragment.html").read_text(encoding="utf-8").strip()
     css = (ROOT / "data" / "field_card.css").read_text(encoding="utf-8").strip()
     js = (ROOT / "data" / "field_card.js").read_text(encoding="utf-8").strip()
-    text = replace_block(text, r"<!-- FIELD CARD CSS START -->.*?<!-- FIELD CARD CSS END -->",
-                         f"<!-- FIELD CARD CSS START -->\n{css}\n{MODAL_CSS}\n<!-- FIELD CARD CSS END -->", "card styles")
+    # The markers sit inside a stylesheet, so they are CSS comments: an HTML comment there
+    # (`<!-- … -->`, the markers before X05) became part of the next rule's selector and the
+    # browser dropped that rule. The old form is still found, so an older index.html heals.
+    text = replace_block(text, CSS_BLOCK, f"{CSS_START}\n{css}\n{MODAL_CSS}\n{CSS_END}", "card styles")
     only_the_card(text)
     text = replace_block(text, r"<!-- FIELD CARD INTEGRATED -->.*?<!-- FIELD CARD INTEGRATED END -->", modal(fragment), "card dialog")
     return replace_block(text, r"<!-- FIELD CARD JS START -->.*?<!-- FIELD CARD JS END -->",

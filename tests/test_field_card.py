@@ -204,7 +204,7 @@ def test_v03_the_card_pages_style_no_text_below_12px(card):
 
 def test_v03_home_page_copy_of_the_card_has_no_text_below_12px():
     index = (ROOT / "index.html").read_text(encoding="utf-8")
-    block = index.split("<!-- FIELD CARD CSS START -->", 1)[1].split("<!-- FIELD CARD CSS END -->", 1)[0]
+    block = index.split("/* FIELD CARD CSS START */", 1)[1].split("/* FIELD CARD CSS END */", 1)[0]
     block = re.sub(r"@media print\s*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}", "", block)
     small = [rule for size, rule in font_sizes_px(block) if size < 12]
     assert not small, small
