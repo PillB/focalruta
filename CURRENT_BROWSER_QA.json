@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 428,
+  "checks": 450,
   "viewports": [
     [
       320,
@@ -2198,7 +2198,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1509
+          1512
         ]
       }
     },
@@ -2208,8 +2208,8 @@
       "detail": [
         "Sin conexión: el plan C no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:46591/plans/plan_c.html",
-          "http://127.0.0.1:46591/field_card.html"
+          "http://127.0.0.1:40229/plans/plan_c.html",
+          "http://127.0.0.1:40229/field_card.html"
         ]
       ]
     },
@@ -2230,7 +2230,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1509
+          1512
         ]
       }
     },
@@ -2240,8 +2240,8 @@
       "detail": [
         "Sin conexión: la página «wiki-tecnicas» no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:46591/challenges/arquitectura-en-foco/wiki-tecnicas.html",
-          "http://127.0.0.1:46591/field_card.html"
+          "http://127.0.0.1:40229/challenges/arquitectura-en-foco/wiki-tecnicas.html",
+          "http://127.0.0.1:40229/field_card.html"
         ]
       ]
     },
@@ -2260,24 +2260,24 @@
       "name": "error log: a thrown error and a rejected promise send no request",
       "pass": true,
       "detail": [
-        "GET http://127.0.0.1:39785/",
-        "GET http://127.0.0.1:39785/assets/hosted.css?v=23d2043604d4",
-        "GET http://127.0.0.1:39785/data/plans_embedded.js?v=760318475bf5",
-        "GET http://127.0.0.1:39785/assets/app-icon.svg"
+        "GET http://127.0.0.1:43985/",
+        "GET http://127.0.0.1:43985/assets/hosted.css?v=460463a87f8c",
+        "GET http://127.0.0.1:43985/data/plans_embedded.js?v=760318475bf5",
+        "GET http://127.0.0.1:43985/assets/app-icon.svg"
       ]
     },
     {
       "name": "error log: the home page lists both, with the page they came from",
       "pass": true,
       "detail": [
-        "1 vez · 2026-10-19 15:41Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
-        "1 vez · 2026-10-19 15:41Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
+        "1 vez · 2026-10-19 22:04Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
+        "1 vez · 2026-10-19 22:04Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
       ]
     },
     {
       "name": "error log: no query string, fragment or browser identity is kept",
       "pass": true,
-      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-19T15:41Z\",\"last\":\"2026-10-19T15:41Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-19T15:41Z\",\"last\":\"2026-10-19T15:41Z\"}]"
+      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-19T22:04Z\",\"last\":\"2026-10-19T22:04Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-19T22:04Z\",\"last\":\"2026-10-19T22:04Z\"}]"
     },
     {
       "name": "error log: the report link carries the log to a new GitHub issue",
@@ -2297,30 +2297,220 @@
       "pass": true,
       "detail": [
         "Selecciona y copia el texto",
-        "1 vez · 2026-10-19 15:41Z · Promesa rechazada · promesa de prueba · en /plans/pl"
+        "1 vez · 2026-10-19 22:04Z · Promesa rechazada · promesa de prueba · en /plans/pl"
       ]
     },
     {
       "name": "error log: clearing takes a second tap",
       "pass": true,
       "detail": 2
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html · FocalRuta_STANDALONE.html <style> 1: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html · FocalRuta_STANDALONE.html <style> 2: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html · FocalRuta_STANDALONE.html <style> 3: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html · FocalRuta_STANDALONE.html <style> 4: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html · FocalRuta_STANDALONE.html <style> 5: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html · FocalRuta_STANDALONE.html <style> 6: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html · FocalRuta_STANDALONE.html <style> 7: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html · FocalRuta_STANDALONE.html <style> 8: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html · FocalRuta_STANDALONE.html <style> 9: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html · field-card.html <style> 1: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-1.html · barranco-tour-1.html <style> 1: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html · wiki-tecnicas.html <style> 1: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/field_card.html · field_card.html <style> 1: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/index.html · hosted.css: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_a.html · plan_a.html <style> 1: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/plans/plan_a.html · plan_a.html <style> 2: the browser keeps every declaration and selector",
+      "pass": true,
+      "detail": {
+        "declarations": [],
+        "selectors": []
+      }
+    },
+    {
+      "name": "index.html light: the card in the dialog looks like field_card.html",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "index.html dark: the card in the dialog looks like field_card.html",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "index.html night: the card in the dialog looks like field_card.html",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/index.html light: the card in the dialog looks like dist/canon6d_sota_hosted/field_card.html",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/index.html dark: the card in the dialog looks like dist/canon6d_sota_hosted/field_card.html",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "dist/canon6d_sota_hosted/index.html night: the card in the dialog looks like dist/canon6d_sota_hosted/field_card.html",
+      "pass": true,
+      "detail": []
     }
   ],
-  "audited_at": "2026-10-19T15:41:54.809687+00:00",
-  "audited_commit": "fd4c8de7152f7741d144cbe50c28b4809868aef5",
+  "audited_at": "2026-10-19T22:04:32.538613+00:00",
+  "audited_commit": "2d222b859f1143252f77414bb0c164befcb5eb6c",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
-    "dist/canon6d_sota_hosted/field_card.html": "00e98589b6035514e6ed3d4a2cf42b0bf6892ddfcdb853aad2d910fda7e98225",
-    "dist/canon6d_sota_hosted/index.html": "8f7aa042cf8d8ceb2cd6d372f21a30226e6c3287b2d3028218340a99e6846ea3",
+    "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
+    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "aadb9548efa67949cebe36f4a9077253c175815a5d1d2e8b25a281d06b84bf26",
+    "dist/canon6d_sota_hosted/assets/hosted.css": "460463a87f8cefe362dd24a7d32d0ba2266b73efc4b04c763905b64e4ba671a4",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "986b21b3e98a22d42b353525da523348076a7613154a33b03c3cbcab2144de19",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "825bee494743c09262c1816e6de57a8123f32cc066efb27415e296a7fa96b309",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/iphone-maps.html": "3af624a6bf9699d8a4c3be805a6848300201715881660b8bf220b917f5e7abf7",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-1.html": "7c75f80f02bfa8608fa55e6c0bcf3fdbe540500cc50eb468e77dc64677f2a80b",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-2.html": "088fa7b5e66cdd98b3ba04e667228103f58b040fd484f10ba4cf71eb672229e9",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-3.html": "df7cf71ac5c5d662f707e21f91e63546e8c4beec5ba4b68e2cb6bb690980ca65",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/jesus-maria.html": "145f27854a2c27ade8ceda820e5aae33b2bbb7c16a55ba0b143b7a55ac7b859c",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html": "30335aabaefb42da4c3340e3e7aed20df7a3d3d4ad6331f9f487a5fc8d28938f",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html": "8b8708a0f138ad42991b0cdb1cf8891d34261817caa2677dfd125e43df2cfc77",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-1.html": "a5010bcefe78deb7227f64ccc0a5a5f309b411830688fd47fbd8dd96bae8fdc1",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-2.html": "862b1dc9fcbf11bf19edcd68f58cb793d2649bb9c3f257a8265d883df690d06b",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-3.html": "c24e4034a29416dc05983e1d6080b49be802ce85abf1ca594492ed348f24887c",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-1.html": "63af330db45fba10a51ed891f96fc32207ccf6d985bc5c0f44585be73448b373",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-2.html": "c3d24cbe3838702b42a8a9fcb04275ddb95509369012367ea6918e131aeb57e3",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-3.html": "549587942b0b612bc778f51d0528e124db53324f1f8869fb10fba27eb2f85036",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-4.html": "3d5df49052b67e31dbe3b5345eb2efa0d05e9724cb9211e4f680249b77ee5d7d",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-5.html": "a32326bd10174e895a52d7ad16c29e3f1df3fc3ca95aa5e982d39d628d6d097d",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-6.html": "10e43c7ee50b05697d9f787955e6099df878c883f13b700903cfbaf4cd614649",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html": "13424bdfcb4b702848ba8136080108a928f647963dd9f223938ddcdc879fa7c2",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html": "b8e046431ae978ad9be22b3edf2aaf7a2c2bceccbaecdeb1db37e2939d81ff1a",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/rimac.html": "ec5aafac6afb97602674fcbfc4d8e3977e4e9d6538fa0ffc7139fb7ae9bf03f7",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-1.html": "67fcb388dd048d413494da94c74fd14b8710dc19de38fe3e824bea9aa51c85e8",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-2.html": "572401afffe6f2d518c02f8ed793d0e09e757c320e8574de1131b467404ff24c",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-3.html": "840efe16586583ae218516c145db27de8b89ae9da3ee842745216f57b8eeab31",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html": "d1bd893b7da2c16ef358e81d2de70cf57a3d2e6425541ce6926bd9067a878ed8",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html": "7e4e75be13f4f385b903f96f1b2384c167032952b48b311b457e6824c34156d8",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html": "fef1da0075298e0b98be8ad6320c7a12c3b4f33a7e6e38a0378f718fd9937384",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "ee1783c839181086e47e55a50586e167442c5685752e14af1f9b318599a36eea",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "5c6a00502d1c7947747ad6a7f3a9e5c9763c30d99a341621a77c1a89228e4b4a",
+    "dist/canon6d_sota_hosted/field_card.html": "834c807645282ff78a700a864c820d8c83697c423c43e517de70384de0365b66",
+    "dist/canon6d_sota_hosted/index.html": "48683577feed13ab58a17458f59e93df40013c63c53ccb5d0f9805131e5d9bc4",
     "dist/canon6d_sota_hosted/plans/plan_a.html": "3779c96ad803310d3102e9d82d23605cfd0c2ebff677fd83b8e187b589337d9e",
     "dist/canon6d_sota_hosted/plans/plan_b.html": "729d77140fe91bdfb51c3b5d2c938604a9f603dffc08ff7e2b775c04641d0a7a",
     "dist/canon6d_sota_hosted/plans/plan_c.html": "0f6c9e786e885f14df86508f3b03eb6c16c0a7c2c2b2e69c28e3af0af1e30040",
     "dist/canon6d_sota_hosted/plans/plan_d.html": "0a6c9f6e51199454040aa7324e8a82dbd7cc889bccb280aee1e31965da2a7dac",
     "dist/canon6d_sota_hosted/plans/plan_e.html": "396b51c5e7753a24a70aa2a55e7cbd464d218d42a9cba33188106a8184cd8a6f",
     "dist/canon6d_sota_hosted/plans/plan_f.html": "9b9d1d467c554538b6acb6cf01e62ae84e8023a443862560e9b00fb60347a4ff",
-    "dist/canon6d_sota_hosted/sw.js": "4693204f21723b257c2a6e623a06f5accf83118974b519ce1cab031b045fd5c0",
-    "field_card.html": "00e98589b6035514e6ed3d4a2cf42b0bf6892ddfcdb853aad2d910fda7e98225",
-    "index.html": "a813388604770585a0304ec8a87a06cb4696bb9096278c55cbbc8b4550ccecf5",
+    "dist/canon6d_sota_hosted/sw.js": "6b50c8e4c6c932c94b73e8e700a03aa286f675ff2cdf4d31cde7b9ccc9250a42",
+    "field_card.html": "834c807645282ff78a700a864c820d8c83697c423c43e517de70384de0365b66",
+    "index.html": "aadb9548efa67949cebe36f4a9077253c175815a5d1d2e8b25a281d06b84bf26",
     "plans/plan_a.html": "6a7b6da80b96aea1740891068727faee30829f3da34d47b27b8d376c48ed3d26",
     "plans/plan_b.html": "9809bc8cc15bfc98434a9445ac7c610c8d38cf582d24889d22e507e88bdec02d",
     "plans/plan_c.html": "15e1dbb94c22b687f967a91d33650f346acf1a83fd914ecba3feaf3f94388c13",
