@@ -213,38 +213,46 @@ BOOLEAN_CHECKS = (
 )
 
 
-def row_passed(row: dict) -> bool:
-    return bool(
-        row["status"] == 200 and not row["overflow"] and not row["page_errors"] and not row["console_errors"]
-        and row["labs"] == 9 and row["lessons"] == 17 and row["videos"] >= 6
-        and all(row[key] for key in BOOLEAN_CHECKS)
-    )
+def row_failures(row: dict) -> list[str]:
+    """Every check a viewport fails, by name, so a red run says why."""
+    conditions = {
+        "status_200": row["status"] == 200, "no_overflow": not row["overflow"],
+        "no_page_errors": not row["page_errors"], "no_console_errors": not row["console_errors"],
+        "nine_labs": row["labs"] == 9, "seventeen_lessons": row["lessons"] == 17, "six_videos": row["videos"] >= 6,
+    }
+    conditions.update((key, bool(row[key])) for key in BOOLEAN_CHECKS)
+    return [name for name, ok in conditions.items() if not ok]
 
 
 def main() -> int:
     from playwright.sync_api import sync_playwright
 
     OUT.mkdir(parents=True, exist_ok=True)
-    public_root = ROOT / "challenges/arquitectura-en-foco"
+    # Only a public root is served, never the repository (it can hold private inputs). The
+    # hosted build is the one Pages publishes, so the page's links to the site's shared
+    # assets resolve as they do live: served alone, the challenge folder answered its icon,
+    # ../../assets/app-icon.svg, with a 404 that only a full Chrome asks for (CI on 518b9a3).
+    public_root = ROOT / "dist/canon6d_sota_hosted"
     server = ThreadingHTTPServer(("127.0.0.1", 0), partial(QuietHandler, directory=str(public_root)))
     threading.Thread(target=server.serve_forever, daemon=True).start()
     try:
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
-            url = f"http://127.0.0.1:{server.server_port}/"
+            url = f"http://127.0.0.1:{server.server_port}/challenges/arquitectura-en-foco/"
             rows = [inspect(browser, width, height, url) for width, height in VIEWPORTS]
             browser.close()
     finally:
         server.shutdown()
         server.server_close()
-    passed = all(row_passed(row) for row in rows)
-    failures = {key: [row["viewport"] for row in rows if not row.get(key)] for key in BOOLEAN_CHECKS}
-    report = {
-        "passed": passed, "url": "isolated-public-root", "viewports": rows,
-        "failed_checks": {key: value for key, value in failures.items() if value},
-    }
+    failures: dict[str, list] = {}
+    for row in rows:
+        for name in row_failures(row):
+            failures.setdefault(name, []).append(row["viewport"])
+    errors = sorted({error for row in rows for error in row["page_errors"] + row["console_errors"]})
+    passed = not failures
+    report = {"passed": passed, "url": "hosted-public-root", "viewports": rows, "failed_checks": failures, "errors": errors}
     (OUT / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"passed": passed, "viewports": len(rows), "failed_checks": report["failed_checks"]}, indent=2))
+    print(json.dumps({"passed": passed, "viewports": len(rows), "failed_checks": failures, "errors": errors}, indent=2))
     return 0 if passed else 1
 
 
