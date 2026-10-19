@@ -1668,6 +1668,58 @@ Cierre de esta pasada, en un árbol limpio con las fuentes de CI (DejaVu como `s
 
 Sin fallos abiertos. Queda la revisión del red team sobre la cabeza nueva y el CI del PR.
 
+### El CI de 518b9a3 (corrida 39275854658)
+
+Seis de ocho trabajos en verde; dos rojos, los dos de este PR.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| V19 | Un diálogo tiene el foco en la misma tarea que lo abre, como `showModal()` | CI: «hosted field card dialog takes focus from its button». `openFieldCard()` movía el foco en un `setTimeout(0)` y la comprobación lee el foco justo después del clic. La comprobación nueva («dialog has focus in the task that opens it») hace clic y lee el foco en la misma tarea: falla en la tarjeta y pasa en los diálogos de sesión y de toma, que usan `showModal()` | la tarjeta enfoca su botón de cerrar al abrirse, sin esperar; la comprobación nueva pasa en las dos portadas |
+| X01 | Una suite que falla dice qué falló | `browser_round2_learning_qa.py` imprimió `"failed_checks": {}`: sólo listaba las invariantes, no los errores de consola. Con el Chromium completo que nombra CI (desde F3), la página pide su icono, `../../assets/app-icon.svg`, y la raíz aislada de la carpeta del desafío respondía 404: un error de consola en 320 px | la suite sirve `dist/canon6d_sota_hosted`, la raíz pública que publica Pages, y abre `/challenges/arquitectura-en-foco/`; el icono resuelve como en vivo y el repositorio sigue sin servirse. El resumen nombra cada condición que falla y lista los errores; con la raíz anterior dice `"no_console_errors": [[320, 640]]` y el 404 |
+
+La carrera del foco no se reprodujo aquí: diez de diez clics con el foco ya dentro, en el
+Chromium completo y en el headless shell. La causa se lee en el código (el foco se mueve una
+tarea después) y la comprobación nueva la hace visible siempre, sin depender del orden de
+las tareas en el runner.
+
+Compromisos: la suite de los laboratorios revisa la copia publicada del desafío y no la de
+`challenges/`. Son idénticas byte a byte: `build_dual_release.py` copia la carpeta tal cual
+(`shutil.copytree`) y CI exige que regenerar no cambie nada.
+
+Error propio: mis corridas «como en CI» usaban las fuentes de CI pero no su navegador. Sin
+`FOCALRUTA_CHROME`, Playwright lanza en modo headless su «headless shell», que no pide el
+icono de la página y ordena las tareas de otra forma; CI nombra el Chromium completo. Las
+corridas locales ahora fijan `FOCALRUTA_CHROME=/opt/pw-browsers/chromium`.
+
+### Revisión parcial del red team en 518b9a3
+
+F1, F3, F4, F6 y F7 pasan; la tarjeta da 56/56 en 3 de 3 corridas y la explicación de las
+fuentes queda confirmada. Pidió tres añadidos:
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X04 | Un apóstrofo no abre una cita | «TypeError: can't read 'Lente de maria.perez'» guardaba el nombre: el apóstrofo de «can't» se emparejaba con la comilla siguiente. `test_x04_an_apostrophe_does_not_open_a_quote` falla y deja «maria.perez» y «85mm» | una comilla simple abre una cita sólo tras un espacio o un signo y la cierra sólo antes de ellos; «can't» y «maría's» quedan como apóstrofos, y una comilla sin cerrar sigue perdiendo el resto. La prueba pasa |
+| X01 | La suite de los laboratorios dice qué archivo falló | listaba los errores de consola sin la ruta del archivo | nombra `no_failed_resources` y las rutas; con la raíz anterior, «404 /assets/app-icon.svg» |
+| V20 | Una lente escrita por el lector sin su número f no es una medida | «EF 100mm Macro», «RF 24-105mm», «EF-S 10-18mm», «XF 23mm» salían marcados | un código de montura justo antes del número nombra una lente; «DISTANCIA 24mm» y «a 80mm» siguen marcados |
+
+Compromiso: la lista de monturas es corta (EF, EF-S, EF-M, RF, RF-S, XF, XC, FE, Z, AF, AF-S,
+AF-P, DX). Una lente de otra montura escrita sin su número f cuenta como medida.
+
+Cierre de esta pasada, en un árbol limpio con las fuentes de CI y el Chromium completo
+(`FOCALRUTA_CHROME=/opt/pw-browsers/chromium`), como CI:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en fd4c8de | 0 | release 428/428, axe 80/80, tarjeta 56/56, velocidad 112/112, visual 37/37, óptica 22/22 |
+| las cinco suites de `tests/architecture/browser_*.py` en fd4c8de | 0 | todas en verde |
+| `pytest -q` | 0 | 764 pasan, 1 omitida (sin matplotlib) |
+| `pytest tests/architecture -q` | 0 | 344 pasan, 1 omitida |
+| `verify_architecture.py`, `verify_release.py` (mínimo de release 428) | 0 | ningún fallo |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+
+Sin fallos abiertos. Queda el CI de la cabeza nueva y la corrida completa del red team.
+
 ### Cambios visibles
 
 - Al pie de la portada, «Registro de errores de este dispositivo»: vacío si nada
@@ -1688,6 +1740,8 @@ Sin fallos abiertos. Queda la revisión del red team sobre la cabeza nueva y el 
   «zooming», «de 35 a 80 mm».
 - «Copiar el registro», sin portapapeles, dice «Selecciona y copia el texto» y deja el registro
   seleccionado.
+- La tarjeta de campo, en la portada, pone el foco en su botón de cerrar en el mismo momento en
+  que se abre.
 - Nada más cambia a la vista: el resto es CI y comprobaciones.
 
 ### Compromisos explícitos
