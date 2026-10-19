@@ -312,7 +312,7 @@ PHYSICS_REFERENCE = (
      "El vidrio devuelve un 4 % de frente y casi el 100 % en ángulo rasante. Lo que decide si ves el interior es el contraste entre el cielo reflejado y el interior transmitido.",
      "https://en.wikipedia.org/wiki/Schlick%27s_approximation"),
     ("Profundidad de campo", "H = f²/(N·c) + f",
-     "Con c = 0,030 mm en formato completo, cerrar el diafragma aleja el límite lejano mucho más rápido que acerca el cercano.",
+     "Con c = 0.030 mm en formato completo, cerrar el diafragma aleja el límite lejano mucho más rápido que acerca el cercano.",
      "https://ciechanow.ski/cameras-and-lenses/"),
     ("Perspectiva aérea", "contraste ≈ exp(−bruma · d)",
      "La garúa limeña no sólo apaga: separa planos. Si dos capas conservan el mismo contraste, no habrá profundidad y hará falta solape.",

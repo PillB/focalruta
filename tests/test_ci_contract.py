@@ -8,6 +8,7 @@ when the live site goes unchecked after a deploy.
 """
 from __future__ import annotations
 
+import ast
 import importlib.util
 import re
 from pathlib import Path
@@ -84,6 +85,40 @@ def test_x01_suites_find_the_browser_without_a_mac_path():
                   if "/Applications/Google Chrome.app" in path.read_text(encoding="utf-8")
                   and path.name != "qa_matrix.py"]
     assert not hard_coded, f"suites that only run on the owner's Mac: {hard_coded}"
+
+
+def launches_ignoring_the_configured_browser(path: Path) -> list[int]:
+    """Lines where a suite starts Chromium without qa_matrix.browser_options()."""
+    lines = []
+    for call in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
+        if isinstance(call, ast.Call) and isinstance(call.func, ast.Attribute) and call.func.attr in ("launch", "launch_persistent_context"):
+            expanded = [k.value for k in call.keywords if k.arg is None]
+            if not any(isinstance(v, ast.Call) and ast.unparse(v.func) == "qa_matrix.browser_options" for v in expanded):
+                lines.append(call.lineno)
+    return lines
+
+
+def test_x01_every_suite_starts_the_browser_ci_names():
+    """Red team on PR #21, F3: three architecture suites started Playwright's own Chromium
+    and ignored FOCALRUTA_CHROME, so CI and the owner's Mac could run them on different
+    browsers than the other suites."""
+    suites = [*(ROOT / "scripts").glob("*.py"), *(ROOT / "tests/architecture").glob("browser_*.py")]
+    ignoring = {path.relative_to(ROOT).as_posix(): lines for path in suites if (lines := launches_ignoring_the_configured_browser(path))}
+    assert not ignoring, f"suites that ignore FOCALRUTA_CHROME: {ignoring}"
+
+
+def test_x03_only_the_deploy_job_can_write_to_pages():
+    """Red team on PR #21, F4: Pages' write and token permissions were granted to the whole
+    workflow, so the live-check it calls held them too. Least privilege: read at the top,
+    and only the job that deploys may write."""
+    writers = {}
+    for path in sorted(WORKFLOWS.glob("*.yml")):
+        document = workflow(path.name)
+        assert set((document.get("permissions") or {}).values()) <= {"read"}, f"{path.name} grants writes to every job"
+        for name, job in document["jobs"].items():
+            if any(level == "write" for level in (job.get("permissions") or {}).values()):
+                writers[f"{path.name}:{name}"] = job["permissions"]
+    assert writers == {"pages.yml:deploy": {"contents": "read", "pages": "write", "id-token": "write"}}, writers
 
 
 def test_x03_the_live_site_is_checked_after_every_deploy_and_daily():

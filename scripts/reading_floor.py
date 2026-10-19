@@ -86,14 +86,20 @@ drawn.remove();return out}"""
 
 # V20: numbers written the way Peru reads them. es-PE in CLDR, like the RAE's Ortografía
 # (2010), takes the point as the decimal mark, and a unit symbol stands one space from its
-# number ("2.5 m"). Lens names keep Canon's "35mm", and f-numbers their point.
-DECIMAL_COMMA = re.compile(r"(?<![\d.,])\d+,\d{1,2}(?!\d)")
-GLUED_METRES = re.compile(r"\b\d+(?:\.\d+)?(?:m|cm|km)\b")
+# number ("2.5 m", "1/2000 s"). A lens keeps its name: the maker's "EF 35mm f/2" or
+# "XF 35mmF2", and the kit's 35mm, 50mm, 85mm and 35–80mm; f-numbers keep their point.
+# "1,234" may be a thousands group, so a comma counts as decimal only before one or two
+# digits, or after a lone zero ("0,030").
+DECIMAL_COMMA = re.compile(r"(?<![\d.,])(?:\d+,\d{1,2}|0,\d+)(?!\d)")
+GLUED_UNIT = re.compile(r"\b\d+(?:\.\d+)?(?:m|cm|km|s)\b")
+GLUED_MM = re.compile(r"(?<![\w.])(\d+(?:[.–-]\d+)?)mm(?!\s?[fF]/?\d)")
+KIT_LENSES = {"35", "50", "85", "35–80", "35-80"}
 
 
 def numbers_in(text: str) -> list[str]:
-    """Numbers in `text` written another way: a decimal comma, or metres glued to the number."""
-    found = [m.group(0) for m in DECIMAL_COMMA.finditer(text)] + [m.group(0) for m in GLUED_METRES.finditer(text)]
+    """Numbers in `text` written another way: a decimal comma, or a unit glued to the number."""
+    found = [m.group(0) for m in DECIMAL_COMMA.finditer(text)] + [m.group(0) for m in GLUED_UNIT.finditer(text)]
+    found += [m.group(0) for m in GLUED_MM.finditer(text) if m.group(1) not in KIT_LENSES]
     return list(dict.fromkeys(found))
 
 

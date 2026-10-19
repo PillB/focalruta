@@ -5,10 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Read-only by default; only the deploy job can write to Pages, not the live check it calls.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -16,6 +15,10 @@ concurrency:
 
 jobs:
   deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

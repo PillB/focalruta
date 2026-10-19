@@ -33,7 +33,11 @@ def helpers(body: str):
     return node(f"const d=require({json.dumps(str(SOURCE))});\nprocess.stdout.write(JSON.stringify((()=>{{{body}}})()));")
 
 
-def sandbox(events: str):
+HOSTED_PAGE = ("{protocol:'https:',pathname:'/focalruta/plans/plan_a.html',search:'?secreto=1',hash:'#x',"
+               "href:'https://pillb.github.io/focalruta/plans/plan_a.html?secreto=1#x'}")
+
+
+def sandbox(events: str, location: str = HOSTED_PAGE):
     """Run the browser half against a fake window; return what it stored and any network use."""
     return node(f"""
 const vm=require('vm'),fs=require('fs');
@@ -41,7 +45,7 @@ const store={{}},calls=[],listeners={{}};
 const deny=name=>function(){{calls.push(name);throw new Error(name+' called')}};
 const win={{
   localStorage:{{getItem:k=>k in store?store[k]:null,setItem:(k,v)=>{{store[k]=String(v)}}}},
-  location:{{pathname:'/focalruta/plans/plan_a.html',search:'?secreto=1',hash:'#x',href:'https://pillb.github.io/focalruta/plans/plan_a.html?secreto=1#x'}},
+  location:{location},
   navigator:{{userAgent:'Mozilla/5.0 (iPhone) Prueba/1.0',sendBeacon:deny('sendBeacon')}},
   fetch:deny('fetch'),XMLHttpRequest:deny('XMLHttpRequest'),WebSocket:deny('WebSocket'),EventSource:deny('EventSource'),Image:deny('Image'),
   addEventListener:(type,fn)=>{{(listeners[type]=listeners[type]||[]).push(fn)}},
@@ -74,6 +78,36 @@ def test_x04_query_strings_fragments_and_markup_never_reach_storage():
     assert not re.search(r"token|abc|frag|[<>]", message), message
     assert len(message) <= 160
     assert out["stored"][0]["kind"] == "promesa"
+
+
+def test_x04_a_page_opened_from_a_file_is_kept_by_its_name_only():
+    """Red team on PR #21, F2: the offline copy opened from a file has the reader's folders,
+    username included, in its path; the log is copied and can go into a public issue."""
+    standalone = "file:///home/maria.perez/Descargas/FocalRuta_STANDALONE.html"
+    out = sandbox(f"""fire('error',{{target:win,message:'Failed to load {standalone[:-24]}diagramas/plan_a_1.webp',
+filename:'{standalone}',lineno:3,colno:1}});
+fire('error',{{target:{{tagName:'IMG',src:'file:///C:/Users/Maria%20Perez/Downloads/plan_b_2.webp'}}}});""",
+                  location=f"{{protocol:'file:',pathname:'/home/maria.perez/Descargas/FocalRuta_STANDALONE.html',href:'{standalone}'}}")
+    image, error = out["stored"]
+    assert error["page"] == image["page"] == "FocalRuta_STANDALONE.html"
+    assert error["where"] == "FocalRuta_STANDALONE.html:3:1"
+    assert error["message"] == "Failed to load file://…/plan_a_1.webp"
+    assert image["message"] == "IMG plan_b_2.webp"
+    assert not re.search(r"maria|perez|home|Descargas|Users", out["raw"], re.I), out["raw"]
+
+
+def test_x04_what_the_reader_typed_is_not_kept():
+    """Red team on PR #21, F2: Chrome's JSON.parse error quotes the text it could not read,
+    which can be what the reader typed. Quoted text is dropped; a one-character token and
+    a web address stay, since they locate the failure and name no one."""
+    out = sandbox("""for(const m of [`SyntaxError: Unexpected token 'M', "Mi equipo Pablo 85mm" is not valid JSON`,
+  'JSON Parse error: Unexpected identifier "Pablo"', 'No se leyó «Pablo Pérez» ni “Pablo” ni ‘Pablo’ ni \\'Pablo\\'',
+  `Unterminated "Pablo Pérez y su 85mm`, "Failed to load 'https://pillb.github.io/focalruta/assets/hosted.css?v=1'"])
+  fire('unhandledrejection',{reason:new Error(m)});""")
+    messages = [item["message"] for item in reversed(out["stored"])]
+    assert "Pablo" not in out["raw"] and "Pérez" not in out["raw"], out["raw"]
+    assert messages[0].startswith("SyntaxError: Unexpected token 'M', ") and messages[0].endswith("is not valid JSON")
+    assert messages[4] == "Failed to load 'https://pillb.github.io/focalruta/assets/hosted.css'"
 
 
 def test_x04_a_failed_image_is_named_by_its_file():

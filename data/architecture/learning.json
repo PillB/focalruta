@@ -219,7 +219,7 @@
       "try": "Mantén focal, diafragma y distancia de enfoque; cambia solo la distancia del fondo.",
       "diagnose": "Si la PDC permanece y cambia el fondo, el modelo funciona.",
       "break_the_rule_when": "En campo rápido, describe simplemente el resultado visible.",
-      "canon_6d_note": "El laboratorio óptico usa un círculo de confusión de 0,030 mm como convención de planificación.",
+      "canon_6d_note": "El laboratorio óptico usa un círculo de confusión de 0.030 mm como convención de planificación.",
       "editorial_note": "Usa separación solo cuando aclare la causalidad arquitectónica.",
       "sources": [
         {
@@ -502,7 +502,7 @@
       "manipulation": "Cambia un vértice del triángulo; el lab compensa el resto para mantener la misma exposición.",
       "observable_feedback": "El desenfoque de movimiento crece con el tiempo de exposición, la zona nítida con el número f y el ruido con la raíz del ISO.",
       "diagnostic_rule": "Fija primero el movimiento que quieres congelar y la profundidad que necesitas; el ISO es la consecuencia.",
-      "model_limit": "Usa un círculo de confusión de 0,030 mm y una velocidad de paso típica; no predice el ruido de tu sensor.",
+      "model_limit": "Usa un círculo de confusión de 0.030 mm y una velocidad de paso típica; no predice el ruido de tu sensor.",
       "field_drill": "Fija movimiento y profundidad, deja subir el ISO y compara al 100 % antes de juzgar.",
       "misconception_warning": "No existe un ISO mágico ni un obturador único que cure toda falta de nitidez.",
       "sources": [

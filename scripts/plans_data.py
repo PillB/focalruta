@@ -591,7 +591,7 @@ PLAN_D = {
              "Jirón de la Unión peatonal. Cámara en eje central de la calle. Balcones coloniales a ambos lados convergen al fondo (cúpula de la Catedral visible).",
              "El 35 mm en formato completo abarca la calle. A f/11, enfocando al sujeto a 5 m, queda nítido desde ≈2.1 m hasta el infinito. La perspectiva de un punto (cámara en el eje) hace converger balcones, cornisas y banderas hacia el fondo. El sujeto caminando da escala.",
              ["Encuadra PERFECTAMENTE en el eje central de la calle", "Espera un momento sin demasiada gente (temprano)", "Subexpón -0.3 EV para preservar luces del cielo al fondo"],
-             ["No dispares descentrado — las líneas no convergerán correctamente", "No uses gran angular extremo (24mm) — distorsiona demasiado los balcones"],
+             ["No dispares descentrado — las líneas no convergerán correctamente", "No uses gran angular extremo (24 mm) — distorsiona demasiado los balcones"],
              {"lens": "35mm", "aperture": "f/11", "shutter": "1/125", "iso": 100, "scene": "sol_velado", "notes": "Mañana: 7-8am luz lateral cálida, menos gente."},
              {"lens": "35mm", "aperture": "f/11", "shutter": "1/125", "iso": 100, "scene": "antes_ocaso", "notes": "Tarde: luz dorada, más gente — espera momentos vacíos."},
              {"lens": "35mm", "aperture": "f/8", "shutter": "1/125", "iso": 3200, "scene": "calle_noche", "notes": "Noche: faroles del jirón; ISO 3200 a 1/125 s congela a la gente que pasa."},

@@ -2326,7 +2326,7 @@
           ],
           "donts": [
             "No dispares descentrado — las líneas no convergerán correctamente",
-            "No uses gran angular extremo (24mm) — distorsiona demasiado los balcones"
+            "No uses gran angular extremo (24 mm) — distorsiona demasiado los balcones"
           ],
           "settings_by_time": {
             "day": {

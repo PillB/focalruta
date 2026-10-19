@@ -127,6 +127,13 @@ def error_log(browser):
            and "promesa de prueba" in parse_qs(urlsplit(home.locator("#diag-report").get_attribute("href")).query)["body"][0])
     floor = home.evaluate(PANEL_FLOOR, "#diag")
     record("error log: 12 px text and 44 px controls in the open panel", not floor["small"] and not floor["tiny"], floor)
+    # Without a clipboard (an older browser, a page opened from a file) «Copiar» did nothing at all
+    # (red team on PR #21, F7): it now says so and selects the log, ready to copy by hand.
+    home.evaluate("Object.defineProperty(navigator,'clipboard',{value:undefined,configurable:true})")
+    home.locator("#diag-copy").click()
+    said, selected = home.locator("#diag-copy").inner_text().strip(), home.evaluate("String(getSelection())")
+    record("error log: without a clipboard, «Copiar» says so and selects the log",
+           said == "Selecciona y copia el texto" and "promesa de prueba" in selected, [said, selected[:80]])
     home.locator("#diag-clear").click()
     kept = home.locator("#diag-list li").count()
     home.locator("#diag-clear").click()
@@ -141,7 +148,10 @@ NOTICE = "#offline-notice"
 # path resolved it under that path and got nothing.
 LANDED = """(base)=>({path:location.pathname+location.search,
 rules:[...document.styleSheets].filter(s=>s.href&&s.href.startsWith(base+'assets/hosted.css')).map(s=>{try{return s.cssRules.length}catch(e){return -1}})})"""
-FORGED = ("javascript:alert(1)", "//example.org/x.html", "<img src=x onerror=alert(1)>.html", "../../x.html", "plans/plan_c.html#x")
+# The last one is well formed but no page of the site: Pages is case-sensitive, so its link
+# would lead nowhere (red team on PR #21, F6).
+FORGED = ("javascript:alert(1)", "//example.org/x.html", "<img src=x onerror=alert(1)>.html", "../../x.html", "plans/plan_c.html#x",
+          "plans/PLAN_C.html")
 
 
 def unsaved_page_offline(browser):

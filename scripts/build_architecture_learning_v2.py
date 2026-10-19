@@ -109,7 +109,7 @@ NEW_LABS = [
         "manipulation": "Cambia un vértice del triángulo; el lab compensa el resto para mantener la misma exposición.",
         "observable_feedback": "El desenfoque de movimiento crece con el tiempo de exposición, la zona nítida con el número f y el ruido con la raíz del ISO.",
         "diagnostic_rule": "Fija primero el movimiento que quieres congelar y la profundidad que necesitas; el ISO es la consecuencia.",
-        "model_limit": "Usa un círculo de confusión de 0,030 mm y una velocidad de paso típica; no predice el ruido de tu sensor.",
+        "model_limit": "Usa un círculo de confusión de 0.030 mm y una velocidad de paso típica; no predice el ruido de tu sensor.",
         "field_drill": "Fija movimiento y profundidad, deja subir el ISO y compara al 100 % antes de juzgar.",
         "misconception_warning": "No existe un ISO mágico ni un obturador único que cure toda falta de nitidez.",
         "sources": [NIKON_COMPOSITION],

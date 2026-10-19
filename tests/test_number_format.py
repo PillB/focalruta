@@ -38,6 +38,15 @@ def test_v20_the_scan_sees_a_decimal_comma_and_a_glued_unit_and_nothing_else():
     assert numbers_in(sample) == ["1,5", "0,03", "2.5m"]
 
 
+def test_v20_the_scan_sees_seconds_millimetres_and_long_decimals_but_not_lens_names():
+    """Red team on PR #21, F5: the scan missed "0,125", "2.5s" and "5mm", and the site had
+    "0,030 mm", "1/2000s", "(24mm)" and "23.9mm". A lens keeps its name: the maker's
+    "EF 35mm f/2", "XF 35mmF2", and the kit's 35mm, 50mm, 85mm and 35–80mm."""
+    sample = ("c = 0,030 mm · 0,125 · 1/2000s congelado · 5–15s · 2.5s · (24mm) · 35.8 × 23.9mm · "
+              "Canon EF 35mm f/2 IS USM · EF 35–80mm f/4–5.6 · XF 35mmF2 · el 85mm a f/8 · 35-80mm @50 · 1/2000 s · 24 mm")
+    assert numbers_in(sample) == ["0,030", "0,125", "2000s", "15s", "2.5s", "24mm", "23.9mm"]
+
+
 @pytest.mark.parametrize("page", PAGES, ids=lambda path: path.relative_to(DIST).as_posix())
 def test_v20_every_published_page_writes_numbers_the_peruvian_way(page):
     assert numbers_in(text_of(page)) == []

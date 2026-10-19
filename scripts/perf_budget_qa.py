@@ -177,6 +177,9 @@ def main() -> int:
     parser.add_argument("--dist", type=Path, default=DIST, help="serve another copy of the hosted build")
     parser.add_argument("--only", action="append", default=[], help="measure only this page (repeatable)")
     arguments = parser.parse_args()
+    unknown = sorted(set(arguments.only) - {page for page, _kind, _kb in PAGES})
+    if unknown:
+        parser.error(f"no budget for {unknown}; pages with one: {[page for page, _kind, _kb in PAGES]}")
     chrome = chrome_path()
     server = None if arguments.base_url else static_server.serve(arguments.dist)
     base = arguments.base_url or static_server.base_url(server)
@@ -188,7 +191,8 @@ def main() -> int:
     failures = [check for check in checks if not check["pass"]]
     report = {"passed": not failures, "checks": len(checks), "failures": failures, "base_url": base,
               "lighthouse": pages[0]["median"]["lighthouse"], "runs_per_page": RUNS, "pages": pages, "results": checks}
-    evidence.write_report(arguments.report, report, [DIST / page for page, _kind, _kb in PAGES])
+    # The files of the build that was served, so a report on another copy never vouches for dist/.
+    evidence.write_report(arguments.report, report, [arguments.dist / page for page, _kind, _kb in PAGES])
     print(json.dumps({"passed": report["passed"], "checks": report["checks"], "failures": failures},
                      ensure_ascii=False, indent=2))
     return 0 if report["passed"] else 1

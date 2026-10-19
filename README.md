@@ -15,14 +15,16 @@ it; a failed run emails the repository owner.
 No page asks another site for anything: no fonts, scripts, analytics or trackers,
 and the speed and live checks fail if one does. Errors are kept only on the reader's
 device (`assets/diagnostics.js`, shown at the foot of the home page) and leave it only
-if the reader copies the log or sends the prefilled GitHub report themselves.
+if the reader copies the log or sends the prefilled GitHub report themselves. The log
+names a page by its path on the site, or only by its file name when opened from a file,
+and drops quoted text from messages, which can be what the reader typed.
 
 ## Validation
 
 The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 421 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 422 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
   on the home page and every plan page, no text under 12 px, no control under 44 px, no
   English in the interface, nothing cut off at the edges and numbers written with a

@@ -366,20 +366,20 @@ def settle(page, site) -> None:
     """Check for a new worker now, as the next visit would, and wait until `site`'s has taken over.
 
     "Nothing installing or waiting, the active worker activated" also holds for the last
-    worker, before the page sees the new one: in CI run 39089226401 (Chromium 140) the
-    check after that wait got the last build's files. So wait until the active worker says
-    it is `site`'s build, and ask for an update again every few seconds until it does.
+    worker, so it does not show that the new one took over: CI run 39089226401 went on to
+    check the new build under the last worker. Wait until the active worker says it is
+    `site`'s build. One update only: a second one would hide a first that went wrong, as the
+    rehearsal server's did when it served the last build on a socket opened before the deploy
+    (red team on PR #21, F1).
     """
     expected, said = deploy_rehearsal.version(site), None
+    page.evaluate(UPDATE)
     deadline = time.monotonic() + 60
     while time.monotonic() < deadline:
-        page.evaluate(UPDATE)
-        again = time.monotonic() + 3
-        while time.monotonic() < again:
-            said = page.evaluate(ACTIVE_BUILD)
-            if said == expected:
-                return
-            page.wait_for_timeout(250)
+        said = page.evaluate(ACTIVE_BUILD)
+        if said == expected:
+            return
+        page.wait_for_timeout(250)
     raise TimeoutError(f"{expected}'s worker never took over in 60 s; the active one says {said}")
 
 

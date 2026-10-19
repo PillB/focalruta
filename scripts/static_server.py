@@ -39,9 +39,18 @@ class PagesHandler(SimpleHTTPRequestHandler):
         ".webp": "image/webp",
     }
 
-    def __init__(self, *args, prefix: str = "", **kwargs):
+    def __init__(self, *args, prefix: str = "", site=None, **kwargs):
         self.prefix = prefix.rstrip("/")
+        self.site = site
         super().__init__(*args, **kwargs)
+
+    def parse_request(self) -> bool:
+        # A rehearsed deploy switches the build between requests, not connections: a browser
+        # opens sockets before it needs them, and one opened before the switch must get the
+        # new build, as on Pages (red team on PR #21, F1).
+        if self.site is not None:
+            self.directory = str(self.site())
+        return super().parse_request()
 
     def log_message(self, *args) -> None:
         pass
@@ -105,11 +114,9 @@ def serve(directory, prefix: str = "") -> ThreadingHTTPServer:
     `directory` is a path, or a function returning the build to serve now, which
     is how a deploy is rehearsed: each request is answered from the build it returns.
     """
-    if callable(directory):
-        def handler(*args):
-            return PagesHandler(*args, directory=str(directory()), prefix=prefix)
-    else:
-        handler = functools.partial(PagesHandler, directory=str(directory), prefix=prefix)
+    site = directory if callable(directory) else None
+    initial = directory() if callable(directory) else directory
+    handler = functools.partial(PagesHandler, directory=str(initial), prefix=prefix, site=site)
     server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
     threading.Thread(target=server.serve_forever, daemon=True).start()
     return server

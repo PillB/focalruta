@@ -3,8 +3,9 @@
    only witness. This keeps the last 20 distinct failures in localStorage:
    uncaught errors, unhandled promise rejections, images, scripts or styles
    that fail to load, and a service worker that fails to register. For each it
-   keeps what failed (cut to 160 characters, without markup), where (file and
-   line, page path), how many times, and the first and last time.
+   keeps what failed (cut to 160 characters, without markup or quoted text),
+   where (file and line, page path; only the file name for a page opened from
+   a file), how many times, and the first and last time.
    It never keeps query strings or fragments (they can carry anything), the
    browser's identity, or the reader's gear, ticks or other saved data, and it
    never makes a request: the log leaves the device only if the reader copies
@@ -16,9 +17,33 @@
   var ISSUES = 'https://github.com/PillB/focalruta/issues/new';
   var KINDS = { error: 'Error', promesa: 'Promesa rechazada', recurso: 'No cargó', trabajador: 'Modo sin conexión' };
 
-  // Any URL inside a message keeps its scheme, host and path; ?query and #fragment go.
+  // Any URL inside a message keeps its scheme, host and path; ?query and #fragment go. A file:
+  // URL keeps only its file name: the folders above it can name the reader (red team, F2).
   function stripUrls(text) {
-    return text.replace(/\b((?:https?|file|blob):\/\/[^\s?#'"()<>]*)[?#][^\s'"()<>]*/g, '$1');
+    return text.replace(/\b((?:https?|file|blob):\/\/[^\s?#'"()<>]*)[?#][^\s'"()<>]*/g, '$1')
+      .replace(/\bfile:\/\/[^\s'"()<>]*\/([^\s\/'"()<>]*)/g, 'file://…/$1');
+  }
+  // Quoted text can be what the reader typed (Chrome's JSON.parse error quotes its input), so
+  // only the quotes stay; a one-character token and a web address are kept (red team, F2).
+  var QUOTED = [/"([^"]*)"/g, /“([^”]*)”/g, /«([^»]*)»/g, /‘([^’]*)’/g, /'([^']*)'/g];
+  function unquote(text) {
+    var out = QUOTED.reduce(function (done, pattern) {
+      return done.replace(pattern, function (whole, inside) {
+        return inside.length < 2 || /^https?:\/\//.test(inside) ? whole : whole[0] + '…' + whole[whole.length - 1];
+      });
+    }, stripUrls(String(text == null ? '' : text)));
+    // A quote left open (the message was cut) loses what follows it.
+    [['"', '"'], ['“', '”'], ['«', '»']].forEach(function (pair) {
+      var open = out.lastIndexOf(pair[0]);
+      var unclosed = pair[0] === pair[1] ? out.split(pair[0]).length % 2 === 0 : open > out.lastIndexOf(pair[1]);
+      if (open >= 0 && unclosed) out = out.slice(0, open + 1) + '…';
+    });
+    return out;
+  }
+  // The page's path on the site; a page opened from a file keeps only its name.
+  function pageOf(location) {
+    var path = String(location && location.pathname || '');
+    return location && /^https?:$/.test(location.protocol) ? path : path.slice(path.lastIndexOf('/') + 1);
   }
   function clean(text) {
     var flat = stripUrls(String(text == null ? '' : text)).replace(/[<>&"]/g, '').replace(/\s+/g, ' ').trim();
@@ -33,7 +58,7 @@
   function entry(kind, message, source, line, column, page, now) {
     var where = fileOf(source) + (line ? ':' + line + (column ? ':' + column : '') : '');
     var stamp = minute(now);
-    return { kind: KINDS[kind] ? kind : 'error', message: clean(message) || 'sin mensaje', where: where,
+    return { kind: KINDS[kind] ? kind : 'error', message: clean(unquote(message)) || 'sin mensaje', where: where,
       page: clean(String(page || '').split(/[?#]/)[0]), count: 1, first: stamp, last: stamp };
   }
   function same(a, b) {
@@ -66,7 +91,7 @@
     return ISSUES + '?' + new URLSearchParams({ title: 'Error en FocalRuta', body: body });
   }
 
-  var api = { KEY: KEY, LIMIT: LIMIT, TEXT: TEXT, clean: clean, fileOf: fileOf, entry: entry, add: add, text: text, issueUrl: issueUrl };
+  var api = { KEY: KEY, LIMIT: LIMIT, TEXT: TEXT, clean: clean, unquote: unquote, pageOf: pageOf, fileOf: fileOf, entry: entry, add: add, text: text, issueUrl: issueUrl };
   if (typeof module === 'object' && module.exports) { module.exports = api; return; }
 
   function load() {
@@ -80,7 +105,7 @@
   }
   function record(kind, message, source, line, column) {
     try {
-      save(add(load(), entry(kind, message, source, line, column, root.location && root.location.pathname, new Date())));
+      save(add(load(), entry(kind, message, source, line, column, pageOf(root.location), new Date())));
       paint();
     } catch (e) { /* the log must never become the error */ }
   }
@@ -122,8 +147,13 @@
     if (!copy) return;
     paint();
     copy.addEventListener('click', function () {
-      var done = function () { copy.textContent = 'Copiado'; };
-      if (root.navigator.clipboard) root.navigator.clipboard.writeText(text(load())).then(done, function () {});
+      // Without a clipboard the button says so and selects the log, ready to copy by hand.
+      var byHand = function () {
+        copy.textContent = 'Selecciona y copia el texto';
+        if (root.getSelection) root.getSelection().selectAllChildren(doc.getElementById('diag-list'));
+      };
+      if (!root.navigator.clipboard) { byHand(); return; }
+      root.navigator.clipboard.writeText(text(load())).then(function () { copy.textContent = 'Copiado'; }, byHand);
     });
     wipe.addEventListener('click', function () {
       if (wipe.dataset.armed) { api.clear(); delete wipe.dataset.armed; wipe.textContent = 'Borrar el registro'; return; }

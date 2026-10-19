@@ -230,7 +230,7 @@ def main() -> int:
     threading.Thread(target=server.serve_forever, daemon=True).start()
     try:
         with sync_playwright() as playwright:
-            browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
+            browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
             url = f"http://127.0.0.1:{server.server_port}/"
             rows = [inspect(browser, width, height, url) for width, height in VIEWPORTS]
             browser.close()

@@ -6,8 +6,10 @@ tests hold its arithmetic, its page list and its Pages-like server.
 from __future__ import annotations
 
 import gzip
+import http.client
 import os
 import sys
+import time
 import types
 import urllib.error
 import urllib.request
@@ -135,6 +137,30 @@ def test_x02_the_deploy_rehearsals_see_the_same_pages_as_the_speed_check(tmp_pat
         pages.stop()
 
 
+def test_v16_a_connection_opened_before_a_deploy_gets_the_new_build(tmp_path):
+    """Red team on PR #21, F1: Chromium opens sockets before it needs them. The rehearsal
+    server chose the build when it accepted a connection, so a request sent after a deploy
+    on a socket opened before it got the last build, and the field card's upgrade checks
+    saw the last build's sw.js and files. Pages answers each request from what it serves now."""
+    sites = []
+    for name in ("anterior", "siguiente"):
+        site = tmp_path / name
+        site.mkdir()
+        (site / "sw.js").write_text(f"const VERSION='{name}';", encoding="utf-8")
+        sites.append(site)
+    pages = deploy_rehearsal.Pages(sites[0])
+    try:
+        early = http.client.HTTPConnection("127.0.0.1", pages.server.server_address[1], timeout=10)
+        early.connect()
+        time.sleep(0.3)  # let the server accept it while the last build is still the one served
+        pages.deploy(sites[1])
+        early.request("GET", "/focalruta/sw.js")
+        assert early.getresponse().read() == (sites[1] / "sw.js").read_bytes()
+        early.close()
+    finally:
+        pages.stop()
+
+
 def test_x01_a_missing_chromium_stops_the_speed_check_with_the_reason(monkeypatch, tmp_path):
     """Playwright names the Chromium build it expects; when that build is not
     installed, the run stops before serving anything and says what to do, not
@@ -157,3 +183,26 @@ def test_x01_a_missing_chromium_stops_the_speed_check_with_the_reason(monkeypatc
     with pytest.raises(SystemExit) as stopped:
         perf_budget_qa.chrome_path()
     assert "chromium-0000" in str(stopped.value) and "playwright install chromium" in str(stopped.value)
+
+
+def test_x02_another_build_is_fingerprinted_as_itself_and_an_unknown_page_is_named(monkeypatch, tmp_path):
+    """Red team on PR #21, F7: `--dist` measured one tree and fingerprinted dist/, so the
+    report vouched for files it never served; `--only` with a page the check does not know
+    crashed on an empty result instead of saying which pages it knows."""
+    other = tmp_path / "otra"
+    other.mkdir()
+    (other / "index.html").write_text("<!doctype html><title>otra</title>", encoding="utf-8")
+    written = {}
+    monkeypatch.setattr(perf_budget_qa, "chrome_path", lambda: "chrome")
+    monkeypatch.setattr(perf_budget_qa, "run_lighthouse", lambda url, chrome: {"stub": url})
+    monkeypatch.setattr(perf_budget_qa, "summarize", lambda result, origin: {"lighthouse": "13.5.0", "lcp_element": "h1", "score": 1.0, "kb": 1, "requests": 1,
+                                                                            "other_origins": [],
+                                                                            **{name: 0 for name, _b, _u in perf_budget_qa.TIMING_BUDGETS}})
+    monkeypatch.setattr(perf_budget_qa.evidence, "write_report", lambda path, report, audited: written.update(audited=list(audited)))
+    monkeypatch.setattr(sys, "argv", ["perf_budget_qa.py", "--dist", str(other), "--only", "index.html", "--report", str(tmp_path / "r.json")])
+    perf_budget_qa.main()
+    assert written["audited"] and all(Path(path).is_relative_to(other) for path in written["audited"]), written["audited"][:2]
+    monkeypatch.setattr(sys, "argv", ["perf_budget_qa.py", "--only", "plans/plan_z.html"])
+    with pytest.raises(SystemExit) as stopped:
+        perf_budget_qa.main()
+    assert stopped.value.code == 2
