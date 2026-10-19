@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 422,
+  "checks": 428,
   "viewports": [
     [
       320,
@@ -532,6 +532,11 @@
       "detail": ""
     },
     {
+      "name": "standalone session dialog has focus in the task that opens it",
+      "pass": true,
+      "detail": ""
+    },
+    {
       "name": "standalone session dialog takes focus from its button",
       "pass": true,
       "detail": ""
@@ -555,6 +560,11 @@
       }
     },
     {
+      "name": "standalone field card dialog has focus in the task that opens it",
+      "pass": true,
+      "detail": ""
+    },
+    {
       "name": "standalone field card dialog takes focus from its button",
       "pass": true,
       "detail": ""
@@ -576,6 +586,11 @@
         "back": true,
         "inert": []
       }
+    },
+    {
+      "name": "standalone shot dialog has focus in the task that opens it",
+      "pass": true,
+      "detail": ""
     },
     {
       "name": "standalone shot dialog takes focus from its button",
@@ -1319,6 +1334,11 @@
       "detail": ""
     },
     {
+      "name": "hosted session dialog has focus in the task that opens it",
+      "pass": true,
+      "detail": ""
+    },
+    {
       "name": "hosted session dialog takes focus from its button",
       "pass": true,
       "detail": ""
@@ -1342,6 +1362,11 @@
       }
     },
     {
+      "name": "hosted field card dialog has focus in the task that opens it",
+      "pass": true,
+      "detail": ""
+    },
+    {
       "name": "hosted field card dialog takes focus from its button",
       "pass": true,
       "detail": ""
@@ -1363,6 +1388,11 @@
         "back": true,
         "inert": []
       }
+    },
+    {
+      "name": "hosted shot dialog has focus in the task that opens it",
+      "pass": true,
+      "detail": ""
     },
     {
       "name": "hosted shot dialog takes focus from its button",
@@ -2178,8 +2208,8 @@
       "detail": [
         "Sin conexión: el plan C no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:36257/plans/plan_c.html",
-          "http://127.0.0.1:36257/field_card.html"
+          "http://127.0.0.1:46591/plans/plan_c.html",
+          "http://127.0.0.1:46591/field_card.html"
         ]
       ]
     },
@@ -2210,8 +2240,8 @@
       "detail": [
         "Sin conexión: la página «wiki-tecnicas» no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:36257/challenges/arquitectura-en-foco/wiki-tecnicas.html",
-          "http://127.0.0.1:36257/field_card.html"
+          "http://127.0.0.1:46591/challenges/arquitectura-en-foco/wiki-tecnicas.html",
+          "http://127.0.0.1:46591/field_card.html"
         ]
       ]
     },
@@ -2230,23 +2260,24 @@
       "name": "error log: a thrown error and a rejected promise send no request",
       "pass": true,
       "detail": [
-        "GET http://127.0.0.1:36697/",
-        "GET http://127.0.0.1:36697/assets/hosted.css?v=23d2043604d4",
-        "GET http://127.0.0.1:36697/data/plans_embedded.js?v=760318475bf5"
+        "GET http://127.0.0.1:39785/",
+        "GET http://127.0.0.1:39785/assets/hosted.css?v=23d2043604d4",
+        "GET http://127.0.0.1:39785/data/plans_embedded.js?v=760318475bf5",
+        "GET http://127.0.0.1:39785/assets/app-icon.svg"
       ]
     },
     {
       "name": "error log: the home page lists both, with the page they came from",
       "pass": true,
       "detail": [
-        "1 vez · 2026-10-19 15:04Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
-        "1 vez · 2026-10-19 15:04Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
+        "1 vez · 2026-10-19 15:41Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
+        "1 vez · 2026-10-19 15:41Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
       ]
     },
     {
       "name": "error log: no query string, fragment or browser identity is kept",
       "pass": true,
-      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-19T15:04Z\",\"last\":\"2026-10-19T15:04Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-19T15:04Z\",\"last\":\"2026-10-19T15:04Z\"}]"
+      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-19T15:41Z\",\"last\":\"2026-10-19T15:41Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-19T15:41Z\",\"last\":\"2026-10-19T15:41Z\"}]"
     },
     {
       "name": "error log: the report link carries the log to a new GitHub issue",
@@ -2266,7 +2297,7 @@
       "pass": true,
       "detail": [
         "Selecciona y copia el texto",
-        "1 vez · 2026-10-19 15:04Z · Promesa rechazada · promesa de prueba · en /plans/pl"
+        "1 vez · 2026-10-19 15:41Z · Promesa rechazada · promesa de prueba · en /plans/pl"
       ]
     },
     {
@@ -2275,26 +2306,26 @@
       "detail": 2
     }
   ],
-  "audited_at": "2026-10-19T15:04:47.146693+00:00",
-  "audited_commit": "f2446e5bf4e70047a654e3a839fe9851675133e9",
+  "audited_at": "2026-10-19T15:41:54.809687+00:00",
+  "audited_commit": "fd4c8de7152f7741d144cbe50c28b4809868aef5",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
-    "dist/canon6d_sota_hosted/field_card.html": "79de2cd731d9a9abf2a81d04d9f2857b5a4496fefce9dbddd08fabe72d0425b3",
-    "dist/canon6d_sota_hosted/index.html": "6fb539dc397164ec5c1cf39fb2312fdfdb9111201bec115ee057e2c21675a4df",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "c9bac4216ef56dccb47a8561def30f00d0acbd234408e76c6276ce90ed818479",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "bc3d7acd423ce1a58ba2529325d9fe996cd5342664817e28fb8b3e6ac9fca47b",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "cec5ef94f3c0ecd22494c7f3bcffc1ea078b18a0160d20ec80fe89bb8f15c892",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "ca83758d4ca9d2a25ab3053b6a57f2fafee1f063ea0a3141a593652c17ed218f",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "f68f83394b3dedc90e4a81d7612e2a20f48a5aaccf3725963da14b3b54935c1a",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "9ecb1bbc5156812f952fcacda0261b8962e3ef6bdc0b8ecb3d53f5e02b03b512",
-    "dist/canon6d_sota_hosted/sw.js": "8d9e4f4f9459340202a5f2a5865a4aa5f9ae19b0c006e9a73ca5bb0540f90c71",
-    "field_card.html": "79de2cd731d9a9abf2a81d04d9f2857b5a4496fefce9dbddd08fabe72d0425b3",
-    "index.html": "9708500f8995636a7d9daa9de1ece1675bed435429fcb18fe2d2ee29680e9edb",
-    "plans/plan_a.html": "b5642571a2e1d1ee3f724c7dd5f82ea324073216a9b063eed70ff2176748dac7",
-    "plans/plan_b.html": "8c0a398d1e461d7bc0692559297623cc5df6a3cdde130a14187d082dd2b45281",
-    "plans/plan_c.html": "17ccfc8b13ed2cb90468fac1c8a916ea9a00350a043413e5a0f0d6f1891a89bb",
-    "plans/plan_d.html": "7969179d05856d53cf82f07cb9202f9a15a6a8f1c09f4c7677126a58f2230c24",
-    "plans/plan_e.html": "086459c443a5d0824fa292ade241c9b0c51b336b3d828038a7be8fbb1eb0bf72",
-    "plans/plan_f.html": "3c213bb86539ba7886e6f251f9eaad827cfacdb76c370c5c62deaec17006d7fa"
+    "dist/canon6d_sota_hosted/field_card.html": "00e98589b6035514e6ed3d4a2cf42b0bf6892ddfcdb853aad2d910fda7e98225",
+    "dist/canon6d_sota_hosted/index.html": "8f7aa042cf8d8ceb2cd6d372f21a30226e6c3287b2d3028218340a99e6846ea3",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "3779c96ad803310d3102e9d82d23605cfd0c2ebff677fd83b8e187b589337d9e",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "729d77140fe91bdfb51c3b5d2c938604a9f603dffc08ff7e2b775c04641d0a7a",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "0f6c9e786e885f14df86508f3b03eb6c16c0a7c2c2b2e69c28e3af0af1e30040",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "0a6c9f6e51199454040aa7324e8a82dbd7cc889bccb280aee1e31965da2a7dac",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "396b51c5e7753a24a70aa2a55e7cbd464d218d42a9cba33188106a8184cd8a6f",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "9b9d1d467c554538b6acb6cf01e62ae84e8023a443862560e9b00fb60347a4ff",
+    "dist/canon6d_sota_hosted/sw.js": "4693204f21723b257c2a6e623a06f5accf83118974b519ce1cab031b045fd5c0",
+    "field_card.html": "00e98589b6035514e6ed3d4a2cf42b0bf6892ddfcdb853aad2d910fda7e98225",
+    "index.html": "a813388604770585a0304ec8a87a06cb4696bb9096278c55cbbc8b4550ccecf5",
+    "plans/plan_a.html": "6a7b6da80b96aea1740891068727faee30829f3da34d47b27b8d376c48ed3d26",
+    "plans/plan_b.html": "9809bc8cc15bfc98434a9445ac7c610c8d38cf582d24889d22e507e88bdec02d",
+    "plans/plan_c.html": "15e1dbb94c22b687f967a91d33650f346acf1a83fd914ecba3feaf3f94388c13",
+    "plans/plan_d.html": "469ebdfbd5c23c88e65928147ecbfafb4c86bdffdf73674571515e800263241e",
+    "plans/plan_e.html": "1783f7f5fb52b0bee8836fb469e5dbaf91ab24d334b3ea4d9d06261f595adc6d",
+    "plans/plan_f.html": "9d193e89c810a97bf136c4138db82a1db7a7d26256e3b7dc0b1f9c1f9e983d43"
   }
 }

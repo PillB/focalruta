@@ -254,10 +254,10 @@
       "detail": []
     }
   ],
-  "audited_at": "2026-10-19T14:46:29.853751+00:00",
-  "audited_commit": "27e97595d9547ab9cdec66262c8c63a2c98745a3",
+  "audited_at": "2026-10-19T15:39:41.086626+00:00",
+  "audited_commit": "fd4c8de7152f7741d144cbe50c28b4809868aef5",
   "audited_artifacts": {
-    "dist/canon6d_sota_hosted/index.html": "6fb539dc397164ec5c1cf39fb2312fdfdb9111201bec115ee057e2c21675a4df",
-    "index.html": "9708500f8995636a7d9daa9de1ece1675bed435429fcb18fe2d2ee29680e9edb"
+    "dist/canon6d_sota_hosted/index.html": "8f7aa042cf8d8ceb2cd6d372f21a30226e6c3287b2d3028218340a99e6846ea3",
+    "index.html": "a813388604770585a0304ec8a87a06cb4696bb9096278c55cbbc8b4550ccecf5"
   }
 }
