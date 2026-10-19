@@ -89,10 +89,12 @@ drawn.remove();return out}"""
 # number ("2.5 m", "1/2000 s"). A lens keeps its name: the maker's "EF 35mm f/2" or
 # "XF 35mmF2", and the kit's 35mm, 50mm, 85mm and 35–80mm; f-numbers keep their point.
 # "1,234" may be a thousands group, so a comma counts as decimal only before one or two
-# digits, or after a lone zero ("0,030").
+# digits, or after a lone zero ("0,030"). The scan reads a page as one run of text, where a
+# sentence can touch the next card ("exposición.35–80mm"): a point after a digit is a decimal
+# point, after a word it ends the sentence.
 DECIMAL_COMMA = re.compile(r"(?<![\d.,])(?:\d+,\d{1,2}|0,\d+)(?!\d)")
 GLUED_UNIT = re.compile(r"\b\d+(?:\.\d+)?(?:m|cm|km|s)\b")
-GLUED_MM = re.compile(r"(?<![\w.])(\d+(?:[.–-]\d+)?)mm(?!\s?[fF]/?\d)")
+GLUED_MM = re.compile(r"(?<!\w)(?<!\d\.)(\d+(?:[.–-]\d+)?)mm(?!\s?[fF]/?\d)")
 KIT_LENSES = {"35", "50", "85", "35–80", "35-80"}
 
 

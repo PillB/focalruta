@@ -10,6 +10,7 @@ check on the text JavaScript writes, in every state (reading_floor.numbers_in).
 """
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -45,6 +46,34 @@ def test_v20_the_scan_sees_seconds_millimetres_and_long_decimals_but_not_lens_na
     sample = ("c = 0,030 mm · 0,125 · 1/2000s congelado · 5–15s · 2.5s · (24mm) · 35.8 × 23.9mm · "
               "Canon EF 35mm f/2 IS USM · EF 35–80mm f/4–5.6 · XF 35mmF2 · el 85mm a f/8 · 35-80mm @50 · 1/2000 s · 24 mm")
     assert numbers_in(sample) == ["0,030", "0,125", "2000s", "15s", "2.5s", "24mm", "23.9mm"]
+
+
+def test_v20_a_point_after_a_word_ends_a_sentence_not_a_number():
+    """The browser reads a page as one run of text, so a card's last sentence can touch the
+    next card's lens ("exposición.35–80mm"). A point after a digit is a decimal point; after a
+    word it ends a sentence, and the lens after it keeps its name. The release QA on 3558853
+    flagged "80mm" there, beside a real one: "gira el zoom de 35 a 80mm"."""
+    assert numbers_in("gira el anillo durante la exposición.35–80mm · f/8 · 2 s") == []
+    assert numbers_in("gira el zoom de 35 a 80mm. El faro") == ["80mm"]
+    assert numbers_in("35.8 × 23.9mm") == ["23.9mm"]
+
+
+def test_v20_every_plan_text_writes_numbers_the_peruvian_way():
+    """The plans' notes reach the reader through JavaScript, which the page scan above does
+    not read; the browser QA does, in a minute. This reads every text in the data the pages
+    embed and the site offers for download."""
+    def texts(value):
+        if isinstance(value, str):
+            yield value
+        elif isinstance(value, dict):
+            for item in value.values():
+                yield from texts(item)
+        elif isinstance(value, (list, tuple)):
+            for item in value:
+                yield from texts(item)
+
+    data = json.loads((DIST / "data" / "plans.json").read_text(encoding="utf-8"))
+    assert numbers_in(" · ".join(texts(data))) == []
 
 
 @pytest.mark.parametrize("page", PAGES, ids=lambda path: path.relative_to(DIST).as_posix())

@@ -906,7 +906,7 @@
           "angle_label": "Central",
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
-          "scene_notes": "Sujeto a 8 m en sendero. Durante los 2 s de exposición gira el anillo del zoom de 35 a 80mm (o viceversa). El sujeto queda como punto fijo + estallido radial.",
+          "scene_notes": "Sujeto a 8 m en sendero. Durante los 2 s de exposición gira el anillo del zoom de 35 a 80 mm (o viceversa). El sujeto queda como punto fijo + estallido radial.",
           "reasoning": "Unos 2 s con trípode. Gira el zoom de forma continua durante toda la exposición. El sujeto debe estar perfectamente centrado: el zoom escala la imagen desde el centro y los puntos más alejados del centro dejan los trazos más largos. Las líneas radiales imitan líneas de fuga.",
           "dos": [
             "Practica el giro del zoom en seco: debe ser uniforme, ni rápido al inicio ni al final",
@@ -1573,7 +1573,7 @@
           "angle_label": "Central",
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
-          "scene_notes": "Sujeto a 6 m contra el faro de La Marina al fondo. Durante 3 s gira el zoom de 35 a 80mm. El faro queda como estallido radial, el sujeto como punto fijo.",
+          "scene_notes": "Sujeto a 6 m contra el faro de La Marina al fondo. Durante 3 s gira el zoom de 35 a 80 mm. El faro queda como estallido radial, el sujeto como punto fijo.",
           "reasoning": "Unos 3 s con trípode. El giro del zoom escala la imagen desde el centro: cuanto más lejos del centro del encuadre está un punto, más largo es su trazo, sin importar a qué distancia esté de la cámara. Por eso el sujeto centrado queda casi estable y las luces de los bordes estallan.",
           "dos": [
             "Practica el giro: uniforme, ni muy rápido ni muy lento",
@@ -2236,7 +2236,7 @@
           "angle_label": "Central",
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
-          "scene_notes": "Sujeto a 6 m en la sala, lámparas encendidas a diferentes distancias. Durante 3 s gira el zoom de 35 a 80mm. Cada lámpara crea su propio estallido radial.",
+          "scene_notes": "Sujeto a 6 m en la sala, lámparas encendidas a diferentes distancias. Durante 3 s gira el zoom de 35 a 80 mm. Cada lámpara crea su propio estallido radial.",
           "reasoning": "Unos 3 s con trípode. El giro del zoom escala la imagen desde el centro: cada lámpara deja un trazo cuya longitud depende de lo lejos que esté del centro del encuadre, no de su distancia a la cámara. El sujeto centrado queda estable.",
           "dos": [
             "Practica el giro uniformemente",
@@ -2901,7 +2901,7 @@
           "angle_label": "Central",
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
-          "scene_notes": "Sujeto a 7 m contra la fachada iluminada de la Catedral. Durante 3 s gira el zoom de 35 a 80mm. La fachada se estira en estallido radial.",
+          "scene_notes": "Sujeto a 7 m contra la fachada iluminada de la Catedral. Durante 3 s gira el zoom de 35 a 80 mm. La fachada se estira en estallido radial.",
           "reasoning": "Unos 3 s con trípode. El giro del zoom crea líneas radiales desde el centro; la fachada iluminada estalla hacia los bordes. El sujeto centrado queda casi estable.",
           "dos": [
             "Practica el giro uniformemente",
@@ -4341,7 +4341,7 @@
       "ev_low": 8,
       "ev_high": 10,
       "label": "interior junto a una ventana, de día",
-      "source": "estimate · sin fila en la tabla ANSI; 500–2500 lx junto a la ventana con E = 2,5·2^EV (C = 250)"
+      "source": "estimate · sin fila en la tabla ANSI; 500–2500 lx junto a la ventana con E = 2.5·2^EV (C = 250)"
     },
     "oficina": {
       "ev_low": 7,
