@@ -97,12 +97,19 @@ DECIMAL_COMMA = re.compile(r"(?<![\d.,])(?:\d+,\d{1,2}|0,\d+)(?!\d)")
 GLUED_UNIT = re.compile(r"\b\d+(?:\.\d+)?(?:m|cm|km|s)\b")
 GLUED_MM = re.compile(r"(?<!\d)(?<!\d[.–-])(\d+(?:[.–-]\d+)?)mm(?!\s?[fF]/?\d)")
 KIT_LENSES = {"35", "50", "85", "35–80", "35-80"}
+# A mount code just before the number names a lens, with or without its f-number, as a reader
+# may type their own ("EF 100mm Macro", "AF-S DX 35mm"); red team's recheck at 518b9a3.
+MOUNT_BEFORE = re.compile(r"(?<![\w-])(?:EF(?:-[SM])?|RF(?:-S)?|XF|XC|FE|Z|AF(?:-[SP])?|DX)\s?$")
+
+
+def lens_name(text: str, match: re.Match) -> bool:
+    return match.group(1) in KIT_LENSES or bool(MOUNT_BEFORE.search(text, max(0, match.start() - 8), match.start()))
 
 
 def numbers_in(text: str) -> list[str]:
     """Numbers in `text` written another way: a decimal comma, or a unit glued to the number."""
     found = [m.group(0) for m in DECIMAL_COMMA.finditer(text)] + [m.group(0) for m in GLUED_UNIT.finditer(text)]
-    found += [m.group(0) for m in GLUED_MM.finditer(text) if m.group(1) not in KIT_LENSES]
+    found += [m.group(0) for m in GLUED_MM.finditer(text) if not lens_name(text, m)]
     return list(dict.fromkeys(found))
 
 

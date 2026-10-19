@@ -60,6 +60,14 @@ def test_v20_a_number_is_read_from_its_own_start_whatever_touches_it():
     assert numbers_in("35.8 × 23.9mm · DISTANCIA24mm") == ["23.9mm", "24mm"]
 
 
+def test_v20_a_mount_code_makes_a_lens_name_with_or_without_its_f_number():
+    """Red team's recheck at 518b9a3: a reader's own lens typed as the maker writes it, but
+    without its f-number ("EF 100mm Macro"), was flagged as a measurement. A mount code
+    before the number names a lens; a word that is not one does not."""
+    assert numbers_in("EF 100mm Macro · RF 24-105mm · EF-S 10-18mm · XF 23mm · AF-S DX 35mm") == []
+    assert numbers_in("DISTANCIA 24mm · a 80mm · REF 50.5mm") == ["24mm", "80mm", "50.5mm"]
+
+
 def test_v20_every_plan_text_writes_numbers_the_peruvian_way():
     """The plans' notes reach the reader through JavaScript, which the page scan above does
     not read; the browser QA does, in a minute. This reads every text in the data the pages
