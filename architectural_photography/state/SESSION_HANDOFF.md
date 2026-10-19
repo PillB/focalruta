@@ -1864,6 +1864,113 @@ tarjeta (ver «El primer CI de PR #21»), cuya causa real encontró el red team 
 revisión de números, que leía «80mm» en la lente del equipo (ver «Segunda pasada del red team
 sobre PR #21»). Los demás RED se explicaron a la primera.
 
+### La tarjeta del inicio perdía sus estilos (X05, 2d222b8)
+
+Lo encontré midiendo la apertura de la tarjeta desde el inicio (la nota de tamaño del DOM del
+red team): en las capturas del inicio en modo oscuro, la tarjeta tenía texto oscuro sobre
+fondo oscuro. Ninguna comprobación lo veía, y está en el sitio publicado.
+
+Dos causas, las dos silenciosas porque el navegador descarta sin avisar lo que no entiende:
+
+- El marcador `<!-- FIELD CARD CSS START -->` estaba dentro de la hoja de estilos. `<!--` y
+  `-->` sólo se ignoran entre reglas, en el nivel superior de la hoja; las palabras del
+  marcador pasaban a ser el comienzo del selector de la regla siguiente, que deja de ser
+  válido, y el navegador descartaba la regla entera. En el inicio era la regla base de la
+  tarjeta (`.fc-app`: colores, fondo, márgenes, fuente); en el inicio publicado, el marcador
+  de cierre se llevaba además el `:root` de `hosted.css` (anillo de foco y tintas de lectura).
+- `font:600 14px/1.2 inherit` y `font:800 16px/1 inherit`: `inherit` sólo vale sola, así que
+  el navegador descartaba la declaración y «Siguiente toma» y los dos botones de lista
+  quedaban a 13.33 px, sin negrita, también en la página de la tarjeta.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X05 | Cada declaración y selector del CSS publicado es uno que el navegador conserva | sobre la build de c71bd3a, tres hojas pierden algo: las dos declaraciones `font` en la tarjeta, el inicio y `hosted.css`; el selector `<!-- FIELD CARD CSS START --> .fc-app` en el inicio y en `hosted.css`, y `<!-- FIELD CARD CSS END --> :root` en `hosted.css` | 16 hojas distintas, ninguna pierde nada |
+| X05 | Ninguna hoja publicada mete un comentario HTML dentro de una regla (estático, en CI con `pytest`) | `test_x05_no_shipped_stylesheet_puts_an_html_comment_inside_a_rule` falla en 3 de 47 páginas: `index.html` y las portadas de `dist/` (publicada y descargable) | pasa en las 47; los marcadores son comentarios CSS (`/* FIELD CARD CSS START */`) y el integrador sigue encontrando los viejos, así que un `index.html` antiguo se repara al regenerar |
+| V05 | La tarjeta en el diálogo del inicio se ve como en su propia página | con la misma comparación, elemento por elemento a 390 px: 10534 diferencias de día, 8017 en oscuro y 7999 con la pantalla nocturna, en las dos portadas | 0 en las seis |
+
+La comparación de V05 encontró dos diferencias más que el marcador no explicaba, las dos por
+algo que la tarjeta no fijaba y el inicio sí: `p, li {line-height:1.55}` cambiaba el
+interlineado de la tarjeta, y la base del inicio hace que los botones hereden los dígitos
+tabulares, que en la página de la tarjeta no heredaban. La tarjeta fija ahora
+`.fc-app :where(p,li){line-height:inherit}` (con `:where()` no gana a ninguna clase) y sus
+botones heredan `font-variant-numeric`.
+
+#### Cambios visibles
+
+- En el inicio, la tarjeta de campo se ve como en su página: en modo oscuro su texto vuelve a
+  leerse; de día, los botones de plan, luz y sujeto vuelven a tener borde y a marcar el
+  elegido; vuelve su fondo, sus márgenes y su fuente.
+- «Siguiente toma» (16 px) y los dos botones de lista (14 px) vuelven a la negrita y al tamaño
+  con que se diseñaron, en la tarjeta y en el inicio. Ocupan algo más; la tarjeta a 320 px no
+  corta nada (V18 pasa).
+- El inicio publicado recupera las variables de su `:root`: el anillo de foco amarillo y las
+  tintas de lectura.
+
+#### Compromisos explícitos
+
+- La comprobación del navegador no pregunta por lo que está escrito para otro motor ni por lo
+  que no puede juzgar fuera de su sitio: propiedades con prefijo, valores y seudoclases
+  `-moz-`, `-ms-` y `-o-`, una propiedad estándar escrita junto a su gemela `-webkit-` en el
+  mismo bloque (`line-clamp`), propiedades personalizadas (cualquier valor es válido hasta
+  usarse), selectores anidados con `&` y los bloques de descriptores (`@font-face`, `@page`,
+  `@property`). Un error dentro de esas excepciones pasa sin verse.
+- La comparación de V05 mira lo que ve un lector: si el elemento se dibuja, su fondo, relleno,
+  esquinas y cada borde visible y, si tiene texto propio, color, tamaño, peso, fuente,
+  interlineado y dígitos. Deja fuera los bordes de 0 px (la base de Tailwind del inicio da a
+  todo `border: 0 solid`, que no dibuja nada), la letra de elementos sin texto propio (la misma
+  base da `font: inherit` a los campos, que no la muestran) y tamaños y posiciones, porque el diálogo pone la
+  tarjeta en otro contenedor.
+- Los marcadores del JavaScript de la tarjeta (`<!-- FIELD CARD JS START -->`) siguen como
+  están: en un script clásico, `<!--` y `-->` al comienzo de línea son comentarios de una línea
+  (ECMAScript, anexo B.1). Romperían el script si pasara a ser un módulo.
+
+#### Referencia de experto
+
+- CSS Syntax Level 3: CDO y CDC (`<!--`, `-->`) se descartan sólo en el nivel superior de la
+  hoja; dentro del preludio de una regla son parte de él. Selectors Level 4: un selector no
+  válido invalida la regla entera. CSS Values and Units 4: las palabras clave globales
+  (`inherit`) no se combinan con otros valores.
+- WCAG 2.2, 1.4.3 (contraste mínimo) y 2.4.7 (foco visible): un experto rechazaría un diálogo con
+  texto oscuro sobre fondo oscuro y un foco sin el anillo que se diseñó.
+
+#### Errores propios
+
+- En el paso 3 puse la regla base de la tarjeta justo después del marcador `<!--` que venía del
+  prototipo (allí ya se tragaba `#field-card-modal{--fc-ink…}`), y escribí la fuente de los
+  botones con `inherit` dentro del atajo. El `:root` perdido de `hosted.css` ya estaba en main
+  antes del paso 3.
+- Ninguna comprobación comparaba la tarjeta del inicio con la de su página. La única que la
+  abre en el inicio (`field_card_qa.py`) lo hace de día, donde el texto sin color caía al
+  oscuro del inicio sobre fondo claro y se leía; axe revisa los estados de la tarjeta sólo en
+  su página, y el inicio con el diálogo cerrado.
+- La primera versión de la comprobación preguntaba por cada selector con
+  `CSS.supports('selector(…)')`, que rechaza seudoelementos que una hoja sí acepta
+  (`::-webkit-search-decoration`), y marcaba `line-clamp` en los planes, escrito junto a su
+  gemela `-webkit-`. Ahora prueba cada lista de selectores como una regla, que es como la toma
+  el navegador, y exime a la gemela.
+
+Escalada de investigación: no se activó; cada diferencia tuvo una causa que se confirmó a la
+primera.
+
+#### Cierre (comandos, código de salida, resumen)
+
+Sobre el árbol limpio, con las fuentes de CI y el Chromium completo
+(`FOCALRUTA_CHROME=/opt/pw-browsers/chromium`), y sirviendo sólo la raíz pública `dist/`:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en 2d222b8 | 0 | release 450/450 (16 hojas y 6 comparaciones nuevas), axe 80/80, tarjeta 56/56, velocidad 112/112, visual 37/37, óptica 22/22; reportes en b197362 |
+| las cinco suites de `tests/architecture/browser_*.py` en 2d222b8 | 0 | todas en verde |
+| `pytest -q` en b197362 | 0 | 814 pasan, 1 omitida (`test_editorial_contracts.py`: `wiki-tecnicas.html` no usa Schlick) |
+| `pytest tests/architecture -q` | 0 | 344 pasan, 1 omitida (la misma) |
+| `verify_architecture.py` (con el escaneo de privacidad), `verify_release.py` (mínimo de release 450) | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+
+Sin fallos abiertos. Verificación independiente: pendiente; el red team revisa de nuevo PR #21
+con este cambio, y el hilo de comprobación en vivo, tras el despliegue. Fusionar sigue
+necesitando la palabra de Pablo.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -1892,3 +1999,7 @@ sobre PR #21»). Los demás RED se explicaron a la primera.
   sola, 104 ms o menos; un plan, 40 ms o menos. No lo trajo este PR (la tarjeta en el inicio
   viene del paso 3). Queda para el siguiente: medir estos toques en la revisión de velocidad y
   aligerar la apertura.
+- Texto en inglés en las páginas del desafío (aviso del red team): las etiquetas de escena salen
+  del identificador del mecanismo en inglés (`generate_architecture_pages.py`, `scene_cards`),
+  las viñetas de la guía de técnicas de los campos `mechanism` de `learning.json`, y los títulos
+  de video en inglés no llevan `lang="en"`. No lo trajo este PR; queda para el siguiente.
