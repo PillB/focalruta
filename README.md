@@ -38,8 +38,9 @@ reports at the repository root still match the files they audited, byte for byte
   (contrast on gradients is checked at every colour stop)
 - `AXE_ACCESSIBILITY_QA.json` — axe-core on all 39 published pages and the home page's
   offline notice, light phone and dark desktop passes, zero violations
-- `FIELD_CARD_QA.json` — 56 field card checks on a phone: each plan's settings per light,
-  the Lima clock, no JavaScript, print, keyboard, the home page dialog, axe, offline after
+- `FIELD_CARD_QA.json` — 58 field card checks on a phone: each plan's settings per light,
+  the Lima clock, no JavaScript, print, keyboard, the home page dialog, a damaged saved
+  state, axe, offline after
   rehearsed deploys (an upgrade from the worker live at 9cd3044, the HTTP cache Pages
   keeps for 10 minutes), and another camera and lenses
 - `PERF_BUDGET_QA.json` — 112 speed checks: Lighthouse on a simulated phone and slow

@@ -93,8 +93,10 @@ def patch(text: str) -> str:
     text = replace_block(text, CSS_BLOCK, f"{CSS_START}\n{css}\n{MODAL_CSS}\n{CSS_END}", "card styles")
     only_the_card(text)
     text = replace_block(text, r"<!-- FIELD CARD INTEGRATED -->.*?<!-- FIELD CARD INTEGRATED END -->", modal(fragment), "card dialog")
+    # The dialog comes first: if the card's script ever stops, the button still opens the card
+    # (a stored value with a quote once left the dialog's `let` uninitialised, red team 2026-10-20).
     return replace_block(text, r"<!-- FIELD CARD JS START -->.*?<!-- FIELD CARD JS END -->",
-                         f"<!-- FIELD CARD JS START -->\n{js}\n{MODAL_JS}\n<!-- FIELD CARD JS END -->", "card script")
+                         f"<!-- FIELD CARD JS START -->\n{MODAL_JS.strip()}\n{js}\n<!-- FIELD CARD JS END -->", "card script")
 
 
 def main() -> None:

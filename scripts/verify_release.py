@@ -201,8 +201,9 @@ for report_name, minimum_checks in (
     # page's offline notice (M7).
     ("AXE_ACCESSIBILITY_QA.json", 80),
     # 38 for the card itself (V02-V09), 10 for your own gear (V13-V15), and the deploy
-    # rehearsals for V16-V17 in place of the single simulated deploy.
-    ("FIELD_CARD_QA.json", 56),
+    # rehearsals for V16-V17 in place of the single simulated deploy, plus a damaged saved
+    # state on the card and in the home page's dialog (V09).
+    ("FIELD_CARD_QA.json", 58),
     # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin).
     ("PERF_BUDGET_QA.json", 112),
 ):

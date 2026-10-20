@@ -69,7 +69,7 @@
       "timestamped_claims": [
         {
           "timestamp_seconds": 204.08,
-          "claim": "People reveal use and scale; absence can redirect attention to architecture and carry stillness when social evidence remains.",
+          "claim": "Las personas revelan uso y escala; su ausencia puede llevar la atención a la arquitectura y dar quietud si quedan huellas de la vida social.",
           "evidence_status": "TRANSCRIPT_VALIDATED"
         }
       ],
@@ -78,7 +78,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "pkMssQPul9o",
@@ -99,7 +100,7 @@
       "timestamped_claims": [
         {
           "timestamp_seconds": 293.64,
-          "claim": "Read the existing direction, color and contrast of natural and practical light before adding equipment.",
+          "claim": "Lee la dirección, el color y el contraste de la luz natural y de las lámparas del lugar antes de añadir equipo.",
           "evidence_status": "TRANSCRIPT_VALIDATED"
         }
       ],
@@ -108,7 +109,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "kCu_JaxaxX0",
@@ -134,7 +136,7 @@
         },
         {
           "timestamp_seconds": 383.68,
-          "claim": "Architectural lines organize attention only when they lead through the frame toward a deliberate visual destination.",
+          "claim": "Las líneas de la arquitectura ordenan la atención solo cuando atraviesan el encuadre hacia un destino visual elegido.",
           "evidence_status": "TRANSCRIPT_VALIDATED"
         }
       ],
@@ -143,7 +145,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "vu5ohljtB-A",
@@ -167,7 +170,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "mDGEHrv9FyY",
@@ -191,7 +195,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "QmC1GEy6JiA",
@@ -215,7 +220,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "Fh6PIafC8wU",
@@ -246,7 +252,7 @@
         },
         {
           "timestamp_seconds": 258.52,
-          "claim": "A chosen camera position controls foreground, background, edge collisions and the moment that can enter the frame.",
+          "claim": "La posición de cámara que eliges decide el primer plano, el fondo, los choques en los bordes y el momento que puede entrar en el encuadre.",
           "evidence_status": "TRANSCRIPT_VALIDATED"
         }
       ],
@@ -255,7 +261,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "ExElfOqn5B8",
@@ -285,7 +292,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "0H-t9N1hDj0",
@@ -316,7 +324,7 @@
         },
         {
           "timestamp_seconds": 655.92,
-          "claim": "Grids are tools; intention, hierarchy and emotional direction determine whether an arrangement communicates.",
+          "claim": "Las cuadrículas son herramientas; la intención, la jerarquía y la dirección emocional deciden si una disposición comunica.",
           "evidence_status": "TRANSCRIPT_VALIDATED"
         }
       ],
@@ -325,7 +333,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "AuoMaGMBHVg",
@@ -355,7 +364,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "Ub0EGCMs4_U",
@@ -381,7 +391,7 @@
         },
         {
           "timestamp_seconds": 135.92,
-          "claim": "Background luminance, distance, edges and clutter change figure-ground separation and perceived depth.",
+          "claim": "La luminancia, la distancia, los bordes y el desorden del fondo cambian la separación entre figura y fondo y la profundidad percibida.",
           "evidence_status": "TRANSCRIPT_VALIDATED"
         }
       ],
@@ -390,7 +400,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "bpbNNxhEMDg",
@@ -414,7 +425,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "L38beOFz-lM",
@@ -444,7 +456,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "61pRp270Dbc",
@@ -479,7 +492,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "1GZCFDGcOvA",
@@ -503,7 +517,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "LkgbCOYIA-k",
@@ -527,7 +542,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "H1l7mV2y-zI",
@@ -557,7 +573,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "il28la8DRCU",
@@ -581,7 +598,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "bei6n93efWo",
@@ -605,7 +623,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "cBPlq2JdVJc",
@@ -629,7 +648,8 @@
         "agreements": [],
         "disagreements": []
       },
-      "tags": []
+      "tags": [],
+      "title_lang": "en"
     },
     {
       "video_id": "5zjA7yFPLr8",

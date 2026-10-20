@@ -244,6 +244,44 @@ def in_home_dialog(browser, base: str) -> None:
     context.close()
 
 
+# What the card's memory may hold after an older version, an edit by hand or a damaged
+# store: a quote in a stored choice (red team, 2026-10-20), JSON that is not an object, and
+# a list of done shots that is not one.
+DAMAGED_MEMORY = {
+    "a quote in the stored choices": {"plan": 'plan_c"]', "subject": 'dog"', "slot": '"', "slotDay": "x", "done": {}},
+    "a string": "plan_c",
+    "a list": ["plan_c"],
+    "done shots that are a number": {"plan": "plan_c", "done": 5},
+}
+
+
+def damaged_memory(browser, base: str) -> None:
+    """V09: whatever the card finds in its memory, it starts and keeps working, and so does the home page's dialog."""
+    card_broken, home_broken = {}, {}
+    for case, stored in DAMAGED_MEMORY.items():
+        context = browser.new_context(**PHONE)
+        context.add_init_script(f"localStorage.setItem('focalruta-campo-v1', {json.dumps(json.dumps(stored))})")
+        errors: list[str] = []
+        page = open_card(context, base, errors)
+        page.locator("#field-card-app .fc-slot:visible .fc-check-wrap").first.click()
+        kept = page.evaluate("(() => { try { return JSON.parse(localStorage.getItem('focalruta-campo-v1')).done } catch (e) { return String(e) } })()")
+        state = [page.evaluate(CHOSEN, "fc-slot"), page.locator("#fc-count").inner_text(), kept]
+        if errors or not state[0] or state[1] != "1/10" or not isinstance(kept, dict) or len(kept) != 1:
+            card_broken[case] = [state, errors[:2]]
+        home_errors: list[str] = []
+        home = context.new_page()
+        home.on("pageerror", lambda e, sink=home_errors: sink.append(str(e)))
+        home.goto(base + "index.html", wait_until="load")
+        home.locator('button[onclick="openFieldCard()"]:visible').first.click()
+        if home_errors or not home.locator("#field-card-modal").is_visible():
+            home_errors.append(f"dialog visible: {home.locator('#field-card-modal').is_visible()}")
+            home_broken[case] = home_errors[:3]
+        context.close()
+    check(f"damaged memory ({len(DAMAGED_MEMORY)} cases): the card starts, picks the light and saves the next tick",
+          not card_broken, card_broken)
+    check(f"damaged memory ({len(DAMAGED_MEMORY)} cases): the home page's button still opens the card", not home_broken, home_broken)
+
+
 # A01 by day is 35 mm, f/11, 1/125, ISO 400 at 4 m, sharp to infinity. On a
 # Canon APS-C sensor (22.3 mm wide) the same field of view is 35 × 22.3/35.8 =
 # 21.8 mm; the same hyperfocal distance with the circle of confusion scaled to
@@ -541,7 +579,8 @@ def main() -> int:
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
-        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, your_gear, overflow, axe_states):
+        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, damaged_memory, your_gear,
+                     overflow, axe_states):
             guarded(step, browser, base)
         deploys(browser)
         browser.close()
