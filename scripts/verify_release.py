@@ -205,8 +205,9 @@ for report_name, minimum_checks in (
     # state on the card and in the home page's dialog (V09).
     ("FIELD_CARD_QA.json", 58),
     # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin); X06: five taps
-    # on two phone tiers.
-    ("PERF_BUDGET_QA.json", 122),
+    # on two phone tiers, each timed to its answer and to what it was for, after the
+    # instrument's own check that it sees content put off.
+    ("PERF_BUDGET_QA.json", 133),
 ):
     check_evidence(report_name, minimum_checks)
 

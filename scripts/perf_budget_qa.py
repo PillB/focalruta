@@ -17,7 +17,8 @@ reader opens tells a third party they did.
 
 After the loads, the taps a reader makes most (opening the field card, a shot's
 detail, picking a plan or a light, ticking a shot) are held to INP's marks on a
-mid-tier and a low-tier phone (X06, `interaction_budget.py`).
+mid-tier and a low-tier phone, for the first paint and for what each tap was for
+(X06, `interaction_budget.py`).
 
 FocalRuta_STANDALONE.html is left out on purpose: it is the 15 MB offline copy
 a reader downloads once, with every diagram inside, not a page anyone browses.

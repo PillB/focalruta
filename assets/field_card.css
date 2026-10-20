@@ -2,9 +2,13 @@
    V03: no text under 12 px. Every control is at least 44 × 44 px and the section
    bar sits under the thumb on phones. Three palettes: day, dark (follows the
    system) and the night screen, red on black, which keeps dark-adapted eyes
-   and long exposures free of screen glare. */
+   and long exposures free of screen glare.
+   The device's own interface font, as on the rest of the site: system-ui is San
+   Francisco on Apple, Roboto on most Androids and Segoe UI on Windows, the fonts the
+   names after it ask for. Asked for first, it also spares Linux a slow lookup for each
+   of those names it does not have. */
 .fc-app{--fc-bg:#f4f1e9;--fc-card:#fff;--fc-ink:#0b1724;--fc-muted:#334155;--fc-line:#94a3b8;--fc-accent:#0b3a53;--fc-on-accent:#fff;--fc-ok:#065f46;--fc-ok-bg:#ecfdf5;--fc-chip:#e2e8f0;--fc-nd-bg:#fef3c7;--fc-nd:#78350f;--fc-off-bg:#fee2e2;--fc-off:#991b1b;--fc-hero:#061827;--fc-hero-ink:#f8fafc;--fc-hero-muted:#cbd5e1;--fc-focus:#b45309;
-  max-width:760px;margin:0 auto;padding:12px 12px calc(150px + env(safe-area-inset-bottom));color:var(--fc-ink);background:var(--fc-bg);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;box-sizing:border-box}
+  max-width:760px;margin:0 auto;padding:12px 12px calc(150px + env(safe-area-inset-bottom));color:var(--fc-ink);background:var(--fc-bg);font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;box-sizing:border-box}
 @media(prefers-color-scheme:dark){.fc-app{--fc-bg:#0b1220;--fc-card:#131c2e;--fc-ink:#f1f5f9;--fc-muted:#cbd5e1;--fc-line:#475569;--fc-accent:#fde047;--fc-on-accent:#111827;--fc-ok:#6ee7b7;--fc-ok-bg:#052e1f;--fc-chip:#1e293b;--fc-nd-bg:#422006;--fc-nd:#fde68a;--fc-off-bg:#450a0a;--fc-off:#fecaca;--fc-hero:#020617;--fc-focus:#fde047}}
 .fc-app:has(#fc-night:checked){--fc-bg:#000;--fc-card:#0a0000;--fc-ink:#ff6b5e;--fc-muted:#f0645a;--fc-line:#4a1410;--fc-accent:#ff6b5e;--fc-on-accent:#000;--fc-ok:#ff8a7a;--fc-ok-bg:#140302;--fc-chip:#1a0503;--fc-nd-bg:#1a0503;--fc-nd:#ff8a7a;--fc-off-bg:#1a0503;--fc-off:#ffa196;--fc-hero:#000;--fc-hero-ink:#ff6b5e;--fc-hero-muted:#f0645a;--fc-focus:#ff6b5e}
 .fc-app *,.fc-app *::before,.fc-app *::after{box-sizing:border-box}
@@ -78,7 +82,9 @@
 .fc-pack{display:none;list-style:none;padding:12px;margin-top:12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);font-size:15px}.fc-pack li{margin:4px 0}
 .fc-h3{margin-top:18px!important;font-size:17px;font-weight:800}.fc-body-text{margin-top:8px;font-size:15px}
 
-.fc-tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin:0;padding:6px 6px calc(6px + env(safe-area-inset-bottom));border:0;border-top:1.5px solid var(--fc-line);background:var(--fc-card);min-width:0}
+/* Equal tabs, except that none is narrower than its word: a wider system font widens
+   «Encuadre» a little instead of cutting it at 320 px. */
+.fc-tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:0;padding:6px 6px calc(6px + env(safe-area-inset-bottom));border:0;border-top:1.5px solid var(--fc-line);background:var(--fc-card);min-width:0}
 .fc-tab{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;border-radius:12px;font-size:12px;font-weight:800;color:var(--fc-muted);cursor:pointer}
 .fc-tab span[aria-hidden]{font-size:19px;line-height:1}
 .fc-tab:has(input:checked){background:var(--fc-chip);color:var(--fc-ink)}

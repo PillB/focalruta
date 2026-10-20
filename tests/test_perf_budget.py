@@ -230,14 +230,44 @@ def test_x06_a_tap_at_its_budget_passes_and_just_over_fails():
         _result, missing = interaction_budget.judge("index.html", "open the field card", _tier, budget, [10, None, 10, 10, 10])
         assert (missing["pass"], missing["detail"]) == (False, "nothing to tap")
         assert over["name"] == f"index.html: open the field card answers within {budget} ms on a {_tier}"
+        _result, unseen = interaction_budget.judge("index.html", "open the field card", _tier, budget, [10, None, 10, 10, 10],
+                                                   "shows the card's plans", "not on screen in time")
+        assert unseen == {"name": f"index.html: open the field card shows the card's plans within {budget} ms on a {_tier}",
+                          "pass": False, "detail": "not on screen in time"}
     assert [budget for _tier, _target, budget in interaction_budget.TIERS] == [200, 500]
+
+
+def test_x06_a_tap_that_answers_at_once_but_shows_its_content_late_fails(monkeypatch):
+    """The red team's case: the first frame comes fast and the content 800 ms later. The answer
+    passes and what the tap was for fails; content that never shows fails by name."""
+    monkeypatch.setattr(interaction_budget, "sees_deferred_work", lambda browser: {"name": "instrument", "pass": True, "detail": {}})
+    monkeypatch.setattr(interaction_budget, "calibrate", lambda browser: {"host_benchmark_index": 2000,
+                                                                          "rates": {"mid-tier phone": 2.0, "low-tier phone": 7.5}})
+    taps = {"open the field card": (40, 840), "pick another plan": (40, None)}
+
+    def tap_once(browser, url, selector, shows, rate):
+        action = next(action for _p, action, tapped, _s, _w in interaction_budget.INTERACTIONS if tapped == selector)
+        return taps.get(action, (40, 60))
+
+    monkeypatch.setattr(interaction_budget, "tap_once", tap_once)
+    report, checks = interaction_budget.measure(None, "http://x/", {"index.html", "field_card.html"})
+    failed = {check["name"]: check["detail"] for check in checks if not check["pass"]}
+    assert failed == {f"index.html: open the field card shows the card's plans within {budget} ms on a {tier}": 840
+                      for tier, _target, budget in interaction_budget.TIERS} | {
+                     f"field_card.html: pick another plan shows the plan's name within {budget} ms on a {tier}": "not on screen in time"
+                     for tier, _target, budget in interaction_budget.TIERS}
+    assert len(checks) == 1 + 2 * len(interaction_budget.TIERS) * len(interaction_budget.INTERACTIONS)
+    assert checks[0]["name"] == "instrument" and len(report["results"]) == len(checks) - 1
 
 
 def test_x06_every_tap_is_on_a_page_the_budget_serves_and_is_there_to_tap():
     pages = {page for page, _kind, _kb in perf_budget_qa.PAGES}
+    # What each tap presses, and what it is for, as the published page spells it.
     marks = {"openFieldCard()": "index.html", "Abrir detalle ampliado": "index.html", "fc-plans": "field_card.html",
-             "fc-slots": "field_card.html", "fc-check-wrap": "field_card.html"}
-    for page, _action, _selector in interaction_budget.INTERACTIONS:
+             "fc-slots": "field_card.html", "fc-check-wrap": "field_card.html",
+             'class="fc-option"': "index.html", "reasoning-block": "index.html", 'class="fc-plan-name" data-plan="plan_b"': "field_card.html",
+             'data-slot="night"': "field_card.html", 'class="fc-box"': "field_card.html"}
+    for page, _action, _selector, _shows, _what in interaction_budget.INTERACTIONS:
         assert page in pages
     for mark, page in marks.items():
-        assert mark in (DIST / page).read_text(encoding="utf-8")
+        assert mark in (DIST / page).read_text(encoding="utf-8"), mark
