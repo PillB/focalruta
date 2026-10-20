@@ -2208,8 +2208,8 @@
       "detail": [
         "Sin conexión: el plan C no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:46045/plans/plan_c.html",
-          "http://127.0.0.1:46045/field_card.html"
+          "http://127.0.0.1:41167/plans/plan_c.html",
+          "http://127.0.0.1:41167/field_card.html"
         ]
       ]
     },
@@ -2240,8 +2240,8 @@
       "detail": [
         "Sin conexión: la página «wiki-tecnicas» no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:46045/challenges/arquitectura-en-foco/wiki-tecnicas.html",
-          "http://127.0.0.1:46045/field_card.html"
+          "http://127.0.0.1:41167/challenges/arquitectura-en-foco/wiki-tecnicas.html",
+          "http://127.0.0.1:41167/field_card.html"
         ]
       ]
     },
@@ -2260,24 +2260,24 @@
       "name": "error log: a thrown error and a rejected promise send no request",
       "pass": true,
       "detail": [
-        "GET http://127.0.0.1:40909/",
-        "GET http://127.0.0.1:40909/assets/hosted.css?v=aa2a1bf3d385",
-        "GET http://127.0.0.1:40909/data/plans_embedded.js?v=760318475bf5",
-        "GET http://127.0.0.1:40909/assets/app-icon.svg"
+        "GET http://127.0.0.1:39851/",
+        "GET http://127.0.0.1:39851/assets/hosted.css?v=46696bc78cda",
+        "GET http://127.0.0.1:39851/data/plans_embedded.js?v=760318475bf5",
+        "GET http://127.0.0.1:39851/assets/app-icon.svg"
       ]
     },
     {
       "name": "error log: the home page lists both, with the page they came from",
       "pass": true,
       "detail": [
-        "1 vez · 2026-10-20 17:50Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
-        "1 vez · 2026-10-20 17:50Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
+        "1 vez · 2026-10-20 19:26Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
+        "1 vez · 2026-10-20 19:26Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
       ]
     },
     {
       "name": "error log: no query string, fragment or browser identity is kept",
       "pass": true,
-      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-20T17:50Z\",\"last\":\"2026-10-20T17:50Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-20T17:50Z\",\"last\":\"2026-10-20T17:50Z\"}]"
+      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-20T19:26Z\",\"last\":\"2026-10-20T19:26Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-20T19:26Z\",\"last\":\"2026-10-20T19:26Z\"}]"
     },
     {
       "name": "error log: the report link carries the log to a new GitHub issue",
@@ -2297,7 +2297,7 @@
       "pass": true,
       "detail": [
         "Selecciona y copia el texto",
-        "1 vez · 2026-10-20 17:50Z · Promesa rechazada · promesa de prueba · en /plans/pl"
+        "1 vez · 2026-10-20 19:26Z · Promesa rechazada · promesa de prueba · en /plans/pl"
       ]
     },
     {
@@ -2464,13 +2464,13 @@
       "detail": []
     }
   ],
-  "audited_at": "2026-10-20T17:50:37.511181+00:00",
-  "audited_commit": "9d76947ba4b209fb3bfa3ad40478f0f564493d09",
+  "audited_at": "2026-10-20T19:26:32.772287+00:00",
+  "audited_commit": "46f04dbd2a37681bb0c1e51c1f33620fe633f97a",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
     "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
-    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "695525f160f97e07f69e357a6a3055c380a249c0cdeb7f773a77331f7105c57c",
-    "dist/canon6d_sota_hosted/assets/hosted.css": "aa2a1bf3d3853c3d215cd2be0bbca34872cb609d4fdd07f5c0ea023d9131003b",
+    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "ea2e2963b6dffc58662365803544e44226dd4d790f26033090800f112b65bb2a",
+    "dist/canon6d_sota_hosted/assets/hosted.css": "46696bc78cdac539b6c0e3fbee10c39a3534a5f30ff9e25559ce248aab30397e",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "986b21b3e98a22d42b353525da523348076a7613154a33b03c3cbcab2144de19",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "f8204b380b8d2bb3a1200aaae544a2d02c3290d195fff9421bfeb81d02959c3b",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/iphone-maps.html": "3af624a6bf9699d8a4c3be805a6848300201715881660b8bf220b917f5e7abf7",
@@ -2500,17 +2500,17 @@
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html": "fef1da0075298e0b98be8ad6320c7a12c3b4f33a7e6e38a0378f718fd9937384",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "ee1783c839181086e47e55a50586e167442c5685752e14af1f9b318599a36eea",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "3ebce15997a8348993d8d8a1080696939dc94d885e0199ebe1973c2ea9cce311",
-    "dist/canon6d_sota_hosted/field_card.html": "af9c7389a8c8db32cc2cd1e452382a614a0f57c3775ebb8dc3fe96dec0e7f986",
-    "dist/canon6d_sota_hosted/index.html": "3a42db5b292860a2e3730706b08bad06f0f3bbb9d3570f381e42c438ce8dc8f7",
+    "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
+    "dist/canon6d_sota_hosted/index.html": "c546f8c8aac5452298863ee47e5aa2b881a70d004158f9511a2c17b63ec5ae71",
     "dist/canon6d_sota_hosted/plans/plan_a.html": "3779c96ad803310d3102e9d82d23605cfd0c2ebff677fd83b8e187b589337d9e",
     "dist/canon6d_sota_hosted/plans/plan_b.html": "729d77140fe91bdfb51c3b5d2c938604a9f603dffc08ff7e2b775c04641d0a7a",
     "dist/canon6d_sota_hosted/plans/plan_c.html": "0f6c9e786e885f14df86508f3b03eb6c16c0a7c2c2b2e69c28e3af0af1e30040",
     "dist/canon6d_sota_hosted/plans/plan_d.html": "0a6c9f6e51199454040aa7324e8a82dbd7cc889bccb280aee1e31965da2a7dac",
     "dist/canon6d_sota_hosted/plans/plan_e.html": "396b51c5e7753a24a70aa2a55e7cbd464d218d42a9cba33188106a8184cd8a6f",
     "dist/canon6d_sota_hosted/plans/plan_f.html": "9b9d1d467c554538b6acb6cf01e62ae84e8023a443862560e9b00fb60347a4ff",
-    "dist/canon6d_sota_hosted/sw.js": "f42506b9579be0559964d058833d156e8d410aa700fbdd24c33968e6b71e8e8c",
-    "field_card.html": "af9c7389a8c8db32cc2cd1e452382a614a0f57c3775ebb8dc3fe96dec0e7f986",
-    "index.html": "695525f160f97e07f69e357a6a3055c380a249c0cdeb7f773a77331f7105c57c",
+    "dist/canon6d_sota_hosted/sw.js": "b484cd64606c831a5756f7b6541e3fed811f52edae04513cefbc6e692cdc856b",
+    "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
+    "index.html": "ea2e2963b6dffc58662365803544e44226dd4d790f26033090800f112b65bb2a",
     "plans/plan_a.html": "6a7b6da80b96aea1740891068727faee30829f3da34d47b27b8d376c48ed3d26",
     "plans/plan_b.html": "9809bc8cc15bfc98434a9445ac7c610c8d38cf582d24889d22e507e88bdec02d",
     "plans/plan_c.html": "15e1dbb94c22b687f967a91d33650f346acf1a83fd914ecba3feaf3f94388c13",
