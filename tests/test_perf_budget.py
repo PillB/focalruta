@@ -241,6 +241,7 @@ def test_x06_a_tap_that_answers_at_once_but_shows_its_content_late_fails(monkeyp
     """The red team's case: the first frame comes fast and the content 800 ms later. The answer
     passes and what the tap was for fails; content that never shows fails by name."""
     monkeypatch.setattr(interaction_budget, "sees_deferred_work", lambda browser: {"name": "instrument", "pass": True, "detail": {}})
+    monkeypatch.setattr(interaction_budget, "finds_every_target", lambda browser, base: {"name": "targets", "pass": True, "detail": []})
     monkeypatch.setattr(interaction_budget, "calibrate", lambda browser: {"host_benchmark_index": 2000,
                                                                           "rates": {"mid-tier phone": 2.0, "low-tier phone": 7.5}})
     taps = {"open the field card": (40, 840), "open the field card at tablet width": (40, 900), "pick another plan": (40, None)}
@@ -259,8 +260,57 @@ def test_x06_a_tap_that_answers_at_once_but_shows_its_content_late_fails(monkeyp
                      for tier, _target, budget in interaction_budget.TIERS} | {
                      f"field_card.html: pick another plan shows the plan's name within {budget} ms on a {tier}": "not on screen in time"
                      for tier, _target, budget in interaction_budget.TIERS}
-    assert len(checks) == 1 + 2 * len(interaction_budget.TIERS) * len(interaction_budget.INTERACTIONS)
-    assert checks[0]["name"] == "instrument" and len(report["results"]) == len(checks) - 1
+    assert len(checks) == 2 + 2 * len(interaction_budget.TIERS) * len(interaction_budget.INTERACTIONS)
+    assert [check["name"] for check in checks[:2]] == ["instrument", "targets"] and len(report["results"]) == len(checks) - 2
+
+
+class Lit:
+    """A field card that shows, in each light, only the tick for that light: the first tick of
+    a shot is the day's."""
+
+    def __init__(self):
+        self.light, self.clicked = "day", []
+
+    def new_context(self, **_options):
+        return self
+
+    def new_page(self):
+        return self
+
+    def goto(self, *_args, **_kwargs):
+        pass
+
+    def close(self):
+        pass
+
+    def locator(self, selector):
+        self.selector = selector
+        return self
+
+    @property
+    def first(self):
+        return self
+
+    def click(self):
+        self.light = self.selector.split('value="')[1].split('"')[0]
+        self.clicked.append(self.light)
+
+    def is_visible(self):
+        if self.selector == ".fc-shot:visible .fc-check-wrap":
+            return self.light == "day"
+        return True
+
+
+def test_x06_a_tap_that_finds_its_target_only_in_daylight_fails_by_light(monkeypatch):
+    """The card opens in the light Lima's clock says; the tick tap must find a tick in each."""
+    card = Lit()
+    assert interaction_budget.finds_every_target(card, "http://x/")["pass"]
+    assert card.clicked == list(interaction_budget.LIGHTS)
+    monkeypatch.setattr(interaction_budget, "INTERACTIONS", tuple(
+        (page, action, ".fc-shot:visible .fc-check-wrap" if action == "tick a shot" else selector, *rest)
+        for page, action, selector, *rest in interaction_budget.INTERACTIONS))
+    check = interaction_budget.finds_every_target(Lit(), "http://x/")
+    assert not check["pass"] and check["detail"] == ["tick a shot in the afternoon light", "tick a shot in the night light"]
 
 
 def test_x06_every_tap_is_on_a_page_the_budget_serves_and_is_there_to_tap():

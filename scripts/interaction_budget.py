@@ -21,7 +21,8 @@ is for (web.dev/articles/optimize-inp). That later frame is still part of the wa
 each tap also names what the reader tapped for, and the time until it is on screen,
 from Element Timing (which, like Event Timing, ends when the frame is shown), is held
 to the same marks. Before any page is tapped, the check taps a page built to answer at
-once and show its content 300 ms later, and must see both.
+once and show its content 300 ms later, and must see both; and on the field card, in each
+light it can open in, every tap must find something on screen to tap.
 """
 from __future__ import annotations
 
@@ -51,8 +52,12 @@ INTERACTIONS = (
      '.fc-plan-name[data-plan="{value}"]', "the plan's name", PHONE),
     ("field_card.html", "pick another light", '.fc-slots label:has(input:not(:checked))',
      '.fc-slot[data-slot="{value}"]', "the settings for that light", PHONE),
-    ("field_card.html", "tick a shot", '.fc-shot:visible .fc-check-wrap', ".fc-check:checked + .fc-box", "the tick", PHONE),
+    ("field_card.html", "tick a shot", '.fc-shot:visible .fc-check-wrap:visible', ".fc-check:checked + .fc-box", "the tick", PHONE),
 )
+# The lights the field card can open in. It opens in the one Lima's clock says, and each shot
+# holds a tick for every light with only the current one shown, so a tap that finds its target
+# only in daylight fails every evening (from 18:00 in Lima, found 2026-10-20 at 18:40).
+LIGHTS = ("day", "afternoon", "night")
 
 # Lighthouse's BenchmarkIndex with a duration, as DevTools runs it (250 ms a run).
 BENCHMARK = """(duration) => { const half = duration / 2;
@@ -103,6 +108,24 @@ def sees_deferred_work(browser) -> dict:
     seen = answered is not None and shown is not None and answered < DEFERRED_MS <= shown
     return {"name": f"the tap check sees content a page puts off by {DEFERRED_MS} ms", "pass": seen,
             "detail": {"answered_ms": answered, "shown_ms": shown}}
+
+
+def finds_every_target(browser, base: str) -> dict:
+    """The instrument's other check: on the field card, in every light it can open in, each tap
+    has something on screen to tap."""
+    context = browser.new_context(**PHONE, is_mobile=True, has_touch=True)
+    try:
+        page = context.new_page()
+        page.goto(base + "field_card.html", wait_until="load")
+        missing = []
+        for light in LIGHTS:
+            page.locator(f'.fc-slots label:has(input[value="{light}"])').click()
+            missing += [f"{action} in the {light} light" for at, action, selector, *_rest in INTERACTIONS
+                        if at == "field_card.html" and not page.locator(selector).first.is_visible()]
+    finally:
+        context.close()
+    return {"name": "every tap on the field card finds what it taps in every light the card opens in",
+            "pass": not missing, "detail": missing}
 
 
 def calibrate(browser) -> dict:
@@ -190,7 +213,10 @@ def measure(browser, base: str, pages: set[str]) -> tuple[dict, list[dict]]:
     """Every interaction on every tier, median of RUNS fresh visits: one check for the answer to
     the tap and one for what it was for."""
     checks = [sees_deferred_work(browser)]
-    print(f"{checks[0]['name']}: {checks[0]['detail']}", flush=True)
+    if "field_card.html" in pages:
+        checks.append(finds_every_target(browser, base))
+    for check in checks:
+        print(f"{check['name']}: {check['detail']}", flush=True)
     calibration = calibrate(browser)
     results = []
     for page, action, selector, shows, what, screen in INTERACTIONS:
