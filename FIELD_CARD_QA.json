@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 62,
+  "checks": 63,
   "failures": [],
   "results": [
     {
@@ -256,12 +256,30 @@
       "detail": null
     },
     {
-      "name": "home page dialog: closed after a resize hides its opener, focus goes to an opener on the page",
+      "name": "home page dialog: closed after a resize from 390 to 1280 px hides its opener, focus goes to an opener on the page and the page stays where it was",
       "pass": true,
-      "detail": [
-        "openFieldCard()",
-        true
-      ]
+      "detail": {
+        "focus": [
+          "openFieldCard()",
+          true,
+          false,
+          2530
+        ],
+        "scroll before": 2530
+      }
+    },
+    {
+      "name": "home page dialog: closed after a resize from 1280 to 600 px hides its opener, focus goes to an opener on the page and the page stays where it was",
+      "pass": true,
+      "detail": {
+        "focus": [
+          "openFieldCard()",
+          true,
+          true,
+          2400
+        ],
+        "scroll before": 2400
+      }
     },
     {
       "name": "damaged memory (4 cases): the card starts, picks the light and saves the next tick",
@@ -429,13 +447,13 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-20T21:30:22.604435+00:00",
-  "audited_commit": "d40bf8fd65a289d9d14762d10bb17b15eea5bde2",
+  "audited_at": "2026-10-20T21:58:19.248021+00:00",
+  "audited_commit": "ba38fce1d76db93dd1bbb4ac0bad3c96a1cc8166",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
     "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "e099c9323eba096e76087e09caa3a4dff9b0a4421e8b7d45c63e5e4cedb70f88",
-    "dist/canon6d_sota_hosted/sw.js": "b901f65f13d7f47bb2b80147f247ad251e4dee6bced0bc6559c60872b3c7635a",
+    "dist/canon6d_sota_hosted/index.html": "7ff87f5043724ceb068c293df541619f93dc5ee169b2b405fb259fb132c26708",
+    "dist/canon6d_sota_hosted/sw.js": "76fee15647aee420aba5cb93233292d976a72966fda239cd12322f9582d76777",
     "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
