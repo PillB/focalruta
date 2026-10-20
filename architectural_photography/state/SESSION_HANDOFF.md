@@ -2257,7 +2257,29 @@ Timing y RAIL se consultaron antes de fijar la medición y las marcas.
 
 El CI de 9e2d121 (corrida 39472882922) pasó sus ocho trabajos antes de este arreglo.
 
-Verificación independiente de R1: pendiente; se pide al red team sobre 46f04db.
+Verificación independiente de R1: el red team la repitió sobre 2504c13 con sus propias pruebas
+(`qa/FINDINGS_PR22.md`, «Recheck at 2504c13») y cerró R1; el PR pasa.
+
+- Sin mutante, X06 da 40–64 ms la respuesta y 66–93 ms los planes, sin limitar la CPU. Con su
+  mutante de R1, 32–40 y 849–854 ms, y falla. Con 800 ms justo antes de mostrar los planes, 40
+  y 860 ms, y falla. La comprobación propia da 16 y 318 ms.
+- No hay lectura temprana: los planes están dentro del panel aplazado. Retrasar los planes
+  mueve «en pantalla» y deja «responde» igual.
+- En su calibración (1.69× y 5.92×), los planes llegan a 107–139 ms en gama media y a 289–529
+  ms en gama baja, con mediana 345, frente a 352–473 en 9e2d121 y 392–465 en main. Una de cinco
+  visitas pasó de 500; X06 juzga la mediana, así que espera un fallo raro en CI, no uno fijo.
+- Con `system-ui` (Inter allí) y las pestañas nuevas no hay desplazamiento horizontal ni texto
+  cortado a 280, 320 y 360 px. main cortaba «Técnicas» y «Encuadre» a 280. Los anillos de foco
+  y «Siguiente toma» siguen bien.
+
+Notas nuevas, no bloqueantes:
+
+- N4: el paso de las tomas no se mide. 800 ms antes de mostrarlas pasa X06 (47–61 ms), porque
+  sólo se miden los planes. A 390×844 da igual: la primera toma empieza a 950 px, bajo la
+  pantalla. Pero asoma a 412×915 (4 px), 430×932 (78 px), 768×1024 (264 px) y 1440×900 (50 px),
+  y allí un paso lento de las tomas no se vería.
+- N5: «en pantalla» toma el primer objetivo que se pinta. Si un cambio mostrara un plan antes
+  y los demás tarde, pasaría. Hoy los planes se muestran juntos.
 
 ### Pendiente
 
@@ -2276,3 +2298,6 @@ Verificación independiente de R1: pendiente; se pide al red team sobre 46f04db.
   cuadro o restilar menos página al volverla `inert`.
 - Tras los planes queda la tarea de las tomas, 67–112 ms en gama baja: un toque en ese hueco
   la espera (N2 del red team).
+- N4 y N5 del red team (arriba): medir también la primera toma al abrir la tarjeta en una
+  pantalla donde ya se ve, y que «en pantalla» espere a todos los planes y no al primero. Es
+  una brecha de la medición, no de lo que ve el lector.
