@@ -2281,6 +2281,111 @@ Notas nuevas, no bloqueantes:
 - N5: «en pantalla» toma el primer objetivo que se pinta. Si un cambio mostrara un plan antes
   y los demás tarde, pasaría. Hoy los planes se muestran juntos.
 
+### N4 del red team: la primera toma a ancho de tableta, y la página de atrás sin dibujar
+
+N4 decía que el paso de las tomas no se medía: X06 sólo miraba los planes, y 800 ms antes de
+mostrar las tomas pasaban. Pablo aún no ha decidido si PR #22 se fusiona antes. Este trabajo
+está en commits locales sobre be41f3e (48bfd4d, 11e9484 y los reportes en 892ec8b) y va donde
+él decida.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X06 (N4) | Abrir la tarjeta a 768×1024, donde la primera toma ya se ve al abrir, responde y muestra esa toma dentro de las mismas marcas | el X06 de be41f3e sobre el mutante de N4 (800 ms antes de quitar `fc-modal-later`): 9/9 pasan. Las dos pruebas unitarias de X06 que se ampliaron fallan contra el módulo anterior | el X06 nuevo falla ese mutante: la primera toma a 922 ms en gama media y 1270 en gama baja, mientras la respuesta pasa (80 y 264). En el build real, 148 y 384 ms. `PERF_BUDGET_QA.json` sobre 11e9484: 137/137 |
+| X06 (página de atrás) | Por debajo de 900 px, con la tarjeta abierta, la página de atrás no se dibuja; vuelve donde estaba, se imprime y a 1280 px sigue dibujada | sobre 46f04db, «no se dibuja y vuelve donde estaba» falla: se dibuja (`[True, 2400]` abierta). Imprimir y 1280 px pasan | 61/61 en `FIELD_CARD_QA.json`. Sin `screen` en la regla, falla «imprimir con la tarjeta abierta imprime la página». Sin `contain-intrinsic-size:auto none`, falla la primera: la página vuelve a 0 en vez de 2400 |
+
+**Por qué se cambió el producto y no sólo la medición.** Con la primera toma medida, en
+48bfd4d quedó a 384–477 ms de mediana en gama baja, según la calibración, y 2 o 3 de cada 5–7
+visitas pasaban de 500. Así el control habría fallado en CI de vez en cuando.
+
+La traza a 768×1024 y 7.57× dio:
+
+- La tarea del toque costaba 209–239 ms. De ellos, 80–123 eran de estilo para 365 elementos
+  (la página al volverse `inert`) y 85–91 de diseño.
+- Los planes costaban unos 100 ms.
+- Las tomas costaban otros 100 ms, en dos pasadas por `content-visibility:auto`.
+
+Variantes a 7.04×, siete visitas alternadas, primera toma en gama baja:
+
+| Variante | Primera toma |
+|---|---|
+| tal cual | 477 ms |
+| planes y tomas en el mismo paso | 439 ms |
+| sin `inert` (diagnóstico, no se envía) | 391 ms |
+
+A 6.83×:
+
+| Variante | Primera toma en tableta | Planes en el teléfono |
+|---|---|---|
+| tal cual | 404 ms | 318 ms |
+| página de atrás oculta | 348 ms | 252 ms |
+| oculta, y planes y tomas en el mismo paso | 304 ms | 270 ms |
+
+Se eligió sólo ocultar. Juntar planes y tomas empeora el teléfono y deshace lo que R1 separó.
+
+**El cambio.** La tarjeta cubre toda la pantalla por debajo de 900 px, así que mientras está
+abierta los hijos de `body` salvo el diálogo llevan `content-visibility:hidden`. Siguen
+`inert`. Las reglas en `scripts/integrate_field_card.py` son:
+
+- `:where(body>*){contain-intrinsic-size:auto none}`: cada parte recuerda su último tamaño, sin
+  especificidad para no pisar ninguna regla;
+- `@media screen and (max-width:899px)`: imprimir con la tarjeta abierta imprime la página.
+
+**Lado a lado** (46f04db contra 11e9484, una calibración por fila, siete visitas alternadas):
+
+| Toque | Antes (gama media / baja) | Después (gama media / baja) |
+|---|---|---|
+| abrir la tarjeta en un teléfono: responde | 56 / 240 ms | 48 / 168 ms |
+| abrir la tarjeta en un teléfono: planes en pantalla | 91 / 339 ms | 80 / 235 ms |
+| abrir a 768×1024: responde | 80 / 248 ms | 64 / 192 ms |
+| abrir a 768×1024: primera toma en pantalla | 146 / 405 ms | 107 / 362 ms |
+| cerrar en un teléfono | 24 / 80 ms | 24 / 104 ms |
+| cerrar a 768×1024 | 32 / 112 ms | 32 / 112 ms |
+
+Las calibraciones fueron de 1.88 a 2.09× y de 7.42 a 7.72×. Tras cerrar, la página siguió
+en 2400 en todas las visitas. En `PERF_BUDGET_QA.json` sobre 11e9484, con una calibración más
+lenta (1.65× y 8.18×):
+
+- abrir la tarjeta responde a 40 y 176 ms y muestra los planes a 62 y 283;
+- a ancho de tableta responde a 48 y 216 y muestra la primera toma a 95 y 409 (como máximo
+  480).
+
+**Compromisos explícitos (N4)**
+
+- Cerrar la tarjeta en un teléfono de gama baja cuesta algo más: 104 ms en vez de 80, porque
+  la página de atrás se vuelve a dibujar. Sigue dentro de «bueno».
+- A ancho de tableta en gama baja, la primera toma queda a 362–409 ms de mediana: un margen
+  del 18–28 % hasta 500. Una calibración lenta puede acercarla. El control juzga la mediana.
+- La tableta se mide con la CPU de los teléfonos de referencia, no con la de una tableta.
+- Por debajo de 900 px, con la tarjeta abierta, la página de atrás no se dibuja. No se ve,
+  porque la tarjeta la cubre, y ya era `inert`. Safari anterior a 18 no conoce
+  `content-visibility` y se queda como antes.
+- N5 no se construye. Que «en pantalla» espere a todos los planes exige saber cuáles
+  aparecerán, y eso sólo se sabe esperando una ventana fija en cada toque. Hoy los planes se
+  muestran juntos con una sola clase.
+
+**Referencias**
+
+- CSS Containment 2: `content-visibility:hidden` salta el estilo, el diseño y la pintura del
+  contenido.
+- CSS Box Sizing 4: el «último tamaño recordado» con `contain-intrinsic-size:auto`.
+- web.dev, «content-visibility: the new CSS property that boosts your rendering
+  performance».
+
+Escalada de investigación: no se activó; ninguna hipótesis de arreglo falló.
+
+**Cierre de N4** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en 11e9484 | 0 | release 450/450, axe 80/80, tarjeta 61/61, velocidad 137/137, visual 37/37, óptica 22/22; reportes en 892ec8b |
+| las cinco suites de `tests/architecture/browser_*.py` en 11e9484 | 0 | todas en verde |
+| `pytest -q` en 892ec8b | 0 | 897 pasan, 1 omitida (la misma) |
+| `verify_release.py` (tarjeta 61, velocidad 137), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+
+Verificación independiente de N4: pendiente; se pedirá al red team.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -2292,12 +2397,10 @@ Notas nuevas, no bloqueantes:
 - Los minutos de CI de las suites de navegador se miden en el primer PR que las corre.
 - Si el ensayo de la tarjeta vuelve a fallar en CI, el mensaje «never took over in 60 s; the
   active one says …» dice si el worker nuevo llegó a instalarse.
-- Abrir la tarjeta de campo desde el inicio en un teléfono de gama baja calibrado: la primera
-  pintura a 192–280 ms y los planes a 273–395 ms (46f04db), dentro de «nunca malo» pero sobre
-  «bueno» (ronda 17, X06 y R1). Bajarlo de 200 pediría dibujar menos de la tarjeta en el primer
-  cuadro o restilar menos página al volverla `inert`.
+- Abrir la tarjeta de campo desde el inicio en un teléfono de gama baja calibrado: tras N4
+  responde a 168–176 ms y muestra los planes a 235–283 ms (11e9484). Los planes siguen sobre
+  «bueno» y dentro de «nunca malo».
 - Tras los planes queda la tarea de las tomas, 67–112 ms en gama baja: un toque en ese hueco
   la espera (N2 del red team).
-- N4 y N5 del red team (arriba): medir también la primera toma al abrir la tarjeta en una
-  pantalla donde ya se ve, y que «en pantalla» espere a todos los planes y no al primero. Es
-  una brecha de la medición, no de lo que ve el lector.
+- N4 se resolvió en commits locales (arriba), pendientes de la decisión de Pablo sobre PR #22
+  y de la verificación del red team. N5 queda como límite declarado de la medición.
