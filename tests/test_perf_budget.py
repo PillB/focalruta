@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import deploy_rehearsal  # noqa: E402
+import interaction_budget  # noqa: E402
 import perf_budget_qa  # noqa: E402
 import static_server  # noqa: E402
 
@@ -199,6 +200,7 @@ def test_x02_another_build_is_fingerprinted_as_itself_and_an_unknown_page_is_nam
                                                                             "other_origins": [],
                                                                             **{name: 0 for name, _b, _u in perf_budget_qa.TIMING_BUDGETS}})
     monkeypatch.setattr(perf_budget_qa.evidence, "write_report", lambda path, report, audited: written.update(audited=list(audited)))
+    monkeypatch.setattr(perf_budget_qa, "measure_taps", lambda base, only: ({}, []))
     monkeypatch.setattr(sys, "argv", ["perf_budget_qa.py", "--dist", str(other), "--only", "index.html", "--report", str(tmp_path / "r.json")])
     perf_budget_qa.main()
     assert written["audited"] and all(Path(path).is_relative_to(other) for path in written["audited"]), written["audited"][:2]
@@ -206,3 +208,36 @@ def test_x02_another_build_is_fingerprinted_as_itself_and_an_unknown_page_is_nam
     with pytest.raises(SystemExit) as stopped:
         perf_budget_qa.main()
     assert stopped.value.code == 2
+
+
+def test_x06_the_slowdown_search_lands_on_each_phone_tier():
+    """DevTools' bisection, on a machine whose benchmark score falls as 1/slowdown."""
+    for host in (1100, 2500, 4000):
+        for _tier, target, _budget in interaction_budget.TIERS:
+            rate = interaction_budget.bisect(lambda r: host / r, target, host)
+            assert abs(host / rate - target) < 10 or abs(rate - host / target) <= 0.01
+    # A machine slower than a tier is measured as it is: its numbers can only be worse.
+    assert interaction_budget.bisect(lambda r: 900 / r, 1000, 900) == 1.0
+
+
+def test_x06_a_tap_at_its_budget_passes_and_just_over_fails():
+    for _tier, _target, budget in interaction_budget.TIERS:
+        _result, at_budget = interaction_budget.judge("index.html", "open the field card", _tier, budget,
+                                                      [10, budget, budget, budget + 300, 900])
+        _result, over = interaction_budget.judge("index.html", "open the field card", _tier, budget,
+                                                 [10, budget + 1, budget + 1, budget + 2, 900])
+        assert at_budget["pass"] and not over["pass"]
+        _result, missing = interaction_budget.judge("index.html", "open the field card", _tier, budget, [10, None, 10, 10, 10])
+        assert (missing["pass"], missing["detail"]) == (False, "nothing to tap")
+        assert over["name"] == f"index.html: open the field card answers within {budget} ms on a {_tier}"
+    assert [budget for _tier, _target, budget in interaction_budget.TIERS] == [200, 500]
+
+
+def test_x06_every_tap_is_on_a_page_the_budget_serves_and_is_there_to_tap():
+    pages = {page for page, _kind, _kb in perf_budget_qa.PAGES}
+    marks = {"openFieldCard()": "index.html", "Abrir detalle ampliado": "index.html", "fc-plans": "field_card.html",
+             "fc-slots": "field_card.html", "fc-check-wrap": "field_card.html"}
+    for page, _action, _selector in interaction_budget.INTERACTIONS:
+        assert page in pages
+    for mark, page in marks.items():
+        assert mark in (DIST / page).read_text(encoding="utf-8")

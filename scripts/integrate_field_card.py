@@ -18,6 +18,9 @@ INDEX = ROOT / "index.html"
 MODAL_CSS = """
 #field-card-modal{position:fixed;inset:0;z-index:120;display:none;background:rgba(3,13,22,.72)}
 #field-card-modal.fc-modal-open{display:block}
+/* The first frame after the tap draws the bar and the card's header; the plans and shots follow
+   a frame later, so a slow phone shows the card at once instead of after laying out all of it. */
+#field-card-modal.fc-modal-first .fc-panel{content-visibility:hidden}
 .fc-modal-card{display:flex;flex-direction:column;width:min(100%,900px);height:100dvh;margin:auto;background:#f4f1e9;box-shadow:0 0 60px rgba(0,0,0,.28)}
 .fc-modal-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:#061827;color:#fff}
 .fc-modal-bar strong{display:block;font-size:16px}.fc-modal-bar small{display:block;font-size:13px;line-height:1.35;color:#dbeafe}
@@ -34,10 +37,11 @@ body.fc-modal-lock{overflow:hidden}
 MODAL_JS = """
 // The one definition of the card dialog: the rest of the page goes inert while it is
 // open, focus moves inside as it opens (as showModal() does) and stays there, and Escape
-// or the close button return focus to the opener.
+// or the close button return focus to the opener. The panels wait for the frame after the
+// first paint (requestAnimationFrame, then a task), which is what a tap is measured to.
 let fcOpener=null,fcInert=[];
 function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
-function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();}
+function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open','fc-modal-first');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();requestAnimationFrame(()=>setTimeout(()=>m.classList.remove('fc-modal-first')));}
 function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];fcOpener?.focus?.();}
 document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 """

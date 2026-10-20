@@ -15,6 +15,10 @@ least 90. The byte budgets are per page type and leave room for content, not
 for a new framework. No page may ask another origin for anything: nothing a
 reader opens tells a third party they did.
 
+After the loads, the taps a reader makes most (opening the field card, a shot's
+detail, picking a plan or a light, ticking a shot) are held to INP's marks on a
+mid-tier and a low-tier phone (X06, `interaction_budget.py`).
+
 FocalRuta_STANDALONE.html is left out on purpose: it is the 15 MB offline copy
 a reader downloads once, with every diagram inside, not a page anyone browses.
 """
@@ -31,6 +35,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 import evidence
+import interaction_budget
 import qa_matrix
 import static_server
 
@@ -170,6 +175,16 @@ def measure(base: str, chrome: str, only: list[str]) -> tuple[list[dict], list[d
     return pages, checks
 
 
+def measure_taps(base: str, only: list[str]) -> tuple[dict, list[dict]]:
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(**qa_matrix.browser_options())
+        try:
+            return interaction_budget.measure(browser, base, set(only) or {page for page, _kind, _kb in PAGES})
+        finally:
+            browser.close()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--base-url", help="measure a deployed copy instead of dist/ (e.g. the live site)")
@@ -185,12 +200,14 @@ def main() -> int:
     base = arguments.base_url or static_server.base_url(server)
     try:
         pages, checks = measure(base.rstrip("/") + "/", chrome, arguments.only)
+        taps, tap_checks = measure_taps(base.rstrip("/") + "/", arguments.only)
+        checks += tap_checks
     finally:
         if server:
             server.shutdown()
     failures = [check for check in checks if not check["pass"]]
     report = {"passed": not failures, "checks": len(checks), "failures": failures, "base_url": base,
-              "lighthouse": pages[0]["median"]["lighthouse"], "runs_per_page": RUNS, "pages": pages, "results": checks}
+              "lighthouse": pages[0]["median"]["lighthouse"], "runs_per_page": RUNS, "pages": pages, "taps": taps, "results": checks}
     # The files of the build that was served, so a report on another copy never vouches for dist/.
     evidence.write_report(arguments.report, report, [arguments.dist / page for page, _kind, _kb in PAGES])
     print(json.dumps({"passed": report["passed"], "checks": report["checks"], "failures": failures},

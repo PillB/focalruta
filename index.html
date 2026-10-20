@@ -5238,6 +5238,9 @@ img{max-width:100%;height:auto}
 .fc-reset{flex:0 0 auto;min-height:44px;padding:0 12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);color:var(--fc-ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;font-variant-numeric:inherit;cursor:pointer}
 .fc-shots{list-style:none;padding:0;margin-top:10px}
 .fc-shot{display:none;position:relative;margin:0 0 10px;padding:12px;border:1.5px solid var(--fc-line);border-radius:14px;background:var(--fc-card)}
+/* Opening the card lays out only the shots near the screen; the rest wait until scrolled to
+   (Baseline 2024; an older browser draws them all). `auto` keeps each shot's last height. */
+.fc-shot{content-visibility:auto;contain-intrinsic-size:auto 340px}
 .fc-name{padding-right:58px;font-size:16px;line-height:1.3;font-weight:800}.fc-id{display:inline-block;width:1.4em;font-weight:400}
 .fc-slot{display:none}
 .fc-check-wrap{position:absolute;top:8px;right:8px;width:48px;height:48px;cursor:pointer}
@@ -5299,10 +5302,13 @@ img{max-width:100%;height:auto}
 @media(min-width:620px){.fc-grid{grid-template-columns:1fr 1fr}}
 @media(min-width:900px){.fc-app{padding-bottom:32px}.fc-tabs{position:sticky;top:0;bottom:auto;margin-top:12px;border:1.5px solid var(--fc-line);border-radius:14px}.fc-next{bottom:24px;right:24px}}
 @media(prefers-reduced-motion:reduce){.fc-app *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
-@media print{@page{size:A4;margin:10mm}.fc-app{max-width:none;padding:0;background:#fff;color:#000;font-size:10pt}.fc-tabs,.fc-next,.fc-tools,.fc-group,.fc-listhead,.fc-more,.fc-check-wrap,.fc-note{display:none!important}.fc-hero{background:#fff;color:#000;border:1px solid #000;padding:6pt}.fc-hero *{color:#000!important}.fc-shots{columns:2;column-gap:8pt}.fc-shot{break-inside:avoid;padding:5pt;margin-bottom:5pt;border-radius:4pt}.fc-name{padding-right:0;font-size:10pt}.fc-v-exposure{font-size:13pt}.fc-v-note,.fc-light,.fc-geo,.fc-who{font-size:8.5pt}}
+@media print{@page{size:A4;margin:10mm}.fc-app{max-width:none;padding:0;background:#fff;color:#000;font-size:10pt}.fc-tabs,.fc-next,.fc-tools,.fc-group,.fc-listhead,.fc-more,.fc-check-wrap,.fc-note{display:none!important}.fc-hero{background:#fff;color:#000;border:1px solid #000;padding:6pt}.fc-hero *{color:#000!important}.fc-shots{columns:2;column-gap:8pt}.fc-shot{break-inside:avoid;padding:5pt;margin-bottom:5pt;border-radius:4pt;content-visibility:visible}.fc-name{padding-right:0;font-size:10pt}.fc-v-exposure{font-size:13pt}.fc-v-note,.fc-light,.fc-geo,.fc-who{font-size:8.5pt}}
 
 #field-card-modal{position:fixed;inset:0;z-index:120;display:none;background:rgba(3,13,22,.72)}
 #field-card-modal.fc-modal-open{display:block}
+/* The first frame after the tap draws the bar and the card's header; the plans and shots follow
+   a frame later, so a slow phone shows the card at once instead of after laying out all of it. */
+#field-card-modal.fc-modal-first .fc-panel{content-visibility:hidden}
 .fc-modal-card{display:flex;flex-direction:column;width:min(100%,900px);height:100dvh;margin:auto;background:#f4f1e9;box-shadow:0 0 60px rgba(0,0,0,.28)}
 .fc-modal-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:#061827;color:#fff}
 .fc-modal-bar strong{display:block;font-size:16px}.fc-modal-bar small{display:block;font-size:13px;line-height:1.35;color:#dbeafe}
@@ -7072,10 +7078,11 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
 <!-- FIELD CARD JS START -->
 // The one definition of the card dialog: the rest of the page goes inert while it is
 // open, focus moves inside as it opens (as showModal() does) and stays there, and Escape
-// or the close button return focus to the opener.
+// or the close button return focus to the opener. The panels wait for the frame after the
+// first paint (requestAnimationFrame, then a task), which is what a tap is measured to.
 let fcOpener=null,fcInert=[];
 function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
-function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();}
+function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open','fc-modal-first');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();requestAnimationFrame(()=>setTimeout(()=>m.classList.remove('fc-modal-first')));}
 function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];fcOpener?.focus?.();}
 document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 /* Field card behaviour. The card itself is complete HTML: plan, light and tab
