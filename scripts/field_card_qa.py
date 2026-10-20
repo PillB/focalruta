@@ -278,19 +278,33 @@ def page_behind_home_dialog(browser, base: str) -> None:
     context.close()
 
 
+# Where focus is (the opener's onclick, whether it is shown, and whether it is on screen) and
+# where the page is scrolled to.
+FOCUS = """() => { const a = document.activeElement, r = a.getBoundingClientRect();
+  return [a.getAttribute('onclick'), a.checkVisibility(), r.bottom > 0 && r.top < innerHeight, Math.round(scrollY)]; }"""
+
+
 def home_dialog_focus_after_resize(browser, base: str) -> None:
-    """Opened from the phone's bottom bar, closed after the window grows past 900 px, where that
-    bar is hidden: focus goes to an opener still on the page, not back to the top."""
-    context = browser.new_context(viewport={"width": 390, "height": 844})
-    page = context.new_page()
-    page.goto(base + "index.html", wait_until="load")
-    page.locator('.mobile-bottom-nav button[onclick="openFieldCard()"]').click()
-    page.set_viewport_size({"width": 1280, "height": 800})
-    page.keyboard.press("Escape")
-    focus = page.evaluate("() => { const a = document.activeElement; return [a.getAttribute('onclick'), a.checkVisibility()]; }")
-    check("home page dialog: closed after a resize hides its opener, focus goes to an opener on the page",
-          focus == ["openFieldCard()", True], focus)
-    context.close()
+    """Opened, then the window crosses 900 px, which hides the opener used (the phone's bottom bar
+    above it, the top bar's button below it), then closed: focus goes to an opener on the page,
+    preferably one on screen, and the page does not move."""
+    for start, end, opener in ((390, 1280, ".mobile-bottom-nav button"), (1280, 600, "nav.sticky button")):
+        context = browser.new_context(viewport={"width": start, "height": 800})
+        page = context.new_page()
+        page.goto(base + "index.html", wait_until="load")
+        page.evaluate("scrollTo({top: 2400, behavior: 'instant'})")
+        page.evaluate("(s) => { document.querySelector(s).focus({preventScroll: true}); openFieldCard(); }",
+                      opener + '[onclick="openFieldCard()"]')
+        page.set_viewport_size({"width": end, "height": 800})
+        page.wait_for_timeout(200)
+        before = page.evaluate("Math.round(scrollY)")
+        page.keyboard.press("Escape")
+        page.wait_for_timeout(1000)  # the page scrolls smoothly: give a focus scroll time to land
+        focus = page.evaluate(FOCUS)
+        check(f"home page dialog: closed after a resize from {start} to {end} px hides its opener, focus goes to an "
+              "opener on the page and the page stays where it was",
+              focus[:2] == ["openFieldCard()", True] and focus[3] == before, {"focus": focus, "scroll before": before})
+        context.close()
 
 
 # What the card's memory may hold after an older version, an edit by hand or a damaged

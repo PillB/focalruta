@@ -44,13 +44,14 @@ body.fc-modal-lock{overflow:hidden}
 MODAL_JS = """
 // The one definition of the card dialog: the rest of the page goes inert while it is
 // open, focus moves inside as it opens (as showModal() does) and stays there, and Escape
-// or the close button return focus to the opener (or, if a resize has hidden it, to the first
-// opener still on the page, not to the top of the page). The panels wait for the frame after the
+// or the close button return focus to the opener. If a resize has hidden it, focus goes to an
+// opener on screen, or else to the first one on the page without scrolling to it, so the page
+// stays where the reader left it. The panels wait for the frame after the
 // first paint (requestAnimationFrame, then a task) and the shots for the frame after that.
 let fcOpener=null,fcInert=[];
 function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
 function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open','fc-modal-first','fc-modal-later');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();const next=f=>requestAnimationFrame(()=>setTimeout(f));next(()=>{m.classList.remove('fc-modal-first');next(()=>m.classList.remove('fc-modal-later'))});}
-function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];const back=fcOpener?.isConnected&&fcOpener.checkVisibility?.()?fcOpener:[...document.querySelectorAll('[onclick="openFieldCard()"]')].find(b=>b.checkVisibility?.());(back||fcOpener)?.focus?.();}
+function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];const shown=b=>b?.isConnected&&b.checkVisibility?.();if(shown(fcOpener)||!fcOpener?.checkVisibility){fcOpener?.focus?.();return}const all=[...document.querySelectorAll('[onclick="openFieldCard()"]')].filter(shown),seen=all.find(b=>{const r=b.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight});(seen||all[0])?.focus({preventScroll:!seen});}
 document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 """
 

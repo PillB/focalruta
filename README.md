@@ -38,10 +38,11 @@ reports at the repository root still match the files they audited, byte for byte
   (contrast on gradients is checked at every colour stop)
 - `AXE_ACCESSIBILITY_QA.json` — axe-core on all 39 published pages and the home page's
   offline notice, light phone and dark desktop passes, zero violations
-- `FIELD_CARD_QA.json` — 62 field card checks on a phone: each plan's settings per light,
+- `FIELD_CARD_QA.json` — 63 field card checks on a phone: each plan's settings per light,
   the Lima clock, no JavaScript, print, keyboard, the home page dialog (the page behind
   it, left undrawn while the card covers it and back where it was, and focus back on an
-  opener on the page after a resize), a damaged saved state, axe, offline after
+  opener on the page after a resize either way across 900 px, without moving the page),
+  a damaged saved state, axe, offline after
   rehearsed deploys (an upgrade from the worker live at 9cd3044, the HTTP cache Pages
   keeps for 10 minutes), and another camera and lenses
 - `PERF_BUDGET_QA.json` — 137 speed checks: Lighthouse on a simulated phone and slow
