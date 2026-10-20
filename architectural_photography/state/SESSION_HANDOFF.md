@@ -1985,6 +1985,143 @@ Revisó a mano los atributos `style` y los valores que pone el JavaScript: todos
 notas que no bloquean, ahora en los compromisos. Falta el hilo de comprobación en vivo, tras el
 despliegue; fusionar sigue necesitando la palabra de Pablo.
 
+## Ronda 17 · Lo que PR #21 dejó para después (2026-10-20)
+
+PR #21 se fusionó con la palabra de Pablo («Merge now») como 9cd348d. El despliegue
+(corrida 39457468967) publicó el worker `focalruta-1ce8b23ec608`, y su comprobación del
+sitio publicado, presupuestos de velocidad incluidos, pasó a las 16:36 UTC; el hilo de
+comprobación en vivo también lo aprobó. Esta ronda atiende lo que quedó pendiente: la nota
+del red team sobre `choose()` (V09), el texto en inglés de las páginas del desafío (V12) y
+la apertura lenta de la tarjeta desde el inicio, que ahora tiene requisito propio (X06).
+Fusionar sigue necesitando la palabra de Pablo.
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| V09 | La tarjeta arranca con lo que encuentre en su memoria, y el botón del inicio la abre aunque el script de la tarjeta se detenga | sobre 9cd348d, cuatro memorias estropeadas (una comilla en lo elegido, una cadena, una lista, tomas marcadas que son un número): con la comilla, `choose()` lanza `SyntaxError` al armar el selector; con la cadena, «Cannot create property 'done' on string»; con la lista no se guarda la marca siguiente; y en el inicio, «Cannot access 'fcOpener' before initialization»: el botón no abre nada | los cuatro casos en `field_card_qa.py` (dos comprobaciones nuevas, 58/58): la tarjeta arranca, elige la luz y guarda la marca siguiente, y el botón del inicio abre el diálogo. Mutante: si el script de la tarjeta se detiene en su primera línea, el diálogo se abre igual (`{'dialog_visible': True}`). `test_v09_memory_keeps_only_what_the_card_writes` en Node |
+| V12 | Ninguna página publicada tiene prosa en inglés fuera de `lang="en"`; cada mecanismo de escena tiene nombre en español | `tests/test_spanish_text.py` sobre 9cd348d: 3 fallan y 75 pasan. Las dos copias de `wiki-tecnicas.html` tienen 11 tramos en inglés (las afirmaciones de los videos); `SCENE_MECHANISMS` no existe y las seis escenas verificadas muestran «Decisive Motion In Designed Ramp» y similares | 78/78. Los seis mecanismos en español (un identificador sin nombre detiene la build); las seis lecciones de video en español, con el inglés guardado en `original_en`; los títulos originales con `lang="en"` |
+| X06 | Los toques más usados responden en 200 ms en un teléfono de gama media y nunca pasan de 500 ms en uno de gama baja | con la CPU calibrada como DevTools, abrir la tarjeta desde el inicio en la build de 1f72869, alternando con la nueva sobre la misma calibración (gama media 1.95×, baja 7.09×): gama media 96 ms (88–120), gama baja 440 ms (376–520), una corrida sobre la marca «mala» de INP; en otra calibración, 512 ms de mediana (432–544). Un mutante que ocupa 400 ms en `openFieldCard()` falla en los dos niveles (448 y 592 ms). Tres pruebas unitarias nuevas (búsqueda, presupuesto exacto y justo encima, nada que tocar) | la build nueva en la misma calibración: gama media 56 ms (56–64), gama baja 280 ms (224–360). En `PERF_BUDGET_QA.json` sobre 9d76947, 10/10 (gama media 1.91×, baja 7.44×): abrir la tarjeta 72 y 264 ms, el detalle de una toma 80 y 200, elegir plan 32 y 112, elegir luz 32 y 96, marcar una toma 24 y 104 |
+
+### Cómo se encontró la causa (X06)
+
+Con la CPU 4× más lenta, la apertura costaba 240–264 ms: estilo unos 100 ms sobre 954
+elementos y diseño 111–146 ms sobre 613 objetos. Las estadísticas de selectores de Chrome
+suman 6.6 ms sin frenar la CPU, así que no eran los selectores (los `:has()` de la tarjeta
+incluidos). Quitar `inert` ahorraba unos 40 ms; se queda, porque es lo que deja fuera de
+alcance la página de atrás. Tres palancas:
+
+- Las tomas fuera de la pantalla: con `content-visibility:auto` en cada una, el diseño baja
+  de 613 a 409 objetos.
+- La pila de fuentes: en Linux, cada familia que el navegador busca y no tiene
+  (`-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, `Roboto`) cuesta; con `system-ui`
+  primero, el diseño bajaba de unos 120 a 64 ms a 4×. No se quedó: en Linux `system-ui` es
+  DejaVu Sans, más ancha que Arial, y la suite de release encontró a 320 px la pestaña
+  «Encuadre» cortada (61 px de texto en 58). En un teléfono la pila encuentra su fuente en
+  la primera o la segunda familia.
+- El primer cuadro: la cabecera de la tarjeta se pinta sola y los paneles un cuadro después
+  (`requestAnimationFrame` y luego una tarea).
+
+Un 4× fijo mide la máquina además de la página. Por eso X06 calibra como DevTools
+(`devtools-frontend`, `panels/mobile_throttling/CalibrationController.ts`): corre el
+BenchmarkIndex de Lighthouse en el navegador y busca por bisección la ralentización con la
+que puntúa como el teléfono de gama media de DevTools (1000, un Pixel 5) y el de gama baja
+(264, un Moto G Power 2022).
+
+### Cambios visibles
+
+- Abrir la tarjeta desde el inicio: el diálogo aparece con la barra y la cabecera de la
+  tarjeta; los planes y las tomas llegan un cuadro después. En un teléfono de gama baja, la
+  tarjeta aparece en 224–360 ms en vez de 376–520; en uno de gama media, en unos 56 ms en
+  vez de 96.
+- Las tomas que no están en pantalla se dibujan al acercarse. La barra de desplazamiento
+  puede ajustarse un poco cuando una toma se dibuja por primera vez.
+- Páginas del desafío: subtítulos de escena en español; cada tarjeta de video muestra su
+  propia lección (antes, seis textos genéricos iguales bajo «Decisión práctica:
+  pkMssQPul9o») y cita el video con su título original; la guía de técnicas, en español.
+- La tarjeta ya no se detiene por lo que encuentre guardado.
+
+### Compromisos explícitos
+
+- En el primer cuadro tras el toque, los planes y las tomas no están todavía: un lector de
+  pantalla no los encuentra durante ese cuadro. El foco va al botón de cerrar, que sí está.
+- `content-visibility:auto` contiene el pintado de cada toma: lo que se saliera de ella se
+  recortaría. Los anillos de foco caben (5 px dentro de 12 px de relleno), y al imprimir las
+  tomas se dibujan todas (`content-visibility:visible`). Safari lo ignora antes de la 18 y
+  dibuja todo, como antes.
+- La calibración repite la de DevTools con una diferencia: la mediana de tres corridas por
+  tasa, en vez de una, porque una máquina compartida de CI es más ruidosa. Aun así la tasa
+  varía entre calibraciones (gama media 1.38–2.09×, gama baja 6.29–7.96× aquí, con
+  puntuaciones de 1908 a 2741) y los toques con ella. El BenchmarkIndex mide JavaScript; el
+  estilo y el diseño no escalan igual, así que las cifras de gama baja son aproximadas
+  (inferido de la variación).
+- El presupuesto de gama baja es «nunca malo» (500 ms), no «bueno» (200 ms): ahí abrir la
+  tarjeta sigue en 224–360 ms. Bajarla de 200 en gama baja pediría dibujar menos de la tarjeta
+  en el primer cuadro, o buscar menos fuentes en Linux, que corta texto a 320 px.
+- No hay teléfono real: todo lo medido es emulación calibrada en Linux, donde buscar las
+  fuentes que faltan pesa; que pese menos en un teléfono sigue siendo inferido.
+- La detección de inglés cuenta palabras funcionales; una etiqueta corta en inglés (como los
+  subtítulos de escena) se le escapa. Eso lo cubre la prueba de los mecanismos, no el
+  detector.
+- `original_en` se publica en `data/architecture/learning.json`: es material público de las
+  lecciones y ninguna página lo muestra.
+
+### Referencia de experto por decisión
+
+- INP y sus marcas (200 ms «bueno», 500 ms «malo») y la Event Timing API: web.dev/articles/inp.
+  Dejar que el navegador pinte antes del trabajo pesado: web.dev/articles/optimize-inp.
+- Calibración de la CPU: `CalibrationController.ts` de devtools-frontend (puntuaciones 1000 y
+  264, bisección hasta 10 puntos) y el BenchmarkIndex de Lighthouse (`page-functions.js`).
+- CSS Containment 2: `content-visibility:auto` aplica contención de diseño, estilo y pintado
+  siempre, y de tamaño sólo mientras se salta; `contain-intrinsic-size:auto` recuerda la
+  última altura.
+- WCAG 2.2, 3.1.2 (idioma de las partes): un título en inglés dentro de una página en
+  español lleva `lang="en"`.
+
+### Errores propios encontrados en esta ronda
+
+- La primera mejora la medí con un 4× fijo (240 → 168 ms), y buena parte era la búsqueda de
+  fuentes en Linux. Calibrado, en gama media la diferencia de esas dos palancas era pequeña
+  (112 → 96 ms); lo que mueve a gama baja es pintar primero la cabecera.
+- Cambié la pila de fuentes por velocidad sin medir antes el ancho del texto con la fuente que
+  resultaba en Linux; la suite de release lo encontró a 320 px en el primer cierre (commit
+  local, sin publicar) y lo deshice.
+- Una sonda pasó a `page.evaluate` una asignación cuyo valor era una función, y Playwright la
+  ejecutó: el diálogo se abría antes del clic y la medición se colgaba. Ahora la envuelve.
+- El primer `git add` excluía `.claude` con un pathspec; git se negó porque la carpeta ya está
+  ignorada y no se hizo el commit. Lo vi en el log y repetí sin la exclusión.
+
+Escalada de investigación: no se activó; ninguna hipótesis de arreglo falló. La calibración
+se tomó de la fuente de DevTools antes de escribir el presupuesto.
+
+### Cierre (comandos, código de salida, resumen)
+
+Sobre el árbol limpio, con las fuentes de CI y el Chromium completo
+(`FOCALRUTA_CHROME=/opt/pw-browsers/chromium`), y sirviendo sólo la raíz pública `dist/`:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en 9d76947 | 0 | release 450/450, axe 80/80, tarjeta 58/58, velocidad 122/122 (112 de carga y 10 toques), visual 37/37, óptica 22/22; reportes en 878ec1b |
+| las cinco suites de `tests/architecture/browser_*.py` en 9d76947 | 0 | todas en verde |
+| `pytest -q` en 878ec1b | 0 | 896 pasan, 1 omitida (`test_editorial_contracts.py`: `wiki-tecnicas.html` no usa Schlick) |
+| `pytest tests/architecture -q` | 0 | 344 pasan, 1 omitida (la misma) |
+| `verify_architecture.py` (con el escaneo de privacidad), `verify_release.py` (mínimos: tarjeta 58, velocidad 122) | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+
+El primer cierre, sobre un commit local que luego se rehízo, falló en la suite de release:
+«field_card 320 nothing cut off at the edges: label.fc-tab «▦Encuadre» label runs out 61>58»,
+por la pila de fuentes con `system-ui` primero. Se deshizo ese cambio y el cierre de arriba
+corrió entero sobre el commit nuevo.
+
+Sin fallos abiertos.
+
+Verificación independiente: pendiente; se pide al red team sobre el PR. El hilo de comprobación
+en vivo dejó dos notas sobre 9cd348d (`qa/LIVE_CHECK_PR21.md`): los dos botones de lista son de
+peso 600, como `.fc-reset` en la tarjeta sola, que es como se diseñaron; y axe marca a 390 px un
+aviso de un plan que está bajo `content-visibility:auto` sin pintar, un falso positivo que la
+suite de axe no ha dado.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -1996,24 +2133,6 @@ despliegue; fusionar sigue necesitando la palabra de Pablo.
 - Los minutos de CI de las suites de navegador se miden en el primer PR que las corre.
 - Si el ensayo de la tarjeta vuelve a fallar en CI, el mensaje «never took over in 60 s; the
   active one says …» dice si el worker nuevo llegó a instalarse.
-- Abrir la tarjeta de campo desde el inicio tarda más que la marca «buena» de INP (200 ms)
-  en el laboratorio. El red team anotó el tamaño del DOM (inicio 5676 elementos, la tarjeta
-  3922, un plan 606); 3910 de los del inicio son la tarjeta, oculta hasta que se abre, y la
-  revisión de tamaño del DOM de Lighthouse 13.5 pasa en el inicio, porque juzga trabajo de
-  estilo o de diseño de 40 ms o más sobre más de 300 elementos, no la cuenta. Medido con Event
-  Timing (la API de INP) a 390 px y con la CPU 4× más lenta, como Lighthouse en móvil, en una
-  máquina de benchmarkIndex 1673 con las fuentes de CI: abrir la tarjeta desde el inicio,
-  192–288 ms en 14 aperturas (mediana 232); el manejador se lleva 162–246 ms, sobre todo el
-  diseño de la tarjeta (103–126 ms) y su estilo (34–57 ms). Con `content-visibility:auto` en
-  cada toma, 192–248 ms en 14 aperturas (mediana 208). Forzar `sans-serif` en la tarjeta baja
-  su diseño de 186 a 98 ms (medianas de tres): parte del costo es buscar en Linux las fuentes
-  de la pila que no están, que en un teléfono debería pesar menos (inferido; aquí no hay
-  teléfono para medirlo). Abrir el detalle de una toma: 112–176 ms, hasta 248 tras abrir
-  paneles y cambiar el equipo. Los controles de la tarjeta
-  sola, 104 ms o menos; un plan, 40 ms o menos. No lo trajo este PR (la tarjeta en el inicio
-  viene del paso 3). Queda para el siguiente: medir estos toques en la revisión de velocidad y
-  aligerar la apertura.
-- Texto en inglés en las páginas del desafío (aviso del red team): las etiquetas de escena salen
-  del identificador del mecanismo en inglés (`generate_architecture_pages.py`, `scene_cards`),
-  las viñetas de la guía de técnicas de los campos `mechanism` de `learning.json`, y los títulos
-  de video en inglés no llevan `lang="en"`. No lo trajo este PR; queda para el siguiente.
+- Abrir la tarjeta de campo desde el inicio en un teléfono de gama baja calibrado: 224–360 ms,
+  dentro de «nunca malo» pero sobre «bueno» (ronda 17, X06). Bajarlo de 200 pediría dibujar
+  menos de la tarjeta en el primer cuadro.
