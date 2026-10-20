@@ -2422,6 +2422,47 @@ En `PERF_BUDGET_QA.json` sobre d40bf8f (2.24× y 7.73×), abrir la tarjeta respo
 y muestra los planes a 76 y 251. A ancho de tableta responde a 64 y 224 y muestra la primera
 toma a 131 y 427.
 
+### N8 del red team: el foco de N7 movía la página
+
+El red team revisó N7 en 56c87cb. El foco vuelve, pero el arreglo introdujo N8: al enfocar el
+botón de reserva, la página se desplazaba hasta él. Se había abierto en 2400 y, tras cruzar los
+900 px, cerraba en 908 o en 1174, y el lector perdía su sitio. La prueba de N7 no lo vio por dos
+motivos: no comprobaba el desplazamiento y no esperaba al desplazamiento suave de la página.
+
+Arreglo (ba38fce):
+
+- Al cerrar, si el botón que abrió la tarjeta sigue a la vista, recibe el foco como antes.
+- Si no, el foco va a un botón que esté en pantalla, como la barra de abajo del teléfono.
+- Si no hay ninguno en pantalla, va al primero de la página, con `preventScroll`, para que la
+  página quede donde estaba.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| N8 | Abierta en 2400, cruzando 900 px hacia arriba (390→1280) y hacia abajo (1280→600), al cerrar el foco cae en un botón a la vista que abre la tarjeta y la página no se mueve (tras esperar 1 s al desplazamiento suave) | sobre d40bf8f: de 2530 a 0, y de 2400 a 1805 | 2530 y 2400 se mantienen. A 600 px el foco cae en la barra de abajo, en pantalla. A 1280 px cae en el botón de la barra de arriba, fuera de la pantalla y sin desplazarla. 63/63 en `FIELD_CARD_QA.json` |
+
+Compromiso: a 1280 px, sin ningún botón en pantalla, el foco queda en uno fuera de la vista.
+Con el siguiente Tab el navegador lo trae a la vista. Se prefirió a mover la página.
+
+**Cierre de N8** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en ba38fce | 0 | release 450/450, axe 80/80, tarjeta 63/63, velocidad 137/137, visual 37/37, óptica 22/22; reportes en 82a195a |
+| las cinco suites de `tests/architecture/browser_*.py` en ba38fce | 0 | todas en verde |
+| `pytest -q` en 82a195a | 0 | 897 pasan, 1 omitida |
+| `verify_release.py` (tarjeta 63), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre ba38fce (1.94× y 7.45×):
+
+- abrir la tarjeta responde a 48 y 200 ms y muestra los planes a 74 y 285;
+- a ancho de tableta responde a 64 y 224 y muestra la primera toma a 109 y 419, con una visita
+  de 673 en gama baja.
+
+El CI de 56c87cb pasó sus ocho trabajos (corrida 39503165850).
+
+Verificación independiente de N8: pendiente; se pide al red team.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
