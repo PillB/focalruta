@@ -243,10 +243,11 @@ def test_x06_a_tap_that_answers_at_once_but_shows_its_content_late_fails(monkeyp
     monkeypatch.setattr(interaction_budget, "sees_deferred_work", lambda browser: {"name": "instrument", "pass": True, "detail": {}})
     monkeypatch.setattr(interaction_budget, "calibrate", lambda browser: {"host_benchmark_index": 2000,
                                                                           "rates": {"mid-tier phone": 2.0, "low-tier phone": 7.5}})
-    taps = {"open the field card": (40, 840), "pick another plan": (40, None)}
+    taps = {"open the field card": (40, 840), "open the field card at tablet width": (40, 900), "pick another plan": (40, None)}
 
-    def tap_once(browser, url, selector, shows, rate):
-        action = next(action for _p, action, tapped, _s, _w in interaction_budget.INTERACTIONS if tapped == selector)
+    def tap_once(browser, url, selector, shows, rate, screen):
+        action = next(action for _p, action, tapped, shown, _w, at in interaction_budget.INTERACTIONS
+                      if (tapped, shown, at) == (selector, shows, screen))
         return taps.get(action, (40, 60))
 
     monkeypatch.setattr(interaction_budget, "tap_once", tap_once)
@@ -254,6 +255,8 @@ def test_x06_a_tap_that_answers_at_once_but_shows_its_content_late_fails(monkeyp
     failed = {check["name"]: check["detail"] for check in checks if not check["pass"]}
     assert failed == {f"index.html: open the field card shows the card's plans within {budget} ms on a {tier}": 840
                       for tier, _target, budget in interaction_budget.TIERS} | {
+                     f"index.html: open the field card at tablet width shows the first shot within {budget} ms on a {tier}": 900
+                     for tier, _target, budget in interaction_budget.TIERS} | {
                      f"field_card.html: pick another plan shows the plan's name within {budget} ms on a {tier}": "not on screen in time"
                      for tier, _target, budget in interaction_budget.TIERS}
     assert len(checks) == 1 + 2 * len(interaction_budget.TIERS) * len(interaction_budget.INTERACTIONS)
@@ -265,9 +268,10 @@ def test_x06_every_tap_is_on_a_page_the_budget_serves_and_is_there_to_tap():
     # What each tap presses, and what it is for, as the published page spells it.
     marks = {"openFieldCard()": "index.html", "Abrir detalle ampliado": "index.html", "fc-plans": "field_card.html",
              "fc-slots": "field_card.html", "fc-check-wrap": "field_card.html",
-             'class="fc-option"': "index.html", "reasoning-block": "index.html", 'class="fc-plan-name" data-plan="plan_b"': "field_card.html",
+             'class="fc-option"': "index.html", 'class="fc-shot"': "index.html", "reasoning-block": "index.html",
+             'class="fc-plan-name" data-plan="plan_b"': "field_card.html",
              'data-slot="night"': "field_card.html", 'class="fc-box"': "field_card.html"}
-    for page, _action, _selector, _shows, _what in interaction_budget.INTERACTIONS:
-        assert page in pages
+    for page, _action, _selector, _shows, _what, screen in interaction_budget.INTERACTIONS:
+        assert page in pages and screen in (interaction_budget.PHONE, interaction_budget.TABLET)
     for mark, page in marks.items():
         assert mark in (DIST / page).read_text(encoding="utf-8"), mark

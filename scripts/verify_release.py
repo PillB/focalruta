@@ -204,10 +204,10 @@ for report_name, minimum_checks in (
     # rehearsals for V16-V17 in place of the single simulated deploy, plus a damaged saved
     # state on the card and in the home page's dialog (V09).
     ("FIELD_CARD_QA.json", 58),
-    # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin); X06: five taps
+    # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin); X06: six taps
     # on two phone tiers, each timed to its answer and to what it was for, after the
     # instrument's own check that it sees content put off.
-    ("PERF_BUDGET_QA.json", 133),
+    ("PERF_BUDGET_QA.json", 137),
 ):
     check_evidence(report_name, minimum_checks)
 

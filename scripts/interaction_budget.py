@@ -35,18 +35,23 @@ TIERS = (("mid-tier phone", 1000, 200), ("low-tier phone", 264, 500))
 RUNS = 5
 # How long to keep waiting for what a tap was for, after the tap has answered.
 SHOWN_WAIT_MS = 3000
-# (page, what the reader does, what they tap, what the tap is for, as a selector and in words).
+# The screens taps are made on: a phone, and a tablet held upright, the narrowest common screen on
+# which the field card's first shot is in view as it opens (on a phone it starts below the screen).
+PHONE = {"viewport": {"width": 390, "height": 844}, "device_scale_factor": 3}
+TABLET = {"viewport": {"width": 768, "height": 1024}, "device_scale_factor": 2}
+# (page, what the reader does, what they tap, what the tap is for, as a selector and in words, screen).
 # Each run starts from a fresh visit; {value} is the value of the control tapped.
+OPEN_CARD = 'button[onclick="openFieldCard()"]:visible'
 INTERACTIONS = (
-    ("index.html", "open the field card", 'button[onclick="openFieldCard()"]:visible',
-     "#field-card-modal .fc-plans .fc-option", "the card's plans"),
+    ("index.html", "open the field card", OPEN_CARD, "#field-card-modal .fc-plans .fc-option", "the card's plans", PHONE),
+    ("index.html", "open the field card at tablet width", OPEN_CARD, "#field-card-modal .fc-shot", "the first shot", TABLET),
     ("index.html", "open a shot's detail", 'button:has-text("Abrir detalle ampliado"):visible',
-     "#modal-body .reasoning-block", "the shot's reasoning"),
+     "#modal-body .reasoning-block", "the shot's reasoning", PHONE),
     ("field_card.html", "pick another plan", '.fc-plans label:has(input:not(:checked))',
-     '.fc-plan-name[data-plan="{value}"]', "the plan's name"),
+     '.fc-plan-name[data-plan="{value}"]', "the plan's name", PHONE),
     ("field_card.html", "pick another light", '.fc-slots label:has(input:not(:checked))',
-     '.fc-slot[data-slot="{value}"]', "the settings for that light"),
-    ("field_card.html", "tick a shot", '.fc-shot:visible .fc-check-wrap', ".fc-check:checked + .fc-box", "the tick"),
+     '.fc-slot[data-slot="{value}"]', "the settings for that light", PHONE),
+    ("field_card.html", "tick a shot", '.fc-shot:visible .fc-check-wrap', ".fc-check:checked + .fc-box", "the tick", PHONE),
 )
 
 # Lighthouse's BenchmarkIndex with a duration, as DevTools runs it (250 ms a run).
@@ -135,13 +140,13 @@ def bisect(score, target: float, host: float) -> float:
     return rate
 
 
-def tap_once(browser, url: str, selector: str, shows: str, rate: float) -> tuple[float, float | None] | None:
+def tap_once(browser, url: str, selector: str, shows: str, rate: float,
+             screen: dict = PHONE) -> tuple[float, float | None] | None:
     """One tap from a fresh visit: its longest event in ms (0 when every event took under 16 ms),
     and the ms until what it was for is on screen (None when it never was). None when there is
     nothing to tap, which fails the checks by name instead of stopping the run."""
     from playwright.sync_api import TimeoutError as PlaywrightTimeout
-    context = browser.new_context(viewport={"width": 390, "height": 844}, device_scale_factor=3,
-                                  is_mobile=True, has_touch=True)
+    context = browser.new_context(**screen, is_mobile=True, has_touch=True)
     qa_matrix.harden(context)
     try:
         page = context.new_page()
@@ -188,12 +193,12 @@ def measure(browser, base: str, pages: set[str]) -> tuple[dict, list[dict]]:
     print(f"{checks[0]['name']}: {checks[0]['detail']}", flush=True)
     calibration = calibrate(browser)
     results = []
-    for page, action, selector, shows, what in INTERACTIONS:
+    for page, action, selector, shows, what, screen in INTERACTIONS:
         if page not in pages:
             continue
         url = base + ("" if page == "index.html" else page)
         for tier, _target, budget in TIERS:
-            runs = [tap_once(browser, url, selector, shows, calibration["rates"][tier]) for _ in range(RUNS)]
+            runs = [tap_once(browser, url, selector, shows, calibration["rates"][tier], screen) for _ in range(RUNS)]
             answered = [None if run is None else round(run[0]) for run in runs]
             shown = [None if run is None or run[1] is None else round(run[1]) for run in runs]
             for result, check in (judge(page, action, tier, budget, answered),
