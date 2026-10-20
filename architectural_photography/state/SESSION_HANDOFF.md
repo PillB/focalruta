@@ -2031,9 +2031,11 @@ que puntúa como el teléfono de gama media de DevTools (1000, un Pixel 5) y el 
 ### Cambios visibles
 
 - Abrir la tarjeta desde el inicio: el diálogo aparece con la barra y la cabecera de la
-  tarjeta; los planes y las tomas llegan un cuadro después. En un teléfono de gama baja, la
-  tarjeta aparece en 224–360 ms en vez de 376–520; en uno de gama media, en unos 56 ms en
-  vez de 96.
+  tarjeta; los planes llegan un cuadro después y las tomas uno más tarde. En un teléfono de
+  gama baja, la barra y la cabecera aparecen en 224–360 ms en vez de 376–520; en uno de gama
+  media, en unos 56 ms en vez de 96. (Corregido tras R1: eso es la primera pintura. En
+  9e2d121 los planes llegaban algo después que antes del PR; con 46f04db llegan a 342 ms en
+  vez de 484 en gama baja. Ver «Rechazo del red team».)
 - Las tomas que no están en pantalla se dibujan al acercarse. La barra de desplazamiento
   puede ajustarse un poco cuando una toma se dibuja por primera vez.
 - Páginas del desafío: subtítulos de escena en español; cada tarjeta de video muestra su
@@ -2056,8 +2058,8 @@ que puntúa como el teléfono de gama media de DevTools (1000, un Pixel 5) y el 
   estilo y el diseño no escalan igual, así que las cifras de gama baja son aproximadas
   (inferido de la variación).
 - El presupuesto de gama baja es «nunca malo» (500 ms), no «bueno» (200 ms): ahí abrir la
-  tarjeta sigue en 224–360 ms. Bajarla de 200 en gama baja pediría dibujar menos de la tarjeta
-  en el primer cuadro, o buscar menos fuentes en Linux, que corta texto a 320 px.
+  tarjeta sigue en 192–280 ms la primera pintura y 273–395 ms los planes (46f04db). Bajarla de
+  200 en gama baja pediría dibujar menos de la tarjeta en el primer cuadro.
 - No hay teléfono real: todo lo medido es emulación calibrada en Linux, donde buscar las
   fuentes que faltan pesa; que pese menos en un teléfono sigue siendo inferido.
 - La detección de inglés cuenta palabras funcionales; una etiqueta corta en inglés (como los
@@ -2116,11 +2118,146 @@ corrió entero sobre el commit nuevo.
 
 Sin fallos abiertos.
 
-Verificación independiente: pendiente; se pide al red team sobre el PR. El hilo de comprobación
+Verificación independiente: el red team revisó 9e2d121 (`qa/FINDINGS_PR22.md`) y reprodujo
+V09, V12 y los anillos de foco; rechazó X06 por no medir lo que el PR aplazó (R1, abajo). El hilo de comprobación
 en vivo dejó dos notas sobre 9cd348d (`qa/LIVE_CHECK_PR21.md`): los dos botones de lista son de
 peso 600, como `.fc-reset` en la tarjeta sola, que es como se diseñaron; y axe marca a 390 px un
 aviso de un plan que está bajo `content-visibility:auto` sin pintar, un falso positivo que la
 suite de axe no ha dado.
+
+### Rechazo del red team: X06 no medía lo que este PR aplazó (R1, `qa/FINDINGS_PR22.md`)
+
+El red team revisó PR #22 en 9e2d121 y lo dejó en «no listo» por un solo rechazo, R1 (medio).
+Todo lo demás lo reprodujo de forma independiente:
+
+- V09: el inicio con una memoria envenenada en cada clave, y con `window.LimaSun` lanzando un
+  error. En main el botón muere; en el PR el diálogo se abre.
+- V12: ninguna prosa en inglés fuera de `lang="en"`.
+- `content-visibility` en las tomas: ningún anillo de foco recortado en 160 paradas de
+  tabulador a 320 y 390 px.
+- X06 sí ve un manejador lento.
+
+R1: Event Timing termina en la primera pintura tras el toque, y este PR había hecho de esa
+pintura la barra y la cabecera; los planes llegaban en una tarea posterior que nadie medía.
+Un bucle de 800 ms dentro de esa tarea pasaba X06 (40 ms) con la tarjeta vacía 0.8 s.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X06 (R1) | Lo que cada toque viene a mostrar está en pantalla dentro de las mismas marcas que la respuesta (200 ms en gama media, 500 en gama baja); lo que nunca aparece falla por nombre; el instrumento demuestra antes que ve contenido aplazado | el X06 de 9e2d121 sobre el mutante del red team (800 ms aplazados dentro de `openFieldCard()`): «open the field card answers» pasa con 56 y 288 ms, y no hay nada más que mirar. Sobre una página que responde enseguida y muestra su contenido 300 ms después, ve 16 ms. Con la medición nueva, el contenido de la tarjeta de 9e2d121 llegaba **después** que antes del PR: 525 frente a 484 ms en gama baja, en la misma calibración | el X06 nuevo falla el mutante: los planes en pantalla a 891 y 1087 ms, mientras la respuesta sigue pasando (64 y 200). Su propia comprobación ve 16 y 313 ms en la página de prueba. En `PERF_BUDGET_QA.json` sobre 46f04db: 133/133; los planes de la tarjeta en pantalla a 104 y 392 ms (gama media 2.07×, baja 7.88×), con la respuesta a 72 y 256; el razonamiento de una toma a 77 y 230; el nombre del plan, los ajustes de la luz y la marca, por debajo de 150 ms en gama baja. Una prueba unitaria nueva cubre la respuesta rápida con el contenido tarde y el contenido que nunca llega |
+
+**Cómo se mide lo que el toque viene a mostrar.** Cada toque nombra su objetivo: los planes
+de la tarjeta, el razonamiento de la toma, el nombre del plan, los ajustes de esa luz o la
+marca. El tiempo lo da Element Timing: la prueba etiqueta con `elementtiming` lo que coincide
+con el objetivo, también lo que la página añada después. Su `renderTime` en Chromium coincidió
+con Event Timing con 0–6 ms de diferencia cuando los dos caen en el mismo cuadro: 168/172,
+96/94 y 144/144.
+
+Una marca cambia algo ya pintado, así que no es primera pintura. Para ella cuenta el primer
+cuadro en que el objetivo se ve y, si está en pantalla, se dibuja (`checkVisibility` con
+`contentVisibilityAuto`); se mide al terminar ese cuadro.
+
+La primera versión medía así todos los toques, y leía de menos y de más. Por eso se cambió a
+Element Timing.
+
+**Dónde se iba el tiempo.** Trazas a gama baja (unas 7×):
+
+- La tarea del toque costaba 213–251 ms. El estilo era de 380 elementos, unos 300 de ellos
+  la página de atrás al volverse `inert`, y el diseño de 146 objetos.
+- La tarea aplazada hacía dos pasadas de estilo y diseño. La segunda pasada eran las dos
+  primeras tomas, que `content-visibility:auto` dibuja por estar cerca de la pantalla
+  aunque empiezan debajo (a 931 px en una de 844).
+- En Linux, cada nombre de fuente que el sistema no tiene (`-apple-system`,
+  `BlinkMacSystemFont`, `Segoe UI`, `Roboto`) cuesta una búsqueda. Con «Arial» sola el
+  contenido bajaba de 484 a 352 ms.
+
+Tres cambios:
+
+- **`system-ui` primero en la pila de la tarjeta**, como ya empieza el resto del sitio. En
+  un teléfono es la misma fuente; en Linux es DejaVu Sans, más ancha.
+- **Las pestañas son iguales salvo que ninguna es más estrecha que su palabra**
+  (`repeat(5,1fr)`): a 320 px «Encuadre» ocupa 63 px en vez de cortarse en 58. Así se
+  resolvió lo que hizo deshacer el mismo cambio de fuente en el primer cierre de esta ronda.
+- **Las tomas se dibujan un cuadro después de los planes** (`fc-modal-later`).
+
+Lado a lado, en una calibración (gama media 2.03×, baja 7.91×), siete visitas
+alternadas, los planes de la tarjeta en pantalla:
+
+| Build | Responde (gama media / baja) | Planes en pantalla (gama media / baja) |
+|---|---|---|
+| antes del PR (1f72869) | 104 / 480 ms | 104 / 484 ms |
+| 9e2d121 | 64 / 280 ms | 123 / 525 ms |
+| 46f04db | 64 / 248 ms | 100 / 342 ms |
+
+El mensaje del commit 46f04db cita 466 frente a 428 ms, de una calibración anterior; las cifras
+de referencia son las de esta tabla.
+
+Después de los planes queda una tarea larga, la de las tomas: 67–112 (de ellos 12–56 de bloqueo) ms en gama baja, contra
+153–246 ms de la segunda tarea de 9e2d121. Un toque en ese hueco espera esa tarea (N2 del red
+team).
+
+**Notas del red team**
+
+- N1: «la mitad del tiempo» era la primera pintura, no la tarjeta. Está corregido en este
+  registro y en el PR; el README nunca lo dijo. El mensaje del commit 9d76947 ya está publicado y no se
+  reescribe.
+- N2: queda como compromiso, más corto.
+- N3: buscar en la página e imprimir no se ejercitaron directamente; lo mismo aquí.
+
+**Compromisos explícitos (R1)**
+
+- La medición del contenido usa Element Timing, que sólo Chromium implementa. Las marcas se
+  comprueban en Chromium, como el resto de X06.
+- Las marcas para el contenido son las de INP (200/500 ms). Ninguna norma las fija para
+  contenido aplazado. RAIL da hasta 1000 ms a un cambio de vista, y el red team propuso 400 y
+  1000; aquí se eligieron las marcas más estrictas. En gama baja el margen es de un 22–32 %.
+- `system-ui` primero cambia la fuente de la tarjeta en Linux (DejaVu Sans u otra, más ancha
+  que Arial) y en un Android cuyo fabricante trae otra fuente de interfaz. El resto del sitio
+  ya la usaba.
+- En Linux la pestaña «Encuadre» es 6 px más ancha que las otras a 320 px.
+- Las tomas tardan un cuadro más que los planes. En una pantalla grande, donde están a la
+  vista al abrir, aparecen un cuadro después.
+- El arreglo de fuentes ayuda sobre todo a la medición en Linux. Que en un teléfono la
+  búsqueda de fuentes no pese es inferido, no medido.
+- `inert` sigue costando unos 300 elementos de estilo al abrir. Se queda: es lo que saca la
+  página de atrás del alcance del lector de pantalla y del tabulador.
+
+**Referencias**
+
+- Element Timing (MDN `PerformanceElementTiming.renderTime`; WICG).
+- RAIL (web.dev/articles/rail): una respuesta se nota inmediata en 100 ms; 100–1000 ms es «un
+  flujo natural» para cambiar de vista.
+- Ceder el hilo para pintar antes (web.dev/articles/optimize-inp).
+- CSS Containment 2: `content-visibility:auto` dibuja lo que está cerca de la pantalla, con
+  un margen que fija el navegador.
+
+**Errores propios**
+
+- Medí y anuncié «la mitad del tiempo» con Event Timing sin preguntar qué mostraba ese
+  cuadro.
+- La primera versión de la medición del contenido medía «dibujado en el hilo principal» y
+  leía de menos (sin rasterizar ni presentar) o un cuadro tarde. Se cambió a Element Timing
+  antes de usarla.
+- Las primeras variantes de fuentes, una corrida de cinco por variante, tenían ±50 ms de
+  ruido. Las cifras de arriba son lado a lado con visitas alternadas.
+
+Escalada de investigación: no se activó; ningún arreglo falló. Las referencias de Element
+Timing y RAIL se consultaron antes de fijar la medición y las marcas.
+
+**Cierre de R1** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en 46f04db | 0 | release 450/450, axe 80/80, tarjeta 58/58, velocidad 133/133 (112 de carga, la comprobación del instrumento y 20 de toques), visual 37/37, óptica 22/22; reportes en 34af0b2 |
+| las cinco suites de `tests/architecture/browser_*.py` en 46f04db | 0 | todas en verde; la de release redibuja su captura sin conexión |
+| `pytest -q` en 34af0b2 | 0 | 897 pasan, 1 omitida (la misma) |
+| `pytest tests/architecture -q` | 0 | 344 pasan, 1 omitida |
+| `verify_architecture.py`, `verify_release.py` (velocidad 133) | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+
+El CI de 9e2d121 (corrida 39472882922) pasó sus ocho trabajos antes de este arreglo.
+
+Verificación independiente de R1: pendiente; se pide al red team sobre 46f04db.
 
 ### Pendiente
 
@@ -2133,6 +2270,9 @@ suite de axe no ha dado.
 - Los minutos de CI de las suites de navegador se miden en el primer PR que las corre.
 - Si el ensayo de la tarjeta vuelve a fallar en CI, el mensaje «never took over in 60 s; the
   active one says …» dice si el worker nuevo llegó a instalarse.
-- Abrir la tarjeta de campo desde el inicio en un teléfono de gama baja calibrado: 224–360 ms,
-  dentro de «nunca malo» pero sobre «bueno» (ronda 17, X06). Bajarlo de 200 pediría dibujar
-  menos de la tarjeta en el primer cuadro.
+- Abrir la tarjeta de campo desde el inicio en un teléfono de gama baja calibrado: la primera
+  pintura a 192–280 ms y los planes a 273–395 ms (46f04db), dentro de «nunca malo» pero sobre
+  «bueno» (ronda 17, X06 y R1). Bajarlo de 200 pediría dibujar menos de la tarjeta en el primer
+  cuadro o restilar menos página al volverla `inert`.
+- Tras los planes queda la tarea de las tomas, 67–112 ms en gama baja: un toque en ese hueco
+  la espera (N2 del red team).
