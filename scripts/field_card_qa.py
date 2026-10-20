@@ -244,6 +244,40 @@ def in_home_dialog(browser, base: str) -> None:
     context.close()
 
 
+# Whether the page behind the dialog is drawn (the first heading of its content, which also
+# prints), and where it is scrolled to.
+BEHIND = "() => [document.querySelector('#contenido h2').checkVisibility(), Math.round(scrollY)]"
+
+
+def page_behind_home_dialog(browser, base: str) -> None:
+    """Below 900 px the card covers the screen and the page behind it is not drawn while it is open;
+    it comes back where the reader left it, prints, and stays drawn where it shows around the card."""
+    context = browser.new_context(**PHONE)
+    page = context.new_page()
+    page.goto(base + "index.html", wait_until="load")
+    page.evaluate("scrollTo({top: 2400, behavior: 'instant'})")
+    before = page.evaluate(BEHIND)
+    page.evaluate("openFieldCard()")
+    page.wait_for_timeout(300)
+    during = page.evaluate(BEHIND)
+    page.emulate_media(media="print")
+    printed = page.evaluate(BEHIND)[0]
+    page.emulate_media(media="screen")
+    page.locator("#field-card-modal .fc-modal-bar button").first.click()
+    after = page.evaluate(BEHIND)
+    check("home page dialog on a phone: the page behind is not drawn while the card covers it, and comes back where it was",
+          before[0] and not during[0] and after == before, {"before": before, "open": during, "closed": after})
+    check("home page dialog: printing with the card open prints the page", printed, printed)
+    context.close()
+    context = browser.new_context(viewport={"width": 1280, "height": 800})
+    page = context.new_page()
+    page.goto(base + "index.html", wait_until="load")
+    page.evaluate("openFieldCard()")
+    page.wait_for_timeout(300)
+    check("home page dialog at 1280 px, where the page shows around the card: the page stays drawn", page.evaluate(BEHIND)[0])
+    context.close()
+
+
 # What the card's memory may hold after an older version, an edit by hand or a damaged
 # store: a quote in a stored choice (red team, 2026-10-20), JSON that is not an object, and
 # a list of done shots that is not one.
@@ -579,7 +613,7 @@ def main() -> int:
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
-        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, damaged_memory, your_gear,
+        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog, damaged_memory, your_gear,
                      overflow, axe_states):
             guarded(step, browser, base)
         deploys(browser)

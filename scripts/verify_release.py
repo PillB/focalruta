@@ -202,8 +202,9 @@ for report_name, minimum_checks in (
     ("AXE_ACCESSIBILITY_QA.json", 80),
     # 38 for the card itself (V02-V09), 10 for your own gear (V13-V15), and the deploy
     # rehearsals for V16-V17 in place of the single simulated deploy, plus a damaged saved
-    # state on the card and in the home page's dialog (V09).
-    ("FIELD_CARD_QA.json", 58),
+    # state on the card and in the home page's dialog (V09), and the page behind that dialog:
+    # undrawn while the card covers it, back where it was, printed, and drawn at 1280 px (X06).
+    ("FIELD_CARD_QA.json", 61),
     # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin); X06: six taps
     # on two phone tiers, each timed to its answer and to what it was for, after the
     # instrument's own check that it sees content put off.

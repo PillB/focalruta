@@ -30,6 +30,12 @@ MODAL_CSS = """
 @media(prefers-color-scheme:dark){.fc-modal-scroll{background:#0b1220}}
 .fc-modal-card:has(#fc-night:checked) :is(.fc-modal-scroll,.fc-modal-bar){background:#000}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar{color:#ff6b5e}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar :is(small,button,a){color:#ff6b5e;border-color:#4a1410}
 body.fc-modal-lock{overflow:hidden}
+/* Below 900 px the card covers the whole screen, so the page behind it is not drawn while it is
+   open: it is inert already, and leaving it out spares a slow phone restyling it as the card opens.
+   Each part of the page keeps the size it last had, so the page comes back where the reader left
+   it. Print is left alone: printing with the card open prints the page. */
+:where(body>*){contain-intrinsic-size:auto none}
+@media screen and (max-width:899px){body.fc-modal-lock>:not(#field-card-modal){content-visibility:hidden}}
 .mobile-bottom-nav button{min-width:0;min-height:48px;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#475569;font-size:12px;font-weight:800;padding:0}.mobile-bottom-nav button .ico{font-size:18px;line-height:1}
 @media(min-width:900px){#field-card-modal{padding:22px}.fc-modal-card{height:calc(100dvh - 44px);border-radius:22px;overflow:hidden}.fc-modal-bar{padding-top:6px}}
 @media print{#field-card-modal{display:none!important}}
