@@ -2461,7 +2461,22 @@ En `PERF_BUDGET_QA.json` sobre ba38fce (1.94× y 7.45×):
 
 El CI de 56c87cb pasó sus ocho trabajos (corrida 39503165850).
 
-Verificación independiente de N8: pendiente; se pide al red team.
+Verificación independiente de N8: el red team la pasó sobre ce97ab9 («N8 fix at ce97ab9»).
+Esperó 1.5 s tras Escape y comprobó lo siguiente:
+
+- De 600 a 1280 px, la página queda en 2400 (en 56c87cb iba a 908) y el foco cae en el botón
+  de la barra de arriba.
+- De 1280 a 600 px, la página queda en 2400 (en d40bf8f iba a 1808) y el foco cae en la barra
+  de abajo, que está en pantalla.
+- Sin cambio de ancho, nada cambia.
+- Aceptó el compromiso de dejar el foco fuera de la pantalla a 1280 px sin moverla.
+
+Nota nueva, N9, previa y ya en main: la barra de arriba (`nav.glass`, `sticky top-0`) nunca se
+queda fija. `<style id="iphone-safe-overrides">` en `index.html` pone `overflow-x:hidden` en
+`html` y `body`. Eso hace de `body` un contenedor de desplazamiento que nunca se desplaza, y
+anula el `overflow-x:clip` anterior. Con `clip`, la barra se queda arriba sin desplazamiento
+horizontal. Antes hay que decidir si en el teléfono debe quedarse fija, porque ya tiene la barra
+de abajo; si no, se quita `sticky`.
 
 ### Pendiente
 
@@ -2479,5 +2494,7 @@ Verificación independiente de N8: pendiente; se pide al red team.
   «bueno» y dentro de «nunca malo».
 - Tras los planes queda la tarea de las tomas, 67–112 ms en gama baja: un toque en ese hueco
   la espera (N2 del red team).
-- N4 y N7 se resolvieron en commits locales (arriba) que el red team ya revisó; esperan la
-  decisión de Pablo sobre PR #22. N5 queda como límite declarado de la medición.
+- N4, N7 y N8 están en PR #22 y el red team los pasó. N5 queda como límite declarado de la
+  medición.
+- N9 (barra de arriba que nunca se queda fija): para el PR siguiente, tras decidir si debe
+  quedarse fija en el teléfono.
