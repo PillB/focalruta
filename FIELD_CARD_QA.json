@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 56,
+  "checks": 58,
   "failures": [],
   "results": [
     {
@@ -228,6 +228,16 @@
       "detail": []
     },
     {
+      "name": "damaged memory (4 cases): the card starts, picks the light and saves the next tick",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "damaged memory (4 cases): the home page's button still opens the card",
+      "pass": true,
+      "detail": {}
+    },
+    {
       "name": "your gear: the picker shows, set to the Canon 6D kit, and shots show no extra line",
       "pass": true,
       "detail": null
@@ -383,14 +393,14 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-19T22:06:12.485739+00:00",
-  "audited_commit": "2d222b859f1143252f77414bb0c164befcb5eb6c",
+  "audited_at": "2026-10-20T17:52:06.615371+00:00",
+  "audited_commit": "9d76947ba4b209fb3bfa3ad40478f0f564493d09",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
-    "dist/canon6d_sota_hosted/field_card.html": "834c807645282ff78a700a864c820d8c83697c423c43e517de70384de0365b66",
-    "dist/canon6d_sota_hosted/index.html": "48683577feed13ab58a17458f59e93df40013c63c53ccb5d0f9805131e5d9bc4",
-    "dist/canon6d_sota_hosted/sw.js": "6b50c8e4c6c932c94b73e8e700a03aa286f675ff2cdf4d31cde7b9ccc9250a42",
-    "field_card.html": "834c807645282ff78a700a864c820d8c83697c423c43e517de70384de0365b66",
+    "dist/canon6d_sota_hosted/field_card.html": "af9c7389a8c8db32cc2cd1e452382a614a0f57c3775ebb8dc3fe96dec0e7f986",
+    "dist/canon6d_sota_hosted/index.html": "3a42db5b292860a2e3730706b08bad06f0f3bbb9d3570f381e42c438ce8dc8f7",
+    "dist/canon6d_sota_hosted/sw.js": "f42506b9579be0559964d058833d156e8d410aa700fbdd24c33968e6b71e8e8c",
+    "field_card.html": "af9c7389a8c8db32cc2cd1e452382a614a0f57c3775ebb8dc3fe96dec0e7f986",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
 }
