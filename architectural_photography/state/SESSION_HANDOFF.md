@@ -2384,7 +2384,43 @@ Escalada de investigación: no se activó; ninguna hipótesis de arreglo falló.
 | `ruff … C901` a 10 | 0 | limpio |
 | `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
 
-Verificación independiente de N4: pendiente; se pedirá al red team.
+Verificación independiente de N4: el red team aplicó los cuatro parches sobre be41f3e y los
+pasó (`qa/FINDINGS_PR22.md`, «N4 follow-up»).
+
+- Sin limitar la CPU, a 768×1024, el mutante de N4 da 875–892 ms la primera toma y falla. Sin
+  mutante, 87–110 ms.
+- Nada de lo que queda sin dibujar tras la tarjeta hace falta por debajo de 900 px: el enlace
+  para saltar, la barra de arriba, `main`, el pie con `#diag`, los dos diálogos y la barra de
+  abajo. Ningún diálogo contiene un botón que abra la tarjeta.
+- Con la tarjeta cerrada, el diseño y la altura del documento son idénticos a 2504c13 a 390 y
+  1280 px.
+- Al cerrar, la página vuelve exacta desde 2400 y desde 9000.
+- En su calibración, los planes en gama baja pasan de 475 ms (2504c13, 8.07×) a 336 (7.14×).
+
+Sus notas: N6 es el compromiso de cerrar, ya declarado. N7 era previa: tras un cambio de ancho
+que oculta el botón con que se abrió la tarjeta, el foco volvía al principio de la página.
+
+**N7, arreglada en d40bf8f.** Al cerrar, el foco vuelve al botón que abrió la tarjeta si sigue
+a la vista; si no, al primer botón de la página que la abre. Un navegador sin
+`checkVisibility` se queda como antes.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| N7 | Abierta desde la barra de abajo a 390 px y cerrada con Escape tras pasar a 1280, el foco cae en un botón que abre la tarjeta y está a la vista | sobre 11e9484: `[None, True]`, el foco no queda en ningún botón de la tarjeta | `['openFieldCard()', True]`; 62/62 en `FIELD_CARD_QA.json` |
+
+**Cierre de N7** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en d40bf8f | 0 | release 450/450, axe 80/80, tarjeta 62/62, velocidad 137/137, visual 37/37, óptica 22/22; reportes en 44b526e |
+| las cinco suites de `tests/architecture/browser_*.py` en d40bf8f | 0 | todas en verde |
+| `pytest -q` en 44b526e | 0 | 897 pasan, 1 omitida |
+| `verify_release.py` (tarjeta 62), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre d40bf8f (2.24× y 7.73×), abrir la tarjeta responde a 48 y 176 ms
+y muestra los planes a 76 y 251. A ancho de tableta responde a 64 y 224 y muestra la primera
+toma a 131 y 427.
 
 ### Pendiente
 
@@ -2402,5 +2438,5 @@ Verificación independiente de N4: pendiente; se pedirá al red team.
   «bueno» y dentro de «nunca malo».
 - Tras los planes queda la tarea de las tomas, 67–112 ms en gama baja: un toque en ese hueco
   la espera (N2 del red team).
-- N4 se resolvió en commits locales (arriba), pendientes de la decisión de Pablo sobre PR #22
-  y de la verificación del red team. N5 queda como límite declarado de la medición.
+- N4 y N7 se resolvieron en commits locales (arriba) que el red team ya revisó; esperan la
+  decisión de Pablo sobre PR #22. N5 queda como límite declarado de la medición.
