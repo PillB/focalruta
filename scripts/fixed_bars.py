@@ -67,6 +67,19 @@ FOCUSED = """() => {
   return {key: e.dataset.n9, name: (e.getAttribute('aria-label') || e.textContent || e.id || e.tagName).trim().replace(/\\s+/g, ' ').slice(0, 40)};
 }"""
 
+# The dialogs a bar that stays opens. Closed, each gives focus back to its button, which must
+# not move the page: with scroll-padding the browser counts a button inside that room as out
+# of view and scrolls for it (csswg-drafts#7930).
+OPENERS = 'nav.glass [onclick="openFieldCard()"], nav.glass [onclick="openSessionRun()"]'
+OPEN = """([selector, i]) => {
+  scrollTo({top: Math.round(document.documentElement.scrollHeight * 0.6), behavior: 'instant'});
+  const opener = document.querySelectorAll(selector)[i], r = opener.getBoundingClientRect();
+  if (!opener.checkVisibility() || r.bottom <= 0 || r.top >= innerHeight) return null;
+  opener.focus({preventScroll: true});
+  opener.click();
+  return {name: (opener.getAttribute('aria-label') || opener.textContent).trim().slice(0, 30), y: Math.round(scrollY)};
+}"""
+
 # In-page links in the bars and the skip link, with where each one jumps.
 JUMPS = """() => [...document.querySelectorAll('nav.glass a[href^="#"], .mobile-bottom-nav a[href^="#"], a.skip-link[href^="#"]')]
   .map(a => a.getAttribute('href')).filter(h => h.length > 1 && document.getElementById(h.slice(1)))"""
@@ -141,4 +154,20 @@ def jumps(page) -> list[str]:
             continue
         if landed["top"] < landed["floor"] or (landed["top"] > landed["floor"] + LANDING and not landed["edge"]):
             wrong.append(f"{href} starts at {landed['top']} px, what stays ends at {landed['floor']} px")
+    return wrong
+
+
+def dialogs_leave_page_still(page) -> list[str]:
+    """Open each dialog from its button in a bar on screen, well into the page, and close it with Escape."""
+    wrong = []
+    for i in range(page.evaluate(f"document.querySelectorAll({OPENERS!r}).length")):
+        opened = page.evaluate(OPEN, [OPENERS, i])
+        if opened is None:
+            continue
+        page.wait_for_timeout(300)
+        page.keyboard.press("Escape")
+        page.wait_for_timeout(300)
+        moved = page.evaluate("Math.round(scrollY)") - opened["y"]
+        if moved:
+            wrong.append(f"{opened['name']}: the page moved {moved} px")
     return wrong

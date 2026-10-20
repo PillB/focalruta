@@ -326,14 +326,17 @@ def nothing_cut_with_long_gear(browser):
 
 
 def bars_at(browser, url: str, width: int, height: int, home: bool) -> dict:
-    """X07 at one size: what stays on screen, focus going forward and back, and in-page links."""
+    """X07 at one size: what stays on screen, focus going forward and back, in-page links, and dialogs from a bar."""
     context = browser.new_context(viewport={"width": width, "height": height}, reduced_motion="reduce")
     page = context.new_page()
     found = {}
-    for kind, run in (("stays", lambda: fixed_bars.what_stays(page, width, height, home)),
-                      ("forward", lambda: fixed_bars.tab_through(page, "Tab")),
-                      ("back", lambda: fixed_bars.tab_through(page, "Shift+Tab")),
-                      ("jumps", lambda: fixed_bars.jumps(page))):
+    runs = [("stays", lambda: fixed_bars.what_stays(page, width, height, home)),
+            ("forward", lambda: fixed_bars.tab_through(page, "Tab")),
+            ("back", lambda: fixed_bars.tab_through(page, "Shift+Tab")),
+            ("jumps", lambda: fixed_bars.jumps(page))]
+    if home:
+        runs.append(("still", lambda: fixed_bars.dialogs_leave_page_still(page)))
+    for kind, run in runs:
         page.goto(url, wait_until="load", timeout=60000)
         found[kind] = run()
     context.close()
@@ -345,15 +348,17 @@ def bars_on_screen(browser):
     pages = [("standalone", ROOT / "index.html", True), ("hosted", ROOT / "dist/canon6d_sota_hosted/index.html", True),
              *[(f"plan_{x}", ROOT / f"dist/canon6d_sota_hosted/plans/plan_{x}.html", False) for x in "abcdef"]]
     names = {"stays": "only what has room stays on screen", "forward": "focus going forward is never behind a bar",
-             "back": "focus going back is never behind a bar", "jumps": "links in the bars land clear of them"}
+             "back": "focus going back is never behind a bar", "jumps": "links in the bars land clear of them",
+             "still": "a dialog opened from a bar that stays closes with the page still"}
     for name, path, home in pages:
-        wrong = {kind: {} for kind in names}
+        wrong = {kind: {} for kind in names if home or kind != "still"}
         for width, height in qa_matrix.REQUIRED_VIEWPORTS:
             for kind, problems in bars_at(browser, path.as_uri(), width, height, home).items():
                 if problems:
                     wrong[kind][f"{width}x{height}"] = problems[:6]
-        for kind, label in names.items():
-            record(f"{name} {label}", not wrong[kind], wrong[kind])
+        for kind in wrong:
+            record(f"{name} {names[kind]}", not wrong[kind], wrong[kind])
+
 
 with sync_playwright() as pw:
     browser = pw.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
