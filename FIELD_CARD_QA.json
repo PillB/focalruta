@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 58,
+  "checks": 61,
   "failures": [],
   "results": [
     {
@@ -228,6 +228,34 @@
       "detail": []
     },
     {
+      "name": "home page dialog on a phone: the page behind is not drawn while the card covers it, and comes back where it was",
+      "pass": true,
+      "detail": {
+        "before": [
+          true,
+          2400
+        ],
+        "open": [
+          false,
+          2400
+        ],
+        "closed": [
+          true,
+          2400
+        ]
+      }
+    },
+    {
+      "name": "home page dialog: printing with the card open prints the page",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "home page dialog at 1280 px, where the page shows around the card: the page stays drawn",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "damaged memory (4 cases): the card starts, picks the light and saves the next tick",
       "pass": true,
       "detail": {}
@@ -393,13 +421,13 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-20T19:28:02.158573+00:00",
-  "audited_commit": "46f04dbd2a37681bb0c1e51c1f33620fe633f97a",
+  "audited_at": "2026-10-20T20:55:28.558608+00:00",
+  "audited_commit": "11e94843599a614a0dab34811be8131c8fc47e2e",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
     "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "c546f8c8aac5452298863ee47e5aa2b881a70d004158f9511a2c17b63ec5ae71",
-    "dist/canon6d_sota_hosted/sw.js": "b484cd64606c831a5756f7b6541e3fed811f52edae04513cefbc6e692cdc856b",
+    "dist/canon6d_sota_hosted/index.html": "80a5c36307ce9291475cc4c48d146e22827bb2a263a1aa402982e7d7fd66a74a",
+    "dist/canon6d_sota_hosted/sw.js": "09268eb5312cadd9375186960e6a7ebc1f31605061bcb65a73c4a5d5ceb60699",
     "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
