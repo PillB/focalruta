@@ -278,6 +278,21 @@ def page_behind_home_dialog(browser, base: str) -> None:
     context.close()
 
 
+def home_dialog_focus_after_resize(browser, base: str) -> None:
+    """Opened from the phone's bottom bar, closed after the window grows past 900 px, where that
+    bar is hidden: focus goes to an opener still on the page, not back to the top."""
+    context = browser.new_context(viewport={"width": 390, "height": 844})
+    page = context.new_page()
+    page.goto(base + "index.html", wait_until="load")
+    page.locator('.mobile-bottom-nav button[onclick="openFieldCard()"]').click()
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.keyboard.press("Escape")
+    focus = page.evaluate("() => { const a = document.activeElement; return [a.getAttribute('onclick'), a.checkVisibility()]; }")
+    check("home page dialog: closed after a resize hides its opener, focus goes to an opener on the page",
+          focus == ["openFieldCard()", True], focus)
+    context.close()
+
+
 # What the card's memory may hold after an older version, an edit by hand or a damaged
 # store: a quote in a stored choice (red team, 2026-10-20), JSON that is not an object, and
 # a list of done shots that is not one.
@@ -613,7 +628,7 @@ def main() -> int:
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
-        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog, damaged_memory, your_gear,
+        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog, home_dialog_focus_after_resize, damaged_memory, your_gear,
                      overflow, axe_states):
             guarded(step, browser, base)
         deploys(browser)
