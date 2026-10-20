@@ -26,7 +26,7 @@ SCENE_LIGHT: dict[str, tuple[float, float, str, str]] = {
     "tras_ocaso": (9, 11, "hora azul, justo después del ocaso", "ANSI PH2.7 · justo después del ocaso"),
     "galeria": (8, 11, "interior muy iluminado", "ANSI PH2.7 · galerías"),
     "calle_noche": (7, 8, "calle iluminada de noche", "ANSI PH2.7 · escenas de calle nocturnas"),
-    "ventana": (8, 10, "interior junto a una ventana, de día", "estimate · sin fila en la tabla ANSI; 500–2500 lx junto a la ventana con E = 2,5·2^EV (C = 250)"),
+    "ventana": (8, 10, "interior junto a una ventana, de día", "estimate · sin fila en la tabla ANSI; 500–2500 lx junto a la ventana con E = 2.5·2^EV (C = 250)"),
     "oficina": (7, 8, "oficina con luz artificial", "ANSI PH2.7 · oficinas y áreas de trabajo"),
     "interior_casa": (5, 7, "interior de casa con lámparas", "ANSI PH2.7 · interiores de vivienda"),
     "trafico_noche": (5, 5, "tráfico de noche", "ANSI PH2.7 · tráfico vehicular nocturno"),

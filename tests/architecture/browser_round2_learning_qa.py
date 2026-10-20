@@ -16,6 +16,7 @@ import threading
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import urlsplit
 import sys
 
 
@@ -64,7 +65,7 @@ def check_perspective(page) -> dict:
     wide_angle, wide_text = _cone_half_angle(page), page.locator("#perspective-feedback").inner_text()
     page.locator("#perspective-focal").select_option("85")
     long_angle, long_text = _cone_half_angle(page), page.locator("#perspective-feedback").inner_text()
-    ratio = re.compile(r"proyecta ([0-9,]+)×")
+    ratio = re.compile(r"proyecta ([0-9]+(?:\.[0-9]+)?)×")
     page.locator("#perspective-position").fill("7")
     far_text = page.locator("#perspective-feedback").inner_text()
     return {
@@ -105,17 +106,13 @@ def check_light(page) -> dict:
     hard = _number(page, "#light-penumbra-blur", "stdDeviation")
     page.locator("#light-source").select_option("garua")
     soft, diffuse_text = _number(page, "#light-penumbra-blur", "stdDeviation"), page.locator("#light-feedback").inner_text()
-    metres = re.compile(r"sombra mide ([0-9,]+) m")
+    metres = re.compile(r"sombra mide ([0-9]+(?:\.[0-9]+)?) m")
     return {
         "shadow_opposes_the_source": (right_sun > left_sun) and (right_shadow < left_shadow),
-        "low_sun_casts_longer_shadow": _comma_float(metres.search(low_text).group(1)) > _comma_float(metres.search(high_text).group(1)),
+        "low_sun_casts_longer_shadow": float(metres.search(low_text).group(1)) > float(metres.search(high_text).group(1)),
         "wide_source_softens_the_edge": soft > hard,
         "diffuse_source_drops_the_umbra": "umbra desaparece" in diffuse_text,
     }
-
-
-def _comma_float(text: str) -> float:
-    return float(text.replace(",", "."))
 
 
 def check_depth_and_edges(page) -> dict:
@@ -138,12 +135,12 @@ def check_depth_and_edges(page) -> dict:
 
 
 def check_exposure_and_reflection(page) -> dict:
-    page.locator("#exposure-aperture").select_option("5,6")
+    page.locator("#exposure-aperture").select_option("5.6")
     page.locator("#exposure-shutter").select_option("500")
     fast = _number(page, "#exposure-streak", "width")
     page.locator("#exposure-shutter").select_option("15")
     slow = _number(page, "#exposure-streak", "width")
-    page.locator("#exposure-aperture").select_option("1,8")
+    page.locator("#exposure-aperture").select_option("1.8")
     shallow = _number(page, "#exposure-sharp", "width")
     page.locator("#exposure-aperture").select_option("11")
     deep = _number(page, "#exposure-sharp", "width")
@@ -178,9 +175,10 @@ def check_composition(page) -> dict:
 def inspect(browser, width: int, height: int, url: str = URL) -> dict:
     page = browser.new_page(viewport={"width": width, "height": height})
     qa_matrix.harden(page)
-    errors, console_errors = [], []
+    errors, console_errors, failed_resources = [], [], []
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
+    page.on("response", lambda answer: failed_resources.append(f"{answer.status} {urlsplit(answer.url).path}") if answer.status >= 400 else None)
     response = page.goto(url, wait_until="networkidle", timeout=60_000)
     page.emulate_media(reduced_motion="reduce")
     page.locator('nav a[href="#learn"]').click()
@@ -193,6 +191,7 @@ def inspect(browser, width: int, height: int, url: str = URL) -> dict:
         "overflow": page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth"),
         "page_errors": errors,
         "console_errors": console_errors,
+        "failed_resources": failed_resources,
         "labs": page.locator(".learning-lab").count(),
         "lessons": page.locator(".lesson-card").count(),
         "videos": page.locator(".video-transfer").count(),
@@ -217,38 +216,47 @@ BOOLEAN_CHECKS = (
 )
 
 
-def row_passed(row: dict) -> bool:
-    return bool(
-        row["status"] == 200 and not row["overflow"] and not row["page_errors"] and not row["console_errors"]
-        and row["labs"] == 9 and row["lessons"] == 17 and row["videos"] >= 6
-        and all(row[key] for key in BOOLEAN_CHECKS)
-    )
+def row_failures(row: dict) -> list[str]:
+    """Every check a viewport fails, by name, so a red run says why."""
+    conditions = {
+        "status_200": row["status"] == 200, "no_overflow": not row["overflow"],
+        "no_page_errors": not row["page_errors"], "no_console_errors": not row["console_errors"],
+        "no_failed_resources": not row["failed_resources"],
+        "nine_labs": row["labs"] == 9, "seventeen_lessons": row["lessons"] == 17, "six_videos": row["videos"] >= 6,
+    }
+    conditions.update((key, bool(row[key])) for key in BOOLEAN_CHECKS)
+    return [name for name, ok in conditions.items() if not ok]
 
 
 def main() -> int:
     from playwright.sync_api import sync_playwright
 
     OUT.mkdir(parents=True, exist_ok=True)
-    public_root = ROOT / "challenges/arquitectura-en-foco"
+    # Only a public root is served, never the repository (it can hold private inputs). The
+    # hosted build is the one Pages publishes, so the page's links to the site's shared
+    # assets resolve as they do live: served alone, the challenge folder answered its icon,
+    # ../../assets/app-icon.svg, with a 404 that only a full Chrome asks for (CI on 518b9a3).
+    public_root = ROOT / "dist/canon6d_sota_hosted"
     server = ThreadingHTTPServer(("127.0.0.1", 0), partial(QuietHandler, directory=str(public_root)))
     threading.Thread(target=server.serve_forever, daemon=True).start()
     try:
         with sync_playwright() as playwright:
-            browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
-            url = f"http://127.0.0.1:{server.server_port}/"
+            browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
+            url = f"http://127.0.0.1:{server.server_port}/challenges/arquitectura-en-foco/"
             rows = [inspect(browser, width, height, url) for width, height in VIEWPORTS]
             browser.close()
     finally:
         server.shutdown()
         server.server_close()
-    passed = all(row_passed(row) for row in rows)
-    failures = {key: [row["viewport"] for row in rows if not row.get(key)] for key in BOOLEAN_CHECKS}
-    report = {
-        "passed": passed, "url": "isolated-public-root", "viewports": rows,
-        "failed_checks": {key: value for key, value in failures.items() if value},
-    }
+    failures: dict[str, list] = {}
+    for row in rows:
+        for name in row_failures(row):
+            failures.setdefault(name, []).append(row["viewport"])
+    errors = sorted({error for row in rows for error in row["page_errors"] + row["console_errors"] + row["failed_resources"]})
+    passed = not failures
+    report = {"passed": passed, "url": "hosted-public-root", "viewports": rows, "failed_checks": failures, "errors": errors}
     (OUT / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"passed": passed, "viewports": len(rows), "failed_checks": report["failed_checks"]}, indent=2))
+    print(json.dumps({"passed": passed, "viewports": len(rows), "failed_checks": failures, "errors": errors}, indent=2))
     return 0 if passed else 1
 
 

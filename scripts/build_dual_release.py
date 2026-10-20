@@ -42,7 +42,7 @@ html,n=re.subn(r'<script>\s*const INLINE_ASSETS=.*?function assetUrl\(path\)\{re
 if n!=1: raise RuntimeError('INLINE_ASSETS block not found')
 
 # Static teaching panels: map data URIs by alt to granular WebP.
-alt_to_file={'Tercios':'composition_tercios.webp','Perspectiva':'composition_perspectiva.webp','Simetría':'composition_simetria.webp','Enmarcado':'composition_enmarcado.webp','Espacio negativo':'composition_espacio_neg.webp','Punto de interés':'composition_punto_interes.webp','Minimalismo':'composition_minimalismo.webp','Capas':'composition_capas.webp','Comparativa 35/50/85 a 2.5m':'lens_comparison_25cm.webp','Comparativa 35/50/85 a 4m':'lens_comparison_40cm.webp','Comparativa 35/50/85 a 6m':'lens_comparison_60cm.webp'}
+alt_to_file={'Tercios':'composition_tercios.webp','Perspectiva':'composition_perspectiva.webp','Simetría':'composition_simetria.webp','Enmarcado':'composition_enmarcado.webp','Espacio negativo':'composition_espacio_neg.webp','Punto de interés':'composition_punto_interes.webp','Minimalismo':'composition_minimalismo.webp','Capas':'composition_capas.webp','Comparativa 35/50/85 a 2.5 m':'lens_comparison_25cm.webp','Comparativa 35/50/85 a 4 m':'lens_comparison_40cm.webp','Comparativa 35/50/85 a 6 m':'lens_comparison_60cm.webp'}
 for alt,fn in alt_to_file.items():
     pat=r'(<img\s+src=")[^"]+("\s+alt="'+re.escape(alt)+r'")'
     html,c=re.subn(pat,lambda m:m.group(1)+'./diagrams-webp/'+fn+m.group(2),html,count=1)
@@ -54,7 +54,7 @@ def img_hints(m):
     if 'loading=' not in tag: tag=tag[:-1]+' loading="lazy" decoding="async">'
     return tag
 html=re.sub(r'<img\b[^>]*>',img_hints,html)
-registration='''<script>\nif('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>console.warn('PWA worker unavailable',error)));}\n</script>'''
+registration='''<script>\nif('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>FocalRutaDiagnostico.record('trabajador',error&&error.message||String(error),'sw.js')));}\n</script>'''
 html=html.replace('</body>',registration+'\n</body>',1)
 (OUT/'index.html').write_text(html,encoding='utf-8')
 

@@ -1,24 +1,23 @@
 """Rehearse a deploy in a real browser.
 
 Builds of the site that differ in known files are served under /focalruta/ the
-way GitHub Pages serves them (Cache-Control: max-age=600), and a deploy is a
-switch of the build being served. scripts/field_card_qa.py uses this for V07,
-V16 and V17: an upgrade from the worker live at 9cd3044, the first visit after
-a deploy, an install while the HTTP cache still holds the last build, and the
-files kept for the field following a deploy.
+way GitHub Pages serves them (static_server.py: gzip, max-age=600, content
+tags), and a deploy is a switch of the build being served.
+scripts/field_card_qa.py uses this for V07, V16 and V17: an upgrade from the
+worker live at 9cd3044, the first visit after a deploy, an install while the
+HTTP cache still holds the last build, and the files kept for the field
+following a deploy.
 """
 from __future__ import annotations
 
-import functools
 import hashlib
 import re
 import shutil
-import threading
-from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 import service_worker
+import static_server
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist" / "canon6d_sota_hosted"
@@ -63,47 +62,22 @@ def build(into: Path, name: str, changes: tuple[str, ...] = (), live_worker: boo
     return site
 
 
+def version(site: Path) -> str:
+    """The VERSION a build's worker answers with when asked which build it is."""
+    return re.search(r"const VERSION='([^']+)'", (site / "sw.js").read_text(encoding="utf-8")).group(1)
+
+
 class Pages:
-    """A Pages-like server whose build can be swapped, and stopped like a lost signal."""
+    """A Pages-like server whose build can be swapped, and stopped like a lost signal.
+
+    It is static_server's handler, the one the speed check measures through: gzip,
+    max-age=600 and content tags, under PREFIX.
+    """
 
     def __init__(self, site: Path):
         self.site = site
-        pages = self
-
-        class Handler(SimpleHTTPRequestHandler):
-            def translate_path(self, path):
-                path = unquote(urlsplit(path).path)
-                if not path.startswith(PREFIX):
-                    return str(pages.site / "outside-the-site" / "404")
-                return str(pages.site / path[len(PREFIX):])
-
-            # Like Pages: validators are content tags, so a revalidation after a deploy gets the new file.
-            def send_head(self):
-                path = Path(self.translate_path(self.path))
-                path = path / "index.html" if path.is_dir() and self.path.split("?")[0].endswith("/") else path
-                self.etag = f'"{hashlib.sha256(path.read_bytes()).hexdigest()[:16]}"' if path.is_file() else None
-                if self.etag and self.headers.get("If-None-Match") == self.etag:
-                    self.send_response(304)
-                    self.end_headers()
-                    return None
-                return super().send_head()
-
-            def send_header(self, keyword, value):
-                if keyword != "Last-Modified":
-                    super().send_header(keyword, value)
-
-            def end_headers(self):
-                self.send_header("Cache-Control", "max-age=600")
-                if getattr(self, "etag", None):
-                    self.send_header("ETag", self.etag)
-                super().end_headers()
-
-            def log_message(self, *args):
-                pass
-
-        self.server = ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(Handler, directory=str(site)))
-        threading.Thread(target=self.server.serve_forever, daemon=True).start()
-        self.base = f"http://127.0.0.1:{self.server.server_address[1]}{PREFIX}"
+        self.server = static_server.serve(lambda: self.site, PREFIX)
+        self.base = static_server.base_url(self.server, PREFIX)
 
     def deploy(self, site: Path) -> None:
         self.site = site

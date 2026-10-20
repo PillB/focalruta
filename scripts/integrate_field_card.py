@@ -33,13 +33,18 @@ body.fc-modal-lock{overflow:hidden}
 
 MODAL_JS = """
 // The one definition of the card dialog: the rest of the page goes inert while it is
-// open, focus stays inside, and Escape or the close button return focus to the opener.
+// open, focus moves inside as it opens (as showModal() does) and stays there, and Escape
+// or the close button return focus to the opener.
 let fcOpener=null,fcInert=[];
 function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
-function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');setTimeout(()=>{m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus()},0);}
+function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();}
 function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];fcOpener?.focus?.();}
 document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 """
+
+
+CSS_START, CSS_END = "/* FIELD CARD CSS START */", "/* FIELD CARD CSS END */"
+CSS_BLOCK = r"(?:<!--|/\*) FIELD CARD CSS START (?:-->|\*/).*?(?:<!--|/\*) FIELD CARD CSS END (?:-->|\*/)"
 
 
 def modal(fragment: str) -> str:
@@ -82,8 +87,10 @@ def patch(text: str) -> str:
     fragment = (ROOT / "data" / "field_card_fragment.html").read_text(encoding="utf-8").strip()
     css = (ROOT / "data" / "field_card.css").read_text(encoding="utf-8").strip()
     js = (ROOT / "data" / "field_card.js").read_text(encoding="utf-8").strip()
-    text = replace_block(text, r"<!-- FIELD CARD CSS START -->.*?<!-- FIELD CARD CSS END -->",
-                         f"<!-- FIELD CARD CSS START -->\n{css}\n{MODAL_CSS}\n<!-- FIELD CARD CSS END -->", "card styles")
+    # The markers sit inside a stylesheet, so they are CSS comments: an HTML comment there
+    # (`<!-- … -->`, the markers before X05) became part of the next rule's selector and the
+    # browser dropped that rule. The old form is still found, so an older index.html heals.
+    text = replace_block(text, CSS_BLOCK, f"{CSS_START}\n{css}\n{MODAL_CSS}\n{CSS_END}", "card styles")
     only_the_card(text)
     text = replace_block(text, r"<!-- FIELD CARD INTEGRATED -->.*?<!-- FIELD CARD INTEGRATED END -->", modal(fragment), "card dialog")
     return replace_block(text, r"<!-- FIELD CARD JS START -->.*?<!-- FIELD CARD JS END -->",

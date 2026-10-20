@@ -72,7 +72,7 @@ def passed(row: dict) -> bool:
 def run() -> bool:
     OUT.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
+        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
         rows = [inspect_viewport(browser, width, height) for width, height in VIEWPORTS]
         report = {"url": URL, "passed": all(map(passed, rows)), "records": rows}
         (OUT / "browser_qa.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

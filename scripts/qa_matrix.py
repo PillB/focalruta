@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""One responsive matrix, and one way to bound an awaited browser expression.
+"""One responsive matrix, one way to bound an awaited browser expression, and
+one way to find the browser and axe-core on any machine.
 
 Two duplication defects lived here. Four browser scripts each carried their own
 copy of the N01 viewport tuple, and two more carried a *different, shorter* one
@@ -14,6 +15,14 @@ page that registers no worker blocks the whole run with no error. The fix has to
 live inside the evaluated JavaScript, where a race can actually reject.
 """
 from __future__ import annotations
+
+import os
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+MAC_CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+AXE_VERSION = "4.10.3"
 
 # N01: the responsive matrix every browser-facing round must cover.
 REQUIRED_VIEWPORTS: tuple[tuple[int, int], ...] = (
@@ -47,3 +56,28 @@ def harden(context) -> None:
     """Give a Playwright context an explicit default instead of an implicit one."""
     context.set_default_timeout(DEFAULT_ACTION_TIMEOUT_MS)
     context.set_default_navigation_timeout(DEFAULT_ACTION_TIMEOUT_MS)
+
+
+def browser_options() -> dict:
+    """How to launch Chromium on this machine, decided once for every suite.
+
+    FOCALRUTA_CHROME wins when set, and must exist: a typo would otherwise
+    surface as a Playwright stack trace minutes into a run. Without it, the
+    owner's Mac uses its installed Chrome, and anything else (CI, Linux) uses
+    the Chromium that `python -m playwright install chromium` downloaded.
+    """
+    configured = os.environ.get("FOCALRUTA_CHROME", "")
+    if configured:
+        if not Path(configured).is_file():
+            sys.exit(f"FOCALRUTA_CHROME points at {configured}, which is not a file")
+        return {"executable_path": configured}
+    return {"executable_path": MAC_CHROME} if Path(MAC_CHROME).is_file() else {}
+
+
+def axe_source() -> str:
+    """axe-core's source: FOCALRUTA_AXE when set, else the copy `npm ci` pinned."""
+    configured = os.environ.get("FOCALRUTA_AXE", "")
+    path = Path(configured) if configured else ROOT / "node_modules/axe-core/axe.min.js"
+    if not path.is_file():
+        sys.exit(f"axe-core {AXE_VERSION} not found at {path}: run `npm ci` or point FOCALRUTA_AXE at axe.min.js")
+    return path.read_text(encoding="utf-8")

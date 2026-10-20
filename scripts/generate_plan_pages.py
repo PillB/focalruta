@@ -41,6 +41,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <meta name="theme-color" content="#0f172a">
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script id="diagnostics-js">
+__DIAG_JS__</script>
 <title>__PLAN_NAME__ · Plan fotográfico · FocalRuta</title>
 <meta name="description" content="__PLAN_DESCRIPTION__">
 <link rel="icon" href="../assets/app-icon.svg" type="image/svg+xml">
@@ -51,9 +53,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 body { font-family: 'Inter', system-ui, sans-serif; background: #FBFAF5; color: #0F172A; }
 .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.85); }
 /* The bar is 64 px tall on every screen: the name takes two lines at most, and on a phone
-   the place and the word "Imprimir" give way so neither the name nor the buttons are cut. */
+   the label and the word "Imprimir" give way so neither the name nor the buttons are cut.
+   The place is the page's first line, not the bar's: a long one would be cut there. */
 .plan-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
-.plan-place { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.plan-place { white-space: nowrap; }
 @media (max-width: 640px) { .plan-place, .plan-action-label { display: none; } }
 .toggle-active { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); color: white; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
 .toggle-inactive { background: #F1F5F9; color: #475569; }
@@ -103,7 +106,7 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
         </div>
         <div class="min-w-0">
           <h1 class="plan-title text-sm sm:text-base font-bold leading-tight">__PLAN_NAME__</h1>
-          <p class="plan-place text-xs text-slate-500">Plan individual · __PLAN_LOCATION__</p>
+          <p class="plan-place text-xs text-slate-500">Plan individual</p>
         </div>
       </div>
       <div class="flex items-center space-x-2 flex-shrink-0">
@@ -284,8 +287,8 @@ function renderShots() {
           <div class="text-xs text-slate-600 mb-2">
             <span class="font-bold">Composición:</span> ${shot.composition_label} ·
             <span class="font-bold">Ángulo:</span> ${shot.angle_label} ·
-            <span class="font-bold">Distancia:</span> ${shot.subject_distance_m}m ·
-            <span class="font-bold">Fondo:</span> ${shot.background_distance_m}m
+            <span class="font-bold">Distancia:</span> ${shot.subject_distance_m} m ·
+            <span class="font-bold">Fondo:</span> ${shot.background_distance_m} m
           </div>
           <div class="text-xs text-slate-700 italic">${shot.scene_notes}</div>
         </div>
@@ -329,7 +332,7 @@ window.addEventListener('DOMContentLoaded', renderShots);
 // The gear chosen on the home page applies here too (V15).
 window.addEventListener('storage', e => { if (e.key === 'focalruta-equipo-v1') renderShots(); });
 </script>
-<script>if(('serviceWorker' in navigator)&&(location.protocol==='http:'||location.protocol==='https:')){window.addEventListener('load',()=>navigator.serviceWorker.register('../sw.js').catch(()=>{}));}</script>
+<script>if(('serviceWorker' in navigator)&&(location.protocol==='http:'||location.protocol==='https:')){window.addEventListener('load',()=>navigator.serviceWorker.register('../sw.js').catch(e=>FocalRutaDiagnostico.record('trabajador',e&&e.message||String(e),'sw.js')));}</script>
 
 </body>
 </html>
@@ -380,6 +383,7 @@ def generate_plan_html(plan):
     html = html.replace("__PLAN_JSON__", json.dumps(plan_data, ensure_ascii=False))
     html = html.replace("__DIAGRAMS_JSON__", json.dumps(diagrams_b64, ensure_ascii=False))
     html = html.replace("__GEAR_JS__", (Path(__file__).resolve().parents[1] / "assets" / "gear.js").read_text(encoding="utf-8"), 1)
+    html = html.replace("__DIAG_JS__", (Path(__file__).resolve().parents[1] / "assets" / "diagnostics.js").read_text(encoding="utf-8"), 1)
 
     out_path = os.path.join(PLAN_DIR, f"{plan_id}.html")
     with open(out_path, "w", encoding="utf-8") as f:

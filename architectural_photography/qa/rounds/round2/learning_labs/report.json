@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "url": "isolated-public-root",
+  "url": "hosted-public-root",
   "viewports": [
     {
       "viewport": [
@@ -11,6 +11,7 @@
       "overflow": false,
       "page_errors": [],
       "console_errors": [],
+      "failed_resources": [],
       "labs": 9,
       "lessons": 17,
       "videos": 6,
@@ -47,6 +48,7 @@
       "overflow": false,
       "page_errors": [],
       "console_errors": [],
+      "failed_resources": [],
       "labs": 9,
       "lessons": 17,
       "videos": 6,
@@ -83,6 +85,7 @@
       "overflow": false,
       "page_errors": [],
       "console_errors": [],
+      "failed_resources": [],
       "labs": 9,
       "lessons": 17,
       "videos": 6,
@@ -119,6 +122,7 @@
       "overflow": false,
       "page_errors": [],
       "console_errors": [],
+      "failed_resources": [],
       "labs": 9,
       "lessons": 17,
       "videos": 6,
@@ -155,6 +159,7 @@
       "overflow": false,
       "page_errors": [],
       "console_errors": [],
+      "failed_resources": [],
       "labs": 9,
       "lessons": 17,
       "videos": 6,
@@ -191,6 +196,7 @@
       "overflow": false,
       "page_errors": [],
       "console_errors": [],
+      "failed_resources": [],
       "labs": 9,
       "lessons": 17,
       "videos": 6,
@@ -227,6 +233,7 @@
       "overflow": false,
       "page_errors": [],
       "console_errors": [],
+      "failed_resources": [],
       "labs": 9,
       "lessons": 17,
       "videos": 6,
@@ -255,5 +262,6 @@
       "screenshot": "architectural_photography/qa/rounds/round2/learning_labs/learning-1440x1100.png"
     }
   ],
-  "failed_checks": {}
+  "failed_checks": {},
+  "errors": []
 }

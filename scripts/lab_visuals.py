@@ -30,7 +30,7 @@ def _fmt(value: float, digits: int = 1) -> str:
     text = f"{value:.{digits}f}"
     if "." in text:
         text = text.rstrip("0").rstrip(".")
-    return text.replace(".", ",")
+    return text
 
 
 def _round(value: float, digits: int = 2) -> float:
@@ -643,7 +643,7 @@ def exposure_svg() -> str:
         '<circle cx="1" cy="1" r="1" fill="#10211d"/><circle cx="3" cy="3" r="0.8" fill="#5e6d67"/></pattern></defs>'
         f'<line x1="20" y1="104" x2="220" y2="104" stroke="{INK}" stroke-width="3"/>'
         f'<rect id="exposure-sharp" x="60" y="98" width="60" height="12" fill="{GREEN}" opacity=".75"/>'
-        '<text x="16" y="124">0,5 m</text><text x="196" y="124">20 m</text><text x="96" y="94">zona nítida</text>'
+        '<text x="16" y="124">0.5 m</text><text x="196" y="124">20 m</text><text x="96" y="94">zona nítida</text>'
         "</svg>"
     )
 
@@ -669,7 +669,7 @@ def _reflection_state(angle: int, exposure_ev: int) -> dict:
     core = min(1.0, 0.3 * (2.0 ** exposure_ev))
     readout = (
         f"A {angle}° de la perpendicular el vidrio devuelve el {_fmt(reflectance * 100)} % de la luz "
-        f"(Schlick, n≈1,5). Pero lo que ves depende del contraste: con un cielo 40 veces más brillante que el "
+        f"(Schlick, n≈1.5). Pero lo que ves depende del contraste: con un cielo 40 veces más brillante que el "
         f"interior, el reflejo aporta el {_fmt(visible * 100, 0)} % de lo que registra el sensor. "
     )
     if visible > 0.85:
@@ -770,7 +770,7 @@ def _exposure_controls() -> str:
     shutters = tuple((shutter, f"1/{shutter} s") for shutter in EXPOSURE_SHUTTERS)
     apertures = tuple((_fmt(aperture), f"f/{_fmt(aperture)}") for aperture in EXPOSURE_APERTURES)
     return _select_control("exposure-shutter", "Obturación", shutters, "125") + _select_control(
-        "exposure-aperture", "Diafragma", apertures, "5,6"
+        "exposure-aperture", "Diafragma", apertures, "5.6"
     )
 
 
@@ -835,7 +835,7 @@ LAB_SPECS = {
     "exposure-triangle": {
         "slug": "exposure", "eyebrow": "LAB 8 · EXPOSICIÓN Y NITIDEZ",
         "controls": _exposure_controls, "svg": exposure_svg, "table": exposure_table,
-        "caption": "Arriba, la estela de un peatón a 6 m. Abajo, la zona nítida sobre una escala de 0,5 a 20 m.",
+        "caption": "Arriba, la estela de un peatón a 6 m. Abajo, la zona nítida sobre una escala de 0.5 a 20 m.",
     },
     "reflection-glare": {
         "slug": "reflection", "eyebrow": "LAB 9 · REFLEJOS Y HALO",
@@ -1016,7 +1016,7 @@ def _exposure_diagram() -> str:
         f'<rect x="252" y="54" width="{_round(max(4.0, (stopped["far"] - stopped["near"]) * 2.6))}" height="12" fill="{GREEN}" opacity=".8"/>'
         f'<line x1="212" y1="112" x2="344" y2="112" stroke="{INK}" stroke-width="3"/>'
         f'<rect x="266" y="106" width="{_round(max(4.0, (wide["far"] - wide["near"]) * 2.6))}" height="12" fill="{GREEN}" opacity=".8"/>'
-        f'<text x="210" y="46">f/11</text><text x="210" y="100">f/1,8</text>'
+        f'<text x="210" y="46">f/11</text><text x="210" y="100">f/1.8</text>'
     )
     return _diagram("exposure-focus-iso-motion", "Estela de movimiento por obturación y zona nítida por diafragma", body)
 

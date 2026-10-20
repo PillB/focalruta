@@ -140,7 +140,13 @@ async function navigate(e,r,path){
     if(known(path))e.waitUntil(remember(path,res.clone()).catch(()=>{}));
     return res;
   }catch(_){
-    return (known(path)&&await kept(path))||await kept('index.html')||Response.error();
+    const hit=known(path)&&await kept(path);
+    if(hit)return hit;
+    // A page never kept here: send the reader to the home page, which says which one it was.
+    // The home page's bytes under this URL would resolve its stylesheet, images and links
+    // under this page's folder (live check of 56a6e97, M7).
+    if(path!=='index.html'&&await kept('index.html'))return Response.redirect(SCOPE+'index.html?sin-conexion='+encodeURIComponent(path),302);
+    return Response.error();
   }
 }
 async function asset(e,r,path){
@@ -163,6 +169,8 @@ self.addEventListener('install',e=>e.waitUntil(install().then(()=>self.skipWaiti
 self.addEventListener('activate',e=>e.waitUntil(prune().then(()=>self.clients.claim())));
 self.addEventListener('message',e=>{
   const d=e.data;
+  // Which build this worker is, so a check can tell the new worker from the one it replaces.
+  if(d&&d.type==='version'&&e.ports[0]){e.ports[0].postMessage({version:VERSION});return}
   if(!d||!Array.isArray(d.urls))return;
   const paths=[...new Set(d.urls.map(pathOf).filter(known))];
   if(d.type==='warm')e.waitUntil(warm(paths.slice(0,40)));

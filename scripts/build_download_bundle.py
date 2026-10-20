@@ -38,7 +38,7 @@ falta, indican el filtro ND necesario (por ejemplo, «ND de 6 pasos (ND64)»). S
 toma dice «no viable» a esa hora, cámbiala de horario. Son un punto de partida:
 haz una foto de prueba y revisa el histograma.
 
-La profundidad de campo usa un círculo de confusión de 0,03 mm, la convención
+La profundidad de campo usa un círculo de confusión de 0.03 mm, la convención
 habitual para full frame; tómala como guía de planificación, no como un borde exacto.
 """
 

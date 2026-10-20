@@ -322,7 +322,7 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Sendero central de olivos, sujeto a 4 m, hileras de olivos que convergen al fondo. Sujeto en tercio izquierdo del encuadre.",
-          "reasoning": "El 35 mm en formato completo da un campo horizontal de 54°, suficiente para incluir 2–3 hileras de olivos como capas. A f/11 la hiperfocal es ≈3,7 m; enfocando al sujeto a 4 m (algo más allá de ella) queda nítido desde ≈1,9 m hasta el infinito, así que el fondo a 12 m también se lee. Eso es exactamente lo que pide 'mucha PDC'.",
+          "reasoning": "El 35 mm en formato completo da un campo horizontal de 54°, suficiente para incluir 2–3 hileras de olivos como capas. A f/11 la hiperfocal es ≈3.7 m; enfocando al sujeto a 4 m (algo más allá de ella) queda nítido desde ≈1.9 m hasta el infinito, así que el fondo a 12 m también se lee. Eso es exactamente lo que pide 'mucha PDC'.",
           "dos": [
             "Dispara en modo Av con f/11, enfoque al sujeto, deja que la cámara elija velocidad",
             "Usa un trípode para evitar trepidación si la velocidad baja de 1/100",
@@ -386,7 +386,7 @@
           "camera_height_m": 1.65,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
           "scene_notes": "Paseo peatonal entre dos hileras de palmeras/olivos. Sujeto en el centro exacto, ejes bilaterales a izquierda y derecha.",
-          "reasoning": "La simetría exige que el sujeto esté en el centro óptico y la cámara perfectamente nivelada (usa el nivel electrónico de la 6D). El zoom a 35 mm y f/8 rinde algo menos que el fijo, pero sobra para web e impresión mediana. A 6 m el encuadre horizontal mide ≈4,1 m de alto, así que una persona de pie ocupa ≈40 % de la altura.",
+          "reasoning": "La simetría exige que el sujeto esté en el centro óptico y la cámara perfectamente nivelada (usa el nivel electrónico de la 6D). El zoom a 35 mm y f/8 rinde algo menos que el fijo, pero sobra para web e impresión mediana. A 6 m el encuadre horizontal mide ≈4.1 m de alto, así que una persona de pie ocupa ≈40 % de la altura.",
           "dos": [
             "Verifica simetría con la rejilla de pantalla del 6D",
             "Usa nivel electrónico o de zapata",
@@ -514,7 +514,7 @@
           "camera_height_m": 1.4,
           "pose": "De espaldas, gira torso y cabeza sobre el hombro",
           "scene_notes": "Sujeto de espaldas girándose sobre el hombro. Mucho espacio vacío a la derecha (dirección de la mirada). Fondo: olivo solitario desenfocado.",
-          "reasoning": "El 50 mm a f/1.8 y 2,5 m da ≈26 cm de profundidad de campo, suficiente para medio cuerpo. El espacio negativo (3/4 del encuadre a la derecha) lleva la mirada del espectador hacia donde mira el sujeto. El olivo a 5 m se convierte en una mancha abstracta.",
+          "reasoning": "El 50 mm a f/1.8 y 2.5 m da ≈26 cm de profundidad de campo, suficiente para medio cuerpo. El espacio negativo (3/4 del encuadre a la derecha) lleva la mirada del espectador hacia donde mira el sujeto. El olivo a 5 m se convierte en una mancha abstracta.",
           "dos": [
             "Coloca al sujeto en el tercio IZQUIERDO, mirando hacia el espacio vacío",
             "Espera un gesto natural del girarse (no pose rígida)",
@@ -578,9 +578,9 @@
           "camera_height_m": 0.6,
           "pose": "Salto vertical, brazos arriba, sonrisa amplia",
           "scene_notes": "Sujeto saltando contra cielo despejado. Cámara baja (0.6 m) mirando hacia arriba, solo cielo como fondo.",
-          "reasoning": "1/2000 s congela el salto. A 6 m el 85 mm cubre ≈2,5 × 1,7 m: en horizontal entra el cuerpo entero con poco aire, en vertical sobra para los brazos arriba. El contrapicado agranda al sujeto y lo aísla contra el cielo (minimalismo por eliminación del fondo). f/2.8 deja algo de margen de enfoque mientras el sujeto se mueve.",
+          "reasoning": "1/2000 s congela el salto. A 6 m el 85 mm cubre ≈2.5 × 1.7 m: en horizontal entra el cuerpo entero con poco aire, en vertical sobra para los brazos arriba. El contrapicado agranda al sujeto y lo aísla contra el cielo (minimalismo por eliminación del fondo). f/2.8 deja algo de margen de enfoque mientras el sujeto se mueve.",
           "dos": [
-            "Usa AF AI SERVO + selección de punto + ráfaga de 4,5 fps",
+            "Usa AF AI SERVO + selección de punto + ráfaga de 4.5 fps",
             "Cuenta regresiva 3-2-1 con el sujeto para sincronizar el salto",
             "Dispara en JPG+RAW por si el AF falla en algunas tomas"
           ],
@@ -643,7 +643,7 @@
           "camera_height_m": 1.0,
           "pose": "Corriendo, en aire, brazos en oposición",
           "scene_notes": "Sujeto corriendo / perro corriendo de izquierda a derecha. Cámara sigue el movimiento en arco. Fondo: árboles del parque a 25 m (serán estelas horizontales).",
-          "reasoning": "1/30 s con seguimiento horizontal: sujeto nítido y fondo en estelas. A 6 m el 50 mm cubre ≈4,3 × 2,9 m, así que entra el cuerpo entero con aire para el movimiento. Coloca al sujeto en el tercio derecho para que el movimiento 'entre' al encuadre. Cerrar el diafragma da margen de foco si el seguimiento falla.",
+          "reasoning": "1/30 s con seguimiento horizontal: sujeto nítido y fondo en estelas. A 6 m el 50 mm cubre ≈4.3 × 2.9 m, así que entra el cuerpo entero con aire para el movimiento. Coloca al sujeto en el tercio derecho para que el movimiento 'entre' al encuadre. Cerrar el diafragma da margen de foco si el seguimiento falla.",
           "dos": [
             "Gira el torso siguiendo al sujeto antes, durante y DESPUÉS del disparo (no pares al clic)",
             "Usa AF AI SERVO con punto central + ráfaga",
@@ -906,7 +906,7 @@
           "angle_label": "Central",
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
-          "scene_notes": "Sujeto a 8 m en sendero. Durante los 2 s de exposición gira el anillo del zoom de 35 a 80mm (o viceversa). El sujeto queda como punto fijo + estallido radial.",
+          "scene_notes": "Sujeto a 8 m en sendero. Durante los 2 s de exposición gira el anillo del zoom de 35 a 80 mm (o viceversa). El sujeto queda como punto fijo + estallido radial.",
           "reasoning": "Unos 2 s con trípode. Gira el zoom de forma continua durante toda la exposición. El sujeto debe estar perfectamente centrado: el zoom escala la imagen desde el centro y los puntos más alejados del centro dejan los trazos más largos. Las líneas radiales imitan líneas de fuga.",
           "dos": [
             "Practica el giro del zoom en seco: debe ser uniforme, ni rápido al inicio ni al final",
@@ -989,7 +989,7 @@
           "camera_height_m": 1.65,
           "pose": "Recargado en muro, un pie apoyado, relajado",
           "scene_notes": "Sujeto recargado en baranda del malecón. Capas: 1) baranda (primer plano), 2) sujeto (plano medio), 3) paseantes y parapentes (plano lejano), 4) mar y horizonte (fondo), 5) cielo.",
-          "reasoning": "El 35 mm a 5 m cubre todos los planos. A f/11 la hiperfocal es ≈3,7 m; enfocando a 5 m queda nítido desde ≈2,1 m hasta el infinito. Las capas se construyen con profundidad real: la baranda ocupa el sexto inferior, el sujeto un tercio y el horizonte va en el tercio superior.",
+          "reasoning": "El 35 mm a 5 m cubre todos los planos. A f/11 la hiperfocal es ≈3.7 m; enfocando a 5 m queda nítido desde ≈2.1 m hasta el infinito. Las capas se construyen con profundidad real: la baranda ocupa el sexto inferior, el sujeto un tercio y el horizonte va en el tercio superior.",
           "dos": [
             "Encuadra la baranda como diagonal en primer plano",
             "Pon el horizonte en el tercio superior (no al centro)",
@@ -1053,7 +1053,7 @@
           "camera_height_m": 1.7,
           "pose": "Caminando hacia la cámara, paso natural, mirada al frente",
           "scene_notes": "Sujeto caminando por la ciclovía del malecón. Mucho espacio a la izquierda (mar y cielo). Sujeto pequeño, horizonte en tercio inferior.",
-          "reasoning": "El zoom a 35 mm (algo menos nítido que el fijo) a f/8 da profundidad de campo suficiente. A 8 m el encuadre mide ≈5,5 m de alto, así que el sujeto ocupa ≈1/3 de la altura. Espacio negativo: 60 % de cielo y mar a la izquierda, sujeto como punto focal mínimo.",
+          "reasoning": "El zoom a 35 mm (algo menos nítido que el fijo) a f/8 da profundidad de campo suficiente. A 8 m el encuadre mide ≈5.5 m de alto, así que el sujeto ocupa ≈1/3 de la altura. Espacio negativo: 60 % de cielo y mar a la izquierda, sujeto como punto focal mínimo.",
           "dos": [
             "Espera un momento sin peatones cruzando",
             "Mantén el horizonte perfectamente horizontal",
@@ -1117,7 +1117,7 @@
           "camera_height_m": 1.55,
           "pose": "Riendo, cabeza ligeramente atrás, mano cerca de la boca",
           "scene_notes": "Retrato de medio cuerpo contra el horizonte del mar. Fondo desenfocado: mar como mancha azul/verde, sin horizonte definido.",
-          "reasoning": "85 mm a 2,5 m y f/1.8: profundidad de campo ≈9 cm. Ojos nítidos, el resto del rostro ya blando. El mar a 15 m se convierte en textura abstracta. El punto de interés es el ojo más cercano, reforzado por una sonrisa natural.",
+          "reasoning": "85 mm a 2.5 m y f/1.8: profundidad de campo ≈9 cm. Ojos nítidos, el resto del rostro ya blando. El mar a 15 m se convierte en textura abstracta. El punto de interés es el ojo más cercano, reforzado por una sonrisa natural.",
           "dos": [
             "Enfoca con punto central + recomposición suave (sin mover la distancia)",
             "Dispara en ráfaga para capturar el pico de la sonrisa",
@@ -1245,7 +1245,7 @@
           "camera_height_m": 1.65,
           "pose": "Corriendo, en aire, brazos en oposición",
           "scene_notes": "Parapente en vuelo bajo sobre el malecón. Cámara sigue al parapente. 1/2000 s o más rápido congela la vela y al piloto.",
-          "reasoning": "1/2000 s congela al piloto y la tela de la vela. A 15 m el 85 mm cubre sólo ≈6,3 m de ancho: entran el piloto y el centro de la vela; para el ala completa (≈10 m) necesitas unos 25 m o más. Coloca el parapente en el tercio superior derecho y deja espacio inferior para el mar.",
+          "reasoning": "1/2000 s congela al piloto y la tela de la vela. A 15 m el 85 mm cubre sólo ≈6.3 m de ancho: entran el piloto y el centro de la vela; para el ala completa (≈10 m) necesitas unos 25 m o más. Coloca el parapente en el tercio superior derecho y deja espacio inferior para el mar.",
           "dos": [
             "AF AI SERVO + punto central + ráfaga",
             "Pre-enfoca en la zona por donde pasan los parapentes",
@@ -1310,7 +1310,7 @@
           "camera_height_m": 1.1,
           "pose": "Corriendo, en aire, brazos en oposición",
           "scene_notes": "Ciclista o corredor del malecón. Cámara sigue el movimiento horizontal. Fondo: mar y malecón en estelas horizontales.",
-          "reasoning": "1/30 s con seguimiento lateral. A 8 m el 50 mm cubre ≈5,7 × 3,8 m: cuerpo entero con contexto del malecón. Sujeto en el tercio derecho, entrando hacia el espacio libre. Cerrar el diafragma da margen si el seguimiento falla.",
+          "reasoning": "1/30 s con seguimiento lateral. A 8 m el 50 mm cubre ≈5.7 × 3.8 m: cuerpo entero con contexto del malecón. Sujeto en el tercio derecho, entrando hacia el espacio libre. Cerrar el diafragma da margen si el seguimiento falla.",
           "dos": [
             "Posiciónate donde los ciclistas pasan predeciblemente",
             "Gira el torso: prepárate → dispara → continúa el giro 1 s más",
@@ -1573,7 +1573,7 @@
           "angle_label": "Central",
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
-          "scene_notes": "Sujeto a 6 m contra el faro de La Marina al fondo. Durante 3 s gira el zoom de 35 a 80mm. El faro queda como estallido radial, el sujeto como punto fijo.",
+          "scene_notes": "Sujeto a 6 m contra el faro de La Marina al fondo. Durante 3 s gira el zoom de 35 a 80 mm. El faro queda como estallido radial, el sujeto como punto fijo.",
           "reasoning": "Unos 3 s con trípode. El giro del zoom escala la imagen desde el centro: cuanto más lejos del centro del encuadre está un punto, más largo es su trazo, sin importar a qué distancia esté de la cámara. Por eso el sujeto centrado queda casi estable y las luces de los bordes estallan.",
           "dos": [
             "Practica el giro: uniforme, ni muy rápido ni muy lento",
@@ -1784,7 +1784,7 @@
           "camera_height_m": 1.55,
           "pose": "Riendo, cabeza ligeramente atrás, mano cerca de la boca",
           "scene_notes": "Retrato en casa con fondo de lámpara encendida a 6 m. La lámpara sale como bokeh circular brillante.",
-          "reasoning": "85 mm f/1.8 a 2,5 m: profundidad de campo ≈9 cm. La lámpara del fondo se convierte en círculos de luz (bokeh), el efecto clásico del retrato nocturno. El ojo es el único punto de interés.",
+          "reasoning": "85 mm f/1.8 a 2.5 m: profundidad de campo ≈9 cm. La lámpara del fondo se convierte en círculos de luz (bokeh), el efecto clásico del retrato nocturno. El ojo es el único punto de interés.",
           "dos": [
             "Apaga otras luces para que solo la lámpara del fondo destaque",
             "Equilibra con luz suave frontal (ventana o reflector blanco)",
@@ -1848,7 +1848,7 @@
           "camera_height_m": 1.4,
           "pose": "De espaldas, gira torso y cabeza sobre el hombro",
           "scene_notes": "Sujeto de espaldas mirando por la ventana a la calle iluminada. Mucho espacio vacío a la derecha (la pared).",
-          "reasoning": "50 mm a 2,5 m y f/1.8: profundidad de campo ≈26 cm. El espacio negativo es la pared oscura a la derecha (3/4 del encuadre). El sujeto va en el tercio izquierdo, mirando hacia ese espacio.",
+          "reasoning": "50 mm a 2.5 m y f/1.8: profundidad de campo ≈26 cm. El espacio negativo es la pared oscura a la derecha (3/4 del encuadre). El sujeto va en el tercio izquierdo, mirando hacia ese espacio.",
           "dos": [
             "Subexpón para preservar las luces de la calle por la ventana",
             "Pide al sujeto que gire solo la cabeza, no el cuerpo",
@@ -1977,7 +1977,7 @@
           "camera_height_m": 1.0,
           "pose": "Corriendo, en aire, brazos en oposición",
           "scene_notes": "Calle urbana pública de noche: auto o motocicleta pasando. Cámara sigue el movimiento. Streaks de faroles detrás.",
-          "reasoning": "Velocidad lenta con seguimiento. A 8 m el 50 mm cubre ≈5,7 m de ancho: entra un auto completo. Sujeto en el tercio derecho, moviéndose hacia la izquierda, hacia el espacio libre.",
+          "reasoning": "Velocidad lenta con seguimiento. A 8 m el 50 mm cubre ≈5.7 m de ancho: entra un auto completo. Sujeto en el tercio derecho, moviéndose hacia la izquierda, hacia el espacio libre.",
           "dos": [
             "Posiciónate en la vereda donde los autos pasan predeciblemente (cruce o semáforo)",
             "Gira el torso siguiendo al auto",
@@ -2236,7 +2236,7 @@
           "angle_label": "Central",
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
-          "scene_notes": "Sujeto a 6 m en la sala, lámparas encendidas a diferentes distancias. Durante 3 s gira el zoom de 35 a 80mm. Cada lámpara crea su propio estallido radial.",
+          "scene_notes": "Sujeto a 6 m en la sala, lámparas encendidas a diferentes distancias. Durante 3 s gira el zoom de 35 a 80 mm. Cada lámpara crea su propio estallido radial.",
           "reasoning": "Unos 3 s con trípode. El giro del zoom escala la imagen desde el centro: cada lámpara deja un trazo cuya longitud depende de lo lejos que esté del centro del encuadre, no de su distancia a la cámara. El sujeto centrado queda estable.",
           "dos": [
             "Practica el giro uniformemente",
@@ -2318,7 +2318,7 @@
           "camera_height_m": 1.65,
           "pose": "Caminando hacia la cámara, paso natural, mirada al frente",
           "scene_notes": "Jirón de la Unión peatonal. Cámara en eje central de la calle. Balcones coloniales a ambos lados convergen al fondo (cúpula de la Catedral visible).",
-          "reasoning": "El 35 mm en formato completo abarca la calle. A f/11, enfocando al sujeto a 5 m, queda nítido desde ≈2,1 m hasta el infinito. La perspectiva de un punto (cámara en el eje) hace converger balcones, cornisas y banderas hacia el fondo. El sujeto caminando da escala.",
+          "reasoning": "El 35 mm en formato completo abarca la calle. A f/11, enfocando al sujeto a 5 m, queda nítido desde ≈2.1 m hasta el infinito. La perspectiva de un punto (cámara en el eje) hace converger balcones, cornisas y banderas hacia el fondo. El sujeto caminando da escala.",
           "dos": [
             "Encuadra PERFECTAMENTE en el eje central de la calle",
             "Espera un momento sin demasiada gente (temprano)",
@@ -2326,7 +2326,7 @@
           ],
           "donts": [
             "No dispares descentrado — las líneas no convergerán correctamente",
-            "No uses gran angular extremo (24mm) — distorsiona demasiado los balcones"
+            "No uses gran angular extremo (24 mm) — distorsiona demasiado los balcones"
           ],
           "settings_by_time": {
             "day": {
@@ -2446,7 +2446,7 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Retrato 3/4 contra la fachada del Hotel Bolívar o Club Nacional. Fachada arquitectónica detallada desenfocada como textura.",
-          "reasoning": "85 mm a 2,5 m y f/1.8: profundidad de campo ≈9 cm. La fachada a 12 m se convierte en una textura uniforme. El sujeto es el único punto nítido.",
+          "reasoning": "85 mm a 2.5 m y f/1.8: profundidad de campo ≈9 cm. La fachada a 12 m se convierte en una textura uniforme. El sujeto es el único punto nítido.",
           "dos": [
             "Enfoca el ojo más cercano con punto central + recomposición suave",
             "Si hay sol directo, busca sombra del arco para luz pareja",
@@ -2574,7 +2574,7 @@
           "camera_height_m": 0.6,
           "pose": "Salto vertical, brazos arriba, sonrisa amplia",
           "scene_notes": "Sujeto saltando en Plaza Mayor contra cielo despejado. Cámara baja mirando hacia arriba. Palomas en vuelo pueden sumarse.",
-          "reasoning": "1/2000 s congela el salto y las palomas en vuelo. A 10 m el 85 mm cubre ≈4,2 × 2,8 m: el cuerpo entero en el aire con margen. El contrapicado aísla al sujeto contra el cielo. Minimalismo por eliminación.",
+          "reasoning": "1/2000 s congela el salto y las palomas en vuelo. A 10 m el 85 mm cubre ≈4.2 × 2.8 m: el cuerpo entero en el aire con margen. El contrapicado aísla al sujeto contra el cielo. Minimalismo por eliminación.",
           "dos": [
             "AF AI SERVO + punto central + ráfaga",
             "Coordina salto con movimiento de palomas (un asistente las asusta)",
@@ -2639,7 +2639,7 @@
           "camera_height_m": 1.0,
           "pose": "Corriendo, en aire, brazos en oposición",
           "scene_notes": "Peatón o ciclista en Jirón de la Unión. Cámara sigue el movimiento. Fachadas coloniales en estelas horizontales.",
-          "reasoning": "1/30 s con seguimiento. A 8 m el 50 mm cubre ≈5,7 × 3,8 m: cuerpo entero con las fachadas alrededor. Sujeto en el tercio derecho, entrando. Las fachadas en estelas crean dinamismo.",
+          "reasoning": "1/30 s con seguimiento. A 8 m el 50 mm cubre ≈5.7 × 3.8 m: cuerpo entero con las fachadas alrededor. Sujeto en el tercio derecho, entrando. Las fachadas en estelas crean dinamismo.",
           "dos": [
             "Posiciónate donde los peatones pasen predeciblemente (esquina)",
             "Gira el torso: prepárate → dispara → continúa 1 s",
@@ -2901,7 +2901,7 @@
           "angle_label": "Central",
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
-          "scene_notes": "Sujeto a 7 m contra la fachada iluminada de la Catedral. Durante 3 s gira el zoom de 35 a 80mm. La fachada se estira en estallido radial.",
+          "scene_notes": "Sujeto a 7 m contra la fachada iluminada de la Catedral. Durante 3 s gira el zoom de 35 a 80 mm. La fachada se estira en estallido radial.",
           "reasoning": "Unos 3 s con trípode. El giro del zoom crea líneas radiales desde el centro; la fachada iluminada estalla hacia los bordes. El sujeto centrado queda casi estable.",
           "dos": [
             "Practica el giro uniformemente",
@@ -4341,7 +4341,7 @@
       "ev_low": 8,
       "ev_high": 10,
       "label": "interior junto a una ventana, de día",
-      "source": "estimate · sin fila en la tabla ANSI; 500–2500 lx junto a la ventana con E = 2,5·2^EV (C = 250)"
+      "source": "estimate · sin fila en la tabla ANSI; 500–2500 lx junto a la ventana con E = 2.5·2^EV (C = 250)"
     },
     "oficina": {
       "ev_low": 7,

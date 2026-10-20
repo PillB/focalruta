@@ -42,6 +42,10 @@ if n != 1: raise RuntimeError('sun panel script slot not found')
 gear_js = (ROOT / 'assets' / 'gear.js').read_text(encoding='utf-8')
 t, n = re.subn(r'<script id="gear-js">.*?</script>', lambda _m: '<script id="gear-js">\n' + gear_js + '</script>', t, count=1, flags=re.S)
 if n != 1: raise RuntimeError('gear script slot not found')
+# Error log on this device (X04): first script on the page, so it sees every later one fail.
+diagnostics_js = (ROOT / 'assets' / 'diagnostics.js').read_text(encoding='utf-8')
+t, n = re.subn(r'<script id="diagnostics-js">.*?</script>', lambda _m: '<script id="diagnostics-js">\n' + diagnostics_js + '</script>', t, count=1, flags=re.S)
+if n != 1: raise RuntimeError('error log script slot not found')
 def _solstice(day, label):
     plan = sun_times.day_plan(day)
     return (f"{label}: sale {sun_times.clock(plan['sunrise'])}, se pone {sun_times.clock(plan['sunset'])} "
@@ -67,8 +71,8 @@ alt_to_file={
  'Tercios':'composition_tercios.png','Perspectiva':'composition_perspectiva.png','Simetría':'composition_simetria.png',
  'Enmarcado':'composition_enmarcado.png','Espacio negativo':'composition_espacio_neg.png','Punto de interés':'composition_punto_interes.png',
  'Minimalismo':'composition_minimalismo.png','Capas':'composition_capas.png',
- 'Comparativa 35/50/85 a 2.5m':'lens_comparison_25cm.png','Comparativa 35/50/85 a 4m':'lens_comparison_40cm.png',
- 'Comparativa 35/50/85 a 6m':'lens_comparison_60cm.png'}
+ 'Comparativa 35/50/85 a 2.5 m':'lens_comparison_25cm.png','Comparativa 35/50/85 a 4 m':'lens_comparison_40cm.png',
+ 'Comparativa 35/50/85 a 6 m':'lens_comparison_60cm.png'}
 for alt,fn in alt_to_file.items():
     uri=assets['diagrams/'+fn]
     pattern=r'(<img\s+src=")[^"]+("\s+alt="'+re.escape(alt)+r'")'

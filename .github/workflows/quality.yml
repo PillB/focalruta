@@ -30,3 +30,84 @@ jobs:
         run: python3 scripts/verify_architecture.py
       - name: Verify existing release
         run: python3 scripts/verify_release.py
+
+  # X01: every browser suite on every pull request, on Linux with the Chromium
+  # Playwright pins, so a change cannot pass on a report from an older run.
+  browser-qa:
+    name: browser ${{ matrix.suite }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        suite:
+          - visual_resource_audit.py
+          - optics_accessibility_qa.py
+          - browser_release_qa.py
+          - axe_accessibility_qa.py
+          - field_card_qa.py
+          - perf_budget_qa.py
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install the pinned browser tools
+        run: |
+          python3 -m pip install -r requirements-qa.txt
+          npm ci
+          python3 -m playwright install --with-deps chromium
+          echo "FOCALRUTA_CHROME=$(python3 -c 'from playwright.sync_api import sync_playwright as s; p = s().start(); print(p.chromium.executable_path); p.stop()')" >> "$GITHUB_ENV"
+      - name: Run ${{ matrix.suite }}
+        run: python3 scripts/${{ matrix.suite }}
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: report-${{ matrix.suite }}
+          path: "*_QA.json"
+          if-no-files-found: ignore
+
+  architecture-browser-qa:
+    name: browser architecture suites
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Install the pinned browser tools
+        run: |
+          python3 -m pip install -r requirements-qa.txt
+          python3 -m playwright install --with-deps chromium
+          echo "FOCALRUTA_CHROME=$(python3 -c 'from playwright.sync_api import sync_playwright as s; p = s().start(); print(p.chromium.executable_path); p.stop()')" >> "$GITHUB_ENV"
+      - name: Serve the repository and the hosted build
+        run: |
+          nohup python3 -m http.server 8766 --bind 127.0.0.1 --directory . > /dev/null 2>&1 &
+          nohup python3 -m http.server 8777 --bind 127.0.0.1 --directory dist/canon6d_sota_hosted > /dev/null 2>&1 &
+          for port in 8766 8777; do
+            curl --silent --fail --retry 20 --retry-delay 1 --retry-connrefused --output /dev/null "http://127.0.0.1:$port/"
+          done
+      # Each suite runs even after one fails, so a red run names every failing suite.
+      - name: Run the five architecture suites, one after another
+        run: |
+          status=0
+          for suite in browser_round1_qa.py browser_round2_learning_qa.py browser_round5_route_qa.py \
+                       browser_architecture_release_qa.py browser_whole_site_integration_qa.py; do
+            echo "::group::$suite"
+            python3 "tests/architecture/$suite" || { echo "::error::$suite failed"; status=1; }
+            echo "::endgroup::"
+          done
+          exit "$status"
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: report-architecture-suites
+          path: |
+            architectural_photography/qa/rounds/**/*.json
+            architectural_photography/qa/final/**/*.json
+          if-no-files-found: ignore

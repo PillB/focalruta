@@ -187,15 +187,24 @@ def check_evidence(report_name: str, minimum_checks: int) -> None:
 
 for report_name, minimum_checks in (
     # 249 before step 3, plus the reading floor (V10-V12) and dialogs at six viewports on two targets (315),
-    # plus 320 px and nothing cut off (V18) and dialogs giving focus back (V19) (360), plus V18 with long lens names.
-    ("CURRENT_BROWSER_QA.json", 371),
+    # plus 320 px and nothing cut off (V18) and dialogs giving focus back (V19) (360), plus V18 with long lens names
+    # (371), plus the on-device error log (X04) (377), plus dialogs keeping the rest out of reach (V19) and
+    # numbers written the Peruvian way (V20) (414), plus the offline notice for a page never kept (V21) (421),
+    # plus «Copiar» without a clipboard (red team on PR #21, F7) (422), plus each dialog holding focus in
+    # the task that opens it (V19, CI on 518b9a3) (428), plus every stylesheet the site ships kept whole by the
+    # browser (16 distinct sheets) and the home page's card drawn like the card's page in three palettes on
+    # both home pages (X05).
+    ("CURRENT_BROWSER_QA.json", 450),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
-    # Every shipped page, light phone and dark desktop: 39 pages x 2 passes.
-    ("AXE_ACCESSIBILITY_QA.json", 78),
+    # Every shipped page, light phone and dark desktop: 39 pages x 2 passes, plus the home
+    # page's offline notice (M7).
+    ("AXE_ACCESSIBILITY_QA.json", 80),
     # 38 for the card itself (V02-V09), 10 for your own gear (V13-V15), and the deploy
     # rehearsals for V16-V17 in place of the single simulated deploy.
     ("FIELD_CARD_QA.json", 56),
+    # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin).
+    ("PERF_BUDGET_QA.json", 112),
 ):
     check_evidence(report_name, minimum_checks)
 

@@ -19,6 +19,7 @@ REPORTS = (
     "VISUAL_RESOURCE_QA.json",
     "AXE_ACCESSIBILITY_QA.json",
     "FIELD_CARD_QA.json",
+    "PERF_BUDGET_QA.json",
 )
 
 
@@ -59,7 +60,9 @@ def test_report_still_passes(name):
 
 def test_no_unbound_qa_report_sits_beside_the_current_evidence():
     # Six August reports with no fingerprints lived at the root next to these.
-    assert sorted(path.name for path in ROOT.glob("*QA*.json")) == sorted(REPORTS)
+    # LIVE_*.json describe the deployed site, not this tree: gitignored, uploaded by CI as artifacts.
+    found = [path.name for path in ROOT.glob("*QA*.json") if not path.name.startswith("LIVE_")]
+    assert sorted(found) == sorted(REPORTS)
 
 
 @pytest.mark.parametrize("name", REPORTS)

@@ -19,6 +19,7 @@ Requirements:
 """
 from __future__ import annotations
 
+import html as html_text
 import json
 import re
 import shutil
@@ -140,6 +141,23 @@ def test_v02_every_slot_shows_its_exact_settings(card):
     assert len(blocks) == 180 and not wrong, (len(blocks), wrong[:10])
 
 
+@pytest.mark.parametrize("card", (*CARDS, ROOT / "index.html", ROOT / "dist" / "canon6d_sota_hosted" / "index.html"),
+                         ids=lambda p: p.relative_to(ROOT).as_posix())
+def test_v02_the_lens_and_the_exposure_read_as_two_words(card):
+    """Live check of 56a6e97: the lens and exposure spans touched, so copied or spoken the line
+    read "50 mmf/13". The flex layout hid it on screen."""
+    html = card.read_text(encoding="utf-8")
+    lines = [" ".join(html_text.unescape(re.sub(r"<[^>]+>", "", m)).split()) for m in re.findall(r'<p class="fc-settings">(.*?)</p>', html, flags=re.S)]
+    expected = []
+    for plan in DATA["plans"]:
+        for shot in plan["shots"]:
+            for slot in SLOTS:
+                s = shot["settings_by_time"][slot]
+                lens = s["lens"].replace("-", "–").replace("mm", " mm").replace(" @", " a ") + (" mm" if "@" in s["lens"] else "")
+                expected.append(f"{lens} {s['aperture']} · {s['shutter']} · ISO {s['iso']}")
+    assert len(lines) == 180 and sorted(lines) == sorted(expected), [line for line in lines if line not in expected][:5]
+
+
 @pytest.mark.parametrize("card", CARDS, ids=lambda p: p.relative_to(ROOT).as_posix())
 def test_v02_slots_that_cannot_be_shot_say_so(card):
     blocks = slot_blocks(card.read_text(encoding="utf-8"))
@@ -186,7 +204,7 @@ def test_v03_the_card_pages_style_no_text_below_12px(card):
 
 def test_v03_home_page_copy_of_the_card_has_no_text_below_12px():
     index = (ROOT / "index.html").read_text(encoding="utf-8")
-    block = index.split("<!-- FIELD CARD CSS START -->", 1)[1].split("<!-- FIELD CARD CSS END -->", 1)[0]
+    block = index.split("/* FIELD CARD CSS START */", 1)[1].split("/* FIELD CARD CSS END */", 1)[0]
     block = re.sub(r"@media print\s*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}", "", block)
     small = [rule for size, rule in font_sizes_px(block) if size < 12]
     assert not small, small

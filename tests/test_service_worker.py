@@ -139,6 +139,18 @@ out.page=(await b.request('plans/plan_c.html','navigate')).body;
     assert out == {"root": B["index.html"], "page": B["plans/plan_c.html"]}
 
 
+def test_v16_a_file_opened_within_the_http_cache_window_is_this_builds():
+    """The same ten minutes for a file the page names without a revision, such as a diagram
+    the reader never kept: it is revalidated, so the last build's copy is not handed back
+    (red team, third pass on PR #20)."""
+    out = run("""
+const w=new World();w.deploy(A);await ours(w,A).upgrade();w.rememberHttp();
+w.deploy(B);const b=ours(w,B);await b.upgrade();
+out.diagram=(await b.request('diagrams-webp/plan_c_1.webp')).body;
+""", A=A, B=B)
+    assert out == {"diagram": B["diagrams-webp/plan_c_1.webp"]}
+
+
 def test_v16_a_page_from_another_build_gets_the_stylesheet_it_names():
     """A home page the HTTP cache kept from the last build names that build's stylesheet; the
     worker must not answer it with this build's, and answers this build's from its cache."""
@@ -228,6 +240,43 @@ out.folder=(await sw.request('challenges/arquitectura-en-foco/','navigate')).bod
 out.query=(await sw.request('challenges/arquitectura-en-foco/?ruta=barranco#mapa','navigate')).body;
 """, B=B)
     assert out == {"folder": B[guide], "query": B[guide]}
+
+
+def test_v16_offline_a_page_never_kept_sends_the_reader_to_the_home_page_with_its_name():
+    """Live check of 56a6e97, M7: the home page's bytes served under plans/plan_c.html resolved
+    its stylesheet, images and links under plans/, so the reader got an unstyled page whose
+    every link led to another broken copy. The worker now redirects to the home page, which
+    says which page was not kept."""
+    unkept = ["plans/plan_c.html", "challenges/arquitectura-en-foco/wiki-tecnicas.html", "plans/plan_z.html"]
+    out = run("""
+const w=new World();w.deploy(B);const sw=ours(w,B);await sw.upgrade();w.online=false;
+for(const p of UNKEPT){const r=await sw.request(p,'navigate');out[p]=[r.status,r.location??null,r.body??null]}
+out.landing=(await sw.request('index.html?sin-conexion=plans%2Fplan_c.html','navigate')).body;
+""", B=B, UNKEPT=unkept)
+    scope = "https://pillb.github.io/focalruta/"
+    for path in unkept:
+        assert out[path] == [302, scope + "index.html?sin-conexion=" + path.replace("/", "%2F"), ""], (path, out[path])
+    assert out["landing"] == B["index.html"]
+
+
+def test_v16_the_worker_says_which_build_it_is_and_the_last_worker_does_not():
+    """CI run 39089226401: registration.update() settled while the page still saw only the
+    last worker, so the field card rehearsal checked the new build under the old worker.
+    scripts/field_card_qa.py now waits until the active worker answers with this build's
+    VERSION; the worker live at 9cd3044 never answers, so it cannot pass for the new one."""
+    out = run("""
+const source=w=>w.template(B,CORE);
+const w=new World();w.deploy(B);const sw=ours(w,B);await sw.upgrade();
+out.expected=/const VERSION='([^']+)'/.exec(source(w))[1];
+out.ours=await sw.message({type:'version'},true);
+out.withoutPort=await sw.message({type:'version'});
+const old=new World();old.deploy(A);const prior=live(old);await prior.install();
+out.live=await prior.message({type:'version'},true);
+""", A=A, B=B)
+    assert out["ours"] == {"posted": [], "answered": [{"version": out["expected"]}]}
+    assert re.fullmatch(r"focalruta-[0-9a-f]{12}", out["expected"])
+    assert out["withoutPort"] == []
+    assert out["live"] == {"posted": [], "answered": []}
 
 
 def test_v17_caches_of_other_sites_on_the_origin_survive_an_upgrade():

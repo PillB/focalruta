@@ -150,7 +150,7 @@ def main() -> int:
 
     OUT.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"])
+        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
         records = [inspect(browser, width, height) for width, height in VIEWPORTS]
         forensic_rows = route_forensics()
         capture_route_cards(browser, forensic_rows)

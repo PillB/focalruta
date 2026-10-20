@@ -4996,7 +4996,7 @@ img{max-width:100%;height:auto}
 
 
 
-<!-- FIELD CARD CSS START -->
+/* FIELD CARD CSS START */
 /* Field card. Scoped to .fc-app so the home page can embed it in a dialog.
    V03: no text under 12 px. Every control is at least 44 × 44 px and the section
    bar sits under the thumb on phones. Three palettes: day, dark (follows the
@@ -5008,6 +5008,9 @@ img{max-width:100%;height:auto}
 .fc-app:has(#fc-night:checked){--fc-bg:#000;--fc-card:#0a0000;--fc-ink:#ff6b5e;--fc-muted:#f0645a;--fc-line:#4a1410;--fc-accent:#ff6b5e;--fc-on-accent:#000;--fc-ok:#ff8a7a;--fc-ok-bg:#140302;--fc-chip:#1a0503;--fc-nd-bg:#1a0503;--fc-nd:#ff8a7a;--fc-off-bg:#1a0503;--fc-off:#ffa196;--fc-hero:#000;--fc-hero-ink:#ff6b5e;--fc-hero-muted:#f0645a;--fc-focus:#ff6b5e}
 .fc-app *,.fc-app *::before,.fc-app *::after{box-sizing:border-box}
 .fc-app :is(h1,h2,h3,p,ul,ol,fieldset){margin:0}
+/* The home page sets p and li to its own leading; in its dialog the card keeps the card's.
+   :where() keeps this under every class rule below, so a class that sets leading still wins. */
+.fc-app :where(p,li){line-height:inherit}
 .fc-app :focus-visible{outline:3px solid var(--fc-focus);outline-offset:2px}
 .fc-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .fc-app [hidden]{display:none!important}
@@ -5039,7 +5042,7 @@ img{max-width:100%;height:auto}
 .fc-plan-name{display:none;margin-top:8px;font-size:15px;line-height:1.35}.fc-plan-name small{font-size:13px;color:var(--fc-muted)}
 
 .fc-listhead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:16px}
-.fc-reset{flex:0 0 auto;min-height:44px;padding:0 12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);color:var(--fc-ink);font:600 14px/1.2 inherit;cursor:pointer}
+.fc-reset{flex:0 0 auto;min-height:44px;padding:0 12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);color:var(--fc-ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;font-variant-numeric:inherit;cursor:pointer}
 .fc-shots{list-style:none;padding:0;margin-top:10px}
 .fc-shot{display:none;position:relative;margin:0 0 10px;padding:12px;border:1.5px solid var(--fc-line);border-radius:14px;background:var(--fc-card)}
 .fc-name{padding-right:58px;font-size:16px;line-height:1.3;font-weight:800}.fc-id{display:inline-block;width:1.4em;font-weight:400}
@@ -5075,7 +5078,7 @@ img{max-width:100%;height:auto}
 .fc-tab{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;border-radius:12px;font-size:12px;font-weight:800;color:var(--fc-muted);cursor:pointer}
 .fc-tab span[aria-hidden]{font-size:19px;line-height:1}
 .fc-tab:has(input:checked){background:var(--fc-chip);color:var(--fc-ink)}
-.fc-next{position:fixed;right:14px;bottom:calc(78px + env(safe-area-inset-bottom));z-index:41;min-height:52px;padding:0 18px;border:0;border-radius:26px;background:var(--fc-accent);color:var(--fc-on-accent);font:800 16px/1 inherit;box-shadow:0 6px 18px rgba(0,0,0,.28);cursor:pointer}
+.fc-next{position:fixed;right:14px;bottom:calc(78px + env(safe-area-inset-bottom));z-index:41;min-height:52px;padding:0 18px;border:0;border-radius:26px;background:var(--fc-accent);color:var(--fc-on-accent);font-family:inherit;font-size:16px;font-weight:800;line-height:1;font-variant-numeric:inherit;box-shadow:0 6px 18px rgba(0,0,0,.28);cursor:pointer}
 .fc-app:not(:has(input[name=fc-tab][value=shots]:checked)) .fc-next,.fc-next:not(.fc-next-on){display:none}
 .fc-app:has(#fc-night:checked) :is(.fc-tab,.fc-sun-slots,.fc-option) span[aria-hidden]{filter:grayscale(1) brightness(.55)}
 
@@ -5119,7 +5122,7 @@ body.fc-modal-lock{overflow:hidden}
 @media(min-width:900px){#field-card-modal{padding:22px}.fc-modal-card{height:calc(100dvh - 44px);border-radius:22px;overflow:hidden}.fc-modal-bar{padding-top:6px}}
 @media print{#field-card-modal{display:none!important}}
 
-<!-- FIELD CARD CSS END -->
+/* FIELD CARD CSS END */
 
 
 
@@ -5148,6 +5151,11 @@ body.sun-mode{--read-ink:#000;--read-muted:#1f2937;--read-line:#475569;backgroun
 /* V11: every control at least 44 x 44 px, for a thumb in the field. */
 .top-actions>:is(a,button){display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:44px;min-height:44px}
 .top-actions{overscroll-behavior-x:contain}
+/* X02: the sections below the first screen are laid out only as they come near it
+   (content-visibility, Baseline 2024). They stay in the accessibility tree, in
+   find-in-page and as anchor targets; once drawn they keep their measured height. */
+main>section:not(#top):not(.sticky){content-visibility:auto;contain-intrinsic-size:auto 1000px}
+@media print{main>section{content-visibility:visible}}
 .top-actions.has-more{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent)}
 .hdr-short{display:inline}
 @media(min-width:641px){.hdr-short{display:none}}
@@ -5171,8 +5179,21 @@ details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:bord
 .gear-lens-list li{display:flex;align-items:center;justify-content:space-between;gap:.75rem;border-bottom:1px solid #e2e8f0;padding:.2rem 0;font-size:.9375rem}
 .gear-lens-list li>span{min-width:0;overflow-wrap:anywhere}.gear-lens-list li>button{flex:0 0 auto}
 .gear-status{margin-top:.6rem;font-size:.875rem;color:#334155}
+/* Offline, the service worker sends a page never kept on this device here, named in ?sin-conexion=. */
+.offline-notice{margin:.75rem max(1rem,calc((100% - 72rem)/2));padding:1rem 1.25rem;border:2px solid #b45309;border-radius:1rem;background:#fffbeb;color:#422006;font-size:1rem;line-height:1.5;overflow-wrap:anywhere}
+.offline-notice p+p{margin-top:.5rem}
+.offline-notice-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+.offline-notice-actions a{display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border-radius:.75rem;background:#78350f;color:#fff;font-weight:600;text-decoration:none}
+.offline-notice-actions a:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px}
 .gear-hint{font-size:.8125rem;font-weight:400;color:#475569}
 .gear-custom>summary::before{content:'+';display:inline-block;width:1.2em;font-weight:900}
+.diag{margin-top:1.5rem;border-top:1px solid #334155;padding-top:.5rem;color:#cbd5e1;font-size:.875rem;line-height:1.5}
+.diag>summary{display:flex;align-items:center;gap:.4em;min-height:44px;cursor:pointer;font-weight:700;color:#fff}
+.diag p{margin:.5rem 0;color:#cbd5e1}
+.diag ol{margin:.5rem 0;padding-left:1.25rem;list-style:decimal;color:#e2e8f0;overflow-wrap:anywhere}
+.diag-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+.diag-actions>:is(a,button){display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border:1px solid #94a3b8;border-radius:.5rem;color:#fff;background:transparent;font:inherit;font-weight:600;text-decoration:none;cursor:pointer}
+.diag-actions>:is(a,button):focus-visible,.diag>summary:focus-visible{outline:3px solid #fbbf24;outline-offset:2px}
 .gear-custom[open]>summary::before{content:'−'}
 .gear-line{margin:.35rem 0 .5rem;padding:.5rem .7rem;border-left:4px solid #0f766e;background:#f0fdfa;border-radius:8px;font-size:.8125rem;color:#134e4a;line-height:1.45}
 .gear-line .gear-values{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700}

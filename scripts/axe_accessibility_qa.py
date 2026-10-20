@@ -4,8 +4,8 @@
 Requirement U04. The repo's own contrast audit only reads solid backgrounds on
 five pages, so a reviewer running axe found landmark, heading and keyboard
 issues it never looked for. This audit serves dist/ over HTTP (the way GitHub
-Pages does), loads every published HTML page in a light phone viewport and a
-dark desktop viewport, and runs axe with the WCAG 2.x A/AA and best-practice
+Pages does), loads every published HTML page, and the states only a URL reaches
+(STATES), in a light phone viewport and a dark desktop viewport, and runs axe with the WCAG 2.x A/AA and best-practice
 rule sets.
 
 Animations are finished before axe runs. Shot cards fade in with a staggered
@@ -14,14 +14,14 @@ mid-fade card reads as 3.7-4.4:1 even though the resting label is above 5:1.
 WCAG judges the presented content, and readers who ask for reduced motion
 never see the fade at all.
 
-axe-core is not vendored: point FOCALRUTA_AXE at axe.min.js (for example
-`npm install axe-core@4.10.3`). The script stops at once if it is missing.
+axe-core is pinned in package-lock.json: `npm ci` puts it in node_modules, or
+point FOCALRUTA_AXE at another axe.min.js. The script stops at once if it is
+missing.
 """
 from __future__ import annotations
 
 import functools
 import json
-import os
 import sys
 import threading
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -30,11 +30,11 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 import evidence
+import qa_matrix
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist" / "canon6d_sota_hosted"
 REPORT = ROOT / "AXE_ACCESSIBILITY_QA.json"
-CHROME = os.environ.get("FOCALRUTA_CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 RULE_SETS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa", "best-practice"]
 # One light phone pass and one dark desktop pass cover both colour schemes and
 # both layouts on every page without doubling the run to four passes.
@@ -42,6 +42,9 @@ PASSES = (
     {"label": "light-390", "viewport": {"width": 390, "height": 844}, "color_scheme": "light"},
     {"label": "dark-1280", "viewport": {"width": 1280, "height": 800}, "color_scheme": "dark"},
 )
+# States only a URL reaches: the home page as the service worker opens it offline in place
+# of a page never kept on the device (live check of 56a6e97, M7).
+STATES = ["index.html?sin-conexion=plans/plan_c.html"]
 RUN_AXE = """async (tags) => {
   document.getAnimations().forEach(animation => { try { animation.finish(); } catch (e) {} });
   const result = await axe.run(document, {runOnly: {type: 'tag', values: tags}, resultTypes: ['violations', 'incomplete']});
@@ -57,13 +60,6 @@ RUN_AXE = """async (tags) => {
 class QuietHandler(SimpleHTTPRequestHandler):
     def log_message(self, *args):
         pass
-
-
-def axe_source() -> str:
-    path = os.environ.get("FOCALRUTA_AXE", "")
-    if not path or not Path(path).is_file():
-        sys.exit("FOCALRUTA_AXE must point at axe.min.js (axe-core 4.10.3); refusing to report without it")
-    return Path(path).read_text(encoding="utf-8")
 
 
 def published_pages() -> list[str]:
@@ -86,16 +82,16 @@ def audit_page(browser, base: str, page_path: str, settings: dict, source: str) 
 
 
 def main() -> int:
-    source = axe_source()
+    source = qa_matrix.axe_source()
     pages = published_pages()
     server = ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(DIST)))
     threading.Thread(target=server.serve_forever, daemon=True).start()
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     results = []
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
+        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
         for settings in PASSES:
-            results += [audit_page(browser, base, page_path, settings, source) for page_path in pages]
+            results += [audit_page(browser, base, page_path, settings, source) for page_path in pages + STATES]
         browser.close()
     server.shutdown()
     checks = [

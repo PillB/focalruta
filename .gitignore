@@ -24,6 +24,10 @@ architectural_photography/research/videos/transcript_checks/
 
 # Local QA and exploratory purchase research (never part of the release slice).
 LIVE_PAGES_QA.json
+LIVE_PERF_QA.json
 camera_purchase/
 scripts/build_camera_value.py
 tests/camera_value/
+
+# npm ci output for the browser QA tools (package-lock.json pins them).
+node_modules/

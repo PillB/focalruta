@@ -1,0 +1,48 @@
+name: Live site check
+
+# X03: after every Pages deploy (pages.yml calls this) and every morning, check
+# the site readers actually get: wait until it serves this commit's build, then
+# run the live suite and the speed budgets against it. A failure fails the run,
+# and GitHub emails the repository's owner.
+on:
+  workflow_call:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 11 * * *" # 06:17 in Lima, before the morning light slot
+
+permissions:
+  contents: read
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      FOCALRUTA_LIVE_URL: https://pillb.github.io/focalruta/
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install the pinned browser tools
+        run: |
+          python3 -m pip install -r requirements-qa.txt
+          npm ci
+          python3 -m playwright install --with-deps chromium
+          echo "FOCALRUTA_CHROME=$(python3 -c 'from playwright.sync_api import sync_playwright as s; p = s().start(); print(p.chromium.executable_path); p.stop()')" >> "$GITHUB_ENV"
+      - name: Wait for this build, then check the live site
+        run: python3 scripts/live_pages_qa.py --wait-seconds 900
+      - name: Speed budgets on the live site
+        run: python3 scripts/perf_budget_qa.py --base-url "$FOCALRUTA_LIVE_URL" --report LIVE_PERF_QA.json
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: live-reports
+          path: |
+            LIVE_PAGES_QA.json
+            LIVE_PERF_QA.json
+          if-no-files-found: ignore

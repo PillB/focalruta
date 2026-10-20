@@ -20,14 +20,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def fingerprint(paths) -> dict[str, str]:
-    """sha256 per audited file, keyed by repository-relative path."""
+    """sha256 per audited file, keyed by repository-relative path (absolute outside it)."""
     prints: dict[str, str] = {}
     for path in paths:
         resolved = Path(path)
         if not resolved.is_absolute():
             resolved = ROOT / resolved
         if resolved.is_file():
-            prints[str(resolved.relative_to(ROOT))] = hashlib.sha256(resolved.read_bytes()).hexdigest()
+            key = resolved.relative_to(ROOT) if resolved.is_relative_to(ROOT) else resolved
+            prints[str(key)] = hashlib.sha256(resolved.read_bytes()).hexdigest()
     return dict(sorted(prints.items()))
 
 
@@ -39,6 +40,7 @@ QA_REPORTS = frozenset({
     "VISUAL_RESOURCE_QA.json",
     "AXE_ACCESSIBILITY_QA.json",
     "FIELD_CARD_QA.json",
+    "PERF_BUDGET_QA.json",
 })
 
 

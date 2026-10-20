@@ -37,7 +37,7 @@ PLAN_PAGES = sorted((ROOT / "plans").glob("plan_*.html")) + sorted((DIST / "plan
 HOSTED_CSS = DIST / "assets" / "hosted.css"
 # The field card has its own tests (tests/test_field_card.py); its print rules are in points.
 FIELD_CARD_BLOCKS = (
-    ("<!-- FIELD CARD CSS START -->", "<!-- FIELD CARD CSS END -->"),
+    ("/* FIELD CARD CSS START */", "/* FIELD CARD CSS END */"),
     ("<!-- FIELD CARD INTEGRATED -->", "<!-- FIELD CARD INTEGRATED END -->"),
     ("<!-- FIELD CARD JS START -->", "<!-- FIELD CARD JS END -->"),
 )

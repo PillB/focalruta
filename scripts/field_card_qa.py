@@ -16,9 +16,7 @@ from __future__ import annotations
 import functools
 import json
 import math
-import os
 import shutil
-import sys
 import tempfile
 import threading
 import time
@@ -30,14 +28,13 @@ from playwright.sync_api import sync_playwright
 
 import deploy_rehearsal
 import evidence
+import qa_matrix
 import reading_floor
 import sun_times
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist" / "canon6d_sota_hosted"
 REPORT = ROOT / "FIELD_CARD_QA.json"
-CHROME = os.environ.get("FOCALRUTA_CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
-AXE = os.environ.get("FOCALRUTA_AXE", "")
 DATA = json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))
 PHONE = {"viewport": {"width": 390, "height": 844}, "is_mobile": True, "has_touch": True}
 AUDITED = [DIST / "field_card.html", DIST / "index.html", DIST / "sw.js", ROOT / "field_card.html", ROOT / "data" / "plans.json",
@@ -323,9 +320,7 @@ def your_gear(browser, base: str) -> None:
 
 
 def axe_states(browser, base: str) -> None:
-    if not AXE or not Path(AXE).is_file():
-        sys.exit("FOCALRUTA_AXE must point at axe.min.js (axe-core 4.10.3)")
-    source = Path(AXE).read_text(encoding="utf-8")
+    source = qa_matrix.axe_source()
     run = "async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice']}});return r.violations.map(v=>v.id+':'+v.nodes.length)}"
     for label, scheme, night in (("day", "light", False), ("dark", "dark", False), ("night screen", "light", True)):
         context = browser.new_context(color_scheme=scheme, **PHONE)
@@ -339,8 +334,13 @@ def axe_states(browser, base: str) -> None:
         context.close()
 
 
-ACTIVATED = ("async()=>{const r=await navigator.serviceWorker.getRegistration();"
-             "return !!r&&!r.installing&&!r.waiting&&!!r.active&&r.active.state==='activated'}")
+# The build the active worker says it is, once nothing is installing or waiting; null while
+# one is, or when the worker does not answer (the one live at 9cd3044 never does).
+ACTIVE_BUILD = """async()=>{const r=await navigator.serviceWorker.getRegistration();
+  if(!r||r.installing||r.waiting||!r.active||r.active.state!=='activated')return null;
+  const c=new MessageChannel();
+  return new Promise(done=>{c.port1.onmessage=e=>done(e.data&&e.data.version||null);setTimeout(()=>done(null),2000);
+    r.active.postMessage({type:'version'},[c.port2])})}"""
 KEPT = "async([name,key])=>(await (await caches.open(name)).keys()).some(r=>r.url.endsWith(key))"
 DECODED = """async()=>{const xs=[...document.querySelectorAll('.shot-card img')];xs.forEach(x=>x.loading='eager');
   await Promise.all(xs.map(x=>x.complete?null:new Promise(d=>{x.addEventListener('load',d,{once:true});x.addEventListener('error',d,{once:true});setTimeout(d,20000)})));
@@ -362,10 +362,25 @@ def visit(page, url: str) -> list:
     return responses
 
 
-def settle(page) -> None:
-    """Check for a new worker now, as the next visit would, and wait until it has taken over."""
+def settle(page, site) -> None:
+    """Check for a new worker now, as the next visit would, and wait until `site`'s has taken over.
+
+    "Nothing installing or waiting, the active worker activated" also holds for the last
+    worker, so it does not show that the new one took over: CI run 39089226401 went on to
+    check the new build under the last worker. Wait until the active worker says it is
+    `site`'s build. One update only: a second one would hide a first that went wrong, as the
+    rehearsal server's did when it served the last build on a socket opened before the deploy
+    (red team on PR #21, F1).
+    """
+    expected, said = deploy_rehearsal.version(site), None
     page.evaluate(UPDATE)
-    wait_until(page, ACTIVATED, 60)
+    deadline = time.monotonic() + 60
+    while time.monotonic() < deadline:
+        said = page.evaluate(ACTIVE_BUILD)
+        if said == expected:
+            return
+        page.wait_for_timeout(250)
+    raise TimeoutError(f"{expected}'s worker never took over in 60 s; the active one says {said}")
 
 
 def later(context, page) -> None:
@@ -386,7 +401,7 @@ def offline_plan(page, base: str, plan: str, build: str | None = None):
     page.goto(base + f"plans/{plan}.html", wait_until="load")
     count, broken, title, comments = page.evaluate(DECODED)
     name = next(p["name"] for p in DATA["plans"] if p["id"] == plan)
-    # The worker falls back to the home page when a page is not kept; that page has diagrams too.
+    # A page not kept sends the reader to the home page, whose title is not the plan's.
     return count == 10 and not broken and title.startswith(name) and (build is None or f"build {build}" in comments), [count, broken, title, comments]
 
 
@@ -404,7 +419,7 @@ def upgrade_from_live(browser, old) -> None:
     later(context, page)
     check_fresh("V16 first visit after a deploy, still under the live worker: the home page gets only this build's files",
                 page, pages.base, pages, DIST)
-    settle(page)
+    settle(page, DIST)
     check_fresh("V16 under the new worker: the home page gets only this build's files", page, pages.base, pages, DIST)
     pages.stop()
     later(context, page)
@@ -425,7 +440,7 @@ def install_behind_http_cache(browser, old) -> None:
     page.wait_for_function("navigator.serviceWorker.controller!==null", timeout=30000)
     page.goto(pages.base + "field_card.html", wait_until="load")
     pages.deploy(DIST)
-    settle(page)
+    settle(page, DIST)
     # No later(): the HTTP cache still holds the last build's pages and files, as it does for ten minutes.
     for path in ("", "field_card.html"):
         check_fresh(f"V16 installed behind the HTTP cache: {path or 'the home page'} gets only this build's files",
@@ -457,13 +472,13 @@ def kept_for_the_field(browser, work) -> None:
     page.wait_for_function("document.querySelector('#fc-pack-status').textContent.startsWith('Listo')", timeout=120000)
     following = deploy_rehearsal.build(work, "siguiente", ("plans/plan_c.html",))
     pages.deploy(following)
-    settle(page)
+    settle(page, following)
     check("V17 a deploy brings the kept plan up to date on install",
           page.evaluate(KEPT, ["focalruta-pack", kept_key(following, "plans/plan_c.html")]))
     lagging = deploy_rehearsal.build(work, "con-retraso", ("plans/plan_d.html", "field_card.html"), source=following)
     shutil.copy2(following / "plans/plan_d.html", lagging / "plans/plan_d.html")  # the server has not caught up on plan D
     pages.deploy(lagging)
-    settle(page)
+    settle(page, lagging)
     check("V17 the card says when a kept file is from an earlier version", pack_status(page, "versión anterior"),
           page.locator("#fc-pack-status").text_content())
     pages.stop()
@@ -525,7 +540,7 @@ def main() -> int:
     server = serve()
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True, executable_path=CHROME, args=["--no-sandbox"])
+        browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
         for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, your_gear, overflow, axe_states):
             guarded(step, browser, base)
         deploys(browser)

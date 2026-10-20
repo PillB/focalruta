@@ -11,8 +11,11 @@ V12 the interface is in Spanish. Camera labels stay as the 6D prints them, and
 V18 nothing a reader needs is cut off, from a 320 px screen up (WCAG 1.4.10
     Reflow): no text or control runs past the edge of the screen, where
     `body{overflow-x:hidden}` would hide it, unless it sits in a strip that
-    scrolls sideways, no control's label is clipped or runs out of it, and no
-    control is squeezed on top of another.
+    scrolls sideways, no control's label is clipped or runs out of it, no text
+    is cut with an ellipsis, and no control is squeezed on top of another.
+
+V20 numbers are written the way Peru reads them: a decimal point, and a space
+    between a number and its unit.
 
 The checks live here so the static tests and the browser QA measure the same
 thing.
@@ -60,20 +63,54 @@ return c.textContent+' '+labels.join(' ')}"""
 
 
 # V18: elements past either edge of the screen, outside a strip that scrolls sideways,
-# controls whose label is clipped or runs out of them, and controls squeezed on top of each other.
-CUT_OFF = """(skip)=>{const W=document.documentElement.clientWidth,out=[];
+# controls whose label is clipped or runs out of them, text cut with an ellipsis (a title as
+# much as a label), and controls squeezed on top of each other.
+# Measured as a reader sees each part, drawn: content-visibility:auto leaves the sections off
+# screen at a placeholder height, so their controls would seem to spill onto the next section.
+CUT_OFF = """(skip)=>{const drawn=document.createElement('style');drawn.textContent='*{content-visibility:visible!important}';document.head.append(drawn);
+const W=document.documentElement.clientWidth,out=[];
 const strip=el=>{for(let p=el.parentElement;p&&p!==document.body;p=p.parentElement){const o=getComputedStyle(p).overflowX;if(o==='auto'||o==='scroll')return true}return false};
 const name=el=>el.tagName.toLowerCase()+(el.id?'#'+el.id:'')+(el.classList[0]?'.'+el.classList[0]:'')+' «'+(el.textContent||el.value||'').trim().slice(0,24)+'»';
 for(const el of document.body.querySelectorAll('*')){if(skip&&el.closest(skip))continue;if(!el.checkVisibility({visibilityProperty:true}))continue;
 const r=el.getBoundingClientRect(),cs=getComputedStyle(el);if(r.width<2||r.height<2||cs.visibility==='hidden'||cs.position==='fixed')continue;
 if((r.right>W+1||r.left<-1)&&!strip(el))out.push(name(el)+' '+Math.round(r.left)+'–'+Math.round(r.right)+' px');
-else if(el.matches('button,a,summary,select,label,legend')&&el.scrollWidth>el.clientWidth+1&&el.clientWidth>1)out.push(name(el)+(cs.overflowX==='visible'?' label runs out ':' label clipped ')+el.scrollWidth+'>'+el.clientWidth)}
+else if((el.matches('button,a,summary,select,label,legend')||cs.textOverflow==='ellipsis')&&el.scrollWidth>el.clientWidth+1&&el.clientWidth>1)
+out.push(name(el)+(cs.textOverflow==='ellipsis'?' text cut with an ellipsis ':cs.overflowX==='visible'?' label runs out ':' label clipped ')+el.scrollWidth+'>'+el.clientWidth)}
 // A sticky header over the content scrolled under it is not an overlap: compare controls in the same layer.
 const layer=el=>{for(let p=el;p;p=p.parentElement){const s=getComputedStyle(p).position;if(s==='sticky'||s==='fixed')return p}return null};
 const ctl=[...document.body.querySelectorAll('a[href],button,input,select,textarea,summary')].filter(el=>!(skip&&el.closest(skip))&&el.checkVisibility({visibilityProperty:true})),box=ctl.map(el=>el.getBoundingClientRect()),on=ctl.map(layer);
 for(let i=0;i<ctl.length;i++)for(let j=i+1;j<ctl.length;j++){if(on[i]!==on[j]||ctl[i].contains(ctl[j])||ctl[j].contains(ctl[i]))continue;const a=box[i],b=box[j];
 if(Math.min(a.right,b.right)-Math.max(a.left,b.left)>2&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>2)out.push(name(ctl[i])+' overlaps '+name(ctl[j]))}
-return out}"""
+drawn.remove();return out}"""
+
+
+# V20: numbers written the way Peru reads them. es-PE in CLDR, like the RAE's Ortografía
+# (2010), takes the point as the decimal mark, and a unit symbol stands one space from its
+# number ("2.5 m", "1/2000 s"). A lens keeps its name: the maker's "EF 35mm f/2" or
+# "XF 35mmF2", and the kit's 35mm, 50mm, 85mm and 35–80mm; f-numbers keep their point.
+# "1,234" may be a thousands group, so a comma counts as decimal only before one or two
+# digits, or after a lone zero ("0,030"). The scan reads a page as its elements' text run
+# together (textContent adds nothing between elements), so a sentence or a heading can touch
+# the next card's lens ("exposición.35–80mm", "REFERENCIA35–80mm"): a length is read from its
+# own start, wherever the character before it is not part of a number.
+DECIMAL_COMMA = re.compile(r"(?<![\d.,])(?:\d+,\d{1,2}|0,\d+)(?!\d)")
+GLUED_UNIT = re.compile(r"\b\d+(?:\.\d+)?(?:m|cm|km|s)\b")
+GLUED_MM = re.compile(r"(?<!\d)(?<!\d[.–-])(\d+(?:[.–-]\d+)?)mm(?!\s?[fF]/?\d)")
+KIT_LENSES = {"35", "50", "85", "35–80", "35-80"}
+# A mount code just before the number names a lens, with or without its f-number, as a reader
+# may type their own ("EF 100mm Macro", "AF-S DX 35mm"); red team's recheck at 518b9a3.
+MOUNT_BEFORE = re.compile(r"(?<![\w-])(?:EF(?:-[SM])?|RF(?:-S)?|XF|XC|FE|Z|AF(?:-[SP])?|DX)\s?$")
+
+
+def lens_name(text: str, match: re.Match) -> bool:
+    return match.group(1) in KIT_LENSES or bool(MOUNT_BEFORE.search(text, max(0, match.start() - 8), match.start()))
+
+
+def numbers_in(text: str) -> list[str]:
+    """Numbers in `text` written another way: a decimal comma, or a unit glued to the number."""
+    found = [m.group(0) for m in DECIMAL_COMMA.finditer(text)] + [m.group(0) for m in GLUED_UNIT.finditer(text)]
+    found += [m.group(0) for m in GLUED_MM.finditer(text) if not lens_name(text, m)]
+    return list(dict.fromkeys(found))
 
 
 def english_in(text: str) -> list[str]:
@@ -123,8 +160,9 @@ def audit_home(page) -> dict:
     page.evaluate("openModal('plan_c','C08')")
     measure("shot dialog", "#shot-modal")
     page.keyboard.press("Escape")
-    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words)), "unreached": unreached,
-            "cut": sorted(cut)}
+    shown = " ".join(words)
+    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(shown), "numbers": numbers_in(shown),
+            "unreached": unreached, "cut": sorted(cut)}
 
 
 def audit_plan_page(page) -> dict:
@@ -137,4 +175,5 @@ def audit_plan_page(page) -> dict:
             small.update(f"{subject}/{slot}: {x}" for x in page.evaluate(TEXT_UNDER_FLOOR, ["", MIN_TEXT_PX]))
             tiny.update(f"{subject}/{slot}: {x}" for x in page.evaluate(TARGETS_UNDER_FLOOR, ["", MIN_TARGET_PX]))
             words.append(page.evaluate(SHOWN_WORDS, "cite"))
-    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(" ".join(words)), "cut": sorted(cut)}
+    shown = " ".join(words)
+    return {"small": sorted(small), "tiny": sorted(tiny), "english": english_in(shown), "numbers": numbers_in(shown), "cut": sorted(cut)}
