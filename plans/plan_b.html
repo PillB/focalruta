@@ -5102,6 +5102,13 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
 .unviable-note { font-size: 12px; color: #7C2D12; background: #FFEDD5; border: 1px solid #FDBA74; border-radius: 8px; padding: 6px 10px; margin-bottom: 6px; }
 .gradient-bg { background: linear-gradient(135deg, #0F172A 0%, #1E40AF 50%, #7C3AED 100%); }
 @media print { .no-print { display: none !important; } .shot-card { page-break-inside: avoid; } }
+/* N9: the plan's bar and the Sujeto/Hora bar stay at the top only on screens with room for them;
+   on a phone, or a phone on its side, they would cover from a quarter to over a third of the
+   screen, so there top:auto makes sticky act like relative, in place. Focus and in-page links
+   land clear of whatever stays (WCAG 2.4.11, technique C43). */
+html { scroll-padding-top: .75rem; }
+@media (max-width: 640px), (max-height: 499px) { nav.glass, section.plan-toggles { top: auto; } }
+@media (min-width: 641px) and (min-height: 500px) { html { scroll-padding-top: calc(8.5rem + .75rem); } }
 </style>
 </head>
 <body class="bg-paper text-ink">
@@ -5132,7 +5139,7 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
 <main id="contenido">
 <section id="plan-orientation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" aria-labelledby="plan-orientation-title"><div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4"><h2 id="plan-orientation-title" class="font-bold text-base text-emerald-950">Cómo leer este plan</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 text-xs leading-relaxed text-emerald-950"><p><strong>Qué cambia:</strong> la hora, el sujeto y la toma modifican la luz o la acción. El dibujo te enseña dónde poner cámara, sujeto y fondo.</p><p><strong>Cómo comprobarlo:</strong> haz una foto, amplíala al 100% y revisa foco, movimiento, altas luces y bordes. Si cambia la perspectiva, moviste la cámara.</p><p><strong>Si no funciona:</strong> conserva la posición y cambia una sola variable. Si no hay acceso, luz o actividad, usa el plan B de la tarjeta y anota el motivo.</p></div></div></section>
 
-<section class="sticky top-16 z-40 bg-paper/95 backdrop-blur border-y border-slate-200 no-print py-3">
+<section class="plan-toggles sticky top-16 z-40 bg-paper/95 backdrop-blur border-y border-slate-200 no-print py-3">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
     <div class="flex items-center gap-2">
       <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Sujeto:</span>

@@ -5136,12 +5136,23 @@ html,body{max-width:100%;overflow-x:clip}
 </style>
 
 <style id="iphone-safe-overrides">
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden}
-body{overflow-x:hidden;min-width:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-width:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:rgba(37,99,235,.14)}
 button,a{min-height:44px}
 nav.glass{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding-top:env(safe-area-inset-top)}
-section[id]{scroll-margin-top:84px}
+/* N9: overflow-x:clip (set earlier) keeps the page from scrolling sideways without making it a
+   scroll box, so the bars below can stay at the top; a browser without clip gets hidden instead,
+   with bars that scroll away. The site's bar and the Sujeto/Hora bar stay only on screens with
+   room for them. On a phone, or a phone on its side, they would cover from a quarter to over two
+   fifths of the screen, and a phone already has the bottom bar, so there top:auto makes sticky
+   act like relative, in place. Focus and in-page links land clear of whatever stays (WCAG 2.4.11,
+   technique C43); a section above the Sujeto/Hora bar has only the site's bar over it. */
+@supports not (overflow-x:clip){html,body{overflow-x:hidden}}
+html{scroll-padding:.75rem 0}
+@media (max-width:640px),(max-height:499px){nav.glass,section.sticky-offset{top:auto}}
+@media (max-width:640px){html{scroll-padding-bottom:calc(68px + env(safe-area-inset-bottom,0px) + .75rem)}}
+@media (min-width:641px) and (min-height:500px){.sticky-offset{top:calc(4rem + env(safe-area-inset-top,0px))}html{scroll-padding-top:calc(8.5rem + env(safe-area-inset-top,0px) + .75rem)}section[id]:has(~ section.sticky-offset){scroll-margin-top:-4.5rem}}
 .diagram-frame{overflow:hidden;background:#fff;border-radius:0 0 12px 12px}
 .diagram-frame img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;background:#fff}
 img{max-width:100%;height:auto}
