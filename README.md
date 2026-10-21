@@ -24,15 +24,17 @@ and drops quoted text from messages, which can be what the reader typed.
 The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 450 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 484 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
   on the home page and every plan page, no text under 12 px, no control under 44 px, no
   English in the interface, nothing cut off at the edges and numbers written with a
   decimal point, also with a reader's own lenses; dialogs that take focus as they
   open and give it back to the button that opened them; offline, a page never saved opening the home page with
-  a note naming it; every declaration and selector in the CSS the site ships one the browser keeps; and the
+  a note naming it; every declaration and selector in the CSS the site ships one the browser keeps; the
   home page's field card drawn like the card's own page, element by element, by day, in dark mode and with the
-  night screen
+  night screen; and the site's bar and the Sujeto/Hora bar kept at the top only on screens at least 641 px wide
+  and 500 px tall, with nothing that takes keyboard focus behind them, every in-page link in them landing clear
+  of them, and the page left where it was when a dialog opened from the top bar closes
 - `OPTICS_ACCESSIBILITY_QA.json` — 22 optical-lab matrix and accessibility checks
 - `VISUAL_RESOURCE_QA.json` — 37 image, resource-path, font-floor and contrast checks
   (contrast on gradients is checked at every colour stop)

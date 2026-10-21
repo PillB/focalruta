@@ -2516,6 +2516,113 @@ hasta ba7d315. La escalada de investigación no se activó: la primera hipótesi
 
 Las demás suites no cambian: el arreglo sólo toca el instrumento de velocidad.
 
+Verificación independiente: el red team pasó 09c44bc (`qa/SPOTCHECK_LOG.md`, 2026-10-21 00:30
+UTC). `field_card_qa.py` da 63/63 en las tres luces: a la hora real (19:30 en Lima, noche) y con
+el reloj de cada contexto fijado a las 10:00 y a las 17:40 de Lima. Con el selector viejo el
+toque de la marca no encuentra nada de noche; con el nuevo responde a 16 ms. Los recuentos del
+README coinciden con los seis reportes.
+
+### N9: las barras de arriba se quedan sólo donde caben
+
+Pablo tiene la pregunta de si las barras deben quedarse fijas también en el teléfono. Mientras
+responde se construye la opción recomendada: sólo en pantallas grandes.
+
+Qué había:
+
+- En el inicio, `overflow-x:hidden` en `html` y `body` hacía de `body` un contenedor de
+  desplazamiento, así que ni la barra del sitio ni la barra Sujeto/Hora se quedaban arriba en
+  ningún tamaño.
+- En los planes las dos sí se quedaban, también en el teléfono, donde tapaban de un quinto a
+  más de un tercio de la pantalla (de 136 a 201 px, en pantallas de 390 a 932 px de alto).
+
+Arreglo (f92bd71, d6733b4 y 7494f49, sobre PR #22):
+
+- `overflow-x:clip` en lugar de `hidden`: no deja que la página se desplace de lado y no crea un
+  contenedor. Un navegador sin `clip` recibe `hidden` por `@supports` y se queda como antes.
+- Las dos barras se quedan arriba desde 641 px de ancho (donde ya no hay barra de abajo) y
+  500 px de alto (no es un teléfono de lado). Por debajo, `top:auto` hace que `sticky` se
+  comporte como `relative` sin desplazamiento (MDN), y las barras se quedan en su sitio.
+- `scroll-padding` en `html` (técnica C43 de WCAG) deja el foco y los saltos de los enlaces
+  internos fuera de lo que se queda: arriba donde están las barras y abajo donde está la barra
+  del teléfono. Una sección anterior a la barra Sujeto/Hora sólo tiene encima la del sitio, y
+  `:has()` le quita esa diferencia.
+- Al cerrar la tarjeta de campo, si el botón que la abrió está en pantalla, recibe el foco con
+  `preventScroll`. Con `scroll-padding`, un botón dentro de una barra fija cae en la zona
+  reservada, el navegador lo da por fuera de la vista y desplazaba la página
+  (csswg-drafts#7930).
+
+Comprobación nueva, X07 (`scripts/fixed_bars.py`, en `CURRENT_BROWSER_QA.json`, de 450 a 484):
+en el inicio servido y suelto y en los seis planes, a los siete tamaños, qué se queda y dónde,
+Tab y Mayús+Tab por toda la página midiendo lo que el navegador dibuja encima del foco, cada
+enlace interno de las barras y, en el inicio, que cerrar un diálogo no mueva la página.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X07 | Las barras se quedan arriba sólo desde 641×500, una bajo la otra; en el teléfono se van y la de abajo se queda; nada que reciba el foco ni el comienzo de una sección enlazada queda detrás; cerrar un diálogo no mueve la página | sobre 74e22c7, el inicio suelto falla a 820×1000 y 1440×1100: «the top bar scrolled away (top −11218)» | 484/484 sobre 7494f49 |
+
+Mutantes (cada uno sobre el arreglo, con una pieza quitada o cambiada):
+
+| Mutante | Qué detecta X07 |
+|---|---|
+| `relative` en lugar de `top:auto` | la barra pisa la sección siguiente 72 px (inicio) o 64 px (planes) en los cinco tamaños de teléfono, y en los planes tapa un enlace al tabular |
+| sólo `clip`, sin límite de tamaño | las barras se quedan en el teléfono |
+| sin `scroll-padding` | controles tapados en parte o del todo al tabular hacia delante y hacia atrás, por la barra de abajo en el teléfono y por las de arriba desde 820 px; en los planes, el salto a `#contenido` cae detrás de la barra |
+| sin `:has()` | tres secciones del inicio caen 148 px más abajo, con sólo 65 px de barra encima |
+| el cierre de la tarjeta de N8 | la página se mueve −256 px a 820×1000 y −581 a 1440×1100 |
+
+En el teléfono la página no cambia: comparando 74e22c7 con el arreglo, ninguna de las 5651
+cajas del inicio ni de las 591 de un plan cambia de sitio ni de tamaño a los cinco tamaños de
+teléfono.
+
+Compromisos:
+
+- Sólo se probó en Chromium. Safari necesita la versión 16 para `clip`; uno más viejo recibe
+  `hidden` y barras que se van.
+- En una ventana de portátil de 500 a 650 px de alto las barras se quedan y ocupan de un quinto
+  a un cuarto de la pantalla.
+- Las páginas del concurso tienen su propia barra fija, más delgada (del 7 al 16 % de la
+  pantalla), y no se tocaron.
+- El espacio que reserva `scroll-padding` es fijo, en `rem`, sin medir las barras con
+  JavaScript. Si una barra crece, X07 lo detecta.
+- El compromiso de N8 («a 1280 px el foco queda en un botón fuera de la vista») casi desaparece:
+  desde 641×500 el botón de la barra de arriba está en pantalla. Sigue en ventanas de menos de
+  500 px de alto.
+
+Errores propios:
+
+- Primero usé `position:relative` en el teléfono: conservaba el desplazamiento de `top` y la
+  barra pisaba lo de abajo de 64 a 72 px. Lo detectó la comprobación por lo que se dibuja
+  encima. Como la hipótesis falló, se activó la escalada de investigación: MDN dice que `sticky`
+  con todos los lados en `auto` se comporta como `relative` sin desplazamiento.
+- Probé un `scroll-margin` negativo para el salto al cerrar la tarjeta. Funcionaba en el inicio
+  y no en los planes (+10 o −444 px), así que lo quité y usé `preventScroll`.
+
+Fuentes: WCAG 2.2 SC 2.4.11 y 2.4.12 y la técnica C43; Nielsen Norman Group sobre barras
+fijas; MDN sobre `position: sticky` y `overflow: clip`; csswg-drafts#7930.
+
+**Cierre de N9** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en 7494f49 | 0 | release 484/484, axe 80/80, tarjeta 63/63, velocidad 138/138, visual 37/37, óptica 22/22; reportes en 47405fe |
+| las cinco suites de `tests/architecture/browser_*.py` en 7494f49 | 0 | todas en verde |
+| `pytest -q` en 47405fe | 0 | 907 pasan (898 y las 9 de `tests/test_fixed_bars.py`), 1 omitida |
+| `verify_release.py` (navegador 484), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre 7494f49 (2.16× y 8.14×), abrir la tarjeta responde a 48 y 160 ms
+y muestra los planes a 82 y 239. A ancho de tableta responde a 64 y 208 y muestra la primera
+toma a 120 y 343. La barra fija no cambia ningún toque.
+
+Error propio en el cierre: el primer commit de reportes no llevaba
+`architectural_photography/state/CURRENT_STATE.json`, que `regenerate_all.py` pone al día con el
+número de comprobaciones del navegador (de 450 a 484). `test_regenerating_leaves_the_tree_unchanged`
+falló una vez (RED: «after: M architectural_photography/state/CURRENT_STATE.json») y pasó en las
+ocho corridas siguientes, también con la CPU cargada. Pasaba sólo porque el archivo ya estaba
+modificado antes de regenerar. Con el archivo devuelto a su versión del commit, la prueba vuelve
+a fallar. Incluido en 47405fe, pasa (GREEN). El paso de CI `regenerate_all.py && git diff --exit-code` lo
+habría detectado.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -2534,6 +2641,6 @@ Las demás suites no cambian: el arreglo sólo toca el instrumento de velocidad.
   la espera (N2 del red team).
 - N4, N7 y N8 están en PR #22 y el red team los pasó. N5 queda como límite declarado de la
   medición.
-- N9 (barra de arriba que nunca se queda fija): en el PR siguiente. Pablo tiene la pregunta de
-  si debe quedarse fija en el teléfono; se construye la opción recomendada, sólo en pantallas
-  grandes.
+- N9 (barras de arriba que se quedan sólo donde caben): en el PR siguiente a #22, con X07. Pablo
+  tiene la pregunta de si deben quedarse fijas también en el teléfono; si dice que sí, se quita
+  el límite de tamaño y X07 cambia con él.
