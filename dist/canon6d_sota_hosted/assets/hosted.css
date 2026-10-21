@@ -4955,12 +4955,15 @@ nav.glass{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding-
    relative, in place. Focus and in-page links land clear of whatever stays (WCAG 2.4.11,
    technique C43); a section above the Sujeto/Hora bar has only the site's bar over it. The script
    after that bar writes the bars' heights to --fr-nav and --fr-bar, since they do not grow in
-   step with the text; without it the rem values stand in. */
+   step with the text; without it the rem values stand in. It also marks html.fr-bar-in-flow while
+   that bar is not stuck: the room at the top is then the site's bar alone, and a section below
+   the bar carries the bar's height in its margin, so a jump lands in the same place either way
+   (N14). */
 @supports not (overflow-x:clip){html,body{overflow-x:hidden}}
 html{scroll-padding:.75rem 0}
 @media not all and (min-width:40.0625em) and (min-height:31.25em){nav.glass,section.sticky-offset{top:auto}}
 @media (max-width:640px){html{scroll-padding-bottom:calc(68px + env(safe-area-inset-bottom,0px) + .75rem)}}
-@media (min-width:40.0625em) and (min-height:31.25em){.sticky-offset{top:var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px)))}html{scroll-padding-top:calc(var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px))) + var(--fr-bar,4.5rem) + .75rem)}section[id]:has(~ section.sticky-offset){scroll-margin-top:calc(-1 * var(--fr-bar,4.5rem))}}
+@media (min-width:40.0625em) and (min-height:31.25em){.sticky-offset{top:var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px)))}html{scroll-padding-top:calc(var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px))) + var(--fr-bar,4.5rem) + .75rem)}section[id]:has(~ section.sticky-offset){scroll-margin-top:calc(-1 * var(--fr-bar,4.5rem))}html.fr-bar-in-flow{scroll-padding-top:calc(var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px))) + .75rem)}html.fr-bar-in-flow section[id]:has(~ section.sticky-offset){scroll-margin-top:0}html.fr-bar-in-flow section.sticky-offset ~ section[id]{scroll-margin-top:var(--fr-bar,4.5rem)}}
 .diagram-frame{overflow:hidden;background:#fff;border-radius:0 0 12px 12px}
 .diagram-frame img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;background:#fff}
 img{max-width:100%;height:auto}

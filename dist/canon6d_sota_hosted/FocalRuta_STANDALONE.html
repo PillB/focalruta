@@ -5151,12 +5151,15 @@ nav.glass{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding-
    relative, in place. Focus and in-page links land clear of whatever stays (WCAG 2.4.11,
    technique C43); a section above the Sujeto/Hora bar has only the site's bar over it. The script
    after that bar writes the bars' heights to --fr-nav and --fr-bar, since they do not grow in
-   step with the text; without it the rem values stand in. */
+   step with the text; without it the rem values stand in. It also marks html.fr-bar-in-flow while
+   that bar is not stuck: the room at the top is then the site's bar alone, and a section below
+   the bar carries the bar's height in its margin, so a jump lands in the same place either way
+   (N14). */
 @supports not (overflow-x:clip){html,body{overflow-x:hidden}}
 html{scroll-padding:.75rem 0}
 @media not all and (min-width:40.0625em) and (min-height:31.25em){nav.glass,section.sticky-offset{top:auto}}
 @media (max-width:640px){html{scroll-padding-bottom:calc(68px + env(safe-area-inset-bottom,0px) + .75rem)}}
-@media (min-width:40.0625em) and (min-height:31.25em){.sticky-offset{top:var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px)))}html{scroll-padding-top:calc(var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px))) + var(--fr-bar,4.5rem) + .75rem)}section[id]:has(~ section.sticky-offset){scroll-margin-top:calc(-1 * var(--fr-bar,4.5rem))}}
+@media (min-width:40.0625em) and (min-height:31.25em){.sticky-offset{top:var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px)))}html{scroll-padding-top:calc(var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px))) + var(--fr-bar,4.5rem) + .75rem)}section[id]:has(~ section.sticky-offset){scroll-margin-top:calc(-1 * var(--fr-bar,4.5rem))}html.fr-bar-in-flow{scroll-padding-top:calc(var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px))) + .75rem)}html.fr-bar-in-flow section[id]:has(~ section.sticky-offset){scroll-margin-top:0}html.fr-bar-in-flow section.sticky-offset ~ section[id]{scroll-margin-top:var(--fr-bar,4.5rem)}}
 .diagram-frame{overflow:hidden;background:#fff;border-radius:0 0 12px 12px}
 .diagram-frame img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;background:#fff}
 img{max-width:100%;height:auto}
@@ -5769,8 +5772,12 @@ details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:bord
 </section>
 <script>
 /* N11: the room kept at the top is the bars' real height, whatever the reader's text size. Each bar
-   is watched whole, padding and border included: the top bar's padding holds a phone's safe area. */
-(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const root=document.documentElement.style,keep=()=>{root.setProperty('--fr-nav',nav.getBoundingClientRect().height+'px');root.setProperty('--fr-bar',bar.getBoundingClientRect().height+'px')},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'})})();
+   is watched whole, padding and border included: the top bar's padding holds a phone's safe area.
+   N14: the room counts the Sujeto/Hora bar only while that bar is stuck. While it still sits lower
+   down the page, html.fr-bar-in-flow keeps room for the site's bar alone; kept for both, the browser
+   counted a control just under the site's bar as out of view and scrolled the page to it
+   (csswg-drafts#7930). Read on every scroll, on any change of size, and before each key or press. */
+(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const html=document.documentElement,root=html.style,set=(k,v)=>{if(root.getPropertyValue(k)!==v)root.setProperty(k,v)},place=()=>{html.classList.toggle('fr-bar-in-flow',!(bar.getBoundingClientRect().top<=parseFloat(getComputedStyle(bar).top)+.5))},keep=()=>{set('--fr-nav',nav.getBoundingClientRect().height+'px');set('--fr-bar',bar.getBoundingClientRect().height+'px');place()},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'});watch.observe(html);addEventListener('scroll',place,{passive:true});['keydown','pointerdown'].forEach(t=>addEventListener(t,place,{capture:true,passive:true}))})();
 /* N13: Tab and Shift+Tab onto a control of a bar wholly in view, from inside the bar or from the
    control next to it, move focus without scrolling. Inside the room scroll-padding keeps at the
    top, the browser counts that control as out of view and scrolls the page by half a screen on
@@ -7037,17 +7044,31 @@ function observeScrollFade() {
 // repeated each frame the target moves, for 0.8 s, until the reader scrolls, taps or presses a
 // key, or another jump starts. A short jump is smooth unless the reader reduces motion; a long
 // one, or one asked for with `now`, is instant.
+// The hold also stops the moment the page is anywhere it did not put it: a screen reader's own
+// scroll or find-in-page sends no input event (red team Q1). Scroll anchoring is off while it
+// holds, so only the reader moves the page then; the next frame runs this check before it lays
+// out what the reader moved to, so anchoring is back on for that. The clamp at the end of a page
+// that got shorter does not count as the reader.
 let jumping=0;
 function jumpTo(target, now){
-  const reduced=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, id=++jumping;
+  const reduced=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, id=++jumping, root=document.documentElement;
+  root.style.overflowAnchor='';
   if(!now && !reduced && Math.abs(target.getBoundingClientRect().top)<=innerHeight*3){ target.scrollIntoView({behavior:'smooth',block:'start'}); return; }
-  const root=document.documentElement, go=()=>{ const prev=root.style.scrollBehavior; root.style.scrollBehavior='auto'; target.scrollIntoView({behavior:'auto',block:'start'}); root.style.scrollBehavior=prev; return target.getBoundingClientRect().top; };
+  const go=()=>{ const prev=root.style.scrollBehavior; root.style.scrollBehavior='auto'; target.scrollIntoView({behavior:'auto',block:'start'}); root.style.scrollBehavior=prev; at=scrollY; return target.getBoundingClientRect().top; };
   const quit=()=>{ stop=true; }, inputs=['wheel','touchstart','pointerdown','keydown'], until=performance.now()+800;
-  let want=go(), stop=false;
+  const clamped=()=>scrollY<at && Math.ceil(scrollY+innerHeight)>=root.scrollHeight-1;
+  let at=0, stop=false;
+  root.style.overflowAnchor='none';
+  let want=go();
   inputs.forEach(type=>addEventListener(type,quit,{capture:true,passive:true}));
   const check=()=>{
-    if(stop || id!==jumping || performance.now()>until){ inputs.forEach(type=>removeEventListener(type,quit,true)); return; }
-    if(Math.abs(target.getBoundingClientRect().top-want)>1) want=go();
+    if(Math.abs(scrollY-at)>1 && !clamped()) stop=true;
+    if(stop || id!==jumping || performance.now()>until){
+      inputs.forEach(type=>removeEventListener(type,quit,true));
+      if(id===jumping) root.style.overflowAnchor='';
+      return;
+    }
+    if(Math.abs(target.getBoundingClientRect().top-want)>1) want=go(); else at=scrollY;
     requestAnimationFrame(check);
   };
   requestAnimationFrame(check);

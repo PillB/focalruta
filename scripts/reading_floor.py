@@ -80,10 +80,14 @@ out.push(name(el)+(cs.textOverflow==='ellipsis'?' text cut with an ellipsis ':cs
 // A sticky header over the content scrolled under it is not an overlap: compare controls in the same layer.
 // Each control counts by what is drawn of it: the part a box that clips its overflow (a strip
 // scrolled sideways) hides is not there to overlap anything (N10: the top bar's links scroll in
-// a strip that ends where its tools begin).
+// a strip that ends where its tools begin). Only the boxes it is laid out in clip it: an absolute
+// box escapes those between it and its positioned ancestor, a fixed box all of them unless one is
+// transformed, filtered or contained (CSS 2 §11.1.1; red team Q2).
 const layer=el=>{for(let p=el;p;p=p.parentElement){const s=getComputedStyle(p).position;if(s==='sticky'||s==='fixed')return p}return null};
+const holder=el=>{const pos=getComputedStyle(el).position;if(pos!=='absolute'&&pos!=='fixed')return el.parentElement;
+for(let p=el.parentElement;p&&p!==document.body;p=p.parentElement){const s=getComputedStyle(p);if((pos==='absolute'&&s.position!=='static')||s.transform!=='none'||s.filter!=='none'||/paint|layout|strict|content/.test(s.contain))return p}return null};
 const drawnBox=el=>{const r=el.getBoundingClientRect(),v={left:r.left,right:r.right,top:r.top,bottom:r.bottom};
-for(let p=el.parentElement;p&&p!==document.body;p=p.parentElement){const s=getComputedStyle(p),q=p.getBoundingClientRect();
+for(let p=holder(el);p&&p!==document.body;p=holder(p)){const s=getComputedStyle(p),q=p.getBoundingClientRect();
 if(s.overflowX!=='visible'){v.left=Math.max(v.left,q.left);v.right=Math.min(v.right,q.right)}if(s.overflowY!=='visible'){v.top=Math.max(v.top,q.top);v.bottom=Math.min(v.bottom,q.bottom)}}return v};
 const ctl=[...document.body.querySelectorAll('a[href],button,input,select,textarea,summary')].filter(el=>!(skip&&el.closest(skip))&&el.checkVisibility({visibilityProperty:true})),box=ctl.map(drawnBox),on=ctl.map(layer);
 for(let i=0;i<ctl.length;i++)for(let j=i+1;j<ctl.length;j++){if(on[i]!==on[j]||ctl[i].contains(ctl[j])||ctl[j].contains(ctl[i]))continue;const a=box[i],b=box[j];

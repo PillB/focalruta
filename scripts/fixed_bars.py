@@ -11,8 +11,11 @@ larger text gets them only where the larger bars still fit.
 Wherever a bar stays, nothing may end up behind it: not what keyboard focus lands on, going
 forward or back (WCAG 2.2 SC 2.4.11, and 2.4.12 for no part of it), and not the start of a
 section a link jumps to or the page is opened at. The page reserves that room with
-scroll-padding (technique C43), measured from the bars' whole boxes. Moving between the
-controls of a bar on screen, with Tab or Shift+Tab, must leave the page where it is (N13).
+scroll-padding (technique C43), measured from the bars' whole boxes, and only for what covers
+the top now: the Sujeto/Hora bar counts once it is stuck. Moving between the controls of a bar
+on screen, with Tab or Shift+Tab, must leave the page where it is (N13), and so must moving onto
+a control drawn whole just under what stays (N14). A jump holds its section in place while the
+page draws around it, but never against a scroll of the reader's own.
 """
 from __future__ import annotations
 
@@ -350,3 +353,106 @@ def tab_in_bars_leaves_page_still(page, motions=MOTION) -> list[str]:
                     wrong.append(f"{name} {where}{', motion on' if motion != 'reduce' else ''}, {moved}")
     page.emulate_media(reduced_motion=MOTION[0])
     return wrong
+
+
+# Tab onto a control drawn whole below what is stuck must leave the page still too (red team N14).
+# The room kept at the top must be what covers the top now: kept for the Sujeto/Hora bar while that
+# bar still sits lower down the page, it made the browser count a control just under the top bar as
+# out of view and scroll 330 to 420 px for it (csswg-drafts#7930). Tried on the last control above
+# the Sujeto/Hora bar and the first below it, each placed 1.25 rem under what is stuck, past the
+# .75 rem the page keeps clear, and reached with Tab from the control before it and with Shift+Tab
+# from the one after. A control the page cannot place there, or one the browser's order skips (a
+# radio group), is not tried.
+GAP_REM = 1.25
+SIDES = ("above", "below")
+FOCUSABLE = ("a[href], area[href], button, input:not([type=hidden]), select, textarea, iframe, object, embed, summary, "
+             "audio[controls], video[controls], [contenteditable], [tabindex]")
+TOP_FLOOR = """() => {
+  const nav = document.querySelector('nav.glass').getBoundingClientRect(), bar = document.getElementById('toggle-human').closest('section').getBoundingClientRect();
+  let floor = nav.top <= 0 && nav.bottom > 0 ? nav.bottom : 0;
+  if (bar.top <= floor + 0.5 && bar.bottom > floor) floor = bar.bottom;
+  return floor;
+}"""
+PLACE_FREE = f"""async ([side, key, gapRem]) => {{
+  const nav = document.querySelector('nav.glass'), bar = document.getElementById('toggle-human').closest('section');
+  const all = [...document.querySelectorAll({FOCUSABLE!r})].filter(e => e.tabIndex >= 0 && !e.disabled && !e.closest('[inert]') && e.checkVisibility());
+  const after = side === 'below', step = key === 'Tab' ? -1 : 1, plain = e => e && e.type !== 'radio';
+  const order = all.map((e, n) => n).filter(n => !nav.contains(all[n]) && !bar.contains(all[n]) && !all[n].closest('.mobile-bottom-nav, dialog')
+    && Boolean(bar.compareDocumentPosition(all[n]) & Node.DOCUMENT_POSITION_FOLLOWING) === after);
+  const i = (after ? order : order.reverse()).find(n => plain(all[n]) && plain(all[n + step]));
+  if (i === undefined) return null;
+  const target = all[i], gap = parseFloat(getComputedStyle(document.documentElement).fontSize) * gapRem;
+  const floor = {TOP_FLOOR}, frames = () => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  for (let n = 0; n < 6; n++) {{  // sections drawn only near the screen change size on the way, so aim again
+    const off = target.getBoundingClientRect().top - floor() - gap;
+    if (Math.abs(off) < 1) break;
+    scrollTo({{top: scrollY + off, behavior: 'instant'}});
+    await frames();
+  }}
+  const r = target.getBoundingClientRect(), hit = document.elementFromPoint((r.left + r.right) / 2, (r.top + r.bottom) / 2);
+  if (Math.abs(r.top - floor() - gap) >= 1 || r.bottom > innerHeight || r.left < 0 || r.right > innerWidth || !hit || !target.contains(hit)) return null;
+  all[i + step].focus({{preventScroll: true}});
+  const seen = document.elementFromPoint(innerWidth / 2, innerHeight / 2);
+  window.__n14 = {{target, seen, top: seen.getBoundingClientRect().top, worst: 0}};
+  if (!window.__n14watch) {{
+    window.__n14watch = true;
+    addEventListener('scroll', () => {{
+      const n = window.__n14, d = Math.round(n.seen.getBoundingClientRect().top - n.top);
+      if (Math.abs(d) > Math.abs(n.worst)) n.worst = d;
+    }}, {{capture: true, passive: true}});
+  }}
+  return (target.getAttribute('aria-label') || target.textContent || target.id || target.tagName).trim().replace(/\\s+/g, ' ').slice(0, 30);
+}}"""
+FREE_MOVED = """() => {
+  const n = window.__n14, now = Math.round(n.seen.getBoundingClientRect().top - n.top);
+  return {on: document.activeElement === n.target, moved: Math.abs(n.worst) > Math.abs(now) ? n.worst : now};
+}"""
+
+
+def free_pass(page, side: str, key: str) -> str | None:
+    """Place a control just under what is stuck, press `key` onto it from its neighbour; how far the page moved, or None."""
+    name = page.evaluate(PLACE_FREE, [side, key, GAP_REM])
+    if name is None:
+        return None
+    page.keyboard.press(key)
+    page.wait_for_timeout(50)  # three frames: a scroll, smooth or not, has begun
+    page.evaluate(QUIET)
+    after = page.evaluate(FREE_MOVED)
+    if after["on"] and after["moved"]:
+        return f"{key} onto {name}, {GAP_REM} rem under what stays ({side} the Sujeto/Hora bar): the page moved {after['moved']} px"
+    return None
+
+
+def free_spots_leave_page_still(page) -> list[str]:
+    """Tab and Shift+Tab onto controls drawn whole just under what is stuck, above and below the
+    Sujeto/Hora bar; list each press that moved the page."""
+    found = (free_pass(page, side, key) for side in SIDES for key in ("Tab", "Shift+Tab"))
+    return [moved for moved in found if moved]
+
+
+# A reader's own scroll during a jump's hold is kept (red team Q1). The hold repeats a long jump
+# while the page draws around it and stops on a wheel, touch, pointer or key; a screen reader's
+# scroll or find-in-page sends none of those. Here the page is moved half a screen down from
+# script, two frames after the jump, into the section it landed on, which is drawn, and what is
+# then in the middle of the screen must stay there. (Moved up instead, the page can land in a
+# section not drawn yet, which grows when drawn and moves what is under it whatever the hold does.)
+KEPT = f"""async () => {{
+  const href = ({DEEPEST})();
+  if (!href) return null;
+  scrollTo({{top: 0, behavior: 'instant'}});
+  ({CLICK})(href);
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  await new Promise(r => setTimeout(r));  // a task of its own, as a screen reader's scroll comes
+  scrollTo({{top: scrollY + innerHeight / 2, behavior: 'instant'}});
+  const seen = document.elementFromPoint(innerWidth / 2, innerHeight / 2), top = seen.getBoundingClientRect().top;
+  await new Promise(r => setTimeout(r, 1000));
+  return {{href, moved: Math.round(seen.getBoundingClientRect().top - top)}};
+}}"""
+
+
+def reader_scroll_kept(page) -> list[str]:
+    """Jump to the lowest section the bars link to, move the page as a screen reader would; list it if the page moved back."""
+    kept = page.evaluate(KEPT)
+    if kept and abs(kept["moved"]) > 1:
+        return [f"after the jump to {kept['href']}, a scroll of the reader's own was undone: the page moved {kept['moved']} px"]
+    return []

@@ -247,3 +247,51 @@ def test_a_place_the_page_cannot_reach_is_skipped():
     assert fixed_bars.place(page, "under the top bar") is False
     assert fixed_bars.place(page, "at the bottom") is False
     assert page.pressed == []
+
+
+class Free(Page):
+    """Controls placed just under what is stuck (None where the page cannot place one) and what each press did."""
+
+    def __init__(self, placed, after):
+        super().__init__()
+        self.placed, self.after, self.asked = list(placed), list(after), []
+
+    def evaluate(self, script, arg=None):
+        if script == fixed_bars.PLACE_FREE:
+            self.asked.append(tuple(arg[:2]))
+            return self.placed.pop(0)
+        if script == fixed_bars.FREE_MOVED:
+            return self.after.pop(0)
+        return super().evaluate(script, arg)
+
+
+def test_tab_onto_a_control_just_under_what_stays_must_leave_the_page_still():
+    """Red team N14: with room kept for the Sujeto/Hora bar while it still sat lower down, Tab onto a control
+    just under the top bar moved the page (home, 1024 x 768, before the fix: 345 px)."""
+    page = Free(["Cómo leer y qué no promete", "Cómo leer y qué no promete", "sun-date", None],
+                [{"on": True, "moved": -345}, {"on": True, "moved": 0}, {"on": True, "moved": 12}])
+    assert fixed_bars.free_spots_leave_page_still(page) == [
+        "Tab onto Cómo leer y qué no promete, 1.25 rem under what stays (above the Sujeto/Hora bar): the page moved -345 px",
+        "Tab onto sun-date, 1.25 rem under what stays (below the Sujeto/Hora bar): the page moved 12 px"]
+    assert page.asked == [("above", "Tab"), ("above", "Shift+Tab"), ("below", "Tab"), ("below", "Shift+Tab")]
+    assert page.pressed == ["Tab", "Shift+Tab", "Tab"]  # nothing is pressed where no control could be placed
+
+
+def test_a_press_that_lands_on_another_control_is_not_judged():
+    page = Free(["Cómo leer y qué no promete"] * 4, [{"on": False, "moved": 900}] * 4)
+    assert fixed_bars.free_spots_leave_page_still(page) == []
+    assert fixed_bars.GAP_REM * 16 > 12  # placed past the .75 rem the page keeps clear under what stays
+
+
+def kept_page(kept):
+    page = Page()
+    page.evaluate = lambda script, arg=None: kept if script == fixed_bars.KEPT else 0
+    return page
+
+
+def test_a_scroll_of_the_readers_own_during_a_jump_is_kept():
+    """Red team Q1: a screen reader's scroll or find-in-page sends no input event; before the fix the hold undid it."""
+    assert fixed_bars.reader_scroll_kept(kept_page({"href": "#guide", "moved": 400})) == [
+        "after the jump to #guide, a scroll of the reader's own was undone: the page moved 400 px"]
+    assert fixed_bars.reader_scroll_kept(kept_page({"href": "#guide", "moved": -1})) == []  # a px of rounding
+    assert fixed_bars.reader_scroll_kept(kept_page(None)) == []  # no link to jump with
