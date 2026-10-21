@@ -18,6 +18,7 @@ ROOM_EM = (40.0625, 31.25)  # the smallest width and height at which the bars st
 BOTTOM_BAR = 640  # px: the widest screen with the home page's bottom bar
 LANDING = 24  # px: a section a link jumps to starts at most this far below what stays
 TAB_LIMIT = 400
+SETTLE = 300  # ms: after a jump in one go, sections drawn only near the screen take their real size
 
 # The bars by what they are, so the same probe reads a build from before N9.
 BARS = """() => {
@@ -72,16 +73,20 @@ FOCUSED = """() => {
 
 # The dialogs a bar that stays opens. Closed, each gives focus back to its button, which must
 # not move the page: with scroll-padding the browser counts a button inside that room as out
-# of view and scrolls for it (csswg-drafts#7930).
+# of view and scrolls for it (csswg-drafts#7930). "The page" is what the reader sees, the
+# element in the middle of the screen: when the page behind the card is drawn again, sizes
+# above can change and the browser keeps that element still by changing the scroll position
+# (scroll anchoring), which is right, so the scroll position itself is not the measure.
 OPENERS = 'nav.glass [onclick="openFieldCard()"], nav.glass [onclick="openSessionRun()"]'
 OPEN = """([selector, i]) => {
-  scrollTo({top: Math.round(document.documentElement.scrollHeight * 0.6), behavior: 'instant'});
   const opener = document.querySelectorAll(selector)[i], r = opener.getBoundingClientRect();
   if (!opener.checkVisibility() || r.bottom <= 0 || r.top >= innerHeight) return null;
+  const seen = window.__n9seen = document.elementFromPoint(innerWidth / 2, innerHeight / 2);
   opener.focus({preventScroll: true});
   opener.click();
-  return {name: (opener.getAttribute('aria-label') || opener.textContent).trim().slice(0, 30), y: Math.round(scrollY)};
+  return {name: (opener.getAttribute('aria-label') || opener.textContent).trim().slice(0, 30), top: Math.round(seen.getBoundingClientRect().top)};
 }"""
+SEEN = "() => Math.round(window.__n9seen.getBoundingClientRect().top)"
 
 # In-page links in the bars and the skip link, with where each one jumps.
 JUMPS = """() => [...document.querySelectorAll('nav.glass a[href^="#"], .mobile-bottom-nav a[href^="#"], a.skip-link[href^="#"]')]
@@ -165,13 +170,15 @@ def dialogs_leave_page_still(page) -> list[str]:
     """Open each dialog from its button in a bar on screen, well into the page, and close it with Escape."""
     wrong = []
     for i in range(page.evaluate(f"document.querySelectorAll({OPENERS!r}).length")):
+        page.evaluate("scrollTo({top: Math.round(document.documentElement.scrollHeight * 0.6), behavior: 'instant'})")
+        page.wait_for_timeout(SETTLE)
         opened = page.evaluate(OPEN, [OPENERS, i])
         if opened is None:
             continue
         page.wait_for_timeout(300)
         page.keyboard.press("Escape")
         page.wait_for_timeout(300)
-        moved = page.evaluate("Math.round(scrollY)") - opened["y"]
+        moved = page.evaluate(SEEN) - opened["top"]
         if moved:
             wrong.append(f"{opened['name']}: the page moved {moved} px")
     return wrong

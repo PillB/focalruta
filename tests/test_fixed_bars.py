@@ -134,19 +134,20 @@ def test_a_link_must_land_clear_of_what_stays_and_close_under_it():
 
 
 def test_a_dialog_closed_from_a_bar_on_screen_must_leave_the_page_still():
-    opened = [None, {"name": "Abrir tarjeta de campo", "y": 9000}, {"name": "▶ Sesión", "y": 9000}]
-    after = [8414, 9000]
+    """What is in the middle of the screen must stay where it was, whatever the scroll position does."""
+    opened = [None, {"name": "Abrir tarjeta de campo", "top": 500}, {"name": "▶ Sesión", "top": 500}]
+    after = [1086, 500]
 
     class Dialogs(Page):
         def evaluate(self, script, arg=None):
             if script == fixed_bars.OPEN:
                 return opened.pop(0)
-            if script == "Math.round(scrollY)":
+            if script == fixed_bars.SEEN:
                 return after.pop(0)
             if "length" in script:
                 return 3
             return super().evaluate(script, arg)
 
     page = Dialogs()
-    assert fixed_bars.dialogs_leave_page_still(page) == ["Abrir tarjeta de campo: the page moved -586 px"]
+    assert fixed_bars.dialogs_leave_page_still(page) == ["Abrir tarjeta de campo: the page moved 586 px"]
     assert page.pressed == ["Escape", "Escape"]  # a button off screen opens nothing
