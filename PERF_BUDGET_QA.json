@@ -2,7 +2,7 @@
   "passed": true,
   "checks": 138,
   "failures": [],
-  "base_url": "http://127.0.0.1:35045/",
+  "base_url": "http://127.0.0.1:37005/",
   "lighthouse": "13.5.0",
   "runs_per_page": 3,
   "pages": [
@@ -11,13 +11,13 @@
       "kind": "home",
       "median": {
         "score": 1,
-        "kb": 133.5,
+        "kb": 133.6,
         "requests": 7,
-        "first-contentful-paint": 1207.5722,
-        "largest-contentful-paint": 1207.5722,
-        "total-blocking-time": 81,
+        "first-contentful-paint": 1207.5631,
+        "largest-contentful-paint": 1207.5631,
+        "total-blocking-time": 90.5,
         "cumulative-layout-shift": 0,
-        "speed-index": 1207.5722,
+        "speed-index": 1207.5631,
         "other_origins": [],
         "lcp_element": "Fotografía arquitectónica",
         "lighthouse": "13.5.0"
@@ -26,12 +26,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1206.5223,
-          "largest-contentful-paint": 1206.5223,
-          "total-blocking-time": 81,
+          "first-contentful-paint": 1206.66943718322,
+          "largest-contentful-paint": 1206.66943718322,
+          "total-blocking-time": 69,
           "cumulative-layout-shift": 0,
-          "speed-index": 1206.5223,
-          "kb": 133.5,
+          "speed-index": 1206.66943718322,
+          "kb": 133.6,
           "requests": 7,
           "other_origins": [],
           "lcp_element": "Fotografía arquitectónica"
@@ -39,12 +39,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1212.5807,
-          "largest-contentful-paint": 1212.5807,
-          "total-blocking-time": 71.20965000000001,
+          "first-contentful-paint": 1207.5631,
+          "largest-contentful-paint": 1207.5631,
+          "total-blocking-time": 90.5,
           "cumulative-layout-shift": 0,
-          "speed-index": 1212.5807,
-          "kb": 133.5,
+          "speed-index": 1207.5631,
+          "kb": 133.6,
           "requests": 7,
           "other_origins": [],
           "lcp_element": "Fotografía arquitectónica"
@@ -52,12 +52,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 0.99,
-          "first-contentful-paint": 1207.5722,
-          "largest-contentful-paint": 1207.5722,
-          "total-blocking-time": 112,
+          "first-contentful-paint": 1210.1209270380132,
+          "largest-contentful-paint": 1210.1209270380132,
+          "total-blocking-time": 124,
           "cumulative-layout-shift": 0,
-          "speed-index": 1207.5722,
-          "kb": 133.5,
+          "speed-index": 1210.1209270380132,
+          "kb": 133.6,
           "requests": 7,
           "other_origins": [],
           "lcp_element": "Fotografía arquitectónica"
@@ -71,54 +71,54 @@
         "score": 0.99,
         "kb": 49.1,
         "requests": 5,
-        "first-contentful-paint": 1033.11105,
-        "largest-contentful-paint": 1033.11105,
-        "total-blocking-time": 0,
+        "first-contentful-paint": 1039.0720000000001,
+        "largest-contentful-paint": 1039.0720000000001,
+        "total-blocking-time": 2,
         "cumulative-layout-shift": 0.07382855466299974,
-        "speed-index": 1033.11105,
+        "speed-index": 1039.0720000000001,
         "other_origins": [],
-        "lcp_element": "Ahora en Lima es de noche. En 2 h 28 min sale el sol (05:40). Puesta de sol: ru…",
+        "lcp_element": "Ahora en Lima es de noche. En 18 min sale el sol (05:40). Puesta de sol: rumbo …",
         "lighthouse": "13.5.0"
       },
       "runs": [
         {
           "lighthouse": "13.5.0",
           "score": 0.99,
-          "first-contentful-paint": 1033.11105,
-          "largest-contentful-paint": 1033.11105,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 1039.0720000000001,
+          "largest-contentful-paint": 1039.0720000000001,
+          "total-blocking-time": 2,
           "cumulative-layout-shift": 0.07382855466299974,
-          "speed-index": 1033.11105,
+          "speed-index": 1039.0720000000001,
           "kb": 49.1,
           "requests": 5,
           "other_origins": [],
-          "lcp_element": "Ahora en Lima es de noche. En 2 h 28 min sale el sol (05:40). Puesta de sol: ru…"
+          "lcp_element": "Ahora en Lima es de noche. En 18 min sale el sol (05:40). Puesta de sol: rumbo …"
         },
         {
           "lighthouse": "13.5.0",
           "score": 0.99,
-          "first-contentful-paint": 1023.87375,
-          "largest-contentful-paint": 1023.87375,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 1070.3306499999999,
+          "largest-contentful-paint": 1070.3306499999999,
+          "total-blocking-time": 2.5,
           "cumulative-layout-shift": 0.07382855466299974,
-          "speed-index": 1023.87375,
+          "speed-index": 1070.3306499999999,
           "kb": 49.1,
           "requests": 5,
           "other_origins": [],
-          "lcp_element": "Ahora en Lima es de noche. En 2 h 28 min sale el sol (05:40). Puesta de sol: ru…"
+          "lcp_element": "Ahora en Lima es de noche. En 17 min sale el sol (05:40). Puesta de sol: rumbo …"
         },
         {
           "lighthouse": "13.5.0",
           "score": 0.99,
-          "first-contentful-paint": 1036.9196,
-          "largest-contentful-paint": 1051.4196,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 1023.89115,
+          "largest-contentful-paint": 1023.89115,
+          "total-blocking-time": 1.0000000000000568,
           "cumulative-layout-shift": 0.07382855466299974,
-          "speed-index": 1036.9196,
+          "speed-index": 1023.89115,
           "kb": 49.1,
           "requests": 5,
           "other_origins": [],
-          "lcp_element": "Ahora en Lima es de noche. En 2 h 28 min sale el sol (05:40). Puesta de sol: ru…"
+          "lcp_element": "Ahora en Lima es de noche. En 17 min sale el sol (05:40). Puesta de sol: rumbo …"
         }
       ]
     },
@@ -129,11 +129,11 @@
         "score": 1,
         "kb": 232.4,
         "requests": 6,
-        "first-contentful-paint": 1008.49025,
-        "largest-contentful-paint": 1050.3960499999998,
-        "total-blocking-time": 0,
+        "first-contentful-paint": 1033.0857999999998,
+        "largest-contentful-paint": 1058.0857999999998,
+        "total-blocking-time": 7.5,
         "cumulative-layout-shift": 0,
-        "speed-index": 1008.49025,
+        "speed-index": 1033.0857999999998,
         "other_origins": [],
         "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…",
         "lighthouse": "13.5.0"
@@ -142,11 +142,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1026.3960499999998,
-          "largest-contentful-paint": 1050.3960499999998,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 1036.55015,
+          "largest-contentful-paint": 1064.55015,
+          "total-blocking-time": 3,
           "cumulative-layout-shift": 0,
-          "speed-index": 1026.3960499999998,
+          "speed-index": 1036.55015,
           "kb": 232.4,
           "requests": 6,
           "other_origins": [],
@@ -155,11 +155,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1008.49025,
-          "largest-contentful-paint": 1029.4902499999998,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 1033.0857999999998,
+          "largest-contentful-paint": 1058.0857999999998,
+          "total-blocking-time": 7.5,
           "cumulative-layout-shift": 0,
-          "speed-index": 1008.49025,
+          "speed-index": 1033.0857999999998,
           "kb": 232.4,
           "requests": 6,
           "other_origins": [],
@@ -167,12 +167,12 @@
         },
         {
           "lighthouse": "13.5.0",
-          "score": 0.99,
-          "first-contentful-paint": 957.36535,
-          "largest-contentful-paint": 1206.7307,
-          "total-blocking-time": 147,
+          "score": 1,
+          "first-contentful-paint": 1023.11205,
+          "largest-contentful-paint": 1048.11205,
+          "total-blocking-time": 11.5,
           "cumulative-layout-shift": 0,
-          "speed-index": 957.36535,
+          "speed-index": 1023.11205,
           "kb": 232.4,
           "requests": 6,
           "other_origins": [],
@@ -185,13 +185,13 @@
       "kind": "plan page",
       "median": {
         "score": 1,
-        "kb": 229.2,
+        "kb": 229.3,
         "requests": 6,
-        "first-contentful-paint": 1014.7790735262369,
-        "largest-contentful-paint": 1037.279073526237,
-        "total-blocking-time": 0,
+        "first-contentful-paint": 1040.6163000000001,
+        "largest-contentful-paint": 1060.6163000000001,
+        "total-blocking-time": 1.5,
         "cumulative-layout-shift": 0,
-        "speed-index": 1014.7790735262369,
+        "speed-index": 1040.6163000000001,
         "other_origins": [],
         "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…",
         "lighthouse": "13.5.0"
@@ -200,12 +200,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1014.7790735262369,
-          "largest-contentful-paint": 1037.279073526237,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 1084.3653242733967,
+          "largest-contentful-paint": 1202.7306485467934,
+          "total-blocking-time": 62,
           "cumulative-layout-shift": 0,
-          "speed-index": 1014.7790735262369,
-          "kb": 229.2,
+          "speed-index": 1084.3653242733967,
+          "kb": 229.3,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -213,12 +213,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1037.9117,
-          "largest-contentful-paint": 1056.4117,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 1040.6163000000001,
+          "largest-contentful-paint": 1060.6163000000001,
+          "total-blocking-time": 1.5,
           "cumulative-layout-shift": 0,
-          "speed-index": 1037.9117,
-          "kb": 229.2,
+          "speed-index": 1040.6163000000001,
+          "kb": 229.3,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -226,12 +226,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1004.83115,
-          "largest-contentful-paint": 1021.83115,
-          "total-blocking-time": 0.5,
+          "first-contentful-paint": 1005.52125,
+          "largest-contentful-paint": 1032.02125,
+          "total-blocking-time": 1.5,
           "cumulative-layout-shift": 0,
-          "speed-index": 1004.83115,
-          "kb": 229.2,
+          "speed-index": 1005.52125,
+          "kb": 229.3,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -243,13 +243,13 @@
       "kind": "plan page",
       "median": {
         "score": 1,
-        "kb": 214.0,
+        "kb": 214.1,
         "requests": 6,
-        "first-contentful-paint": 865.27445,
-        "largest-contentful-paint": 883.27445,
-        "total-blocking-time": 0,
+        "first-contentful-paint": 876.85385,
+        "largest-contentful-paint": 886.54155,
+        "total-blocking-time": 6,
         "cumulative-layout-shift": 0,
-        "speed-index": 865.27445,
+        "speed-index": 876.85385,
         "other_origins": [],
         "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…",
         "lighthouse": "13.5.0"
@@ -258,12 +258,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 865.27445,
-          "largest-contentful-paint": 883.27445,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 879.0673,
+          "largest-contentful-paint": 879.0673,
+          "total-blocking-time": 16,
           "cumulative-layout-shift": 0,
-          "speed-index": 865.27445,
-          "kb": 214.0,
+          "speed-index": 879.0673,
+          "kb": 214.1,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -271,12 +271,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 868.36155,
-          "largest-contentful-paint": 888.86155,
-          "total-blocking-time": 2,
+          "first-contentful-paint": 876.85385,
+          "largest-contentful-paint": 901.35385,
+          "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 868.36155,
-          "kb": 214.0,
+          "speed-index": 876.85385,
+          "kb": 214.1,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -284,12 +284,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 852.45475,
-          "largest-contentful-paint": 869.95475,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 864.04155,
+          "largest-contentful-paint": 886.54155,
+          "total-blocking-time": 6,
           "cumulative-layout-shift": 0,
-          "speed-index": 852.45475,
-          "kb": 214.0,
+          "speed-index": 864.04155,
+          "kb": 214.1,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -301,13 +301,13 @@
       "kind": "plan page",
       "median": {
         "score": 1,
-        "kb": 225.4,
+        "kb": 225.5,
         "requests": 6,
-        "first-contentful-paint": 869.07865,
-        "largest-contentful-paint": 887.41725,
-        "total-blocking-time": 0,
+        "first-contentful-paint": 873.5004,
+        "largest-contentful-paint": 895.99565,
+        "total-blocking-time": 11.999999999999943,
         "cumulative-layout-shift": 0,
-        "speed-index": 869.07865,
+        "speed-index": 873.5004,
         "other_origins": [],
         "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…",
         "lighthouse": "13.5.0"
@@ -316,12 +316,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 892.9947,
-          "largest-contentful-paint": 925.4947,
-          "total-blocking-time": 7.5,
+          "first-contentful-paint": 874.49565,
+          "largest-contentful-paint": 895.99565,
+          "total-blocking-time": 12.5,
           "cumulative-layout-shift": 0,
-          "speed-index": 892.9947,
-          "kb": 225.4,
+          "speed-index": 874.49565,
+          "kb": 225.5,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -329,12 +329,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 862.91725,
-          "largest-contentful-paint": 887.41725,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 873.5004,
+          "largest-contentful-paint": 904.5004,
+          "total-blocking-time": 11.999999999999943,
           "cumulative-layout-shift": 0,
-          "speed-index": 862.91725,
-          "kb": 225.4,
+          "speed-index": 873.5004,
+          "kb": 225.5,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -342,12 +342,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 869.07865,
-          "largest-contentful-paint": 886.07865,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 863.9061,
+          "largest-contentful-paint": 883.4061,
+          "total-blocking-time": 8.500000000000057,
           "cumulative-layout-shift": 0,
-          "speed-index": 869.07865,
-          "kb": 225.4,
+          "speed-index": 863.9061,
+          "kb": 225.5,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -359,13 +359,13 @@
       "kind": "plan page",
       "median": {
         "score": 1,
-        "kb": 219.6,
+        "kb": 219.7,
         "requests": 6,
-        "first-contentful-paint": 862.84575,
-        "largest-contentful-paint": 890.22525,
-        "total-blocking-time": 3.5,
+        "first-contentful-paint": 887.3704,
+        "largest-contentful-paint": 911.78435,
+        "total-blocking-time": 8.499999999999943,
         "cumulative-layout-shift": 0,
-        "speed-index": 862.84575,
+        "speed-index": 887.3704,
         "other_origins": [],
         "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…",
         "lighthouse": "13.5.0"
@@ -374,12 +374,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 868.22525,
-          "largest-contentful-paint": 890.22525,
-          "total-blocking-time": 4,
+          "first-contentful-paint": 886.28435,
+          "largest-contentful-paint": 911.78435,
+          "total-blocking-time": 8.499999999999943,
           "cumulative-layout-shift": 0,
-          "speed-index": 868.22525,
-          "kb": 219.6,
+          "speed-index": 886.28435,
+          "kb": 219.7,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -387,12 +387,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 861.58695,
-          "largest-contentful-paint": 880.58695,
-          "total-blocking-time": 0.5,
+          "first-contentful-paint": 922.0562,
+          "largest-contentful-paint": 1052.1124,
+          "total-blocking-time": 68,
           "cumulative-layout-shift": 0,
-          "speed-index": 861.58695,
-          "kb": 219.6,
+          "speed-index": 922.0562,
+          "kb": 219.7,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -400,12 +400,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 862.84575,
-          "largest-contentful-paint": 891.34575,
-          "total-blocking-time": 3.5,
+          "first-contentful-paint": 887.3704,
+          "largest-contentful-paint": 904.8704,
+          "total-blocking-time": 2,
           "cumulative-layout-shift": 0,
-          "speed-index": 862.84575,
-          "kb": 219.6,
+          "speed-index": 887.3704,
+          "kb": 219.7,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -417,13 +417,13 @@
       "kind": "plan page",
       "median": {
         "score": 1,
-        "kb": 223.9,
+        "kb": 224.0,
         "requests": 6,
-        "first-contentful-paint": 848.9017,
-        "largest-contentful-paint": 868.9017,
+        "first-contentful-paint": 868.86685,
+        "largest-contentful-paint": 905.8231,
         "total-blocking-time": 0,
         "cumulative-layout-shift": 0,
-        "speed-index": 848.9017,
+        "speed-index": 868.86685,
         "other_origins": [],
         "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…",
         "lighthouse": "13.5.0"
@@ -432,12 +432,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 868.27125,
-          "largest-contentful-paint": 887.77125,
+          "first-contentful-paint": 860.8573,
+          "largest-contentful-paint": 885.3573,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 868.27125,
-          "kb": 223.9,
+          "speed-index": 860.8573,
+          "kb": 224.0,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -445,12 +445,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 848.9017,
-          "largest-contentful-paint": 868.9017,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 868.86685,
+          "largest-contentful-paint": 907.300275,
+          "total-blocking-time": 6.5,
           "cumulative-layout-shift": 0,
-          "speed-index": 848.9017,
-          "kb": 223.9,
+          "speed-index": 868.86685,
+          "kb": 224.0,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -458,12 +458,12 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 843.1247,
-          "largest-contentful-paint": 843.1247,
-          "total-blocking-time": 9.499999999999943,
+          "first-contentful-paint": 883.3231,
+          "largest-contentful-paint": 905.8231,
+          "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 843.1247,
-          "kb": 223.9,
+          "speed-index": 883.3231,
+          "kb": 224.0,
           "requests": 6,
           "other_origins": [],
           "lcp_element": "Cómo comprobarlo: haz una foto, amplíala al 100% y revisa foco, movimiento, alt…"
@@ -477,11 +477,11 @@
         "score": 1,
         "kb": 61.9,
         "requests": 2,
-        "first-contentful-paint": 1092.2800499999998,
-        "largest-contentful-paint": 1092.2800499999998,
-        "total-blocking-time": 0,
+        "first-contentful-paint": 1097.2080999999998,
+        "largest-contentful-paint": 1097.2080999999998,
+        "total-blocking-time": 7.5,
         "cumulative-layout-shift": 0,
-        "speed-index": 1092.2800499999998,
+        "speed-index": 1097.2080999999998,
         "other_origins": [],
         "lcp_element": "Fotografía\narquitectónica",
         "lighthouse": "13.5.0"
@@ -490,11 +490,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1062.5761499999999,
-          "largest-contentful-paint": 1062.5761499999999,
-          "total-blocking-time": 12.5,
+          "first-contentful-paint": 1115.78805,
+          "largest-contentful-paint": 1115.78805,
+          "total-blocking-time": 7.5,
           "cumulative-layout-shift": 0,
-          "speed-index": 1062.5761499999999,
+          "speed-index": 1115.78805,
           "kb": 61.9,
           "requests": 2,
           "other_origins": [],
@@ -503,11 +503,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1117.55895,
-          "largest-contentful-paint": 1117.55895,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 1097.2080999999998,
+          "largest-contentful-paint": 1097.2080999999998,
+          "total-blocking-time": 2,
           "cumulative-layout-shift": 0,
-          "speed-index": 1117.55895,
+          "speed-index": 1097.2080999999998,
           "kb": 61.9,
           "requests": 2,
           "other_origins": [],
@@ -516,11 +516,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 1092.2800499999998,
-          "largest-contentful-paint": 1092.2800499999998,
-          "total-blocking-time": 0,
+          "first-contentful-paint": 1056.8083000000001,
+          "largest-contentful-paint": 1056.8083000000001,
+          "total-blocking-time": 16,
           "cumulative-layout-shift": 0,
-          "speed-index": 1092.2800499999998,
+          "speed-index": 1056.8083000000001,
           "kb": 61.9,
           "requests": 2,
           "other_origins": [],
@@ -535,11 +535,11 @@
         "score": 1,
         "kb": 11.5,
         "requests": 2,
-        "first-contentful-paint": 672.7803,
-        "largest-contentful-paint": 751.5606,
+        "first-contentful-paint": 675.99725,
+        "largest-contentful-paint": 752.7028,
         "total-blocking-time": 0,
         "cumulative-layout-shift": 0,
-        "speed-index": 672.7803,
+        "speed-index": 675.99725,
         "other_origins": [],
         "lcp_element": "Nueve familias técnicas, la física que las explica y las fuentes en video que l…",
         "lighthouse": "13.5.0"
@@ -548,11 +548,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 672.7803,
-          "largest-contentful-paint": 751.5606,
+          "first-contentful-paint": 674.3514,
+          "largest-contentful-paint": 752.7028,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 672.7803,
+          "speed-index": 674.3514,
           "kb": 11.5,
           "requests": 2,
           "other_origins": [],
@@ -561,11 +561,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 664.5699,
-          "largest-contentful-paint": 753.1397999999999,
+          "first-contentful-paint": 675.99725,
+          "largest-contentful-paint": 753.9945,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 664.5699,
+          "speed-index": 675.99725,
           "kb": 11.5,
           "requests": 2,
           "other_origins": [],
@@ -574,11 +574,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 689.7521,
-          "largest-contentful-paint": 751.5042000000001,
+          "first-contentful-paint": 682.37885,
+          "largest-contentful-paint": 682.37885,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 689.7521,
+          "speed-index": 682.37885,
           "kb": 11.5,
           "requests": 2,
           "other_origins": [],
@@ -593,11 +593,11 @@
         "score": 1,
         "kb": 3.5,
         "requests": 2,
-        "first-contentful-paint": 630.7602,
-        "largest-contentful-paint": 751.8119999999999,
+        "first-contentful-paint": 631.7574,
+        "largest-contentful-paint": 751.5147999999999,
         "total-blocking-time": 0,
         "cumulative-layout-shift": 0,
-        "speed-index": 630.7602,
+        "speed-index": 631.7574,
         "other_origins": [],
         "lcp_element": "Protocolo de fotografía arquitectónica",
         "lighthouse": "13.5.0"
@@ -606,11 +606,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 625.13905,
-          "largest-contentful-paint": 752.2781,
+          "first-contentful-paint": 631.75515,
+          "largest-contentful-paint": 751.5102999999999,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 625.13905,
+          "speed-index": 631.75515,
           "kb": 3.5,
           "requests": 2,
           "other_origins": [],
@@ -619,11 +619,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 631.906,
-          "largest-contentful-paint": 751.8119999999999,
+          "first-contentful-paint": 643.89365,
+          "largest-contentful-paint": 751.7873,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 631.906,
+          "speed-index": 643.89365,
           "kb": 3.5,
           "requests": 2,
           "other_origins": [],
@@ -632,11 +632,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 630.7602,
-          "largest-contentful-paint": 751.5204000000001,
+          "first-contentful-paint": 631.7574,
+          "largest-contentful-paint": 751.5147999999999,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 630.7602,
+          "speed-index": 631.7574,
           "kb": 3.5,
           "requests": 2,
           "other_origins": [],
@@ -651,11 +651,11 @@
         "score": 1,
         "kb": 3.7,
         "requests": 2,
-        "first-contentful-paint": 638.3961,
-        "largest-contentful-paint": 751.3179,
+        "first-contentful-paint": 636.92545,
+        "largest-contentful-paint": 751.8457000000001,
         "total-blocking-time": 0,
         "cumulative-layout-shift": 0,
-        "speed-index": 638.3961,
+        "speed-index": 636.92545,
         "other_origins": [],
         "lcp_element": "Abre tu ruta en iPhone 13 Pro",
         "lighthouse": "13.5.0"
@@ -664,11 +664,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 644.284875,
-          "largest-contentful-paint": 750.5697500000001,
+          "first-contentful-paint": 644.92285,
+          "largest-contentful-paint": 751.8457000000001,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 644.284875,
+          "speed-index": 644.92285,
           "kb": 3.7,
           "requests": 2,
           "other_origins": [],
@@ -677,11 +677,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 624.65895,
-          "largest-contentful-paint": 751.3179,
+          "first-contentful-paint": 636.92545,
+          "largest-contentful-paint": 751.8508999999999,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 624.65895,
+          "speed-index": 636.92545,
           "kb": 3.7,
           "requests": 2,
           "other_origins": [],
@@ -690,11 +690,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 638.3961,
-          "largest-contentful-paint": 752.7922000000001,
+          "first-contentful-paint": 625.893,
+          "largest-contentful-paint": 751.7860000000001,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 638.3961,
+          "speed-index": 625.893,
           "kb": 3.7,
           "requests": 2,
           "other_origins": [],
@@ -709,11 +709,11 @@
         "score": 1,
         "kb": 2.0,
         "requests": 2,
-        "first-contentful-paint": 638.26795,
-        "largest-contentful-paint": 751.6831,
+        "first-contentful-paint": 642.6034,
+        "largest-contentful-paint": 751.2067999999999,
         "total-blocking-time": 0,
         "cumulative-layout-shift": 0,
-        "speed-index": 638.26795,
+        "speed-index": 642.6034,
         "other_origins": [],
         "lcp_element": "1. Mirador Catalina Recavarren\nMirador Catalina Recavarren, Pasaje La Ermita, B…",
         "lighthouse": "13.5.0"
@@ -722,11 +722,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 636.7613,
-          "largest-contentful-paint": 751.5226,
+          "first-contentful-paint": 649.3528,
+          "largest-contentful-paint": 750.7056,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 636.7613,
+          "speed-index": 649.3528,
           "kb": 2.0,
           "requests": 2,
           "other_origins": [],
@@ -735,11 +735,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 639.84155,
-          "largest-contentful-paint": 751.6831,
+          "first-contentful-paint": 639.67055,
+          "largest-contentful-paint": 751.3411000000001,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 639.84155,
+          "speed-index": 639.67055,
           "kb": 2.0,
           "requests": 2,
           "other_origins": [],
@@ -748,11 +748,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 638.26795,
-          "largest-contentful-paint": 752.5359000000001,
+          "first-contentful-paint": 642.6034,
+          "largest-contentful-paint": 751.2067999999999,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 638.26795,
+          "speed-index": 642.6034,
           "kb": 2.0,
           "requests": 2,
           "other_origins": [],
@@ -767,11 +767,11 @@
         "score": 1,
         "kb": 1.4,
         "requests": 2,
-        "first-contentful-paint": 636.5663,
-        "largest-contentful-paint": 752.5804,
+        "first-contentful-paint": 646.51315,
+        "largest-contentful-paint": 751.2199,
         "total-blocking-time": 0,
         "cumulative-layout-shift": 0,
-        "speed-index": 636.5663,
+        "speed-index": 646.51315,
         "other_origins": [],
         "lcp_element": "Esta página no existe",
         "lighthouse": "13.5.0"
@@ -780,11 +780,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 628.70315,
-          "largest-contentful-paint": 751.4063000000001,
+          "first-contentful-paint": 638.7394,
+          "largest-contentful-paint": 751.4788000000001,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 628.70315,
+          "speed-index": 638.7394,
           "kb": 1.4,
           "requests": 2,
           "other_origins": [],
@@ -793,11 +793,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 640.2902,
-          "largest-contentful-paint": 752.5804,
+          "first-contentful-paint": 646.51315,
+          "largest-contentful-paint": 751.0263,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 640.2902,
+          "speed-index": 646.51315,
           "kb": 1.4,
           "requests": 2,
           "other_origins": [],
@@ -806,11 +806,11 @@
         {
           "lighthouse": "13.5.0",
           "score": 1,
-          "first-contentful-paint": 636.5663,
-          "largest-contentful-paint": 753.1325999999999,
+          "first-contentful-paint": 653.60995,
+          "largest-contentful-paint": 751.2199,
           "total-blocking-time": 0,
           "cumulative-layout-shift": 0,
-          "speed-index": 636.5663,
+          "speed-index": 653.60995,
           "kb": 1.4,
           "requests": 2,
           "other_origins": [],
@@ -820,10 +820,10 @@
     }
   ],
   "taps": {
-    "host_benchmark_index": 2144.5,
+    "host_benchmark_index": 2220,
     "rates": {
-      "mid-tier phone": 1.55,
-      "low-tier phone": 4.49
+      "mid-tier phone": 1.89,
+      "low-tier phone": 6.75
     },
     "host_slower_than": [],
     "runs_per_interaction": 5,
@@ -833,97 +833,97 @@
         "action": "open the field card",
         "claim": "answers",
         "tier": "mid-tier phone",
-        "median_ms": 40,
-        "runs_ms": [
-          40,
-          48,
-          32,
-          40,
-          40
-        ]
-      },
-      {
-        "page": "index.html",
-        "action": "open the field card",
-        "claim": "shows the card's plans",
-        "tier": "mid-tier phone",
-        "median_ms": 59,
-        "runs_ms": [
-          59,
-          77,
-          59,
-          58,
-          59
-        ]
-      },
-      {
-        "page": "index.html",
-        "action": "open the field card",
-        "claim": "answers",
-        "tier": "low-tier phone",
-        "median_ms": 112,
-        "runs_ms": [
-          112,
-          96,
-          128,
-          104,
-          160
-        ]
-      },
-      {
-        "page": "index.html",
-        "action": "open the field card",
-        "claim": "shows the card's plans",
-        "tier": "low-tier phone",
-        "median_ms": 162,
-        "runs_ms": [
-          190,
-          136,
-          162,
-          157,
-          228
-        ]
-      },
-      {
-        "page": "index.html",
-        "action": "open the field card at tablet width",
-        "claim": "answers",
-        "tier": "mid-tier phone",
         "median_ms": 48,
         "runs_ms": [
-          64,
           48,
-          48,
-          48,
+          40,
+          56,
+          56,
           48
         ]
       },
       {
         "page": "index.html",
-        "action": "open the field card at tablet width",
-        "claim": "shows the first shot",
+        "action": "open the field card",
+        "claim": "shows the card's plans",
         "tier": "mid-tier phone",
-        "median_ms": 95,
+        "median_ms": 82,
         "runs_ms": [
-          109,
-          116,
-          94,
-          95,
-          94
+          84,
+          64,
+          82,
+          83,
+          73
         ]
       },
       {
         "page": "index.html",
-        "action": "open the field card at tablet width",
+        "action": "open the field card",
         "claim": "answers",
         "tier": "low-tier phone",
-        "median_ms": 128,
+        "median_ms": 184,
         "runs_ms": [
-          136,
-          112,
           160,
-          128,
-          128
+          192,
+          192,
+          184,
+          176
+        ]
+      },
+      {
+        "page": "index.html",
+        "action": "open the field card",
+        "claim": "shows the card's plans",
+        "tier": "low-tier phone",
+        "median_ms": 274,
+        "runs_ms": [
+          231,
+          274,
+          286,
+          267,
+          279
+        ]
+      },
+      {
+        "page": "index.html",
+        "action": "open the field card at tablet width",
+        "claim": "answers",
+        "tier": "mid-tier phone",
+        "median_ms": 64,
+        "runs_ms": [
+          64,
+          80,
+          64,
+          48,
+          64
+        ]
+      },
+      {
+        "page": "index.html",
+        "action": "open the field card at tablet width",
+        "claim": "shows the first shot",
+        "tier": "mid-tier phone",
+        "median_ms": 118,
+        "runs_ms": [
+          116,
+          140,
+          136,
+          113,
+          118
+        ]
+      },
+      {
+        "page": "index.html",
+        "action": "open the field card at tablet width",
+        "claim": "answers",
+        "tier": "low-tier phone",
+        "median_ms": 184,
+        "runs_ms": [
+          160,
+          216,
+          184,
+          176,
+          200
         ]
       },
       {
@@ -931,13 +931,13 @@
         "action": "open the field card at tablet width",
         "claim": "shows the first shot",
         "tier": "low-tier phone",
-        "median_ms": 220,
+        "median_ms": 353,
         "runs_ms": [
-          236,
-          211,
-          280,
-          216,
-          220
+          300,
+          522,
+          352,
+          353,
+          424
         ]
       },
       {
@@ -945,13 +945,13 @@
         "action": "open a shot's detail",
         "claim": "answers",
         "tier": "mid-tier phone",
-        "median_ms": 72,
+        "median_ms": 88,
         "runs_ms": [
-          72,
-          72,
-          72,
+          80,
+          88,
+          88,
           96,
-          80
+          104
         ]
       },
       {
@@ -959,13 +959,13 @@
         "action": "open a shot's detail",
         "claim": "shows the shot's reasoning",
         "tier": "mid-tier phone",
-        "median_ms": 79,
+        "median_ms": 89,
         "runs_ms": [
-          79,
-          72,
-          72,
-          94,
-          80
+          81,
+          89,
+          89,
+          100,
+          105
         ]
       },
       {
@@ -973,13 +973,13 @@
         "action": "open a shot's detail",
         "claim": "answers",
         "tier": "low-tier phone",
-        "median_ms": 128,
+        "median_ms": 192,
         "runs_ms": [
-          136,
-          128,
-          104,
-          128,
-          136
+          144,
+          192,
+          192,
+          192,
+          168
         ]
       },
       {
@@ -987,13 +987,13 @@
         "action": "open a shot's detail",
         "claim": "shows the shot's reasoning",
         "tier": "low-tier phone",
-        "median_ms": 131,
+        "median_ms": 193,
         "runs_ms": [
-          133,
-          130,
-          110,
-          131,
-          135
+          144,
+          194,
+          193,
+          194,
+          170
         ]
       },
       {
@@ -1005,8 +1005,8 @@
         "runs_ms": [
           24,
           24,
-          24,
-          24,
+          40,
+          40,
           24
         ]
       },
@@ -1015,83 +1015,83 @@
         "action": "pick another plan",
         "claim": "shows the plan's name",
         "tier": "mid-tier phone",
-        "median_ms": 25,
+        "median_ms": 30,
         "runs_ms": [
-          27,
+          30,
+          26,
+          40,
+          38,
+          28
+        ]
+      },
+      {
+        "page": "field_card.html",
+        "action": "pick another plan",
+        "claim": "answers",
+        "tier": "low-tier phone",
+        "median_ms": 88,
+        "runs_ms": [
+          88,
+          88,
+          120,
+          168,
+          80
+        ]
+      },
+      {
+        "page": "field_card.html",
+        "action": "pick another plan",
+        "claim": "shows the plan's name",
+        "tier": "low-tier phone",
+        "median_ms": 90,
+        "runs_ms": [
+          90,
+          88,
+          122,
+          170,
+          80
+        ]
+      },
+      {
+        "page": "field_card.html",
+        "action": "pick another light",
+        "claim": "answers",
+        "tier": "mid-tier phone",
+        "median_ms": 24,
+        "runs_ms": [
+          32,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "page": "field_card.html",
+        "action": "pick another light",
+        "claim": "shows the settings for that light",
+        "tier": "mid-tier phone",
+        "median_ms": 26,
+        "runs_ms": [
+          29,
           25,
           27,
-          24,
+          26,
           23
         ]
       },
       {
         "page": "field_card.html",
-        "action": "pick another plan",
+        "action": "pick another light",
         "claim": "answers",
         "tier": "low-tier phone",
-        "median_ms": 64,
+        "median_ms": 72,
         "runs_ms": [
+          72,
           80,
           72,
-          64,
-          56,
-          56
-        ]
-      },
-      {
-        "page": "field_card.html",
-        "action": "pick another plan",
-        "claim": "shows the plan's name",
-        "tier": "low-tier phone",
-        "median_ms": 66,
-        "runs_ms": [
-          80,
           72,
-          66,
-          57,
-          61
-        ]
-      },
-      {
-        "page": "field_card.html",
-        "action": "pick another light",
-        "claim": "answers",
-        "tier": "mid-tier phone",
-        "median_ms": 24,
-        "runs_ms": [
-          24,
-          32,
-          16,
-          16,
-          24
-        ]
-      },
-      {
-        "page": "field_card.html",
-        "action": "pick another light",
-        "claim": "shows the settings for that light",
-        "tier": "mid-tier phone",
-        "median_ms": 23,
-        "runs_ms": [
-          23,
-          28,
-          19,
-          21,
-          26
-        ]
-      },
-      {
-        "page": "field_card.html",
-        "action": "pick another light",
-        "claim": "answers",
-        "tier": "low-tier phone",
-        "median_ms": 48,
-        "runs_ms": [
-          48,
-          48,
-          56,
-          48,
-          56
+          80
         ]
       },
       {
@@ -1099,13 +1099,13 @@
         "action": "pick another light",
         "claim": "shows the settings for that light",
         "tier": "low-tier phone",
-        "median_ms": 53,
+        "median_ms": 76,
         "runs_ms": [
-          53,
-          46,
-          53,
-          47,
-          62
+          75,
+          82,
+          75,
+          76,
+          84
         ]
       },
       {
@@ -1116,7 +1116,7 @@
         "median_ms": 16,
         "runs_ms": [
           16,
-          16,
+          32,
           16,
           16,
           24
@@ -1127,13 +1127,13 @@
         "action": "tick a shot",
         "claim": "shows the tick",
         "tier": "mid-tier phone",
-        "median_ms": 17,
+        "median_ms": 18,
         "runs_ms": [
-          17,
-          15,
-          17,
-          14,
-          18
+          18,
+          29,
+          18,
+          18,
+          25
         ]
       },
       {
@@ -1141,13 +1141,13 @@
         "action": "tick a shot",
         "claim": "answers",
         "tier": "low-tier phone",
-        "median_ms": 48,
+        "median_ms": 80,
         "runs_ms": [
-          48,
-          48,
-          48,
-          56,
-          48
+          72,
+          120,
+          104,
+          80,
+          80
         ]
       },
       {
@@ -1155,13 +1155,13 @@
         "action": "tick a shot",
         "claim": "shows the tick",
         "tier": "low-tier phone",
-        "median_ms": 52,
+        "median_ms": 83,
         "runs_ms": [
-          46,
-          52,
-          46,
-          59,
-          53
+          75,
+          123,
+          117,
+          82,
+          83
         ]
       }
     ]
@@ -1175,17 +1175,17 @@
     {
       "name": "index.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 1207.572
+      "detail": 1207.563
     },
     {
       "name": "index.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 1207.572
+      "detail": 1207.563
     },
     {
       "name": "index.html: total-blocking-time ≤ 200ms",
       "pass": true,
-      "detail": 81
+      "detail": 90.5
     },
     {
       "name": "index.html: cumulative-layout-shift ≤ 0.1",
@@ -1195,12 +1195,12 @@
     {
       "name": "index.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 1207.572
+      "detail": 1207.563
     },
     {
       "name": "index.html: home transfer ≤ 180 KB",
       "pass": true,
-      "detail": 133.5
+      "detail": 133.6
     },
     {
       "name": "index.html: no request to another origin",
@@ -1215,17 +1215,17 @@
     {
       "name": "field_card.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 1033.111
+      "detail": 1039.072
     },
     {
       "name": "field_card.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 1033.111
+      "detail": 1039.072
     },
     {
       "name": "field_card.html: total-blocking-time ≤ 200ms",
       "pass": true,
-      "detail": 0
+      "detail": 2
     },
     {
       "name": "field_card.html: cumulative-layout-shift ≤ 0.1",
@@ -1235,7 +1235,7 @@
     {
       "name": "field_card.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 1033.111
+      "detail": 1039.072
     },
     {
       "name": "field_card.html: field card transfer ≤ 70 KB",
@@ -1255,17 +1255,17 @@
     {
       "name": "plans/plan_a.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 1008.49
+      "detail": 1033.086
     },
     {
       "name": "plans/plan_a.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 1050.396
+      "detail": 1058.086
     },
     {
       "name": "plans/plan_a.html: total-blocking-time ≤ 200ms",
       "pass": true,
-      "detail": 0
+      "detail": 7.5
     },
     {
       "name": "plans/plan_a.html: cumulative-layout-shift ≤ 0.1",
@@ -1275,7 +1275,7 @@
     {
       "name": "plans/plan_a.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 1008.49
+      "detail": 1033.086
     },
     {
       "name": "plans/plan_a.html: plan page transfer ≤ 340 KB",
@@ -1295,17 +1295,17 @@
     {
       "name": "plans/plan_b.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 1014.779
+      "detail": 1040.616
     },
     {
       "name": "plans/plan_b.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 1037.279
+      "detail": 1060.616
     },
     {
       "name": "plans/plan_b.html: total-blocking-time ≤ 200ms",
       "pass": true,
-      "detail": 0
+      "detail": 1.5
     },
     {
       "name": "plans/plan_b.html: cumulative-layout-shift ≤ 0.1",
@@ -1315,12 +1315,12 @@
     {
       "name": "plans/plan_b.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 1014.779
+      "detail": 1040.616
     },
     {
       "name": "plans/plan_b.html: plan page transfer ≤ 340 KB",
       "pass": true,
-      "detail": 229.2
+      "detail": 229.3
     },
     {
       "name": "plans/plan_b.html: no request to another origin",
@@ -1335,17 +1335,17 @@
     {
       "name": "plans/plan_c.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 865.274
+      "detail": 876.854
     },
     {
       "name": "plans/plan_c.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 883.274
+      "detail": 886.542
     },
     {
       "name": "plans/plan_c.html: total-blocking-time ≤ 200ms",
       "pass": true,
-      "detail": 0
+      "detail": 6
     },
     {
       "name": "plans/plan_c.html: cumulative-layout-shift ≤ 0.1",
@@ -1355,12 +1355,12 @@
     {
       "name": "plans/plan_c.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 865.274
+      "detail": 876.854
     },
     {
       "name": "plans/plan_c.html: plan page transfer ≤ 340 KB",
       "pass": true,
-      "detail": 214.0
+      "detail": 214.1
     },
     {
       "name": "plans/plan_c.html: no request to another origin",
@@ -1375,17 +1375,17 @@
     {
       "name": "plans/plan_d.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 869.079
+      "detail": 873.5
     },
     {
       "name": "plans/plan_d.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 887.417
+      "detail": 895.996
     },
     {
       "name": "plans/plan_d.html: total-blocking-time ≤ 200ms",
       "pass": true,
-      "detail": 0
+      "detail": 12.0
     },
     {
       "name": "plans/plan_d.html: cumulative-layout-shift ≤ 0.1",
@@ -1395,12 +1395,12 @@
     {
       "name": "plans/plan_d.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 869.079
+      "detail": 873.5
     },
     {
       "name": "plans/plan_d.html: plan page transfer ≤ 340 KB",
       "pass": true,
-      "detail": 225.4
+      "detail": 225.5
     },
     {
       "name": "plans/plan_d.html: no request to another origin",
@@ -1415,17 +1415,17 @@
     {
       "name": "plans/plan_e.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 862.846
+      "detail": 887.37
     },
     {
       "name": "plans/plan_e.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 890.225
+      "detail": 911.784
     },
     {
       "name": "plans/plan_e.html: total-blocking-time ≤ 200ms",
       "pass": true,
-      "detail": 3.5
+      "detail": 8.5
     },
     {
       "name": "plans/plan_e.html: cumulative-layout-shift ≤ 0.1",
@@ -1435,12 +1435,12 @@
     {
       "name": "plans/plan_e.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 862.846
+      "detail": 887.37
     },
     {
       "name": "plans/plan_e.html: plan page transfer ≤ 340 KB",
       "pass": true,
-      "detail": 219.6
+      "detail": 219.7
     },
     {
       "name": "plans/plan_e.html: no request to another origin",
@@ -1455,12 +1455,12 @@
     {
       "name": "plans/plan_f.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 848.902
+      "detail": 868.867
     },
     {
       "name": "plans/plan_f.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 868.902
+      "detail": 905.823
     },
     {
       "name": "plans/plan_f.html: total-blocking-time ≤ 200ms",
@@ -1475,12 +1475,12 @@
     {
       "name": "plans/plan_f.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 848.902
+      "detail": 868.867
     },
     {
       "name": "plans/plan_f.html: plan page transfer ≤ 340 KB",
       "pass": true,
-      "detail": 223.9
+      "detail": 224.0
     },
     {
       "name": "plans/plan_f.html: no request to another origin",
@@ -1495,17 +1495,17 @@
     {
       "name": "challenges/arquitectura-en-foco/index.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 1092.28
+      "detail": 1097.208
     },
     {
       "name": "challenges/arquitectura-en-foco/index.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 1092.28
+      "detail": 1097.208
     },
     {
       "name": "challenges/arquitectura-en-foco/index.html: total-blocking-time ≤ 200ms",
       "pass": true,
-      "detail": 0
+      "detail": 7.5
     },
     {
       "name": "challenges/arquitectura-en-foco/index.html: cumulative-layout-shift ≤ 0.1",
@@ -1515,7 +1515,7 @@
     {
       "name": "challenges/arquitectura-en-foco/index.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 1092.28
+      "detail": 1097.208
     },
     {
       "name": "challenges/arquitectura-en-foco/index.html: challenge transfer ≤ 100 KB",
@@ -1535,12 +1535,12 @@
     {
       "name": "challenges/arquitectura-en-foco/wiki-tecnicas.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 672.78
+      "detail": 675.997
     },
     {
       "name": "challenges/arquitectura-en-foco/wiki-tecnicas.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 751.561
+      "detail": 752.703
     },
     {
       "name": "challenges/arquitectura-en-foco/wiki-tecnicas.html: total-blocking-time ≤ 200ms",
@@ -1555,7 +1555,7 @@
     {
       "name": "challenges/arquitectura-en-foco/wiki-tecnicas.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 672.78
+      "detail": 675.997
     },
     {
       "name": "challenges/arquitectura-en-foco/wiki-tecnicas.html: challenge guide transfer ≤ 40 KB",
@@ -1575,12 +1575,12 @@
     {
       "name": "challenges/arquitectura-en-foco/field-card.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 630.76
+      "detail": 631.757
     },
     {
       "name": "challenges/arquitectura-en-foco/field-card.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 751.812
+      "detail": 751.515
     },
     {
       "name": "challenges/arquitectura-en-foco/field-card.html: total-blocking-time ≤ 200ms",
@@ -1595,7 +1595,7 @@
     {
       "name": "challenges/arquitectura-en-foco/field-card.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 630.76
+      "detail": 631.757
     },
     {
       "name": "challenges/arquitectura-en-foco/field-card.html: challenge guide transfer ≤ 40 KB",
@@ -1615,12 +1615,12 @@
     {
       "name": "challenges/arquitectura-en-foco/iphone-maps.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 638.396
+      "detail": 636.925
     },
     {
       "name": "challenges/arquitectura-en-foco/iphone-maps.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 751.318
+      "detail": 751.846
     },
     {
       "name": "challenges/arquitectura-en-foco/iphone-maps.html: total-blocking-time ≤ 200ms",
@@ -1635,7 +1635,7 @@
     {
       "name": "challenges/arquitectura-en-foco/iphone-maps.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 638.396
+      "detail": 636.925
     },
     {
       "name": "challenges/arquitectura-en-foco/iphone-maps.html: challenge guide transfer ≤ 40 KB",
@@ -1655,12 +1655,12 @@
     {
       "name": "challenges/arquitectura-en-foco/maps/barranco-tour-1.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 638.268
+      "detail": 642.603
     },
     {
       "name": "challenges/arquitectura-en-foco/maps/barranco-tour-1.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 751.683
+      "detail": 751.207
     },
     {
       "name": "challenges/arquitectura-en-foco/maps/barranco-tour-1.html: total-blocking-time ≤ 200ms",
@@ -1675,7 +1675,7 @@
     {
       "name": "challenges/arquitectura-en-foco/maps/barranco-tour-1.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 638.268
+      "detail": 642.603
     },
     {
       "name": "challenges/arquitectura-en-foco/maps/barranco-tour-1.html: route map transfer ≤ 20 KB",
@@ -1695,12 +1695,12 @@
     {
       "name": "404.html: first-contentful-paint ≤ 1800ms",
       "pass": true,
-      "detail": 636.566
+      "detail": 646.513
     },
     {
       "name": "404.html: largest-contentful-paint ≤ 2500ms",
       "pass": true,
-      "detail": 752.58
+      "detail": 751.22
     },
     {
       "name": "404.html: total-blocking-time ≤ 200ms",
@@ -1715,7 +1715,7 @@
     {
       "name": "404.html: speed-index ≤ 3400ms",
       "pass": true,
-      "detail": 636.566
+      "detail": 646.513
     },
     {
       "name": "404.html: not found transfer ≤ 20 KB",
@@ -1732,7 +1732,7 @@
       "pass": true,
       "detail": {
         "answered_ms": 16,
-        "shown_ms": 314
+        "shown_ms": 316
       }
     },
     {
@@ -1743,62 +1743,62 @@
     {
       "name": "index.html: open the field card answers within 200 ms on a mid-tier phone",
       "pass": true,
-      "detail": 40
+      "detail": 48
     },
     {
       "name": "index.html: open the field card shows the card's plans within 200 ms on a mid-tier phone",
       "pass": true,
-      "detail": 59
+      "detail": 82
     },
     {
       "name": "index.html: open the field card answers within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 112
+      "detail": 184
     },
     {
       "name": "index.html: open the field card shows the card's plans within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 162
+      "detail": 274
     },
     {
       "name": "index.html: open the field card at tablet width answers within 200 ms on a mid-tier phone",
       "pass": true,
-      "detail": 48
+      "detail": 64
     },
     {
       "name": "index.html: open the field card at tablet width shows the first shot within 200 ms on a mid-tier phone",
       "pass": true,
-      "detail": 95
+      "detail": 118
     },
     {
       "name": "index.html: open the field card at tablet width answers within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 128
+      "detail": 184
     },
     {
       "name": "index.html: open the field card at tablet width shows the first shot within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 220
+      "detail": 353
     },
     {
       "name": "index.html: open a shot's detail answers within 200 ms on a mid-tier phone",
       "pass": true,
-      "detail": 72
+      "detail": 88
     },
     {
       "name": "index.html: open a shot's detail shows the shot's reasoning within 200 ms on a mid-tier phone",
       "pass": true,
-      "detail": 79
+      "detail": 89
     },
     {
       "name": "index.html: open a shot's detail answers within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 128
+      "detail": 192
     },
     {
       "name": "index.html: open a shot's detail shows the shot's reasoning within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 131
+      "detail": 193
     },
     {
       "name": "field_card.html: pick another plan answers within 200 ms on a mid-tier phone",
@@ -1808,17 +1808,17 @@
     {
       "name": "field_card.html: pick another plan shows the plan's name within 200 ms on a mid-tier phone",
       "pass": true,
-      "detail": 25
+      "detail": 30
     },
     {
       "name": "field_card.html: pick another plan answers within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 64
+      "detail": 88
     },
     {
       "name": "field_card.html: pick another plan shows the plan's name within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 66
+      "detail": 90
     },
     {
       "name": "field_card.html: pick another light answers within 200 ms on a mid-tier phone",
@@ -1828,17 +1828,17 @@
     {
       "name": "field_card.html: pick another light shows the settings for that light within 200 ms on a mid-tier phone",
       "pass": true,
-      "detail": 23
+      "detail": 26
     },
     {
       "name": "field_card.html: pick another light answers within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 48
+      "detail": 72
     },
     {
       "name": "field_card.html: pick another light shows the settings for that light within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 53
+      "detail": 76
     },
     {
       "name": "field_card.html: tick a shot answers within 200 ms on a mid-tier phone",
@@ -1848,21 +1848,21 @@
     {
       "name": "field_card.html: tick a shot shows the tick within 200 ms on a mid-tier phone",
       "pass": true,
-      "detail": 17
+      "detail": 18
     },
     {
       "name": "field_card.html: tick a shot answers within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 48
+      "detail": 80
     },
     {
       "name": "field_card.html: tick a shot shows the tick within 500 ms on a low-tier phone",
       "pass": true,
-      "detail": 52
+      "detail": 83
     }
   ],
-  "audited_at": "2026-10-21T08:23:29.178899+00:00",
-  "audited_commit": "ecde02c1ba952d8e786bc78eefd4fa5f7b56e63f",
+  "audited_at": "2026-10-21T10:34:38.554447+00:00",
+  "audited_commit": "657ef3e0094fd1c6e79b0c0af16d813357a54cff",
   "audited_artifacts": {
     "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "986b21b3e98a22d42b353525da523348076a7613154a33b03c3cbcab2144de19",
@@ -1871,12 +1871,12 @@
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-1.html": "7c75f80f02bfa8608fa55e6c0bcf3fdbe540500cc50eb468e77dc64677f2a80b",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "3ebce15997a8348993d8d8a1080696939dc94d885e0199ebe1973c2ea9cce311",
     "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "ecb2eeabeb514a4008c2beef4331461e9360c5f65b1e42f751205e86fad5d92b",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "fe195fd80658ec56f770df8db42899e1a36c119069cc416c6142dad705a01693",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "d3c6d9fa430c6038f68d7d46f406ede758977686b3ffa8466684a397bc253413",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "35ec955dcd2938861a060469e53542ed10de5370646c0bd4347da8b4e4da5ce7",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "bf5413f70d10ff9a6c91471dea4cd2c959a6ebed155be888dfcc6b7802eaa39c",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "7c5fdc196b653d31023c31f8d87923fdf2f47102bfd7749b19bdb8e646edaa8a",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "c21cba6ca58120ce24c6b19349f84865bad718f2ce0072d8be7097fc978591a9"
+    "dist/canon6d_sota_hosted/index.html": "c03820dc763bc310acd98e378730530c3b10792882cb06b17eecab20970402f3",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "3301fded9e4fcd23db9cca16c8dfc13628910224d6c48aa9cd72f9bcbfc1b6be",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "7e494ead9938b86f00ab584cd69d55940fcd1b73e217d0454e7e42669ed05696",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "bfd5c8ffba10c9888ffb26aac45d98fd22b0ec22c9f073da48dceab9b3368e50",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "52b50af80db53a6b3ad157bb440cf1b6b3a8a36035d9fda9bd2703690bfba8e8",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "624ee0c8ce6cae6482064c470fc0064e77de955724caf077e48c5a2dc56bcd41",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "d8378390580541ed2e38440b00363e0d64417d99cfc567f1d5ec6284e0e301fd"
   }
 }
