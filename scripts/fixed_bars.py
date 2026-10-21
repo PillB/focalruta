@@ -3,7 +3,7 @@
 The home page and every plan page open with two bars: the site's bar and, under it, the
 Sujeto/Hora bar. They stay at the top only where the screen has room for them, at least
 641 px wide (no bottom bar) and 500 px tall (not a phone on its side). On a phone they
-would cover a quarter to two fifths of the screen, so they scroll away there, and only the
+would cover a fifth to two fifths of the screen, so they scroll away there, and only the
 home page's bottom bar stays.
 
 Wherever a bar stays, nothing may end up behind it: not what keyboard focus lands on, going
