@@ -38,14 +38,24 @@ reports at the repository root still match the files they audited, byte for byte
   (contrast on gradients is checked at every colour stop)
 - `AXE_ACCESSIBILITY_QA.json` — axe-core on all 39 published pages and the home page's
   offline notice, light phone and dark desktop passes, zero violations
-- `FIELD_CARD_QA.json` — 56 field card checks on a phone: each plan's settings per light,
-  the Lima clock, no JavaScript, print, keyboard, the home page dialog, axe, offline after
+- `FIELD_CARD_QA.json` — 63 field card checks on a phone: each plan's settings per light,
+  the Lima clock, no JavaScript, print, keyboard, the home page dialog (the page behind
+  it, left undrawn while the card covers it and back where it was, and focus back on an
+  opener on the page after a resize either way across 900 px, without moving the page),
+  a damaged saved state, axe, offline after
   rehearsed deploys (an upgrade from the worker live at 9cd3044, the HTTP cache Pages
   keeps for 10 minutes), and another camera and lenses
-- `PERF_BUDGET_QA.json` — 112 speed checks: Lighthouse on a simulated phone and slow
+- `PERF_BUDGET_QA.json` — 138 speed checks: Lighthouse on a simulated phone and slow
   4G network, median of three runs, for the home page, the field card, all six plan
   pages and every challenge page type; Lighthouse's "good" marks for every timing,
-  a byte budget per page type and no request to another origin
+  a byte budget per page type and no request to another origin; and six taps
+  (opening the field card on a phone and at tablet width, where its first shot is in
+  view, opening a shot's detail, picking a plan or a light, ticking a shot, each found on
+  the field card in every light it opens in) on a
+  mid-tier and a low-tier phone, the CPU calibrated as Chrome DevTools does,
+  median of five, good within 200 ms on the first and never poor (over 500 ms) on the second,
+  both for the first paint after the tap and for what the tap was for being on screen; the
+  check first proves it sees content a test page puts off by 300 ms
 
 Set up with `python3 -m pip install -r requirements-dev.txt` (what CI installs, on
 Python 3.11). For browser QA add `requirements-qa.txt`, `npm ci` (axe-core and

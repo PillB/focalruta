@@ -23,6 +23,7 @@ thing.
 from __future__ import annotations
 
 import re
+from html.parser import HTMLParser
 
 MIN_TEXT_PX = 12
 MIN_TARGET_PX = 44
@@ -116,6 +117,67 @@ def numbers_in(text: str) -> list[str]:
 def english_in(text: str) -> list[str]:
     """English interface words in `text`, each once, in order of appearance."""
     return list(dict.fromkeys(m.group(0) for m in ENGLISH_UI.finditer(text)))
+
+
+# Function words, to tell a sentence's language without a dictionary. A run of text is
+# English prose when English function words outnumber Spanish ones, three or more of them,
+# or when it has two or more, six words or more and not one Spanish function word. Loanwords
+# ("offline", "zoom") are not function words, so a Spanish sentence that carries one passes.
+ENGLISH_FUNCTION_WORDS = frozenset(
+    "the and of to in is are was with for before when that this not only can from your you it be by or as at an its"
+    " into than then which what how why some any every".split())
+SPANISH_FUNCTION_WORDS = frozenset(
+    "el la los las y e de del que en con por para un una unos unas es son se no al lo su sus como más o u cuando"
+    " antes si sin ya muy".split())
+WORD = re.compile(r"[a-záéíóúñü']+")
+
+
+def english_prose(text: str) -> bool:
+    words = WORD.findall(text.lower())
+    english = sum(w in ENGLISH_FUNCTION_WORDS for w in words)
+    spanish = sum(w in SPANISH_FUNCTION_WORDS for w in words)
+    return (english >= 3 and english > spanish) or (english >= 2 and spanish == 0 and len(words) >= 6)
+
+
+class _Runs(HTMLParser):
+    """Text runs of a page, each with whether it sits inside an element marked lang="en"."""
+
+    OPAQUE = {"script", "style", "code", "pre", "svg"}
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.stack: list[tuple[str, bool]] = []
+        self.runs: list[str] = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in VOID_ELEMENTS:
+            return
+        lang = (dict(attrs).get("lang") or "").lower()
+        inherited = self.stack[-1][1] if self.stack else False
+        self.stack.append((tag, tag in self.OPAQUE or lang.startswith("en") or (inherited and not lang)))
+
+    def handle_endtag(self, tag):
+        while self.stack and self.stack.pop()[0] != tag:
+            pass
+
+    def handle_data(self, data):
+        if data.strip() and not (self.stack and self.stack[-1][1]):
+            self.runs.append(" ".join(data.split()))
+
+
+VOID_ELEMENTS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+
+
+def english_outside_lang_en(html: str) -> list[str]:
+    """V12: English prose a reader meets in a Spanish page without `lang="en"` around it.
+
+    WCAG 3.1.2 (Language of Parts): a screen reader reads a run in the page's language
+    unless its element says otherwise, so an English title needs `lang="en"` and an English
+    sentence needs translating.
+    """
+    runs = _Runs()
+    runs.feed(html)
+    return list(dict.fromkeys(run for run in runs.runs if english_prose(run)))
 
 
 # The field card dialog has its own suite (scripts/field_card_qa.py); cited

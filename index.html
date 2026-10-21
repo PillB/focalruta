@@ -5194,9 +5194,13 @@ img{max-width:100%;height:auto}
    V03: no text under 12 px. Every control is at least 44 × 44 px and the section
    bar sits under the thumb on phones. Three palettes: day, dark (follows the
    system) and the night screen, red on black, which keeps dark-adapted eyes
-   and long exposures free of screen glare. */
+   and long exposures free of screen glare.
+   The device's own interface font, as on the rest of the site: system-ui is San
+   Francisco on Apple, Roboto on most Androids and Segoe UI on Windows, the fonts the
+   names after it ask for. Asked for first, it also spares Linux a slow lookup for each
+   of those names it does not have. */
 .fc-app{--fc-bg:#f4f1e9;--fc-card:#fff;--fc-ink:#0b1724;--fc-muted:#334155;--fc-line:#94a3b8;--fc-accent:#0b3a53;--fc-on-accent:#fff;--fc-ok:#065f46;--fc-ok-bg:#ecfdf5;--fc-chip:#e2e8f0;--fc-nd-bg:#fef3c7;--fc-nd:#78350f;--fc-off-bg:#fee2e2;--fc-off:#991b1b;--fc-hero:#061827;--fc-hero-ink:#f8fafc;--fc-hero-muted:#cbd5e1;--fc-focus:#b45309;
-  max-width:760px;margin:0 auto;padding:12px 12px calc(150px + env(safe-area-inset-bottom));color:var(--fc-ink);background:var(--fc-bg);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;box-sizing:border-box}
+  max-width:760px;margin:0 auto;padding:12px 12px calc(150px + env(safe-area-inset-bottom));color:var(--fc-ink);background:var(--fc-bg);font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;box-sizing:border-box}
 @media(prefers-color-scheme:dark){.fc-app{--fc-bg:#0b1220;--fc-card:#131c2e;--fc-ink:#f1f5f9;--fc-muted:#cbd5e1;--fc-line:#475569;--fc-accent:#fde047;--fc-on-accent:#111827;--fc-ok:#6ee7b7;--fc-ok-bg:#052e1f;--fc-chip:#1e293b;--fc-nd-bg:#422006;--fc-nd:#fde68a;--fc-off-bg:#450a0a;--fc-off:#fecaca;--fc-hero:#020617;--fc-focus:#fde047}}
 .fc-app:has(#fc-night:checked){--fc-bg:#000;--fc-card:#0a0000;--fc-ink:#ff6b5e;--fc-muted:#f0645a;--fc-line:#4a1410;--fc-accent:#ff6b5e;--fc-on-accent:#000;--fc-ok:#ff8a7a;--fc-ok-bg:#140302;--fc-chip:#1a0503;--fc-nd-bg:#1a0503;--fc-nd:#ff8a7a;--fc-off-bg:#1a0503;--fc-off:#ffa196;--fc-hero:#000;--fc-hero-ink:#ff6b5e;--fc-hero-muted:#f0645a;--fc-focus:#ff6b5e}
 .fc-app *,.fc-app *::before,.fc-app *::after{box-sizing:border-box}
@@ -5238,6 +5242,9 @@ img{max-width:100%;height:auto}
 .fc-reset{flex:0 0 auto;min-height:44px;padding:0 12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);color:var(--fc-ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;font-variant-numeric:inherit;cursor:pointer}
 .fc-shots{list-style:none;padding:0;margin-top:10px}
 .fc-shot{display:none;position:relative;margin:0 0 10px;padding:12px;border:1.5px solid var(--fc-line);border-radius:14px;background:var(--fc-card)}
+/* Opening the card lays out only the shots near the screen; the rest wait until scrolled to
+   (Baseline 2024; an older browser draws them all). `auto` keeps each shot's last height. */
+.fc-shot{content-visibility:auto;contain-intrinsic-size:auto 340px}
 .fc-name{padding-right:58px;font-size:16px;line-height:1.3;font-weight:800}.fc-id{display:inline-block;width:1.4em;font-weight:400}
 .fc-slot{display:none}
 .fc-check-wrap{position:absolute;top:8px;right:8px;width:48px;height:48px;cursor:pointer}
@@ -5267,7 +5274,9 @@ img{max-width:100%;height:auto}
 .fc-pack{display:none;list-style:none;padding:12px;margin-top:12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);font-size:15px}.fc-pack li{margin:4px 0}
 .fc-h3{margin-top:18px!important;font-size:17px;font-weight:800}.fc-body-text{margin-top:8px;font-size:15px}
 
-.fc-tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin:0;padding:6px 6px calc(6px + env(safe-area-inset-bottom));border:0;border-top:1.5px solid var(--fc-line);background:var(--fc-card);min-width:0}
+/* Equal tabs, except that none is narrower than its word: a wider system font widens
+   «Encuadre» a little instead of cutting it at 320 px. */
+.fc-tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:0;padding:6px 6px calc(6px + env(safe-area-inset-bottom));border:0;border-top:1.5px solid var(--fc-line);background:var(--fc-card);min-width:0}
 .fc-tab{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;border-radius:12px;font-size:12px;font-weight:800;color:var(--fc-muted);cursor:pointer}
 .fc-tab span[aria-hidden]{font-size:19px;line-height:1}
 .fc-tab:has(input:checked){background:var(--fc-chip);color:var(--fc-ink)}
@@ -5299,10 +5308,14 @@ img{max-width:100%;height:auto}
 @media(min-width:620px){.fc-grid{grid-template-columns:1fr 1fr}}
 @media(min-width:900px){.fc-app{padding-bottom:32px}.fc-tabs{position:sticky;top:0;bottom:auto;margin-top:12px;border:1.5px solid var(--fc-line);border-radius:14px}.fc-next{bottom:24px;right:24px}}
 @media(prefers-reduced-motion:reduce){.fc-app *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
-@media print{@page{size:A4;margin:10mm}.fc-app{max-width:none;padding:0;background:#fff;color:#000;font-size:10pt}.fc-tabs,.fc-next,.fc-tools,.fc-group,.fc-listhead,.fc-more,.fc-check-wrap,.fc-note{display:none!important}.fc-hero{background:#fff;color:#000;border:1px solid #000;padding:6pt}.fc-hero *{color:#000!important}.fc-shots{columns:2;column-gap:8pt}.fc-shot{break-inside:avoid;padding:5pt;margin-bottom:5pt;border-radius:4pt}.fc-name{padding-right:0;font-size:10pt}.fc-v-exposure{font-size:13pt}.fc-v-note,.fc-light,.fc-geo,.fc-who{font-size:8.5pt}}
+@media print{@page{size:A4;margin:10mm}.fc-app{max-width:none;padding:0;background:#fff;color:#000;font-size:10pt}.fc-tabs,.fc-next,.fc-tools,.fc-group,.fc-listhead,.fc-more,.fc-check-wrap,.fc-note{display:none!important}.fc-hero{background:#fff;color:#000;border:1px solid #000;padding:6pt}.fc-hero *{color:#000!important}.fc-shots{columns:2;column-gap:8pt}.fc-shot{break-inside:avoid;padding:5pt;margin-bottom:5pt;border-radius:4pt;content-visibility:visible}.fc-name{padding-right:0;font-size:10pt}.fc-v-exposure{font-size:13pt}.fc-v-note,.fc-light,.fc-geo,.fc-who{font-size:8.5pt}}
 
 #field-card-modal{position:fixed;inset:0;z-index:120;display:none;background:rgba(3,13,22,.72)}
 #field-card-modal.fc-modal-open{display:block}
+/* The first frame after the tap draws the bar and the card's header, the next one the plans,
+   and the one after that the shots, which on a phone start below the screen: a slow phone shows
+   the card at once and what is on screen next, instead of after laying out all of it. */
+#field-card-modal.fc-modal-first .fc-panel,#field-card-modal.fc-modal-later .fc-shots{content-visibility:hidden}
 .fc-modal-card{display:flex;flex-direction:column;width:min(100%,900px);height:100dvh;margin:auto;background:#f4f1e9;box-shadow:0 0 60px rgba(0,0,0,.28)}
 .fc-modal-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:#061827;color:#fff}
 .fc-modal-bar strong{display:block;font-size:16px}.fc-modal-bar small{display:block;font-size:13px;line-height:1.35;color:#dbeafe}
@@ -5311,6 +5324,12 @@ img{max-width:100%;height:auto}
 @media(prefers-color-scheme:dark){.fc-modal-scroll{background:#0b1220}}
 .fc-modal-card:has(#fc-night:checked) :is(.fc-modal-scroll,.fc-modal-bar){background:#000}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar{color:#ff6b5e}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar :is(small,button,a){color:#ff6b5e;border-color:#4a1410}
 body.fc-modal-lock{overflow:hidden}
+/* Below 900 px the card covers the whole screen, so the page behind it is not drawn while it is
+   open: it is inert already, and leaving it out spares a slow phone restyling it as the card opens.
+   Each part of the page keeps the size it last had, so the page comes back where the reader left
+   it. Print is left alone: printing with the card open prints the page. */
+:where(body>*){contain-intrinsic-size:auto none}
+@media screen and (max-width:899px){body.fc-modal-lock>:not(#field-card-modal){content-visibility:hidden}}
 .mobile-bottom-nav button{min-width:0;min-height:48px;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#475569;font-size:12px;font-weight:800;padding:0}.mobile-bottom-nav button .ico{font-size:18px;line-height:1}
 @media(min-width:900px){#field-card-modal{padding:22px}.fc-modal-card{height:calc(100dvh - 44px);border-radius:22px;overflow:hidden}.fc-modal-bar{padding-top:6px}}
 @media print{#field-card-modal{display:none!important}}
@@ -7070,6 +7089,17 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
 </script>
 <script>
 <!-- FIELD CARD JS START -->
+// The one definition of the card dialog: the rest of the page goes inert while it is
+// open, focus moves inside as it opens (as showModal() does) and stays there, and Escape
+// or the close button return focus to the opener. If a resize has hidden it, focus goes to an
+// opener on screen, or else to the first one on the page without scrolling to it, so the page
+// stays where the reader left it. The panels wait for the frame after the
+// first paint (requestAnimationFrame, then a task) and the shots for the frame after that.
+let fcOpener=null,fcInert=[];
+function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
+function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open','fc-modal-first','fc-modal-later');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();const next=f=>requestAnimationFrame(()=>setTimeout(f));next(()=>{m.classList.remove('fc-modal-first');next(()=>m.classList.remove('fc-modal-later'))});}
+function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];const shown=b=>b?.isConnected&&b.checkVisibility?.();if(shown(fcOpener)||!fcOpener?.checkVisibility){fcOpener?.focus?.();return}const all=[...document.querySelectorAll('[onclick="openFieldCard()"]')].filter(shown),seen=all.find(b=>{const r=b.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight});(seen||all[0])?.focus({preventScroll:!seen});}
+document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 /* Field card behaviour. The card itself is complete HTML: plan, light and tab
    switching are radio buttons, so it works with JavaScript off. This script adds
    what needs a clock or memory: the light slot for the time in Lima, each shot's
@@ -7131,8 +7161,22 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
     return clock(win[0]) + '–' + clock(win[1]);
   }
 
+  // V09: what an older version, an edit by hand or a damaged store left under the card's key
+  // can be any JSON. Keep only what this script writes, in the shape it writes it, so a
+  // stray value cannot stop the card.
+  function readState(text) {
+    var raw = null, state = { done: {} };
+    try { raw = JSON.parse(text || '{}'); } catch (e) { raw = null; }
+    var plain = function (v) { return v !== null && typeof v === 'object' && !Array.isArray(v); };
+    if (!plain(raw)) return state;
+    ['plan', 'subject', 'slot', 'slotDay', 'packed'].forEach(function (k) { if (typeof raw[k] === 'string') state[k] = raw[k]; });
+    if (raw.night === true) state.night = true;
+    if (plain(raw.done)) Object.keys(raw.done).forEach(function (k) { if (raw.done[k]) state.done[k] = 1; });
+    return state;
+  }
+
   var api = { limaMinutes: limaMinutes, slotWindows: slotWindows, slotAt: slotAt, sceneWindow: sceneWindow,
-              nextEvent: nextEvent, span: span, windowText: windowText };
+              nextEvent: nextEvent, span: span, windowText: windowText, readState: readState };
   if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
   root.FocalRutaCampo = api;
 
@@ -7141,14 +7185,13 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
   var S = root.LimaSun, KEY = 'focalruta-campo-v1';
   var $ = function (sel) { return app.querySelector(sel); };
   var $$ = function (sel) { return Array.prototype.slice.call(app.querySelectorAll(sel)); };
-  var state = {};
-  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
-  state.done = state.done || {};
+  var state;
+  try { state = readState(localStorage.getItem(KEY)); } catch (e) { state = readState(null); }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
   function checked(name) { var r = app.querySelector('input[name="' + name + '"]:checked'); return r ? r.value : null; }
+  // Compared, never written into a selector: a stored value is not trusted to be one.
   function choose(name, value) {
-    var r = app.querySelector('input[name="' + name + '"][value="' + value + '"]');
-    if (r) r.checked = true;
+    $$('input[name="' + name + '"]').forEach(function (r) { if (r.value === value) r.checked = true; });
   }
   var today = S.limaToday(Date.now());
   var dateInput = $('#fc-date');
@@ -7300,16 +7343,6 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
   restore(); paintWindows(); paintProgress(); paintGear();
   setInterval(paintWindows, 60000);
 })(typeof window !== 'undefined' ? window : this);
-
-// The one definition of the card dialog: the rest of the page goes inert while it is
-// open, focus moves inside as it opens (as showModal() does) and stays there, and Escape
-// or the close button return focus to the opener.
-let fcOpener=null,fcInert=[];
-function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
-function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();}
-function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];fcOpener?.focus?.();}
-document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
-
 <!-- FIELD CARD JS END -->
 </script>
 </body>

@@ -314,57 +314,93 @@
   "video_modules": [
     {
       "video_id": "pkMssQPul9o",
-      "title": "Natural light before lighting complexity",
+      "title": "Primero, la luz que ya hay",
       "channel": "Ben Harvey Photography",
       "timestamp_seconds": 293.64,
-      "mechanism": "Read the existing direction, color and contrast of natural and practical light before adding equipment.",
-      "field_transfer": "At one interior threshold, make a light map: key direction, brightest surface, mixed-color source and unusable reflection.",
-      "misuse_risk": "Do not treat natural light as automatically good; return or reposition when it hides spatial order."
+      "mechanism": "Lee la dirección, el color y el contraste de la luz natural y de las lámparas del lugar antes de añadir equipo.",
+      "field_transfer": "En un umbral interior, haz un mapa de la luz: dirección principal, superficie más brillante, fuente de otro color y reflejo que no sirve.",
+      "misuse_risk": "No des por buena la luz natural solo por ser natural; vuelve a otra hora o cambia de posición cuando oculta el orden del espacio.",
+      "original_en": {
+        "title": "Natural light before lighting complexity",
+        "mechanism": "Read the existing direction, color and contrast of natural and practical light before adding equipment.",
+        "field_transfer": "At one interior threshold, make a light map: key direction, brightest surface, mixed-color source and unusable reflection.",
+        "misuse_risk": "Do not treat natural light as automatically good; return or reposition when it hides spatial order."
+      }
     },
     {
       "video_id": "kCu_JaxaxX0",
-      "title": "Lines must guide toward a subject",
+      "title": "Las líneas deben llevar a un sujeto",
       "channel": "Matthew Anderson",
       "timestamp_seconds": 383.68,
-      "mechanism": "Architectural lines organize attention only when they lead through the frame toward a deliberate visual destination.",
-      "field_transfer": "Trace the strongest line with your finger, then remove any edge that pulls the eye out before the causal device is read.",
-      "misuse_risk": "Leading lines without a destination become decoration and can eject the viewer from the image."
+      "mechanism": "Las líneas de la arquitectura ordenan la atención solo cuando atraviesan el encuadre hacia un destino visual elegido.",
+      "field_transfer": "Sigue con el dedo la línea más fuerte y quita todo borde que saque la mirada antes de que se lea el dispositivo arquitectónico.",
+      "misuse_risk": "Unas líneas guía sin destino se vuelven decoración y pueden sacar al espectador de la imagen.",
+      "original_en": {
+        "title": "Lines must guide toward a subject",
+        "mechanism": "Architectural lines organize attention only when they lead through the frame toward a deliberate visual destination.",
+        "field_transfer": "Trace the strongest line with your finger, then remove any edge that pulls the eye out before the causal device is read.",
+        "misuse_risk": "Leading lines without a destination become decoration and can eject the viewer from the image."
+      }
     },
     {
       "video_id": "p0NlX54vKCA",
-      "title": "People or meaningful absence",
+      "title": "Personas o una ausencia con sentido",
       "channel": "Jamie Windsor",
       "timestamp_seconds": 204.08,
-      "mechanism": "People reveal use and scale; absence can redirect attention to architecture and carry stillness when social evidence remains.",
-      "field_transfer": "Make paired B/HABITAR frames: one with a meaningful verb and one empty frame with residue or expectation of use.",
-      "misuse_risk": "Do not add a person merely for scale or remove people merely for visual cleanliness."
+      "mechanism": "Las personas revelan uso y escala; su ausencia puede llevar la atención a la arquitectura y dar quietud si quedan huellas de la vida social.",
+      "field_transfer": "Haz pares de tomas B/HABITAR: una con un verbo que tenga sentido y otra vacía, con rastros o expectativa de uso.",
+      "misuse_risk": "No añadas a una persona solo para dar escala ni quites a la gente solo para limpiar la imagen.",
+      "original_en": {
+        "title": "People or meaningful absence",
+        "mechanism": "People reveal use and scale; absence can redirect attention to architecture and carry stillness when social evidence remains.",
+        "field_transfer": "Make paired B/HABITAR frames: one with a meaningful verb and one empty frame with residue or expectation of use.",
+        "misuse_risk": "Do not add a person merely for scale or remove people merely for visual cleanliness."
+      }
     },
     {
       "video_id": "Fh6PIafC8wU",
-      "title": "Position creates the composition",
+      "title": "La posición crea la composición",
       "channel": "Jason Vong",
       "timestamp_seconds": 258.52,
-      "mechanism": "A chosen camera position controls foreground, background, edge collisions and the moment that can enter the frame.",
-      "field_transfer": "Mark three legal standing positions and compare the architectural relationship before changing focal length.",
-      "misuse_risk": "Cropping from one fixed position cannot recover a missing near/far relationship."
+      "mechanism": "La posición de cámara que eliges decide el primer plano, el fondo, los choques en los bordes y el momento que puede entrar en el encuadre.",
+      "field_transfer": "Marca tres posiciones permitidas donde pararte y compara la relación arquitectónica antes de cambiar de focal.",
+      "misuse_risk": "Recortar desde una sola posición fija no recupera la relación entre lo cercano y lo lejano que faltaba.",
+      "original_en": {
+        "title": "Position creates the composition",
+        "mechanism": "A chosen camera position controls foreground, background, edge collisions and the moment that can enter the frame.",
+        "field_transfer": "Mark three legal standing positions and compare the architectural relationship before changing focal length.",
+        "misuse_risk": "Cropping from one fixed position cannot recover a missing near/far relationship."
+      }
     },
     {
       "video_id": "0H-t9N1hDj0",
-      "title": "Rules are not the whole composition",
+      "title": "Las reglas no son toda la composición",
       "channel": "Martin Osner",
       "timestamp_seconds": 655.92,
-      "mechanism": "Grids are tools; intention, hierarchy and emotional direction determine whether an arrangement communicates.",
-      "field_transfer": "Make the conventional thirds version, name its intended reading, then make one contradiction that improves that reading.",
-      "misuse_risk": "Breaking a rule without a visible communicative gain is novelty, not authorship."
+      "mechanism": "Las cuadrículas son herramientas; la intención, la jerarquía y la dirección emocional deciden si una disposición comunica.",
+      "field_transfer": "Haz la versión convencional en tercios, nombra la lectura que buscas y luego haz una contradicción que mejore esa lectura.",
+      "misuse_risk": "Romper una regla sin una ganancia visible en lo que se comunica es novedad, no autoría.",
+      "original_en": {
+        "title": "Rules are not the whole composition",
+        "mechanism": "Grids are tools; intention, hierarchy and emotional direction determine whether an arrangement communicates.",
+        "field_transfer": "Make the conventional thirds version, name its intended reading, then make one contradiction that improves that reading.",
+        "misuse_risk": "Breaking a rule without a visible communicative gain is novelty, not authorship."
+      }
     },
     {
       "video_id": "Ub0EGCMs4_U",
-      "title": "Background is an active plane",
+      "title": "El fondo es un plano activo",
       "channel": "Simon d'Entremont",
       "timestamp_seconds": 135.92,
-      "mechanism": "Background luminance, distance, edges and clutter change figure-ground separation and perceived depth.",
-      "field_transfer": "Hold the subject position, move laterally one metre, and compare edge contrast and mergers before opening the aperture.",
-      "misuse_risk": "Background blur cannot repair a background whose shapes or brightness contradict the story."
+      "mechanism": "La luminancia, la distancia, los bordes y el desorden del fondo cambian la separación entre figura y fondo y la profundidad percibida.",
+      "field_transfer": "Deja al sujeto donde está, muévete un metro hacia un lado y compara el contraste de los bordes y las fusiones antes de abrir el diafragma.",
+      "misuse_risk": "Desenfocar el fondo no arregla un fondo cuyas formas o brillo contradicen la historia.",
+      "original_en": {
+        "title": "Background is an active plane",
+        "mechanism": "Background luminance, distance, edges and clutter change figure-ground separation and perceived depth.",
+        "field_transfer": "Hold the subject position, move laterally one metre, and compare edge contrast and mergers before opening the aperture.",
+        "misuse_risk": "Background blur cannot repair a background whose shapes or brightness contradict the story."
+      }
     }
   ],
   "simulations": [
