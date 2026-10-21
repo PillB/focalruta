@@ -3023,6 +3023,88 @@ En `PERF_BUDGET_QA.json` sobre ecde02c, el inicio pesa 133.5 KB (132.9 antes; pr
 bloquea 81 ms (presupuesto 200). Abrir la tarjeta responde a 40 y 112 ms y muestra los planes a 59
 y 162; a ancho de tableta responde a 48 y 128 y muestra la primera toma a 95 y 220.
 
+### Segunda revisión del red team: N14b y N15 (657ef3e)
+
+El red team revisó los parches 0001–0016 y pasó N14, Q1 y Q2 (`qa/FINDINGS_PR22.md`). Acepta que un
+control a menos de 0.75 rem bajo la barra de arriba se mueva de 4 a 10 px: es el espacio que deja
+el `scroll-padding` para que el anillo del foco no quede pegado a la barra. Recorriendo el inicio
+entero con Tab y Mayús+Tab, las pulsaciones que movían la página hacia un control ya despejado
+bajan de 22, 14 y 0 a 6, 1 y 0. Dejó dos notas sobre lo que queda: N14b y N15.
+
+**N14b: pasada la sección de la barra Sujeto/Hora, el sitio reservado todavía la contaba.** Al
+final de su sección, la barra sube por debajo de la barra del sitio y desaparece. El script sólo
+miraba si la barra había llegado arriba, así que seguía contándola. Pasada la sección, Tab o
+Mayús+Tab hacia el primer enlace del pie movía la página: 17 px con 16 px de texto, donde el final
+de la página lo limita, y de 335 a 341 px con texto de 20 y 24 px. Ahora la barra cuenta sólo
+mientras está arriba y se ve bajo la barra del sitio (`index.html` y
+`scripts/generate_plan_pages.py`). La pasada de N14 en X07 prueba ahora también el primer control
+pasada la sección de la barra.
+
+El red team propuso dos arreglos: contar la barra sólo mientras está quieta arriba, o mientras su
+borde de abajo sigue bajo el de la barra del sitio. Elegí el segundo. Mientras la barra sube, una
+parte sigue a la vista. Con el primero, el sitio reservado sería el de la barra del sitio sola, y
+un control al final de la sección podría quedar detrás de la parte que se ve, sin que el navegador
+desplace la página (WCAG 2.4.11). Con el segundo, lo peor es que la página se mueva un poco hacia
+un control justo bajo esa parte. En estas páginas no pasa: el barrido de abajo no encuentra ningún
+movimiento.
+
+**N15: no es un error.** Mayús+Tab desde el enlace «Abrir aquí ↘» de una tarjeta de plan hacia el
+de la tarjeta anterior movía la página 437 px, aunque la medida decía que el destino estaba entero
+a la vista, a 527 px. En la cuadrícula, la tarjeta anterior está en la fila de arriba: con el
+enlace de partida a 414 px, el de destino estaba de −7 a 37 px, detrás de las barras, que terminan a
+137 px (`probe15.py`). El navegador desplaza la página para mostrarlo, como debe. Mientras subía, se
+dibujaron secciones de más arriba (`content-visibility:auto`), y el anclaje del desplazamiento movió
+la página otros 534 px. Por eso, medida desde la posición final, la posición de antes salía en
+527 px. No cambio nada.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X07 (N14b) | Tab y Mayús+Tab hacia el primer control pasada la sección de la barra Sujeto/Hora, a 1.25 rem bajo lo que se queda, dejan la página quieta | sobre dc21d0b, en los dos inicios: «Tab onto 6 planes de sesión, 1.25 rem under what stays (past the Sujeto/Hora bar's section): the page moved 335 px» con texto de 20 px a 1024×768, y 341 px con 24 px a 1280×800; con 16 px el control no se puede poner ahí | 72 de 72 pulsaciones en los dos inicios (`run_free.py`) |
+| X07 (N14b), barrido | Barriendo de 6 en 6 px el tramo en que la barra sube y desaparece, Tab y Mayús+Tab hacia el primer control del pie no mueven la página si ese control ya estaba despejado, más allá de los 0.75 rem, ni lo dejan detrás de una barra (`sweep_leave.py`, cinco tamaños) | sobre dc21d0b: 60 de 250 pulsaciones mueven la página, hasta 350 px | ninguna de 250 mueve la página ni lo deja detrás |
+| X07 (N14b), prueba del red team | `leave.py`: Mayús+Tab hacia «6 planes de sesión» a 8, 30, 60 y 100 px bajo la barra del sitio | sobre dc21d0b: −17 px a 8, 30 y 60 px con 16 px de texto a 1024×768 | 0 en todos los casos |
+
+Errores propios:
+
+- El arreglo de N14 sólo miraba un lado: si la barra había llegado arriba, no si ya se había ido.
+  La prueba nueva de N14 ponía controles encima y debajo de la barra, pero no pasada su sección.
+- La primera versión del barrido contaba como movimientos los de un control dentro de los 0.75 rem
+  bajo la barra del sitio, que el red team y yo aceptamos como espacio para el anillo del foco. La
+  medida final empieza a contar pasados esos 0.75 rem.
+
+Compromisos:
+
+- Mientras la barra Sujeto/Hora sube al final de su sección, un recorrido de su propio alto, cuenta
+  entera aunque sólo se vea una parte. Un control justo bajo esa parte podría moverse como mucho lo
+  que queda oculto de la barra. En estas páginas el barrido no encuentra ninguno: el primer enlace
+  del pie queda más abajo.
+- La pasada de N14 sólo encuentra dónde poner el control pasada la sección con texto de 20 y 24 px,
+  a 1024×768 y 1280×800. Con 16 px el final de la página no deja subirlo tanto. El barrido cubre el
+  tramo a cinco tamaños, pero no está en la suite.
+- Velocidad: en esta máquina, nueva tras un reinicio del entorno, abrir la tarjeta a ancho de
+  tableta en un teléfono de gama baja muestra la primera toma cerca del presupuesto de 500 ms. En la
+  corrida completa de las suites dio 506 ms (las cinco vueltas, de 435 a 676) y la suite de
+  velocidad falló. El inicio solo, dos veces en 657ef3e y dos en dc21d0b, alternando, dio de 378 a
+  430 ms, sin diferencia entre los dos builds, y dos corridas más de la suite completa pasaron, con
+  466 y 353 ms. No lo atribuyo al código, pero el margen es poco y CI podría fallar por lo mismo.
+
+**Cierre de N14b** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `browser_release_qa.py` en 657ef3e | 0 | 530/530 en 22 min 39 s |
+| `perf_budget_qa.py` en 657ef3e, dentro de la corrida completa | 1 | 137/138: la primera toma a ancho de tableta en gama baja, 506 ms con presupuesto de 500 |
+| `perf_budget_qa.py --only index.html`, alternando 657ef3e y dc21d0b | 0 | 420 y 427 ms en 657ef3e, 378 y 430 en dc21d0b |
+| `perf_budget_qa.py` en 657ef3e, otra vez | 0 | 138/138 (466 ms); el reporte sale de una tercera corrida con el árbol sin otros cambios: 138/138 (353 ms) |
+| las otras cuatro suites con reporte en 657ef3e | 0 | axe 80/80, tarjeta 63/63, visual 37/37, óptica 22/22; reportes en 3633d75 |
+| las cinco suites de `tests/architecture/browser_*.py` en 657ef3e | 0 | todas en verde |
+| `pytest -q` en 3633d75 | 0 | 925 pasan, 1 omitida |
+| `verify_release.py` (navegador 530), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre 657ef3e (1.89× y 6.75×), el inicio pesa 133.6 KB y bloquea 90 ms.
+Abrir la tarjeta responde a 48 y 184 ms y muestra los planes a 82 y 274; a ancho de tableta
+responde a 64 y 184 y muestra la primera toma a 118 y 353.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -3044,7 +3126,7 @@ y 162; a ancho de tableta responde a 48 y 128 y muestra la primera toma a 95 y 2
 - N9 (barras de arriba que se quedan sólo donde caben): en el PR siguiente a #22, con X07. Pablo
   tiene la pregunta de si deben quedarse fijas también en el teléfono; si dice que sí, se quita
   el límite de tamaño y X07 cambia con él.
-- El red team vuelve a revisar N14, Q1 y Q2.
+- El red team vuelve a revisar N14b.
 - De 641 a 1023 px, con un ratón sin rueda lateral, los enlaces de las secciones fuera de la fila
   se alcanzan sólo con Mayús y la rueda. Si hace falta, una barra fina o flechas para el ratón.
 - Con texto más grande, de 641 a 800 px (20 px) o a 961 px (24 px), no hay barra de abajo y las
