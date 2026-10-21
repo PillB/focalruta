@@ -4956,7 +4956,7 @@ nav.glass{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding-
    technique C43); a section above the Sujeto/Hora bar has only the site's bar over it. The script
    after that bar writes the bars' heights to --fr-nav and --fr-bar, since they do not grow in
    step with the text; without it the rem values stand in. It also marks html.fr-bar-in-flow while
-   that bar is not stuck: the room at the top is then the site's bar alone, and a section below
+   that bar is not stuck under the site's bar: the room at the top is then the site's bar alone, and a section below
    the bar carries the bar's height in its margin, so a jump lands in the same place either way
    (N14). */
 @supports not (overflow-x:clip){html,body{overflow-x:hidden}}

@@ -12,10 +12,11 @@ Wherever a bar stays, nothing may end up behind it: not what keyboard focus land
 forward or back (WCAG 2.2 SC 2.4.11, and 2.4.12 for no part of it), and not the start of a
 section a link jumps to or the page is opened at. The page reserves that room with
 scroll-padding (technique C43), measured from the bars' whole boxes, and only for what covers
-the top now: the Sujeto/Hora bar counts once it is stuck. Moving between the controls of a bar
-on screen, with Tab or Shift+Tab, must leave the page where it is (N13), and so must moving onto
-a control drawn whole just under what stays (N14). A jump holds its section in place while the
-page draws around it, but never against a scroll of the reader's own.
+the top now: the Sujeto/Hora bar counts while it is stuck and shows under the top bar. Moving
+between the controls of a bar on screen, with Tab or Shift+Tab, must leave the page where it is
+(N13), and so must moving onto a control drawn whole just under what stays (N14), also past the
+Sujeto/Hora bar's section, where that bar has gone up under the top bar (N14b). A jump holds its
+section in place while the page draws around it, but never against a scroll of the reader's own.
 """
 from __future__ import annotations
 
@@ -358,13 +359,15 @@ def tab_in_bars_leaves_page_still(page, motions=MOTION) -> list[str]:
 # Tab onto a control drawn whole below what is stuck must leave the page still too (red team N14).
 # The room kept at the top must be what covers the top now: kept for the Sujeto/Hora bar while that
 # bar still sits lower down the page, it made the browser count a control just under the top bar as
-# out of view and scroll 330 to 420 px for it (csswg-drafts#7930). Tried on the last control above
-# the Sujeto/Hora bar and the first below it, each placed 1.25 rem under what is stuck, past the
-# .75 rem the page keeps clear, and reached with Tab from the control before it and with Shift+Tab
-# from the one after. A control the page cannot place there, or one the browser's order skips (a
-# radio group), is not tried.
+# out of view and scroll 330 to 420 px for it (csswg-drafts#7930). Past the end of its section the
+# bar has gone up under the top bar, and the room must stop counting it there too (N14b: counted,
+# the footer's first link moved the page 17 px). Tried on the last control above the Sujeto/Hora
+# bar, the first below it and the first past its section, each placed 1.25 rem under what is stuck,
+# past the .75 rem the page keeps clear, and reached with Tab from the control before it and with
+# Shift+Tab from the one after. A control the page cannot place there (near the end of a page), or
+# one the browser's order skips (a radio group), is not tried.
 GAP_REM = 1.25
-SIDES = ("above", "below")
+SIDES = {"above": "above the Sujeto/Hora bar", "below": "below the Sujeto/Hora bar", "past": "past the Sujeto/Hora bar's section"}
 FOCUSABLE = ("a[href], area[href], button, input:not([type=hidden]), select, textarea, iframe, object, embed, summary, "
              "audio[controls], video[controls], [contenteditable], [tabindex]")
 TOP_FLOOR = """() => {
@@ -376,9 +379,10 @@ TOP_FLOOR = """() => {
 PLACE_FREE = f"""async ([side, key, gapRem]) => {{
   const nav = document.querySelector('nav.glass'), bar = document.getElementById('toggle-human').closest('section');
   const all = [...document.querySelectorAll({FOCUSABLE!r})].filter(e => e.tabIndex >= 0 && !e.disabled && !e.closest('[inert]') && e.checkVisibility());
-  const after = side === 'below', step = key === 'Tab' ? -1 : 1, plain = e => e && e.type !== 'radio';
-  const order = all.map((e, n) => n).filter(n => !nav.contains(all[n]) && !bar.contains(all[n]) && !all[n].closest('.mobile-bottom-nav, dialog')
-    && Boolean(bar.compareDocumentPosition(all[n]) & Node.DOCUMENT_POSITION_FOLLOWING) === after);
+  const after = side !== 'above', step = key === 'Tab' ? -1 : 1, plain = e => e && e.type !== 'radio', box = bar.parentElement;
+  const follows = (a, e) => Boolean(a.compareDocumentPosition(e) & Node.DOCUMENT_POSITION_FOLLOWING);
+  const where = e => side === 'past' ? !box.contains(e) && follows(box, e) : follows(bar, e) === after;
+  const order = all.map((e, n) => n).filter(n => !nav.contains(all[n]) && !bar.contains(all[n]) && !all[n].closest('.mobile-bottom-nav, dialog') && where(all[n]));
   const i = (after ? order : order.reverse()).find(n => plain(all[n]) && plain(all[n + step]));
   if (i === undefined) return null;
   const target = all[i], gap = parseFloat(getComputedStyle(document.documentElement).fontSize) * gapRem;
@@ -419,13 +423,13 @@ def free_pass(page, side: str, key: str) -> str | None:
     page.evaluate(QUIET)
     after = page.evaluate(FREE_MOVED)
     if after["on"] and after["moved"]:
-        return f"{key} onto {name}, {GAP_REM} rem under what stays ({side} the Sujeto/Hora bar): the page moved {after['moved']} px"
+        return f"{key} onto {name}, {GAP_REM} rem under what stays ({SIDES[side]}): the page moved {after['moved']} px"
     return None
 
 
 def free_spots_leave_page_still(page) -> list[str]:
     """Tab and Shift+Tab onto controls drawn whole just under what is stuck, above and below the
-    Sujeto/Hora bar; list each press that moved the page."""
+    Sujeto/Hora bar and past its section; list each press that moved the page."""
     found = (free_pass(page, side, key) for side in SIDES for key in ("Tab", "Shift+Tab"))
     return [moved for moved in found if moved]
 

@@ -205,7 +205,7 @@
 
 
 
-<link rel="stylesheet" href="./assets/hosted.css?v=7d0ffaae8c8c">
+<link rel="stylesheet" href="./assets/hosted.css?v=e2f1d9aee0d0">
 </head>
 <body class="bg-paper text-ink">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -540,11 +540,13 @@
 <script>
 /* N11: the room kept at the top is the bars' real height, whatever the reader's text size. Each bar
    is watched whole, padding and border included: the top bar's padding holds a phone's safe area.
-   N14: the room counts the Sujeto/Hora bar only while that bar is stuck. While it still sits lower
-   down the page, html.fr-bar-in-flow keeps room for the site's bar alone; kept for both, the browser
-   counted a control just under the site's bar as out of view and scrolled the page to it
-   (csswg-drafts#7930). Read on every scroll, on any change of size, and before each key or press. */
-(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const html=document.documentElement,root=html.style,set=(k,v)=>{if(root.getPropertyValue(k)!==v)root.setProperty(k,v)},place=()=>{html.classList.toggle('fr-bar-in-flow',!(bar.getBoundingClientRect().top<=parseFloat(getComputedStyle(bar).top)+.5))},keep=()=>{set('--fr-nav',nav.getBoundingClientRect().height+'px');set('--fr-bar',bar.getBoundingClientRect().height+'px');place()},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'});watch.observe(html);addEventListener('scroll',place,{passive:true});['keydown','pointerdown'].forEach(t=>addEventListener(t,place,{capture:true,passive:true}))})();
+   N14: the room counts the Sujeto/Hora bar only while that bar is stuck and shows under the site's
+   bar. While it still sits lower down the page, or once it has gone up under the site's bar at the
+   end of its section (N14b), html.fr-bar-in-flow keeps room for the site's bar alone; kept for
+   both, the browser counted a control just under the site's bar as out of view and scrolled the
+   page to it (csswg-drafts#7930). Read on every scroll, on any change of size, and before each key
+   or press. */
+(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const html=document.documentElement,root=html.style,set=(k,v)=>{if(root.getPropertyValue(k)!==v)root.setProperty(k,v)},place=()=>{const r=bar.getBoundingClientRect(),at=parseFloat(getComputedStyle(bar).top)+.5;html.classList.toggle('fr-bar-in-flow',!(r.top<=at&&r.bottom>at))},keep=()=>{set('--fr-nav',nav.getBoundingClientRect().height+'px');set('--fr-bar',bar.getBoundingClientRect().height+'px');place()},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'});watch.observe(html);addEventListener('scroll',place,{passive:true});['keydown','pointerdown'].forEach(t=>addEventListener(t,place,{capture:true,passive:true}))})();
 /* N13: Tab and Shift+Tab onto a control of a bar wholly in view, from inside the bar or from the
    control next to it, move focus without scrolling. Inside the room scroll-padding keeps at the
    top, the browser counts that control as out of view and scrolls the page by half a screen on

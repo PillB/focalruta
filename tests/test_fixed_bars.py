@@ -267,18 +267,22 @@ class Free(Page):
 
 def test_tab_onto_a_control_just_under_what_stays_must_leave_the_page_still():
     """Red team N14: with room kept for the Sujeto/Hora bar while it still sat lower down, Tab onto a control
-    just under the top bar moved the page (home, 1024 x 768, before the fix: 345 px)."""
-    page = Free(["Cómo leer y qué no promete", "Cómo leer y qué no promete", "sun-date", None],
-                [{"on": True, "moved": -345}, {"on": True, "moved": 0}, {"on": True, "moved": 12}])
+    just under the top bar moved the page (home, 1024 x 768, before the fix: 345 px). N14b: past the bar's
+    section, where it has gone up under the top bar, the room still counted it (20 px text: 335 px)."""
+    page = Free(["Cómo leer y qué no promete", "Cómo leer y qué no promete", "sun-date", None, "6 planes de sesión", "6 planes de sesión"],
+                [{"on": True, "moved": -345}, {"on": True, "moved": 0}, {"on": True, "moved": 12}, {"on": True, "moved": 0},
+                 {"on": True, "moved": -335}])
     assert fixed_bars.free_spots_leave_page_still(page) == [
         "Tab onto Cómo leer y qué no promete, 1.25 rem under what stays (above the Sujeto/Hora bar): the page moved -345 px",
-        "Tab onto sun-date, 1.25 rem under what stays (below the Sujeto/Hora bar): the page moved 12 px"]
-    assert page.asked == [("above", "Tab"), ("above", "Shift+Tab"), ("below", "Tab"), ("below", "Shift+Tab")]
-    assert page.pressed == ["Tab", "Shift+Tab", "Tab"]  # nothing is pressed where no control could be placed
+        "Tab onto sun-date, 1.25 rem under what stays (below the Sujeto/Hora bar): the page moved 12 px",
+        "Shift+Tab onto 6 planes de sesión, 1.25 rem under what stays (past the Sujeto/Hora bar's section): the page moved -335 px"]
+    assert page.asked == [("above", "Tab"), ("above", "Shift+Tab"), ("below", "Tab"), ("below", "Shift+Tab"),
+                          ("past", "Tab"), ("past", "Shift+Tab")]
+    assert page.pressed == ["Tab", "Shift+Tab", "Tab", "Tab", "Shift+Tab"]  # nothing is pressed where no control could be placed
 
 
 def test_a_press_that_lands_on_another_control_is_not_judged():
-    page = Free(["Cómo leer y qué no promete"] * 4, [{"on": False, "moved": 900}] * 4)
+    page = Free(["Cómo leer y qué no promete"] * 6, [{"on": False, "moved": 900}] * 6)
     assert fixed_bars.free_spots_leave_page_still(page) == []
     assert fixed_bars.GAP_REM * 16 > 12  # placed past the .75 rem the page keeps clear under what stays
 
