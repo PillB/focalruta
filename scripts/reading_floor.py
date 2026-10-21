@@ -78,8 +78,14 @@ if((r.right>W+1||r.left<-1)&&!strip(el))out.push(name(el)+' '+Math.round(r.left)
 else if((el.matches('button,a,summary,select,label,legend')||cs.textOverflow==='ellipsis')&&el.scrollWidth>el.clientWidth+1&&el.clientWidth>1)
 out.push(name(el)+(cs.textOverflow==='ellipsis'?' text cut with an ellipsis ':cs.overflowX==='visible'?' label runs out ':' label clipped ')+el.scrollWidth+'>'+el.clientWidth)}
 // A sticky header over the content scrolled under it is not an overlap: compare controls in the same layer.
+// Each control counts by what is drawn of it: the part a box that clips its overflow (a strip
+// scrolled sideways) hides is not there to overlap anything (N10: the top bar's links scroll in
+// a strip that ends where its tools begin).
 const layer=el=>{for(let p=el;p;p=p.parentElement){const s=getComputedStyle(p).position;if(s==='sticky'||s==='fixed')return p}return null};
-const ctl=[...document.body.querySelectorAll('a[href],button,input,select,textarea,summary')].filter(el=>!(skip&&el.closest(skip))&&el.checkVisibility({visibilityProperty:true})),box=ctl.map(el=>el.getBoundingClientRect()),on=ctl.map(layer);
+const drawnBox=el=>{const r=el.getBoundingClientRect(),v={left:r.left,right:r.right,top:r.top,bottom:r.bottom};
+for(let p=el.parentElement;p&&p!==document.body;p=p.parentElement){const s=getComputedStyle(p),q=p.getBoundingClientRect();
+if(s.overflowX!=='visible'){v.left=Math.max(v.left,q.left);v.right=Math.min(v.right,q.right)}if(s.overflowY!=='visible'){v.top=Math.max(v.top,q.top);v.bottom=Math.min(v.bottom,q.bottom)}}return v};
+const ctl=[...document.body.querySelectorAll('a[href],button,input,select,textarea,summary')].filter(el=>!(skip&&el.closest(skip))&&el.checkVisibility({visibilityProperty:true})),box=ctl.map(drawnBox),on=ctl.map(layer);
 for(let i=0;i<ctl.length;i++)for(let j=i+1;j<ctl.length;j++){if(on[i]!==on[j]||ctl[i].contains(ctl[j])||ctl[j].contains(ctl[i]))continue;const a=box[i],b=box[j];
 if(Math.min(a.right,b.right)-Math.max(a.left,b.left)>2&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>2)out.push(name(ctl[i])+' overlaps '+name(ctl[j]))}
 drawn.remove();return out}"""
