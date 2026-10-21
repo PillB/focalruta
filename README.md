@@ -45,12 +45,13 @@ reports at the repository root still match the files they audited, byte for byte
   a damaged saved state, axe, offline after
   rehearsed deploys (an upgrade from the worker live at 9cd3044, the HTTP cache Pages
   keeps for 10 minutes), and another camera and lenses
-- `PERF_BUDGET_QA.json` — 137 speed checks: Lighthouse on a simulated phone and slow
+- `PERF_BUDGET_QA.json` — 138 speed checks: Lighthouse on a simulated phone and slow
   4G network, median of three runs, for the home page, the field card, all six plan
   pages and every challenge page type; Lighthouse's "good" marks for every timing,
   a byte budget per page type and no request to another origin; and six taps
   (opening the field card on a phone and at tablet width, where its first shot is in
-  view, opening a shot's detail, picking a plan or a light, ticking a shot) on a
+  view, opening a shot's detail, picking a plan or a light, ticking a shot, each found on
+  the field card in every light it opens in) on a
   mid-tier and a low-tier phone, the CPU calibrated as Chrome DevTools does,
   median of five, good within 200 ms on the first and never poor (over 500 ms) on the second,
   both for the first paint after the tap and for what the tap was for being on screen; the

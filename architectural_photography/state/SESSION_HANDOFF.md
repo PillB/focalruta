@@ -2478,6 +2478,44 @@ anula el `overflow-x:clip` anterior. Con `clip`, la barra se queda arriba sin de
 horizontal. Antes hay que decidir si en el teléfono debe quedarse fija, porque ya tiene la barra
 de abajo; si no, se quita `sticky`.
 
+### Fallo propio en X06: la marca de una toma sólo se encontraba de día
+
+La tarjeta de campo se abre en la luz que dice el reloj de Lima (día, tarde o noche). Cada toma
+tiene una marca por luz y sólo se ve la de la luz actual. El toque «tick a shot» de X06 buscaba
+la marca del día, así que de 18:00 a 06:00 en Lima no encontraba nada que tocar y la suite de
+velocidad fallaba con «nothing to tap» (visto el 2026-10-20 a las 18:40).
+
+Arreglo (630a1df):
+
+- El toque busca la marca visible de la toma visible, sea cual sea la luz.
+- El instrumento suma una comprobación: en la tarjeta, elige cada luz y falla si algún toque no
+  encuentra en pantalla lo que toca. `PERF_BUDGET_QA.json` pasa de 137 a 138 comprobaciones.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X06 | Cada toque de la tarjeta encuentra lo que toca en las tres luces en que puede abrirse | sobre 74e22c7, `--only field_card.html` a las 18:40 de Lima: «tick a shot: nothing to tap». Con el reloj fijado hora a hora, el selector viejo se ve de 06:17 a 17:30 y no a las 18:00 ni de 18:30 a 05:00. La comprobación nueva con el selector viejo falla en la luz de tarde y en la de noche | el selector nuevo se ve a todas las horas y la comprobación pasa; 138/138 a las 19:00 de Lima sobre 630a1df. La prueba unitaria, con una tarjeta falsa en la que sólo se ve la marca del día, falla por luz con el selector viejo |
+
+Compromisos:
+
+- La luz se elige tocando la tarjeta, no fingiendo el reloj, así que la medición sigue con la
+  hora real y lo que mide es la luz en que se abre a esa hora.
+- Sólo se comprueban los toques de la tarjeta, la única página que cambia con la hora.
+
+Errores propios: escribí el selector de la marca del día en PR #22, y subí el código (630a1df)
+antes del reporte, así que el CI de 630a1df quedó en rojo («137 checks, expected at least 138»)
+hasta ba7d315. La escalada de investigación no se activó: la primera hipótesis fue la buena.
+
+**Cierre** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| suite de velocidad en 630a1df | 0 | 138/138; reporte en ba7d315. La marca responde a 24 y 80 ms y se ve a 23 y 82; a ancho de tableta la primera toma, a 119 y 311 |
+| `pytest -q` en ba7d315 | 0 | 898 pasan, 1 omitida |
+| `verify_release.py` (velocidad 138), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+
+Las demás suites no cambian: el arreglo sólo toca el instrumento de velocidad.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -2496,5 +2534,6 @@ de abajo; si no, se quita `sticky`.
   la espera (N2 del red team).
 - N4, N7 y N8 están en PR #22 y el red team los pasó. N5 queda como límite declarado de la
   medición.
-- N9 (barra de arriba que nunca se queda fija): para el PR siguiente, tras decidir si debe
-  quedarse fija en el teléfono.
+- N9 (barra de arriba que nunca se queda fija): en el PR siguiente. Pablo tiene la pregunta de
+  si debe quedarse fija en el teléfono; se construye la opción recomendada, sólo en pantallas
+  grandes.
