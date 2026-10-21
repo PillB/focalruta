@@ -3087,6 +3087,12 @@ Compromisos:
   430 ms, sin diferencia entre los dos builds, y dos corridas más de la suite completa pasaron, con
   466 y 353 ms. No lo atribuyo al código, pero el margen es poco y CI podría fallar por lo mismo.
 
+Tercera revisión del red team (parches 0001–0019, `qa/FINDINGS_PR22.md`): PASS. `leave.py` da 0 en
+todos los casos; en el recorrido entero con Mayús+Tab sólo quedan movimientos de 5 a 6 px dentro de
+los 0.75 rem aceptados. Está de acuerdo con la segunda opción por la razón de WCAG 2.4.11, retira N15
+porque era su medida, y lee el fallo de velocidad como ruido de una máquina recién arrancada. Da N9
+(0001–0019) por listo.
+
 **Cierre de N14b** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
 
 | Comando | Salida | Resumen |
@@ -3126,7 +3132,6 @@ responde a 64 y 184 y muestra la primera toma a 118 y 353.
 - N9 (barras de arriba que se quedan sólo donde caben): en el PR siguiente a #22, con X07. Pablo
   tiene la pregunta de si deben quedarse fijas también en el teléfono; si dice que sí, se quita
   el límite de tamaño y X07 cambia con él.
-- El red team vuelve a revisar N14b.
 - De 641 a 1023 px, con un ratón sin rueda lateral, los enlaces de las secciones fuera de la fila
   se alcanzan sólo con Mayús y la rueda. Si hace falta, una barra fina o flechas para el ratón.
 - Con texto más grande, de 641 a 800 px (20 px) o a 961 px (24 px), no hay barra de abajo y las
