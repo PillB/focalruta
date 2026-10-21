@@ -133,21 +133,117 @@ def test_a_link_must_land_clear_of_what_stays_and_close_under_it():
     assert wrong == ["#behind starts at 30 px, what stays ends at 136 px", "#far starts at 220 px, what stays ends at 136 px"]
 
 
+def test_a_link_is_judged_only_once_the_page_has_settled():
+    """Sections drawn only near the screen can push the target down after the jump (red team N12)."""
+    page = Page(hrefs=["#tecnicas"], landings={"#tecnicas": {"top": 673, "floor": 0, "edge": False}})
+    order = []
+    page.wait_for_timeout = lambda ms: order.append(ms)
+    page.evaluate = (lambda original: lambda script, arg=None: order.append(script) or original(script, arg))(page.evaluate)
+    assert fixed_bars.jumps(page) == ["#tecnicas starts at 673 px, what stays ends at 0 px"]
+    assert order.index(fixed_bars.CLICK) < order.index(fixed_bars.SETTLE) < order.index(fixed_bars.LANDED)
+
+
+def test_opening_the_page_at_the_lowest_section_is_judged_like_a_jump():
+    page = Page(landings={"#tecnicas": {"top": 1909, "floor": 0, "edge": False}})
+    opened = []
+    page.goto = lambda url, **_: opened.append(url)
+    page.evaluate = (lambda original: lambda script, arg=None: "#tecnicas" if script == fixed_bars.DEEPEST else original(script, arg))(page.evaluate)
+    assert fixed_bars.address(page, "file:///index.html") == ["opened at #tecnicas starts at 1909 px, what stays ends at 0 px"]
+    assert opened == ["file:///index.html#tecnicas"]
+    assert fixed_bars.address(Page(), "file:///plan.html") == []  # no links: nothing to open
+
+
+class Dialogs(Page):
+    """Buttons that open a dialog (None for one off screen) and where the middle of the screen is at each look."""
+
+    def __init__(self, opened, after):
+        super().__init__()
+        self.opened, self.after = list(opened), list(after)
+
+    def evaluate(self, script, arg=None):
+        if script == fixed_bars.OPEN:
+            return self.opened.pop(0)
+        if script == fixed_bars.SEEN:
+            return self.after.pop(0)
+        if "length" in script:
+            return len(self.opened)
+        return super().evaluate(script, arg)
+
+
 def test_a_dialog_closed_from_a_bar_on_screen_must_leave_the_page_still():
     """What is in the middle of the screen must stay where it was, whatever the scroll position does."""
-    opened = [None, {"name": "Abrir tarjeta de campo", "top": 500}, {"name": "▶ Sesión", "top": 500}]
-    after = [1086, 500]
-
-    class Dialogs(Page):
-        def evaluate(self, script, arg=None):
-            if script == fixed_bars.OPEN:
-                return opened.pop(0)
-            if script == fixed_bars.SEEN:
-                return after.pop(0)
-            if "length" in script:
-                return 3
-            return super().evaluate(script, arg)
-
-    page = Dialogs()
+    page = Dialogs([None, {"name": "Abrir tarjeta de campo", "top": 500}, {"name": "▶ Sesión", "top": 500}], [1086, 500, 500])
     assert fixed_bars.dialogs_leave_page_still(page) == ["Abrir tarjeta de campo: the page moved 586 px"]
     assert page.pressed == ["Escape", "Escape"]  # a button off screen opens nothing
+    assert page.after == []  # one look at a page that moved, two at one that stayed
+
+
+def test_a_page_that_moves_a_little_after_closing_fails_too():
+    page = Dialogs([{"name": "▶ Sesión", "top": 500}], [500, 540])  # red team: scrollBy 40 at 400 ms
+    assert fixed_bars.dialogs_leave_page_still(page) == ["▶ Sesión: the page moved 40 px"]
+    assert fixed_bars.LOOKS[0] < 400 < sum(fixed_bars.LOOKS)
+
+
+STILL = {"inside": True, "name": "↑", "moved": 0}
+
+
+class Tabs(Page):
+    """A page whose bars sit where asked: how many controls each has, whether a bar is still whole
+    once focus has left it, and how far each press inside a bar moved the page."""
+
+    def __init__(self, controls, moves=(), whole=(), spots=None):
+        super().__init__()
+        self.controls, self.moves, self.whole, self.spots, self.measured = dict(controls), list(moves), list(whole), spots, 0
+        self.motion = []
+
+    def emulate_media(self, reduced_motion):
+        self.motion.append(reduced_motion)
+
+    def evaluate(self, script, arg=None):
+        if script == fixed_bars.SPOT:
+            return self.spots.pop(0) if self.spots else {"top": 85, "want": 85}
+        if script == fixed_bars.FIRST:
+            return self.controls.get(arg[0], 0)
+        if script == fixed_bars.MARK:
+            return self.whole.pop(0) if self.whole else True
+        if script == fixed_bars.MOVED:
+            self.measured += 1
+            return self.moves.pop(0) if self.moves else STILL
+        return super().evaluate(script, arg)
+
+
+def test_a_press_that_moves_the_page_fails_once_per_bar_place_and_direction():
+    page = Tabs({"top bar": 3, "Sujeto/Hora bar": 2}, [
+        STILL, {"inside": True, "name": "▶ Inicio", "moved": 436},  # Tab across the top bar: home, 1280 x 800, before N13
+        STILL, STILL, {"inside": True, "name": "↑", "moved": 441}])  # Shift+Tab across it, out, and Tab back in
+    assert fixed_bars.tab_in_bars_leaves_page_still(page) == [
+        "top bar stuck, Tab to ▶ Inicio: the page moved 436 px", "top bar stuck, Tab to ↑: the page moved 441 px"]
+    assert page.pressed[:6] == ["Tab", "Tab", "Shift+Tab", "Shift+Tab", "Shift+Tab", "Tab"]
+    assert len(page.pressed) == 6 + 6 * 3 + 2 * 4 + 6 * 3  # each Sujeto/Hora pass: across, out and back in; then motion on
+
+
+def test_a_move_seen_only_with_motion_on_says_so_and_the_readers_setting_comes_back():
+    page = Tabs({"top bar": 3, "Sujeto/Hora bar": 2}, [STILL] * 18 + [{"inside": True, "name": "▶ Inicio", "moved": 120}])
+    assert fixed_bars.tab_in_bars_leaves_page_still(page) == ["top bar stuck, motion on, Tab to ▶ Inicio: the page moved 120 px"]
+    assert page.motion == ["reduce", "no-preference", "reduce"]
+
+
+def test_the_press_out_of_a_bar_may_scroll_and_a_bar_not_whole_on_screen_is_not_tried():
+    page = Tabs({"top bar": 0, "Sujeto/Hora bar": 2}, whole=[False] * 12)
+    assert fixed_bars.tab_in_bars_leaves_page_still(page) == []
+    assert page.pressed == ["Tab", "Tab", "Shift+Tab", "Shift+Tab"] * 6  # across and out; never back into a bar now off screen
+    assert page.measured == 12  # only the press across each bar is judged
+
+
+def test_focus_that_leaves_a_bar_early_ends_the_pass_without_a_complaint():
+    page = Tabs({"Sujeto/Hora bar": 4}, [{"inside": False, "name": "Planes", "moved": 900}] * 12)
+    assert fixed_bars.tab_in_bars_leaves_page_still(page) == []
+    assert len(page.pressed) == 12
+
+
+def test_a_place_the_page_cannot_reach_is_skipped():
+    """A stuck bar never reaches a spot lower down, however far the page is scrolled."""
+    page = Tabs({"Sujeto/Hora bar": 2}, spots=[{"top": 65, "want": 85}] * 12)
+    assert fixed_bars.place(page, "under the top bar") is False
+    assert fixed_bars.place(page, "at the bottom") is False
+    assert page.pressed == []

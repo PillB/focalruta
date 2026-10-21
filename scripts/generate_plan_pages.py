@@ -152,8 +152,16 @@ html { scroll-padding-top: .75rem; }
   </div>
 </section>
 <script>
-/* N11: the room kept at the top is the bars' real height, whatever the reader's text size. */
-(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const root=document.documentElement.style,keep=()=>{root.setProperty('--fr-nav',nav.getBoundingClientRect().height+'px');root.setProperty('--fr-bar',bar.getBoundingClientRect().height+'px')},watch=new ResizeObserver(keep);watch.observe(nav);watch.observe(bar)})();
+/* N11: the room kept at the top is the bars' real height, whatever the reader's text size. Each bar
+   is watched whole, padding and border included: the top bar's padding holds a phone's safe area. */
+(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const root=document.documentElement.style,keep=()=>{root.setProperty('--fr-nav',nav.getBoundingClientRect().height+'px');root.setProperty('--fr-bar',bar.getBoundingClientRect().height+'px')},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'})})();
+/* N13: Tab and Shift+Tab onto a control of a bar wholly in view, from inside the bar or from the
+   control next to it, move focus without scrolling. Inside the room scroll-padding keeps at the
+   top, the browser counts that control as out of view and scrolls the page by half a screen on
+   every press (csswg-drafts#7930), before any focus event a page could answer. The next control
+   is found as the browser finds it, in document order among what can take focus; every other
+   move, and any move from a dialog or a radio button, stays the browser's. */
+(()=>{const bars=[document.querySelector('nav.glass'),document.getElementById('toggle-human')?.closest('section')].filter(Boolean),html=document.documentElement,FOCUSABLE='a[href],area[href],button,input:not([type=hidden]),select,textarea,iframe,object,embed,summary,audio[controls],video[controls],[contenteditable],[tabindex]',takes=e=>e.tabIndex>=0&&!e.disabled&&!e.closest('[inert]')&&(e.checkVisibility?e.checkVisibility():e.getClientRects().length>0),whole=b=>{const r=b.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight-(parseFloat(getComputedStyle(html).scrollPaddingBottom)||0)};document.addEventListener('keydown',e=>{if(e.key!=='Tab'||e.altKey||e.ctrlKey||e.metaKey||e.defaultPrevented)return;const now=document.activeElement;if(!now||now===document.body||now.type==='radio'||now.closest('dialog,[aria-modal="true"]')||!bars.some(whole))return;const list=[...document.querySelectorAll(FOCUSABLE)].filter(takes),i=list.indexOf(now),next=i<0?null:list[i+(e.shiftKey?-1:1)],bar=next&&next.type!=='radio'&&bars.find(b=>b.contains(next));if(!bar||!whole(bar))return;e.preventDefault();next.focus({preventScroll:true})})})();
 </script>
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">

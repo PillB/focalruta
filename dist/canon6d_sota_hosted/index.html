@@ -205,7 +205,7 @@
 
 
 
-<link rel="stylesheet" href="./assets/hosted.css?v=29def8105ad6">
+<link rel="stylesheet" href="./assets/hosted.css?v=60bd93fb8fae">
 </head>
 <body class="bg-paper text-ink">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -228,7 +228,8 @@
           <p class="text-xs text-slate-500 hidden sm:block">Planificador para Canon 6D · Lima</p>
         </div>
       </div>
-      <div class="top-actions flex items-center space-x-1 sm:space-x-2 overflow-x-auto">
+      <div class="top-actions flex items-center overflow-x-auto">
+        <div class="top-links">
         <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">↑</button>
         <a href="#quick-start" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Inicio</a>
         <a href="challenges/arquitectura-en-foco/" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap"><span class="hdr-short">Arquitectura</span><span class="hdr-label">Fotografía arquitectónica</span></a>
@@ -238,21 +239,47 @@
         <a href="#lens-comparison" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Lentes</a>
         <a href="#tecnicas" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Técnicas</a>
         <a href="#composicion" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap hidden md:block">Composición</a>
+        </div>
+        <div class="top-tools">
         <button id="visibility-toggle" type="button" class="visibility-toggle" aria-pressed="false">☀️ Modo sol</button>
         <button type="button" onclick="openSessionRun()" title="Modo sesión: recorre las 10 tomas una a una" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Sesión</button>
         <button type="button" onclick="openFieldCard()" title="Tarjeta de campo" aria-label="Abrir tarjeta de campo" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap">📋<span class="hdr-label"> Tarjeta</span></button>
         <button onclick="window.print()" title="Imprimir o guardar como PDF" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold bg-ink text-white rounded-lg hover:bg-slate-700 transition whitespace-nowrap">PDF</button>
+        </div>
       </div>
     </div>
   </div>
 </nav>
 <script>
-// When the header's actions do not fit, fade the last one so it reads as "more to the right".
+// When the header's actions do not fit, the end of the row fades so it reads as "more to the
+// right"; on wider screens only the section links scroll (N10). The browser scrolls a row only
+// for a control wholly out of it, so focus could land on one under the fade or partly past the
+// end: the row it is in scrolls to show it whole, and the fade yields while the focused control
+// would not fit beside it. Only the row moves; scrollIntoView would also scroll the page for a
+// control in a bar that stays at the top.
 (function () {
   var bar = document.querySelector('.top-actions');
   if (!bar) return;
-  function hint() { bar.classList.toggle('has-more', bar.scrollLeft + bar.clientWidth < bar.scrollWidth - 2); }
-  bar.addEventListener('scroll', hint, { passive: true });
+  var rows = [bar.querySelector('.top-links'), bar].filter(Boolean), FADE = 36;
+  function scrolls(row) { var s = getComputedStyle(row); return s.display !== 'contents' && s.overflowX !== 'visible'; }
+  function more(row) { return row.scrollLeft + row.clientWidth < row.scrollWidth - 2; }
+  function fade(row) {
+    var f = document.activeElement;
+    return more(row) && !(row.contains(f) && f.getBoundingClientRect().width > row.clientWidth - FADE);
+  }
+  function hint() { rows.forEach(function (row) { row.classList.toggle('has-more', scrolls(row) && fade(row)); }); }
+  function reveal(e) {
+    rows.forEach(function (row) {
+      if (!scrolls(row) || !row.contains(e.target)) return;
+      var r = e.target.getBoundingClientRect(), b = row.getBoundingClientRect(), end = b.right - (fade(row) ? FADE : 0);
+      if (r.left < b.left) row.scrollLeft -= b.left - r.left;
+      else if (r.right > end) row.scrollLeft += r.right - end;
+    });
+    hint();
+  }
+  rows.forEach(function (row) { row.addEventListener('scroll', hint, { passive: true }); });
+  bar.addEventListener('focusin', reveal);
+  bar.addEventListener('focusout', function () { setTimeout(hint); });
   window.addEventListener('resize', hint);
   hint();
 })();
@@ -511,8 +538,16 @@
   </div>
 </section>
 <script>
-/* N11: the room kept at the top is the bars' real height, whatever the reader's text size. */
-(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const root=document.documentElement.style,keep=()=>{root.setProperty('--fr-nav',nav.getBoundingClientRect().height+'px');root.setProperty('--fr-bar',bar.getBoundingClientRect().height+'px')},watch=new ResizeObserver(keep);watch.observe(nav);watch.observe(bar)})();
+/* N11: the room kept at the top is the bars' real height, whatever the reader's text size. Each bar
+   is watched whole, padding and border included: the top bar's padding holds a phone's safe area. */
+(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const root=document.documentElement.style,keep=()=>{root.setProperty('--fr-nav',nav.getBoundingClientRect().height+'px');root.setProperty('--fr-bar',bar.getBoundingClientRect().height+'px')},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'})})();
+/* N13: Tab and Shift+Tab onto a control of a bar wholly in view, from inside the bar or from the
+   control next to it, move focus without scrolling. Inside the room scroll-padding keeps at the
+   top, the browser counts that control as out of view and scrolls the page by half a screen on
+   every press (csswg-drafts#7930), before any focus event a page could answer. The next control
+   is found as the browser finds it, in document order among what can take focus; every other
+   move, and any move from a dialog or a radio button, stays the browser's. */
+(()=>{const bars=[document.querySelector('nav.glass'),document.getElementById('toggle-human')?.closest('section')].filter(Boolean),html=document.documentElement,FOCUSABLE='a[href],area[href],button,input:not([type=hidden]),select,textarea,iframe,object,embed,summary,audio[controls],video[controls],[contenteditable],[tabindex]',takes=e=>e.tabIndex>=0&&!e.disabled&&!e.closest('[inert]')&&(e.checkVisibility?e.checkVisibility():e.getClientRects().length>0),whole=b=>{const r=b.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight-(parseFloat(getComputedStyle(html).scrollPaddingBottom)||0)};document.addEventListener('keydown',e=>{if(e.key!=='Tab'||e.altKey||e.ctrlKey||e.metaKey||e.defaultPrevented)return;const now=document.activeElement;if(!now||now===document.body||now.type==='radio'||now.closest('dialog,[aria-modal="true"]')||!bars.some(whole))return;const list=[...document.querySelectorAll(FOCUSABLE)].filter(takes),i=list.indexOf(now),next=i<0?null:list[i+(e.shiftKey?-1:1)],bar=next&&next.type!=='radio'&&bars.find(b=>b.contains(next));if(!bar||!whole(bar))return;e.preventDefault();next.focus({preventScroll:true})})})();
 </script>
 
 <!-- LIMA_SUN_PANEL_START -->
@@ -1464,7 +1499,7 @@ function renderPlanCards() {
           <p class="text-xs text-slate-700 leading-relaxed line-clamp-3" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">${p.why}</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-xs font-bold text-blue-600">Ver plan →</span>
-            <a href="#plan-detail" onclick="event.stopPropagation(); selectPlan('${p.id}'); setTimeout(()=>document.getElementById('plan-detail').scrollIntoView({behavior:'smooth'}),0); return false;" class="text-xs text-slate-500 hover:text-blue-600">Abrir aquí ↘</a>
+            <a href="#plan-detail" onclick="event.stopPropagation(); selectPlan('${p.id}'); setTimeout(()=>jumpTo(document.getElementById('plan-detail')),0); return false;" class="text-xs text-slate-500 hover:text-blue-600">Abrir aquí ↘</a>
           </div>
         </div>
       </div>
@@ -1752,8 +1787,32 @@ function observeScrollFade() {
 }
 
 
+// Jump to a section and keep it there while the page draws what is around it (red team N12).
+// Sections far from the screen take a 1000 px estimate until drawn (content-visibility:auto).
+// After a long jump the ones near the landing are drawn at their real size, often several times
+// taller or a few hundred px shorter, a few frames apart, and the target moved by that much: 673
+// px down at 390 px wide, 1909 with larger text, or past the top. Scroll anchoring does not help:
+// what it keeps still is the section showing under the bars, above the target. So the jump is
+// repeated each frame the target moves, for 0.8 s, until the reader scrolls, taps or presses a
+// key, or another jump starts. A short jump is smooth unless the reader reduces motion; a long
+// one, or one asked for with `now`, is instant.
+let jumping=0;
+function jumpTo(target, now){
+  const reduced=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, id=++jumping;
+  if(!now && !reduced && Math.abs(target.getBoundingClientRect().top)<=innerHeight*3){ target.scrollIntoView({behavior:'smooth',block:'start'}); return; }
+  const root=document.documentElement, go=()=>{ const prev=root.style.scrollBehavior; root.style.scrollBehavior='auto'; target.scrollIntoView({behavior:'auto',block:'start'}); root.style.scrollBehavior=prev; return target.getBoundingClientRect().top; };
+  const quit=()=>{ stop=true; }, inputs=['wheel','touchstart','pointerdown','keydown'], until=performance.now()+800;
+  let want=go(), stop=false;
+  inputs.forEach(type=>addEventListener(type,quit,{capture:true,passive:true}));
+  const check=()=>{
+    if(stop || id!==jumping || performance.now()>until){ inputs.forEach(type=>removeEventListener(type,quit,true)); return; }
+    if(Math.abs(target.getBoundingClientRect().top-want)>1) want=go();
+    requestAnimationFrame(check);
+  };
+  requestAnimationFrame(check);
+}
+
 function initInternalNavigation(){
-  const reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('click',(event)=>{
     const link=event.target.closest && event.target.closest('a[href^="#"]');
     if(!link) return;
@@ -1762,13 +1821,25 @@ function initInternalNavigation(){
     const target=document.querySelector(href);
     if(!target) return;
     event.preventDefault();
-    const distance=Math.abs(target.getBoundingClientRect().top); const longJump=reduced || distance>window.innerHeight*3; if(longJump){ const root=document.documentElement; const prev=root.style.scrollBehavior; root.style.scrollBehavior='auto'; target.scrollIntoView({behavior:'auto',block:'start'}); requestAnimationFrame(()=>{root.style.scrollBehavior=prev;}); } else { target.scrollIntoView({behavior:'smooth',block:'start'}); }
+    jumpTo(target);
     document.querySelectorAll('.mobile-bottom-nav a').forEach(a=>{
       const active=a.getAttribute('href')===href;
       a.classList.toggle('active',active);
       if(active) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
     });
   });
+  // Opened at a section's address (index.html#tecnicas): the browser jumps before the sections
+  // around it are drawn, so the jump is kept the same way once the page has loaded, unless the
+  // reader has moved first or came back to a place the browser restores.
+  let moved=false;
+  const mark=()=>{ moved=true; };
+  ['wheel','touchstart','pointerdown','keydown'].forEach(type=>addEventListener(type,mark,{capture:true,passive:true,once:true}));
+  addEventListener('load',()=>{
+    const entry=performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    let target=null;
+    try { target=location.hash.length>1 && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch(e) {}
+    if(target && !moved && (!entry || entry.type==='navigate')) jumpTo(target,true);
+  },{once:true});
 }
 
 // ---- Init ----
