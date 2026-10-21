@@ -195,24 +195,24 @@
       }
     }
   ],
-  "audited_at": "2026-10-20T21:53:58.772918+00:00",
-  "audited_commit": "ba38fce1d76db93dd1bbb4ac0bad3c96a1cc8166",
+  "audited_at": "2026-10-21T00:19:41.352064+00:00",
+  "audited_commit": "7494f4940b0794b7e259123a57628663cd52ccec",
   "audited_artifacts": {
     "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "7ff87f5043724ceb068c293df541619f93dc5ee169b2b405fb259fb132c26708",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "3779c96ad803310d3102e9d82d23605cfd0c2ebff677fd83b8e187b589337d9e",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "729d77140fe91bdfb51c3b5d2c938604a9f603dffc08ff7e2b775c04641d0a7a",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "0f6c9e786e885f14df86508f3b03eb6c16c0a7c2c2b2e69c28e3af0af1e30040",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "0a6c9f6e51199454040aa7324e8a82dbd7cc889bccb280aee1e31965da2a7dac",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "396b51c5e7753a24a70aa2a55e7cbd464d218d42a9cba33188106a8184cd8a6f",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "9b9d1d467c554538b6acb6cf01e62ae84e8023a443862560e9b00fb60347a4ff",
+    "dist/canon6d_sota_hosted/index.html": "08a38f90f18675ce17331809867f6316c31d9c5b4f0efa17a5ce94edb53ba5db",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "ea0798b9b5f6ade31e23e0109e6576c649b5f23b9cca26aa8fdd2dfba237bc71",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "d053ecd4810029359fae7ad3a24a950d8782dff6e2aa0e5ba1c449c18b03aa73",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "afe3688f337e9df80f827c4eb7f4d0ed39dd74a1e0f760eb374652dc2dd1cc34",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "bff12ac1d56cd2050c41a41506b4f22597bcde280ff1aec6030ca2afd3ccd7bd",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "02c9218b9a5fe665be91024f5cd22ecf8712de06d015da465bf0735bcdf77252",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "52ac2712c3d783bfda9f88f650cdb7d70f8c544906b5396165a9d1bf0fa169a3",
     "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "index.html": "c64a2debfc91ad006e37af4fc6262e0a384abe3e91e71986905713d6a76f949c",
-    "plans/plan_a.html": "6a7b6da80b96aea1740891068727faee30829f3da34d47b27b8d376c48ed3d26",
-    "plans/plan_b.html": "9809bc8cc15bfc98434a9445ac7c610c8d38cf582d24889d22e507e88bdec02d",
-    "plans/plan_c.html": "15e1dbb94c22b687f967a91d33650f346acf1a83fd914ecba3feaf3f94388c13",
-    "plans/plan_d.html": "469ebdfbd5c23c88e65928147ecbfafb4c86bdffdf73674571515e800263241e",
-    "plans/plan_e.html": "1783f7f5fb52b0bee8836fb469e5dbaf91ab24d334b3ea4d9d06261f595adc6d",
-    "plans/plan_f.html": "9d193e89c810a97bf136c4138db82a1db7a7d26256e3b7dc0b1f9c1f9e983d43"
+    "index.html": "52a2ea8c3b02d767b7b5e8d53f989141992e57b76ef9b8b9a1d317755afae771",
+    "plans/plan_a.html": "1d62e8d0a0cc553c76ec831332667b69d5cec9141e0f7e271841560b09232f2b",
+    "plans/plan_b.html": "94f2a420b54c6fd92ce0446c18730218b704513130c16520649657800e147ab0",
+    "plans/plan_c.html": "bfa42e96dff1562dd122a1d7ae990d7eff226de2c8ff986245500509123986d6",
+    "plans/plan_d.html": "1adb517e00d4f28f9e4df53b97fd8d13c4ea2fe3277538b74afd96eceb919965",
+    "plans/plan_e.html": "e4958281f4b1a69fd608373c84debeb17f0aae878398c6f981091f383b50b60b",
+    "plans/plan_f.html": "216787fcfe7eec9f0d3ca9b17e3c4309a8bd8cfb7798e6eda39c2561451e5102"
   }
 }

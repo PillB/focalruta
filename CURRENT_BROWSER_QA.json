@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 450,
+  "checks": 484,
   "viewports": [
     [
       320,
@@ -2198,7 +2198,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1516
+          1520
         ]
       }
     },
@@ -2208,8 +2208,8 @@
       "detail": [
         "Sin conexión: el plan C no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:37049/plans/plan_c.html",
-          "http://127.0.0.1:37049/field_card.html"
+          "http://127.0.0.1:39581/plans/plan_c.html",
+          "http://127.0.0.1:39581/field_card.html"
         ]
       ]
     },
@@ -2230,7 +2230,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1516
+          1520
         ]
       }
     },
@@ -2240,8 +2240,8 @@
       "detail": [
         "Sin conexión: la página «wiki-tecnicas» no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:37049/challenges/arquitectura-en-foco/wiki-tecnicas.html",
-          "http://127.0.0.1:37049/field_card.html"
+          "http://127.0.0.1:39581/challenges/arquitectura-en-foco/wiki-tecnicas.html",
+          "http://127.0.0.1:39581/field_card.html"
         ]
       ]
     },
@@ -2260,24 +2260,24 @@
       "name": "error log: a thrown error and a rejected promise send no request",
       "pass": true,
       "detail": [
-        "GET http://127.0.0.1:36811/",
-        "GET http://127.0.0.1:36811/assets/hosted.css?v=e4f66ff8afb9",
-        "GET http://127.0.0.1:36811/data/plans_embedded.js?v=760318475bf5",
-        "GET http://127.0.0.1:36811/assets/app-icon.svg"
+        "GET http://127.0.0.1:35467/",
+        "GET http://127.0.0.1:35467/assets/hosted.css?v=be3d7145266a",
+        "GET http://127.0.0.1:35467/data/plans_embedded.js?v=760318475bf5",
+        "GET http://127.0.0.1:35467/assets/app-icon.svg"
       ]
     },
     {
       "name": "error log: the home page lists both, with the page they came from",
       "pass": true,
       "detail": [
-        "1 vez · 2026-10-20 21:56Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
-        "1 vez · 2026-10-20 21:56Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
+        "1 vez · 2026-10-21 00:21Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
+        "1 vez · 2026-10-21 00:21Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
       ]
     },
     {
       "name": "error log: no query string, fragment or browser identity is kept",
       "pass": true,
-      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-20T21:56Z\",\"last\":\"2026-10-20T21:56Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-20T21:56Z\",\"last\":\"2026-10-20T21:56Z\"}]"
+      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-21T00:21Z\",\"last\":\"2026-10-21T00:21Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-21T00:21Z\",\"last\":\"2026-10-21T00:21Z\"}]"
     },
     {
       "name": "error log: the report link carries the log to a new GitHub issue",
@@ -2297,7 +2297,7 @@
       "pass": true,
       "detail": [
         "Selecciona y copia el texto",
-        "1 vez · 2026-10-20 21:56Z · Promesa rechazada · promesa de prueba · en /plans/pl"
+        "1 vez · 2026-10-21 00:21Z · Promesa rechazada · promesa de prueba · en /plans/pl"
       ]
     },
     {
@@ -2462,15 +2462,185 @@
       "name": "dist/canon6d_sota_hosted/index.html night: the card in the dialog looks like dist/canon6d_sota_hosted/field_card.html",
       "pass": true,
       "detail": []
+    },
+    {
+      "name": "standalone only what has room stays on screen",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "standalone focus going forward is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "standalone focus going back is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "standalone links in the bars land clear of them",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "standalone a dialog opened from a bar that stays closes with the page still",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "hosted only what has room stays on screen",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "hosted focus going forward is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "hosted focus going back is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "hosted links in the bars land clear of them",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "hosted a dialog opened from a bar that stays closes with the page still",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_a only what has room stays on screen",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_a focus going forward is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_a focus going back is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_a links in the bars land clear of them",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_b only what has room stays on screen",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_b focus going forward is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_b focus going back is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_b links in the bars land clear of them",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_c only what has room stays on screen",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_c focus going forward is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_c focus going back is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_c links in the bars land clear of them",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_d only what has room stays on screen",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_d focus going forward is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_d focus going back is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_d links in the bars land clear of them",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_e only what has room stays on screen",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_e focus going forward is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_e focus going back is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_e links in the bars land clear of them",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_f only what has room stays on screen",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_f focus going forward is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_f focus going back is never behind a bar",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_f links in the bars land clear of them",
+      "pass": true,
+      "detail": {}
     }
   ],
-  "audited_at": "2026-10-20T21:56:44.107303+00:00",
-  "audited_commit": "ba38fce1d76db93dd1bbb4ac0bad3c96a1cc8166",
+  "audited_at": "2026-10-21T00:23:27.516630+00:00",
+  "audited_commit": "7494f4940b0794b7e259123a57628663cd52ccec",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
     "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
-    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "c64a2debfc91ad006e37af4fc6262e0a384abe3e91e71986905713d6a76f949c",
-    "dist/canon6d_sota_hosted/assets/hosted.css": "e4f66ff8afb97f05c0006c55a77f7031148f9357065874689d046508637e3a4e",
+    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "52a2ea8c3b02d767b7b5e8d53f989141992e57b76ef9b8b9a1d317755afae771",
+    "dist/canon6d_sota_hosted/assets/hosted.css": "be3d7145266ac8045518084caba20480aa0d1eb6f672e18d8b928d34e3fbc6d1",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "986b21b3e98a22d42b353525da523348076a7613154a33b03c3cbcab2144de19",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "f8204b380b8d2bb3a1200aaae544a2d02c3290d195fff9421bfeb81d02959c3b",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/iphone-maps.html": "3af624a6bf9699d8a4c3be805a6848300201715881660b8bf220b917f5e7abf7",
@@ -2501,21 +2671,21 @@
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "ee1783c839181086e47e55a50586e167442c5685752e14af1f9b318599a36eea",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "3ebce15997a8348993d8d8a1080696939dc94d885e0199ebe1973c2ea9cce311",
     "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "7ff87f5043724ceb068c293df541619f93dc5ee169b2b405fb259fb132c26708",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "3779c96ad803310d3102e9d82d23605cfd0c2ebff677fd83b8e187b589337d9e",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "729d77140fe91bdfb51c3b5d2c938604a9f603dffc08ff7e2b775c04641d0a7a",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "0f6c9e786e885f14df86508f3b03eb6c16c0a7c2c2b2e69c28e3af0af1e30040",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "0a6c9f6e51199454040aa7324e8a82dbd7cc889bccb280aee1e31965da2a7dac",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "396b51c5e7753a24a70aa2a55e7cbd464d218d42a9cba33188106a8184cd8a6f",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "9b9d1d467c554538b6acb6cf01e62ae84e8023a443862560e9b00fb60347a4ff",
-    "dist/canon6d_sota_hosted/sw.js": "76fee15647aee420aba5cb93233292d976a72966fda239cd12322f9582d76777",
+    "dist/canon6d_sota_hosted/index.html": "08a38f90f18675ce17331809867f6316c31d9c5b4f0efa17a5ce94edb53ba5db",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "ea0798b9b5f6ade31e23e0109e6576c649b5f23b9cca26aa8fdd2dfba237bc71",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "d053ecd4810029359fae7ad3a24a950d8782dff6e2aa0e5ba1c449c18b03aa73",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "afe3688f337e9df80f827c4eb7f4d0ed39dd74a1e0f760eb374652dc2dd1cc34",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "bff12ac1d56cd2050c41a41506b4f22597bcde280ff1aec6030ca2afd3ccd7bd",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "02c9218b9a5fe665be91024f5cd22ecf8712de06d015da465bf0735bcdf77252",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "52ac2712c3d783bfda9f88f650cdb7d70f8c544906b5396165a9d1bf0fa169a3",
+    "dist/canon6d_sota_hosted/sw.js": "1d41acb35f0985c7867b6f8c9d91ac64af267a8e5299537d2f93abdc2f6e2a31",
     "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "index.html": "c64a2debfc91ad006e37af4fc6262e0a384abe3e91e71986905713d6a76f949c",
-    "plans/plan_a.html": "6a7b6da80b96aea1740891068727faee30829f3da34d47b27b8d376c48ed3d26",
-    "plans/plan_b.html": "9809bc8cc15bfc98434a9445ac7c610c8d38cf582d24889d22e507e88bdec02d",
-    "plans/plan_c.html": "15e1dbb94c22b687f967a91d33650f346acf1a83fd914ecba3feaf3f94388c13",
-    "plans/plan_d.html": "469ebdfbd5c23c88e65928147ecbfafb4c86bdffdf73674571515e800263241e",
-    "plans/plan_e.html": "1783f7f5fb52b0bee8836fb469e5dbaf91ab24d334b3ea4d9d06261f595adc6d",
-    "plans/plan_f.html": "9d193e89c810a97bf136c4138db82a1db7a7d26256e3b7dc0b1f9c1f9e983d43"
+    "index.html": "52a2ea8c3b02d767b7b5e8d53f989141992e57b76ef9b8b9a1d317755afae771",
+    "plans/plan_a.html": "1d62e8d0a0cc553c76ec831332667b69d5cec9141e0f7e271841560b09232f2b",
+    "plans/plan_b.html": "94f2a420b54c6fd92ce0446c18730218b704513130c16520649657800e147ab0",
+    "plans/plan_c.html": "bfa42e96dff1562dd122a1d7ae990d7eff226de2c8ff986245500509123986d6",
+    "plans/plan_d.html": "1adb517e00d4f28f9e4df53b97fd8d13c4ea2fe3277538b74afd96eceb919965",
+    "plans/plan_e.html": "e4958281f4b1a69fd608373c84debeb17f0aae878398c6f981091f383b50b60b",
+    "plans/plan_f.html": "216787fcfe7eec9f0d3ca9b17e3c4309a8bd8cfb7798e6eda39c2561451e5102"
   }
 }
