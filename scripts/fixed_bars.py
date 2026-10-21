@@ -1,10 +1,12 @@
 """N9: what stays on screen while a page scrolls, and what it may hide.
 
 The home page and every plan page open with two bars: the site's bar and, under it, the
-Sujeto/Hora bar. They stay at the top only where the screen has room for them, at least
-641 px wide (no bottom bar) and 500 px tall (not a phone on its side). On a phone they
-would cover a fifth to two fifths of the screen, so they scroll away there, and only the
-home page's bottom bar stays.
+Sujeto/Hora bar. They stay at the top only where the screen has room for them, measured in
+the reader's text size: 40.0625 by 31.25 em, which is 641 px wide (no bottom bar) and 500 px
+tall (not a phone on its side) at the default 16 px. On a phone they would cover a fifth to
+two fifths of the screen, so they scroll away there, and only the home page's bottom bar
+stays. Larger text makes the bars taller and the room they need wider, so a reader with
+larger text gets them only where the larger bars still fit.
 
 Wherever a bar stays, nothing may end up behind it: not what keyboard focus lands on, going
 forward or back (WCAG 2.2 SC 2.4.11, and 2.4.12 for no part of it), and not the start of a
@@ -12,7 +14,8 @@ section a link jumps to. The page reserves that room with scroll-padding (techni
 """
 from __future__ import annotations
 
-ROOM = (641, 500)  # the smallest width and height at which the bars stay
+ROOM_EM = (40.0625, 31.25)  # the smallest width and height at which the bars stay, in em
+BOTTOM_BAR = 640  # px: the widest screen with the home page's bottom bar
 LANDING = 24  # px: a section a link jumps to starts at most this far below what stays
 TAB_LIMIT = 400
 
@@ -95,26 +98,27 @@ LANDED = """(href) => {
           edge: scrollY <= 0 || Math.ceil(scrollY + innerHeight) >= doc.scrollHeight - 1};
 }"""
 
-def has_room(width: int, height: int) -> bool:
-    return width >= ROOM[0] and height >= ROOM[1]
+def has_room(width: int, height: int, text: int = 16) -> bool:
+    """Whether the bars stay at this size for a reader whose default text is `text` px."""
+    return width >= ROOM_EM[0] * text and height >= ROOM_EM[1] * text
 
 
-def what_stays(page, width: int, height: int, home: bool) -> list[str]:
+def what_stays(page, width: int, height: int, home: bool, text: int = 16) -> list[str]:
     """Scroll well into the page and list what is wrong with what stays on screen."""
     wrong = list(page.evaluate(IN_PLACE))
     page.evaluate("scrollTo({top: document.documentElement.scrollHeight * 0.6, behavior: 'instant'})")
     page.wait_for_timeout(100)
     seen = page.evaluate(BARS)
     nav, bar, low = seen["nav"], seen["bar"], seen["low"]
-    if has_room(width, height):
+    if has_room(width, height, text):
         if nav["top"] != 0:
             wrong.append(f"the top bar scrolled away (top {nav['top']})")
         if not nav["bottom"] - 1 <= bar["top"] <= nav["bottom"]:
             wrong.append(f"the Sujeto/Hora bar is not right under it (top {bar['top']}, top bar ends at {nav['bottom']})")
     else:
         if nav["bottom"] > 0 or bar["bottom"] > 0:
-            wrong.append(f"a bar stays on a phone-sized screen (top bar {nav}, Sujeto/Hora bar {bar})")
-        if home and width < ROOM[0] and (low is None or low["bottom"] != seen["height"]):
+            wrong.append(f"a bar stays on a screen without room for it (top bar {nav}, Sujeto/Hora bar {bar})")
+        if home and width <= BOTTOM_BAR and (low is None or low["bottom"] != seen["height"]):
             wrong.append(f"the bottom bar is not at the bottom ({low})")
     return wrong
 

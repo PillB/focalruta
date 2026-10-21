@@ -5144,15 +5144,19 @@ nav.glass{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding-
 /* N9: overflow-x:clip (set earlier) keeps the page from scrolling sideways without making it a
    scroll box, so the bars below can stay at the top; a browser without clip gets hidden instead,
    with bars that scroll away. The site's bar and the Sujeto/Hora bar stay only on screens with
-   room for them. On a phone, or a phone on its side, they would cover from a quarter to over two
-   fifths of the screen, and a phone already has the bottom bar, so there top:auto makes sticky
-   act like relative, in place. Focus and in-page links land clear of whatever stays (WCAG 2.4.11,
-   technique C43); a section above the Sujeto/Hora bar has only the site's bar over it. */
+   room for them, measured in the reader's text size: 40.0625 by 31.25 em, 641 by 500 px at the
+   default 16 px, so larger text, which makes the bars taller, needs a bigger screen for them. On
+   a phone, or a phone on its side, they would cover from a quarter to over two fifths of the
+   screen, and a phone already has the bottom bar, so there top:auto makes sticky act like
+   relative, in place. Focus and in-page links land clear of whatever stays (WCAG 2.4.11,
+   technique C43); a section above the Sujeto/Hora bar has only the site's bar over it. The script
+   after that bar writes the bars' heights to --fr-nav and --fr-bar, since they do not grow in
+   step with the text; without it the rem values stand in. */
 @supports not (overflow-x:clip){html,body{overflow-x:hidden}}
 html{scroll-padding:.75rem 0}
-@media (max-width:640px),(max-height:499px){nav.glass,section.sticky-offset{top:auto}}
+@media not all and (min-width:40.0625em) and (min-height:31.25em){nav.glass,section.sticky-offset{top:auto}}
 @media (max-width:640px){html{scroll-padding-bottom:calc(68px + env(safe-area-inset-bottom,0px) + .75rem)}}
-@media (min-width:641px) and (min-height:500px){.sticky-offset{top:calc(4rem + env(safe-area-inset-top,0px))}html{scroll-padding-top:calc(8.5rem + env(safe-area-inset-top,0px) + .75rem)}section[id]:has(~ section.sticky-offset){scroll-margin-top:-4.5rem}}
+@media (min-width:40.0625em) and (min-height:31.25em){.sticky-offset{top:var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px)))}html{scroll-padding-top:calc(var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px))) + var(--fr-bar,4.5rem) + .75rem)}section[id]:has(~ section.sticky-offset){scroll-margin-top:calc(-1 * var(--fr-bar,4.5rem))}}
 .diagram-frame{overflow:hidden;background:#fff;border-radius:0 0 12px 12px}
 .diagram-frame img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;background:#fff}
 img{max-width:100%;height:auto}
@@ -5726,6 +5730,10 @@ details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:bord
     </div>
   </div>
 </section>
+<script>
+/* N11: the room kept at the top is the bars' real height, whatever the reader's text size. */
+(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const root=document.documentElement.style,keep=()=>{root.setProperty('--fr-nav',nav.getBoundingClientRect().height+'px');root.setProperty('--fr-bar',bar.getBoundingClientRect().height+'px')},watch=new ResizeObserver(keep);watch.observe(nav);watch.observe(bar)})();
+</script>
 
 <!-- LIMA_SUN_PANEL_START -->
 <section id="luz-lima" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="luz-lima-title">

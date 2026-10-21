@@ -195,8 +195,9 @@ for report_name, minimum_checks in (
     # browser (16 distinct sheets) and the home page's card drawn like the card's page in three palettes on
     # both home pages (X05) (450), plus what stays at the top while the home pages and the six plan pages
     # scroll, at every size: only bars with room, focus going forward and back, links in the bars, and on
-    # the home pages the dialogs a bar opens closing with the page still (X07).
-    ("CURRENT_BROWSER_QA.json", 484),
+    # the home pages the dialogs a bar opens closing with the page still (X07) (484), plus the same with the
+    # reader's text at 20 and 24 px, where the bars grow (red team N11) (492).
+    ("CURRENT_BROWSER_QA.json", 492),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
     # Every shipped page, light phone and dark desktop: 39 pages x 2 passes, plus the home

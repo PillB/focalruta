@@ -62,6 +62,18 @@ def test_room_starts_at_641_by_500():
     assert not fixed_bars.has_room(1440, 499)  # a phone on its side, however wide
 
 
+def test_room_grows_with_the_readers_text():
+    assert not fixed_bars.has_room(650, 800, text=20)  # where the Sujeto/Hora bar wraps at 20 px (red team N11)
+    assert fixed_bars.has_room(802, 625, text=20) and not fixed_bars.has_room(800, 1000, text=20)
+    assert not fixed_bars.has_room(1440, 749, text=24) and fixed_bars.has_room(962, 750, text=24)
+
+
+def test_without_room_for_larger_text_the_bars_must_go():
+    assert fixed_bars.what_stays(Page(stuck(800)), 650, 800, home=True, text=20)[0].startswith("a bar stays")
+    assert fixed_bars.what_stays(Page(away(800)), 650, 800, home=True, text=20) == []  # no bottom bar that wide
+    assert fixed_bars.what_stays(Page(stuck(800)), 1024, 800, home=False, text=20) == []
+
+
 def test_bars_must_stay_where_there_is_room_and_go_where_there_is_not():
     assert fixed_bars.what_stays(Page(stuck()), 820, 1000, home=True) == []
     assert fixed_bars.what_stays(Page(away(low={"top": 787, "bottom": 844})), 390, 844, home=True) == []

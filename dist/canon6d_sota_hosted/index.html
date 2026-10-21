@@ -205,7 +205,7 @@
 
 
 
-<link rel="stylesheet" href="./assets/hosted.css?v=be3d7145266a">
+<link rel="stylesheet" href="./assets/hosted.css?v=29def8105ad6">
 </head>
 <body class="bg-paper text-ink">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -510,6 +510,10 @@
     </div>
   </div>
 </section>
+<script>
+/* N11: the room kept at the top is the bars' real height, whatever the reader's text size. */
+(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const root=document.documentElement.style,keep=()=>{root.setProperty('--fr-nav',nav.getBoundingClientRect().height+'px');root.setProperty('--fr-bar',bar.getBoundingClientRect().height+'px')},watch=new ResizeObserver(keep);watch.observe(nav);watch.observe(bar)})();
+</script>
 
 <!-- LIMA_SUN_PANEL_START -->
 <section id="luz-lima" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="luz-lima-title">

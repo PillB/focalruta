@@ -325,22 +325,32 @@ def nothing_cut_with_long_gear(browser):
         context.close()
 
 
-def bars_at(browser, url: str, width: int, height: int, home: bool) -> dict:
-    """X07 at one size: what stays on screen, focus going forward and back, in-page links, and dialogs from a bar."""
+def bars_at(browser, url: str, width: int, height: int, home: bool, text: int = 16) -> dict:
+    """X07 at one size: what stays on screen, focus going forward and back, in-page links, and dialogs from a bar.
+
+    `text` is the reader's default text size in px (Chrome's Large is 20, Very large 24)."""
     context = browser.new_context(viewport={"width": width, "height": height}, reduced_motion="reduce")
     page = context.new_page()
+    if text != 16:
+        context.new_cdp_session(page).send("Page.setFontSizes", {"fontSizes": {"standard": text}})
     found = {}
-    runs = [("stays", lambda: fixed_bars.what_stays(page, width, height, home)),
+    runs = [("stays", lambda: fixed_bars.what_stays(page, width, height, home, text)),
             ("forward", lambda: fixed_bars.tab_through(page, "Tab")),
             ("back", lambda: fixed_bars.tab_through(page, "Shift+Tab")),
             ("jumps", lambda: fixed_bars.jumps(page))]
-    if home:
+    if home and text == 16:
         runs.append(("still", lambda: fixed_bars.dialogs_leave_page_still(page)))
     for kind, run in runs:
         page.goto(url, wait_until="load", timeout=60000)
         found[kind] = run()
     context.close()
     return found
+
+
+# The reader's default text, larger (Chrome's Large and Very large), at sizes where the
+# Sujeto/Hora bar wraps if the bars stay (red team N11: 641-660 px wide at 20 px, up to 769 at
+# 24) and at sizes with room for the larger bars.
+LARGER_TEXT = ((20, 650, 800), (24, 700, 800), (20, 1024, 768), (24, 1280, 800))
 
 
 def bars_on_screen(browser):
@@ -358,6 +368,12 @@ def bars_on_screen(browser):
                     wrong[kind][f"{width}x{height}"] = problems[:6]
         for kind in wrong:
             record(f"{name} {names[kind]}", not wrong[kind], wrong[kind])
+        larger = {}
+        for text, width, height in LARGER_TEXT:
+            problems = {kind: found[:6] for kind, found in bars_at(browser, path.as_uri(), width, height, home, text).items() if found}
+            if problems:
+                larger[f"{text}px {width}x{height}"] = problems
+        record(f"{name} with larger text, only what has room stays and nothing is behind a bar", not larger, larger)
 
 
 with sync_playwright() as pw:

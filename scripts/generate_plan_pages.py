@@ -90,13 +90,18 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
 .unviable-note { font-size: 12px; color: #7C2D12; background: #FFEDD5; border: 1px solid #FDBA74; border-radius: 8px; padding: 6px 10px; margin-bottom: 6px; }
 .gradient-bg { background: linear-gradient(135deg, #0F172A 0%, #1E40AF 50%, #7C3AED 100%); }
 @media print { .no-print { display: none !important; } .shot-card { page-break-inside: avoid; } }
-/* N9: the plan's bar and the Sujeto/Hora bar stay at the top only on screens with room for them;
+/* N9: the plan's bar and the Sujeto/Hora bar stay at the top only on screens with room for them,
+   measured in the reader's text size (40.0625 by 31.25 em, 641 by 500 px at the default 16 px);
    on a phone, or a phone on its side, they would cover from a fifth to over a third of the
    screen, so there top:auto makes sticky act like relative, in place. Focus and in-page links
-   land clear of whatever stays (WCAG 2.4.11, technique C43). */
+   land clear of whatever stays (WCAG 2.4.11, technique C43). The script after the Sujeto/Hora
+   bar writes the bars' heights to --fr-nav and --fr-bar; without it the rem values stand in. */
 html { scroll-padding-top: .75rem; }
-@media (max-width: 640px), (max-height: 499px) { nav.glass, section.plan-toggles { top: auto; } }
-@media (min-width: 641px) and (min-height: 500px) { html { scroll-padding-top: calc(8.5rem + .75rem); } }
+@media not all and (min-width: 40.0625em) and (min-height: 31.25em) { nav.glass, section.plan-toggles { top: auto; } }
+@media (min-width: 40.0625em) and (min-height: 31.25em) {
+  section.plan-toggles { top: var(--fr-nav, 4rem); }
+  html { scroll-padding-top: calc(var(--fr-nav, 4rem) + var(--fr-bar, 4.5rem) + .75rem); }
+}
 </style>
 </head>
 <body class="bg-paper text-ink">
@@ -146,6 +151,10 @@ html { scroll-padding-top: .75rem; }
     </div>
   </div>
 </section>
+<script>
+/* N11: the room kept at the top is the bars' real height, whatever the reader's text size. */
+(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const root=document.documentElement.style,keep=()=>{root.setProperty('--fr-nav',nav.getBoundingClientRect().height+'px');root.setProperty('--fr-bar',bar.getBoundingClientRect().height+'px')},watch=new ResizeObserver(keep);watch.observe(nav);watch.observe(bar)})();
+</script>
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
   <details class="bg-blue-50 border border-blue-200 rounded-xl p-4">
