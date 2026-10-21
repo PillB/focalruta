@@ -2582,8 +2582,9 @@ Compromisos:
   a un cuarto de la pantalla.
 - Las páginas del concurso tienen su propia barra fija, más delgada (del 7 al 16 % de la
   pantalla), y no se tocaron.
-- El espacio que reserva `scroll-padding` es fijo, en `rem`, sin medir las barras con
-  JavaScript. Si una barra crece, X07 lo detecta.
+- Las barras se miden con JavaScript (N11, abajo). Sin JavaScript, el espacio que se reserva
+  es el de los valores en `rem`: exacto con el texto de 16 px y, con texto más grande, de 27 a
+  42 px de más (el mutante sin el script, abajo).
 - El compromiso de N8 («a 1280 px el foco queda en un botón fuera de la vista») casi desaparece:
   desde 641×500 el botón de la barra de arriba está en pantalla. Sigue en ventanas de menos de
   500 px de alto.
@@ -2600,7 +2601,92 @@ Errores propios:
 Fuentes: WCAG 2.2 SC 2.4.11 y 2.4.12 y la técnica C43; Nielsen Norman Group sobre barras
 fijas; MDN sobre `position: sticky` y `overflow: clip`; csswg-drafts#7930.
 
-**Cierre de N9** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+Revisión del red team (`qa/FINDINGS_PR22.md`, «N9 red team at 8dde4df»): PASS sobre los
+parches 0001–0005. Comprobó los saltos a seis tamaños con un mutante sin `scroll-padding` que
+falla 12 de 12, la regla `:has()`, los bordes 640/641 y 499/500 y que en el teléfono ninguna caja
+cambia. Dejó dos notas:
+
+- N10 (moderada, previa y en main): a 1280–1920 px, «▶ Sesión», «📋 Tarjeta» y «PDF» quedan
+  fuera del final de la fila de la barra de arriba, y el foco de teclado cae en Sesión sin que se
+  vea. No la causa N9; queda para el PR siguiente.
+- N11 (menor, nueva con N9): con el texto del lector más grande, la barra Sujeto/Hora crece y
+  el espacio fijo en `rem` no basta.
+
+**N11, arreglada en 94041f4.** Con texto de 20 px, de 641 a unos 660 px de ancho, la barra
+Sujeto/Hora pasa a dos líneas (124 px) y un salto o el foco podía quedar 19 px detrás; con 24 px,
+hasta 769 px de ancho, 4 px. Además, ninguna de las dos barras crece al mismo ritmo que el texto,
+así que con texto grande el espacio reservado quedaba de 27 a 42 px por debajo de ellas.
+
+- El sitio para las barras se mide en `em` (40.0625 por 31.25 em, 641 por 500 px con 16 px).
+  Con texto más grande las barras, más altas, sólo se quedan en pantallas más grandes, y ocupan
+  la misma parte de la pantalla que con 16 px.
+- Un script después de la barra Sujeto/Hora mide las dos barras con `ResizeObserver` y escribe
+  `--fr-nav` y `--fr-bar`, que dan el `scroll-padding`, la posición de la barra Sujeto/Hora y el
+  margen de las secciones de encima. Sin el script quedan los valores en `rem`.
+- X07 suma una pasada con el texto del lector a 20 y 24 px (Chrome «Grande» y «Muy grande»,
+  `Page.setFontSizes`) a 650×800, 700×800, 1024×768 y 1280×800, en las ocho páginas.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| N11 | Con texto de 20 y 24 px, las barras se quedan sólo donde caben, nada que reciba el foco queda detrás y cada salto cae a 24 px como mucho bajo ellas | sobre 523ff43: en el inicio, a 20 px y 650×800 y a 24 px y 700×800 las barras se quedan; a 24 px el lienzo de composición queda 4 px detrás al tabular hacia atrás; a 1024×768 y 1280×800 los saltos caen de 27 a 42 px bajo las barras. En los planes, las barras se quedan a 650 y 700 px | las ocho páginas pasan a los cuatro tamaños. `sweep.py` del red team: 0 de 414 casos malos (antes, los de 641–660 px a 20 px y hasta 769 a 24 px) |
+
+Mutante sin el script: con texto grande, los saltos vuelven a caer de 27 a 42 px bajo las barras
+a 1024×768 y 1280×800, en el inicio servido y en el suelto.
+
+Fuentes de N11: Tab Atkins, editor de Media Queries, en www-style (agosto de 2012): `em` y `rem`
+en una consulta de medios se basan en el tamaño de letra por defecto del lector, no en el del
+elemento raíz; el código de Chromium (`appearance_page.ts`): «Grande» es 20 px y «Muy grande»
+24 px; el protocolo de DevTools (`Page.setFontSizes`); Resize Observer (W3C).
+
+**«La página no se mueve», medida por lo que se ve (fdca8e7).** Las suites sobre 94041f4
+fallaron dos comprobaciones que leían `scrollY`: en X07, cerrar la tarjeta abierta desde la barra
+de arriba a 820×1000 «movía» la página 203 px (sólo en el inicio suelto), y en la tarjeta, tras
+pasar de 1280 a 600 px, `scrollY` pasaba de 2400 a 2392. La primera hipótesis, que el script de
+N11 movía la página, era falsa:
+
+- Al volver a dibujar la página detrás de la tarjeta cambian tamaños de más arriba, y el
+  navegador mantiene quieto lo que se ve cambiando `scrollY` (anclaje del desplazamiento, activo
+  desde que N9 dejó `body` de ser un contenedor). A 600 px la barra del sitio pasa de 65 a 57 px:
+  `scrollY` baja 8 y el párrafo del centro sigue en 1812 px.
+- Con `scrollY` la prueba dependía del momento: en la réplica, el mismo build de N9 (7494f49)
+  da 2400 o 2392 según pasen o no 100 ms tras el desplazamiento.
+
+Ahora las dos comprobaciones siguen el elemento del centro de la pantalla, elegido 300 ms después
+de saltar, cuando las secciones que sólo se dibujan cerca de la pantalla ya tienen su tamaño, y
+fallan si se mueve.
+
+| Comprobación | RED | GREEN |
+|---|---|---|
+| X07, cerrar un diálogo abierto desde la barra | el cierre de N8 (sin `preventScroll` en pantalla): la tarjeta mueve lo que se ve 536 px a 820×1000 y de 586 a 910 a 1440×1100 | 94041f4 y 7494f49: quieto, dos corridas por tamaño, inicio servido y suelto |
+| Tarjeta, cerrar tras cruzar 900 px | el cierre de N7 (d40bf8f): lo que se ve se mueve 306 px (390→1280) y 631 (1280→600) | 94041f4 y 7494f49: quieto, tres corridas en cada sentido |
+
+Investigación tras la hipótesis fallida. Fuentes: CSS Scroll Anchoring Module Level 1 (W3C): el
+navegador ajusta la posición de desplazamiento para compensar cambios fuera de la vista, con un
+nodo ancla cerca del borde de arriba, y salta los elementos `fixed` y `sticky`; MDN y web.dev sobre
+`content-visibility:auto`: una sección lejos de la vista ocupa el tamaño de reserva de
+`contain-intrinsic-size` hasta que se acerca y se dibuja. Parecido y diferencia: la norma habla de
+cualquier caja con desplazamiento; aquí es el documento, que ancla desde que N9 quitó
+`overflow-x:hidden` de `body`. Lo que cambió la hipótesis: el build de N9 sin el script (7494f49)
+también cambiaba `scrollY`, y el párrafo del centro no se movía. Predicción falsable: si la causa es
+el anclaje, seguir el elemento del centro da 0 px con el cierre bueno y cientos con los cierres de
+N7 y N8. Se cumplió (tabla de arriba).
+
+Error propio de proceso: la búsqueda en línea se hizo después del arreglo, que salió de las
+pruebas locales, y no antes del segundo intento como pide la regla. Las fuentes confirman la causa
+y no cambian el arreglo.
+
+Error propio en esta medida: la primera versión elegía el elemento justo después del salto, antes
+de que se dibujaran las secciones con `content-visibility:auto`, y daba movimientos falsos de 279
+a 824 px en los dos builds. Con la espera de 300 ms desaparecen.
+
+Compromisos de N11:
+
+- La medida exacta depende de JavaScript; sin él quedan los valores en `rem`.
+- Con texto más grande, de 641 a 800 px de ancho (20 px) o a 961 px (24 px), ninguna barra se
+  queda arriba, ni la de abajo, que sólo existe hasta 640 px.
+
+**Cierre de N9 antes de N11** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo
+`dist/`)
 
 | Comando | Salida | Resumen |
 |---|---|---|
@@ -2623,6 +2709,20 @@ modificado antes de regenerar. Con el archivo devuelto a su versión del commit,
 a fallar. Incluido en 47405fe, pasa (GREEN). El paso de CI `regenerate_all.py && git diff --exit-code` lo
 habría detectado.
 
+**Cierre de N9 con N11** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en fdca8e7 | 0 | release 492/492, axe 80/80, tarjeta 63/63, velocidad 138/138, visual 37/37, óptica 22/22; reportes en 4ff973b |
+| las cinco suites de `tests/architecture/browser_*.py` en fdca8e7 | 0 | todas en verde |
+| `pytest -q` en 4ff973b | 0 | 909 pasan (898 y las 11 de `tests/test_fixed_bars.py`), 1 omitida |
+| `verify_release.py` (navegador 492), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre fdca8e7 (2.13× y 7.56×), abrir la tarjeta responde a 48 y 176 ms
+y muestra los planes a 75 y 251. A ancho de tableta responde a 64 y 184 y muestra la primera
+toma a 119 y 353. Los 24 toques siguen dentro de su presupuesto.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -2644,3 +2744,7 @@ habría detectado.
 - N9 (barras de arriba que se quedan sólo donde caben): en el PR siguiente a #22, con X07. Pablo
   tiene la pregunta de si deben quedarse fijas también en el teléfono; si dice que sí, se quita
   el límite de tamaño y X07 cambia con él.
+- N10 (red team, previa y en main): a 1280–1920 px, «▶ Sesión», «📋 Tarjeta» y «PDF» quedan
+  fuera del final de la fila de la barra de arriba y el foco de teclado cae en Sesión sin que se
+  vea; de 700 a 1024 px también quedan fuera otros, como «Modo sol». Para después de N9.
+- El red team vuelve a revisar N11 y la medida por lo que se ve en pantalla (fdca8e7).
