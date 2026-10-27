@@ -24,8 +24,10 @@ and drops quoted text from messages, which can be what the reader typed.
 The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 530 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 638 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
+  the sun panel's hour, shadow and wall light held to the Python ephemeris, by keyboard;
+  the session dialog's shot review, its fixes, its summary and what a reload keeps;
   on the home page and every plan page, no text under 12 px, no control under 44 px, no
   English in the interface, nothing cut off at the edges and numbers written with a
   decimal point, also with a reader's own lenses; dialogs that take focus as they
