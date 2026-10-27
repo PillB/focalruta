@@ -3111,6 +3111,36 @@ En `PERF_BUDGET_QA.json` sobre 657ef3e (1.89× y 6.75×), el inicio pesa 133.6 K
 Abrir la tarjeta responde a 48 y 184 ms y muestra los planes a 82 y 274; a ancho de tableta
 responde a 64 y 184 y muestra la primera toma a 118 y 353.
 
+### Rebase sobre main tras fusionar PR #22
+
+Pablo fusionó PR #22 el 2026-10-27 (40a5203). Los commits de N9 a N14b se rebasaron sobre ese main
+para el PR siguiente. Cada commit conserva su árbol: `git diff b8699ea ca51c55` sale vacío, y el
+árbol de 40a5203 es el de 09c44bc. Los reportes (`audited_commit`) y estas notas nombran los commits
+de antes del rebase. Equivalencias:
+
+| Antes | Después | Commit |
+|---|---|---|
+| f92bd71 | 7ee7692 | Keep the top bars in place only where there is room (N9) |
+| d6733b4 | 4fc41a6 | Give focus back to a fixed bar without moving the page (N9) |
+| 7494f49 | 72b02a8 | Say how much of a phone the plan bars would cover: a fifth to over a third |
+| 47405fe | c5c88ba | Reports from every browser suite on 7494f49: release 484/484 with X07 |
+| 523ff43 | 16bfd25 | Record N9 and X07: the top bars stay only where there is room |
+| 94041f4 | 87ff0f0 | Keep room for the bars at the reader's text size (red team N11) |
+| fdca8e7 | 967a245 | Judge "the page stays where it was" by what is on screen, not the scroll position |
+| 4ff973b | e131c36 | Reports from every browser suite on fdca8e7: release 492/492 |
+| 9433ba5 | 5fa3f67 | Record N11 and the on-screen measure: README, inventory and handoff |
+| 1e8cbcd | 4d153bb | Top bar tools in view, Tab across a bar, jumps that stay put (N10, N13) |
+| 5532975 | 26324e2 | Judge overlapping controls by what is drawn of them (N10) |
+| 1da6977 | 6c21117 | Reports from every browser suite on 5532975: release 520/520 |
+| a481181 | 8fe5b30 | Notes for N10, N13 and the red team's three notes on N9 |
+| ecde02c | f72cf7a | Keep room only for what covers the top; let a reader's scroll end a jump (N14, Q1, Q2) |
+| 1f795e0 | d014ed8 | Reports from every browser suite on ecde02c: release 530/530 |
+| dc21d0b | bd7d232 | Notes for N14 and the red team's Q1 and Q2 |
+| 657ef3e | 69026b8 | Stop counting the Sujeto/Hora bar once it has gone up under the top bar (N14b) |
+| 3633d75 | 650b645 | Reports from every browser suite on 657ef3e: release 530/530 |
+| dd63a5a | 0c9bb4c | Notes for N14b and the red team's N15 |
+| b8699ea | ca51c55 | Record the red team's pass on N14b and N15 |
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -3127,11 +3157,11 @@ responde a 64 y 184 y muestra la primera toma a 118 y 353.
   «bueno» y dentro de «nunca malo».
 - Tras los planes queda la tarea de las tomas, 67–112 ms en gama baja: un toque en ese hueco
   la espera (N2 del red team).
-- N4, N7 y N8 están en PR #22 y el red team los pasó. N5 queda como límite declarado de la
-  medición.
-- N9 (barras de arriba que se quedan sólo donde caben): en el PR siguiente a #22, con X07. Pablo
-  tiene la pregunta de si deben quedarse fijas también en el teléfono; si dice que sí, se quita
-  el límite de tamaño y X07 cambia con él.
+- N4, N7 y N8 se fusionaron con PR #22 y el red team los pasó. N5 queda como límite declarado
+  de la medición.
+- N9 a N14b (barras de arriba que se quedan sólo donde caben): en el PR siguiente a #22, con X07
+  y X08; el red team los pasó. Pablo tiene la pregunta de si deben quedarse fijas también en el
+  teléfono; si dice que sí, se quita el límite de tamaño y X07 cambia con él.
 - De 641 a 1023 px, con un ratón sin rueda lateral, los enlaces de las secciones fuera de la fila
   se alcanzan sólo con Mayús y la rueda. Si hace falta, una barra fina o flechas para el ratón.
 - Con texto más grande, de 641 a 800 px (20 px) o a 961 px (24 px), no hay barra de abajo y las
