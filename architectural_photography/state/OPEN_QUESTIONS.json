@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-10-17",
+  "updated_at": "2026-10-21",
   "questions": [
     {
       "id": "OQ-001",
@@ -35,6 +35,12 @@
       "question": "Do the estimated scene rows match Lima in the field: window-lit interiors by day (EV 8-10) and darkness away from street lights (upper bound -1)?",
       "status": "OPEN_NONBLOCKING",
       "default": "Keep the stated estimates and their sources in exposure_model.py. Confirm with a metered test frame in each condition on the next field outing and correct the rows if they are off by more than a stop."
+    },
+    {
+      "id": "OQ-006",
+      "question": "Should the site's bar and the Sujeto/Hora bar also stay fixed at the top on phones?",
+      "status": "OPEN_NONBLOCKING",
+      "default": "Keep them fixed only on screens with room for them (40.0625 by 31.25 em, 641 by 500 px at the default text size). On a phone they would cover a fifth to over a third of the screen, so they scroll away there and the bottom bar stays."
     }
   ]
 }

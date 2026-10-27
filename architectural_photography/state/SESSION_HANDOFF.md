@@ -2516,6 +2516,631 @@ hasta ba7d315. La escalada de investigación no se activó: la primera hipótesi
 
 Las demás suites no cambian: el arreglo sólo toca el instrumento de velocidad.
 
+Verificación independiente: el red team pasó 09c44bc (`qa/SPOTCHECK_LOG.md`, 2026-10-21 00:30
+UTC). `field_card_qa.py` da 63/63 en las tres luces: a la hora real (19:30 en Lima, noche) y con
+el reloj de cada contexto fijado a las 10:00 y a las 17:40 de Lima. Con el selector viejo el
+toque de la marca no encuentra nada de noche; con el nuevo responde a 16 ms. Los recuentos del
+README coinciden con los seis reportes.
+
+### N9: las barras de arriba se quedan sólo donde caben
+
+Pablo tiene la pregunta de si las barras deben quedarse fijas también en el teléfono. Mientras
+responde se construye la opción recomendada: sólo en pantallas grandes.
+
+Qué había:
+
+- En el inicio, `overflow-x:hidden` en `html` y `body` hacía de `body` un contenedor de
+  desplazamiento, así que ni la barra del sitio ni la barra Sujeto/Hora se quedaban arriba en
+  ningún tamaño.
+- En los planes las dos sí se quedaban, también en el teléfono, donde tapaban de un quinto a
+  más de un tercio de la pantalla (de 136 a 201 px, en pantallas de 390 a 932 px de alto).
+
+Arreglo (f92bd71, d6733b4 y 7494f49, sobre PR #22):
+
+- `overflow-x:clip` en lugar de `hidden`: no deja que la página se desplace de lado y no crea un
+  contenedor. Un navegador sin `clip` recibe `hidden` por `@supports` y se queda como antes.
+- Las dos barras se quedan arriba desde 641 px de ancho (donde ya no hay barra de abajo) y
+  500 px de alto (no es un teléfono de lado). Por debajo, `top:auto` hace que `sticky` se
+  comporte como `relative` sin desplazamiento (MDN), y las barras se quedan en su sitio.
+- `scroll-padding` en `html` (técnica C43 de WCAG) deja el foco y los saltos de los enlaces
+  internos fuera de lo que se queda: arriba donde están las barras y abajo donde está la barra
+  del teléfono. Una sección anterior a la barra Sujeto/Hora sólo tiene encima la del sitio, y
+  `:has()` le quita esa diferencia.
+- Al cerrar la tarjeta de campo, si el botón que la abrió está en pantalla, recibe el foco con
+  `preventScroll`. Con `scroll-padding`, un botón dentro de una barra fija cae en la zona
+  reservada, el navegador lo da por fuera de la vista y desplazaba la página
+  (csswg-drafts#7930).
+
+Comprobación nueva, X07 (`scripts/fixed_bars.py`, en `CURRENT_BROWSER_QA.json`, de 450 a 484):
+en el inicio servido y suelto y en los seis planes, a los siete tamaños, qué se queda y dónde,
+Tab y Mayús+Tab por toda la página midiendo lo que el navegador dibuja encima del foco, cada
+enlace interno de las barras y, en el inicio, que cerrar un diálogo no mueva la página.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X07 | Las barras se quedan arriba sólo desde 641×500, una bajo la otra; en el teléfono se van y la de abajo se queda; nada que reciba el foco ni el comienzo de una sección enlazada queda detrás; cerrar un diálogo no mueve la página | sobre 74e22c7, el inicio suelto falla a 820×1000 y 1440×1100: «the top bar scrolled away (top −11218)» | 484/484 sobre 7494f49 |
+
+Mutantes (cada uno sobre el arreglo, con una pieza quitada o cambiada):
+
+| Mutante | Qué detecta X07 |
+|---|---|
+| `relative` en lugar de `top:auto` | la barra pisa la sección siguiente 72 px (inicio) o 64 px (planes) en los cinco tamaños de teléfono, y en los planes tapa un enlace al tabular |
+| sólo `clip`, sin límite de tamaño | las barras se quedan en el teléfono |
+| sin `scroll-padding` | controles tapados en parte o del todo al tabular hacia delante y hacia atrás, por la barra de abajo en el teléfono y por las de arriba desde 820 px; en los planes, el salto a `#contenido` cae detrás de la barra |
+| sin `:has()` | tres secciones del inicio caen 148 px más abajo, con sólo 65 px de barra encima |
+| el cierre de la tarjeta de N8 | la página se mueve −256 px a 820×1000 y −581 a 1440×1100 |
+
+En el teléfono la página no cambia: comparando 74e22c7 con el arreglo, ninguna de las 5651
+cajas del inicio ni de las 591 de un plan cambia de sitio ni de tamaño a los cinco tamaños de
+teléfono.
+
+Compromisos:
+
+- Sólo se probó en Chromium. Safari necesita la versión 16 para `clip`; uno más viejo recibe
+  `hidden` y barras que se van.
+- En una ventana de portátil de 500 a 650 px de alto las barras se quedan y ocupan de un quinto
+  a un cuarto de la pantalla.
+- Las páginas del concurso tienen su propia barra fija, más delgada (del 7 al 16 % de la
+  pantalla), y no se tocaron.
+- Las barras se miden con JavaScript (N11, abajo). Sin JavaScript, el espacio que se reserva
+  es el de los valores en `rem`: exacto con el texto de 16 px y, con texto más grande, de 27 a
+  42 px de más (el mutante sin el script, abajo).
+- El compromiso de N8 («a 1280 px el foco queda en un botón fuera de la vista») casi desaparece:
+  desde 641×500 el botón de la barra de arriba está en pantalla. Sigue en ventanas de menos de
+  500 px de alto.
+
+Errores propios:
+
+- Primero usé `position:relative` en el teléfono: conservaba el desplazamiento de `top` y la
+  barra pisaba lo de abajo de 64 a 72 px. Lo detectó la comprobación por lo que se dibuja
+  encima. Como la hipótesis falló, se activó la escalada de investigación: MDN dice que `sticky`
+  con todos los lados en `auto` se comporta como `relative` sin desplazamiento.
+- Probé un `scroll-margin` negativo para el salto al cerrar la tarjeta. Funcionaba en el inicio
+  y no en los planes (+10 o −444 px), así que lo quité y usé `preventScroll`.
+
+Fuentes: WCAG 2.2 SC 2.4.11 y 2.4.12 y la técnica C43; Nielsen Norman Group sobre barras
+fijas; MDN sobre `position: sticky` y `overflow: clip`; csswg-drafts#7930.
+
+Revisión del red team (`qa/FINDINGS_PR22.md`, «N9 red team at 8dde4df»): PASS sobre los
+parches 0001–0005. Comprobó los saltos a seis tamaños con un mutante sin `scroll-padding` que
+falla 12 de 12, la regla `:has()`, los bordes 640/641 y 499/500 y que en el teléfono ninguna caja
+cambia. Dejó dos notas:
+
+- N10 (moderada, previa y en main): a 1280–1920 px, «▶ Sesión», «📋 Tarjeta» y «PDF» quedan
+  fuera del final de la fila de la barra de arriba, y el foco de teclado cae en Sesión sin que se
+  vea. No la causa N9; queda para el PR siguiente.
+- N11 (menor, nueva con N9): con el texto del lector más grande, la barra Sujeto/Hora crece y
+  el espacio fijo en `rem` no basta.
+
+**N11, arreglada en 94041f4.** Con texto de 20 px, de 641 a unos 660 px de ancho, la barra
+Sujeto/Hora pasa a dos líneas (124 px) y un salto o el foco podía quedar 19 px detrás; con 24 px,
+hasta 769 px de ancho, 4 px. Además, ninguna de las dos barras crece al mismo ritmo que el texto,
+así que con texto grande el espacio reservado quedaba de 27 a 42 px por debajo de ellas.
+
+- El sitio para las barras se mide en `em` (40.0625 por 31.25 em, 641 por 500 px con 16 px).
+  Con texto más grande las barras, más altas, sólo se quedan en pantallas más grandes, y ocupan
+  la misma parte de la pantalla que con 16 px.
+- Un script después de la barra Sujeto/Hora mide las dos barras con `ResizeObserver` y escribe
+  `--fr-nav` y `--fr-bar`, que dan el `scroll-padding`, la posición de la barra Sujeto/Hora y el
+  margen de las secciones de encima. Sin el script quedan los valores en `rem`.
+- X07 suma una pasada con el texto del lector a 20 y 24 px (Chrome «Grande» y «Muy grande»,
+  `Page.setFontSizes`) a 650×800, 700×800, 1024×768 y 1280×800, en las ocho páginas.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| N11 | Con texto de 20 y 24 px, las barras se quedan sólo donde caben, nada que reciba el foco queda detrás y cada salto cae a 24 px como mucho bajo ellas | sobre 523ff43: en el inicio, a 20 px y 650×800 y a 24 px y 700×800 las barras se quedan; a 24 px el lienzo de composición queda 4 px detrás al tabular hacia atrás; a 1024×768 y 1280×800 los saltos caen de 27 a 42 px bajo las barras. En los planes, las barras se quedan a 650 y 700 px | las ocho páginas pasan a los cuatro tamaños. `sweep.py` del red team: 0 de 414 casos malos (antes, los de 641–660 px a 20 px y hasta 769 a 24 px) |
+
+Mutante sin el script: con texto grande, los saltos vuelven a caer de 27 a 42 px bajo las barras
+a 1024×768 y 1280×800, en el inicio servido y en el suelto.
+
+Fuentes de N11: Tab Atkins, editor de Media Queries, en www-style (agosto de 2012): `em` y `rem`
+en una consulta de medios se basan en el tamaño de letra por defecto del lector, no en el del
+elemento raíz; el código de Chromium (`appearance_page.ts`): «Grande» es 20 px y «Muy grande»
+24 px; el protocolo de DevTools (`Page.setFontSizes`); Resize Observer (W3C).
+
+**«La página no se mueve», medida por lo que se ve (fdca8e7).** Las suites sobre 94041f4
+fallaron dos comprobaciones que leían `scrollY`: en X07, cerrar la tarjeta abierta desde la barra
+de arriba a 820×1000 «movía» la página 203 px (sólo en el inicio suelto), y en la tarjeta, tras
+pasar de 1280 a 600 px, `scrollY` pasaba de 2400 a 2392. La primera hipótesis, que el script de
+N11 movía la página, era falsa:
+
+- Al volver a dibujar la página detrás de la tarjeta cambian tamaños de más arriba, y el
+  navegador mantiene quieto lo que se ve cambiando `scrollY` (anclaje del desplazamiento, activo
+  desde que N9 dejó `body` de ser un contenedor). A 600 px la barra del sitio pasa de 65 a 57 px:
+  `scrollY` baja 8 y el párrafo del centro sigue en 1812 px.
+- Con `scrollY` la prueba dependía del momento: en la réplica, el mismo build de N9 (7494f49)
+  da 2400 o 2392 según pasen o no 100 ms tras el desplazamiento.
+
+Ahora las dos comprobaciones siguen el elemento del centro de la pantalla, elegido 300 ms después
+de saltar, cuando las secciones que sólo se dibujan cerca de la pantalla ya tienen su tamaño, y
+fallan si se mueve.
+
+| Comprobación | RED | GREEN |
+|---|---|---|
+| X07, cerrar un diálogo abierto desde la barra | el cierre de N8 (sin `preventScroll` en pantalla): la tarjeta mueve lo que se ve 536 px a 820×1000 y de 586 a 910 a 1440×1100 | 94041f4 y 7494f49: quieto, dos corridas por tamaño, inicio servido y suelto |
+| Tarjeta, cerrar tras cruzar 900 px | el cierre de N7 (d40bf8f): lo que se ve se mueve 306 px (390→1280) y 631 (1280→600) | 94041f4 y 7494f49: quieto, tres corridas en cada sentido |
+
+Investigación tras la hipótesis fallida. Fuentes: CSS Scroll Anchoring Module Level 1 (W3C): el
+navegador ajusta la posición de desplazamiento para compensar cambios fuera de la vista, con un
+nodo ancla cerca del borde de arriba, y salta los elementos `fixed` y `sticky`; MDN y web.dev sobre
+`content-visibility:auto`: una sección lejos de la vista ocupa el tamaño de reserva de
+`contain-intrinsic-size` hasta que se acerca y se dibuja. Parecido y diferencia: la norma habla de
+cualquier caja con desplazamiento; aquí es el documento, que ancla desde que N9 quitó
+`overflow-x:hidden` de `body`. Lo que cambió la hipótesis: el build de N9 sin el script (7494f49)
+también cambiaba `scrollY`, y el párrafo del centro no se movía. Predicción falsable: si la causa es
+el anclaje, seguir el elemento del centro da 0 px con el cierre bueno y cientos con los cierres de
+N7 y N8. Se cumplió (tabla de arriba).
+
+Error propio de proceso: la búsqueda en línea se hizo después del arreglo, que salió de las
+pruebas locales, y no antes del segundo intento como pide la regla. Las fuentes confirman la causa
+y no cambian el arreglo.
+
+Error propio en esta medida: la primera versión elegía el elemento justo después del salto, antes
+de que se dibujaran las secciones con `content-visibility:auto`, y daba movimientos falsos de 279
+a 824 px en los dos builds. Con la espera de 300 ms desaparecen.
+
+Compromisos de N11:
+
+- La medida exacta depende de JavaScript; sin él quedan los valores en `rem`.
+- Con texto más grande, de 641 a 800 px de ancho (20 px) o a 961 px (24 px), ninguna barra se
+  queda arriba, ni la de abajo, que sólo existe hasta 640 px.
+
+**Cierre de N9 antes de N11** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo
+`dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en 7494f49 | 0 | release 484/484, axe 80/80, tarjeta 63/63, velocidad 138/138, visual 37/37, óptica 22/22; reportes en 47405fe |
+| las cinco suites de `tests/architecture/browser_*.py` en 7494f49 | 0 | todas en verde |
+| `pytest -q` en 47405fe | 0 | 907 pasan (898 y las 9 de `tests/test_fixed_bars.py`), 1 omitida |
+| `verify_release.py` (navegador 484), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre 7494f49 (2.16× y 8.14×), abrir la tarjeta responde a 48 y 160 ms
+y muestra los planes a 82 y 239. A ancho de tableta responde a 64 y 208 y muestra la primera
+toma a 120 y 343. La barra fija no cambia ningún toque.
+
+Error propio en el cierre: el primer commit de reportes no llevaba
+`architectural_photography/state/CURRENT_STATE.json`, que `regenerate_all.py` pone al día con el
+número de comprobaciones del navegador (de 450 a 484). `test_regenerating_leaves_the_tree_unchanged`
+falló una vez (RED: «after: M architectural_photography/state/CURRENT_STATE.json») y pasó en las
+ocho corridas siguientes, también con la CPU cargada. Pasaba sólo porque el archivo ya estaba
+modificado antes de regenerar. Con el archivo devuelto a su versión del commit, la prueba vuelve
+a fallar. Incluido en 47405fe, pasa (GREEN). El paso de CI `regenerate_all.py && git diff --exit-code` lo
+habría detectado.
+
+**Cierre de N9 con N11** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en fdca8e7 | 0 | release 492/492, axe 80/80, tarjeta 63/63, velocidad 138/138, visual 37/37, óptica 22/22; reportes en 4ff973b |
+| las cinco suites de `tests/architecture/browser_*.py` en fdca8e7 | 0 | todas en verde |
+| `pytest -q` en 4ff973b | 0 | 909 pasan (898 y las 11 de `tests/test_fixed_bars.py`), 1 omitida |
+| `verify_release.py` (navegador 492), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre fdca8e7 (2.13× y 7.56×), abrir la tarjeta responde a 48 y 176 ms
+y muestra los planes a 75 y 251. A ancho de tableta responde a 64 y 184 y muestra la primera
+toma a 119 y 353. Los 24 toques siguen dentro de su presupuesto.
+
+### N10, N13 y las notas del red team sobre N9 (1e8cbcd, 5532975)
+
+El red team revisó la actualización de N9 (parches 0001–0009): N11 queda arreglada (PASS) y dejó
+tres notas más, que se atienden aquí junto con N10 y un problema nuevo, N13, encontrado al
+arreglar N10. Las tres notas: el espacio reservado no seguía al relleno de las barras, la prueba
+del diálogo no veía un movimiento tardío, y los saltos a «Técnicas» con texto grande caían cortos
+(su N12).
+
+Nota sobre los nombres: al principio llamé N12 al problema de Tab en las barras, sin ver que el
+red team ya había usado N12 para los saltos. El de Tab pasó a llamarse N13 en el código y aquí.
+
+**N10: las herramientas de la barra de arriba, a la vista (X08, `scripts/top_bar_tools.py`).**
+En una computadora la fila de la barra terminaba con «Modo sol», «▶ Sesión», «📋 Tarjeta» y «PDF», y
+quedaban más allá del final de la fila: a 1280×800 «▶ Sesión» mostraba 0 de 82 px y a 820×1000 las
+cuatro, 0 px. El foco de teclado podía caer en un control cortado por el difuminado del final de la
+fila, también en el teléfono.
+
+- Desde 40.0625 em (641 px con 16 px de texto) los enlaces de las secciones van en una fila propia
+  que se desplaza de lado, y las herramientas quedan enteras después de ella. Debajo, las dos
+  envolturas son `display:contents` y el teléfono queda igual que antes.
+- De 641 a 1023 px la marca pierde «· San Isidro» y el subtítulo, y el enlace del concurso dice
+  «Arquitectura».
+- Cuando el foco entra en una fila, sólo esa fila se desplaza lo justo para mostrar el control
+  entero; la página no se mueve. El difuminado del final se quita mientras el control con el foco
+  no cabe sin él.
+- X08, en los dos inicios: con la página arriba, las cuatro herramientas enteras en pantalla donde
+  no hay barra de abajo (más de 640 px), y en cada control de la barra al que llega el foco con Tab,
+  el control entero a la vista, sin pasar el final de su fila ni quedar bajo el difuminado.
+
+**Controles encimados, medidos por lo que se dibuja (5532975).** La prueba de que nada queda cortado
+en los bordes comparaba la caja entera de cada control. Con N10, un enlace desplazado fuera de la
+fila de enlaces, que la fila esconde, contaba como encimado sobre las herramientas de al lado: 6
+falsos a 844 px. Ahora cada control cuenta sólo por la parte que dejan dibujada las cajas que
+recortan lo que se sale. Sobre 1e8cbcd: la prueba anterior marca 6, 6 y 4 encimados a 844, 1024 y
+1280 px, y la nueva ninguno. Con las herramientas corridas 60 px sobre los enlaces, la nueva marca
+los enlaces que tapan a los tres tamaños. Como sólo quita partes que no se ven, todo lo que marca
+la nueva lo marcaba también la anterior.
+
+**N13: Tab dentro de una barra fija movía la página.** Con `scroll-padding`, Chrome cuenta un control
+dentro de una barra que se queda arriba como fuera de la vista. En cada Tab entre dos controles de
+la barra desplazaba la página de 143 a 1454 px para centrarlo, y la barra, fija, seguía igual.
+Ahora Tab y Mayús+Tab hacia un control de una barra entera en pantalla, desde dentro de la barra o
+desde el control de al lado, mueven el foco con `preventScroll` desde `keydown`. Cualquier otro
+movimiento, y cualquiera desde un diálogo o un botón de opción, sigue siendo del navegador. Está en
+el inicio (`index.html`) y en los planes (`scripts/generate_plan_pages.py`).
+
+Comprobación nueva en X07 (`tab_in_bars_leaves_page_still`): cada barra donde el lector la
+encuentra (arriba fija, la Sujeto/Hora también justo bajo la de arriba y entera al pie de la
+pantalla) se cruza con Tab y con Mayús+Tab, se sale de ella y se vuelve a entrar. Sólo la tecla que
+sale puede desplazar la página. Se hace con el movimiento reducido y, con 16 px de texto, también
+con el movimiento activado, que es lo que tiene la mayoría: entonces cada evento de desplazamiento
+guarda lo más lejos que llegó lo que está en el centro de la pantalla, así que un movimiento que se
+deshace después también cuenta.
+
+**Notas del red team:**
+
+- El espacio reservado sigue a las barras enteras: `ResizeObserver` mira ahora `border-box`. El
+  relleno de la barra de arriba guarda el área segura del teléfono. X07 agranda el relleno de las
+  dos barras (40 y 48 px) y exige que el espacio reservado lo siga en dos cuadros.
+- La prueba del diálogo mira 300 ms después de cerrar y otra vez 900 ms más tarde.
+- Saltos (su N12, más amplio de lo que parecía): las secciones lejos de la pantalla usan una medida
+  estimada de 1000 px hasta que se dibujan (`content-visibility:auto`, X02). Tras un salto largo, las
+  que quedan cerca se dibujan con su tamaño real unos cuadros después y la sección de destino se
+  movía con ellas. El anclaje del desplazamiento no lo corrige, porque lo que mantiene quieto es la
+  sección que se ve bajo las barras, encima del destino. Ahora el salto se repite en cada cuadro en
+  que el destino se mueve, durante 0.8 s, hasta que el lector desplaza, toca o pulsa una tecla, o
+  empieza otro salto. Lo mismo al abrir la página en la dirección de una sección
+  (`index.html#tecnicas`) en una visita nueva, no al recargar ni al volver. El enlace «Abrir
+  detalle» de cada plan usa el mismo salto: antes se desplazaba suave aunque el lector hubiera
+  pedido reducir el movimiento.
+- X07 juzga un salto 300 ms después del clic, con el enlace de la barra, y abre cada página en la
+  dirección de la sección más baja a la que enlazan sus barras.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X08 (N10) | En los dos inicios, las cuatro herramientas enteras en pantalla con la página arriba donde no hay barra de abajo; el foco en la barra de arriba, siempre en un control entero a la vista | sobre 9433ba5, en los dos inicios: las herramientas fallan a 844×390, 820×1000, 1280×800 y 1440×1100 (a 1280×800 «▶ Sesión» 0 de 82 px y «PDF» 0 de 49); el foco cae en controles cortados a los once tamaños, también en el teléfono (a 390×844 «Técnicas», 0 de 73 px) | 88 de 88 tamaños y páginas sobre el arreglo (`run_new.py`) |
+| X07, Tab (N13) | Tab y Mayús+Tab a través de cada barra, al salir y al volver a entrar, dejan la página quieta en cada cuadro, con el movimiento reducido y activado | sobre 9433ba5, en las ocho páginas a todos los tamaños donde las barras se quedan (820×1000, 1280×800 y 1440×1100, y con texto grande 1024×768 y 1280×800): por ejemplo «top bar stuck, Tab to ▶ Inicio: the page moved 436 px» a 1280×800; de 143 a 1454 px | 88 de 88 |
+| X07, espacio | Con el relleno de las barras agrandado, el espacio reservado las sigue | sobre el árbol con N10 y N13, antes de las notas: falla en las ocho páginas a los siete tamaños con 16 px, por ejemplo «top bar: 105 px tall, room kept 65 px» | 88 de 88 (`run_notes.py`) |
+| X07, saltos | Cada enlace interno de las barras y la página abierta en la dirección de una sección dejan la sección a 24 px como mucho bajo lo que se queda, una vez dibujada la página | en los dos inicios, a los once tamaños: «#plan-detail» de 3876 a 9924 px más abajo, «#guide» de 84 a 566 px por encima, «#tecnicas» 86 px más abajo a 820×1000 y 963 y 1950 px con texto de 20 y 24 px | 88 de 88; con el movimiento activado, saltos cortos y largos a cuatro tamaños, ninguno mal |
+| X07, diálogo | Lo que está en el centro sigue quieto 300 ms y 1.2 s después de cerrar | los mutantes del red team que desplazan 40 px a los 400 ms y a 1 s pasaban | los dos fallan («the page moved -40 px») a 1024×768 y 641×500 |
+
+Mutantes de N13 (en el inicio servido y en un plan, a los once tamaños):
+
+| Mutante | Qué detecta X07 |
+|---|---|
+| sólo dentro de la barra (sin el caso de entrar desde el control de al lado) | volver a entrar mueve la página, por ejemplo «top bar stuck, Shift+Tab to PDF: the page moved 71 px» a 1280×800 y de 143 a 497 px con la barra Sujeto/Hora |
+| sólo hacia delante (Mayús+Tab sigue siendo del navegador) | Mayús+Tab mueve la página de 71 a 536 px |
+| devolver la página a su sitio después del foco, en lugar de evitar el desplazamiento | pasa con el movimiento reducido y falla con el movimiento activado, 8 a 18 px en un cuadro, en todas las barras fijas |
+
+En el teléfono la página no cambia: comparando 9433ba5 con 1e8cbcd, ninguna de las 5640 cajas del
+inicio ni de las 587 de un plan cambia de sitio ni de tamaño a 320, 390 y 430 px de ancho. A 844×390,
+820×1000, 1280×800 y 1440×1100 cambian de 5 a 21 cajas, todas dentro de la barra de arriba, y ninguna
+de los planes.
+
+Investigación de N13 tras la hipótesis fallida. Intentos: (1) traducir el `scroll-padding` a
+`scroll-margin` en los controles de las barras. Pasaba en el inicio sólo porque sus controles están
+dentro de contenedores con desplazamiento propio, y en la barra de los planes la página se movía de
+252 a 443 px: Chrome decide si un control está a la vista con su propia caja y la zona reservada, y
+`scroll-margin` sólo cambia cómo lo alinea. (2) Devolver la página a su sitio en `focusin`: falla
+porque Chrome desplaza antes del primer evento de foco (registrado: `keydown`, desplazamiento,
+`blur`, `focus`, `focusin`). (3) Guardar la posición en `keydown` y devolverla en `focusin`: pasa
+con el movimiento reducido, pero con el movimiento activado la vuelta se ve. Fuentes:
+csswg-drafts#7931 (un campo en una cabecera fija: cada pulsación desplaza la página; fantasai
+propone que lo fijo no use `scroll-padding`; sin resolver; la salida para autores es
+`scroll-margin` por elemento) y csswg-drafts#7930. Parecido y diferencia: el mismo motor y la misma
+causa, la zona reservada; aquí el `scroll-margin` del arreglo propuesto no basta, porque Chrome lo
+usa para alinear y no para decidir. Lo que cambió la hipótesis: el desplazamiento es parte de lo
+que hace el navegador al mover el foco con Tab, antes de cualquier evento de foco, así que sólo se
+evita impidiendo esa acción y moviendo el foco con `preventScroll`. Predicción falsable: con
+`keydown` y `preventScroll`, cada cuadro entre pulsaciones muestra la misma posición, con el
+movimiento reducido y activado, y el mutante que sólo devuelve la página falla con el movimiento
+activado. Se cumplió (tablas de arriba).
+
+Investigación de los saltos tras la hipótesis fallida. El primer arreglo repetía el salto hasta
+tres cuadros quietos y «#tecnicas» seguía 86 px abajo a 820×1000: el registro cuadro a cuadro
+mostró que el destino se mueve en el cuarto cuadro. Fuentes: csswg-drafts#9833 (Robert Flack, enero
+de 2024): con `contain-intrinsic-size` más chico que lo real, el destino de un desplazamiento se
+calcula con las estimaciones y se aleja cuando aparecen los tamaños reales; propone que el destino
+también siga el anclaje, sin resolver; csswg-drafts#9337: el elemento de destino cuenta como
+visible antes de desplazar, pero no sus vecinos. Parecido: el mismo motor y las mismas
+estimaciones. Diferencia: el caso de #9833 es un desplazamiento suave; aquí es instantáneo y lo que
+cambia son las secciones de encima del destino. Lo que cambió la hipótesis: los tamaños reales
+llegan a lo largo de varios cuadros, no en el siguiente, así que mantener el salto debe durar un
+tiempo y no hasta unos cuadros quietos. Predicción falsable: manteniéndolo 0.8 s todos los saltos
+caen bien a los once tamaños, y el arreglo de tres cuadros, como mutante, falla en «#tecnicas» a
+820×1000. Se cumplió.
+
+Errores propios:
+
+- La comprobación de saltos de N9 medía en la misma tarea que el clic, antes de que la página
+  dibujara nada. Por eso pasaba y lo que dije en N9, que cada enlace interno de las barras cae
+  libre de ellas, era falso una vez dibujada la página.
+- En N13 y en los saltos busqué fuentes después del segundo y del tercer intento, no después del
+  primero como pide la regla. Las fuentes confirman la causa y no cambian los arreglos.
+
+Compromisos:
+
+- Sólo se probó en Chromium. El arreglo de N13 depende de JavaScript: sin él, Tab en una barra fija
+  vuelve a mover la página como antes. Busca el control siguiente en el orden del documento entre
+  una lista amplia de elementos que reciben el foco; ninguna página usa `tabindex` positivo y en las
+  barras no hay otro elemento que lo reciba, pero uno que la lista no nombre se saltaría.
+- El movimiento activado se prueba sólo con texto de 16 px; con 20 y 24 px, sólo el reducido.
+- Con texto más grande, de 641 a 800 px de ancho (20 px) o a 961 px (24 px), la barra de arriba
+  queda como en el teléfono: las herramientas al final de la fila que se desplaza, y sin barra de
+  abajo, que sólo existe hasta 640 px. X08 mira las herramientas sólo con 16 px.
+- De 641 a 1023 px, con 16 px de texto, la marca va sin «· San Isidro» ni subtítulo y el enlace del
+  concurso dice «Arquitectura».
+- En el teléfono, «Modo sol» y «PDF» siguen al final de la fila que se desplaza, como antes.
+- Un salto se mantiene 0.8 s: una sección que se dibuje más tarde, en un teléfono muy lento, aún
+  podría mover el destino. X07 lo mide a 300 ms en Chromium de escritorio.
+- La prueba del diálogo cubre 1.2 s tras cerrar; un movimiento posterior pasaría.
+- `browser_release_qa.py` pasa de 4 min 15 s (fdca8e7) a 21 min 5 s en local, con 4 CPU, por las
+  pasadas nuevas de X07: Tab en cada barra, con movimiento reducido y activado, y abrir cada página
+  en la dirección de una sección. En CI tardaba 2 min 11 s y el límite del trabajo es 45 min.
+
+**Cierre de N10, N13 y las notas** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo
+`dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `browser_release_qa.py` en 5532975 | 0 | 520/520 en 21 min 5 s |
+| las otras cinco suites con reporte en 5532975 | 0 | axe 80/80, tarjeta 63/63, velocidad 138/138, visual 37/37, óptica 22/22; reportes en 1da6977 |
+| las cinco suites de `tests/architecture/browser_*.py` en 5532975 | 0 | todas en verde |
+| `pytest -q` en 1da6977 | 0 | 922 pasan (898, las 19 de `tests/test_fixed_bars.py` y las 5 de `tests/test_top_bar_tools.py`), 1 omitida |
+| `verify_release.py` (navegador 520), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre 5532975, el inicio pesa 132.9 KB (130.3 antes; presupuesto 180)
+y bloquea 99.5 ms (51.5 antes; presupuesto 200). Ese tiempo va de 46 a 146 ms en los doce últimos
+reportes, con cambios menores en el código, así que no lo atribuyo al código nuevo sin otra
+medida. Abrir la tarjeta responde a 40 y 152 ms y muestra los planes a 59 y 231; a ancho de
+tableta responde a 56 y 176 y muestra la primera toma a 95 y 345.
+
+### N14 y las preguntas Q1 y Q2 del red team (ecde02c)
+
+El red team revisó N10, N13 y las notas (parches 0001–0013, `qa/FINDINGS_PR22.md`) y los pasó
+todos: N10 en 396 casos sin problemas (458 sobre 09c44bc), N13 también con el movimiento activado
+y texto de 20 y 24 px, y su N12 en 396 saltos sin ninguno mal. Dejó un hallazgo nuevo, N14, dos
+preguntas, Q1 y Q2, y una nota sobre el ratón.
+
+**N14: Tab hacia un control justo bajo la barra de arriba movía la página (error mío, de N9).** N9
+reservaba arriba el sitio de las dos barras en toda la página, también en las secciones de encima
+de la barra Sujeto/Hora, donde esa barra todavía no está arriba. Chrome contaba un control entero
+en pantalla dentro de esa franja como fuera de la vista y desplazaba la página para mostrarlo, de
+335 a 511 px (csswg-drafts#7930, la misma causa que N13). Ahora el sitio reservado cuenta la barra
+Sujeto/Hora sólo mientras está arriba. Un script marca `html.fr-bar-in-flow` mientras no lo está
+(lo comprueba en cada desplazamiento, en cada cambio de tamaño y antes de cada tecla o toque) y,
+con esa marca, el sitio reservado es sólo el de la barra del sitio. Para que un salto caiga igual
+con la barra arriba o no, el margen de cada sección cambia con la marca: las de encima de la barra
+dejan su margen negativo y las de debajo suman el alto de la barra. Está en el inicio
+(`index.html`) y en los planes (`scripts/generate_plan_pages.py`).
+
+Comprobación nueva en X07 (`free_spots_leave_page_still`): con las barras arriba, se pone un
+control de la página a 1.25 rem bajo lo que se queda arriba, encima y debajo de la barra
+Sujeto/Hora, y se llega a él con Tab y con Mayús+Tab desde el control de al lado. La página no
+debe moverse.
+
+**Q1: un desplazamiento del lector durante un salto ya no se deshace.** El salto se mantiene 0.8 s
+mientras la página dibuja las secciones de alrededor. Un desplazamiento sin evento de entrada, como
+el de un lector de pantalla o el de buscar en la página, se deshacía en ese tiempo. Ahora, mientras
+se mantiene, el anclaje del desplazamiento está apagado (`overflow-anchor:none` en la raíz), así
+que sólo el lector mueve la página, y el salto se detiene en cuanto la página está en una posición
+que él no puso. El ajuste al final de una página que se acorta no cuenta como el lector.
+Comprobación nueva en X07 (`reader_scroll_kept`): en los dos inicios, tras el salto más largo de
+las barras, el lector baja media pantalla en una tarea propia, como llega el desplazamiento de un
+lector de pantalla, y la página debe seguir ahí 1 s después.
+
+**Q2: la medida de lo dibujado sigue al bloque contenedor (V18).** La prueba de controles encimados
+recortaba cada control por todos los antepasados que recortan lo que se sale. Una caja `absolute`
+o `fixed` se sale de los que no son su bloque contenedor (CSS 2.2 §11.1.1), así que un control así
+podía tapar a otro y contar como no dibujado. Ahora sólo recortan los antepasados que lo contienen:
+para `absolute`, hasta el primero posicionado, y para `fixed`, ninguno salvo uno con
+`transform`, `filter` o `contain`. En las páginas reales no cambia nada.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X07 (N14) | Tab y Mayús+Tab hacia un control entero a 1.25 rem bajo lo que se queda arriba, encima y debajo de la barra Sujeto/Hora, dejan la página quieta | sobre a481181, en el inicio, a los ocho tamaños donde las barras se quedan, siempre encima de la barra Sujeto/Hora: por ejemplo «Tab onto Cómo leer y qué no promete … the page moved 361 px» a 1280×800; de 335 a 511 px | 64 de 64 pulsaciones en los dos inicios (`run_free.py`) |
+| X07 (N14), prueba del red team | Mayús+Tab hacia `#opt-bg` puesto a 8, 30, 60 y 100 px bajo la barra del sitio (`optbg.py`) | sobre a481181: de −326 a −424 px a 8 y 30 px, de −24 a −42 a 60 | 0 px a 30, 60 y 100; a 8 px, de −4 a −10 (ver compromisos) |
+| X07 (Q1) | Tras el salto más largo, un desplazamiento del lector sin evento de entrada se queda | sobre a481181, en los dos inicios a los once tamaños: «after the jump to #guide, a scroll of the reader's own was undone: the page moved 400 px» a 1280×800; de 195 a 550 px | 22 de 22 (`run_kept.py`) |
+| V18 (Q2) | Un control `absolute` que se sale de una caja de 10 px con `overflow:hidden` y tapa otro cuenta como encimado | la prueba anterior no lo ve, a 390×844 y 1280×800 | lo marca a los dos tamaños; en el inicio, un plan, la tarjeta y la página del concurso, a seis tamaños, las dos pruebas dan lo mismo (`cut_compare.py`) |
+
+Mutantes (en el inicio servido):
+
+| Mutante | Qué detecta X07 |
+|---|---|
+| sin el margen de las secciones de debajo de la barra | los saltos y la página abierta en una sección quedan detrás de las barras: «#planes starts at 77 px, what stays ends at 137 px» a 820×1000, 1280×800 y 1440×1100, y con texto de 20 y 24 px |
+| la marca siempre puesta (el sitio de la barra Sujeto/Hora nunca cuenta) | con Mayús+Tab el foco cae detrás de la barra a los cinco tamaños, por ejemplo «Canon Camera Museum · EOS 6D: 40 of 50 px behind a bar» a 1280×800 |
+| el salto sin apagar el anclaje | el anclaje cambia la posición, el salto cree que fue el lector y se detiene: «#tecnicas» cae 560 px abajo a 430×932 y 1950 px con texto de 24 px a 700×800 |
+
+Sin regresiones en lo de antes: X08 y N13 88 de 88 (`run_new.py`), las notas de N9 88 de 88
+(`run_notes.py`) y la vuelta atrás (`run_back.py`) sin fallos.
+
+Investigación de N14. Fuentes: TetraLogical, «Sticky content: focus in view» (2023): el
+`scroll-padding` debe corresponder a lo que tapa en cada momento y, si la altura cambia, hace falta
+JavaScript; csswg-drafts#7931 (Robert Flack): lo que está bajo una cabecera fija necesita otro
+`scroll-padding` que lo que está encima; WCAG, técnica C43. Los `container queries` con
+`scroll-state(stuck)` saben si la barra está arriba, pero no pueden dar estilo a `html`, que es
+donde vive el `scroll-padding`, así que la marca la pone un script. Parecido y diferencia: el mismo
+motor y la misma decisión de Chrome que en N13; aquí el control está en la página, no en una barra.
+Predicción falsable: con el sitio reservado sólo para lo que tapa, Tab y Mayús+Tab hacia un control
+a 1.25 rem bajo la barra del sitio dejan la página quieta; el mutante con la marca siempre puesta
+deja el foco detrás de la barra Sujeto/Hora y el mutante sin el margen de debajo hace caer cortos
+los saltos. Se cumplió (tablas de arriba).
+
+Investigación de Q1 tras la hipótesis fallida. La primera prueba de Q1 desplazaba dentro de un
+cuadro de animación y hacia arriba, y daba movimientos con el arreglo puesto. Sin buscar antes,
+añadí una segunda salida, en el evento de desplazamiento, y no cambió nada. Fuentes después: Chris
+Harrelson y csswg-drafts#4239 (orden de un cuadro: eventos de desplazamiento, cuadros de animación,
+estilo y diseño) y la norma de anclaje del desplazamiento (`overflow-anchor:none` lo apaga en la
+raíz). Lo que cambió la hipótesis: un desplazamiento en su propia tarea llega antes del siguiente
+cuadro de animación, así que la comprobación del salto lo ve antes de que la página se dibuje y la
+salida en el evento no añade nada; los movimientos venían de la prueba, que subía hacia secciones
+sin dibujar (`content-visibility:auto`) que crecían igual con o sin el salto. Quité la segunda
+salida y la prueba baja media pantalla en una tarea propia. Predicción falsable: así, sobre
+a481181 el salto deshace el desplazamiento a los once tamaños y con el arreglo no a ninguno, y el
+mutante sin apagar el anclaje hace fallar los saltos. Se cumplió.
+
+Errores propios:
+
+- N14 lo causé yo en N9: reservé el sitio de la barra Sujeto/Hora en toda la página y mis pruebas
+  sólo miraban controles dentro de las barras o detrás de ellas, no controles libres justo debajo.
+- En Q1 probé una segunda salida antes de buscar fuentes, contra la regla. La quité: no hacía falta.
+
+Compromisos:
+
+- Sólo se probó en Chromium. El arreglo de N14 depende de JavaScript: sin él la marca no aparece,
+  se reserva el sitio de las dos barras en toda la página y vuelve N14, como en N9.
+- En cada desplazamiento se leen la posición y el estilo de la barra Sujeto/Hora; la marca sólo se
+  cambia cuando cambia el estado. No lo medí aparte.
+- Un control a menos de 0.75 rem bajo lo que se queda arriba se mueve de 4 a 10 px (16, 20 y 24 px
+  de texto) para dejar ese espacio, el mismo que deja un salto, de modo que el anillo del foco no
+  quede pegado a la barra. Antes de N9 no había espacio reservado y no se movía.
+- La comprobación de N14 encuentra dónde poner el control sólo en los inicios: en los planes casi
+  no hay controles fuera de las barras. Los saltos de X07 en los planes sí pasan por los márgenes
+  nuevos.
+- Nota del red team sobre el ratón: de 641 a 1023 px, los enlaces de las secciones que quedan fuera
+  de su fila sólo se alcanzan con la rueda y Mayús, porque la fila esconde su barra de
+  desplazamiento. Lo dejo así: el difuminado indica que hay más y esos enlaces repiten secciones de
+  la página. Si hace falta, una barra fina o flechas para el ratón.
+- En la página del concurso, la prueba de controles encimados marca los trozos de enlaces que se
+  parten en dos líneas a 390 y 844 px, igual con la medida anterior y la nueva. Esa página no pasa
+  por esa prueba en la suite.
+- `browser_release_qa.py` tarda 22 min 50 s en local con 4 CPU (21 min 5 s antes). El límite del
+  trabajo en CI es 45 min.
+
+**Cierre de N14, Q1 y Q2** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `browser_release_qa.py` en ecde02c | 0 | 530/530 en 22 min 50 s (21 min 5 s antes, con 4 CPU) |
+| las otras cinco suites con reporte en ecde02c | 0 | axe 80/80, tarjeta 63/63, velocidad 138/138, visual 37/37, óptica 22/22; reportes en 1f795e0 |
+| las cinco suites de `tests/architecture/browser_*.py` en ecde02c | 0 | todas en verde |
+| `pytest -q` en 1f795e0 | 0 | 925 pasan (922 y 3 nuevas en `tests/test_fixed_bars.py`), 1 omitida |
+| `verify_release.py` (navegador 530), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre ecde02c, el inicio pesa 133.5 KB (132.9 antes; presupuesto 180) y
+bloquea 81 ms (presupuesto 200). Abrir la tarjeta responde a 40 y 112 ms y muestra los planes a 59
+y 162; a ancho de tableta responde a 48 y 128 y muestra la primera toma a 95 y 220.
+
+### Segunda revisión del red team: N14b y N15 (657ef3e)
+
+El red team revisó los parches 0001–0016 y pasó N14, Q1 y Q2 (`qa/FINDINGS_PR22.md`). Acepta que un
+control a menos de 0.75 rem bajo la barra de arriba se mueva de 4 a 10 px: es el espacio que deja
+el `scroll-padding` para que el anillo del foco no quede pegado a la barra. Recorriendo el inicio
+entero con Tab y Mayús+Tab, las pulsaciones que movían la página hacia un control ya despejado
+bajan de 22, 14 y 0 a 6, 1 y 0. Dejó dos notas sobre lo que queda: N14b y N15.
+
+**N14b: pasada la sección de la barra Sujeto/Hora, el sitio reservado todavía la contaba.** Al
+final de su sección, la barra sube por debajo de la barra del sitio y desaparece. El script sólo
+miraba si la barra había llegado arriba, así que seguía contándola. Pasada la sección, Tab o
+Mayús+Tab hacia el primer enlace del pie movía la página: 17 px con 16 px de texto, donde el final
+de la página lo limita, y de 335 a 341 px con texto de 20 y 24 px. Ahora la barra cuenta sólo
+mientras está arriba y se ve bajo la barra del sitio (`index.html` y
+`scripts/generate_plan_pages.py`). La pasada de N14 en X07 prueba ahora también el primer control
+pasada la sección de la barra.
+
+El red team propuso dos arreglos: contar la barra sólo mientras está quieta arriba, o mientras su
+borde de abajo sigue bajo el de la barra del sitio. Elegí el segundo. Mientras la barra sube, una
+parte sigue a la vista. Con el primero, el sitio reservado sería el de la barra del sitio sola, y
+un control al final de la sección podría quedar detrás de la parte que se ve, sin que el navegador
+desplace la página (WCAG 2.4.11). Con el segundo, lo peor es que la página se mueva un poco hacia
+un control justo bajo esa parte. En estas páginas no pasa: el barrido de abajo no encuentra ningún
+movimiento.
+
+**N15: no es un error.** Mayús+Tab desde el enlace «Abrir aquí ↘» de una tarjeta de plan hacia el
+de la tarjeta anterior movía la página 437 px, aunque la medida decía que el destino estaba entero
+a la vista, a 527 px. En la cuadrícula, la tarjeta anterior está en la fila de arriba: con el
+enlace de partida a 414 px, el de destino estaba de −7 a 37 px, detrás de las barras, que terminan a
+137 px (`probe15.py`). El navegador desplaza la página para mostrarlo, como debe. Mientras subía, se
+dibujaron secciones de más arriba (`content-visibility:auto`), y el anclaje del desplazamiento movió
+la página otros 534 px. Por eso, medida desde la posición final, la posición de antes salía en
+527 px. No cambio nada.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X07 (N14b) | Tab y Mayús+Tab hacia el primer control pasada la sección de la barra Sujeto/Hora, a 1.25 rem bajo lo que se queda, dejan la página quieta | sobre dc21d0b, en los dos inicios: «Tab onto 6 planes de sesión, 1.25 rem under what stays (past the Sujeto/Hora bar's section): the page moved 335 px» con texto de 20 px a 1024×768, y 341 px con 24 px a 1280×800; con 16 px el control no se puede poner ahí | 72 de 72 pulsaciones en los dos inicios (`run_free.py`) |
+| X07 (N14b), barrido | Barriendo de 6 en 6 px el tramo en que la barra sube y desaparece, Tab y Mayús+Tab hacia el primer control del pie no mueven la página si ese control ya estaba despejado, más allá de los 0.75 rem, ni lo dejan detrás de una barra (`sweep_leave.py`, cinco tamaños) | sobre dc21d0b: 60 de 250 pulsaciones mueven la página, hasta 350 px | ninguna de 250 mueve la página ni lo deja detrás |
+| X07 (N14b), prueba del red team | `leave.py`: Mayús+Tab hacia «6 planes de sesión» a 8, 30, 60 y 100 px bajo la barra del sitio | sobre dc21d0b: −17 px a 8, 30 y 60 px con 16 px de texto a 1024×768 | 0 en todos los casos |
+
+Errores propios:
+
+- El arreglo de N14 sólo miraba un lado: si la barra había llegado arriba, no si ya se había ido.
+  La prueba nueva de N14 ponía controles encima y debajo de la barra, pero no pasada su sección.
+- La primera versión del barrido contaba como movimientos los de un control dentro de los 0.75 rem
+  bajo la barra del sitio, que el red team y yo aceptamos como espacio para el anillo del foco. La
+  medida final empieza a contar pasados esos 0.75 rem.
+
+Compromisos:
+
+- Mientras la barra Sujeto/Hora sube al final de su sección, un recorrido de su propio alto, cuenta
+  entera aunque sólo se vea una parte. Un control justo bajo esa parte podría moverse como mucho lo
+  que queda oculto de la barra. En estas páginas el barrido no encuentra ninguno: el primer enlace
+  del pie queda más abajo.
+- La pasada de N14 sólo encuentra dónde poner el control pasada la sección con texto de 20 y 24 px,
+  a 1024×768 y 1280×800. Con 16 px el final de la página no deja subirlo tanto. El barrido cubre el
+  tramo a cinco tamaños, pero no está en la suite.
+- Velocidad: en esta máquina, nueva tras un reinicio del entorno, abrir la tarjeta a ancho de
+  tableta en un teléfono de gama baja muestra la primera toma cerca del presupuesto de 500 ms. En la
+  corrida completa de las suites dio 506 ms (las cinco vueltas, de 435 a 676) y la suite de
+  velocidad falló. El inicio solo, dos veces en 657ef3e y dos en dc21d0b, alternando, dio de 378 a
+  430 ms, sin diferencia entre los dos builds, y dos corridas más de la suite completa pasaron, con
+  466 y 353 ms. No lo atribuyo al código, pero el margen es poco y CI podría fallar por lo mismo.
+
+Tercera revisión del red team (parches 0001–0019, `qa/FINDINGS_PR22.md`): PASS. `leave.py` da 0 en
+todos los casos; en el recorrido entero con Mayús+Tab sólo quedan movimientos de 5 a 6 px dentro de
+los 0.75 rem aceptados. Está de acuerdo con la segunda opción por la razón de WCAG 2.4.11, retira N15
+porque era su medida, y lee el fallo de velocidad como ruido de una máquina recién arrancada. Da N9
+(0001–0019) por listo.
+
+**Cierre de N14b** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `browser_release_qa.py` en 657ef3e | 0 | 530/530 en 22 min 39 s |
+| `perf_budget_qa.py` en 657ef3e, dentro de la corrida completa | 1 | 137/138: la primera toma a ancho de tableta en gama baja, 506 ms con presupuesto de 500 |
+| `perf_budget_qa.py --only index.html`, alternando 657ef3e y dc21d0b | 0 | 420 y 427 ms en 657ef3e, 378 y 430 en dc21d0b |
+| `perf_budget_qa.py` en 657ef3e, otra vez | 0 | 138/138 (466 ms); el reporte sale de una tercera corrida con el árbol sin otros cambios: 138/138 (353 ms) |
+| las otras cuatro suites con reporte en 657ef3e | 0 | axe 80/80, tarjeta 63/63, visual 37/37, óptica 22/22; reportes en 3633d75 |
+| las cinco suites de `tests/architecture/browser_*.py` en 657ef3e | 0 | todas en verde |
+| `pytest -q` en 3633d75 | 0 | 925 pasan, 1 omitida |
+| `verify_release.py` (navegador 530), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre 657ef3e (1.89× y 6.75×), el inicio pesa 133.6 KB y bloquea 90 ms.
+Abrir la tarjeta responde a 48 y 184 ms y muestra los planes a 82 y 274; a ancho de tableta
+responde a 64 y 184 y muestra la primera toma a 118 y 353.
+
+### Rebase sobre main tras fusionar PR #22
+
+Pablo fusionó PR #22 el 2026-10-27 (40a5203). Los commits de N9 a N14b se rebasaron sobre ese main
+para el PR siguiente. Cada commit conserva su árbol: `git diff b8699ea ca51c55` sale vacío, y el
+árbol de 40a5203 es el de 09c44bc. Los reportes (`audited_commit`) y estas notas nombran los commits
+de antes del rebase. Equivalencias:
+
+| Antes | Después | Commit |
+|---|---|---|
+| f92bd71 | 7ee7692 | Keep the top bars in place only where there is room (N9) |
+| d6733b4 | 4fc41a6 | Give focus back to a fixed bar without moving the page (N9) |
+| 7494f49 | 72b02a8 | Say how much of a phone the plan bars would cover: a fifth to over a third |
+| 47405fe | c5c88ba | Reports from every browser suite on 7494f49: release 484/484 with X07 |
+| 523ff43 | 16bfd25 | Record N9 and X07: the top bars stay only where there is room |
+| 94041f4 | 87ff0f0 | Keep room for the bars at the reader's text size (red team N11) |
+| fdca8e7 | 967a245 | Judge "the page stays where it was" by what is on screen, not the scroll position |
+| 4ff973b | e131c36 | Reports from every browser suite on fdca8e7: release 492/492 |
+| 9433ba5 | 5fa3f67 | Record N11 and the on-screen measure: README, inventory and handoff |
+| 1e8cbcd | 4d153bb | Top bar tools in view, Tab across a bar, jumps that stay put (N10, N13) |
+| 5532975 | 26324e2 | Judge overlapping controls by what is drawn of them (N10) |
+| 1da6977 | 6c21117 | Reports from every browser suite on 5532975: release 520/520 |
+| a481181 | 8fe5b30 | Notes for N10, N13 and the red team's three notes on N9 |
+| ecde02c | f72cf7a | Keep room only for what covers the top; let a reader's scroll end a jump (N14, Q1, Q2) |
+| 1f795e0 | d014ed8 | Reports from every browser suite on ecde02c: release 530/530 |
+| dc21d0b | bd7d232 | Notes for N14 and the red team's Q1 and Q2 |
+| 657ef3e | 69026b8 | Stop counting the Sujeto/Hora bar once it has gone up under the top bar (N14b) |
+| 3633d75 | 650b645 | Reports from every browser suite on 657ef3e: release 530/530 |
+| dd63a5a | 0c9bb4c | Notes for N14b and the red team's N15 |
+| b8699ea | ca51c55 | Record the red team's pass on N14b and N15 |
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -2532,8 +3157,13 @@ Las demás suites no cambian: el arreglo sólo toca el instrumento de velocidad.
   «bueno» y dentro de «nunca malo».
 - Tras los planes queda la tarea de las tomas, 67–112 ms en gama baja: un toque en ese hueco
   la espera (N2 del red team).
-- N4, N7 y N8 están en PR #22 y el red team los pasó. N5 queda como límite declarado de la
-  medición.
-- N9 (barra de arriba que nunca se queda fija): en el PR siguiente. Pablo tiene la pregunta de
-  si debe quedarse fija en el teléfono; se construye la opción recomendada, sólo en pantallas
-  grandes.
+- N4, N7 y N8 se fusionaron con PR #22 y el red team los pasó. N5 queda como límite declarado
+  de la medición.
+- N9 a N14b (barras de arriba que se quedan sólo donde caben): en el PR siguiente a #22, con X07
+  y X08; el red team los pasó. Pablo tiene la pregunta de si deben quedarse fijas también en el
+  teléfono; si dice que sí, se quita el límite de tamaño y X07 cambia con él.
+- De 641 a 1023 px, con un ratón sin rueda lateral, los enlaces de las secciones fuera de la fila
+  se alcanzan sólo con Mayús y la rueda. Si hace falta, una barra fina o flechas para el ratón.
+- Con texto más grande, de 641 a 800 px (20 px) o a 961 px (24 px), no hay barra de abajo y las
+  herramientas quedan al final de la fila que se desplaza. Si hace falta, la barra de abajo podría
+  medirse en `em` como las de arriba.

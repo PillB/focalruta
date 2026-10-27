@@ -279,9 +279,15 @@ def page_behind_home_dialog(browser, base: str) -> None:
 
 
 # Where focus is (the opener's onclick, whether it is shown, and whether it is on screen) and
-# where the page is scrolled to.
+# where the element marked by SEEN is on screen.
 FOCUS = """() => { const a = document.activeElement, r = a.getBoundingClientRect();
-  return [a.getAttribute('onclick'), a.checkVisibility(), r.bottom > 0 && r.top < innerHeight, Math.round(scrollY)]; }"""
+  return [a.getAttribute('onclick'), a.checkVisibility(), r.bottom > 0 && r.top < innerHeight,
+          Math.round(window.__seen.getBoundingClientRect().top)]; }"""
+# What the reader sees: the element in the middle of the screen before the card opens. "The page
+# stays where it was" means it stays put on screen. Drawing the page behind the card again can
+# change sizes above it, and the browser then keeps it still by changing the scroll position
+# (scroll anchoring), so the scroll position itself is not the measure.
+SEEN = "() => { window.__seen = document.elementFromPoint(innerWidth / 2, innerHeight / 2); }"
 
 
 def home_dialog_focus_after_resize(browser, base: str) -> None:
@@ -293,17 +299,19 @@ def home_dialog_focus_after_resize(browser, base: str) -> None:
         page = context.new_page()
         page.goto(base + "index.html", wait_until="load")
         page.evaluate("scrollTo({top: 2400, behavior: 'instant'})")
+        page.wait_for_timeout(300)  # sections drawn only near the screen take their real size
+        page.evaluate(SEEN)
         page.evaluate("(s) => { document.querySelector(s).focus({preventScroll: true}); openFieldCard(); }",
                       opener + '[onclick="openFieldCard()"]')
         page.set_viewport_size({"width": end, "height": 800})
         page.wait_for_timeout(200)
-        before = page.evaluate("Math.round(scrollY)")
+        before = page.evaluate(FOCUS)[3]
         page.keyboard.press("Escape")
         page.wait_for_timeout(1000)  # the page scrolls smoothly: give a focus scroll time to land
         focus = page.evaluate(FOCUS)
         check(f"home page dialog: closed after a resize from {start} to {end} px hides its opener, focus goes to an "
               "opener on the page and the page stays where it was",
-              focus[:2] == ["openFieldCard()", True] and focus[3] == before, {"focus": focus, "scroll before": before})
+              focus[:2] == ["openFieldCard()", True] and focus[3] == before, {"focus": focus, "seen before": before})
         context.close()
 
 

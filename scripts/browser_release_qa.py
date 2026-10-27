@@ -12,6 +12,8 @@ from urllib.parse import parse_qs, quote, urlsplit
 from playwright.sync_api import sync_playwright
 import css_audit
 import evidence
+import fixed_bars
+import top_bar_tools
 import qa_matrix
 import reading_floor
 
@@ -324,6 +326,77 @@ def nothing_cut_with_long_gear(browser):
         context.close()
 
 
+def bars_at(browser, url: str, width: int, height: int, home: bool, text: int = 16) -> dict:
+    """X07 at one size: what stays on screen, focus going forward and back, in-page links, Tab and Shift+Tab
+    across a bar and onto a control just under it, and dialogs from a bar; on the home page also a reader's
+    own scroll during a jump, and X08, the top bar's tools and focus in it.
+
+    `text` is the reader's default text size in px (Chrome's Large is 20, Very large 24)."""
+    context = browser.new_context(viewport={"width": width, "height": height}, reduced_motion="reduce")
+    page = context.new_page()
+    if text != 16:
+        context.new_cdp_session(page).send("Page.setFontSizes", {"fontSizes": {"standard": text}})
+    found = {}
+    runs = [("stays", lambda: fixed_bars.what_stays(page, width, height, home, text)),
+            ("forward", lambda: fixed_bars.tab_through(page, "Tab")),
+            ("back", lambda: fixed_bars.tab_through(page, "Shift+Tab")),
+            ("jumps", lambda: fixed_bars.jumps(page)),
+            ("address", lambda: fixed_bars.address(page, url)),
+            ("tab", lambda: fixed_bars.tab_in_bars_leaves_page_still(page, fixed_bars.MOTION if text == 16 else ("reduce",)))]
+    if fixed_bars.has_room(width, height, text):
+        runs.append(("free", lambda: fixed_bars.free_spots_leave_page_still(page)))
+    if text == 16:
+        runs.append(("room", lambda: fixed_bars.room_follows_bars(page)))
+    if home and text == 16:
+        runs.append(("still", lambda: fixed_bars.dialogs_leave_page_still(page)))
+        runs.append(("tools", lambda: top_bar_tools.tools_in_view(page, width)))
+    if home:
+        runs.append(("top focus", lambda: top_bar_tools.focus_in_top_bar(page)))
+        runs.append(("kept", lambda: fixed_bars.reader_scroll_kept(page)))
+    for kind, run in runs:
+        page.goto(url, wait_until="load", timeout=60000)
+        found[kind] = run()
+    context.close()
+    return found
+
+
+# The reader's default text, larger (Chrome's Large and Very large), at sizes where the
+# Sujeto/Hora bar wraps if the bars stay (red team N11: 641-660 px wide at 20 px, up to 769 at
+# 24) and at sizes with room for the larger bars.
+LARGER_TEXT = ((20, 650, 800), (24, 700, 800), (20, 1024, 768), (24, 1280, 800))
+
+
+def bars_on_screen(browser):
+    """X07 (N9) and X08 (N10): on the home page, standalone and hosted, and on every plan page, at every size."""
+    pages = [("standalone", ROOT / "index.html", True), ("hosted", ROOT / "dist/canon6d_sota_hosted/index.html", True),
+             *[(f"plan_{x}", ROOT / f"dist/canon6d_sota_hosted/plans/plan_{x}.html", False) for x in "abcdef"]]
+    names = {"stays": "only what has room stays on screen", "forward": "focus going forward is never behind a bar",
+             "back": "focus going back is never behind a bar", "jumps": "links in the bars land clear of them",
+             "address": "opening the page at a section's address lands it clear of the bars",
+             "still": "a dialog opened from a bar that stays closes with the page still",
+             "room": "the room kept for the bars follows their whole box",
+             "tab": "Tab and Shift+Tab across a bar and back into it leave the page still",
+             "free": "Tab and Shift+Tab onto a control just under what stays leave the page still",
+             "kept": "a scroll of the reader's own during a jump is kept",
+             "tools": "the top bar's tools are whole on screen where there is no bottom bar",
+             "top focus": "focus in the top bar lands on a control whole in view"}
+    for name, path, home in pages:
+        wrong = {kind: {} for kind in names if home or kind not in ("still", "tools", "top focus", "kept")}
+        for width, height in qa_matrix.REQUIRED_VIEWPORTS:
+            for kind, problems in bars_at(browser, path.as_uri(), width, height, home).items():
+                if problems:
+                    wrong[kind][f"{width}x{height}"] = problems[:6]
+        for kind in wrong:
+            record(f"{name} {names[kind]}", not wrong[kind], wrong[kind])
+        larger = {}
+        for text, width, height in LARGER_TEXT:
+            problems = {kind: found[:6] for kind, found in bars_at(browser, path.as_uri(), width, height, home, text).items() if found}
+            if problems:
+                larger[f"{text}px {width}x{height}"] = problems
+        record(f"{name} with larger text, only what has room stays, nothing is behind a bar or cut off in the top bar "
+               "and Tab across a bar or onto a control just under it leaves the page still", not larger, larger)
+
+
 with sync_playwright() as pw:
     browser = pw.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
     targets = {
@@ -428,6 +501,7 @@ with sync_playwright() as pw:
     error_log(browser)
     stylesheets_kept(browser)
     home_card_looks_like_the_card(browser)
+    bars_on_screen(browser)
     browser.close()
 
 report = {"passed": all(item["pass"] for item in results), "checks": len(results),

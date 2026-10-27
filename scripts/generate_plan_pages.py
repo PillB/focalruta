@@ -90,6 +90,25 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
 .unviable-note { font-size: 12px; color: #7C2D12; background: #FFEDD5; border: 1px solid #FDBA74; border-radius: 8px; padding: 6px 10px; margin-bottom: 6px; }
 .gradient-bg { background: linear-gradient(135deg, #0F172A 0%, #1E40AF 50%, #7C3AED 100%); }
 @media print { .no-print { display: none !important; } .shot-card { page-break-inside: avoid; } }
+/* N9: the plan's bar and the Sujeto/Hora bar stay at the top only on screens with room for them,
+   measured in the reader's text size (40.0625 by 31.25 em, 641 by 500 px at the default 16 px);
+   on a phone, or a phone on its side, they would cover from a fifth to over a third of the
+   screen, so there top:auto makes sticky act like relative, in place. Focus and in-page links
+   land clear of whatever stays (WCAG 2.4.11, technique C43). The script after the Sujeto/Hora
+   bar writes the bars' heights to --fr-nav and --fr-bar; without it the rem values stand in. It
+   also marks html.fr-bar-in-flow while the Sujeto/Hora bar is not stuck: the room at the top is
+   then the plan's bar alone, and a section below the Sujeto/Hora bar carries its height in its
+   margin, so a jump lands in the same place either way (N14). */
+html { scroll-padding-top: .75rem; }
+@media not all and (min-width: 40.0625em) and (min-height: 31.25em) { nav.glass, section.plan-toggles { top: auto; } }
+@media (min-width: 40.0625em) and (min-height: 31.25em) {
+  section.plan-toggles { top: var(--fr-nav, 4rem); }
+  html { scroll-padding-top: calc(var(--fr-nav, 4rem) + var(--fr-bar, 4.5rem) + .75rem); }
+  section[id]:has(~ section.plan-toggles) { scroll-margin-top: calc(-1 * var(--fr-bar, 4.5rem)); }
+  html.fr-bar-in-flow { scroll-padding-top: calc(var(--fr-nav, 4rem) + .75rem); }
+  html.fr-bar-in-flow section[id]:has(~ section.plan-toggles) { scroll-margin-top: 0; }
+  html.fr-bar-in-flow section.plan-toggles ~ section[id] { scroll-margin-top: var(--fr-bar, 4.5rem); }
+}
 </style>
 </head>
 <body class="bg-paper text-ink">
@@ -120,7 +139,7 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
 <main id="contenido">
 <section id="plan-orientation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" aria-labelledby="plan-orientation-title"><div class="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4"><h2 id="plan-orientation-title" class="font-bold text-base text-emerald-950">Cómo leer este plan</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 text-xs leading-relaxed text-emerald-950"><p><strong>Qué cambia:</strong> la hora, el sujeto y la toma modifican la luz o la acción. El dibujo te enseña dónde poner cámara, sujeto y fondo.</p><p><strong>Cómo comprobarlo:</strong> haz una foto, amplíala al 100% y revisa foco, movimiento, altas luces y bordes. Si cambia la perspectiva, moviste la cámara.</p><p><strong>Si no funciona:</strong> conserva la posición y cambia una sola variable. Si no hay acceso, luz o actividad, usa el plan B de la tarjeta y anota el motivo.</p></div></div></section>
 
-<section class="sticky top-16 z-40 bg-paper/95 backdrop-blur border-y border-slate-200 no-print py-3">
+<section class="plan-toggles sticky top-16 z-40 bg-paper/95 backdrop-blur border-y border-slate-200 no-print py-3">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
     <div class="flex items-center gap-2">
       <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Sujeto:</span>
@@ -139,6 +158,24 @@ button, .toggle-active, .toggle-inactive { min-width: 44px; min-height: 44px; }
     </div>
   </div>
 </section>
+<script>
+/* N11: the room kept at the top is the bars' real height, whatever the reader's text size. Each bar
+   is watched whole, padding and border included: the top bar's padding holds a phone's safe area.
+   N14: the room counts the Sujeto/Hora bar only while that bar is stuck and shows under the site's
+   bar. While it still sits lower down the page, or once it has gone up under the site's bar at the
+   end of its section (N14b), html.fr-bar-in-flow keeps room for the site's bar alone; kept for
+   both, the browser counted a control just under the site's bar as out of view and scrolled the
+   page to it (csswg-drafts#7930). Read on every scroll, on any change of size, and before each key
+   or press. */
+(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const html=document.documentElement,root=html.style,set=(k,v)=>{if(root.getPropertyValue(k)!==v)root.setProperty(k,v)},place=()=>{const r=bar.getBoundingClientRect(),at=parseFloat(getComputedStyle(bar).top)+.5;html.classList.toggle('fr-bar-in-flow',!(r.top<=at&&r.bottom>at))},keep=()=>{set('--fr-nav',nav.getBoundingClientRect().height+'px');set('--fr-bar',bar.getBoundingClientRect().height+'px');place()},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'});watch.observe(html);addEventListener('scroll',place,{passive:true});['keydown','pointerdown'].forEach(t=>addEventListener(t,place,{capture:true,passive:true}))})();
+/* N13: Tab and Shift+Tab onto a control of a bar wholly in view, from inside the bar or from the
+   control next to it, move focus without scrolling. Inside the room scroll-padding keeps at the
+   top, the browser counts that control as out of view and scrolls the page by half a screen on
+   every press (csswg-drafts#7930), before any focus event a page could answer. The next control
+   is found as the browser finds it, in document order among what can take focus; every other
+   move, and any move from a dialog or a radio button, stays the browser's. */
+(()=>{const bars=[document.querySelector('nav.glass'),document.getElementById('toggle-human')?.closest('section')].filter(Boolean),html=document.documentElement,FOCUSABLE='a[href],area[href],button,input:not([type=hidden]),select,textarea,iframe,object,embed,summary,audio[controls],video[controls],[contenteditable],[tabindex]',takes=e=>e.tabIndex>=0&&!e.disabled&&!e.closest('[inert]')&&(e.checkVisibility?e.checkVisibility():e.getClientRects().length>0),whole=b=>{const r=b.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight-(parseFloat(getComputedStyle(html).scrollPaddingBottom)||0)};document.addEventListener('keydown',e=>{if(e.key!=='Tab'||e.altKey||e.ctrlKey||e.metaKey||e.defaultPrevented)return;const now=document.activeElement;if(!now||now===document.body||now.type==='radio'||now.closest('dialog,[aria-modal="true"]')||!bars.some(whole))return;const list=[...document.querySelectorAll(FOCUSABLE)].filter(takes),i=list.indexOf(now),next=i<0?null:list[i+(e.shiftKey?-1:1)],bar=next&&next.type!=='radio'&&bars.find(b=>b.contains(next));if(!bar||!whole(bar))return;e.preventDefault();next.focus({preventScroll:true})})})();
+</script>
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
   <details class="bg-blue-50 border border-blue-200 rounded-xl p-4">

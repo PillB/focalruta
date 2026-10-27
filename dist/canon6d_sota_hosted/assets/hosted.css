@@ -4940,12 +4940,30 @@ html,body{max-width:100%;overflow-x:clip}
 
 
 
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden}
-body{overflow-x:hidden;min-width:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-width:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:rgba(37,99,235,.14)}
 button,a{min-height:44px}
 nav.glass{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding-top:env(safe-area-inset-top)}
-section[id]{scroll-margin-top:84px}
+/* N9: overflow-x:clip (set earlier) keeps the page from scrolling sideways without making it a
+   scroll box, so the bars below can stay at the top; a browser without clip gets hidden instead,
+   with bars that scroll away. The site's bar and the Sujeto/Hora bar stay only on screens with
+   room for them, measured in the reader's text size: 40.0625 by 31.25 em, 641 by 500 px at the
+   default 16 px, so larger text, which makes the bars taller, needs a bigger screen for them. On
+   a phone, or a phone on its side, they would cover from a quarter to over two fifths of the
+   screen, and a phone already has the bottom bar, so there top:auto makes sticky act like
+   relative, in place. Focus and in-page links land clear of whatever stays (WCAG 2.4.11,
+   technique C43); a section above the Sujeto/Hora bar has only the site's bar over it. The script
+   after that bar writes the bars' heights to --fr-nav and --fr-bar, since they do not grow in
+   step with the text; without it the rem values stand in. It also marks html.fr-bar-in-flow while
+   that bar is not stuck under the site's bar: the room at the top is then the site's bar alone, and a section below
+   the bar carries the bar's height in its margin, so a jump lands in the same place either way
+   (N14). */
+@supports not (overflow-x:clip){html,body{overflow-x:hidden}}
+html{scroll-padding:.75rem 0}
+@media not all and (min-width:40.0625em) and (min-height:31.25em){nav.glass,section.sticky-offset{top:auto}}
+@media (max-width:640px){html{scroll-padding-bottom:calc(68px + env(safe-area-inset-bottom,0px) + .75rem)}}
+@media (min-width:40.0625em) and (min-height:31.25em){.sticky-offset{top:var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px)))}html{scroll-padding-top:calc(var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px))) + var(--fr-bar,4.5rem) + .75rem)}section[id]:has(~ section.sticky-offset){scroll-margin-top:calc(-1 * var(--fr-bar,4.5rem))}html.fr-bar-in-flow{scroll-padding-top:calc(var(--fr-nav,calc(4rem + env(safe-area-inset-top,0px))) + .75rem)}html.fr-bar-in-flow section[id]:has(~ section.sticky-offset){scroll-margin-top:0}html.fr-bar-in-flow section.sticky-offset ~ section[id]{scroll-margin-top:var(--fr-bar,4.5rem)}}
 .diagram-frame{overflow:hidden;background:#fff;border-radius:0 0 12px 12px}
 .diagram-frame img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;background:#fff}
 img{max-width:100%;height:auto}
@@ -4958,8 +4976,8 @@ img{max-width:100%;height:auto}
  body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
  #architecture-challenge a{margin-bottom:calc(60px + env(safe-area-inset-bottom))}
  nav.glass .max-w-7xl{padding-left:10px;padding-right:10px}
- nav.glass .flex.items-center.space-x-1{max-width:58vw;scrollbar-width:none;-webkit-overflow-scrolling:touch}
- nav.glass .flex.items-center.space-x-1::-webkit-scrollbar{display:none}
+ nav.glass .top-actions{max-width:58vw;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ nav.glass .top-actions::-webkit-scrollbar{display:none}
  .mobile-bottom-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid #e2e8f0;padding:4px 8px calc(4px + env(safe-area-inset-bottom));box-shadow:0 -8px 30px rgba(15,23,42,.08)}
  .plan-card:hover,.shot-card:hover,.compos-rule-card:hover,.angle-card:hover{transform:none}
  .shot-card{border-radius:16px}
@@ -5168,17 +5186,27 @@ body.sun-mode{--read-ink:#000;--read-muted:#1f2937;--read-line:#475569;backgroun
 .skip-link{position:absolute;left:8px;top:-64px;z-index:200;padding:10px 14px;border-radius:10px;background:#0f172a;color:#fff;font-weight:700;font-size:14px;text-decoration:none}.skip-link:focus{top:8px}
 
 /* V11: every control at least 44 x 44 px, for a thumb in the field. */
-.top-actions>:is(a,button){display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:44px;min-height:44px}
+.top-actions :is(a,button){display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:44px;min-height:44px}
 .top-actions{overscroll-behavior-x:contain}
+/* N10: from 40.0625 em wide (641 px at the default text size, where the bottom bar ends) the
+   section links scroll sideways and fade at their end, and the tools after them (Modo sol, Sesión,
+   Tarjeta, PDF) stay whole. Below 64 em the brand drops its place and subtitle and the
+   architecture link its long name, so the links keep room for their widest one. On a phone, and
+   on a screen too narrow for the reader's larger text, the two groups are one row, as before. */
+.top-actions{column-gap:.25rem}
+@media(min-width:40rem){.top-actions{column-gap:.5rem}}
+.top-links,.top-tools{display:contents}
+@media(min-width:40.0625em){.top-links,.top-tools{display:flex;align-items:center;column-gap:inherit}.top-links{min-width:0;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}.top-links::-webkit-scrollbar{display:none}.top-tools{flex:none}}
+@media(min-width:40.0625em) and (max-width:63.9375em){nav.glass h1 .hdr-label,nav.glass h1+p,.top-links .hdr-label{display:none}.top-links .hdr-short{display:inline}}
 /* X02: the sections below the first screen are laid out only as they come near it
    (content-visibility, Baseline 2024). They stay in the accessibility tree, in
    find-in-page and as anchor targets; once drawn they keep their measured height. */
 main>section:not(#top):not(.sticky){content-visibility:auto;contain-intrinsic-size:auto 1000px}
 @media print{main>section{content-visibility:visible}}
-.top-actions.has-more{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent)}
+:is(.top-actions,.top-links).has-more{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 36px),transparent)}
 .hdr-short{display:inline}
 @media(min-width:641px){.hdr-short{display:none}}
-@media(max-width:640px){.top-actions>.hdr-wide{display:none}}
+@media(max-width:640px){.top-actions .hdr-wide{display:none}}
 .variant-toggles button{min-width:44px;min-height:44px}
 details:not(.fc-more)>summary{min-height:44px;padding-block:10px;box-sizing:border-box}
 .production-footer li>:is(a,button){display:inline-flex;align-items:center;min-height:44px}

@@ -193,8 +193,16 @@ for report_name, minimum_checks in (
     # plus «Copiar» without a clipboard (red team on PR #21, F7) (422), plus each dialog holding focus in
     # the task that opens it (V19, CI on 518b9a3) (428), plus every stylesheet the site ships kept whole by the
     # browser (16 distinct sheets) and the home page's card drawn like the card's page in three palettes on
-    # both home pages (X05).
-    ("CURRENT_BROWSER_QA.json", 450),
+    # both home pages (X05) (450), plus what stays at the top while the home pages and the six plan pages
+    # scroll, at every size: only bars with room, focus going forward and back, links in the bars, and on
+    # the home pages the dialogs a bar opens closing with the page still (X07) (484), plus the same with the
+    # reader's text at 20 and 24 px, where the bars grow (red team N11) (492), plus on every page Tab and
+    # Shift+Tab across a bar leaving the page still (N13), the page opened at a section's address and the
+    # room kept following the bars' padding (red team notes), and on the home pages the top bar's tools
+    # whole on screen and focus in it whole in view (N10) (520), plus on every page Tab and Shift+Tab onto
+    # a control just under what stays leaving the page still (red team N14), and on the home pages a
+    # reader's own scroll during a jump kept (red team Q1) (530).
+    ("CURRENT_BROWSER_QA.json", 530),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
     # Every shipped page, light phone and dark desktop: 39 pages x 2 passes, plus the home
