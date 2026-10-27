@@ -18,6 +18,10 @@ INDEX = ROOT / "index.html"
 MODAL_CSS = """
 #field-card-modal{position:fixed;inset:0;z-index:120;display:none;background:rgba(3,13,22,.72)}
 #field-card-modal.fc-modal-open{display:block}
+/* The first frame after the tap draws the bar and the card's header, the next one the plans,
+   and the one after that the shots, which on a phone start below the screen: a slow phone shows
+   the card at once and what is on screen next, instead of after laying out all of it. */
+#field-card-modal.fc-modal-first .fc-panel,#field-card-modal.fc-modal-later .fc-shots{content-visibility:hidden}
 .fc-modal-card{display:flex;flex-direction:column;width:min(100%,900px);height:100dvh;margin:auto;background:#f4f1e9;box-shadow:0 0 60px rgba(0,0,0,.28)}
 .fc-modal-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:#061827;color:#fff}
 .fc-modal-bar strong{display:block;font-size:16px}.fc-modal-bar small{display:block;font-size:13px;line-height:1.35;color:#dbeafe}
@@ -26,6 +30,12 @@ MODAL_CSS = """
 @media(prefers-color-scheme:dark){.fc-modal-scroll{background:#0b1220}}
 .fc-modal-card:has(#fc-night:checked) :is(.fc-modal-scroll,.fc-modal-bar){background:#000}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar{color:#ff6b5e}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar :is(small,button,a){color:#ff6b5e;border-color:#4a1410}
 body.fc-modal-lock{overflow:hidden}
+/* Below 900 px the card covers the whole screen, so the page behind it is not drawn while it is
+   open: it is inert already, and leaving it out spares a slow phone restyling it as the card opens.
+   Each part of the page keeps the size it last had, so the page comes back where the reader left
+   it. Print is left alone: printing with the card open prints the page. */
+:where(body>*){contain-intrinsic-size:auto none}
+@media screen and (max-width:899px){body.fc-modal-lock>:not(#field-card-modal){content-visibility:hidden}}
 .mobile-bottom-nav button{min-width:0;min-height:48px;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#475569;font-size:12px;font-weight:800;padding:0}.mobile-bottom-nav button .ico{font-size:18px;line-height:1}
 @media(min-width:900px){#field-card-modal{padding:22px}.fc-modal-card{height:calc(100dvh - 44px);border-radius:22px;overflow:hidden}.fc-modal-bar{padding-top:6px}}
 @media print{#field-card-modal{display:none!important}}
@@ -34,11 +44,14 @@ body.fc-modal-lock{overflow:hidden}
 MODAL_JS = """
 // The one definition of the card dialog: the rest of the page goes inert while it is
 // open, focus moves inside as it opens (as showModal() does) and stays there, and Escape
-// or the close button return focus to the opener.
+// or the close button return focus to the opener. If a resize has hidden it, focus goes to an
+// opener on screen, or else to the first one on the page without scrolling to it, so the page
+// stays where the reader left it. The panels wait for the frame after the
+// first paint (requestAnimationFrame, then a task) and the shots for the frame after that.
 let fcOpener=null,fcInert=[];
 function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
-function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();}
-function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];fcOpener?.focus?.();}
+function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open','fc-modal-first','fc-modal-later');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();const next=f=>requestAnimationFrame(()=>setTimeout(f));next(()=>{m.classList.remove('fc-modal-first');next(()=>m.classList.remove('fc-modal-later'))});}
+function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];const shown=b=>b?.isConnected&&b.checkVisibility?.();if(shown(fcOpener)||!fcOpener?.checkVisibility){fcOpener?.focus?.();return}const all=[...document.querySelectorAll('[onclick="openFieldCard()"]')].filter(shown),seen=all.find(b=>{const r=b.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight});(seen||all[0])?.focus({preventScroll:!seen});}
 document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 """
 
@@ -93,8 +106,10 @@ def patch(text: str) -> str:
     text = replace_block(text, CSS_BLOCK, f"{CSS_START}\n{css}\n{MODAL_CSS}\n{CSS_END}", "card styles")
     only_the_card(text)
     text = replace_block(text, r"<!-- FIELD CARD INTEGRATED -->.*?<!-- FIELD CARD INTEGRATED END -->", modal(fragment), "card dialog")
+    # The dialog comes first: if the card's script ever stops, the button still opens the card
+    # (a stored value with a quote once left the dialog's `let` uninitialised, red team 2026-10-20).
     return replace_block(text, r"<!-- FIELD CARD JS START -->.*?<!-- FIELD CARD JS END -->",
-                         f"<!-- FIELD CARD JS START -->\n{js}\n{MODAL_JS}\n<!-- FIELD CARD JS END -->", "card script")
+                         f"<!-- FIELD CARD JS START -->\n{MODAL_JS.strip()}\n{js}\n<!-- FIELD CARD JS END -->", "card script")
 
 
 def main() -> None:

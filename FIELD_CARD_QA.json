@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 56,
+  "checks": 63,
   "failures": [],
   "results": [
     {
@@ -228,6 +228,70 @@
       "detail": []
     },
     {
+      "name": "home page dialog on a phone: the page behind is not drawn while the card covers it, and comes back where it was",
+      "pass": true,
+      "detail": {
+        "before": [
+          true,
+          2400
+        ],
+        "open": [
+          false,
+          2400
+        ],
+        "closed": [
+          true,
+          2400
+        ]
+      }
+    },
+    {
+      "name": "home page dialog: printing with the card open prints the page",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "home page dialog at 1280 px, where the page shows around the card: the page stays drawn",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "home page dialog: closed after a resize from 390 to 1280 px hides its opener, focus goes to an opener on the page and the page stays where it was",
+      "pass": true,
+      "detail": {
+        "focus": [
+          "openFieldCard()",
+          true,
+          false,
+          2530
+        ],
+        "scroll before": 2530
+      }
+    },
+    {
+      "name": "home page dialog: closed after a resize from 1280 to 600 px hides its opener, focus goes to an opener on the page and the page stays where it was",
+      "pass": true,
+      "detail": {
+        "focus": [
+          "openFieldCard()",
+          true,
+          true,
+          2400
+        ],
+        "scroll before": 2400
+      }
+    },
+    {
+      "name": "damaged memory (4 cases): the card starts, picks the light and saves the next tick",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "damaged memory (4 cases): the home page's button still opens the card",
+      "pass": true,
+      "detail": {}
+    },
+    {
       "name": "your gear: the picker shows, set to the Canon 6D kit, and shots show no extra line",
       "pass": true,
       "detail": null
@@ -383,14 +447,14 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-19T22:06:12.485739+00:00",
-  "audited_commit": "2d222b859f1143252f77414bb0c164befcb5eb6c",
+  "audited_at": "2026-10-20T21:58:19.248021+00:00",
+  "audited_commit": "ba38fce1d76db93dd1bbb4ac0bad3c96a1cc8166",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
-    "dist/canon6d_sota_hosted/field_card.html": "834c807645282ff78a700a864c820d8c83697c423c43e517de70384de0365b66",
-    "dist/canon6d_sota_hosted/index.html": "48683577feed13ab58a17458f59e93df40013c63c53ccb5d0f9805131e5d9bc4",
-    "dist/canon6d_sota_hosted/sw.js": "6b50c8e4c6c932c94b73e8e700a03aa286f675ff2cdf4d31cde7b9ccc9250a42",
-    "field_card.html": "834c807645282ff78a700a864c820d8c83697c423c43e517de70384de0365b66",
+    "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
+    "dist/canon6d_sota_hosted/index.html": "7ff87f5043724ceb068c293df541619f93dc5ee169b2b405fb259fb132c26708",
+    "dist/canon6d_sota_hosted/sw.js": "76fee15647aee420aba5cb93233292d976a72966fda239cd12322f9582d76777",
+    "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
 }

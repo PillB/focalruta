@@ -244,6 +244,107 @@ def in_home_dialog(browser, base: str) -> None:
     context.close()
 
 
+# Whether the page behind the dialog is drawn (the first heading of its content, which also
+# prints), and where it is scrolled to.
+BEHIND = "() => [document.querySelector('#contenido h2').checkVisibility(), Math.round(scrollY)]"
+
+
+def page_behind_home_dialog(browser, base: str) -> None:
+    """Below 900 px the card covers the screen and the page behind it is not drawn while it is open;
+    it comes back where the reader left it, prints, and stays drawn where it shows around the card."""
+    context = browser.new_context(**PHONE)
+    page = context.new_page()
+    page.goto(base + "index.html", wait_until="load")
+    page.evaluate("scrollTo({top: 2400, behavior: 'instant'})")
+    before = page.evaluate(BEHIND)
+    page.evaluate("openFieldCard()")
+    page.wait_for_timeout(300)
+    during = page.evaluate(BEHIND)
+    page.emulate_media(media="print")
+    printed = page.evaluate(BEHIND)[0]
+    page.emulate_media(media="screen")
+    page.locator("#field-card-modal .fc-modal-bar button").first.click()
+    after = page.evaluate(BEHIND)
+    check("home page dialog on a phone: the page behind is not drawn while the card covers it, and comes back where it was",
+          before[0] and not during[0] and after == before, {"before": before, "open": during, "closed": after})
+    check("home page dialog: printing with the card open prints the page", printed, printed)
+    context.close()
+    context = browser.new_context(viewport={"width": 1280, "height": 800})
+    page = context.new_page()
+    page.goto(base + "index.html", wait_until="load")
+    page.evaluate("openFieldCard()")
+    page.wait_for_timeout(300)
+    check("home page dialog at 1280 px, where the page shows around the card: the page stays drawn", page.evaluate(BEHIND)[0])
+    context.close()
+
+
+# Where focus is (the opener's onclick, whether it is shown, and whether it is on screen) and
+# where the page is scrolled to.
+FOCUS = """() => { const a = document.activeElement, r = a.getBoundingClientRect();
+  return [a.getAttribute('onclick'), a.checkVisibility(), r.bottom > 0 && r.top < innerHeight, Math.round(scrollY)]; }"""
+
+
+def home_dialog_focus_after_resize(browser, base: str) -> None:
+    """Opened, then the window crosses 900 px, which hides the opener used (the phone's bottom bar
+    above it, the top bar's button below it), then closed: focus goes to an opener on the page,
+    preferably one on screen, and the page does not move."""
+    for start, end, opener in ((390, 1280, ".mobile-bottom-nav button"), (1280, 600, "nav.sticky button")):
+        context = browser.new_context(viewport={"width": start, "height": 800})
+        page = context.new_page()
+        page.goto(base + "index.html", wait_until="load")
+        page.evaluate("scrollTo({top: 2400, behavior: 'instant'})")
+        page.evaluate("(s) => { document.querySelector(s).focus({preventScroll: true}); openFieldCard(); }",
+                      opener + '[onclick="openFieldCard()"]')
+        page.set_viewport_size({"width": end, "height": 800})
+        page.wait_for_timeout(200)
+        before = page.evaluate("Math.round(scrollY)")
+        page.keyboard.press("Escape")
+        page.wait_for_timeout(1000)  # the page scrolls smoothly: give a focus scroll time to land
+        focus = page.evaluate(FOCUS)
+        check(f"home page dialog: closed after a resize from {start} to {end} px hides its opener, focus goes to an "
+              "opener on the page and the page stays where it was",
+              focus[:2] == ["openFieldCard()", True] and focus[3] == before, {"focus": focus, "scroll before": before})
+        context.close()
+
+
+# What the card's memory may hold after an older version, an edit by hand or a damaged
+# store: a quote in a stored choice (red team, 2026-10-20), JSON that is not an object, and
+# a list of done shots that is not one.
+DAMAGED_MEMORY = {
+    "a quote in the stored choices": {"plan": 'plan_c"]', "subject": 'dog"', "slot": '"', "slotDay": "x", "done": {}},
+    "a string": "plan_c",
+    "a list": ["plan_c"],
+    "done shots that are a number": {"plan": "plan_c", "done": 5},
+}
+
+
+def damaged_memory(browser, base: str) -> None:
+    """V09: whatever the card finds in its memory, it starts and keeps working, and so does the home page's dialog."""
+    card_broken, home_broken = {}, {}
+    for case, stored in DAMAGED_MEMORY.items():
+        context = browser.new_context(**PHONE)
+        context.add_init_script(f"localStorage.setItem('focalruta-campo-v1', {json.dumps(json.dumps(stored))})")
+        errors: list[str] = []
+        page = open_card(context, base, errors)
+        page.locator("#field-card-app .fc-slot:visible .fc-check-wrap").first.click()
+        kept = page.evaluate("(() => { try { return JSON.parse(localStorage.getItem('focalruta-campo-v1')).done } catch (e) { return String(e) } })()")
+        state = [page.evaluate(CHOSEN, "fc-slot"), page.locator("#fc-count").inner_text(), kept]
+        if errors or not state[0] or state[1] != "1/10" or not isinstance(kept, dict) or len(kept) != 1:
+            card_broken[case] = [state, errors[:2]]
+        home_errors: list[str] = []
+        home = context.new_page()
+        home.on("pageerror", lambda e, sink=home_errors: sink.append(str(e)))
+        home.goto(base + "index.html", wait_until="load")
+        home.locator('button[onclick="openFieldCard()"]:visible').first.click()
+        if home_errors or not home.locator("#field-card-modal").is_visible():
+            home_errors.append(f"dialog visible: {home.locator('#field-card-modal').is_visible()}")
+            home_broken[case] = home_errors[:3]
+        context.close()
+    check(f"damaged memory ({len(DAMAGED_MEMORY)} cases): the card starts, picks the light and saves the next tick",
+          not card_broken, card_broken)
+    check(f"damaged memory ({len(DAMAGED_MEMORY)} cases): the home page's button still opens the card", not home_broken, home_broken)
+
+
 # A01 by day is 35 mm, f/11, 1/125, ISO 400 at 4 m, sharp to infinity. On a
 # Canon APS-C sensor (22.3 mm wide) the same field of view is 35 × 22.3/35.8 =
 # 21.8 mm; the same hyperfocal distance with the circle of confusion scaled to
@@ -541,7 +642,8 @@ def main() -> int:
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
-        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, your_gear, overflow, axe_states):
+        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog, home_dialog_focus_after_resize, damaged_memory, your_gear,
+                     overflow, axe_states):
             guarded(step, browser, base)
         deploys(browser)
         browser.close()

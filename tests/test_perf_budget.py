@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import deploy_rehearsal  # noqa: E402
+import interaction_budget  # noqa: E402
 import perf_budget_qa  # noqa: E402
 import static_server  # noqa: E402
 
@@ -199,6 +200,7 @@ def test_x02_another_build_is_fingerprinted_as_itself_and_an_unknown_page_is_nam
                                                                             "other_origins": [],
                                                                             **{name: 0 for name, _b, _u in perf_budget_qa.TIMING_BUDGETS}})
     monkeypatch.setattr(perf_budget_qa.evidence, "write_report", lambda path, report, audited: written.update(audited=list(audited)))
+    monkeypatch.setattr(perf_budget_qa, "measure_taps", lambda base, only: ({}, []))
     monkeypatch.setattr(sys, "argv", ["perf_budget_qa.py", "--dist", str(other), "--only", "index.html", "--report", str(tmp_path / "r.json")])
     perf_budget_qa.main()
     assert written["audited"] and all(Path(path).is_relative_to(other) for path in written["audited"]), written["audited"][:2]
@@ -206,3 +208,120 @@ def test_x02_another_build_is_fingerprinted_as_itself_and_an_unknown_page_is_nam
     with pytest.raises(SystemExit) as stopped:
         perf_budget_qa.main()
     assert stopped.value.code == 2
+
+
+def test_x06_the_slowdown_search_lands_on_each_phone_tier():
+    """DevTools' bisection, on a machine whose benchmark score falls as 1/slowdown."""
+    for host in (1100, 2500, 4000):
+        for _tier, target, _budget in interaction_budget.TIERS:
+            rate = interaction_budget.bisect(lambda r: host / r, target, host)
+            assert abs(host / rate - target) < 10 or abs(rate - host / target) <= 0.01
+    # A machine slower than a tier is measured as it is: its numbers can only be worse.
+    assert interaction_budget.bisect(lambda r: 900 / r, 1000, 900) == 1.0
+
+
+def test_x06_a_tap_at_its_budget_passes_and_just_over_fails():
+    for _tier, _target, budget in interaction_budget.TIERS:
+        _result, at_budget = interaction_budget.judge("index.html", "open the field card", _tier, budget,
+                                                      [10, budget, budget, budget + 300, 900])
+        _result, over = interaction_budget.judge("index.html", "open the field card", _tier, budget,
+                                                 [10, budget + 1, budget + 1, budget + 2, 900])
+        assert at_budget["pass"] and not over["pass"]
+        _result, missing = interaction_budget.judge("index.html", "open the field card", _tier, budget, [10, None, 10, 10, 10])
+        assert (missing["pass"], missing["detail"]) == (False, "nothing to tap")
+        assert over["name"] == f"index.html: open the field card answers within {budget} ms on a {_tier}"
+        _result, unseen = interaction_budget.judge("index.html", "open the field card", _tier, budget, [10, None, 10, 10, 10],
+                                                   "shows the card's plans", "not on screen in time")
+        assert unseen == {"name": f"index.html: open the field card shows the card's plans within {budget} ms on a {_tier}",
+                          "pass": False, "detail": "not on screen in time"}
+    assert [budget for _tier, _target, budget in interaction_budget.TIERS] == [200, 500]
+
+
+def test_x06_a_tap_that_answers_at_once_but_shows_its_content_late_fails(monkeypatch):
+    """The red team's case: the first frame comes fast and the content 800 ms later. The answer
+    passes and what the tap was for fails; content that never shows fails by name."""
+    monkeypatch.setattr(interaction_budget, "sees_deferred_work", lambda browser: {"name": "instrument", "pass": True, "detail": {}})
+    monkeypatch.setattr(interaction_budget, "finds_every_target", lambda browser, base: {"name": "targets", "pass": True, "detail": []})
+    monkeypatch.setattr(interaction_budget, "calibrate", lambda browser: {"host_benchmark_index": 2000,
+                                                                          "rates": {"mid-tier phone": 2.0, "low-tier phone": 7.5}})
+    taps = {"open the field card": (40, 840), "open the field card at tablet width": (40, 900), "pick another plan": (40, None)}
+
+    def tap_once(browser, url, selector, shows, rate, screen):
+        action = next(action for _p, action, tapped, shown, _w, at in interaction_budget.INTERACTIONS
+                      if (tapped, shown, at) == (selector, shows, screen))
+        return taps.get(action, (40, 60))
+
+    monkeypatch.setattr(interaction_budget, "tap_once", tap_once)
+    report, checks = interaction_budget.measure(None, "http://x/", {"index.html", "field_card.html"})
+    failed = {check["name"]: check["detail"] for check in checks if not check["pass"]}
+    assert failed == {f"index.html: open the field card shows the card's plans within {budget} ms on a {tier}": 840
+                      for tier, _target, budget in interaction_budget.TIERS} | {
+                     f"index.html: open the field card at tablet width shows the first shot within {budget} ms on a {tier}": 900
+                     for tier, _target, budget in interaction_budget.TIERS} | {
+                     f"field_card.html: pick another plan shows the plan's name within {budget} ms on a {tier}": "not on screen in time"
+                     for tier, _target, budget in interaction_budget.TIERS}
+    assert len(checks) == 2 + 2 * len(interaction_budget.TIERS) * len(interaction_budget.INTERACTIONS)
+    assert [check["name"] for check in checks[:2]] == ["instrument", "targets"] and len(report["results"]) == len(checks) - 2
+
+
+class Lit:
+    """A field card that shows, in each light, only the tick for that light: the first tick of
+    a shot is the day's."""
+
+    def __init__(self):
+        self.light, self.clicked = "day", []
+
+    def new_context(self, **_options):
+        return self
+
+    def new_page(self):
+        return self
+
+    def goto(self, *_args, **_kwargs):
+        pass
+
+    def close(self):
+        pass
+
+    def locator(self, selector):
+        self.selector = selector
+        return self
+
+    @property
+    def first(self):
+        return self
+
+    def click(self):
+        self.light = self.selector.split('value="')[1].split('"')[0]
+        self.clicked.append(self.light)
+
+    def is_visible(self):
+        if self.selector == ".fc-shot:visible .fc-check-wrap":
+            return self.light == "day"
+        return True
+
+
+def test_x06_a_tap_that_finds_its_target_only_in_daylight_fails_by_light(monkeypatch):
+    """The card opens in the light Lima's clock says; the tick tap must find a tick in each."""
+    card = Lit()
+    assert interaction_budget.finds_every_target(card, "http://x/")["pass"]
+    assert card.clicked == list(interaction_budget.LIGHTS)
+    monkeypatch.setattr(interaction_budget, "INTERACTIONS", tuple(
+        (page, action, ".fc-shot:visible .fc-check-wrap" if action == "tick a shot" else selector, *rest)
+        for page, action, selector, *rest in interaction_budget.INTERACTIONS))
+    check = interaction_budget.finds_every_target(Lit(), "http://x/")
+    assert not check["pass"] and check["detail"] == ["tick a shot in the afternoon light", "tick a shot in the night light"]
+
+
+def test_x06_every_tap_is_on_a_page_the_budget_serves_and_is_there_to_tap():
+    pages = {page for page, _kind, _kb in perf_budget_qa.PAGES}
+    # What each tap presses, and what it is for, as the published page spells it.
+    marks = {"openFieldCard()": "index.html", "Abrir detalle ampliado": "index.html", "fc-plans": "field_card.html",
+             "fc-slots": "field_card.html", "fc-check-wrap": "field_card.html",
+             'class="fc-option"': "index.html", 'class="fc-shot"': "index.html", "reasoning-block": "index.html",
+             'class="fc-plan-name" data-plan="plan_b"': "field_card.html",
+             'data-slot="night"': "field_card.html", 'class="fc-box"': "field_card.html"}
+    for page, _action, _selector, _shows, _what, screen in interaction_budget.INTERACTIONS:
+        assert page in pages and screen in (interaction_budget.PHONE, interaction_budget.TABLET)
+    for mark, page in marks.items():
+        assert mark in (DIST / page).read_text(encoding="utf-8"), mark

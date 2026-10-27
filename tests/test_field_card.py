@@ -284,3 +284,15 @@ def test_v06_lima_clock_reads_the_same_from_any_time_zone():
         env = {"PATH": __import__("os").environ["PATH"], "TZ": zone}
         out = subprocess.run(["node", "-e", script], check=True, capture_output=True, text=True, env=env).stdout
         assert json.loads(out) == 17 * 60 + 50, zone
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node is not installed")
+def test_v09_memory_keeps_only_what_the_card_writes():
+    """A damaged store cannot stop the card: anything but the card's own shape is dropped (red team, 2026-10-20)."""
+    kept = {"plan": "plan_c", "subject": "dog", "slot": "night", "slotDay": "2026-10-20", "packed": "2026-10-19",
+            "night": True, "done": {"plan_c/C01/night": 1}}
+    damaged = ['{"plan":"plan_c\\"]","subject":7,"done":5,"night":"yes"}', '"plan_c"', '["plan_c"]', "null", "{", None]
+    out = run_node(f"[{json.dumps(json.dumps(kept))},...{json.dumps(damaged)}].map(F.readState)")
+    assert out[0] == kept
+    assert out[1] == {"plan": 'plan_c"]', "done": {}}  # a string survives as a string; the card compares it, never parses it
+    assert out[2:] == [{"done": {}}] * 5

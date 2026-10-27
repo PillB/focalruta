@@ -47,6 +47,17 @@ document.querySelectorAll('.learning-lab').forEach(article=>{article.querySelect
 document.querySelector('#route-district').addEventListener('change',()=>{const district=document.querySelector('#route-district').value;document.querySelectorAll('#route-collections .scene').forEach(card=>{card.hidden=district!=='all'&&!card.querySelector('.eyebrow').textContent.startsWith(district+' ·')})});
 """
 
+# The research files name each scene's mechanism with an English identifier; a reader gets
+# its Spanish name (V12). An identifier without one stops the build instead of printing it.
+SCENE_MECHANISMS = {
+    "DECISIVE_MOTION_IN_DESIGNED_RAMP": "Movimiento decisivo en una rampa diseñada",
+    "CIVIC_SYMBOL_VERSUS_EVERYDAY_ECOLOGY": "Símbolo cívico frente a la vida cotidiana a su alrededor",
+    "MEMORY_INSTITUTION_LANDSCAPE_THRESHOLD": "Umbral entre un lugar de memoria y su paisaje",
+    "INTERIOR_RITUAL_AND_MATERIAL_WEAR": "Ritual interior y desgaste del material",
+    "ADAPTIVE_REUSE_OLD_NEW": "Reúso: lo antiguo frente a lo nuevo",
+    "INFRASTRUCTURE_CHANNELS_MIXED_MOVEMENT": "La infraestructura encauza movimientos mezclados",
+}
+
 NAV_ITEMS = (
     ("today", "Inicio"),
     ("how-to-read", "Cómo usar"),
@@ -74,7 +85,7 @@ def scene_cards(candidates: list[dict], cohort: dict, verification: dict) -> str
     cards = []
     for candidate in candidates:
         verified = active.get(candidate["canonical_id"])
-        mechanism = verified["primary_scene_mechanism"].replace("_", " ").title() if verified else "Mecanismo visual por investigar"
+        mechanism = SCENE_MECHANISMS[verified["primary_scene_mechanism"]] if verified else "Mecanismo visual por investigar"
         rejection = "La hipótesis todavía necesita fuentes actuales, comprobación en campo y una prueba A/B/C/D/E; no la tomes como un hecho terminado."
         visual_count = len(progress[candidate["canonical_id"]]["visual_reference_families"])
         desk_verified = progress[candidate["canonical_id"]]["verification_complete"]
@@ -237,17 +248,22 @@ def lesson_cards(learning: dict) -> str:
     return "".join(cards)
 
 
-def video_transfer_cards(learning: dict) -> str:
+def video_transfer_cards(learning: dict, ledger: dict) -> str:
+    """Each video's lesson in Spanish, with its source cited under its own English title (V12)."""
+    videos = {video["video_id"]: video for video in ledger["videos"]}
     cards = []
     for module in learning["video_modules"]:
+        video = videos[module["video_id"]]
         seconds = int(module["timestamp_seconds"])
         url = f'https://www.youtube.com/watch?v={module["video_id"]}&t={seconds}'
+        lang = f' lang="{escape(video["title_lang"])}"' if video.get("title_lang") else ""
         cards.append(
             f'<article class="video-transfer"><p class="eyebrow">VIDEO · Lección con subtítulos</p>'
-            f'<h3>Decisión práctica: {escape(module["video_id"])}</h3><p>Observa cómo una decisión de posición, luz, composición o enfoque cambia la lectura de una escena.</p>'
-            f'<p><strong>Al campo:</strong> Repite la idea en una parada real, cambia una sola variable y anota qué relación se volvió más clara.</p>'
-            f'<p class="reject"><strong>Evita este error:</strong> No copies una regla automáticamente; comprueba si mejora la historia y respeta el encargo.</p>'
-            f'<p class="source-links"><a href="{escape(url)}">Abrir momento citado · {seconds // 60}:{seconds % 60:02d}</a></p></article>'
+            f'<h3>{escape(module["title"])}</h3><p>{escape(module["mechanism"])}</p>'
+            f'<p><strong>Al campo:</strong> {escape(module["field_transfer"])}</p>'
+            f'<p class="reject"><strong>Evita este error:</strong> {escape(module["misuse_risk"])}</p>'
+            f'<p class="source-links"><cite{lang}>{escape(video["exact_title"])}</cite> · {escape(video["channel"])} · '
+            f'<a href="{escape(url)}">Abrir momento citado · {seconds // 60}:{seconds % 60:02d}</a></p></article>'
         )
     return "".join(cards)
 
@@ -379,6 +395,8 @@ def evidence_articles(ledger: dict) -> str:
             continue
         title = video.get("exact_title") or video.get("working_title") or f'Video {video["video_id"]}'
         channel = video.get("channel") or "Canal no verificado"
+        # The title is the video's own, in its language; a working title is ours, in Spanish.
+        lang = f' lang="{escape(video["title_lang"])}"' if video.get("exact_title") and video.get("title_lang") else ""
         items = "".join(
             f'<li>{escape(claim["claim"])} '
             f'<a href="https://www.youtube.com/watch?v={escape(video["video_id"])}&t={int(claim["timestamp_seconds"])}s">'
@@ -386,7 +404,7 @@ def evidence_articles(ledger: dict) -> str:
             for claim in claims
         )
         cards.append(
-            f'<article class="evidence-card"><h3>{escape(title)}</h3><p class="eyebrow">{escape(channel)}</p>'
+            f'<article class="evidence-card"><h3{lang}>{escape(title)}</h3><p class="eyebrow">{escape(channel)}</p>'
             f'<ul>{items}</ul><span class="status">Afirmación contrastada con los subtítulos del propio video</span></article>'
         )
     return "".join(cards)
@@ -430,7 +448,7 @@ def reorder_story(page: str) -> str:
     return page[:first] + "".join(sections[item] for item in order) + page[last_match.end():]
 
 
-def render(learning: dict, photographers: dict, cohort: dict | None = None, candidates: list[dict] | None = None, verification: dict | None = None, ranking: dict | None = None, routes: dict | None = None, discoveries: dict | None = None, discovery_dossiers: dict | None = None) -> str:
+def render(learning: dict, photographers: dict, cohort: dict | None = None, candidates: list[dict] | None = None, verification: dict | None = None, ranking: dict | None = None, routes: dict | None = None, discoveries: dict | None = None, discovery_dossiers: dict | None = None, ledger: dict | None = None) -> str:
     cohort = cohort or json.loads(COHORT_PATH.read_text(encoding="utf-8"))
     candidates = candidates or json.loads(CANONICAL_PATH.read_text(encoding="utf-8"))
     verification = verification or json.loads(VERIFICATION_PATH.read_text(encoding="utf-8"))
@@ -438,6 +456,7 @@ def render(learning: dict, photographers: dict, cohort: dict | None = None, cand
     routes = routes or json.loads(ROUTES_PATH.read_text(encoding="utf-8"))
     discoveries = discoveries or json.loads(DISCOVERIES_PATH.read_text(encoding="utf-8"))
     discovery_dossiers = discovery_dossiers or json.loads(DISCOVERY_DOSSIERS_PATH.read_text(encoding="utf-8"))
+    ledger = ledger or json.loads(VIDEO_LEDGER_PATH.read_text(encoding="utf-8"))
     visual_started = sum(bool(item["visual_reference_families"]) for item in verification["records"])
     desk_verified = sum(item["verification_complete"] for item in verification["records"])
     options = "".join(f'<option value="{escape(s["canonical_id"])}">{escape(s["name"])}</option>' for s in candidates)
@@ -449,7 +468,7 @@ def render(learning: dict, photographers: dict, cohort: dict | None = None, cand
     )
     physics_json = json.dumps(lab_visuals.physics_tables(), ensure_ascii=False, separators=(",", ":"))
     lessons_html = lesson_cards(learning)
-    videos_html = video_transfer_cards(learning)
+    videos_html = video_transfer_cards(learning, ledger)
     labs_html = learning_labs(learning)
     techniques_html = technique_cards(learning)
     routed_stops = sum(len(layer["stops"]) for layer in routes["district_layers"])

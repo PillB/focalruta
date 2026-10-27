@@ -1985,6 +1985,537 @@ Revisó a mano los atributos `style` y los valores que pone el JavaScript: todos
 notas que no bloquean, ahora en los compromisos. Falta el hilo de comprobación en vivo, tras el
 despliegue; fusionar sigue necesitando la palabra de Pablo.
 
+## Ronda 17 · Lo que PR #21 dejó para después (2026-10-20)
+
+PR #21 se fusionó con la palabra de Pablo («Merge now») como 9cd348d. El despliegue
+(corrida 39457468967) publicó el worker `focalruta-1ce8b23ec608`, y su comprobación del
+sitio publicado, presupuestos de velocidad incluidos, pasó a las 16:36 UTC; el hilo de
+comprobación en vivo también lo aprobó. Esta ronda atiende lo que quedó pendiente: la nota
+del red team sobre `choose()` (V09), el texto en inglés de las páginas del desafío (V12) y
+la apertura lenta de la tarjeta desde el inicio, que ahora tiene requisito propio (X06).
+Fusionar sigue necesitando la palabra de Pablo.
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| V09 | La tarjeta arranca con lo que encuentre en su memoria, y el botón del inicio la abre aunque el script de la tarjeta se detenga | sobre 9cd348d, cuatro memorias estropeadas (una comilla en lo elegido, una cadena, una lista, tomas marcadas que son un número): con la comilla, `choose()` lanza `SyntaxError` al armar el selector; con la cadena, «Cannot create property 'done' on string»; con la lista no se guarda la marca siguiente; y en el inicio, «Cannot access 'fcOpener' before initialization»: el botón no abre nada | los cuatro casos en `field_card_qa.py` (dos comprobaciones nuevas, 58/58): la tarjeta arranca, elige la luz y guarda la marca siguiente, y el botón del inicio abre el diálogo. Mutante: si el script de la tarjeta se detiene en su primera línea, el diálogo se abre igual (`{'dialog_visible': True}`). `test_v09_memory_keeps_only_what_the_card_writes` en Node |
+| V12 | Ninguna página publicada tiene prosa en inglés fuera de `lang="en"`; cada mecanismo de escena tiene nombre en español | `tests/test_spanish_text.py` sobre 9cd348d: 3 fallan y 75 pasan. Las dos copias de `wiki-tecnicas.html` tienen 11 tramos en inglés (las afirmaciones de los videos); `SCENE_MECHANISMS` no existe y las seis escenas verificadas muestran «Decisive Motion In Designed Ramp» y similares | 78/78. Los seis mecanismos en español (un identificador sin nombre detiene la build); las seis lecciones de video en español, con el inglés guardado en `original_en`; los títulos originales con `lang="en"` |
+| X06 | Los toques más usados responden en 200 ms en un teléfono de gama media y nunca pasan de 500 ms en uno de gama baja | con la CPU calibrada como DevTools, abrir la tarjeta desde el inicio en la build de 1f72869, alternando con la nueva sobre la misma calibración (gama media 1.95×, baja 7.09×): gama media 96 ms (88–120), gama baja 440 ms (376–520), una corrida sobre la marca «mala» de INP; en otra calibración, 512 ms de mediana (432–544). Un mutante que ocupa 400 ms en `openFieldCard()` falla en los dos niveles (448 y 592 ms). Tres pruebas unitarias nuevas (búsqueda, presupuesto exacto y justo encima, nada que tocar) | la build nueva en la misma calibración: gama media 56 ms (56–64), gama baja 280 ms (224–360). En `PERF_BUDGET_QA.json` sobre 9d76947, 10/10 (gama media 1.91×, baja 7.44×): abrir la tarjeta 72 y 264 ms, el detalle de una toma 80 y 200, elegir plan 32 y 112, elegir luz 32 y 96, marcar una toma 24 y 104 |
+
+### Cómo se encontró la causa (X06)
+
+Con la CPU 4× más lenta, la apertura costaba 240–264 ms: estilo unos 100 ms sobre 954
+elementos y diseño 111–146 ms sobre 613 objetos. Las estadísticas de selectores de Chrome
+suman 6.6 ms sin frenar la CPU, así que no eran los selectores (los `:has()` de la tarjeta
+incluidos). Quitar `inert` ahorraba unos 40 ms; se queda, porque es lo que deja fuera de
+alcance la página de atrás. Tres palancas:
+
+- Las tomas fuera de la pantalla: con `content-visibility:auto` en cada una, el diseño baja
+  de 613 a 409 objetos.
+- La pila de fuentes: en Linux, cada familia que el navegador busca y no tiene
+  (`-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, `Roboto`) cuesta; con `system-ui`
+  primero, el diseño bajaba de unos 120 a 64 ms a 4×. No se quedó: en Linux `system-ui` es
+  DejaVu Sans, más ancha que Arial, y la suite de release encontró a 320 px la pestaña
+  «Encuadre» cortada (61 px de texto en 58). En un teléfono la pila encuentra su fuente en
+  la primera o la segunda familia.
+- El primer cuadro: la cabecera de la tarjeta se pinta sola y los paneles un cuadro después
+  (`requestAnimationFrame` y luego una tarea).
+
+Un 4× fijo mide la máquina además de la página. Por eso X06 calibra como DevTools
+(`devtools-frontend`, `panels/mobile_throttling/CalibrationController.ts`): corre el
+BenchmarkIndex de Lighthouse en el navegador y busca por bisección la ralentización con la
+que puntúa como el teléfono de gama media de DevTools (1000, un Pixel 5) y el de gama baja
+(264, un Moto G Power 2022).
+
+### Cambios visibles
+
+- Abrir la tarjeta desde el inicio: el diálogo aparece con la barra y la cabecera de la
+  tarjeta; los planes llegan un cuadro después y las tomas uno más tarde. En un teléfono de
+  gama baja, la barra y la cabecera aparecen en 224–360 ms en vez de 376–520; en uno de gama
+  media, en unos 56 ms en vez de 96. (Corregido tras R1: eso es la primera pintura. En
+  9e2d121 los planes llegaban algo después que antes del PR; con 46f04db llegan a 342 ms en
+  vez de 484 en gama baja. Ver «Rechazo del red team».)
+- Las tomas que no están en pantalla se dibujan al acercarse. La barra de desplazamiento
+  puede ajustarse un poco cuando una toma se dibuja por primera vez.
+- Páginas del desafío: subtítulos de escena en español; cada tarjeta de video muestra su
+  propia lección (antes, seis textos genéricos iguales bajo «Decisión práctica:
+  pkMssQPul9o») y cita el video con su título original; la guía de técnicas, en español.
+- La tarjeta ya no se detiene por lo que encuentre guardado.
+
+### Compromisos explícitos
+
+- En el primer cuadro tras el toque, los planes y las tomas no están todavía: un lector de
+  pantalla no los encuentra durante ese cuadro. El foco va al botón de cerrar, que sí está.
+- `content-visibility:auto` contiene el pintado de cada toma: lo que se saliera de ella se
+  recortaría. Los anillos de foco caben (5 px dentro de 12 px de relleno), y al imprimir las
+  tomas se dibujan todas (`content-visibility:visible`). Safari lo ignora antes de la 18 y
+  dibuja todo, como antes.
+- La calibración repite la de DevTools con una diferencia: la mediana de tres corridas por
+  tasa, en vez de una, porque una máquina compartida de CI es más ruidosa. Aun así la tasa
+  varía entre calibraciones (gama media 1.38–2.09×, gama baja 6.29–7.96× aquí, con
+  puntuaciones de 1908 a 2741) y los toques con ella. El BenchmarkIndex mide JavaScript; el
+  estilo y el diseño no escalan igual, así que las cifras de gama baja son aproximadas
+  (inferido de la variación).
+- El presupuesto de gama baja es «nunca malo» (500 ms), no «bueno» (200 ms): ahí abrir la
+  tarjeta sigue en 192–280 ms la primera pintura y 273–395 ms los planes (46f04db). Bajarla de
+  200 en gama baja pediría dibujar menos de la tarjeta en el primer cuadro.
+- No hay teléfono real: todo lo medido es emulación calibrada en Linux, donde buscar las
+  fuentes que faltan pesa; que pese menos en un teléfono sigue siendo inferido.
+- La detección de inglés cuenta palabras funcionales; una etiqueta corta en inglés (como los
+  subtítulos de escena) se le escapa. Eso lo cubre la prueba de los mecanismos, no el
+  detector.
+- `original_en` se publica en `data/architecture/learning.json`: es material público de las
+  lecciones y ninguna página lo muestra.
+
+### Referencia de experto por decisión
+
+- INP y sus marcas (200 ms «bueno», 500 ms «malo») y la Event Timing API: web.dev/articles/inp.
+  Dejar que el navegador pinte antes del trabajo pesado: web.dev/articles/optimize-inp.
+- Calibración de la CPU: `CalibrationController.ts` de devtools-frontend (puntuaciones 1000 y
+  264, bisección hasta 10 puntos) y el BenchmarkIndex de Lighthouse (`page-functions.js`).
+- CSS Containment 2: `content-visibility:auto` aplica contención de diseño, estilo y pintado
+  siempre, y de tamaño sólo mientras se salta; `contain-intrinsic-size:auto` recuerda la
+  última altura.
+- WCAG 2.2, 3.1.2 (idioma de las partes): un título en inglés dentro de una página en
+  español lleva `lang="en"`.
+
+### Errores propios encontrados en esta ronda
+
+- La primera mejora la medí con un 4× fijo (240 → 168 ms), y buena parte era la búsqueda de
+  fuentes en Linux. Calibrado, en gama media la diferencia de esas dos palancas era pequeña
+  (112 → 96 ms); lo que mueve a gama baja es pintar primero la cabecera.
+- Cambié la pila de fuentes por velocidad sin medir antes el ancho del texto con la fuente que
+  resultaba en Linux; la suite de release lo encontró a 320 px en el primer cierre (commit
+  local, sin publicar) y lo deshice.
+- Una sonda pasó a `page.evaluate` una asignación cuyo valor era una función, y Playwright la
+  ejecutó: el diálogo se abría antes del clic y la medición se colgaba. Ahora la envuelve.
+- El primer `git add` excluía `.claude` con un pathspec; git se negó porque la carpeta ya está
+  ignorada y no se hizo el commit. Lo vi en el log y repetí sin la exclusión.
+
+Escalada de investigación: no se activó; ninguna hipótesis de arreglo falló. La calibración
+se tomó de la fuente de DevTools antes de escribir el presupuesto.
+
+### Cierre (comandos, código de salida, resumen)
+
+Sobre el árbol limpio, con las fuentes de CI y el Chromium completo
+(`FOCALRUTA_CHROME=/opt/pw-browsers/chromium`), y sirviendo sólo la raíz pública `dist/`:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en 9d76947 | 0 | release 450/450, axe 80/80, tarjeta 58/58, velocidad 122/122 (112 de carga y 10 toques), visual 37/37, óptica 22/22; reportes en 878ec1b |
+| las cinco suites de `tests/architecture/browser_*.py` en 9d76947 | 0 | todas en verde |
+| `pytest -q` en 878ec1b | 0 | 896 pasan, 1 omitida (`test_editorial_contracts.py`: `wiki-tecnicas.html` no usa Schlick) |
+| `pytest tests/architecture -q` | 0 | 344 pasan, 1 omitida (la misma) |
+| `verify_architecture.py` (con el escaneo de privacidad), `verify_release.py` (mínimos: tarjeta 58, velocidad 122) | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+
+El primer cierre, sobre un commit local que luego se rehízo, falló en la suite de release:
+«field_card 320 nothing cut off at the edges: label.fc-tab «▦Encuadre» label runs out 61>58»,
+por la pila de fuentes con `system-ui` primero. Se deshizo ese cambio y el cierre de arriba
+corrió entero sobre el commit nuevo.
+
+Sin fallos abiertos.
+
+Verificación independiente: el red team revisó 9e2d121 (`qa/FINDINGS_PR22.md`) y reprodujo
+V09, V12 y los anillos de foco; rechazó X06 por no medir lo que el PR aplazó (R1, abajo). El hilo de comprobación
+en vivo dejó dos notas sobre 9cd348d (`qa/LIVE_CHECK_PR21.md`): los dos botones de lista son de
+peso 600, como `.fc-reset` en la tarjeta sola, que es como se diseñaron; y axe marca a 390 px un
+aviso de un plan que está bajo `content-visibility:auto` sin pintar, un falso positivo que la
+suite de axe no ha dado.
+
+### Rechazo del red team: X06 no medía lo que este PR aplazó (R1, `qa/FINDINGS_PR22.md`)
+
+El red team revisó PR #22 en 9e2d121 y lo dejó en «no listo» por un solo rechazo, R1 (medio).
+Todo lo demás lo reprodujo de forma independiente:
+
+- V09: el inicio con una memoria envenenada en cada clave, y con `window.LimaSun` lanzando un
+  error. En main el botón muere; en el PR el diálogo se abre.
+- V12: ninguna prosa en inglés fuera de `lang="en"`.
+- `content-visibility` en las tomas: ningún anillo de foco recortado en 160 paradas de
+  tabulador a 320 y 390 px.
+- X06 sí ve un manejador lento.
+
+R1: Event Timing termina en la primera pintura tras el toque, y este PR había hecho de esa
+pintura la barra y la cabecera; los planes llegaban en una tarea posterior que nadie medía.
+Un bucle de 800 ms dentro de esa tarea pasaba X06 (40 ms) con la tarjeta vacía 0.8 s.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X06 (R1) | Lo que cada toque viene a mostrar está en pantalla dentro de las mismas marcas que la respuesta (200 ms en gama media, 500 en gama baja); lo que nunca aparece falla por nombre; el instrumento demuestra antes que ve contenido aplazado | el X06 de 9e2d121 sobre el mutante del red team (800 ms aplazados dentro de `openFieldCard()`): «open the field card answers» pasa con 56 y 288 ms, y no hay nada más que mirar. Sobre una página que responde enseguida y muestra su contenido 300 ms después, ve 16 ms. Con la medición nueva, el contenido de la tarjeta de 9e2d121 llegaba **después** que antes del PR: 525 frente a 484 ms en gama baja, en la misma calibración | el X06 nuevo falla el mutante: los planes en pantalla a 891 y 1087 ms, mientras la respuesta sigue pasando (64 y 200). Su propia comprobación ve 16 y 313 ms en la página de prueba. En `PERF_BUDGET_QA.json` sobre 46f04db: 133/133; los planes de la tarjeta en pantalla a 104 y 392 ms (gama media 2.07×, baja 7.88×), con la respuesta a 72 y 256; el razonamiento de una toma a 77 y 230; el nombre del plan, los ajustes de la luz y la marca, por debajo de 150 ms en gama baja. Una prueba unitaria nueva cubre la respuesta rápida con el contenido tarde y el contenido que nunca llega |
+
+**Cómo se mide lo que el toque viene a mostrar.** Cada toque nombra su objetivo: los planes
+de la tarjeta, el razonamiento de la toma, el nombre del plan, los ajustes de esa luz o la
+marca. El tiempo lo da Element Timing: la prueba etiqueta con `elementtiming` lo que coincide
+con el objetivo, también lo que la página añada después. Su `renderTime` en Chromium coincidió
+con Event Timing con 0–6 ms de diferencia cuando los dos caen en el mismo cuadro: 168/172,
+96/94 y 144/144.
+
+Una marca cambia algo ya pintado, así que no es primera pintura. Para ella cuenta el primer
+cuadro en que el objetivo se ve y, si está en pantalla, se dibuja (`checkVisibility` con
+`contentVisibilityAuto`); se mide al terminar ese cuadro.
+
+La primera versión medía así todos los toques, y leía de menos y de más. Por eso se cambió a
+Element Timing.
+
+**Dónde se iba el tiempo.** Trazas a gama baja (unas 7×):
+
+- La tarea del toque costaba 213–251 ms. El estilo era de 380 elementos, unos 300 de ellos
+  la página de atrás al volverse `inert`, y el diseño de 146 objetos.
+- La tarea aplazada hacía dos pasadas de estilo y diseño. La segunda pasada eran las dos
+  primeras tomas, que `content-visibility:auto` dibuja por estar cerca de la pantalla
+  aunque empiezan debajo (a 931 px en una de 844).
+- En Linux, cada nombre de fuente que el sistema no tiene (`-apple-system`,
+  `BlinkMacSystemFont`, `Segoe UI`, `Roboto`) cuesta una búsqueda. Con «Arial» sola el
+  contenido bajaba de 484 a 352 ms.
+
+Tres cambios:
+
+- **`system-ui` primero en la pila de la tarjeta**, como ya empieza el resto del sitio. En
+  un teléfono es la misma fuente; en Linux es DejaVu Sans, más ancha.
+- **Las pestañas son iguales salvo que ninguna es más estrecha que su palabra**
+  (`repeat(5,1fr)`): a 320 px «Encuadre» ocupa 63 px en vez de cortarse en 58. Así se
+  resolvió lo que hizo deshacer el mismo cambio de fuente en el primer cierre de esta ronda.
+- **Las tomas se dibujan un cuadro después de los planes** (`fc-modal-later`).
+
+Lado a lado, en una calibración (gama media 2.03×, baja 7.91×), siete visitas
+alternadas, los planes de la tarjeta en pantalla:
+
+| Build | Responde (gama media / baja) | Planes en pantalla (gama media / baja) |
+|---|---|---|
+| antes del PR (1f72869) | 104 / 480 ms | 104 / 484 ms |
+| 9e2d121 | 64 / 280 ms | 123 / 525 ms |
+| 46f04db | 64 / 248 ms | 100 / 342 ms |
+
+El mensaje del commit 46f04db cita 466 frente a 428 ms, de una calibración anterior; las cifras
+de referencia son las de esta tabla.
+
+Después de los planes queda una tarea larga, la de las tomas: 67–112 (de ellos 12–56 de bloqueo) ms en gama baja, contra
+153–246 ms de la segunda tarea de 9e2d121. Un toque en ese hueco espera esa tarea (N2 del red
+team).
+
+**Notas del red team**
+
+- N1: «la mitad del tiempo» era la primera pintura, no la tarjeta. Está corregido en este
+  registro y en el PR; el README nunca lo dijo. El mensaje del commit 9d76947 ya está publicado y no se
+  reescribe.
+- N2: queda como compromiso, más corto.
+- N3: buscar en la página e imprimir no se ejercitaron directamente; lo mismo aquí.
+
+**Compromisos explícitos (R1)**
+
+- La medición del contenido usa Element Timing, que sólo Chromium implementa. Las marcas se
+  comprueban en Chromium, como el resto de X06.
+- Las marcas para el contenido son las de INP (200/500 ms). Ninguna norma las fija para
+  contenido aplazado. RAIL da hasta 1000 ms a un cambio de vista, y el red team propuso 400 y
+  1000; aquí se eligieron las marcas más estrictas. En gama baja el margen es de un 22–32 %.
+- `system-ui` primero cambia la fuente de la tarjeta en Linux (DejaVu Sans u otra, más ancha
+  que Arial) y en un Android cuyo fabricante trae otra fuente de interfaz. El resto del sitio
+  ya la usaba.
+- En Linux la pestaña «Encuadre» es 6 px más ancha que las otras a 320 px.
+- Las tomas tardan un cuadro más que los planes. En una pantalla grande, donde están a la
+  vista al abrir, aparecen un cuadro después.
+- El arreglo de fuentes ayuda sobre todo a la medición en Linux. Que en un teléfono la
+  búsqueda de fuentes no pese es inferido, no medido.
+- `inert` sigue costando unos 300 elementos de estilo al abrir. Se queda: es lo que saca la
+  página de atrás del alcance del lector de pantalla y del tabulador.
+
+**Referencias**
+
+- Element Timing (MDN `PerformanceElementTiming.renderTime`; WICG).
+- RAIL (web.dev/articles/rail): una respuesta se nota inmediata en 100 ms; 100–1000 ms es «un
+  flujo natural» para cambiar de vista.
+- Ceder el hilo para pintar antes (web.dev/articles/optimize-inp).
+- CSS Containment 2: `content-visibility:auto` dibuja lo que está cerca de la pantalla, con
+  un margen que fija el navegador.
+
+**Errores propios**
+
+- Medí y anuncié «la mitad del tiempo» con Event Timing sin preguntar qué mostraba ese
+  cuadro.
+- La primera versión de la medición del contenido medía «dibujado en el hilo principal» y
+  leía de menos (sin rasterizar ni presentar) o un cuadro tarde. Se cambió a Element Timing
+  antes de usarla.
+- Las primeras variantes de fuentes, una corrida de cinco por variante, tenían ±50 ms de
+  ruido. Las cifras de arriba son lado a lado con visitas alternadas.
+
+Escalada de investigación: no se activó; ningún arreglo falló. Las referencias de Element
+Timing y RAIL se consultaron antes de fijar la medición y las marcas.
+
+**Cierre de R1** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en 46f04db | 0 | release 450/450, axe 80/80, tarjeta 58/58, velocidad 133/133 (112 de carga, la comprobación del instrumento y 20 de toques), visual 37/37, óptica 22/22; reportes en 34af0b2 |
+| las cinco suites de `tests/architecture/browser_*.py` en 46f04db | 0 | todas en verde; la de release redibuja su captura sin conexión |
+| `pytest -q` en 34af0b2 | 0 | 897 pasan, 1 omitida (la misma) |
+| `pytest tests/architecture -q` | 0 | 344 pasan, 1 omitida |
+| `verify_architecture.py`, `verify_release.py` (velocidad 133) | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+
+El CI de 9e2d121 (corrida 39472882922) pasó sus ocho trabajos antes de este arreglo.
+
+Verificación independiente de R1: el red team la repitió sobre 2504c13 con sus propias pruebas
+(`qa/FINDINGS_PR22.md`, «Recheck at 2504c13») y cerró R1; el PR pasa.
+
+- Sin mutante, X06 da 40–64 ms la respuesta y 66–93 ms los planes, sin limitar la CPU. Con su
+  mutante de R1, 32–40 y 849–854 ms, y falla. Con 800 ms justo antes de mostrar los planes, 40
+  y 860 ms, y falla. La comprobación propia da 16 y 318 ms.
+- No hay lectura temprana: los planes están dentro del panel aplazado. Retrasar los planes
+  mueve «en pantalla» y deja «responde» igual.
+- En su calibración (1.69× y 5.92×), los planes llegan a 107–139 ms en gama media y a 289–529
+  ms en gama baja, con mediana 345, frente a 352–473 en 9e2d121 y 392–465 en main. Una de cinco
+  visitas pasó de 500; X06 juzga la mediana, así que espera un fallo raro en CI, no uno fijo.
+- Con `system-ui` (Inter allí) y las pestañas nuevas no hay desplazamiento horizontal ni texto
+  cortado a 280, 320 y 360 px. main cortaba «Técnicas» y «Encuadre» a 280. Los anillos de foco
+  y «Siguiente toma» siguen bien.
+
+Notas nuevas, no bloqueantes:
+
+- N4: el paso de las tomas no se mide. 800 ms antes de mostrarlas pasa X06 (47–61 ms), porque
+  sólo se miden los planes. A 390×844 da igual: la primera toma empieza a 950 px, bajo la
+  pantalla. Pero asoma a 412×915 (4 px), 430×932 (78 px), 768×1024 (264 px) y 1440×900 (50 px),
+  y allí un paso lento de las tomas no se vería.
+- N5: «en pantalla» toma el primer objetivo que se pinta. Si un cambio mostrara un plan antes
+  y los demás tarde, pasaría. Hoy los planes se muestran juntos.
+
+### N4 del red team: la primera toma a ancho de tableta, y la página de atrás sin dibujar
+
+N4 decía que el paso de las tomas no se medía: X06 sólo miraba los planes, y 800 ms antes de
+mostrar las tomas pasaban. Pablo aún no ha decidido si PR #22 se fusiona antes. Este trabajo
+está en commits locales sobre be41f3e (48bfd4d, 11e9484 y los reportes en 892ec8b) y va donde
+él decida.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X06 (N4) | Abrir la tarjeta a 768×1024, donde la primera toma ya se ve al abrir, responde y muestra esa toma dentro de las mismas marcas | el X06 de be41f3e sobre el mutante de N4 (800 ms antes de quitar `fc-modal-later`): 9/9 pasan. Las dos pruebas unitarias de X06 que se ampliaron fallan contra el módulo anterior | el X06 nuevo falla ese mutante: la primera toma a 922 ms en gama media y 1270 en gama baja, mientras la respuesta pasa (80 y 264). En el build real, 148 y 384 ms. `PERF_BUDGET_QA.json` sobre 11e9484: 137/137 |
+| X06 (página de atrás) | Por debajo de 900 px, con la tarjeta abierta, la página de atrás no se dibuja; vuelve donde estaba, se imprime y a 1280 px sigue dibujada | sobre 46f04db, «no se dibuja y vuelve donde estaba» falla: se dibuja (`[True, 2400]` abierta). Imprimir y 1280 px pasan | 61/61 en `FIELD_CARD_QA.json`. Sin `screen` en la regla, falla «imprimir con la tarjeta abierta imprime la página». Sin `contain-intrinsic-size:auto none`, falla la primera: la página vuelve a 0 en vez de 2400 |
+
+**Por qué se cambió el producto y no sólo la medición.** Con la primera toma medida, en
+48bfd4d quedó a 384–477 ms de mediana en gama baja, según la calibración, y 2 o 3 de cada 5–7
+visitas pasaban de 500. Así el control habría fallado en CI de vez en cuando.
+
+La traza a 768×1024 y 7.57× dio:
+
+- La tarea del toque costaba 209–239 ms. De ellos, 80–123 eran de estilo para 365 elementos
+  (la página al volverse `inert`) y 85–91 de diseño.
+- Los planes costaban unos 100 ms.
+- Las tomas costaban otros 100 ms, en dos pasadas por `content-visibility:auto`.
+
+Variantes a 7.04×, siete visitas alternadas, primera toma en gama baja:
+
+| Variante | Primera toma |
+|---|---|
+| tal cual | 477 ms |
+| planes y tomas en el mismo paso | 439 ms |
+| sin `inert` (diagnóstico, no se envía) | 391 ms |
+
+A 6.83×:
+
+| Variante | Primera toma en tableta | Planes en el teléfono |
+|---|---|---|
+| tal cual | 404 ms | 318 ms |
+| página de atrás oculta | 348 ms | 252 ms |
+| oculta, y planes y tomas en el mismo paso | 304 ms | 270 ms |
+
+Se eligió sólo ocultar. Juntar planes y tomas empeora el teléfono y deshace lo que R1 separó.
+
+**El cambio.** La tarjeta cubre toda la pantalla por debajo de 900 px, así que mientras está
+abierta los hijos de `body` salvo el diálogo llevan `content-visibility:hidden`. Siguen
+`inert`. Las reglas en `scripts/integrate_field_card.py` son:
+
+- `:where(body>*){contain-intrinsic-size:auto none}`: cada parte recuerda su último tamaño, sin
+  especificidad para no pisar ninguna regla;
+- `@media screen and (max-width:899px)`: imprimir con la tarjeta abierta imprime la página.
+
+**Lado a lado** (46f04db contra 11e9484, una calibración por fila, siete visitas alternadas):
+
+| Toque | Antes (gama media / baja) | Después (gama media / baja) |
+|---|---|---|
+| abrir la tarjeta en un teléfono: responde | 56 / 240 ms | 48 / 168 ms |
+| abrir la tarjeta en un teléfono: planes en pantalla | 91 / 339 ms | 80 / 235 ms |
+| abrir a 768×1024: responde | 80 / 248 ms | 64 / 192 ms |
+| abrir a 768×1024: primera toma en pantalla | 146 / 405 ms | 107 / 362 ms |
+| cerrar en un teléfono | 24 / 80 ms | 24 / 104 ms |
+| cerrar a 768×1024 | 32 / 112 ms | 32 / 112 ms |
+
+Las calibraciones fueron de 1.88 a 2.09× y de 7.42 a 7.72×. Tras cerrar, la página siguió
+en 2400 en todas las visitas. En `PERF_BUDGET_QA.json` sobre 11e9484, con una calibración más
+lenta (1.65× y 8.18×):
+
+- abrir la tarjeta responde a 40 y 176 ms y muestra los planes a 62 y 283;
+- a ancho de tableta responde a 48 y 216 y muestra la primera toma a 95 y 409 (como máximo
+  480).
+
+**Compromisos explícitos (N4)**
+
+- Cerrar la tarjeta en un teléfono de gama baja cuesta algo más: 104 ms en vez de 80, porque
+  la página de atrás se vuelve a dibujar. Sigue dentro de «bueno».
+- A ancho de tableta en gama baja, la primera toma queda a 362–409 ms de mediana: un margen
+  del 18–28 % hasta 500. Una calibración lenta puede acercarla. El control juzga la mediana.
+- La tableta se mide con la CPU de los teléfonos de referencia, no con la de una tableta.
+- Por debajo de 900 px, con la tarjeta abierta, la página de atrás no se dibuja. No se ve,
+  porque la tarjeta la cubre, y ya era `inert`. Safari anterior a 18 no conoce
+  `content-visibility` y se queda como antes.
+- N5 no se construye. Que «en pantalla» espere a todos los planes exige saber cuáles
+  aparecerán, y eso sólo se sabe esperando una ventana fija en cada toque. Hoy los planes se
+  muestran juntos con una sola clase.
+
+**Referencias**
+
+- CSS Containment 2: `content-visibility:hidden` salta el estilo, el diseño y la pintura del
+  contenido.
+- CSS Box Sizing 4: el «último tamaño recordado» con `contain-intrinsic-size:auto`.
+- web.dev, «content-visibility: the new CSS property that boosts your rendering
+  performance».
+
+Escalada de investigación: no se activó; ninguna hipótesis de arreglo falló.
+
+**Cierre de N4** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en 11e9484 | 0 | release 450/450, axe 80/80, tarjeta 61/61, velocidad 137/137, visual 37/37, óptica 22/22; reportes en 892ec8b |
+| las cinco suites de `tests/architecture/browser_*.py` en 11e9484 | 0 | todas en verde |
+| `pytest -q` en 892ec8b | 0 | 897 pasan, 1 omitida (la misma) |
+| `verify_release.py` (tarjeta 61, velocidad 137), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+
+Verificación independiente de N4: el red team aplicó los cuatro parches sobre be41f3e y los
+pasó (`qa/FINDINGS_PR22.md`, «N4 follow-up»).
+
+- Sin limitar la CPU, a 768×1024, el mutante de N4 da 875–892 ms la primera toma y falla. Sin
+  mutante, 87–110 ms.
+- Nada de lo que queda sin dibujar tras la tarjeta hace falta por debajo de 900 px: el enlace
+  para saltar, la barra de arriba, `main`, el pie con `#diag`, los dos diálogos y la barra de
+  abajo. Ningún diálogo contiene un botón que abra la tarjeta.
+- Con la tarjeta cerrada, el diseño y la altura del documento son idénticos a 2504c13 a 390 y
+  1280 px.
+- Al cerrar, la página vuelve exacta desde 2400 y desde 9000.
+- En su calibración, los planes en gama baja pasan de 475 ms (2504c13, 8.07×) a 336 (7.14×).
+
+Sus notas: N6 es el compromiso de cerrar, ya declarado. N7 era previa: tras un cambio de ancho
+que oculta el botón con que se abrió la tarjeta, el foco volvía al principio de la página.
+
+**N7, arreglada en d40bf8f.** Al cerrar, el foco vuelve al botón que abrió la tarjeta si sigue
+a la vista; si no, al primer botón de la página que la abre. Un navegador sin
+`checkVisibility` se queda como antes.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| N7 | Abierta desde la barra de abajo a 390 px y cerrada con Escape tras pasar a 1280, el foco cae en un botón que abre la tarjeta y está a la vista | sobre 11e9484: `[None, True]`, el foco no queda en ningún botón de la tarjeta | `['openFieldCard()', True]`; 62/62 en `FIELD_CARD_QA.json` |
+
+**Cierre de N7** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en d40bf8f | 0 | release 450/450, axe 80/80, tarjeta 62/62, velocidad 137/137, visual 37/37, óptica 22/22; reportes en 44b526e |
+| las cinco suites de `tests/architecture/browser_*.py` en d40bf8f | 0 | todas en verde |
+| `pytest -q` en 44b526e | 0 | 897 pasan, 1 omitida |
+| `verify_release.py` (tarjeta 62), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre d40bf8f (2.24× y 7.73×), abrir la tarjeta responde a 48 y 176 ms
+y muestra los planes a 76 y 251. A ancho de tableta responde a 64 y 224 y muestra la primera
+toma a 131 y 427.
+
+### N8 del red team: el foco de N7 movía la página
+
+El red team revisó N7 en 56c87cb. El foco vuelve, pero el arreglo introdujo N8: al enfocar el
+botón de reserva, la página se desplazaba hasta él. Se había abierto en 2400 y, tras cruzar los
+900 px, cerraba en 908 o en 1174, y el lector perdía su sitio. La prueba de N7 no lo vio por dos
+motivos: no comprobaba el desplazamiento y no esperaba al desplazamiento suave de la página.
+
+Arreglo (ba38fce):
+
+- Al cerrar, si el botón que abrió la tarjeta sigue a la vista, recibe el foco como antes.
+- Si no, el foco va a un botón que esté en pantalla, como la barra de abajo del teléfono.
+- Si no hay ninguno en pantalla, va al primero de la página, con `preventScroll`, para que la
+  página quede donde estaba.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| N8 | Abierta en 2400, cruzando 900 px hacia arriba (390→1280) y hacia abajo (1280→600), al cerrar el foco cae en un botón a la vista que abre la tarjeta y la página no se mueve (tras esperar 1 s al desplazamiento suave) | sobre d40bf8f: de 2530 a 0, y de 2400 a 1805 | 2530 y 2400 se mantienen. A 600 px el foco cae en la barra de abajo, en pantalla. A 1280 px cae en el botón de la barra de arriba, fuera de la pantalla y sin desplazarla. 63/63 en `FIELD_CARD_QA.json` |
+
+Compromiso: a 1280 px, sin ningún botón en pantalla, el foco queda en uno fuera de la vista.
+Con el siguiente Tab el navegador lo trae a la vista. Se prefirió a mover la página.
+
+**Cierre de N8** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| las seis suites con reporte en ba38fce | 0 | release 450/450, axe 80/80, tarjeta 63/63, velocidad 137/137, visual 37/37, óptica 22/22; reportes en 82a195a |
+| las cinco suites de `tests/architecture/browser_*.py` en ba38fce | 0 | todas en verde |
+| `pytest -q` en 82a195a | 0 | 897 pasan, 1 omitida |
+| `verify_release.py` (tarjeta 63), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre ba38fce (1.94× y 7.45×):
+
+- abrir la tarjeta responde a 48 y 200 ms y muestra los planes a 74 y 285;
+- a ancho de tableta responde a 64 y 224 y muestra la primera toma a 109 y 419, con una visita
+  de 673 en gama baja.
+
+El CI de 56c87cb pasó sus ocho trabajos (corrida 39503165850).
+
+Verificación independiente de N8: el red team la pasó sobre ce97ab9 («N8 fix at ce97ab9»).
+Esperó 1.5 s tras Escape y comprobó lo siguiente:
+
+- De 600 a 1280 px, la página queda en 2400 (en 56c87cb iba a 908) y el foco cae en el botón
+  de la barra de arriba.
+- De 1280 a 600 px, la página queda en 2400 (en d40bf8f iba a 1808) y el foco cae en la barra
+  de abajo, que está en pantalla.
+- Sin cambio de ancho, nada cambia.
+- Aceptó el compromiso de dejar el foco fuera de la pantalla a 1280 px sin moverla.
+
+Nota nueva, N9, previa y ya en main: la barra de arriba (`nav.glass`, `sticky top-0`) nunca se
+queda fija. `<style id="iphone-safe-overrides">` en `index.html` pone `overflow-x:hidden` en
+`html` y `body`. Eso hace de `body` un contenedor de desplazamiento que nunca se desplaza, y
+anula el `overflow-x:clip` anterior. Con `clip`, la barra se queda arriba sin desplazamiento
+horizontal. Antes hay que decidir si en el teléfono debe quedarse fija, porque ya tiene la barra
+de abajo; si no, se quita `sticky`.
+
+### Fallo propio en X06: la marca de una toma sólo se encontraba de día
+
+La tarjeta de campo se abre en la luz que dice el reloj de Lima (día, tarde o noche). Cada toma
+tiene una marca por luz y sólo se ve la de la luz actual. El toque «tick a shot» de X06 buscaba
+la marca del día, así que de 18:00 a 06:00 en Lima no encontraba nada que tocar y la suite de
+velocidad fallaba con «nothing to tap» (visto el 2026-10-20 a las 18:40).
+
+Arreglo (630a1df):
+
+- El toque busca la marca visible de la toma visible, sea cual sea la luz.
+- El instrumento suma una comprobación: en la tarjeta, elige cada luz y falla si algún toque no
+  encuentra en pantalla lo que toca. `PERF_BUDGET_QA.json` pasa de 137 a 138 comprobaciones.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X06 | Cada toque de la tarjeta encuentra lo que toca en las tres luces en que puede abrirse | sobre 74e22c7, `--only field_card.html` a las 18:40 de Lima: «tick a shot: nothing to tap». Con el reloj fijado hora a hora, el selector viejo se ve de 06:17 a 17:30 y no a las 18:00 ni de 18:30 a 05:00. La comprobación nueva con el selector viejo falla en la luz de tarde y en la de noche | el selector nuevo se ve a todas las horas y la comprobación pasa; 138/138 a las 19:00 de Lima sobre 630a1df. La prueba unitaria, con una tarjeta falsa en la que sólo se ve la marca del día, falla por luz con el selector viejo |
+
+Compromisos:
+
+- La luz se elige tocando la tarjeta, no fingiendo el reloj, así que la medición sigue con la
+  hora real y lo que mide es la luz en que se abre a esa hora.
+- Sólo se comprueban los toques de la tarjeta, la única página que cambia con la hora.
+
+Errores propios: escribí el selector de la marca del día en PR #22, y subí el código (630a1df)
+antes del reporte, así que el CI de 630a1df quedó en rojo («137 checks, expected at least 138»)
+hasta ba7d315. La escalada de investigación no se activó: la primera hipótesis fue la buena.
+
+**Cierre** (árbol limpio, fuentes de CI, Chromium completo, sirviendo sólo `dist/`)
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| suite de velocidad en 630a1df | 0 | 138/138; reporte en ba7d315. La marca responde a 24 y 80 ms y se ve a 23 y 82; a ancho de tableta la primera toma, a 119 y 311 |
+| `pytest -q` en ba7d315 | 0 | 898 pasan, 1 omitida |
+| `verify_release.py` (velocidad 138), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+
+Las demás suites no cambian: el arreglo sólo toca el instrumento de velocidad.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -1996,24 +2527,13 @@ despliegue; fusionar sigue necesitando la palabra de Pablo.
 - Los minutos de CI de las suites de navegador se miden en el primer PR que las corre.
 - Si el ensayo de la tarjeta vuelve a fallar en CI, el mensaje «never took over in 60 s; the
   active one says …» dice si el worker nuevo llegó a instalarse.
-- Abrir la tarjeta de campo desde el inicio tarda más que la marca «buena» de INP (200 ms)
-  en el laboratorio. El red team anotó el tamaño del DOM (inicio 5676 elementos, la tarjeta
-  3922, un plan 606); 3910 de los del inicio son la tarjeta, oculta hasta que se abre, y la
-  revisión de tamaño del DOM de Lighthouse 13.5 pasa en el inicio, porque juzga trabajo de
-  estilo o de diseño de 40 ms o más sobre más de 300 elementos, no la cuenta. Medido con Event
-  Timing (la API de INP) a 390 px y con la CPU 4× más lenta, como Lighthouse en móvil, en una
-  máquina de benchmarkIndex 1673 con las fuentes de CI: abrir la tarjeta desde el inicio,
-  192–288 ms en 14 aperturas (mediana 232); el manejador se lleva 162–246 ms, sobre todo el
-  diseño de la tarjeta (103–126 ms) y su estilo (34–57 ms). Con `content-visibility:auto` en
-  cada toma, 192–248 ms en 14 aperturas (mediana 208). Forzar `sans-serif` en la tarjeta baja
-  su diseño de 186 a 98 ms (medianas de tres): parte del costo es buscar en Linux las fuentes
-  de la pila que no están, que en un teléfono debería pesar menos (inferido; aquí no hay
-  teléfono para medirlo). Abrir el detalle de una toma: 112–176 ms, hasta 248 tras abrir
-  paneles y cambiar el equipo. Los controles de la tarjeta
-  sola, 104 ms o menos; un plan, 40 ms o menos. No lo trajo este PR (la tarjeta en el inicio
-  viene del paso 3). Queda para el siguiente: medir estos toques en la revisión de velocidad y
-  aligerar la apertura.
-- Texto en inglés en las páginas del desafío (aviso del red team): las etiquetas de escena salen
-  del identificador del mecanismo en inglés (`generate_architecture_pages.py`, `scene_cards`),
-  las viñetas de la guía de técnicas de los campos `mechanism` de `learning.json`, y los títulos
-  de video en inglés no llevan `lang="en"`. No lo trajo este PR; queda para el siguiente.
+- Abrir la tarjeta de campo desde el inicio en un teléfono de gama baja calibrado: tras N4
+  responde a 168–176 ms y muestra los planes a 235–283 ms (11e9484). Los planes siguen sobre
+  «bueno» y dentro de «nunca malo».
+- Tras los planes queda la tarea de las tomas, 67–112 ms en gama baja: un toque en ese hueco
+  la espera (N2 del red team).
+- N4, N7 y N8 están en PR #22 y el red team los pasó. N5 queda como límite declarado de la
+  medición.
+- N9 (barra de arriba que nunca se queda fija): en el PR siguiente. Pablo tiene la pregunta de
+  si debe quedarse fija en el teléfono; se construye la opción recomendada, sólo en pantallas
+  grandes.
