@@ -110,7 +110,7 @@ check("18*Math.log2(1+raw)" in index, "non-saturating motion calibration shipped
 check("relative*t*28" not in index, "obsolete saturated motion calibration removed")
 check("distance_from_home\":\"0 m" not in index, "home-relative origin absent from master")
 check('href="downloads/canon6d_photo_planner_assets.zip"' in index, "master exposes ZIP download")
-for plan_id in "abcdef":
+for plan_id in qa_matrix.PLAN_LETTERS:
     check(f'href="plans/plan_{plan_id}.html"' in index, f"master exposes Plan {plan_id.upper()} download")
 
 correction_phrases = (

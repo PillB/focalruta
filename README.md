@@ -68,6 +68,27 @@ Set up with `python3 -m pip install -r requirements-dev.txt` (what CI installs, 
 Python 3.11). For browser QA add `requirements-qa.txt`, `npm ci` (axe-core and
 Lighthouse, pinned in `package-lock.json`) and `python3 -m playwright install chromium`.
 
+## Adding a plan
+
+A plan is data, not pages (W08). To add a seventh:
+
+1. In `scripts/plans_data.py`, write `PLAN_G` the way `PLAN_A` is written: an `id` of
+   `plan_g`, its name, place and best window, and ten `shot(...)` entries with their
+   settings for day, afternoon and night. Add it to `PLANS`.
+2. Draw its diagrams: `python3 scripts/generate_diagrams.py` (needs matplotlib, from
+   `requirements-qa.txt`) writes `diagrams/plan_g_G01_human.png` and the rest.
+3. Run `python3 scripts/regenerate_all.py`. It builds `plans/plan_g.html`, adds the plan to
+   the field card, its offline pack, the home page, the sitemap and the download bundle,
+   and rewrites every count in the copy ("Siete rutas", "70 tomas", "140 diagramas").
+4. Run `python3 -m pytest -q`. The physics tests in `tests/planner/` check every new shot:
+   its exposure against the scene's light, the lens and camera limits, the dials' stops, the
+   handheld speed and the optical claims in its explanation. Then run the browser suites
+   (`python3 scripts/regenerate_all.py --with-browser-qa`); they walk every plan in
+   `data/plans.json`, so the new one is checked without editing them.
+
+`tests/test_plan_counts.py` builds the site once with a test plan G and fails if any of
+this stops reaching the new plan.
+
 ## Regenerating the architecture photography guide
 
 Generated HTML is build output, never edited by hand: `scripts/verify_architecture.py`

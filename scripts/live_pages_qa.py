@@ -186,7 +186,7 @@ with sync_playwright() as pw:
     # Operational dialogs, state, focus containment, and persistence.
     page.evaluate("openSessionRun()")
     first_title = page.locator("#run-title").inner_text(); page.locator("#run-done").click(); done = page.locator("#run-done").inner_text(); page.locator("#run-next").click(); second_title = page.locator("#run-title").inner_text()
-    record("live Session Run mark and advance", "Hecha" in done and first_title != second_title, [first_title, done, second_title])
+    record("live Session Run mark and advance", "Aprobada" in done and first_title != second_title, [first_title, done, second_title])
     page.keyboard.press("Escape")
     page.evaluate("openFieldCard()"); page.wait_for_timeout(50)
     inert = page.evaluate("[...document.body.children].filter(e=>e.id!=='field-card-modal'&&!['SCRIPT','STYLE'].includes(e.tagName)).every(e=>e.inert)")
@@ -223,7 +223,7 @@ with sync_playwright() as pw:
     print('live QA: resources complete', flush=True)
 
     # Six self-contained route pages: state permutations, images, and corrections.
-    for letter in "abcdef":
+    for letter in qa_matrix.PLAN_LETTERS:
         route = context.new_page(); route_errors = []; route.on("pageerror", lambda error: route_errors.append(str(error)))
         watch_origins(route)
         response = route.goto(f"{URL}plans/plan_{letter}.html", wait_until="domcontentloaded", timeout=90000)

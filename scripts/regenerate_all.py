@@ -37,6 +37,7 @@ CORE = (
     ("generate_field_card.py", "planner field card"),
     ("build_master.py", "root PhotoPlanner index"),
     ("integrate_field_card.py", "field card in the home page dialog"),
+    ("plan_counts.py", "plan, shot and diagram counts in the copy, from the data"),
     ("build_download_bundle.py", "downloadable ZIP of plans, card and diagrams"),
     ("build_dual_release.py", "dist/canon6d_sota_hosted"),
     # Last: it measures the artefacts every step above produces.

@@ -25,6 +25,8 @@ from __future__ import annotations
 import re
 from html.parser import HTMLParser
 
+import qa_matrix
+
 MIN_TEXT_PX = 12
 MIN_TARGET_PX = 44
 
@@ -202,8 +204,13 @@ def english_outside_lang_en(html: str) -> list[str]:
 # sources keep their published titles.
 HOME_SKIP = "#field-card-modal"
 HOME_SPANISH_SKIP = "#field-card-modal,#sources,cite"
-PLANS = [f"plan_{letter}" for letter in "abcdef"]
+PLANS = [f"plan_{letter}" for letter in qa_matrix.PLAN_LETTERS]
 MOTION_MODES = ("freeze", "pan", "ghost", "trails", "paint", "zoom")
+
+
+SUN_FACADE = """()=>{const d=document.getElementById('sun-date'),f=document.getElementById('sun-facade');if(!d||!f)return false;
+d.value='2026-12-21';d.dispatchEvent(new Event('change'));f.value='292.5';f.dispatchEvent(new Event('change'));
+return document.getElementById('sun-wall').textContent.includes('Sol directo')}"""
 
 
 def audit_home(page) -> dict:
@@ -225,6 +232,11 @@ def audit_home(page) -> dict:
         words.append(page.evaluate(SHOWN_WORDS, HOME_SPANISH_SKIP))
 
     measure("loaded")
+    # W04: the sun panel with a facade chosen, its longest text, on the solstice with the longest day.
+    if page.evaluate(SUN_FACADE):
+        measure("sun facade")
+    else:
+        unreached.append("sun facade")
     for plan in PLANS:
         page.evaluate("([p])=>{selectPlan(p);setVariant('dog');setTime('night')}", [plan])
         measure(plan)

@@ -16,6 +16,8 @@ import fixed_bars
 import top_bar_tools
 import qa_matrix
 import reading_floor
+import shot_review_qa
+import sun_panel_qa
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "CURRENT_BROWSER_QA.json"
@@ -319,7 +321,7 @@ def nothing_cut_with_long_gear(browser):
             context, page = long_gear_page(browser, width, path)
             record_long_gear(path, width, reading_floor.audit_home(page))
             context.close()
-    for path in ("dist/canon6d_sota_hosted/field_card.html", *[f"dist/canon6d_sota_hosted/plans/plan_{x}.html" for x in "abcdef"]):
+    for path in ("dist/canon6d_sota_hosted/field_card.html", *[f"dist/canon6d_sota_hosted/plans/plan_{x}.html" for x in qa_matrix.PLAN_LETTERS]):
         context, page = long_gear_page(browser, LONG_GEAR_WIDTHS[0], path)
         floor = reading_floor.audit_plan_page(page) if "plans/" in path else field_card_floor(page)
         record_long_gear(path, LONG_GEAR_WIDTHS[0], floor)
@@ -369,7 +371,7 @@ LARGER_TEXT = ((20, 650, 800), (24, 700, 800), (20, 1024, 768), (24, 1280, 800))
 def bars_on_screen(browser):
     """X07 (N9) and X08 (N10): on the home page, standalone and hosted, and on every plan page, at every size."""
     pages = [("standalone", ROOT / "index.html", True), ("hosted", ROOT / "dist/canon6d_sota_hosted/index.html", True),
-             *[(f"plan_{x}", ROOT / f"dist/canon6d_sota_hosted/plans/plan_{x}.html", False) for x in "abcdef"]]
+             *[(f"plan_{x}", ROOT / f"dist/canon6d_sota_hosted/plans/plan_{x}.html", False) for x in qa_matrix.PLAN_LETTERS]]
     names = {"stays": "only what has room stays on screen", "forward": "focus going forward is never behind a bar",
              "back": "focus going back is never behind a bar", "jumps": "links in the bars land clear of them",
              "address": "opening the page at a section's address lands it clear of the bars",
@@ -418,7 +420,7 @@ with sync_playwright() as pw:
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(target.as_uri(), wait_until="domcontentloaded", timeout=60000)
-        for plan in [f"plan_{letter}" for letter in "abcdef"]:
+        for plan in [f"plan_{letter}" for letter in qa_matrix.PLAN_LETTERS]:
             for subject in ("human", "dog"):
                 for slot in ("day", "afternoon", "night"):
                     count = page.evaluate("([p,s,t])=>{selectPlan(p);setVariant(s);setTime(t);return document.querySelectorAll('#plan-detail-content .shot-card').length}", [plan, subject, slot])
@@ -453,6 +455,9 @@ with sync_playwright() as pw:
         record(f"{target_name} interaction errors", not errors, errors)
         page.close()
 
+        sun_panel_qa.check(browser, target.as_uri(), record, f"{target_name} sun")
+        shot_review_qa.check(browser, target.as_uri(), record, f"{target_name} review")
+
         # V10-V12: the reading floor, at every size in the matrix, in every state a reader reaches.
         for width, height in qa_matrix.REQUIRED_VIEWPORTS:
             page = browser.new_page(viewport={"width": width, "height": height})
@@ -472,7 +477,7 @@ with sync_playwright() as pw:
     cut = narrow.evaluate(reading_floor.CUT_OFF, "")
     record("field_card 320 nothing cut off at the edges", not cut, cut[:12])
     narrow.close()
-    for letter in "abcdef":
+    for letter in qa_matrix.PLAN_LETTERS:
         narrow = browser.new_page(viewport={"width": 320, "height": 640})
         narrow.goto((ROOT / f"dist/canon6d_sota_hosted/plans/plan_{letter}.html").as_uri(), wait_until="domcontentloaded", timeout=60000)
         cut = reading_floor.audit_plan_page(narrow)["cut"]

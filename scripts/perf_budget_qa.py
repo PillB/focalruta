@@ -53,7 +53,7 @@ CHALLENGE = "challenges/arquitectura-en-foco/"
 PAGES = (
     ("index.html", "home", 180),
     ("field_card.html", "field card", 70),
-    *((f"plans/plan_{letter}.html", "plan page", 340) for letter in "abcdef"),
+    *((f"plans/plan_{letter}.html", "plan page", 340) for letter in qa_matrix.PLAN_LETTERS),
     (CHALLENGE + "index.html", "challenge", 100),
     (CHALLENGE + "wiki-tecnicas.html", "challenge guide", 40),
     (CHALLENGE + "field-card.html", "challenge guide", 40),

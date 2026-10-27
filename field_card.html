@@ -370,6 +370,65 @@
     };
   }
 
+  // Saemundsson's refraction (Meeus eq. 16.4), as in scripts/sun_times.py.
+  function refraction(elevation) {
+    if (elevation < -1) return 0;
+    return 1.02 / Math.tan((elevation + 10.3 / (elevation + 5.11)) * rad) / 60;
+  }
+
+  // Where the sun stands at a local minute: bearing from north, geometric and apparent height.
+  function position(iso, minutesLocal) {
+    var minutesUtc = minutesLocal - UTC_OFFSET_H * 60;
+    var de = declinationAndEot(julianDay(iso) + minutesUtc / 1440);
+    var ha = ((((minutesUtc + de[1] + 4 * LON) / 4 - 180 + 540) % 360 + 360) % 360 - 180) * rad;
+    var phi = LAT * rad, delta = de[0] * rad;
+    var cosZ = Math.sin(phi) * Math.sin(delta) + Math.cos(phi) * Math.cos(delta) * Math.cos(ha);
+    var elevation = 90 - Math.acos(Math.max(-1, Math.min(1, cosZ))) * deg;
+    var east = -Math.cos(delta) * Math.sin(ha);
+    var north = Math.cos(phi) * Math.sin(delta) - Math.sin(phi) * Math.cos(delta) * Math.cos(ha);
+    var azimuth = ((Math.atan2(east, north) * deg) % 360 + 360) % 360;
+    return { azimuth: azimuth, elevation: elevation, apparent: elevation + refraction(elevation) };
+  }
+
+  // Length and bearing of the shadow an upright `height` casts on level ground; null at night.
+  function shadow(height, pos) {
+    if (pos.apparent <= 0) return null;
+    return [height / Math.tan(pos.apparent * rad), (pos.azimuth + 180) % 360];
+  }
+
+  // Degrees between the sun's rays and a wall facing `facing`: 90 head-on, 0 grazing, < 0 behind.
+  function wallAngle(pos, facing) {
+    var v = Math.cos(pos.apparent * rad) * Math.cos((pos.azimuth - facing) * rad);
+    return Math.asin(Math.max(-1, Math.min(1, v))) * deg;
+  }
+
+  // Raking light grazes a surface at 5-20 deg; from 60 deg it is nearly head-on.
+  var RAKING_MAX = 20, FRONTAL_MIN = 60;
+
+  function runs(flags, first) {
+    var out = [], start = null;
+    for (var i = 0; i <= flags.length; i++) {
+      var on = i < flags.length && flags[i];
+      if (on && start === null) start = i;
+      else if (!on && start !== null) { out.push([first + start, first + i - 1]); start = null; }
+    }
+    return out;
+  }
+
+  // Local minutes, sunrise to sunset, when a wall facing `facing` has direct, raking and head-on sun.
+  function wallLight(iso, facing) {
+    var p = dayPlan(iso), first = Math.ceil(p.sunrise), last = Math.floor(p.sunset), angles = [];
+    for (var m = first; m <= last; m++) {
+      var pos = position(iso, m);
+      angles.push(pos.apparent > 0 ? wallAngle(pos, facing) : -1);
+    }
+    return {
+      direct: runs(angles.map(function (a) { return a > 0; }), first),
+      raking: runs(angles.map(function (a) { return a > 0 && a <= RAKING_MAX; }), first),
+      frontal: runs(angles.map(function (a) { return a >= FRONTAL_MIN; }), first)
+    };
+  }
+
   function clock(minutes) {
     var total = Math.round(minutes);
     return String(Math.floor(total / 60)).padStart(2, '0') + ':' + String(total % 60).padStart(2, '0');
@@ -390,7 +449,9 @@
       String(lima.getUTCDate()).padStart(2, '0');
   }
 
-  var api = { dayPlan: dayPlan, clock: clock, compass: compass, eventMinutes: eventMinutes, limaToday: limaToday };
+  var api = { dayPlan: dayPlan, clock: clock, compass: compass, eventMinutes: eventMinutes, limaToday: limaToday,
+              position: position, shadow: shadow, wallAngle: wallAngle, wallLight: wallLight,
+              RAKING_MAX: RAKING_MAX, FRONTAL_MIN: FRONTAL_MIN };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.LimaSun = api;
 })(typeof window !== 'undefined' ? window : this);
