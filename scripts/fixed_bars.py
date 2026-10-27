@@ -10,7 +10,8 @@ larger text gets them only where the larger bars still fit.
 
 Wherever a bar stays, nothing may end up behind it: not what keyboard focus lands on, going
 forward or back (WCAG 2.2 SC 2.4.11, and 2.4.12 for no part of it), and not the start of a
-section a link jumps to or the page is opened at. The page reserves that room with
+section a link jumps to, the page is opened at, or the address is changed to on the open page,
+also going back and forward between two (P1). The page reserves that room with
 scroll-padding (technique C43), measured from the bars' whole boxes, and only for what covers
 the top now: the Sujeto/Hora bar counts while it is stuck and shows under the top bar. Moving
 between the controls of a bar on screen, with Tab or Shift+Tab, must leave the page where it is
@@ -460,3 +461,78 @@ def reader_scroll_kept(page) -> list[str]:
     if kept and abs(kept["moved"]) > 1:
         return [f"after the jump to {kept['href']}, a scroll of the reader's own was undone: the page moved {kept['moved']} px"]
     return []
+
+
+# P1 (live check of PR #23): the address changes only its #section on the open page (a typed
+# #tecnicas, location.hash), or the reader goes back and forward between two such addresses, with
+# motion on as most readers have it. With smooth scrolling for the whole page, the browser glided to
+# where the section was before the sections on the way were drawn, and nothing corrected it
+# (csswg-drafts#9833): 1480 to 12,136 px off at 390 px wide. Going back glided too and drew the
+# sections on the way, so going forward again restored a place that no longer held its section.
+# Even in one go, the browser's own jump fell short at some sizes (#tecnicas 560 px at 430 px wide).
+# The reader reads on in the lower of the two lowest sections the bars link to, at the address with
+# no section; the address changes to that section and then to the lowest; back and forward twice
+# must land each section's address clear of the bars and put the address with no section back at the
+# scroll position the reader left. Chrome goes to a section's start on back and forward to its address, also on a
+# plain page (only where the section has gone does it return to where the reader had scrolled), so
+# a section's address is held to its start. Then each section is reached from the top.
+READ_ON = 200  # px: how far the reader scrolls on in a section before going elsewhere
+STILL = """() => new Promise(done => { let last = scrollY, still = 0, n = 0;
+  const frame = () => { still = Math.abs(scrollY - last) < 1 ? still + 1 : 0; last = scrollY;
+    if (still >= 10 || ++n > 300) done(); else requestAnimationFrame(frame); };
+  requestAnimationFrame(frame); })"""
+LOWEST = f"""() => [...new Set(({JUMPS})())].sort((a, b) => document.getElementById(b.slice(1)).getBoundingClientRect().top -
+  document.getElementById(a.slice(1)).getBoundingClientRect().top)"""
+TOP_OF = "(href) => Math.round(document.getElementById(href.slice(1)).getBoundingClientRect().top)"
+
+
+def reach(page, href: str, how: str) -> str | None:
+    """Change the address to `href`; once the page has stopped moving, what is wrong with where it starts, or None."""
+    page.evaluate("href => { location.hash = href }", href)
+    page.evaluate(STILL)
+    problem = landing(page, href)
+    return f"{how} {problem}" if problem else None
+
+
+def back_and_forward(page, low: str, lowest: str) -> list[str]:
+    """Read on in `low` at the address with no section, change the address to `low` and then to `lowest`,
+    and go back twice and forward twice. Each section's address lands it clear of the bars, as Chrome
+    goes to a section's start on back and forward, also on a plain page; at the address with no section
+    the page is left to the browser, which puts it back at the scroll position the reader left. (A section
+    above the reader drawn in between, its real size replacing the guess, moves what is there: 24 to 26 px
+    at 932x430 and with 20 px text at 650x800, also before P1.) List what does not."""
+    page.evaluate("history.replaceState(null, '', location.pathname + location.search)")
+    page.evaluate(f"""href => {{ document.getElementById(href.slice(1)).scrollIntoView({{behavior: 'instant'}});
+      scrollBy({{top: {READ_ON}, behavior: 'instant'}}) }}""", low)
+    page.evaluate(STILL)
+    page.wait_for_timeout(SETTLE)
+    left = round(page.evaluate("scrollY"))
+    wrong = [reach(page, low, "the address changed to"), reach(page, lowest, "the address changed to")]
+    for step, href in (("back", low), ("back", None), ("forward", low), ("forward", lowest)):
+        page.evaluate(f"history.{step}()")
+        page.evaluate(STILL)
+        page.wait_for_timeout(SETTLE)
+        if href:
+            problem = landing(page, href)
+            wrong.append(f"{step} to {problem}" if problem else None)
+            continue
+        back = round(page.evaluate("scrollY"))
+        if abs(back - left) > 1:
+            wrong.append(f"back to the address with no section: the reader left at {left} px, and it came back at {back} px")
+    return [w for w in wrong if w]
+
+
+def address_changes(page) -> list[str]:
+    """With motion on, change only the #section of the address and go back and forward between two;
+    list each section that does not land clear of the bars, or a place back does not return to."""
+    page.emulate_media(reduced_motion="no-preference")
+    hrefs = page.evaluate(LOWEST)
+    wrong = back_and_forward(page, hrefs[1], hrefs[0]) if len(hrefs) >= 2 else []
+    for href in hrefs:
+        page.evaluate("history.replaceState(null, '', location.pathname + location.search); scrollTo({top: 0, behavior: 'instant'})")
+        page.evaluate(STILL)
+        problem = reach(page, href, "from the top, the address changed to")
+        if problem:
+            wrong.append(problem)
+    page.emulate_media(reduced_motion=MOTION[0])
+    return wrong
