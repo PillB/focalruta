@@ -113,8 +113,16 @@ KIT_LENSES = {"35", "50", "85", "35–80", "35-80"}
 MOUNT_BEFORE = re.compile(r"(?<![\w-])(?:EF(?:-[SM])?|RF(?:-S)?|XF|XC|FE|Z|AF(?:-[SP])?|DX)\s?$")
 
 
+# So does a maker's name, for a lens typed with neither ("Sigma 105mm", "Samyang 14mm"):
+# the makers of the lenses gear.js lists, and the third-party ones sold for those mounts.
+MAKER_BEFORE = re.compile(r"(?<![\w-])(?:Canon|Nikon|Nikkor|Sony|Fujifilm|Fujinon|Panasonic|Lumix|Leica|Olympus|"
+                          r"OM|Pentax|Sigma|Tamron|Tokina|Samyang|Rokinon|Zeiss|Viltrox|Laowa|TTArtisans|7Artisans|"
+                          r"Voigtländer|Voigtlander|Yongnuo|Meike|Sirui|Irix|Mitakon)\s?$", re.IGNORECASE)
+
+
 def lens_name(text: str, match: re.Match) -> bool:
-    return match.group(1) in KIT_LENSES or bool(MOUNT_BEFORE.search(text, max(0, match.start() - 8), match.start()))
+    before = text[max(0, match.start() - 14):match.start()]
+    return match.group(1) in KIT_LENSES or bool(MOUNT_BEFORE.search(before) or MAKER_BEFORE.search(before))
 
 
 def numbers_in(text: str) -> list[str]:
