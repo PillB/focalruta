@@ -263,9 +263,9 @@
           "openFieldCard()",
           true,
           true,
-          -1020
+          -610
         ],
-        "seen before": -1020
+        "seen before": -610
       }
     },
     {
@@ -276,9 +276,9 @@
           "openFieldCard()",
           true,
           true,
-          1808
+          1812
         ],
-        "seen before": 1808
+        "seen before": 1812
       }
     },
     {
@@ -447,14 +447,14 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-21T09:41:12.919395+00:00",
-  "audited_commit": "657ef3e0094fd1c6e79b0c0af16d813357a54cff",
+  "audited_at": "2026-10-27T22:01:28.006828+00:00",
+  "audited_commit": "3bcabf94637c35b69f1b29eb9bc8185c084b199c",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
-    "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "c03820dc763bc310acd98e378730530c3b10792882cb06b17eecab20970402f3",
-    "dist/canon6d_sota_hosted/sw.js": "7349dc165f3ccce23836151d21c124040d1ef26006d88fc42c97909e2e01fbcd",
-    "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
+    "dist/canon6d_sota_hosted/field_card.html": "934fac64b9dab0cb529c38bf31ba5601d404e2de3937fd904ebb961b3a0c9cee",
+    "dist/canon6d_sota_hosted/index.html": "99aee76bd175a9de43e93a079651812579973797d8d7d95be095bf2206cfd6e4",
+    "dist/canon6d_sota_hosted/sw.js": "2697dac166ee90bc06f295f11c0f634eb1259e902c0ff44711b5072e98ca74af",
+    "field_card.html": "934fac64b9dab0cb529c38bf31ba5601d404e2de3937fd904ebb961b3a0c9cee",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
 }

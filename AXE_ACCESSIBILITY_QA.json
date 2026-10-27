@@ -23,7 +23,7 @@
       },
       {
         "id": "color-contrast",
-        "count": 294
+        "count": 314
       }
     ],
     "challenges/arquitectura-en-foco/index.html [light-390]": [
@@ -185,7 +185,7 @@
     "challenges/arquitectura-en-foco/wiki-tecnicas.html [light-390]": [
       {
         "id": "color-contrast",
-        "count": 35
+        "count": 34
       }
     ],
     "field_card.html [light-390]": [
@@ -201,7 +201,7 @@
       },
       {
         "id": "color-contrast",
-        "count": 294
+        "count": 314
       }
     ],
     "plans/plan_a.html [light-390]": [
@@ -247,7 +247,7 @@
       },
       {
         "id": "color-contrast",
-        "count": 300
+        "count": 319
       }
     ],
     "FocalRuta_STANDALONE.html [dark-1280]": [
@@ -257,13 +257,13 @@
       },
       {
         "id": "color-contrast",
-        "count": 172
+        "count": 180
       }
     ],
     "challenges/arquitectura-en-foco/index.html [dark-1280]": [
       {
         "id": "color-contrast",
-        "count": 90
+        "count": 89
       }
     ],
     "challenges/arquitectura-en-foco/maps/barranco-tour-1.html [dark-1280]": [
@@ -435,7 +435,7 @@
       },
       {
         "id": "color-contrast",
-        "count": 172
+        "count": 180
       }
     ],
     "plans/plan_a.html [dark-1280]": [
@@ -481,7 +481,7 @@
       },
       {
         "id": "color-contrast",
-        "count": 172
+        "count": 180
       }
     ]
   },
@@ -1127,11 +1127,11 @@
       }
     }
   ],
-  "audited_at": "2026-10-21T09:40:32.073589+00:00",
-  "audited_commit": "657ef3e0094fd1c6e79b0c0af16d813357a54cff",
+  "audited_at": "2026-10-27T22:00:42.837405+00:00",
+  "audited_commit": "3bcabf94637c35b69f1b29eb9bc8185c084b199c",
   "audited_artifacts": {
     "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
-    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "1d7cd9182c10f5c3c3f8e802335f1bf6f57845e2bd000f2bc1917bc1e3ebf8f0",
+    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "9df6b720230aa3bd57bf25644f4ff4cf828d301d47f44b10729170bbf0de8059",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "986b21b3e98a22d42b353525da523348076a7613154a33b03c3cbcab2144de19",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "f8204b380b8d2bb3a1200aaae544a2d02c3290d195fff9421bfeb81d02959c3b",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/iphone-maps.html": "3af624a6bf9699d8a4c3be805a6848300201715881660b8bf220b917f5e7abf7",
@@ -1161,8 +1161,8 @@
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html": "fef1da0075298e0b98be8ad6320c7a12c3b4f33a7e6e38a0378f718fd9937384",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "ee1783c839181086e47e55a50586e167442c5685752e14af1f9b318599a36eea",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "3ebce15997a8348993d8d8a1080696939dc94d885e0199ebe1973c2ea9cce311",
-    "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "c03820dc763bc310acd98e378730530c3b10792882cb06b17eecab20970402f3",
+    "dist/canon6d_sota_hosted/field_card.html": "934fac64b9dab0cb529c38bf31ba5601d404e2de3937fd904ebb961b3a0c9cee",
+    "dist/canon6d_sota_hosted/index.html": "99aee76bd175a9de43e93a079651812579973797d8d7d95be095bf2206cfd6e4",
     "dist/canon6d_sota_hosted/plans/plan_a.html": "3301fded9e4fcd23db9cca16c8dfc13628910224d6c48aa9cd72f9bcbfc1b6be",
     "dist/canon6d_sota_hosted/plans/plan_b.html": "7e494ead9938b86f00ab584cd69d55940fcd1b73e217d0454e7e42669ed05696",
     "dist/canon6d_sota_hosted/plans/plan_c.html": "bfd5c8ffba10c9888ffb26aac45d98fd22b0ec22c9f073da48dceab9b3368e50",

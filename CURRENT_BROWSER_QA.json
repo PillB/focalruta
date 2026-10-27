@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 530,
+  "checks": 638,
   "viewports": [
     [
       320,
@@ -624,6 +624,598 @@
       "name": "standalone interaction errors",
       "pass": true,
       "detail": []
+    },
+    {
+      "name": "standalone sun 320 hour starts at the morning blue hour",
+      "pass": true,
+      "detail": {
+        "time": "05:20",
+        "text": "A las 05:20 el sol está 6° bajo el horizonte, al este (rumbo 101°). Es de noche.",
+        "value": 320,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "05:20",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 05:20 no hay sol.",
+        "drawn": 3,
+        "mark": [
+          "-91.7",
+          "13.5",
+          "hidden"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "standalone sun 320 before sunrise the sun is below the horizon",
+      "pass": true,
+      "detail": [
+        "A las 05:20 el sol está 6° bajo el horizonte, al este (rumbo 101°). Es de noche.",
+        "A las 05:20 el sol está 6° bajo el horizonte"
+      ]
+    },
+    {
+      "name": "standalone sun 320 arrow keys move the hour 5 minutes a press",
+      "pass": true,
+      "detail": [
+        320,
+        860
+      ]
+    },
+    {
+      "name": "standalone sun 320 the hour is named for assistive technology",
+      "pass": true,
+      "detail": {
+        "time": "14:20",
+        "text": "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m hacia el este. ",
+        "value": 860,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "14:20",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 14:20 el sol le llega a 36°.",
+        "drawn": 3,
+        "mark": [
+          "-40.1",
+          "-0.3",
+          "visible"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "standalone sun 320 printed position matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m hacia el este. ",
+        "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m"
+      ]
+    },
+    {
+      "name": "standalone sun 320 the sun is drawn where it stands",
+      "pass": true,
+      "detail": [
+        [
+          "-40.1",
+          "-0.3",
+          "visible"
+        ],
+        -40.1,
+        -0.3
+      ]
+    },
+    {
+      "name": "standalone sun 320 hour ends at the evening blue hour",
+      "pass": true,
+      "detail": {
+        "time": "18:30",
+        "text": "A las 18:30 el sol está 7° bajo el horizonte, al oeste-suroeste (rumbo 259°). Es de noche.",
+        "value": 1110,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "18:30",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol.",
+        "drawn": 3,
+        "mark": [
+          "-40.1",
+          "-0.3",
+          "hidden"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "standalone sun 320 west wall direct light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Sol directo: 11:54–18:04.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "standalone sun 320 west wall raking light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Luz rasante, que marca la textura: 11:54–13:14.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "standalone sun 320 west wall frontal light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Luz casi de frente, que la aplana: 16:00–18:04.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "standalone sun 320 the wall and its front are drawn",
+      "pass": true,
+      "detail": 3
+    },
+    {
+      "name": "standalone sun 320 no wall chosen, none drawn",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone sun 320 sun panel errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone sun 1280 hour starts at the morning blue hour",
+      "pass": true,
+      "detail": {
+        "time": "05:20",
+        "text": "A las 05:20 el sol está 6° bajo el horizonte, al este (rumbo 101°). Es de noche.",
+        "value": 320,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "05:20",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 05:20 no hay sol.",
+        "drawn": 3,
+        "mark": [
+          "-91.7",
+          "13.5",
+          "hidden"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "standalone sun 1280 before sunrise the sun is below the horizon",
+      "pass": true,
+      "detail": [
+        "A las 05:20 el sol está 6° bajo el horizonte, al este (rumbo 101°). Es de noche.",
+        "A las 05:20 el sol está 6° bajo el horizonte"
+      ]
+    },
+    {
+      "name": "standalone sun 1280 arrow keys move the hour 5 minutes a press",
+      "pass": true,
+      "detail": [
+        320,
+        860
+      ]
+    },
+    {
+      "name": "standalone sun 1280 the hour is named for assistive technology",
+      "pass": true,
+      "detail": {
+        "time": "14:20",
+        "text": "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m hacia el este. ",
+        "value": 860,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "14:20",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 14:20 el sol le llega a 36°.",
+        "drawn": 3,
+        "mark": [
+          "-40.1",
+          "-0.3",
+          "visible"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "standalone sun 1280 printed position matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m hacia el este. ",
+        "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m"
+      ]
+    },
+    {
+      "name": "standalone sun 1280 the sun is drawn where it stands",
+      "pass": true,
+      "detail": [
+        [
+          "-40.1",
+          "-0.3",
+          "visible"
+        ],
+        -40.1,
+        -0.3
+      ]
+    },
+    {
+      "name": "standalone sun 1280 hour ends at the evening blue hour",
+      "pass": true,
+      "detail": {
+        "time": "18:30",
+        "text": "A las 18:30 el sol está 7° bajo el horizonte, al oeste-suroeste (rumbo 259°). Es de noche.",
+        "value": 1110,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "18:30",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol.",
+        "drawn": 3,
+        "mark": [
+          "-40.1",
+          "-0.3",
+          "hidden"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "standalone sun 1280 west wall direct light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Sol directo: 11:54–18:04.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "standalone sun 1280 west wall raking light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Luz rasante, que marca la textura: 11:54–13:14.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "standalone sun 1280 west wall frontal light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Luz casi de frente, que la aplana: 16:00–18:04.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "standalone sun 1280 the wall and its front are drawn",
+      "pass": true,
+      "detail": 3
+    },
+    {
+      "name": "standalone sun 1280 no wall chosen, none drawn",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "standalone sun 1280 sun panel errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone sun opens on today in Lima at the time it is there",
+      "pass": true,
+      "detail": {
+        "time": "16:00",
+        "text": "A las 16:00 el sol está al oeste (rumbo 262°), a 30° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 3.0 m hacia el este. ",
+        "value": 960,
+        "min": 315,
+        "max": 1110,
+        "valuetext": "16:00",
+        "wall": "Elige hacia dónde mira la fachada para ver cuándo le da el sol.",
+        "drawn": 0,
+        "mark": [
+          "-66.4",
+          "9.6",
+          "visible"
+        ],
+        "date": "2026-10-27",
+        "label": "Recorrido del sol el 2026-10-27 visto desde arriba, con el norte arriba: sale al este-sureste (rumbo 103°), pasa a 89° de altura y se pone al oeste-suroeste (rumbo 256°)."
+      }
+    },
+    {
+      "name": "standalone sun Ahora brings back today and the time",
+      "pass": true,
+      "detail": {
+        "time": "16:00",
+        "text": "A las 16:00 el sol está al oeste (rumbo 262°), a 30° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 3.0 m hacia el este. ",
+        "value": 960,
+        "min": 315,
+        "max": 1110,
+        "valuetext": "16:00",
+        "wall": "Una fachada que mira al este, el 2026-10-27:Sol directo: 05:39–11:51.Luz rasante, que marca la textura: 10:30–11:51.Luz casi de frente, que la aplana: 05:39–07:41.A las 16:00 la fachada está en sombra: el sol está detrás.",
+        "drawn": 3,
+        "mark": [
+          "-66.4",
+          "9.6",
+          "visible"
+        ],
+        "date": "2026-10-27",
+        "label": "Recorrido del sol el 2026-10-27 visto desde arriba, con el norte arriba: sale al este-sureste (rumbo 103°), pasa a 89° de altura y se pone al oeste-suroeste (rumbo 256°)."
+      }
+    },
+    {
+      "name": "standalone sun the drawing names its date",
+      "pass": true,
+      "detail": "Recorrido del sol el 2026-10-27 visto desde arriba, con el norte arriba: sale al este-sureste (rumbo 103°), pasa a 89° de altura y se pone al oeste-suroeste (rumbo 256°)."
+    },
+    {
+      "name": "standalone review 320 a new shot waits for its three checks",
+      "pass": true,
+      "detail": {
+        "tally": "0 de 10 aprobadas · 0 por repetir",
+        "verdict": "Responde las tres para cerrar la toma.",
+        "done": "✓ Todo bien",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": []
+      }
+    },
+    {
+      "name": "standalone review 320 a failed intent gives the field card's own advice",
+      "pass": true,
+      "detail": [
+        "Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm",
+        "↻ Repite la toma con este cambio:Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm."
+      ]
+    },
+    {
+      "name": "standalone review 320 the tally counts the shot to repeat",
+      "pass": true,
+      "detail": "0 de 10 aprobadas · 1 por repetir"
+    },
+    {
+      "name": "standalone review 320 answering keeps focus on the answer",
+      "pass": true,
+      "detail": "run-i"
+    },
+    {
+      "name": "standalone review 320 the keyboard changes an answer and the verdict follows",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-i",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "standalone review 320 each answer survives a reload",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "standalone review 320 «Todo bien» passes a shot in one tap",
+      "pass": true,
+      "detail": {
+        "tally": "2 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 4/10 · Poca Profundidad de Campo",
+        "focus": "run-done",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "standalone review 320 an old tick counts as passed",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 3 por repetir",
+        "verdict": "✓ Aprobada: la marcaste antes de que existiera la revisión",
+        "done": "✓ Aprobada",
+        "title": "A · 1/10 · Mucha Profundidad de Campo",
+        "focus": "run-title",
+        "checked": []
+      }
+    },
+    {
+      "name": "standalone review 320 the summary counts the session",
+      "pass": true,
+      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan, cierra a f/11"
+    },
+    {
+      "name": "standalone review 320 a shot to repeat opens from the summary with focus on its title",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 3 por repetir",
+        "verdict": "↻ Repite la toma con este cambio:Punto AF central sobre el ojo más cercano. Con el sujeto quieto, cierra de f/1.8 a f/2.2–2.8.Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm.",
+        "done": "✓ Todo bien",
+        "title": "A · 4/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": [
+          "run-s=no",
+          "run-e=ok",
+          "run-i=no"
+        ]
+      }
+    },
+    {
+      "name": "standalone review 320 clearing the review empties this plan's store",
+      "pass": true,
+      "detail": [
+        "0 de 10 aprobadas · 0 por repetir",
+        "[null,null,null,null,null,null,null,null,null,null]"
+      ]
+    },
+    {
+      "name": "standalone review 320 shot review errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone review 1280 a new shot waits for its three checks",
+      "pass": true,
+      "detail": {
+        "tally": "0 de 10 aprobadas · 0 por repetir",
+        "verdict": "Responde las tres para cerrar la toma.",
+        "done": "✓ Todo bien",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": []
+      }
+    },
+    {
+      "name": "standalone review 1280 a failed intent gives the field card's own advice",
+      "pass": true,
+      "detail": [
+        "Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm",
+        "↻ Repite la toma con este cambio:Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm."
+      ]
+    },
+    {
+      "name": "standalone review 1280 the tally counts the shot to repeat",
+      "pass": true,
+      "detail": "0 de 10 aprobadas · 1 por repetir"
+    },
+    {
+      "name": "standalone review 1280 answering keeps focus on the answer",
+      "pass": true,
+      "detail": "run-i"
+    },
+    {
+      "name": "standalone review 1280 the keyboard changes an answer and the verdict follows",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-i",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "standalone review 1280 each answer survives a reload",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "standalone review 1280 «Todo bien» passes a shot in one tap",
+      "pass": true,
+      "detail": {
+        "tally": "2 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 4/10 · Poca Profundidad de Campo",
+        "focus": "run-done",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "standalone review 1280 an old tick counts as passed",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 3 por repetir",
+        "verdict": "✓ Aprobada: la marcaste antes de que existiera la revisión",
+        "done": "✓ Aprobada",
+        "title": "A · 1/10 · Mucha Profundidad de Campo",
+        "focus": "run-title",
+        "checked": []
+      }
+    },
+    {
+      "name": "standalone review 1280 the summary counts the session",
+      "pass": true,
+      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan, cierra a f/11"
+    },
+    {
+      "name": "standalone review 1280 a shot to repeat opens from the summary with focus on its title",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 3 por repetir",
+        "verdict": "↻ Repite la toma con este cambio:Punto AF central sobre el ojo más cercano. Con el sujeto quieto, cierra de f/1.8 a f/2.2–2.8.Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm.",
+        "done": "✓ Todo bien",
+        "title": "A · 4/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": [
+          "run-s=no",
+          "run-e=ok",
+          "run-i=no"
+        ]
+      }
+    },
+    {
+      "name": "standalone review 1280 clearing the review empties this plan's store",
+      "pass": true,
+      "detail": [
+        "0 de 10 aprobadas · 0 por repetir",
+        "[null,null,null,null,null,null,null,null,null,null]"
+      ]
+    },
+    {
+      "name": "standalone review 1280 shot review errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone review with storage refused the review is kept for the session",
+      "pass": true,
+      "detail": [
+        {
+          "tally": "1 de 10 aprobadas · 0 por repetir",
+          "verdict": "✓ Aprobada",
+          "done": "✓ Aprobada",
+          "title": "A · 1/10 · Mucha Profundidad de Campo",
+          "focus": "BODY",
+          "checked": [
+            "run-s=ok",
+            "run-e=ok",
+            "run-i=ok"
+          ]
+        },
+        []
+      ]
     },
     {
       "name": "standalone 320 no text under 12 px",
@@ -1428,6 +2020,598 @@
       "detail": []
     },
     {
+      "name": "hosted sun 320 hour starts at the morning blue hour",
+      "pass": true,
+      "detail": {
+        "time": "05:20",
+        "text": "A las 05:20 el sol está 6° bajo el horizonte, al este (rumbo 101°). Es de noche.",
+        "value": 320,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "05:20",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 05:20 no hay sol.",
+        "drawn": 3,
+        "mark": [
+          "-91.7",
+          "13.5",
+          "hidden"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "hosted sun 320 before sunrise the sun is below the horizon",
+      "pass": true,
+      "detail": [
+        "A las 05:20 el sol está 6° bajo el horizonte, al este (rumbo 101°). Es de noche.",
+        "A las 05:20 el sol está 6° bajo el horizonte"
+      ]
+    },
+    {
+      "name": "hosted sun 320 arrow keys move the hour 5 minutes a press",
+      "pass": true,
+      "detail": [
+        320,
+        860
+      ]
+    },
+    {
+      "name": "hosted sun 320 the hour is named for assistive technology",
+      "pass": true,
+      "detail": {
+        "time": "14:20",
+        "text": "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m hacia el este. ",
+        "value": 860,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "14:20",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 14:20 el sol le llega a 36°.",
+        "drawn": 3,
+        "mark": [
+          "-40.1",
+          "-0.3",
+          "visible"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "hosted sun 320 printed position matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m hacia el este. ",
+        "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m"
+      ]
+    },
+    {
+      "name": "hosted sun 320 the sun is drawn where it stands",
+      "pass": true,
+      "detail": [
+        [
+          "-40.1",
+          "-0.3",
+          "visible"
+        ],
+        -40.1,
+        -0.3
+      ]
+    },
+    {
+      "name": "hosted sun 320 hour ends at the evening blue hour",
+      "pass": true,
+      "detail": {
+        "time": "18:30",
+        "text": "A las 18:30 el sol está 7° bajo el horizonte, al oeste-suroeste (rumbo 259°). Es de noche.",
+        "value": 1110,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "18:30",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol.",
+        "drawn": 3,
+        "mark": [
+          "-40.1",
+          "-0.3",
+          "hidden"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "hosted sun 320 west wall direct light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Sol directo: 11:54–18:04.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "hosted sun 320 west wall raking light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Luz rasante, que marca la textura: 11:54–13:14.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "hosted sun 320 west wall frontal light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Luz casi de frente, que la aplana: 16:00–18:04.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "hosted sun 320 the wall and its front are drawn",
+      "pass": true,
+      "detail": 3
+    },
+    {
+      "name": "hosted sun 320 no wall chosen, none drawn",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "hosted sun 320 sun panel errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted sun 1280 hour starts at the morning blue hour",
+      "pass": true,
+      "detail": {
+        "time": "05:20",
+        "text": "A las 05:20 el sol está 6° bajo el horizonte, al este (rumbo 101°). Es de noche.",
+        "value": 320,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "05:20",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 05:20 no hay sol.",
+        "drawn": 3,
+        "mark": [
+          "-91.7",
+          "13.5",
+          "hidden"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "hosted sun 1280 before sunrise the sun is below the horizon",
+      "pass": true,
+      "detail": [
+        "A las 05:20 el sol está 6° bajo el horizonte, al este (rumbo 101°). Es de noche.",
+        "A las 05:20 el sol está 6° bajo el horizonte"
+      ]
+    },
+    {
+      "name": "hosted sun 1280 arrow keys move the hour 5 minutes a press",
+      "pass": true,
+      "detail": [
+        320,
+        860
+      ]
+    },
+    {
+      "name": "hosted sun 1280 the hour is named for assistive technology",
+      "pass": true,
+      "detail": {
+        "time": "14:20",
+        "text": "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m hacia el este. ",
+        "value": 860,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "14:20",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 14:20 el sol le llega a 36°.",
+        "drawn": 3,
+        "mark": [
+          "-40.1",
+          "-0.3",
+          "visible"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "hosted sun 1280 printed position matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m hacia el este. ",
+        "A las 14:20 el sol está al oeste (rumbo 270°), a 54° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 1.2 m"
+      ]
+    },
+    {
+      "name": "hosted sun 1280 the sun is drawn where it stands",
+      "pass": true,
+      "detail": [
+        [
+          "-40.1",
+          "-0.3",
+          "visible"
+        ],
+        -40.1,
+        -0.3
+      ]
+    },
+    {
+      "name": "hosted sun 1280 hour ends at the evening blue hour",
+      "pass": true,
+      "detail": {
+        "time": "18:30",
+        "text": "A las 18:30 el sol está 7° bajo el horizonte, al oeste-suroeste (rumbo 259°). Es de noche.",
+        "value": 1110,
+        "min": 320,
+        "max": 1110,
+        "valuetext": "18:30",
+        "wall": "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol.",
+        "drawn": 3,
+        "mark": [
+          "-40.1",
+          "-0.3",
+          "hidden"
+        ],
+        "date": "2026-10-17",
+        "label": "Recorrido del sol el 2026-10-17 visto desde arriba, con el norte arriba: sale al este (rumbo 100°), pasa a 87° de altura y se pone al oeste (rumbo 260°)."
+      }
+    },
+    {
+      "name": "hosted sun 1280 west wall direct light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Sol directo: 11:54–18:04.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "hosted sun 1280 west wall raking light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Luz rasante, que marca la textura: 11:54–13:14.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "hosted sun 1280 west wall frontal light matches the ephemeris",
+      "pass": true,
+      "detail": [
+        "Luz casi de frente, que la aplana: 16:00–18:04.",
+        "Una fachada que mira al oeste, el 2026-10-17:Sol directo: 11:54–18:04.Luz rasante, que marca la textura: 11:54–13:14.Luz casi de frente, que la aplana: 16:00–18:04.A las 18:30 no hay sol."
+      ]
+    },
+    {
+      "name": "hosted sun 1280 the wall and its front are drawn",
+      "pass": true,
+      "detail": 3
+    },
+    {
+      "name": "hosted sun 1280 no wall chosen, none drawn",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "hosted sun 1280 sun panel errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted sun opens on today in Lima at the time it is there",
+      "pass": true,
+      "detail": {
+        "time": "16:00",
+        "text": "A las 16:00 el sol está al oeste (rumbo 262°), a 30° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 3.0 m hacia el este. ",
+        "value": 960,
+        "min": 315,
+        "max": 1110,
+        "valuetext": "16:00",
+        "wall": "Elige hacia dónde mira la fachada para ver cuándo le da el sol.",
+        "drawn": 0,
+        "mark": [
+          "-66.4",
+          "9.6",
+          "visible"
+        ],
+        "date": "2026-10-27",
+        "label": "Recorrido del sol el 2026-10-27 visto desde arriba, con el norte arriba: sale al este-sureste (rumbo 103°), pasa a 89° de altura y se pone al oeste-suroeste (rumbo 256°)."
+      }
+    },
+    {
+      "name": "hosted sun Ahora brings back today and the time",
+      "pass": true,
+      "detail": {
+        "time": "16:00",
+        "text": "A las 16:00 el sol está al oeste (rumbo 262°), a 30° sobre el horizonte. Una persona de 1.70 m proyecta una sombra de 3.0 m hacia el este. ",
+        "value": 960,
+        "min": 315,
+        "max": 1110,
+        "valuetext": "16:00",
+        "wall": "Una fachada que mira al este, el 2026-10-27:Sol directo: 05:39–11:51.Luz rasante, que marca la textura: 10:30–11:51.Luz casi de frente, que la aplana: 05:39–07:41.A las 16:00 la fachada está en sombra: el sol está detrás.",
+        "drawn": 3,
+        "mark": [
+          "-66.4",
+          "9.6",
+          "visible"
+        ],
+        "date": "2026-10-27",
+        "label": "Recorrido del sol el 2026-10-27 visto desde arriba, con el norte arriba: sale al este-sureste (rumbo 103°), pasa a 89° de altura y se pone al oeste-suroeste (rumbo 256°)."
+      }
+    },
+    {
+      "name": "hosted sun the drawing names its date",
+      "pass": true,
+      "detail": "Recorrido del sol el 2026-10-27 visto desde arriba, con el norte arriba: sale al este-sureste (rumbo 103°), pasa a 89° de altura y se pone al oeste-suroeste (rumbo 256°)."
+    },
+    {
+      "name": "hosted review 320 a new shot waits for its three checks",
+      "pass": true,
+      "detail": {
+        "tally": "0 de 10 aprobadas · 0 por repetir",
+        "verdict": "Responde las tres para cerrar la toma.",
+        "done": "✓ Todo bien",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": []
+      }
+    },
+    {
+      "name": "hosted review 320 a failed intent gives the field card's own advice",
+      "pass": true,
+      "detail": [
+        "Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm",
+        "↻ Repite la toma con este cambio:Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm."
+      ]
+    },
+    {
+      "name": "hosted review 320 the tally counts the shot to repeat",
+      "pass": true,
+      "detail": "0 de 10 aprobadas · 1 por repetir"
+    },
+    {
+      "name": "hosted review 320 answering keeps focus on the answer",
+      "pass": true,
+      "detail": "run-i"
+    },
+    {
+      "name": "hosted review 320 the keyboard changes an answer and the verdict follows",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-i",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "hosted review 320 each answer survives a reload",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "hosted review 320 «Todo bien» passes a shot in one tap",
+      "pass": true,
+      "detail": {
+        "tally": "2 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 4/10 · Poca Profundidad de Campo",
+        "focus": "run-done",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "hosted review 320 an old tick counts as passed",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 3 por repetir",
+        "verdict": "✓ Aprobada: la marcaste antes de que existiera la revisión",
+        "done": "✓ Aprobada",
+        "title": "A · 1/10 · Mucha Profundidad de Campo",
+        "focus": "run-title",
+        "checked": []
+      }
+    },
+    {
+      "name": "hosted review 320 the summary counts the session",
+      "pass": true,
+      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan, cierra a f/11"
+    },
+    {
+      "name": "hosted review 320 a shot to repeat opens from the summary with focus on its title",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 3 por repetir",
+        "verdict": "↻ Repite la toma con este cambio:Punto AF central sobre el ojo más cercano. Con el sujeto quieto, cierra de f/1.8 a f/2.2–2.8.Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm.",
+        "done": "✓ Todo bien",
+        "title": "A · 4/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": [
+          "run-s=no",
+          "run-e=ok",
+          "run-i=no"
+        ]
+      }
+    },
+    {
+      "name": "hosted review 320 clearing the review empties this plan's store",
+      "pass": true,
+      "detail": [
+        "0 de 10 aprobadas · 0 por repetir",
+        "[null,null,null,null,null,null,null,null,null,null]"
+      ]
+    },
+    {
+      "name": "hosted review 320 shot review errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted review 1280 a new shot waits for its three checks",
+      "pass": true,
+      "detail": {
+        "tally": "0 de 10 aprobadas · 0 por repetir",
+        "verdict": "Responde las tres para cerrar la toma.",
+        "done": "✓ Todo bien",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": []
+      }
+    },
+    {
+      "name": "hosted review 1280 a failed intent gives the field card's own advice",
+      "pass": true,
+      "detail": [
+        "Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm",
+        "↻ Repite la toma con este cambio:Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm."
+      ]
+    },
+    {
+      "name": "hosted review 1280 the tally counts the shot to repeat",
+      "pass": true,
+      "detail": "0 de 10 aprobadas · 1 por repetir"
+    },
+    {
+      "name": "hosted review 1280 answering keeps focus on the answer",
+      "pass": true,
+      "detail": "run-i"
+    },
+    {
+      "name": "hosted review 1280 the keyboard changes an answer and the verdict follows",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-i",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "hosted review 1280 each answer survives a reload",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 3/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "hosted review 1280 «Todo bien» passes a shot in one tap",
+      "pass": true,
+      "detail": {
+        "tally": "2 de 10 aprobadas · 0 por repetir",
+        "verdict": "✓ Aprobada",
+        "done": "✓ Aprobada",
+        "title": "A · 4/10 · Poca Profundidad de Campo",
+        "focus": "run-done",
+        "checked": [
+          "run-s=ok",
+          "run-e=ok",
+          "run-i=ok"
+        ]
+      }
+    },
+    {
+      "name": "hosted review 1280 an old tick counts as passed",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 3 por repetir",
+        "verdict": "✓ Aprobada: la marcaste antes de que existiera la revisión",
+        "done": "✓ Aprobada",
+        "title": "A · 1/10 · Mucha Profundidad de Campo",
+        "focus": "run-title",
+        "checked": []
+      }
+    },
+    {
+      "name": "hosted review 1280 the summary counts the session",
+      "pass": true,
+      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan, cierra a f/11"
+    },
+    {
+      "name": "hosted review 1280 a shot to repeat opens from the summary with focus on its title",
+      "pass": true,
+      "detail": {
+        "tally": "1 de 10 aprobadas · 3 por repetir",
+        "verdict": "↻ Repite la toma con este cambio:Punto AF central sobre el ojo más cercano. Con el sujeto quieto, cierra de f/1.8 a f/2.2–2.8.Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm.",
+        "done": "✓ Todo bien",
+        "title": "A · 4/10 · Poca Profundidad de Campo",
+        "focus": "run-title",
+        "checked": [
+          "run-s=no",
+          "run-e=ok",
+          "run-i=no"
+        ]
+      }
+    },
+    {
+      "name": "hosted review 1280 clearing the review empties this plan's store",
+      "pass": true,
+      "detail": [
+        "0 de 10 aprobadas · 0 por repetir",
+        "[null,null,null,null,null,null,null,null,null,null]"
+      ]
+    },
+    {
+      "name": "hosted review 1280 shot review errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted review with storage refused the review is kept for the session",
+      "pass": true,
+      "detail": [
+        {
+          "tally": "1 de 10 aprobadas · 0 por repetir",
+          "verdict": "✓ Aprobada",
+          "done": "✓ Aprobada",
+          "title": "A · 1/10 · Mucha Profundidad de Campo",
+          "focus": "run-prev",
+          "checked": [
+            "run-s=ok",
+            "run-e=ok",
+            "run-i=ok"
+          ]
+        },
+        []
+      ]
+    },
+    {
       "name": "hosted 320 no text under 12 px",
       "pass": true,
       "detail": []
@@ -2198,7 +3382,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1525
+          1562
         ]
       }
     },
@@ -2208,8 +3392,8 @@
       "detail": [
         "Sin conexión: el plan C no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:36125/plans/plan_c.html",
-          "http://127.0.0.1:36125/field_card.html"
+          "http://127.0.0.1:35733/plans/plan_c.html",
+          "http://127.0.0.1:35733/field_card.html"
         ]
       ]
     },
@@ -2230,7 +3414,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1525
+          1562
         ]
       }
     },
@@ -2240,8 +3424,8 @@
       "detail": [
         "Sin conexión: la página «wiki-tecnicas» no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:36125/challenges/arquitectura-en-foco/wiki-tecnicas.html",
-          "http://127.0.0.1:36125/field_card.html"
+          "http://127.0.0.1:35733/challenges/arquitectura-en-foco/wiki-tecnicas.html",
+          "http://127.0.0.1:35733/field_card.html"
         ]
       ]
     },
@@ -2260,24 +3444,24 @@
       "name": "error log: a thrown error and a rejected promise send no request",
       "pass": true,
       "detail": [
-        "GET http://127.0.0.1:37351/",
-        "GET http://127.0.0.1:37351/assets/hosted.css?v=e2f1d9aee0d0",
-        "GET http://127.0.0.1:37351/data/plans_embedded.js?v=760318475bf5",
-        "GET http://127.0.0.1:37351/assets/app-icon.svg"
+        "GET http://127.0.0.1:34303/",
+        "GET http://127.0.0.1:34303/assets/hosted.css?v=571037a349dc",
+        "GET http://127.0.0.1:34303/data/plans_embedded.js?v=760318475bf5",
+        "GET http://127.0.0.1:34303/assets/app-icon.svg"
       ]
     },
     {
       "name": "error log: the home page lists both, with the page they came from",
       "pass": true,
       "detail": [
-        "1 vez · 2026-10-21 09:18Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
-        "1 vez · 2026-10-21 09:18Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
+        "1 vez · 2026-10-27 21:37Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
+        "1 vez · 2026-10-27 21:37Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
       ]
     },
     {
       "name": "error log: no query string, fragment or browser identity is kept",
       "pass": true,
-      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-21T09:18Z\",\"last\":\"2026-10-21T09:18Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-21T09:18Z\",\"last\":\"2026-10-21T09:18Z\"}]"
+      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-27T21:37Z\",\"last\":\"2026-10-27T21:37Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-27T21:37Z\",\"last\":\"2026-10-27T21:37Z\"}]"
     },
     {
       "name": "error log: the report link carries the log to a new GitHub issue",
@@ -2297,7 +3481,7 @@
       "pass": true,
       "detail": [
         "Selecciona y copia el texto",
-        "1 vez · 2026-10-21 09:18Z · Promesa rechazada · promesa de prueba · en /plans/pl"
+        "1 vez · 2026-10-27 21:37Z · Promesa rechazada · promesa de prueba · en /plans/pl"
       ]
     },
     {
@@ -2864,13 +4048,13 @@
       "detail": {}
     }
   ],
-  "audited_at": "2026-10-21T09:39:41.311402+00:00",
-  "audited_commit": "657ef3e0094fd1c6e79b0c0af16d813357a54cff",
+  "audited_at": "2026-10-27T21:59:46.479477+00:00",
+  "audited_commit": "3bcabf94637c35b69f1b29eb9bc8185c084b199c",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
     "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
-    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "1d7cd9182c10f5c3c3f8e802335f1bf6f57845e2bd000f2bc1917bc1e3ebf8f0",
-    "dist/canon6d_sota_hosted/assets/hosted.css": "e2f1d9aee0d015bcb592791e8a1e783a66a6e62936a4f435de075de00b985f6e",
+    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "9df6b720230aa3bd57bf25644f4ff4cf828d301d47f44b10729170bbf0de8059",
+    "dist/canon6d_sota_hosted/assets/hosted.css": "571037a349dc15005d8663a2b3ef19cbaeef87b2f1c6b43b2b9720384c596412",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "986b21b3e98a22d42b353525da523348076a7613154a33b03c3cbcab2144de19",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "f8204b380b8d2bb3a1200aaae544a2d02c3290d195fff9421bfeb81d02959c3b",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/iphone-maps.html": "3af624a6bf9699d8a4c3be805a6848300201715881660b8bf220b917f5e7abf7",
@@ -2900,17 +4084,17 @@
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html": "fef1da0075298e0b98be8ad6320c7a12c3b4f33a7e6e38a0378f718fd9937384",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "ee1783c839181086e47e55a50586e167442c5685752e14af1f9b318599a36eea",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "3ebce15997a8348993d8d8a1080696939dc94d885e0199ebe1973c2ea9cce311",
-    "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "c03820dc763bc310acd98e378730530c3b10792882cb06b17eecab20970402f3",
+    "dist/canon6d_sota_hosted/field_card.html": "934fac64b9dab0cb529c38bf31ba5601d404e2de3937fd904ebb961b3a0c9cee",
+    "dist/canon6d_sota_hosted/index.html": "99aee76bd175a9de43e93a079651812579973797d8d7d95be095bf2206cfd6e4",
     "dist/canon6d_sota_hosted/plans/plan_a.html": "3301fded9e4fcd23db9cca16c8dfc13628910224d6c48aa9cd72f9bcbfc1b6be",
     "dist/canon6d_sota_hosted/plans/plan_b.html": "7e494ead9938b86f00ab584cd69d55940fcd1b73e217d0454e7e42669ed05696",
     "dist/canon6d_sota_hosted/plans/plan_c.html": "bfd5c8ffba10c9888ffb26aac45d98fd22b0ec22c9f073da48dceab9b3368e50",
     "dist/canon6d_sota_hosted/plans/plan_d.html": "52b50af80db53a6b3ad157bb440cf1b6b3a8a36035d9fda9bd2703690bfba8e8",
     "dist/canon6d_sota_hosted/plans/plan_e.html": "624ee0c8ce6cae6482064c470fc0064e77de955724caf077e48c5a2dc56bcd41",
     "dist/canon6d_sota_hosted/plans/plan_f.html": "d8378390580541ed2e38440b00363e0d64417d99cfc567f1d5ec6284e0e301fd",
-    "dist/canon6d_sota_hosted/sw.js": "7349dc165f3ccce23836151d21c124040d1ef26006d88fc42c97909e2e01fbcd",
-    "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "index.html": "1d7cd9182c10f5c3c3f8e802335f1bf6f57845e2bd000f2bc1917bc1e3ebf8f0",
+    "dist/canon6d_sota_hosted/sw.js": "2697dac166ee90bc06f295f11c0f634eb1259e902c0ff44711b5072e98ca74af",
+    "field_card.html": "934fac64b9dab0cb529c38bf31ba5601d404e2de3937fd904ebb961b3a0c9cee",
+    "index.html": "9df6b720230aa3bd57bf25644f4ff4cf828d301d47f44b10729170bbf0de8059",
     "plans/plan_a.html": "d4565b0bd237b65c609a9e893233ae33617fbb68a49c40032dccc9414d98d78f",
     "plans/plan_b.html": "35d9b0a478e372a38f8794ff24eb00fe1719bb9e292d1274693774b074526629",
     "plans/plan_c.html": "8a40eef49ae48c3c4797407922af215c5fc7577e59357fa7043b9fca83eb3f4b",
