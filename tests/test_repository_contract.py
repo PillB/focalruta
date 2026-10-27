@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def pinned(workflow: str, action: str, major: int) -> bool:
-    """`action` is pinned to a commit of release `major` (X08 pins to a SHA, its tag in a comment)."""
+    """`action` is pinned to a commit of release `major` (X09 pins to a SHA, its tag in a comment)."""
     return re.search(rf"{re.escape(action)}@[0-9a-f]{{40}} # v{major}(?:\.\d+)*\s*$", workflow, re.M) is not None
 
 

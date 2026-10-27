@@ -146,7 +146,7 @@ def uses_lines() -> list[tuple[str, str]]:
     return found
 
 
-def test_x08_every_outside_action_is_pinned_to_a_commit_with_its_tag_named():
+def test_x09_every_outside_action_is_pinned_to_a_commit_with_its_tag_named():
     """Sign-off note on PR #21: the actions were pinned to tags, which their owner can move.
     A full commit SHA cannot be moved (GitHub's security hardening guide for Actions), and the
     comment after it names the release, so Dependabot and a reader can tell what it is."""
@@ -158,7 +158,7 @@ def test_x08_every_outside_action_is_pinned_to_a_commit_with_its_tag_named():
     assert loose == [], "actions not pinned to a commit SHA with its tag:\n" + "\n".join(loose)
 
 
-def test_x08_one_action_is_pinned_to_one_commit_everywhere():
+def test_x09_one_action_is_pinned_to_one_commit_everywhere():
     """The same action at two commits would run two versions in one pipeline."""
     pins: dict[str, set[str]] = {}
     for _name, line in uses_lines():
