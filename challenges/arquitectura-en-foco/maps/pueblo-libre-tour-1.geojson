@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "id": "parque-3-de-octubre-skatepark-muros-libres",
-        "name": "Parque 3 de octubre",
+        "name": "Parque 3 de Octubre + Skatepark Muros Libres",
         "district": "Pueblo Libre"
       },
       "geometry": {
@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "quinta-de-los-libertadores-mnaahp",
-        "name": "Museo Nacional de Arqueología",
+        "name": "Quinta de los Libertadores + MNAAHP",
         "district": "Pueblo Libre"
       },
       "geometry": {
@@ -50,7 +50,7 @@
       "type": "Feature",
       "properties": {
         "id": "parque-virginia-candamo",
-        "name": "Parque Candamo",
+        "name": "Parque Virginia Candamo",
         "district": "Pueblo Libre"
       },
       "geometry": {
@@ -65,7 +65,7 @@
       "type": "Feature",
       "properties": {
         "id": "plaza-a-la-bandera",
-        "name": "Plaza de la Bandera",
+        "name": "Plaza a la Bandera",
         "district": "Pueblo Libre"
       },
       "geometry": {

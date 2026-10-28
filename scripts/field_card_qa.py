@@ -208,10 +208,35 @@ def clock_cases(browser, base: str) -> None:
         context.close()
 
 
+def calendar_file(browser, base: str) -> None:
+    """W12: the calendar button writes the chosen plan, light and date, timed by the Python twin."""
+    context = browser.new_context(accept_downloads=True, **PHONE)
+    page = context.new_page()
+    page.clock.set_fixed_time("2026-10-28T15:00:00Z")
+    page.goto(base + "field_card.html", wait_until="load")
+    pick(page, "fc-plan", "plan_b")
+    pick(page, "fc-slot", "afternoon")
+    page.fill("#fc-date", "2026-11-24")
+    page.dispatch_event("#fc-date", "change")
+    with page.expect_download() as caught:
+        page.click("#fc-ics")
+    download = caught.value
+    text = Path(download.path()).read_bytes().decode("utf-8")
+    plan = sun_times.day_plan(date(2026, 11, 24))
+    start = round(plan["golden_pm_start"]) - 30 + 300
+    want = f"DTSTART:20261124T{start // 60:02d}{start % 60:02d}00Z"
+    check("calendar file is named for its plan, light and date", download.suggested_filename == "focalruta-plan-b-afternoon-2026-11-24.ics", download.suggested_filename)
+    check("calendar event starts half an hour before the afternoon light", want in text.replace("\r\n ", ""), [want, text[:400]])
+    check("calendar event carries the place and an alert", "LOCATION:" in text and "TRIGGER:-PT2H" in text and "\r\n" in text, text[:200])
+    check("the card says the calendar file is ready", "ábrelo para añadir" in page.locator("#fc-status").inner_text())
+    context.close()
+
+
 def without_javascript(browser, base: str) -> None:
     context = browser.new_context(java_script_enabled=False, **PHONE)
     page = context.new_page()
     page.goto(base + "field_card.html", wait_until="load")
+    check("no JavaScript: no calendar button that could not work", not page.locator("#fc-ics").is_visible())
     switching(page, "no JavaScript")
     readability(page, "no JavaScript")
     context.close()
@@ -650,7 +675,7 @@ def main() -> int:
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
-        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog, home_dialog_focus_after_resize, damaged_memory, your_gear,
+        for step in (phone, clock_cases, calendar_file, without_javascript, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog, home_dialog_focus_after_resize, damaged_memory, your_gear,
                      overflow, axe_states):
             guarded(step, browser, base)
         deploys(browser)

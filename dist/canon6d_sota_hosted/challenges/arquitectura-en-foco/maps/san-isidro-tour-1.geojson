@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "palacio-municipal-y-de-la-cultura-san-isidro",
-        "name": "Municipalidad de San Isidro",
+        "name": "Palacio Municipal y de la Cultura · San Isidro",
         "district": "San Isidro"
       },
       "geometry": {
@@ -35,7 +35,7 @@
       "type": "Feature",
       "properties": {
         "id": "torre-begonias",
-        "name": "Torre Begonias",
+        "name": "Torre Begonias + Paseo Begonias",
         "district": "San Isidro"
       },
       "geometry": {
@@ -50,7 +50,7 @@
       "type": "Feature",
       "properties": {
         "id": "edificio-petroperu",
-        "name": "150",
+        "name": "Edificio Petroperú",
         "district": "San Isidro"
       },
       "geometry": {
@@ -65,7 +65,7 @@
       "type": "Feature",
       "properties": {
         "id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
-        "name": "Viettel Perú",
+        "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
         "district": "San Isidro"
       },
       "geometry": {

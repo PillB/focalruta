@@ -10,6 +10,7 @@ import math
 import re
 from datetime import date
 
+import moon_times as mt
 import sun_times as st
 
 DAY = "2026-10-17"
@@ -115,6 +116,47 @@ def now_button(browser, url: str, record, name: str) -> None:
     context.close()
 
 
+# W09: a full moon rising at dusk, a new moon, a day the moon never rises, and a moon that is
+# down at dusk and rises later; each read against the Python twin, held to USNO's tables.
+MOON_DAYS = ("2026-11-24", "2026-11-09", "2026-11-01", "2026-12-06", "2026-10-28")
+MOON_READ = "()=>({grid:document.getElementById('sun-grid')?.innerText,read:document.getElementById('moon-read')?.textContent})"
+
+
+def moon_expected(day: date) -> tuple[list[str], str]:
+    plan, md = st.day_plan(day), mt.moon_day(day)
+    at = plan["blue_pm_end"]
+    moon, lit = mt.moon_at(day, at), None
+    lit = round(moon["fraction"] * 100)
+    where = lambda b: f"por el {compass(b)}, rumbo {round(b) % 360}°"  # noqa: E731
+    rumbo = lambda b: f"al {compass(b)} (rumbo {round(b) % 360}°)"  # noqa: E731
+    cells = [f"Sale la luna\n{clock(md['rise']) if md['rise'] is not None else 'no sale'}\n"
+             f"{where(md['rise_azimuth']) if md['rise'] is not None else 'en todo el día'}",
+             f"Se pone la luna\n{clock(md['set']) if md['set'] is not None else 'no se pone'}\n"
+             f"{where(md['set_azimuth']) if md['set'] is not None else 'en todo el día'}",
+             f"{moon['phase'][0].upper() + moon['phase'][1:]}\n{lit} %\niluminada a las {clock(at)}"]
+    when = f"Al terminar la hora azul ({clock(at)}) la luna "
+    if lit < 3:
+        sentence = "Luna nueva: esta noche la luna no suma luz a las tomas de noche."
+    elif moon["height"] > 0:
+        tail = ": suma luz a las tomas de noche y puede entrar en un encuadre hacia ese lado." if lit >= 50 else "."
+        sentence = f"{when}está a {max(1, round(moon['height']))}° sobre el horizonte, {rumbo(moon['azimuth'])}{tail}"
+    elif md["rise"] is not None and md["rise"] > at:
+        sentence = f"{when}está bajo el horizonte; sale a las {clock(md['rise'])}, {rumbo(md['rise_azimuth'])}."
+    else:
+        sentence = f"{when}está bajo el horizonte y no sale antes de medianoche."
+    return cells, sentence
+
+
+def moon_read(page, record, name: str) -> None:
+    for day in MOON_DAYS:
+        page.fill("#sun-date", day)
+        page.dispatch_event("#sun-date", "change")
+        shown = page.evaluate(MOON_READ)
+        cells, sentence = moon_expected(date.fromisoformat(day))
+        record(f"{name} {day} moonrise, moonset and phase match the twin", all(c in (shown["grid"] or "") for c in cells), [cells, shown["grid"]])
+        record(f"{name} {day} the night's moon is described", shown["read"] == sentence, [sentence, shown["read"]])
+
+
 def check(browser, url: str, record, name: str) -> None:
     for width in (320, 1280):
         page = browser.new_page(viewport={"width": width, "height": 900})
@@ -126,6 +168,7 @@ def check(browser, url: str, record, name: str) -> None:
         pick(page, DAY, str(int(FACING)))
         slider_steps(page, record, f"{name} {width}")
         wall_windows(page, record, f"{name} {width}")
+        moon_read(page, record, f"{name} {width}")
         record(f"{name} {width} sun panel errors", not errors, errors)
         page.close()
     now_button(browser, url, record, name)

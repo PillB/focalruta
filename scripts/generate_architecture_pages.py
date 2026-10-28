@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import re
 from html import escape
+from urllib.parse import urlparse
 from pathlib import Path
 
 import lab_visuals
@@ -16,6 +17,7 @@ CANONICAL_PATH = ROOT / "architectural_photography/ranking/canonical_candidates.
 PUBLIC_CANDIDATES_PATH = ROOT / "data/architecture/candidates.json"
 VERIFICATION_PATH = ROOT / "architectural_photography/research/locations/equal_depth_verification.json"
 RANKING_PATH = ROOT / "data/architecture/ranking.json"
+RANKING_ES_PATH = ROOT / "data/architecture/ranking_es.json"
 ROUTES_PATH = ROOT / "data/architecture/routes.json"
 DISCOVERIES_PATH = ROOT / "data/architecture/style_discoveries.json"
 DISCOVERY_DOSSIERS_PATH = ROOT / "architectural_photography/research/locations/style_discovery_dossiers.json"
@@ -58,6 +60,25 @@ SCENE_MECHANISMS = {
     "INFRASTRUCTURE_CHANNELS_MIXED_MOVEMENT": "La infraestructura encauza movimientos mezclados",
 }
 
+# Each place's research is written in English in ranking.json; ranking_es.json carries its
+# Spanish (Y20). A place or light without a translation stops the build instead of printing
+# English or a paragraph shared by every card, and so does a ranking rebuilt since.
+RANKING_ES = json.loads(RANKING_ES_PATH.read_text(encoding="utf-8"))
+
+
+def spanish_place(item: dict) -> dict:
+    return RANKING_ES["places"][item["canonical_id"]]
+
+
+def sentence(text: str) -> str:
+    text = text[0].upper() + text[1:]
+    return text if text.endswith((".", "?", "!")) else text + "."
+
+
+def evidence_score(value: float) -> str:
+    return f"evidencia {round(value * 100)}/100"
+
+
 NAV_ITEMS = (
     ("today", "Inicio"),
     ("how-to-read", "Cómo usar"),
@@ -85,14 +106,15 @@ def scene_cards(candidates: list[dict], cohort: dict, verification: dict) -> str
     cards = []
     for candidate in candidates:
         verified = active.get(candidate["canonical_id"])
-        mechanism = SCENE_MECHANISMS[verified["primary_scene_mechanism"]] if verified else "Mecanismo visual por investigar"
-        rejection = "La hipótesis todavía necesita fuentes actuales, comprobación en campo y una prueba A/B/C/D/E; no la tomes como un hecho terminado."
+        place = RANKING_ES["places"][candidate["canonical_id"]]
+        mechanism = SCENE_MECHANISMS[verified["primary_scene_mechanism"]] + ". " if verified else ""
         visual_count = len(progress[candidate["canonical_id"]]["visual_reference_families"])
         desk_verified = progress[candidate["canonical_id"]]["verification_complete"]
         status = f"Dossier de escritorio verificado · {visual_count} referencias · campo pendiente" if desk_verified else f"Forénsica visual: {visual_count} referencias · sin ranking"
         cards.append(
             f'<article class="scene"><p class="eyebrow">{escape(candidate["district"])}</p><h3>{escape(candidate["name"])}</h3>'
-            f'<p>{escape(mechanism)}</p><p class="reject"><strong>Puede fallar:</strong> {escape(rejection)}</p>'
+            f'<p><strong>Qué buscar:</strong> {escape(mechanism + sentence(place["escena"]))}</p>'
+            f'<p class="reject"><strong>Falla si</strong> {escape(place["descarta"])}.</p>'
             f'<span class="status">{escape(status)}</span></article>'
         )
     return "".join(cards)
@@ -110,22 +132,35 @@ def public_candidates(candidates: list[dict], verification: dict) -> list[dict]:
     ]
 
 def ranking_cards(ranking: dict) -> str:
+    if RANKING_ES["source_run_id"] != ranking["run_id"]:
+        raise ValueError(f'ranking_es.json translates run {RANKING_ES["source_run_id"]}, not {ranking["run_id"]}: retranslate the changed places')
     cards = []
     for item in ranking["results"]:
         ranks = item["scenario_ranks"]
+        place, light = spanish_place(item), RANKING_ES["light"][item["exact_light"]]
         pareto = " · Pareto" if item["pareto_front"] else ""
         cards.append(
             f'<article class="scene" data-name="{escape(item["name"])}" data-r0="{ranks["R0"]}" data-r1="{ranks["R1"]}" data-r2="{ranks["R2"]}" data-r3="{ranks["R3"]}">'
             f'<div class="rank-number">#{item["robust_rank"]}</div><p class="eyebrow">{escape(item["district"])}{pareto}</p><h3>{escape(item["name"])}</h3>'
             f'<div class="rank-meta"><span>R0 #{ranks["R0"]}</span><span>R1 #{ranks["R1"]}</span><span>R2 #{ranks["R2"]}</span><span>R3 #{ranks["R3"]}</span><span>Campo #{item["field_rank"]}</span></div>'
-            f'<p><strong>Por qué entra:</strong> Esta escena tiene una hipótesis visual que conecta espacio, luz y uso actual; el rango muestra prioridad de práctica, no calidad absoluta.</p><p><strong>Qué debes comprobar:</strong> Busca una posición concreta, una acción o ausencia significativa y una condición de luz que hagan visible la relación sin depender del texto.</p><p class="reject"><strong>Qué podría refutarla:</strong> Si solo funciona como postal, necesita un pie de foto para explicar la idea o no puedes confirmar acceso y actividad, baja su prioridad.</p><p class="reject"><strong>Se descarta si:</strong> La relación arquitectónica no se entiende en una sola imagen o exige inventar elementos.</p>'
-            f'<p class="status">p50 {item["rank_distribution"]["p50"]} · p10–p90 {item["rank_distribution"]["p10"]}–{item["rank_distribution"]["p90"]} · confianza {round(item["evidence_confidence"] * 100)}%</p></article>'
+            f'<p><strong>Por qué entra:</strong> {escape(place["entra"])}</p>'
+            f'<p><strong>Qué debes comprobar:</strong> {escape(sentence(place["escena"]))} <strong>Desde:</strong> {escape(sentence(place["desde"]))} <strong>Luz:</strong> {escape(sentence(light))}</p>'
+            f'<p class="reject"><strong>Qué podría refutarla:</strong> {escape(place["refuta"])}</p><p class="reject"><strong>Se descarta si</strong> {escape(place["descarta"])}.</p>'
+            f'<p><strong>Plan B:</strong> {escape(sentence(place["plan_b"]))}</p>'
+            f'<p class="status">p50 {item["rank_distribution"]["p50"]} · p10–p90 {item["rank_distribution"]["p10"]}–{item["rank_distribution"]["p90"]} · {evidence_score(item["evidence_confidence"])}</p></article>'
         )
     return "".join(cards)
 
+ROUTE_FIT = {"VERIFIED_WALKING_LAYER": "con ruta a pie verificada", "NO_VERIFIED_WALKING_LAYER": "sin ruta a pie verificada"}
+
+
 def field_priority_cards(ranking: dict) -> str:
     return "".join(
-        f'<article class="scene"><div class="rank-number">#{item["field_rank"]}</div><p class="eyebrow">CAMPO · {escape(item["district"])}</p><h3>{escape(item["name"])}</h3><p>Este lugar merece una visita porque ofrece una relación comprobable entre forma construida y vida cotidiana. Confirma primero que puedes entrar, detenerte y fotografiar.</p><p><strong>Prueba:</strong> Haz una toma de estructura, otra con uso humano y una tercera desde una posición distinta; compara qué lectura permanece.</p><p><strong>Plan B:</strong> Si no hay acceso o actividad, vuelve con otra luz o cambia a una escena del mismo distrito.</p><p class="status">confianza de escritorio {round(item["field_confidence"] * 100)}% · ruta por confirmar</p></article>'
+        f'<article class="scene"><div class="rank-number">#{item["field_rank"]}</div><p class="eyebrow">CAMPO · {escape(item["district"])}</p><h3>{escape(item["name"])}</h3>'
+        f'<p>Puesto {item["field_rank"]} para el campo y {item["robust_rank"]} en la comparación robusta.</p>'
+        f'<p><strong>Escena que buscas:</strong> {escape(sentence(spanish_place(item)["escena"]))}</p>'
+        f'<p><strong>Plan B:</strong> {escape(sentence(spanish_place(item)["plan_b"]))}</p>'
+        f'<p class="status">{evidence_score(item["field_confidence"])} · {ROUTE_FIT[item["route_fit"]]}</p></article>'
         for item in ranking["top_5_field"]
     )
 
@@ -218,15 +253,15 @@ def discovery_cards(discoveries: dict, dossiers: dict) -> str:
     cards = []
     for item in discoveries["discoveries"]:
         dossier = evidence[item["discovery_id"]]
-        question = "¿Puedes mostrar en una sola imagen cómo se usa hoy este espacio?"
+        style, place = RANKING_ES["discoveries"][item["discovery_id"]], RANKING_ES["places"][item["discovery_id"]]
         cards.append(
             f'<article class="scene"><p class="eyebrow">{escape(item["district"])} · RADAR</p>'
-            f'<h3>{escape(item["name"])}</h3><p><strong>Qué observar:</strong> Compara volumen, material, luz y actividad actual; el estilo es una pista, no una conclusión.</p>'
-            f'<p>Busca una relación visible entre el edificio y las personas que lo atraviesan. No dependas del pie de foto para explicar la idea.</p><p><strong>Pregunta de campo:</strong> {escape(question)}</p>'
-            f'<p class="reject"><strong>Se descarta si:</strong> Solo funciona como fachada bonita, no puedes confirmar acceso o la historia solo existe en el texto.</p>'
+            f'<h3>{escape(item["name"])}</h3><p><strong>Estilo:</strong> {escape(sentence(style["estilo"]))}</p>'
+            f'<p><strong>Qué podría aportar:</strong> {escape(style["aporte"])}</p><p><strong>Escena que buscas:</strong> {escape(sentence(place["escena"]))}</p>'
+            f'<p class="reject"><strong>Se descarta si</strong> {escape(place["descarta"])}.</p>'
             f'<p class="status">Dossier completo · ranking y capa peatonal verificados · confirma acceso el mismo día</p>'
-            f'<p><a href="{escape(dossier["sources"][0]["url"])}">Fuente actual</a> · '
-            f'{len(dossier["visual_reference_families"])} familias multiángulo</p></article>'
+            f'<p class="source-links"><a href="{escape(dossier["sources"][0]["url"])}">Fuente actual: {escape(urlparse(dossier["sources"][0]["url"]).netloc.removeprefix("www."))}</a> · '
+            f'{len(dossier["visual_reference_families"])} grupos de fotos de referencia, cada uno desde otro ángulo</p></article>'
         )
     return "".join(cards)
 
@@ -463,7 +498,8 @@ def render(learning: dict, photographers: dict, cohort: dict | None = None, cand
     modes = "".join(f"<li>{escape(mode)}</li>" for mode in photographers["seeing_modes"])
     masters = "".join(
         f'<article class="scene"><h3>{escape(card["photographer"])}</h3><p>{escape(card["signature_question"])}</p>'
-        f'<p><strong>Prueba:</strong> {escape(card["field_drill"])}</p></article>'
+        f'<p><strong>Prueba:</strong> {escape(card["field_drill"])}</p><p class="reject"><strong>Cuidado:</strong> {escape(card["misuse_risk"])}</p>'
+        f'<p class="source-links"><a href="{escape(card["sources"][0])}">Fuente sobre su trabajo</a></p></article>'
         for card in photographers["transfer_cards"]
     )
     physics_json = json.dumps(lab_visuals.physics_tables(), ensure_ascii=False, separators=(",", ":"))
@@ -475,12 +511,12 @@ def render(learning: dict, photographers: dict, cohort: dict | None = None, cand
     return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10211d"><link rel="icon" href="../../assets/app-icon.svg" type="image/svg+xml"><meta name="description" content="Guía de fotografía arquitectónica en Lima: 87 lugares investigados, comparación transparente, rutas a pie por distrito y protocolo de campo sin conexión."><script id="diagnostics-js">\n{DIAGNOSTICS_JS}</script><title>Fotografía arquitectónica · FocalRuta</title><style>{CSS}</style></head><body>
 <header id="today"><p class="eyebrow">FOCALRUTA · LABORATORIO DE CAMPO</p><h1>Arquitectura<br>en foco</h1><p>Aprende a convertir forma, luz, uso y tiempo en una fotografía que se sostenga antes de la explicación.</p><div class="command"><div class="command-grid"><article><strong>Practica</strong><p>Tres posiciones antes de elegir focal.</p></article><article><strong>Explora</strong><p>{len(candidates)} lugares y escenas; {visual_started} tienen forénsica visual y {desk_verified} dossier de escritorio verificado.</p></article><article><strong>Decide</strong><p>CONTRATO vs USO y una prueba A/B/C/D/E.</p></article><article><strong>Adapta</strong><p>Lee las condiciones de cada encargo antes de capturar o editar.</p></article></div></div></header>
 {navigation()}<main>
-<section id="ranking"><p class="eyebrow">MATRIZ DE PREPARACIÓN · NO ES PRONÓSTICO</p><h2>Compara fortalezas y fragilidades</h2><p>R0–R3 son lentes de práctica —balance, anti-postal, habitar y forma/campo—, no criterios oficiales ni estimaciones de resultados. La dispersión muestra sensibilidad a prioridades distintas y Pareto identifica escenas con compromisos útiles.</p><div class="ranking-controls"><div><label for="ranking-scenario">Lente de práctica</label><select id="ranking-scenario"><option value="r0">R0 · balanceado</option><option value="r1">R1 · anti-postal</option><option value="r2">R2 · habitar</option><option value="r3">R3 · forma/campo</option></select></div><div><label for="ranking-limit">Mostrar N o todas</label><select id="ranking-limit"><option value="5">5</option><option value="15" selected>15</option><option value="40">40</option><option value="all">Todas</option></select></div></div><p id="ranking-count-status" role="status" aria-live="polite"></p><div class="scenes" id="ranking-cards">{ranking_cards(ranking)}</div></section>
+<section id="ranking"><p class="eyebrow">MATRIZ DE PREPARACIÓN · NO ES PRONÓSTICO</p><h2>Compara fortalezas y fragilidades</h2><p>R0–R3 son lentes de práctica —balance, anti-postal, habitar y forma/campo—, no criterios oficiales ni estimaciones de resultados. La dispersión muestra sensibilidad a prioridades distintas y Pareto identifica escenas con compromisos útiles.</p><p><strong>Evidencia N/100</strong> mide cuánto respaldan hoy las fuentes la hipótesis de cada lugar; no es una probabilidad de que la foto salga ni de ganar. Lo que más la mueve: {escape(RANKING_ES["evidence_that_moves_rank"][0].lower() + RANKING_ES["evidence_that_moves_rank"][1:])}</p><div class="ranking-controls"><div><label for="ranking-scenario">Lente de práctica</label><select id="ranking-scenario"><option value="r0">R0 · balanceado</option><option value="r1">R1 · anti-postal</option><option value="r2">R2 · habitar</option><option value="r3">R3 · forma/campo</option></select></div><div><label for="ranking-limit">Mostrar N o todas</label><select id="ranking-limit"><option value="5">5</option><option value="15" selected>15</option><option value="40">40</option><option value="all">Todas</option></select></div></div><p id="ranking-count-status" role="status" aria-live="polite"></p><div class="scenes" id="ranking-cards">{ranking_cards(ranking)}</div></section>
 <section id="field-priorities"><p class="eyebrow">TOP 5 DE CAMPO</p><h2>Valor fotográfico que también se puede intentar</h2><p>Este orden combina potencial, causalidad, evidencia, acceso y factibilidad. Consulta abajo qué escenas ya tienen evidencia peatonal; una escena sin ruta todavía exige verificación manual.</p><div class="scenes">{field_priority_cards(ranking)}</div></section>
 <section id="route"><p class="eyebrow">RUTAS PEATONALES · AUDITORÍA DE GEOMETRÍA</p><h2>Colecciones de ruta por distrito</h2><p>Una colección reúne segmentos realmente caminables y declara aparte los puntos que requieren traslado. No se presenta un pin aislado como si fuera un tour. Cada parada incluye dirección breve y latitud/longitud; el mapa HTML funciona offline y Google Maps ofrece una recalculación vigente cuando hay conexión.</p><p class="warning"><strong>{len(routes.get("omitted_intertour_transfers", []))} traslados omitidos:</strong> superaban el umbral operativo y no se presentan como caminata continua.</p><label for="route-district">Filtrar distrito</label><select id="route-district"><option value="all">Todos</option>{route_district_options(routes)}</select><p id="route-count-status" role="status" aria-live="polite"></p><p><a href="iphone-maps.html">Cómo abrirlo en iPhone 13 Pro, paso a paso</a> · <a href="field-card.html" download>Descargar tarjeta de campo</a></p><div class="scenes" id="route-collections">{route_collection_cards(routes)}</div><h3>Detalle de segmentos y puntos</h3><div class="scenes" id="route-cards">{route_cards(routes)}</div></section>
 <section id="style-radar"><p class="eyebrow">RADAR · MODERNO / ART NOUVEAU / GEOMETRÍA</p><h2>Nuevos edificios que se ganaron una comparación</h2><p><strong>6/6 dossiers incorporados al ranking y a capas peatonales distritales verificadas.</strong> Cada hallazgo tiene diez pases, A/B/C/D/E, tres preguntas y forénsica multiángulo. Confirma acceso el mismo día antes de salir.</p><div class="scenes">{discovery_cards(discoveries, discovery_dossiers)}</div></section>
 <section id="scenes"><p class="eyebrow">UNIVERSO CANÓNICO</p><h2>Todos los lugares y escenas</h2><p>Las {len(candidates)} identidades reconciliadas tienen el mismo contrato de fuentes, imágenes, composición, preguntas, diez pases y A/B/C/D/E. El ranking de escritorio ya puede compararlas; ninguna queda habilitada como ruta hasta verificar ventanas y acceso en campo.</p><label for="scene-limit">Mostrar N escenas</label><select id="scene-limit"><option value="10">10 escenas</option><option value="25">25 escenas</option><option value="40">40 escenas</option><option value="all" selected>Todas las escenas</option></select><p id="scene-count-status" role="status" aria-live="polite">Mostrando todas las escenas.</p><div class="scenes" id="scene-cards">{scene_cards(candidates, cohort, verification)}</div></section>
-<section id="learn"><p class="eyebrow">{learning_path_eyebrow(learning)}</p><h2>Aprende antes de perseguir una locación</h2><p>Nueve laboratorios, uno por cada familia técnica. En cada uno mueves un control, la geometría cambia según la física que la gobierna y el texto te dice qué acabas de provocar. Empieza siempre prediciendo: es lo que hace que la relación se te quede.</p><p>Cada laboratorio aísla <strong>una sola</strong> relación para que puedas reconocerla después con la cámara. No es una simulación calibrada: predice hacia dónde va el efecto y cuánto pesa, no los píxeles que dará tu toma.</p><p>{escape(learning["pedagogy"]["evidence"])}</p><div class="learning-grid">{labs_html}</div><h3>Nueve familias técnicas</h3><div class="scenes">{techniques_html}</div><h3>17 ciclos de campo</h3><div class="learning-grid">{lessons_html}</div><h3>Videos convertidos en decisiones</h3><p>Los enlaces abren el momento exacto; el aprendizaje esencial permanece aquí y funciona offline.</p><div class="learning-grid">{videos_html}</div><h3>Seis modos de ver</h3><ol class="modes">{modes}</ol><h3>Preguntas de maestros</h3><div class="scenes">{masters}</div></section>
+<section id="learn"><p class="eyebrow">{learning_path_eyebrow(learning)}</p><h2>Aprende antes de perseguir una locación</h2><p>Nueve laboratorios, uno por cada familia técnica. En cada uno mueves un control, la geometría cambia según la física que la gobierna y el texto te dice qué acabas de provocar. Empieza siempre prediciendo: es lo que hace que la relación se te quede.</p><p>Cada laboratorio aísla <strong>una sola</strong> relación para que puedas reconocerla después con la cámara. No es una simulación calibrada: predice hacia dónde va el efecto y cuánto pesa, no los píxeles que dará tu toma.</p><p>{escape(learning["pedagogy"]["evidence"])}</p><div class="learning-grid">{labs_html}</div><h3>Nueve familias técnicas</h3><div class="scenes">{techniques_html}</div><h3>17 ciclos de campo</h3><div class="learning-grid">{lessons_html}</div><h3>Videos convertidos en decisiones</h3><p>Los enlaces abren el momento exacto; el aprendizaje esencial permanece aquí y funciona offline.</p><div class="learning-grid">{videos_html}</div><h3>Seis modos de ver</h3><ol class="modes">{modes}</ol><h3>Preguntas de maestros</h3><p>Preguntas inspiradas en el trabajo de cada fotógrafo, escritas por nosotros a partir de la fuente enlazada: no son citas suyas.</p><div class="scenes">{masters}</div></section>
 <section id="field-run"><p class="eyebrow">OFFLINE · GUARDADO LOCAL</p><h2>CONTRATO vs USO</h2><p>Observa diez minutos. Resume el propósito original, registra cinco verbos, encuentra tres posiciones y elige focal al final.</p><form id="field-form"><label for="field-scene">Escena</label><select id="field-scene" name="scene">{options}</select><label for="contract">Propósito original · 8 palabras</label><input id="contract" name="contract" maxlength="90"><label for="verbs">Cinco verbos observados</label><textarea id="verbs" name="verbs"></textarea><label for="device">Dispositivo arquitectónico que causa la acción</label><textarea id="device" name="device"></textarea><label for="failure">Por qué todavía falla la mejor toma</label><textarea id="failure" name="failure"></textarea><div class="actions" role="group" aria-label="Decisión de campo"><button type="button" data-decision="STAY">STAY</button><button type="button" data-decision="MOVE">MOVE</button><button type="button" data-decision="RETURN_OTHER_LIGHT">RETURN OTHER LIGHT</button></div><p id="save-status" role="status" aria-live="polite">Se guarda solo en este dispositivo.</p></form><div class="actions"><button id="export-field" type="button" class="secondary">Exportar notas</button><button id="import-field" type="button" class="secondary">Importar notas</button><button id="clear-field" type="button" class="secondary">Borrar notas</button></div><input id="import-file" type="file" accept="application/json" hidden></section>
 <section id="ai-firewall"><p class="eyebrow">EDICIÓN SEGÚN EL BRIEF</p><h2>Separa captura, revelado, composición y generación</h2><p>Una operación aceptable en un encargo puede descalificar otro. No uses eliminación, montaje o generación hasta confirmar la regla vigente.</p></section><section id="rules" class="architecture-preflight"><p class="eyebrow">DECODIFICADOR DE BRIEF · OFFLINE</p><h2>Convierte reglas nuevas en decisiones de campo</h2><p>No guarda las condiciones de ningún encargo ni convocatoria en particular. Antes de disparar, cópialas de la fuente: elegibilidad, tema, originalidad, cantidad y formato de archivos, fechas y zona horaria, permisos, límites de edición/IA, acceso y canal de entrega.</p><label for="brief-source">Fuente y fecha de consulta</label><input id="brief-source" name="briefSource"><label for="brief-theme">Tema y qué debe ser visible sin texto</label><textarea id="brief-theme" name="briefTheme"></textarea><label for="brief-files">Cantidad, formato, tamaño y nombre</label><textarea id="brief-files" name="briefFiles"></textarea><label for="brief-editing">Edición, composición, eliminación e IA</label><textarea id="brief-editing" name="briefEditing"></textarea><label for="brief-rights">Elegibilidad, acceso, permisos y releases</label><textarea id="brief-rights" name="briefRights"></textarea><label for="brief-deadline">Cierre y zona horaria</label><input id="brief-deadline" name="briefDeadline"><p class="warning">Si una condición es ambigua, pregúntala a quien encarga u organiza y conserva la respuesta; esta herramienta no inventa una interpretación.</p></section>
 <noscript><section><h2>Matriz sin JavaScript</h2><p>Las {len(candidates)} tarjetas y sus rangos R0–R3 permanecen visibles; los filtros requieren JavaScript.</p><h2>Los nueve laboratorios, en versión de calle</h2><p>Sin JavaScript los diagramas no se mueven, pero cada laboratorio equivale a una prueba que puedes hacer con la cámara en la mano.</p><p><strong>1. Posición y focal:</strong> fotografía lo mismo desde tres distancias; después repite desde una sola posición cambiando de objetivo. Sólo la primera prueba cambia qué tapa qué.</p><p><strong>2. Verticales:</strong> haz una toma nivelada y otra inclinada. Compara cuánto se estrecha el borde superior del edificio.</p><p><strong>3. Jerarquía:</strong> recorre los cuatro bordes del visor y di en voz alta qué se mira primero, segundo y tercero.</p><p><strong>4. Vacío y bordes:</strong> repite la toma dejando más aire y comprueba que ningún contorno quede rozando el borde.</p><p><strong>5. Capas:</strong> busca una posición donde un plano cercano tape parcialmente uno lejano; con garúa el contraste hará el resto.</p><p><strong>6. Secuencia:</strong> compara postal, cambio de posición, focal desde la misma posición, presencia o ausencia y otra luz.</p><p><strong>7. Luz y material:</strong> vuelve a la misma fachada con luz lateral, con sol alto y con garúa; mide con la vista cuánto crece la sombra.</p><p><strong>8. Exposición:</strong> fija primero la obturación que congela el gesto y el diafragma que da la profundidad; deja que el ISO sea la consecuencia.</p><p><strong>9. Reflejos:</strong> rodea una fachada vidriada y anota en qué ángulo empiezas a ver el interior.</p><h2>CONTRATO vs USO</h2><p>Observa 10 minutos, escribe propósito en 8 palabras, anota 5 verbos, encuentra 3 posiciones, inspecciona bordes y elige focal al final.</p><h2>Encargo</h2><p>Anota fuente, elegibilidad, tema, archivos, fechas, permisos y límites de edición antes de disparar.</p></section></noscript></main><footer>FocalRuta guarda las notas en tu navegador. La exportación JSON permite moverlas entre dispositivos.</footer><script>const PHYSICS={physics_json};

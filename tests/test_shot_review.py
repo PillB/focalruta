@@ -10,6 +10,7 @@ that failed most).
 from __future__ import annotations
 
 import json
+import math
 import re
 import shutil
 import subprocess
@@ -20,7 +21,8 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 JS = ROOT / "assets" / "shot_review.js"
-PLANS = json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))["plans"]
+DATA = json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))
+PLANS, GEAR = DATA["plans"], DATA["gear"]
 TECHNIQUES = sorted({shot["technique"] for plan in PLANS for shot in plan["shots"]})
 
 pytestmark = pytest.mark.skipif(shutil.which("node") is None, reason="node is not installed")
@@ -132,3 +134,70 @@ def test_w07_the_summary_counts_lists_and_names_the_weakest_check():
     assert [len(item["fixes"]) for item in got["retry"]] == [1, 2, 1]
     empty = node(f"R.summary([],{json.dumps(techniques)})")
     assert empty["approved"] == 0 and empty["weakest"] is None and len(empty["pending"]) == 10
+
+
+# Y07, Y11, Y12, Y14 (red team on PR #24): the review and the field card agree with the camera.
+
+def card_list(name: str) -> dict:
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("generate_field_card", ROOT / "scripts" / "generate_field_card.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return {title: text for _icon, title, text in getattr(module, name)}
+
+
+def over_fix(technique: str) -> str:
+    return node(f"R.fixes({json.dumps(technique)},{{s:'ok',e:'over',i:'ok'}})")[0]
+
+
+@pytest.mark.parametrize("technique", TECHNIQUES)
+def test_y07_an_overexposed_shot_is_rescued_without_undoing_its_technique(technique):
+    fix = over_fix(technique)
+    first = re.split(r"(?<=\.)\s", rescue_panel()["Las luces se queman"])[0]
+    assert fix.startswith(first), (technique, first, fix)
+    if technique == "poca_pdc":
+        # f/1.8 at the 6D's fastest 1/4000 s and ISO 100 meters EV 13.7; full sun is EV 15,
+        # so nothing on the camera is left to turn: only a filter or shade.
+        need = math.ceil(15 - math.log2(1.8 ** 2 * 4000))
+        assert "1/4000" in fix and re.search(rf"ND de {need}", fix) and "No cierres" in fix, fix
+        filters = {lens["focal"]: lens["filter_mm"] for lens in GEAR["lenses"] if lens["type"] == "prime"}
+        assert f"{filters[50]} mm" in fix and f"{filters[85]} mm" in fix, fix
+    elif technique == "mucha_pdc":
+        assert not re.search(r"\babre\b", fix) and "No abras" in fix, fix
+    elif technique == "congelado":
+        assert "1/2000" in fix and "cierra" in fix and "nunca alargues" in fix, fix
+    else:
+        assert "acorta el tiempo" not in fix and "ND" in fix and "difracción" in fix, fix
+
+
+def nearest_dial(seconds: float) -> int:
+    dials = [125, 100, 80, 60, 50, 40, 30, 160, 200, 250]
+    return min(dials, key=lambda d: abs(math.log2(d * seconds)))
+
+
+def test_y11_the_review_and_the_field_card_state_one_handheld_rule():
+    rule = "1 entre el doble de la focal"
+    sharp = node("R.fixes('mucha_pdc',{s:'no',e:'ok',i:'ok'})")[0]
+    support = card_list("BEFORE_LEAVING")["Soporte"]
+    for text in (sharp, support):
+        assert rule in text, text
+        # 1/(2 x focal), on the dial: the numbers the rule prints are the rule's own.
+        for denominator, focal in re.findall(r"1/(\d+) s? ?con el (\d+) mm", text):
+            assert int(denominator) == nearest_dial(1 / (2 * int(focal))), (text, denominator, focal)
+        assert re.search(r"estabilizador del 35 mm[^.]*3 pasos", text), text
+
+
+def test_y12_the_field_card_and_the_review_give_the_zoom_burst_time_the_plans_use():
+    for text in (card_list("RESCUE")["El efecto zoom no traza rayos"],
+                 node("R.fixes('zooming',{s:'ok',e:'ok',i:'no'})")[0]):
+        assert re.search(r'de 1" a 4"', text) and "toda la exposición" in text, text
+
+
+def test_y14_exposure_is_read_on_the_rgb_histogram_at_one_moment_everywhere():
+    question = node("R.checks('barrido','x')[1].question")
+    advice = node("R.summary([{s:'ok',e:'over',i:'ok'}],['barrido']).advice")
+    card = card_list("BEFORE_LEAVING")["Exposición"]
+    assert "RGB" in question and "RGB" in card, (question, card)
+    moment = "primera foto de cada luz nueva"
+    assert moment in advice and moment in card, (advice, card)
+    assert "JPEG" in card, card

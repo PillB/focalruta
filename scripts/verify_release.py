@@ -203,7 +203,10 @@ for report_name, minimum_checks in (
     # a control just under what stays leaving the page still (red team N14), and on the home pages a
     # reader's own scroll during a jump kept (red team Q1) (530).
     ("CURRENT_BROWSER_QA.json", 530),
-    ("OPTICS_ACCESSIBILITY_QA.json", 22),
+    # 22 for the optical matrix and accessibility, plus the labs held to the camera (Y01-Y04): presets that
+    # expose the scene they set, the dial's own speeds, the label clear of the subject and toggles that say
+    # which is on, 36 per viewport at 320 and 1280 px (72) (94).
+    ("OPTICS_ACCESSIBILITY_QA.json", 94),
     ("VISUAL_RESOURCE_QA.json", 37),
     # Every shipped page, light phone and dark desktop: 39 pages x 2 passes, plus the home
     # page's offline notice (M7).

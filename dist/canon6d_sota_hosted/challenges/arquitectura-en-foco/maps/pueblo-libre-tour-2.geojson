@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "museo-larco-jardines",
-        "name": "Museo Larco",
+        "name": "Museo Larco + jardines",
         "district": "Pueblo Libre"
       },
       "geometry": {

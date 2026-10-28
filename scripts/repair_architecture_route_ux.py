@@ -15,24 +15,50 @@ MAPS = ROOT / "challenges/arquitectura-en-foco/maps"
 SENSITIVITY = ROOT / "architectural_photography/research/route_inputs/threshold_sensitivity.json"
 
 
+# Reviewed geocoder hits whose first token is a tenant at the address, not the place (Y20):
+# the address keeps its number and street and drops the company's name.
+TENANT_PREFIXES = {"centro-financiero-canaval-y-moreyra-rivera-navarrete": "Viettel Perú, "}
+
+
 def address_index() -> dict[str, str]:
     payload = json.loads(GEOCODES.read_text(encoding="utf-8"))
     result = {row["canonical_id"]: row["results"][0]["display_name"] for row in payload["records"] if row["results"]}
+    for canonical_id, prefix in TENANT_PREFIXES.items():
+        result[canonical_id] = result[canonical_id].removeprefix(prefix)
     result.update({row["canonical_id"]: row["address"] for row in json.loads(ANCHORS.read_text(encoding="utf-8"))["anchors"]})
     return result
 
 
+def map_projection(layer: dict):
+    """Equal-scale projection of the walked legs and the stops into the 800 x 400 frame.
+
+    A degree of longitude at Lima's latitude is about 2 % shorter than a degree of latitude,
+    so both axes share one scale and the drawing keeps its shape; a lone stop sits centred.
+    """
+    points = [(float(x), float(y)) for leg in layer["legs"] for x, y in leg["geometry"]["coordinates"]]
+    points += [(float(stop["longitude"]), float(stop["latitude"])) for stop in layer["stops"]]
+    west, east = min(x for x, _ in points), max(x for x, _ in points)
+    south, north = min(y for _, y in points), max(y for _, y in points)
+    shrink = math.cos(math.radians((south + north) / 2))
+    scale = max((east - west) * shrink / 752, (north - south) / 352, 1e-12)
+    middle_x, middle_y = (west + east) / 2, (south + north) / 2
+    return lambda x, y: (400 + (float(x) - middle_x) * shrink / scale, 200 - (float(y) - middle_y) / scale)
+
+
 def map_html(layer: dict, filename: str) -> None:
-    points = layer["stops"]
-    west, east = min(float(p["longitude"]) for p in points), max(float(p["longitude"]) for p in points)
-    south, north = min(float(p["latitude"]) for p in points), max(float(p["latitude"]) for p in points)
-    span_x, span_y = max(east - west, 0.001), max(north - south, 0.001)
-    def xy(point: dict) -> tuple[float, float]:
-        return (24 + 752 * (float(point["longitude"]) - west) / span_x, 360 - 320 * (float(point["latitude"]) - south) / span_y)
-    lines = "".join('<polyline points="' + " ".join(f'{xy(p)[0]:.1f},{xy(p)[1]:.1f}' for p in [points[next(i for i, x in enumerate(points) if x["canonical_id"] == leg["from"])] , points[next(i for i, x in enumerate(points) if x["canonical_id"] == leg["to"])]]) + '"/>' for leg in layer["legs"])
-    markers = "".join(f'<circle cx="{xy(point)[0]:.1f}" cy="{xy(point)[1]:.1f}" r="10"/><text x="{xy(point)[0]:.1f}" y="{xy(point)[1]:.1f}">{i}</text>' for i, point in enumerate(points, 1))
+    points, xy = layer["stops"], map_projection(layer)
+    lines = "".join('<polyline points="' + " ".join("{:.1f},{:.1f}".format(*xy(x, y)) for x, y in leg["geometry"]["coordinates"]) + '"/>' for leg in layer["legs"])
+    markers = "".join('<circle cx="{0:.1f}" cy="{1:.1f}" r="10"/><text x="{0:.1f}" y="{1:.1f}">{2}</text>'.format(*xy(point["longitude"], point["latitude"]), i) for i, point in enumerate(points, 1))
     rows = "".join(f'<li><strong>{i}. {escape(point["name"])}</strong><br>{escape(point["address"])}<br><code>{point["latitude"]}, {point["longitude"]}</code></li>' for i, point in enumerate(points, 1))
-    content = f'<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mapa offline · {escape(layer["district"])}</title><style>body{{font:16px/1.5 system-ui;max-width:900px;margin:auto;padding:1rem;color:#10211d}}svg{{width:100%;background:#eef0e9;border:1px solid #cbc2b2}}polyline{{fill:none;stroke:#b84c32;stroke-width:7}}circle{{fill:#10211d;stroke:#fff;stroke-width:3}}text{{fill:#fff;font:bold 12px system-ui;text-anchor:middle;dominant-baseline:central}}li{{margin:.8rem 0}}</style><main><h1>{escape(layer["district"])} · mapa offline</h1><p>Geometría peatonal capturada; confirma cruces y cierres en campo. Google Maps puede recalcular otra ruta.</p><svg viewBox="0 0 800 400" role="img" aria-label="Ruta peatonal con paradas numeradas">{lines}{markers}</svg><p class="viz-caption">Visualización: la línea muestra el trazado peatonal capturado y los números el orden de las paradas; no es navegación en vivo ni una ruta recalculada hoy.</p><ol>{rows}</ol></main></html>'
+    if layer["legs"]:
+        intro = "Geometría peatonal capturada; confirma cruces y cierres en campo. Google Maps puede recalcular otra ruta."
+        caption = "Visualización: la línea muestra el trazado peatonal capturado y los números el orden de las paradas; no es navegación en vivo ni una ruta recalculada hoy."
+        label = "Ruta peatonal con paradas numeradas"
+    else:
+        intro = f'Punto independiente: no forma parte de una caminata, así que no hay tramo que dibujar. <a href="{escape(layer["google_maps_search_url"])}">Ábrelo en Google Maps</a> para llegar.'
+        caption = "Visualización: el punto marca el lugar; no es una ruta ni navegación en vivo."
+        label = "Ubicación del punto independiente"
+    content = f'<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mapa offline · {escape(layer["district"])}</title><style>body{{font:16px/1.5 system-ui;max-width:900px;margin:auto;padding:1rem;color:#10211d}}svg{{width:100%;background:#eef0e9;border:1px solid #cbc2b2}}polyline{{fill:none;stroke:#b84c32;stroke-width:7;stroke-linejoin:round;stroke-linecap:round}}circle{{fill:#10211d;stroke:#fff;stroke-width:3}}text{{fill:#fff;font:bold 12px system-ui;text-anchor:middle;dominant-baseline:central}}li{{margin:.8rem 0}}</style><main><h1>{escape(layer["district"])} · mapa offline</h1><p>{intro}</p><svg viewBox="0 0 800 400" role="img" aria-label="{label}">{lines}{markers}</svg><p class="viz-caption">{caption}</p><ol>{rows}</ol></main></html>'
     (MAPS / filename).write_text(content, encoding="utf-8")
 
 

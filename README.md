@@ -1,6 +1,6 @@
 # FocalRuta
 
-An offline-capable, Spanish-language photography field and teaching planner. The plans are solved for a Canon EOS 6D and four lenses; readers with another camera or other lenses set their gear once and every shot also shows the equivalent setting for it. It includes six ten-shot location plans, 120 subject diagrams, a dynamic Optical Decision Lab, motion and composition teaching tools, a pose coach, and a field card in Spanish that works one-handed and offline.
+An offline-capable, Spanish-language photography field and teaching planner. The plans are solved for a Canon EOS 6D and four lenses; readers with another camera or other lenses set their gear once and every shot also shows the equivalent setting for it. It includes six ten-shot location plans, 120 subject diagrams, a dynamic Optical Decision Lab, motion and composition teaching tools, a pose coach, a light panel with the sun's and the moon's times and bearings for any date in Lima, and a field card in Spanish that works one-handed and offline, with ND and hyperfocal tables, where each setting lives on the 6D, and a calendar reminder for the session chosen on it.
 
 ## Live site
 

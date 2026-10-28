@@ -20,10 +20,16 @@ from __future__ import annotations
 
 import html
 import json
+import math
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import exposure_model as em  # noqa: E402
+import optics_physics as op  # noqa: E402
+
 DATA = json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))
 OUT = ROOT / "field_card.html"
 SLOTS = (("day", "Día", "☀"), ("afternoon", "Tarde", "🌇"), ("night", "Noche", "🌙"))
@@ -33,14 +39,15 @@ TABS = (("shots", "Tomas", "📷"), ("techniques", "Técnicas", "🎯"), ("rescu
 esc = html.escape
 
 RESCUE = [
-    ("🎯", "El foco falla", "Retrato quieto: cierra de f/1.8 a f/2.2–2.8. Acción: punto central, AF AI SERVO y sigue al sujeto antes de disparar. No bajes la velocidad que crea el efecto."),
+    ("🎯", "El foco falla", "Retrato quieto: cierra de f/1.8 a f/2.2–2.8. Acción: punto central, AF AI SERVO y sigue al sujeto antes de disparar. No bajes la velocidad que crea el efecto. Si el 85 mm falla siempre por delante o por detrás, la 6D tiene microajuste del AF en el menú."),
     ("🌫", "El fondo no se desenfoca", "Primero aleja al sujeto del fondo; después abre el diafragma o usa el 85 mm. Abrir un tercio de paso no compensa un fondo pegado."),
     ("💨", "El barrido sale congelado", "Baja de 1/60 a 1/40 y luego a 1/30. Mantén la trayectoria lateral y sigue girando después del disparo."),
     ("🫨", "El barrido sale todo movido", "Sube a 1/60, gira desde la cintura y apunta a un detalle estable del sujeto."),
     ("👻", "El fantasma queda muy tenue", "Pide a la persona que cruce más despacio o que se detenga un instante. Si sale sólida, que se mueva más."),
-    ("🌟", "Las luces se queman", "ISO 100, luego cierra a f/11–16 y por último acorta el tiempo. De día, varios segundos piden un filtro ND."),
-    ("🔭", "El efecto zoom no traza rayos", "Busca luces o patrones con contraste, expón de 2\" a 4\" y recorre todo el rango 35↔80 sin mover el trípode."),
+    ("🌟", "Las luces se queman", "Baja a ISO 100 primero. Después cambia lo que no hace el efecto: con poca profundidad, acorta hasta 1/4000 s y luego pon un ND de 2–3 pasos o busca sombra; para congelar, cierra el diafragma; en tomas de segundos, cierra hasta f/11 y pon un ND más fuerte, porque más allá la difracción ablanda."),
+    ("🔭", "El efecto zoom no traza rayos", "Busca luces o patrones con contraste, expón de 1\" a 4\" y gira el anillo de 35 a 80 mm durante toda la exposición, sin mover el trípode."),
     ("▰", "De noche la foto vibra", "Trípode firme, retardo de 2 s o disparador remoto, y no toques la cámara. Revisa la nitidez al 100 % antes de seguir."),
+    ("⬛", "Con el ND la foto falla", "Compón, enfoca y pasa a MF antes de enroscar el filtro: con un ND de 10 pasos el visor queda negro y el AF no ve. Pon la tapa del ocular que va en la correa: la luz que entra por el visor altera la exposición."),
 ]
 COMPOSITION = [
     ("▦", "Tercios", "Ojos o sujeto cerca de una intersección; deja aire hacia donde mira o se mueve."),
@@ -63,10 +70,11 @@ ANGLES = [
 BEFORE_LEAVING = [
     ("RAW", "Archivo", "RAW, tarjeta con espacio, batería cargada y objetivo limpio."),
     ("AF", "Enfoque", "Sujeto quieto: AF ONE SHOT. Acción: AF AI SERVO y punto central."),
-    ("▰", "Soporte", "Desde 0\"5: trípode y retardo de 2 s o remoto; no toques la cámara."),
+    ("▰", "Soporte", "A pulso: 1 entre el doble de la focal (1/100 s con el 50 mm, 1/160 s con el 85 mm); el estabilizador del 35 mm permite ≈3 pasos más lento si nada se mueve. Desde 0\"5: trípode y retardo de 2 s o remoto."),
     ("100 %", "Revisión", "Acción: ojos y patas. Profundidad: primer plano y fondo. Noche: altas luces."),
     ("🐶", "Perro", "Correa y trayectoria segura; nunca junto a una calzada con tráfico."),
-    ("▟", "Exposición", "Mira el histograma y las altas luces después de cada serie, no de cada foto."),
+    ("▟", "Exposición", "Histograma RGB y altas luces en la primera foto de cada luz nueva y después de cada serie. Salen de la vista previa JPEG: con estilo Neutro se acercan al RAW, que guarda ≈⅓–⅔ de paso más."),
+    ("🌙", "De noche", "Ve acompañado, con una bolsa pequeña y el teléfono aparte; elige puntos iluminados con gente y no dejes el trípode solo."),
 ]
 TECHNIQUE_ICONS = {"mucha_pdc": "▤", "poca_pdc": "◎", "congelado": "❄", "barrido": "→", "fantasma": "◌",
                    "lightpainting": "✦", "larga_exp": "≈", "zooming": "⇆"}
@@ -220,6 +228,59 @@ def mini_cards(rows, extra: str = "") -> str:
                    for icon, title, tip in rows)
 
 
+# W10: the two numbers a long exposure and a landscape need on site, printed so they work
+# with no signal. A filter of n stops multiplies the time by 2^n; past the 6D's 30 s the
+# time is counted in Bulb. The hyperfocal distance uses the site's normal-print 0.030 mm.
+ND_METERED = ("1/1000", "1/500", "1/250", "1/125", "1/60", "1/30", "1/15", "1/8", "1/4", "1/2", '1"')
+HYPERFOCAL_APERTURES = (5.6, 8, 11, 16)
+HYPERFOCAL_FOCALS = (35, 50, 85)
+
+
+def kit_nd_stops() -> list[int]:
+    return sorted({s["nd_stops"] for plan in DATA["plans"] for s in plans_settings(plan) if s.get("nd_stops")})
+
+
+def dial_seconds(label: str) -> float:
+    """The time a dial label stands for: the labels round powers of 2^(1/3), "1/60" is 1/64 s."""
+    return 2 ** (round(3 * math.log2(em.shutter_seconds(label))) / 3)
+
+
+def nd_time(metered: str, stops: int) -> str:
+    want = dial_seconds(metered) * 2 ** stops
+    if want <= dial_seconds(em.THIRD_STOP_SHUTTERS[-1]) + 1e-9:
+        return min(em.THIRD_STOP_SHUTTERS, key=lambda s: abs(math.log2(dial_seconds(s) / want)))
+    total = round(want)
+    return f"B · {total // 60} min {total % 60} s" if total >= 60 else f"B · {total} s"
+
+
+def nd_table() -> str:
+    stops = kit_nd_stops()
+    head = "".join(f'<th scope="col">{nd_name(n)}<br><small>{n} pasos</small></th>' for n in stops)
+    rows = "".join(f'<tr><th scope="row">{esc(t)}</th>' + "".join(f"<td>{esc(nd_time(t, n))}</td>" for n in stops) + "</tr>"
+                   for t in ND_METERED)
+    return ('<div class="fc-tablewrap"><table class="fc-table"><caption>Con el ND puesto: tu velocidad sin filtro, convertida</caption>'
+            f'<thead><tr><th scope="col">Sin<br>filtro</th>{head}</tr></thead><tbody>{rows}</tbody></table></div>'
+            '<p class="fc-table-note">Mide sin el filtro, busca tu velocidad en la primera columna y usa la de la columna de tu ND. '
+            'Más allá de 30 s pasa a Bulb (B) y cuenta el tiempo con el disparador remoto. Un ND real se aparta hasta un tercio de paso '
+            'de su etiqueta: revisa el histograma de la primera toma y corrige.</p>')
+
+
+def hyperfocal_table() -> str:
+    head = "".join(f'<th scope="col">{f} mm</th>' for f in HYPERFOCAL_FOCALS)
+    rows = ""
+    for n in HYPERFOCAL_APERTURES:
+        cells = []
+        for focal in HYPERFOCAL_FOCALS:
+            far = op.hyperfocal_mm(focal, n) / 1000
+            cells.append(f"<td>{far:.1f} m<br><small>desde {far / 2:.1f} m</small></td>")
+        rows += f'<tr><th scope="row">f/{n:g}</th>{"".join(cells)}</tr>'
+    return ('<div class="fc-tablewrap"><table class="fc-table"><caption>Hiperfocal: enfoca a esta distancia y queda nítido desde la mitad hasta el infinito</caption>'
+            f'<thead><tr><th scope="col">Diafragma</th>{head}</tr></thead><tbody>{rows}</tbody></table></div>'
+            '<p class="fc-table-note">Para una copia normal (círculo de confusión de 0.03 mm). Si vas a revisar al 100 % o a recortar, '
+            'enfoca al doble de la distancia de la tabla. f/16 ya ablanda por difracción en la 6D: úsalo sólo si necesitas esa profundidad. '
+            'El zoom 35–80 mm a 35 o 50 mm usa la columna de esa focal.</p>')
+
+
 def technique_rows() -> str:
     labels = {key: value["es"] for key, value in DATA["techniques"].items()}
     rows = []
@@ -233,6 +294,40 @@ def technique_rows() -> str:
 
 def lens_text(text: str) -> str:
     return re.sub(r"(\d)mm", r"\1 mm", text).replace(" @", " a ")
+
+
+# W11: where each setting the plans use lives on the 6D, read in Canon's EOS 6D instruction
+# manual (pp. 24, 45-46, 92, 98, 106, 128, 148, 154, 165).
+CONTROLS = [
+    ("M", "Modo manual", "Pon el dial de modo en M (mantén pulsado su botón central para girarlo). La velocidad va en el dial "
+     "principal, detrás del disparador; el diafragma, en el dial de control rápido, la rueda grande de atrás. Si un dial no "
+     "responde, pasa a la izquierda el interruptor de bloqueo."),
+    ("ISO", "ISO", "Pulsa el botón ISO de arriba y gira un dial mirando el panel superior: va de {iso_low} a {iso_high} en "
+     "tercios de paso. En M no uses ISO Auto: cambiaría la exposición que da el plan."),
+    ("AF", "Enfoque", "Pon el interruptor del objetivo en AF. Pulsa el botón AF de arriba y gira un dial: ONE SHOT para lo "
+     "quieto, AI SERVO para seguir al perro que corre (la 6D los muestra así, en mayúsculas)."),
+    ("⏱", "Disparo y retardo", "Pulsa el botón DRIVE y gira un dial: foto a foto, continuo (≈{fps} fotos/s), silencioso, y los "
+     "temporizadores de 10 s y 2 s, que también arrancan con el control remoto."),
+    ("B", "B (Bulb) para más de {longest} s", "Pon el dial de modo en B. El diafragma va en un dial; el obturador queda abierto "
+     "mientras pulses el disparador y el panel superior cuenta los segundos. Para no tocar la cámara, Canon indica el "
+     "disparador RS-80N3 o el temporizador TC-80N3."),
+    ("🪞", "Bloqueo del espejo", "Menú de disparo 2 → bloqueo del espejo → Activar. El primer disparo sube el espejo y el "
+     "segundo hace la foto: así su golpe no mueve las tomas largas en trípode."),
+    ("NR", "Ruido en exposiciones largas", "Menú de disparo 4 → reducción de ruido en largas exposiciones → Auto: actúa en las "
+     "fotos de 1 s o más cuando detecta ruido."),
+]
+
+
+def camera_controls() -> str:
+    camera = DATA["gear"]["camera"]
+    iso_low, iso_high = re.match(r"(\d+)–(\d+)", camera["iso"]).groups()
+    values = {"iso_low": iso_low, "iso_high": iso_high, "fps": f"{camera['fps']:g}",
+              "longest": em.THIRD_STOP_SHUTTERS[-1].rstrip('"')}
+    rows = [(icon, title.format(**values), text.format(**values)) for icon, title, text in CONTROLS]
+    return ('<h3 class="fc-h3" id="fc-h-controls">Cómo se pone en tu 6D</h3>'
+            f'<ul class="fc-grid">{mini_cards(rows)}</ul>'
+            '<p class="fc-table-note">Según el manual de instrucciones de la EOS 6D (Canon), págs. 24, 45–46, 92, 98, 106, 128, '
+            '148, 154 y 165. Los nombres del menú cambian un poco con el idioma de la cámara.</p>')
 
 
 def gear_list() -> str:
@@ -265,14 +360,17 @@ def sun_strip() -> str:
         'Día: del amanecer a una hora antes de la puesta. Tarde: la última hora de sol y la hora azul. Noche: desde que termina la hora azul.</p>'
         '<div class="fc-tools"><label class="fc-date" hidden>Otro día <input id="fc-date" type="date"></label>'
         '<label class="fc-toggle"><input id="fc-night" type="checkbox"> Pantalla de noche</label>'
-        '<label class="fc-toggle" hidden><input id="fc-awake" type="checkbox"> No apagar la pantalla</label></div></section>'
+        '<label class="fc-toggle" hidden><input id="fc-awake" type="checkbox"> No apagar la pantalla</label>'
+        '<button type="button" id="fc-ics" class="fc-toggle fc-ics" hidden><span aria-hidden="true">📅</span> Añadir al calendario</button></div></section>'
     )
 
 
 def controls() -> str:
     plans = DATA["plans"]
     plan_options = [(p["id"], f'<b>{plan_letter(p)}</b>', p["name"]) for p in plans]
-    names = "".join(f'<p class="fc-plan-name" data-plan="{p["id"]}"><b>Plan {plan_letter(p)}</b> · {esc(p["name"])}<br><small>{esc(p["location"])}</small></p>' for p in plans)
+    names = "".join(f'<p class="fc-plan-name" data-plan="{p["id"]}" data-name="Plan {plan_letter(p)} · {esc(p["name"])}" '
+                    f'data-location="{esc(p["location"])}"><b>Plan {plan_letter(p)}</b> · {esc(p["name"])}<br><small>{esc(p["location"])}</small>'
+                    f'<br><small>Acceso: {esc(p["access"])}</small></p>' for p in plans)
     slot_options = [(slot, f'<span aria-hidden="true">{icon}</span> {name}', "") for slot, name, icon in SLOTS]
     subject_options = [(key, name, "") for key, name in SUBJECTS]
     return (radio_group("fc-plan", "Plan", plan_options, "fc-plans") + names +
@@ -314,7 +412,8 @@ def app(title_tag: str) -> str:
         f'{sun_strip()}</header>'
         f'{tab_bar()}{shots_panel()}'
         + panel("techniques", "Técnicas · valores de partida", "Para improvisar fuera de un plan: el punto de partida de cada técnica.",
-                f'<ul class="fc-grid">{technique_rows()}</ul>')
+                f'<ul class="fc-grid">{technique_rows()}</ul><h3 class="fc-h3">Filtro ND</h3>{nd_table()}'
+                f'<h3 class="fc-h3">Hiperfocal</h3>{hyperfocal_table()}')
         + panel("rescue", "Cuando la foto no sale", "Cambia una sola variable cada vez y conserva la que crea el efecto.",
                 f'<ul class="fc-grid">{mini_cards(RESCUE, " fc-rescue")}</ul>'
                 '<p class="fc-note fc-danger"><b>No negociable:</b> para congelar no sacrifiques 1/2000; para barrer no subas de 1/40 a 1/250; '
@@ -323,7 +422,7 @@ def app(title_tag: str) -> str:
                 f'<ul class="fc-grid">{mini_cards(COMPOSITION)}{mini_cards(ANGLES)}</ul>')
         + panel("gear", "Qué llevar", "Calculado a partir de las tomas viables del plan elegido.",
                 f'{gear}<h3 class="fc-h3">Antes de salir</h3><ul class="fc-grid">{mini_cards(BEFORE_LEAVING)}</ul>'
-                f'{offline_pack()}<h3 class="fc-h3">Tu equipo</h3>{gear_list()}')
+                f'{offline_pack()}<h3 class="fc-h3">Tu equipo</h3>{gear_list()}{camera_controls()}')
         + '<button type="button" id="fc-next" class="fc-next" hidden>Siguiente toma ↓</button></div>'
     )
 

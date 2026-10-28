@@ -214,6 +214,10 @@ html { scroll-padding-top: .75rem; }
       <div class="text-xs font-bold text-amber-700 mb-1">¿POR QUÉ ESTA LOCACIÓN?</div>
       <p class="text-sm text-amber-900">__PLAN_WHY__</p>
     </div>
+    <div class="mt-3 p-4 bg-slate-50 border-l-4 border-slate-400 rounded">
+      <div class="text-xs font-bold text-slate-700 mb-1">ACCESO Y PERMISOS</div>
+      <p class="text-sm text-slate-800">__PLAN_ACCESS__</p>
+    </div>
   </div>
   <div id="shots-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
 </section>
@@ -417,6 +421,7 @@ def generate_plan_html(plan):
     html = html.replace("__PALETTE_2__", palette[2])
     html = html.replace("__PALETTE_SWATCHES__", palette_swatches)
     html = html.replace("__PLAN_WHY__", plan["why"])
+    html = html.replace("__PLAN_ACCESS__", plan["access"])
     html = html.replace("__PLAN_JSON__", json.dumps(plan_data, ensure_ascii=False))
     html = html.replace("__DIAGRAMS_JSON__", json.dumps(diagrams_b64, ensure_ascii=False))
     html = html.replace("__GEAR_JS__", (Path(__file__).resolve().parents[1] / "assets" / "gear.js").read_text(encoding="utf-8"), 1)

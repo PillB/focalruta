@@ -18,7 +18,7 @@
 
   // What to change when a check fails: one variable, and never the one that makes the effect.
   var FIX_SHARP = {
-    mucha_pdc: 'Enfoca al sujeto o a la hiperfocal del plan, cierra a f/11 y usa trípode si la velocidad es más lenta que 1 entre la focal (1/35 s con el 35 mm).',
+    mucha_pdc: 'Enfoca al sujeto o a la hiperfocal del plan y cierra a f/11. A pulso, para pasar al 100 %: 1 entre el doble de la focal (1/100 s con el 50 mm, 1/160 s con el 85 mm); el estabilizador del 35 mm permite ≈3 pasos más lento si nada se mueve. Más lento, trípode.',
     poca_pdc: 'Punto AF central sobre el ojo más cercano. Con el sujeto quieto, cierra de f/1.8 a f/2.2–2.8.',
     congelado: 'Tv a 1/1000–1/2000 s con AF AI SERVO; sube el ISO antes que bajar la velocidad.',
     barrido: 'Sube a 1/60, gira desde la cintura y apunta a un detalle estable del sujeto.',
@@ -35,16 +35,29 @@
     fantasma: 'Si sale tenue, que la persona cruce más despacio o se detenga un instante; si sale sólida, que se mueva más.',
     lightpainting: 'Ensaya el trazo antes, viste ropa oscura y alarga el tiempo si el trazo queda cortado.',
     larga_exp: 'Alarga la exposición hasta que las trazas sean continuas, sin mover la cámara.',
-    zooming: 'Busca luces o patrones con contraste, expón de 2" a 4" y recorre todo el rango 35↔80 sin mover el trípode.'
+    zooming: 'Busca luces o patrones con contraste, expón de 1" a 4" y gira el anillo de 35 a 80 mm durante toda la exposición, sin mover el trípode.'
   };
-  var FIX_OVER = 'ISO 100, luego cierra a f/11–16 y por último acorta el tiempo. De día, varios segundos piden un filtro ND.';
+  // Too bright: ISO first, then what does not make the effect. f/1.8 at 1/4000 s and ISO 100
+  // meters EV 13.7, so in EV 15 sun a shallow-focus shot has nothing left but a filter or shade;
+  // past f/11 the 6D's 6.5 µm pixels start to show diffraction, so seconds-long shots take an ND.
+  var LONG_OVER = 'Baja a ISO 100 primero. Después cierra hasta f/11 y conserva el tiempo; si aún sobra luz, pon un ND más fuerte antes que cerrar a f/16–22, donde la difracción ablanda.';
+  var FIX_OVER = {
+    mucha_pdc: 'Baja a ISO 100 primero. Después acorta el tiempo hasta 1/4000 s. No abras el diafragma: las capas necesitan f/8–11.',
+    poca_pdc: 'Baja a ISO 100 primero. Después acorta el tiempo hasta 1/4000 s; si a f/1.8–2 aún se quema, pon un ND de 2–3 pasos (rosca de 49 mm en el 50 mm, 58 mm en el 85 mm) o lleva al sujeto a la sombra. No cierres el diafragma: perderías el desenfoque.',
+    congelado: 'Baja a ISO 100 primero. Después acorta a 1/4000 s o cierra el diafragma hasta f/4–5.6; nunca alargues el tiempo más allá de 1/2000 s.',
+    barrido: 'Baja a ISO 100 primero. Después cierra hasta f/11 y conserva el tiempo; si aún sobra luz, pon un ND de 2–3 pasos antes que cerrar a f/16–22, donde la difracción ablanda.',
+    fantasma: LONG_OVER,
+    larga_exp: LONG_OVER,
+    zooming: LONG_OVER,
+    lightpainting: 'Baja a ISO 100 primero. Después cierra hasta f/11 o aleja la linterna; si el fondo sale gris, busca un rincón más oscuro: un ND oscurece por igual el trazo y el fondo, y más allá de f/11 la difracción ablanda.'
+  };
   var FIX_UNDER = 'Sube el ISO antes de tocar la velocidad o el diafragma que crean el efecto; en Av o Tv, compensa +⅔ a +1 paso.';
 
   var LABELS = { s: 'nitidez', e: 'exposición', i: 'intención' };
   // What to do before the next shot about the check that failed most.
   var ADVICE = {
     s: 'Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.',
-    e: 'Activa el aviso de altas luces y mira el histograma después de cada disparo.',
+    e: 'Activa el aviso de altas luces y mira el histograma RGB en la primera foto de cada luz nueva y después de cada serie.',
     i: 'Relee el criterio «Aprueba si» antes de disparar, no después.'
   };
 
@@ -52,7 +65,7 @@
     return [
       { key: 's', question: 'Al 100 %: ' + (SHARP[technique] || 'lo importante está nítido'),
         options: [['ok', 'Sí'], ['no', 'No']] },
-      { key: 'e', question: 'Histograma y aviso de altas luces (las zonas que parpadean)',
+      { key: 'e', question: 'Histograma RGB y aviso de altas luces (las zonas que parpadean)',
         options: [['ok', 'Bien'], ['over', 'Quemada'], ['under', 'Oscura']] },
       { key: 'i', question: 'Aprueba si: ' + (criterion || 'la intención visual se consigue'),
         options: [['ok', 'Sí'], ['no', 'No']] }
@@ -75,7 +88,7 @@
     var out = [];
     if (!complete(review) || review.legacy) return out;
     if (review.s === 'no') out.push(FIX_SHARP[technique] || 'Revisa el foco y la estabilidad, una sola variable cada vez.');
-    if (review.e === 'over') out.push(FIX_OVER);
+    if (review.e === 'over') out.push(FIX_OVER[technique] || LONG_OVER);
     if (review.e === 'under') out.push(FIX_UNDER);
     if (review.i === 'no') out.push(FIX_INTENT[technique] || 'Cambia una sola variable y repite.');
     return out;

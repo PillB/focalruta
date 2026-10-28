@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 import evidence
+import lab_qa
 import qa_matrix
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -34,7 +35,8 @@ with sync_playwright() as pw:
         if mode!='exposure':
             check(f'{target_name} every physical aperture floor',all(a>=m for m,a in matrix['floors']),matrix['floors'])
             check(f'{target_name} every authored optical slider value',matrix['optical']>=12000,{'states':matrix['optical'],'failures':matrix['failures'][:3]})
-        if mode!='optical': check(f'{target_name} every exposure combination',matrix['exposure']==2093,{'states':matrix['exposure'],'visualStates':matrix['exposureStates']})
+        # 23 scene EVs × the dial's 52 speeds (Y01) × ISO 100 to 25600 in whole stops.
+        if mode!='optical': check(f'{target_name} every exposure combination',matrix['exposure']==23*len(lab_qa.CAMERA_SHUTTERS)*9,{'states':matrix['exposure'],'visualStates':matrix['exposureStates']})
         check(f'{target_name} all state invariants',not matrix['failures'],matrix['failures'][:5])
         check(f'{target_name} exposure independence and known EV vector',matrix['balanced'])
         check(f'{target_name} background changes bokeh not DoF',matrix['bgChanged'] and matrix['dofFixed'],matrix)
@@ -47,6 +49,7 @@ with sync_playwright() as pw:
         tiny=page.evaluate("()=>[...document.querySelectorAll('body *')].filter(e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return r.width>0&&r.height>0&&s.visibility!=='hidden'&&s.display!=='none'&&[...e.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&parseFloat(s.fontSize)<11}).map(e=>[e.tagName,getComputedStyle(e).fontSize,e.textContent.trim().slice(0,30)]).slice(0,10)")
         check(f'{target_name} no visible text below 11px',not tiny,tiny)
         check(f'{target_name} runtime errors',not errors,errors); page.close()
+        lab_qa.check(browser,target if isinstance(target,str) else target.as_uri(),check,target_name)
     browser.close()
 
 report={'passed':all(x['pass'] for x in results),'checks':len(results),'failures':[x for x in results if not x['pass']],'results':results}

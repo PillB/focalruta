@@ -73,8 +73,49 @@
     return state;
   }
 
+  // W12: the chosen session as an iCalendar file (RFC 5545). It starts half an hour before
+  // the light, to set up, and ends with it; a night session is given two hours.
+  var SETUP_MIN = 30, NIGHT_SESSION_MIN = 120;
+  function sessionWindow(slot, p) {
+    var w = slotWindows(p)[slot];
+    return [w[0] - SETUP_MIN, w[1] === null ? w[0] + NIGHT_SESSION_MIN : w[1]];
+  }
+
+  function icsStamp(ms) { return new Date(ms).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
+
+  // A Lima clock minute on a date, as UTC: Peru keeps UTC-5 all year.
+  function limaInstant(iso, minutes) {
+    var d = iso.split('-').map(Number);
+    return Date.UTC(d[0], d[1] - 1, d[2], 0, Math.round(minutes) - LIMA_OFFSET_MIN);
+  }
+
+  function icsEscape(text) { return String(text).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n'); }
+
+  // Lines longer than 75 octets continue on the next line after a space, never inside a character.
+  function icsFold(line) {
+    var out = [], current = '', size = 0;
+    Array.from(line).forEach(function (ch) {
+      var bytes = unescape(encodeURIComponent(ch)).length;
+      if (size + bytes > (out.length ? 74 : 75)) { out.push(current); current = ''; size = 0; }
+      current += ch; size += bytes;
+    });
+    out.push(current);
+    return out.join('\r\n ');
+  }
+
+  function icsText(e) {
+    var lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//FocalRuta//Tarjeta de campo//ES', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
+      'UID:' + e.uid, 'DTSTAMP:' + icsStamp(e.stamp), 'DTSTART:' + icsStamp(limaInstant(e.date, e.start)),
+      'DTEND:' + icsStamp(limaInstant(e.date, e.end)), 'SUMMARY:' + icsEscape(e.summary), 'LOCATION:' + icsEscape(e.location),
+      'DESCRIPTION:' + icsEscape(e.description), 'BEGIN:VALARM', 'TRIGGER:-PT2H', 'ACTION:DISPLAY',
+      'DESCRIPTION:' + icsEscape('En 2 horas empieza tu sesión: carga las baterías y vacía la tarjeta.'), 'END:VALARM',
+      'END:VEVENT', 'END:VCALENDAR'];
+    return lines.map(icsFold).join('\r\n') + '\r\n';
+  }
+
   var api = { limaMinutes: limaMinutes, slotWindows: slotWindows, slotAt: slotAt, sceneWindow: sceneWindow,
-              nextEvent: nextEvent, span: span, windowText: windowText, readState: readState };
+              nextEvent: nextEvent, span: span, windowText: windowText, readState: readState,
+              sessionWindow: sessionWindow, icsText: icsText };
   if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
   root.FocalRutaCampo = api;
 
@@ -149,6 +190,29 @@
     if (t === dateInput) paintWindows();
     save(); paintProgress();
   });
+
+  var ics = $('#fc-ics');
+  if (ics && root.Blob && root.URL && URL.createObjectURL) {
+    ics.hidden = false;
+    ics.addEventListener('click', function () {
+      var plan = checked('fc-plan'), slot = checked('fc-slot'), day = chosenDate(), p = S.dayPlan(day), w = sessionWindow(slot, p);
+      var info = app.querySelector('.fc-plan-name[data-plan="' + plan + '"]'), pack = app.querySelector('.fc-pack[data-plan="' + plan + '"]');
+      var names = { day: 'día', afternoon: 'tarde', night: 'noche' };
+      var lines = ['Luz: ' + names[slot] + ' (' + windowText(slotWindows(p)[slot], S.clock) + '). Puesta de sol ' + S.clock(p.sunset) +
+                   ', rumbo ' + Math.round(p.sunset_azimuth) + '° (' + S.compass(p.sunset_azimuth) + ').'];
+      if (pack) lines.push('Lleva: ' + Array.prototype.map.call(pack.querySelectorAll('li'), function (li) { return li.textContent.trim(); }).join(' '));
+      var text = icsText({ uid: plan + '-' + slot + '-' + day + '@focalruta', stamp: Date.now(), date: day, start: w[0], end: w[1],
+                           summary: 'FocalRuta · ' + (info ? info.getAttribute('data-name') : plan),
+                           location: info ? info.getAttribute('data-location') : 'Lima', description: lines.join('\n') });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/calendar;charset=utf-8' }));
+      a.download = 'focalruta-' + plan.replace('_', '-') + '-' + slot + '-' + day + '.ics';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      var status = $('#fc-status');
+      if (status) status.textContent = 'Archivo de calendario listo: ábrelo para añadir la sesión del ' + day + ' con su aviso.';
+    });
+  }
 
   var next = $('#fc-next'), listHead = $('.fc-listhead');
   if (next) {

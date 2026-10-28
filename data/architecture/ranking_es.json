@@ -1,0 +1,774 @@
+{
+ "schema_version": "architecture-ranking-es-v1",
+ "source_run_id": "2026-10-17-r4-v8",
+ "note": "Traducción al español de los campos de investigación de ranking.json (why_survives, strongest_counterargument, field_failure, required_scene, exact_view, fallback, exact_light) y de style_discoveries.json; ranking.json sigue siendo la fuente.",
+ "fields": {
+  "entra": "why_survives",
+  "refuta": "strongest_counterargument",
+  "descarta": "field_failure",
+  "escena": "required_scene",
+  "desde": "exact_view",
+  "plan_b": "fallback"
+ },
+ "evidence_that_moves_rank": "Una prueba de campo que confirme o desmienta la historia en un solo cuadro, el acceso y el momento decisivo.",
+ "light": {
+  "Available interior/daylight balance": "El equilibrio entre la luz interior y la del día que haya",
+  "Available soft daylight": "La luz de día suave que haya",
+  "Balanced exterior/interior daylight": "Luz de día con el exterior y el interior equilibrados",
+  "Blue hour before a verified event": "Hora azul antes de un evento confirmado",
+  "Garúa or soft late afternoon without sunset color": "Garúa o una última hora de la tarde suave, sin color de atardecer",
+  "Late afternoon": "Última hora de la tarde",
+  "Late afternoon before exterior falls too dark": "Última hora de la tarde, antes de que el exterior se oscurezca demasiado",
+  "Late afternoon into blue hour": "De la última hora de la tarde a la hora azul",
+  "Late afternoon transition": "El paso de la tarde a la noche",
+  "Late filtered daylight": "Luz de día filtrada, al final de la tarde",
+  "Late soft daylight": "Luz de día suave, al final de la tarde",
+  "Late soft daylight before blue hour": "Luz suave al final de la tarde, antes de la hora azul",
+  "Late soft daylight/blue hour": "Luz suave al final de la tarde o la hora azul",
+  "Late weekday afternoon": "Última hora de la tarde de un día laborable",
+  "Late weekday daylight": "La luz del final de un día laborable",
+  "Late workday transition": "El cambio al final de la jornada laboral",
+  "Morning garúa": "Garúa de la mañana",
+  "Morning garúa or blue hour": "Garúa de la mañana o la hora azul",
+  "Overcast afternoon": "Tarde nublada",
+  "Overcast late afternoon": "Última hora de una tarde nublada",
+  "Soft afternoon": "Tarde de luz suave",
+  "Soft afternoon daylight": "Luz suave de la tarde",
+  "Soft coastal afternoon": "Tarde suave en la costa",
+  "Soft daylight": "Luz de día suave",
+  "Soft daytime": "De día, con luz suave",
+  "Soft daytime mixed light": "Luz mixta y suave de día",
+  "Soft early evening without blown sunset": "Al caer la tarde, con luz suave y sin un atardecer quemado",
+  "Soft early morning": "Primera hora de la mañana, con luz suave",
+  "Soft evening before service": "Luz suave del anochecer, antes del servicio",
+  "Soft event daylight": "Luz de día suave durante el evento",
+  "Soft institutional daylight": "Luz de día suave, en el horario de la institución",
+  "Soft late afternoon": "Última hora de la tarde, con luz suave",
+  "Soft late afternoon or garúa": "Última hora de la tarde con luz suave, o garúa",
+  "Soft morning": "Mañana de luz suave"
+ },
+ "discoveries": {
+  "utec-campus-barranco": {
+   "estilo": "Megaestructura contemporánea de concreto, de sección geométrica",
+   "aporte": "Una sección docente como un acantilado, con terrazas y circulaciones, puede mostrar la enseñanza habitando la estructura en lugar de otro retrato de fachada."
+  },
+  "torre-interbank": {
+   "estilo": "Torre posmoderna escultórica, de volúmenes geométricos inclinados",
+   "aporte": "La respuesta curva a la vía expresa, la losa inclinada y el volumen suspendido se pueden poner a prueba contra el movimiento real de peatones y tráfico."
+  },
+  "casa-fernandini-1913": {
+   "estilo": "Arquitectura ecléctica con interiores art nouveau",
+   "aporte": "La modernidad del material, el ornamento floral, la construcción en concreto y el uso cultural de hoy podrían formar una escena de capas de tiempo, si el acceso sigue vigente."
+  },
+  "estacion-desamparados": {
+   "estilo": "Infraestructura cívica Beaux-Arts con vitrales art nouveau",
+   "aporte": "Un antiguo umbral de transporte organiza hoy a lectores y actividad cultural: el cambio de verbo es arquitectónico, no decorativo."
+  },
+  "edificio-petroperu": {
+   "estilo": "Brutalismo peruano, de geometría estructural monumental",
+   "aporte": "Los marcos profundos de concreto y la escala cívica pueden sostener estudios de luz, repetición y umbral institucional sin depender de la fama en el skyline."
+  },
+  "torre-begonias": {
+   "estilo": "Verticalidad corporativa contemporánea que transforma el espacio público",
+   "aporte": "El tema útil no es la altura de la torre, sino cómo la plaza, la comida, el trabajo y los visitantes cambian el plano del suelo del centro financiero."
+  }
+ },
+ "places": {
+  "previ-lima": {
+   "entra": "La toma funciona si se ven a la vez la lógica de crecimiento original y la autoría de quienes viven ahí, sin presentar las ampliaciones como un fracaso. Una fachada colorida y modificada no basta.",
+   "refuta": "Las transformaciones publicadas abarcan distintos prototipos de vivienda: ninguna casa sirve como ejemplo universal de PREVI.",
+   "descarta": "hace falta un pie de foto para explicar qué parte creció",
+   "escena": "Un vecino usa un umbral añadido mientras otro cruza el sendero peatonal original",
+   "desde": "Vista oblicua desde el sendero público que una la casa semilla, la ampliación, el umbral y el recorrido compartido",
+   "plan_b": "Una sola acción en el umbral, con la junta del crecimiento y el sendero a la vista"
+  },
+  "edificio-alvarez-calderon": {
+   "entra": "Funciona cuando la geometría de la vivienda colectiva da forma visible a un paso actual de lo público a lo doméstico. Una fachada moderna, la fama o mirar de forma invasiva a los residentes no bastan.",
+   "refuta": "Hay una intervención profesional registrada sin alcance ni fecha: no puede presentarse como una transformación verificada.",
+   "descarta": "el mérito arquitectónico solo lo da el pie de foto",
+   "escena": "Pasar, detenerse y entrar ocupan capas distintas",
+   "desde": "Diagonal pública que una la llegada desde el barrio, el pórtico colectivo y el volumen residencial",
+   "plan_b": "Historia en dos zonas: calle y pórtico"
+  },
+  "puente-de-la-paz-quebrada-de-armendariz": {
+   "entra": "Funciona si el puente provoca a la vez el tránsito y la pausa sobre el corte vehicular; falla cuando el único tema es la costa, la silueta de la estructura o un selfi.",
+   "refuta": "Las multitudes de la inauguración prueban usos posibles, no la densidad de un día normal ni las restricciones vigentes: hay que verificar en persona antes de incluirlo en una ruta.",
+   "descarta": "alguna capa necesita pie de foto o se funde con otra",
+   "escena": "Un corredor, alguien detenido mirando y un vehículo en tres capas que se explican entre sí",
+   "desde": "Lo bastante adentro del puente para superponer el cruce, la pausa y el tráfico",
+   "plan_b": "Encuadre en dos capas, cruce y pausa, con la geometría de la quebrada bien explícita"
+  },
+  "centro-civico-de-lima-real-plaza": {
+   "entra": "Funciona cuando la antigua estructura de circulación canaliza de forma visible el cruce, la espera y el consumo de hoy. Un retrato de la torre o un centro comercial lleno cualquiera no bastan.",
+   "refuta": "Los premios y los relatos de reúso describen el éxito buscado; no prueban que el paso de lo cívico a lo comercial se lea hoy en una sola imagen.",
+   "descarta": "hace falta un pie de foto para explicar el cambio de cívico a comercial",
+   "escena": "Cruzar, esperar y subir alineados en tres planos de profundidad",
+   "desde": "Borde público lejano y oblicuo que combine la entrada original, el flujo central y el destino comercial",
+   "plan_b": "Relación en dos capas entre cruzar y esperar"
+  },
+  "centro-cultural-ccori-wasi": {
+   "entra": "Solo funciona cuando se ven a la vez la profundidad doméstica heredada del edificio y su uso público actual; una fachada restaurada, una sala vacía o una obra aislada no bastan.",
+   "refuta": "Una exposición de julio de 2026 prueba un uso reciente, pero no la próxima muestra, las horas tranquilas ni que se pueda fotografiar libremente.",
+   "descarta": "la cronología no se ve sin pie de foto",
+   "escena": "Alguien llega y cruza mientras otra persona mira más adentro",
+   "desde": "Umbral alineado a través de la primera sala cultural",
+   "plan_b": "Un visitante que sale con el interior cultural todavía a la vista"
+  },
+  "parque-3-de-octubre-skatepark-muros-libres": {
+   "entra": "Funciona si la geometría de los obstáculos explica a la vez el movimiento del patinador y la comunidad que espera. Un truco espectacular sin causa espacial no basta.",
+   "refuta": "La programación cívica de junio de 2026 confirma el uso del parque, no la actividad habitual de skate, el estado de los obstáculos ni un lugar seguro para la cámara.",
+   "descarta": "hace falta un pie de foto para explicar la secuencia diseñada",
+   "escena": "Un patinador que esperaba arranca mientras otro aterriza",
+   "desde": "Posición lejana y oblicua que superponga el borde de espera, la línea de obstáculos y el parque",
+   "plan_b": "Un patinador, el grupo que espera y la línea completa"
+  },
+  "agrupamiento-chabuca-granda": {
+   "entra": "Funciona cuando un gesto de hoy hace legible la antigua estrategia tipológica como continuidad urbana vivida. Un retrato de fachada en contexto o un apilamiento lejano de monumentos no bastan.",
+   "refuta": "Los estudios actuales tratan Chabuca Granda como un precedente de vivienda vivo, pero no verifican cuáles de las catorce tiendas originales siguen abiertas.",
+   "descarta": "hace falta un pie de foto para explicar la continuidad tipológica",
+   "escena": "Comprar o volver a casa y saludarse ocurren en dos profundidades del umbral",
+   "desde": "Esquina pública que superponga el borde de la Alameda, el umbral comercial y compartido, y la circulación de las viviendas",
+   "plan_b": "Un vecino que vuelve y un umbral con actividad"
+  },
+  "estacion-desamparados": {
+   "entra": "Funciona cuando la arquitectura conservada de la estación convierte, hoy y de forma visible, la llegada y la espera en lectura y encuentro. Una postal de la fachada o del vitral no basta.",
+   "refuta": "El horario publicado confirma que la institución abre, pero cuánta actividad habrá y si se puede fotografiar dentro se comprueba el mismo día.",
+   "descarta": "el sentido de antigua estación lo rescata el pie de foto",
+   "escena": "Llegar, orientarse y leer a la vez",
+   "desde": "Diagonal que una la llegada desde la calle, el eje del hall y la zona activa de lectura o reunión",
+   "plan_b": "Historia en dos capas, del hall a la biblioteca"
+  },
+  "cantagallo-comunidad-shipibo-konibo": {
+   "entra": "Solo funciona cuando la arquitectura aprobada por la comunidad permite de forma visible la acción colectiva y quienes participan aprueban el encuadre y su envío. El descubrimiento desde fuera, la vulnerabilidad o extraer sus diseños no son válidos.",
+   "refuta": "La presencia actual de la comunidad y sus programas colectivos están verificados, pero no hay acceso ni consentimiento independiente para fotografiar.",
+   "descarta": "hay cualquier duda de consentimiento, seguridad o representación",
+   "escena": "Quienes participan eligen el acercamiento, el intercambio y la acción colectiva",
+   "desde": "Diagonal elegida por la comunidad que una el acercamiento colectivo, el elemento arquitectónico y la acción que ellos dirigen",
+   "plan_b": "Ninguna foto"
+  },
+  "residencial-san-felipe": {
+   "entra": "Funciona cuando un cruce cotidiano hace convivir la escala monumental con la intimidad de barrio. Una composición moderna vacía no muestra a nadie habitándola.",
+   "refuta": "Las fuentes académicas y profesionales confirman que sigue habitado, pero no el acceso en 2026 a cada pasaje elevado ni cuánto toleran hoy los vecinos que se les fotografíe.",
+   "descarta": "la idea de ciudad tradicional necesita pie de foto",
+   "escena": "Dos vecinos se mueven en niveles distintos hacia un destino común",
+   "desde": "Posición oblicua que combine la calle elevada y la plaza del suelo",
+   "plan_b": "Un vecino y un umbral de uso local visiblemente ocupado"
+  },
+  "unidad-vecinal-matute-complejo-deportivo": {
+   "entra": "Funciona cuando el diseño original de espacios compartidos canaliza de forma visible la recreación de hoy. Yuxtaponer lo viejo y lo nuevo, el espectáculo deportivo o el vecino como escala sin un recorrido no bastan.",
+   "refuta": "Matute I y II tienen escalas y autores distintos: una sola toma no puede generalizar lo que pasa en ambas etapas.",
+   "descarta": "la relación entre lo viejo y lo nuevo la rescata el pie de foto",
+   "escena": "Salir, cruzar y entrar en tres zonas",
+   "desde": "Diagonal pública que una la salida de las viviendas, el sendero compartido y la llegada al deporte",
+   "plan_b": "Relación en dos zonas entre vivienda y deporte"
+  },
+  "quinta-heeren-restauracion-2026": {
+   "entra": "Funciona cuando el cerco y el orden interior se encuentran de forma visible con la propiedad pública y la vida de la calle de hoy. La belleza de la ruina, la restauración anunciada o un pie histórico no bastan.",
+   "refuta": "Las noticias de la restauración de 2026 se guardan como evidencia bibliográfica corroborada, no como el estado verificado del lugar.",
+   "descarta": "la restauración solo la cuenta el pie de foto",
+   "escena": "Pasar, detenerse y una entrada controlada o su ausencia ocupan capas",
+   "desde": "Diagonal pública que una el movimiento de Barrios Altos, la puerta adquirida y el eje interior histórico",
+   "plan_b": "Historia en dos zonas: calle y portón"
+  },
+  "torres-de-limatambo-supermanzana": {
+   "entra": "Funciona cuando un recurso de la supermanzana une de forma visible la vivienda y el uso compartido de hoy. Las torres como skyline, los vecinos como escala o una multitud de evento sin continuidad espacial no bastan.",
+   "refuta": "Una feria educativa de 2026 prueba un uso cívico ocasional, no la densidad diaria ni una fecha de evento futura.",
+   "descarta": "hace falta un pie de foto para explicar la supermanzana",
+   "escena": "Salir, cruzar y llegar en tres zonas",
+   "desde": "Diagonal pública que una la salida de las viviendas, el recorrido interior y un equipamiento compartido en uso",
+   "plan_b": "Relación en dos zonas entre casa y uso compartido"
+  },
+  "transecto-de-ciudad-compacta-pueblo-libre-lince-surquillo": {
+   "entra": "Solo funciona cuando una manzana concreta hace que la densificación cambie una acción de hoy. Una ruta por tres distritos, un collage o un contraste genérico entre lo viejo y lo nuevo no bastan.",
+   "refuta": "Un transecto compuesto no hereda la verificación de un tramo: todos sus bordes siguen sin verificar.",
+   "descarta": "hace falta un ensayo o un pie de foto para el transecto",
+   "escena": "Acercarse, desviarse y entrar o entregar ocupan capas",
+   "desde": "Una diagonal pública que una el lote conservado, el volumen nuevo y el recorrido diario alterado",
+   "plan_b": "Descartar la idea: es una construcción de investigación"
+  },
+  "conjunto-habitacional-palomino": {
+   "entra": "Funciona cuando la curvatura modular canaliza de forma visible una acción de hoy o deja ver una ambigüedad de orientación con sentido. La forma moderna vacía, el vecino como escala o imitar el plano aéreo no bastan.",
+   "refuta": "Las propuestas académicas para rehabilitar el espacio público no prueban que se construyeran ni que los senderos estén abiertos a quien no vive ahí.",
+   "descarta": "hace falta un pie de foto para explicar el sistema espacial",
+   "escena": "Llegar, girar y entrar en tres zonas distintas",
+   "desde": "Oblicua pública que una la llegada, el recorrido curvo compartido y el umbral de las viviendas",
+   "plan_b": "Relación en dos zonas entre el giro y el umbral"
+  },
+  "lima-centro-de-convenciones": {
+   "entra": "Funciona cuando la plaza cubierta y la sección vertical organizan de forma visible una reunión de hoy. La forma monumental, un escenario famoso o una multitud como escala sin que el edificio actúe no bastan.",
+   "refuta": "Los muchos eventos de 2026 prueban el uso actual, no la entrada pública sin inscripción ni un calendario futuro.",
+   "descarta": "la circulación la explica el pie de foto",
+   "escena": "Llegar, hacer cola y subir en tres estratos",
+   "desde": "Oblicua pública o autorizada que combine la llegada, la reunión bajo techo y la subida vertical",
+   "plan_b": "Exterior en dos estados: la llegada y la reunión bajo techo"
+  },
+  "unidad-vecinal-3": {
+   "entra": "Funciona cuando un recurso original permite, canaliza o contradice de forma visible una acción de hoy. La nostalgia moderna, la textura del deterioro o los vecinos como escala no bastan.",
+   "refuta": "El CAMMP registra vivienda actual y mala conservación, pero el estado puede variar mucho dentro de un conjunto de 25.6 hectáreas.",
+   "descarta": "el sentido lo rescata el pie de foto",
+   "escena": "Salir, desviarse y llegar en tres zonas",
+   "desde": "Diagonal pública que combine la salida de las viviendas, el recorrido peatonal alterado y el destino compartido",
+   "plan_b": "Contradicción del recorrido en dos zonas"
+  },
+  "utec-campus-barranco": {
+   "entra": "Solo funciona cuando el acantilado estructural organiza de forma visible el aprendizaje, el encuentro o la circulación en una sola imagen. Un retrato de la fachada premiada no basta.",
+   "refuta": "La UTEC está activa, pero el interior y las terrazas altas piden una visita concertada; las veredas públicas no dan permiso para fotografiar el campus.",
+   "descarta": "hace falta un pie de foto para explicar la educación",
+   "escena": "Una llegada abajo y movimiento arriba al mismo tiempo",
+   "desde": "Diagonal desde Medrano que una la llegada del barrio, las losas, la terraza y la circulación",
+   "plan_b": "Una llegada en un solo nivel, enmarcada por una losa"
+  },
+  "jiron-trujillo-puente-de-piedra": {
+   "entra": "Funciona cuando la arquitectura heredada del cruce canaliza de forma visible varios modos de moverse de hoy. Una vista histórica, un retrato del puente o una ruta armada con pies de foto no bastan.",
+   "refuta": "Lo que se sabe de la estructura y la seguridad actual del puente viene en parte de un registro secundario: hay que verificarlo en persona el mismo día.",
+   "descarta": "el pie de foto une lugares separados",
+   "escena": "Acercarse, confluir y cruzar ocupan capas",
+   "desde": "Diagonal segura que una la llegada por la calle histórica, el puente y las capas de movilidad actuales",
+   "plan_b": "Historia en dos zonas: la llegada y el puente"
+  },
+  "aulario-104-universidad-ricardo-palma": {
+   "entra": "Funciona cuando el ritmo arquitectónico separa de forma visible cruzar, esperar y entrar. Una perspectiva larga y vacía o un grupo de estudiantes cualquiera no bastan.",
+   "refuta": "Las fuentes documentan una barra educativa de 313 m y su idea de circulación, pero no prueban el mismo flujo a todas horas.",
+   "descarta": "hace falta un pie de foto para explicar el edificio como conector",
+   "escena": "Cruzar, subir y entrar alineados en tres capas",
+   "desde": "Sección oblicua autorizada que combine el sendero bajo, el puente y el umbral de las aulas",
+   "plan_b": "Relación en dos capas entre cruzar y entrar"
+  },
+  "huaca-santa-cruz": {
+   "entra": "Funciona cuando la arquitectura antigua y baja y su borde de protección ordenan de forma visible el movimiento vecinal o cívico de hoy. Un monumento iluminado, el retrato de una ceremonia o la huaca frente a edificios cualquiera no bastan.",
+   "refuta": "El cerco y la iluminación nuevos están verificados en 2025, pero no el horario nocturno, dónde se puede uno detener legalmente ni el recorrido interior.",
+   "descarta": "solo una ceremonia excepcional rescata la idea",
+   "escena": "Pasar, esperar o aprender y reunirse alineados, si de verdad ocurren",
+   "desde": "Punto público verificado que combine la geometría del acceso antiguo, el perímetro renovado y dos estados de usuarios comunes o cívicos",
+   "plan_b": "Relación en dos estados entre quien pasa y el sitio protegido"
+  },
+  "museo-de-la-electricidad-tranvia": {
+   "entra": "Funciona cuando el edificio reutilizado, el tranvía o el riel y el aprendizaje o el movimiento de la calle de hoy forman una transformación legible. Documentar el objeto con nostalgia no basta.",
+   "refuta": "Las fuentes confirman la reapertura del museo y el tranvía exterior como pieza de la colección, pero ninguna confirma que hoy circule por Pedro de Osma.",
+   "descarta": "hace falta un pie de foto para explicar la historia del tranvía",
+   "escena": "Un peatón cruza mientras un visitante entra y el tranvía ancla la movilidad desaparecida",
+   "desde": "Oblicua pública que combine el cruce actual de la avenida, el tranvía o el riel quieto y la entrada del museo",
+   "plan_b": "Transformación en dos estados: la calle y la entrada"
+  },
+  "casa-museo-julia-codesido": {
+   "entra": "Funciona cuando la secuencia de casa, jardín y taller hace legible el trabajo artístico o su ausencia con sentido. Documentar las obras, la nostalgia de las salas conservadas o una fachada sin explicar no bastan.",
+   "refuta": "Un recorrido televisado en 2022 prueba la secuencia espacial en su momento, no el acceso ni la actividad de visitantes en 2026.",
+   "descarta": "no hay permiso o la idea depende del pie de foto",
+   "escena": "Entrar, detenerse e interpretar en tres zonas",
+   "desde": "Diagonal autorizada que combine el interior doméstico, el paso al jardín y el taller",
+   "plan_b": "Descartar la idea del interior; conservar una nota de investigación desde el borde público"
+  },
+  "parque-de-las-americas": {
+   "entra": "Funciona cuando la geometría cívica del parque provoca de forma visible una acción colectiva o de cuidado cotidiana. El retrato de una bandera, un busto o un letrero sin comportamiento espacial no basta.",
+   "refuta": "Los usos ceremoniales y programados son periódicos: no pueden presentarse como actividad diaria.",
+   "descarta": "el sentido depende de saber cómo se llama el parque",
+   "escena": "Un cruce común se encuentra con una pequeña actividad colectiva o de cuidado",
+   "desde": "Borde lejano y oblicuo que combine el centro ceremonial, el sendero que converge y el borde vecinal activo",
+   "plan_b": "Un cruce y un elemento de mantenimiento a la vista"
+  },
+  "casa-garcia-bryce": {
+   "entra": "Solo funciona si una imagen legal desde el borde público hace legible el umbral doméstico escalonado, o si un evento autorizado muestra un aprendizaje moldeado por esa secuencia. Una fachada de catálogo no basta.",
+   "refuta": "El CAMMP registra uso de vivienda y buen estado, pero la fecha de su evaluación no garantiza el acceso el mismo día.",
+   "descarta": "no hay autorización explícita o el pie de foto tiene que rescatar la tensión entre lo doméstico y lo público",
+   "escena": "La llegada de un visitante y una observación guiada alineadas a través de las capas del umbral",
+   "desde": "Borde autorizado del pórtico que una la llegada, la galería y un vistazo al patio sin habitaciones privadas",
+   "plan_b": "Prueba de estructura (A) desde lo público; nunca improvises un acceso al interior"
+  },
+  "casa-fernandini-1913": {
+   "entra": "Funciona cuando la técnica y el ornamento domésticos antiguos canalizan de forma visible el uso cultural de hoy. Un bello detalle art nouveau no es por sí solo una historia de arquitectura y vida en 2026.",
+   "refuta": "Una exposición de marzo de 2026 prueba un uso cultural ocasional, no una apertura pública permanente ni permiso para fotografiar con fines de publicación.",
+   "descarta": "hace falta un pie de foto para explicar el uso cultural actual",
+   "escena": "Llegar, detenerse y subir en una sola secuencia",
+   "desde": "Diagonal autorizada desde la entrada de esquina, a través del hall, hacia la escalera",
+   "plan_b": "La llegada exterior al umbral cultural"
+  },
+  "torre-interbank": {
+   "entra": "Funciona cuando las dos geometrías de la torre convierten de forma visible el tráfico rápido y la llegada lenta de las personas en una sola imagen legible. Un ícono inclinado del skyline no basta.",
+   "refuta": "La sede se ve mucho, pero está junto a un tráfico de escala de vía expresa: no hay garantía de un punto de vista peatonal legal y cómodo.",
+   "descarta": "hace falta un pie de foto para explicar la respuesta a la vía expresa",
+   "escena": "La llegada de un peatón y el giro de un vehículo en capas distintas",
+   "desde": "Diagonal desde Carlos Villarán que una la vereda, la entrada controlada, el bloque bajo y la curva de la torre",
+   "plan_b": "Una sola llegada contra el bloque bajo"
+  },
+  "edificio-petroperu": {
+   "entra": "Funciona cuando la jerarquía estructural moldea de forma visible la llegada institucional de hoy o una ausencia con sentido. La monumentalidad brutalista sin vida actual no basta.",
+   "refuta": "El CAMMP registra Paseo de la República 3361 y Petroperú, Canaval y Moreyra 150: describen el mismo conjunto de esquina, pero la discrepancia se conserva.",
+   "descarta": "la historia de la evaluación del inmueble solo existe en el pie de foto",
+   "escena": "Pasar, detenerse y entrar en capas separadas, o una ausencia que haga legible el cierre",
+   "desde": "Diagonal desde Canaval que una la llegada de la ciudad, la explanada, el control de seguridad y la torre",
+   "plan_b": "Historia en dos capas: la explanada y la entrada"
+  },
+  "torre-begonias": {
+   "entra": "Funciona cuando la arquitectura a nivel de suelo reparte de forma visible el trabajo, la comida y la espera. La altura de la torre, el brillo del vidrio o una multitud sin causa espacial no bastan.",
+   "refuta": "El operador promociona un destino unificado; eso no prueba que cada tramo de la plaza sea público, cómodo o igual de activo.",
+   "descarta": "hace falta un pie de foto para explicar el uso mixto",
+   "escena": "La llegada, la elección de camino y la pausa conviven en el mismo cuadro",
+   "desde": "Diagonal que una la llegada desde la calle, la elección en la plaza, el lobby y el borde ocupado de los restaurantes",
+   "plan_b": "Historia en dos capas: el lobby y la zona de comida"
+  },
+  "damero-de-lima-interseccion-como-objeto": {
+   "entra": "Funciona solo si las líneas perpendiculares de lo construido provocan de forma visible un cruce o un giro en ese momento. Las fachadas patrimoniales, la calle llena de vida o un argumento que depende del mapa no bastan.",
+   "refuta": "El retiro de cables cubre muchas cuadras, pero no se puede generalizar a todos los ejes; aún falta elegir el cruce definitivo y un lugar seguro donde pararse.",
+   "descarta": "el pie de foto o el mapa tienen que rescatar la idea del damero",
+   "escena": "Esperar, cruzar y girar ocupan planos distintos de la cuadrícula",
+   "desde": "Un retiro verificado que muestre la entrada controlada, los ejes perpendiculares y una esquina activa",
+   "plan_b": "Relación en dos tiempos: cruzar y girar"
+  },
+  "plaza-a-la-bandera": {
+   "entra": "Funciona solo cuando la geometría de la plaza cambia el movimiento o la reunión. Reconocer la bandera, el simbolismo patrio o una persona aislada como escala no bastan.",
+   "refuta": "Las fuentes municipales confirman ceremonias y eventos cívicos, pero no un horario cotidiano: el cruce de todos los días tiene que ser la alternativa repetible.",
+   "descarta": "el significado solo lo da el pie de foto",
+   "escena": "Llegar, cruzar y esperar ocupan tres zonas",
+   "desde": "Oblicua pública que una la llegada desde la calle, el cruce cívico y el foco elevado",
+   "plan_b": "Dos zonas: llegada y cruce"
+  },
+  "jiron-de-la-union": {
+   "entra": "Funciona cuando la arquitectura peatonal de una sola cuadra hace legibles el comercio, la memoria o la acción cívica sin contar la historia del corredor. Una multitud genérica, una fachada o la nostalgia del pie de foto no bastan.",
+   "refuta": "Una caminata guiada y un desfile de 2026 ya ocurrieron: son eventos terminados, no ventanas que se repitan en la ruta.",
+   "descarta": "hace falta un pie de foto que explique las nueve cuadras",
+   "escena": "Acercarse, detenerse y entrar o escuchar ocupan capas distintas",
+   "desde": "Una diagonal pública que una el eje de llegada, el umbral elegido y la acción o la memoria presentes",
+   "plan_b": "Historia del umbral en dos zonas"
+  },
+  "quinta-de-los-libertadores-mnaahp": {
+   "entra": "Funciona cuando la arquitectura doméstica y estatal, elevada sobre el terreno, coreografía de forma visible el aprendizaje de hoy. La fachada de una casa famosa o una vitrina sin movimiento no bastan.",
+   "refuta": "La ocupación política histórica está bien documentada, pero no rescata un encuadre en el que no se leen la casa elevada ni el recorrido de los visitantes.",
+   "descarta": "hace falta un pie de foto para explicar la continuidad de casa a museo",
+   "escena": "Acercarse, subir y aprender quedan alineados",
+   "desde": "Borde del jardín, con permiso, que reúna la llegada, la subida por la escalera y la entrada guiada a la galería",
+   "plan_b": "Relación en dos tiempos: la subida y la galería"
+  },
+  "parque-virginia-candamo": {
+   "entra": "Funciona cuando el nuevo sistema de senderos y usos permite de forma visible el uso entre generaciones o el cuidado. El retrato de la pagoda o de Confucio, el espectáculo de color o una actividad genérica de parque no bastan.",
+   "refuta": "El simbolismo chino-peruano es un contexto con sentido, pero el color de la pagoda o del monumento por sí solo cae en un exotismo decorativo en lugar de mostrar cómo se habita hoy.",
+   "descarta": "hace falta un pie de foto para explicar el rediseño",
+   "escena": "Entrar, hacer ejercicio y descansar ocupan tres zonas",
+   "desde": "Diagonal pública que reúna la entrada, el ejercicio, el cruce y el descanso a la sombra",
+   "plan_b": "Dos zonas: ejercicio y descanso"
+  },
+  "quinta-leuro-y-quintas-historicas": {
+   "entra": "Funciona cuando un pasaje colectivo negocia de forma visible la vida doméstica de hoy con la presión comercial de la ciudad. La belleza patrimonial, una autoría discutida o una fachada aislada no bastan.",
+   "refuta": "Las fuentes municipales no coinciden en el arquitecto: la tabla patrimonial más sólida nombra a Lidio Mongilardi y otras tablas turísticas derivadas del municipio nombran a Javier Prado. La autoría queda fuera de la escena hasta resolverla con una fuente primaria.",
+   "descarta": "hace falta un pie de foto para explicar qué es una quinta",
+   "escena": "Entrar, pasar y subir ocupan zonas sucesivas",
+   "desde": "Diagonal permitida que una la entrada comercial, el pasaje colectivo y las casas diferenciadas",
+   "plan_b": "Historia en dos zonas desde el borde público"
+  },
+  "mac-lima-parque-espejo-de-agua": {
+   "entra": "Funciona cuando la arquitectura del museo y el borde del agua y el parque provocan de forma visible un encuentro cultural en ese momento. La postal del reflejo, documentar las obras o una multitud de evento sin papel del espacio no bastan.",
+   "refuta": "Las fuentes institucionales son fiables sobre el programa y la intención del diseño, pero promocionales sobre la experiencia del visitante: lo que se ve a nivel de suelo hay que comprobarlo por separado.",
+   "descarta": "el evento solo lo explica el pie de foto",
+   "escena": "Salir, reunirse y cruzar ocupan tres zonas",
+   "desde": "Diagonal pública o con permiso que una la salida de la galería, la reunión en la terraza y la circulación del parque y el espejo de agua",
+   "plan_b": "Historia en dos zonas: el umbral y el parque"
+  },
+  "torres-centro-empresarial-camino-real": {
+   "entra": "Funciona cuando la arquitectura encauza de forma visible la vida de oficina activa alrededor de una base comercial sin resolver, o a través de ella. El heroísmo de la torre de vidrio, la nostalgia o un abandono que no se puede probar no bastan.",
+   "refuta": "Las nuevas fachadas de vidrio tapan la identidad original de la época del concreto: reconocer la historia no reemplaza una transformación que se vea hoy.",
+   "descarta": "la historia del centro comercial abandonado solo la da el pie de foto",
+   "escena": "Llegar, entrar y rodear ocupan tres zonas",
+   "desde": "Diagonal pública que una la llegada por la avenida, el acceso renovado a la torre y el borde sin resolver del podio",
+   "plan_b": "Relación en dos zonas: el acceso renovado y el podio"
+  },
+  "reducto-2-casa-museo-caceres": {
+   "entra": "Funciona cuando el paisaje conmemorativo hace posible, de forma visible, una acción cívica actual. La postal de la locomotora, una multitud genérica de evento o la historia de la batalla contada por el pie de foto no bastan.",
+   "refuta": "El cine y las votaciones prueban un uso cívico en 2026, pero son eventos terminados, no ventanas de acceso que se repitan.",
+   "descarta": "la relación histórica solo la da el pie de foto",
+   "escena": "Llegar, reunirse y entrar ocupan tres zonas",
+   "desde": "Diagonal pública o con permiso que reúna el terreno histórico, la zona de reunión cívica y el umbral del museo",
+   "plan_b": "Relación en dos zonas: el uso diario y el museo"
+  },
+  "estacion-restos-del-funicular-de-barranco": {
+   "entra": "Funciona cuando un transporte vertical en desuso se enfrenta de forma visible al movimiento de hoy o lo encauza. Un retrato de la estación, decir que es un museo sin serlo o la estética de la ruina sin la causa de la pendiente no bastan.",
+   "refuta": "La maquinaria histórica y el trazado pueden estar demasiado tapados o fragmentados para que el transporte en pendiente se lea en un solo cuadro.",
+   "descarta": "hace falta un pie de foto para explicar el funicular",
+   "escena": "Subir, detenerse y bajar ocupan la ruta vieja y la nueva",
+   "desde": "La diagonal pública más segura que una la estación, la pendiente en desuso y la bajada actual",
+   "plan_b": "Descartar la escena y conservar la nota de investigación"
+  },
+  "centro-de-convenciones-estacion-la-cultura": {
+   "entra": "Funciona cuando la estación elevada convierte de forma visible el movimiento del distrito cívico en tránsito vertical. Una foto heroica del tren o del viaducto, la densidad de gente o un fondo forzado del Centro de Convenciones no bastan.",
+   "refuta": "Los planes de conexión con la futura Línea 4 no son infraestructura actual y no pueden mostrarse como si funcionaran.",
+   "descarta": "la relación con el nodo cívico solo la da el pie de foto",
+   "escena": "Consultar, hacer cola y subir ocupan tres zonas",
+   "desde": "Diagonal pública que una la decisión en el paradero o la vereda, la entrada controlada y la subida elevada",
+   "plan_b": "Historia en dos zonas: la calle y la subida"
+  },
+  "lugar-de-la-memoria-lum": {
+   "entra": "La escena solo funciona si primero se lee a una persona guiada por una quebrada de concreto y luego se descubren la exposición y el regreso a la ciudad y al mar; una vista vacía del edificio premiado no cumple el tema.",
+   "refuta": "La secuencia arquitectónica publicada confirma la intención del diseño, pero no el acceso actual a la azotea ni la cantidad habitual de visitantes: hay que comprobar las dos cosas antes de incluirlo en una ruta.",
+   "descarta": "hace falta un pie de foto para unir el museo y la ciudad",
+   "escena": "Un visitante sale del recorrido de interpretación y se vuelve hacia la ciudad",
+   "desde": "El regreso superior, donde la rampa, el visitante y el horizonte de Lima pueden convivir",
+   "plan_b": "Umbral del interior al exterior con una figura de espaldas"
+  },
+  "huaca-san-borja": {
+   "entra": "Funciona cuando la forma arqueológica gobierna de forma visible el acceso, la educación o el movimiento del barrio hoy. El contraste entre la ruina y la torre o documentar un evento sin papel del espacio no bastan.",
+   "refuta": "Un registro académico anterior describe el sitio cerrado y sin ingreso habitual, y una actividad del Ministerio en mayo de 2026 prueba una entrada guiada ocasional; ninguno de los dos confirma acceso público diario.",
+   "descarta": "el contexto social solo lo explica el pie de foto",
+   "escena": "Rodear, detenerse y entrar con guía ocupan zonas distintas",
+   "desde": "Diagonal legal que una el sendero del barrio, el umbral arqueológico y el fondo institucional",
+   "plan_b": "Historia en dos zonas desde el borde público"
+  },
+  "gran-teatro-nacional": {
+   "entra": "Funciona cuando la arquitectura convierte de forma visible el tránsito urbano en una llegada cultural colectiva. El retrato de la fachada, una cola cualquiera o una foto de la función no bastan.",
+   "refuta": "Un calendario de eventos denso en 2026 confirma que el teatro está activo, pero no la cantidad de público, cómo se forma la cola afuera ni la política de fotos para una función concreta.",
+   "descarta": "hace falta un pie de foto para explicar el paso del tránsito a la cultura",
+   "escena": "Llegar, esperar y entrar quedan alineados",
+   "desde": "Borde público oblicuo y lejano que reúna la llegada desde la estación, la terraza del público y la entrada al foyer",
+   "plan_b": "Relación en dos tiempos: la llegada y la entrada"
+  },
+  "santisima-cruz-del-viajero": {
+   "entra": "Funciona cuando la antigua pausa del camino organiza de forma visible el movimiento de hoy, o lo contradice. Una cruz aislada, un detalle de flores o un fondo de tráfico sin orientación no bastan.",
+   "refuta": "Las flores o las ofrendas pueden indicar uso, pero no dicen quién las puso ni cuándo.",
+   "descarta": "la historia del camino solo la da el pie de foto",
+   "escena": "Acercarse, detenerse y seguir ocupan tres zonas",
+   "desde": "Diagonal segura que una el sendero de llegada, la pausa en la cruz y el flujo que sigue por la avenida",
+   "plan_b": "Relación en dos zonas: la pausa y el flujo"
+  },
+  "biblioteca-municipal-de-barranco": {
+   "entra": "Funciona cuando el antiguo edificio cívico encauza de forma visible la lectura o el trabajo de hoy. La fachada patrimonial, un interior genérico de biblioteca o documentar un evento no bastan por sí solos.",
+   "refuta": "La restauración y la descripción de las salas prueban la capacidad del espacio, no una cantidad previsible de lectores, los eventos ni el permiso para fotografiar.",
+   "descarta": "hace falta un pie de foto para explicar el nuevo uso cívico",
+   "escena": "Acercarse, entrar y leer quedan alineados",
+   "desde": "Diagonal aprobada que reúna la llegada desde el parque, la entrada por el pórtico y el destino de lectura",
+   "plan_b": "Relación en dos tiempos: la entrada y la lectura"
+  },
+  "plaza-de-los-libertadores-santa-maria-magdalena": {
+   "entra": "Funciona cuando la secuencia construida convierte de forma visible la devoción privada en movimiento cívico público. Una fachada sola, la pileta o una multitud no bastan.",
+   "refuta": "Las ceremonias de 2026 prueban un paso ocasional de la iglesia a la plaza, no la densidad de un día normal.",
+   "descarta": "hace falta un pie de foto para unir la iglesia y la plaza",
+   "escena": "La salida, el cruce y la recepción ocurren en tres capas",
+   "desde": "Borde oblicuo de la plaza que reúna la salida de la parroquia, la línea de la procesión y el punto de reunión cívica",
+   "plan_b": "Dos capas: la salida y el cruce"
+  },
+  "biblioteca-nacional-del-peru": {
+   "entra": "Funciona solo si la arquitectura institucional convierte de forma visible la llegada del público en lectura o estudio. La fachada monumental, documentar una exposición o un lector genérico como escala no bastan.",
+   "refuta": "Los servicios publicados de lectura y terraza no confirman el permiso para fotografía de arquitectura ni una ocupación previsible.",
+   "descarta": "hace falta un pie de foto para explicar el acceso público al conocimiento",
+   "escena": "Entrar, orientarse y estudiar quedan alineados",
+   "desde": "Borde del hall, con permiso, que reúna la llegada, la subida y el destino de lectura o la terraza",
+   "plan_b": "Paso en dos tiempos del hall al estudio"
+  },
+  "parque-tradiciones-ricardo-palma": {
+   "entra": "Funciona cuando el diseño del parque hace que la conmemoración literaria se integre de forma visible en la vida de todos los días. El retrato de la estatua, el espectáculo de los niños o una referencia a Palma que depende del pie de foto no bastan.",
+   "refuta": "La reapertura de la zona de juegos en julio de 2026 prueba la infraestructura actual, no cuántos niños hay cada día ni una ventana apropiada para fotografiar.",
+   "descarta": "el sentido literario solo lo da el pie de foto",
+   "escena": "Pasar, descansar y acompañar ocupan tres zonas",
+   "desde": "Diagonal pública que una la llegada, el memorial a escala del barrio y la zona de juegos renovada",
+   "plan_b": "Historia en dos zonas: el sendero y la banca"
+  },
+  "casa-emilio-harth-terre": {
+   "entra": "Funciona cuando un acceso moderno protegido da forma visible al movimiento actual entre la casa y la calle. La elevación patrimonial, el relato de la amenaza o mirar de forma invasiva la vida doméstica no bastan.",
+   "refuta": "El CAMMP la registra sin protección, mientras que los registros municipales oficiales citan su declaración como monumento nacional (RDN 290-96/INC); manda la declaración oficial y el dato del catálogo se conserva como contradicción.",
+   "descarta": "el patrimonio o la amenaza solo los explica el pie de foto",
+   "escena": "Pasar, detenerse y entrar ocupan zonas distintas",
+   "desde": "Diagonal pública que una la llegada por la avenida, el límite protegido y la entrada lateral de la casa",
+   "plan_b": "Historia en dos zonas: la calle y la entrada"
+  },
+  "antigua-taberna-queirolo": {
+   "entra": "Funciona si la estrechez heredada del local da forma visible al servicio y al encuentro de hoy. La decoración antigua, la comida o un brindis sin causa arquitectónica no bastan.",
+   "refuta": "Las fotos publicadas del interior no confirman cómo están hoy los muebles, cuánta gente hay ni el permiso para fotografiar a propósito durante el servicio.",
+   "descarta": "hace falta un pie de foto para explicar la continuidad de pulpería a taberna",
+   "escena": "La llegada, el servicio y la conversación ocurren en tres capas de profundidad",
+   "desde": "Posición oblicua, con permiso, que una el umbral de la esquina, el recorrido del servicio y la mesa familiar",
+   "plan_b": "El servicio y la conversación en dos capas"
+  },
+  "casa-raul-porras-barrenechea": {
+   "entra": "Funciona cuando la arquitectura doméstica encauza de forma visible la investigación o la interpretación de hoy. Un retrato de los muebles, los libros o la fachada sin una acción en el espacio no bastan.",
+   "refuta": "Las fuentes municipales anuncian visitas guiadas en 2026, pero piden reserva previa; no confirman que se pueda entrar sin cita ni el permiso para fotografiar adentro.",
+   "descarta": "hace falta un pie de foto para explicar la continuidad de casa a instituto",
+   "escena": "La llegada, la interpretación y la investigación se alinean en tres salas",
+   "desde": "Línea oblicua, con permiso, que una el hall de entrada, el guía y la sala de estudio o la biblioteca en uso",
+   "plan_b": "Relación en dos capas: el guía y la investigación"
+  },
+  "casa-hacienda-orbea": {
+   "entra": "Funciona solo si el cerco público y la calle actual, o una secuencia productiva con permiso, se leen sin rescate histórico. El retrato del portón, una vista invadiendo propiedad o la nostalgia colonial no bastan.",
+   "refuta": "La ruta municipal actual marca Orbea como cerrada, mientras que un inventario más antiguo habla de ingreso con coordinación previa; manda el cierre, salvo que el propietario dé un permiso explícito.",
+   "descarta": "la historia productiva solo la da el pie de foto",
+   "escena": "Acercarse, bordear y alejarse ocupan tres zonas",
+   "desde": "Diagonal pública que una la llegada actual, el portón cerrado y el cerco que sobrevive",
+   "plan_b": "Lugar candidato a descartarse mientras no haya permiso"
+  },
+  "puente-villena-bajada-balta-costa-verde": {
+   "entra": "Funciona cuando la infraestructura de cruce y bajada transforma de forma visible un movimiento costero actual. El atardecer sobre el mar, la simetría del puente o un pie de foto que junte tres lugares no bastan.",
+   "refuta": "Los nuevos paneles transparentes mejoran la seguridad, pero pueden sumar reflejos, brillos y obstrucciones que invalidan los ángulos de referencia antiguos.",
+   "descarta": "el pie de foto tiene que unir lugares separados",
+   "escena": "Acercarse, cruzar y bajar ocupan zonas distintas",
+   "desde": "La diagonal pública más segura que reúna la llegada, el cruce protegido y la bajada o la quebrada a la vista",
+   "plan_b": "Historia en dos zonas: el cruce y la profundidad"
+  },
+  "casa-museo-marina-nunez-del-prado": {
+   "entra": "Funciona cuando la casa, el jardín y el bosque vivo dan forma visible al encuentro actual con la obra de la artista. Documentar esculturas o la nostalgia del museo sin una secuencia espacial no bastan.",
+   "refuta": "La información municipal sobre su funcionamiento está desactualizada para saber si hoy se puede entrar.",
+   "descarta": "el pie de foto tiene que rescatar la biografía",
+   "escena": "Entrar, detenerse y mirar ocupan tres zonas",
+   "desde": "Diagonal, con permiso, que una la antigua casa y taller, el jardín de esculturas y el borde de El Olivar",
+   "plan_b": "Historia en dos zonas desde el borde público"
+  },
+  "parque-municipal-y-entorno-civico": {
+   "entra": "Funciona cuando la geometría del parque reparte de forma visible la vida cívica de hoy. Un conjunto bonito, una multitud de evento o el turista como escala sin una relación con un destino no bastan.",
+   "refuta": "El CIAM registra un uso diario alto de sus servicios en dos sedes del distrito, pero eso no prueba que algún taller se vea al aire libre en el Parque Municipal.",
+   "descarta": "hace falta un pie de foto para explicar los usos de servicio",
+   "escena": "Cruzar, esperar y entrar quedan alineados",
+   "desde": "Diagonal pública que reúna el cruce del parque, la espera o la lectura y la entrada cívica",
+   "plan_b": "Relación en dos tiempos: el sendero y la entrada"
+  },
+  "casa-hacienda-moreyra": {
+   "entra": "Funciona cuando la circulación heredada de la hacienda encauza de forma visible la hospitalidad de hoy. Una fachada de lujo, un plato servido o un comedor con ambiente no bastan.",
+   "refuta": "Las imágenes profesionales del nuevo uso están curadas: no prueban cómo están hoy las salas, un servicio sin poses ni los puntos exteriores públicos fuera de horario.",
+   "descarta": "hace falta un pie de foto para explicar el paso de hacienda a restaurante",
+   "escena": "La llegada, el traslado y la recepción se alinean en tres espacios heredados",
+   "desde": "Línea oblicua, con permiso, que reúna la escalera de llegada, el patio y el destino del servicio",
+   "plan_b": "La ruta del personal en dos capas"
+  },
+  "mirador-catalina-recavarren": {
+   "entra": "Funciona cuando la infraestructura construida en el acantilado separa o une de forma visible a quien mira y a quien se mueve. El atardecer, el romance, la panorámica del mar o la historia del funicular contada por el pie de foto no bastan.",
+   "refuta": "Hay un proyecto municipal de recuperación documentado, pero la evidencia disponible no prueba que esté terminado, qué barreras hay hoy ni si se puede bajar al sendero inferior.",
+   "descarta": "el atardecer o el pie de foto tienen que rescatar la imagen",
+   "escena": "Mirar, pasar y detenerse quedan alineados",
+   "desde": "Oblicua pública verificada que reúna a quienes miran desde la terraza, el movimiento de abajo y la capa de Barranco y la costa",
+   "plan_b": "Relación en dos tiempos: quien mira y el sendero"
+  },
+  "pentagonito-y-bordes-civicos": {
+   "entra": "Funciona cuando un mismo límite excluye de forma visible el acceso militar y a la vez permite el movimiento cívico. El espectáculo de una carrera, el verde o la imagen de seguridad no bastan.",
+   "refuta": "Una carrera en junio de 2026 prueba un uso ocasional, y una cancelación en julio prueba que los eventos anunciados no garantizan una ventana para la ruta.",
+   "descarta": "el pie de foto tiene que explicar qué es el Pentagonito",
+   "escena": "Acercarse, girar y correr ocupan tres zonas",
+   "desde": "Diagonal pública que una la llegada por el parque, el borde vigilado y el circuito cívico en movimiento",
+   "plan_b": "Historia en dos zonas: el límite y el uso"
+  },
+  "biblioteca-municipal-y-borde-lagunas-del-olivar": {
+   "entra": "Funciona cuando el umbral de la biblioteca y el paisaje cuidado provocan de forma visible una acción cultural o ecológica en ese momento. La postal del reflejo o un lector genérico no bastan.",
+   "refuta": "La actividad actual de la biblioteca y el mantenimiento de las lagunas están verificados por separado, pero ninguna fuente prueba que los lectores ocupen habitualmente la visual de la laguna en un mismo cuadro.",
+   "descarta": "la relación solo la da el pie de foto",
+   "escena": "Entrar, leer o detenerse y cruzar ocupan tres zonas",
+   "desde": "Diagonal pública que una la llegada a la biblioteca, el puente o la banca y la laguna cuidada",
+   "plan_b": "Relación en dos zonas: el umbral y la laguna"
+  },
+  "centro-financiero-canaval-y-moreyra-rivera-navarrete": {
+   "entra": "Funciona cuando la arquitectura del transporte y del espacio público convierte de forma visible la demanda de las oficinas en una jerarquía de movimiento actual. El espectáculo de las torres, una multitud anónima o una promesa de comodidad ya superada no bastan.",
+   "refuta": "Las obras de capacidad ya terminadas en Canaval y Moreyra con Andrés Reyes están verificadas; el embarque intermedio previsto y una modernización más amplia pueden no estar terminados.",
+   "descarta": "el pie de foto tiene que explicar el distrito financiero",
+   "escena": "Salir, trasbordar y entrar ocupan tres zonas",
+   "desde": "Diagonal legal que una la salida de la estación, el trasbordo por la vereda y el umbral de la oficina",
+   "plan_b": "Relación en dos zonas: la estación y la oficina"
+  },
+  "calle-choquehuanca-basadre-residencial": {
+   "entra": "Funciona cuando un recurso de privacidad o de densidad cambia de forma visible lo que hacen los residentes hoy dentro de su cuadra. Un catálogo de fachadas, el montaje de dos proyectos o un contraste genérico entre lo viejo y lo nuevo no bastan.",
+   "refuta": "Las imágenes de los arquitectos son por encargo y suelen estar vacías: la ocupación actual, la posición de las celosías y el estado de la calle necesitan evidencia de campo.",
+   "descarta": "el pie de foto tiene que explicar el cambio del distrito",
+   "escena": "Acercarse, entrar y pasar ocupan tres zonas",
+   "desde": "Diagonal pública que una la llegada por la vereda, el umbral de privacidad y la escala residencial del entorno",
+   "plan_b": "Relación en dos zonas: el umbral y la cuadra"
+  },
+  "palacio-municipal-y-de-la-cultura-san-isidro": {
+   "entra": "Funciona cuando la arquitectura cívica restaurada gobierna de forma visible un acto deliberativo o cultural actual. El retrato de la fachada o un doble uso construido por el pie de foto no bastan.",
+   "refuta": "Una exposición gratuita ya terminada prueba que la galería puede recibir público, no el acceso a la exposición actual ni el permiso para fotografiar.",
+   "descarta": "el pie de foto tiene que unir eventos separados",
+   "escena": "Acercarse, esperar y entrar ocupan tres zonas",
+   "desde": "Diagonal pública o con registro que una la llegada desde El Olivar, el umbral cívico y la sala ocupada",
+   "plan_b": "Llegada pública en dos zonas"
+  },
+  "calle-porta-y-casonas-frente-a-verticalizacion": {
+   "entra": "Funciona cuando la escala de lo construido cambia de forma visible cómo se habita hoy en un mismo borde de calle. El retrato de una casona, el espectáculo de las torres o un antes y después de archivo que necesita pie de foto no bastan.",
+   "refuta": "La historia municipal describe casonas desbordadas por edificios grandes, pero no hace un inventario de cuáles siguen en pie en agosto de 2026.",
+   "descarta": "el pie de foto o una imagen de archivo tienen que explicar la transformación",
+   "escena": "Entrar, caminar y el movimiento de servicio o de quien mira desde arriba quedan alineados",
+   "desde": "Punto verificado en la vereda de enfrente o en un retiro que reúna la entrada que sobrevive, la vereda pública y el plano habitado del edificio alto",
+   "plan_b": "Relación en dos tiempos: la entrada baja y el podio de la torre"
+  },
+  "museo-larco-jardines": {
+   "entra": "Funciona cuando un elemento arquitectónico reutilizado encauza de forma visible el descubrimiento de hoy. La postal floral, el retrato de una pieza o una imagen del café como estilo de vida no bastan.",
+   "refuta": "Las reglas actuales permiten fotos no profesionales, pero prohíben las sesiones de fotos y los trípodes; el trabajo profesional necesita autorización del museo con al menos tres días hábiles de anticipación.",
+   "descarta": "hace falta un pie de foto para explicar el reuso del elemento recuperado",
+   "escena": "Mirar, cruzar y entrar quedan alineados",
+   "desde": "Recorrido oblicuo, con permiso, que reúna la pausa en el jardín, la portada recuperada y la entrada a la galería",
+   "plan_b": "Relación en dos tiempos: la pausa y la entrada"
+  },
+  "torre-banco-de-la-nacion": {
+   "entra": "Funciona cuando la arquitectura de la torre convierte de forma visible la llegada metropolitana en trabajo vertical controlado. La altura, el skyline, el reflejo o un contexto cívico que solo da el pie de foto no bastan.",
+   "refuta": "La altura y su condición de hito le dan identidad, pero no suman valor fotográfico por sí solas.",
+   "descarta": "la función solo la da el pie de foto",
+   "escena": "Cruzar, esperar y entrar ocupan zonas en capas",
+   "desde": "Diagonal pública que una la llegada metropolitana, el podio vigilado y la torre vertical",
+   "plan_b": "Historia del podio en dos zonas"
+  },
+  "parroquia-nuestra-senora-del-pilar": {
+   "entra": "Funciona cuando la arquitectura heredada de la parroquia encauza de forma visible un rito comunitario o una espera actual. La fachada, una boda, el detalle del altar o la historia de la hacienda contada solo por el pie de foto no bastan.",
+   "refuta": "Los horarios de misa actuales confirman un culto que se repite, pero no cuánta gente asiste ni el permiso para fotografiar.",
+   "descarta": "la historia solo la da el pie de foto",
+   "escena": "Pasar, llegar y entrar ocupan zonas distintas",
+   "desde": "Diagonal pública o con permiso que una la llegada desde la ciudad, el umbral de la parroquia y el eje del rito",
+   "plan_b": "Llegada exterior en dos zonas"
+  },
+  "parque-de-la-felicidad": {
+   "entra": "Funciona cuando la arquitectura del paisaje convierte de forma visible la actividad ambiental y social en cruce y reunión ordenados. El agua escénica, el retrato del puente o una multitud de evento no bastan por sí solos.",
+   "refuta": "Lo que dicen los mapas sobre un horario abierto continuo no es fuente oficial: queda como «verificar antes de incluirlo en la ruta».",
+   "descarta": "el pie de foto o el nombre del evento tienen que rescatar la imagen",
+   "escena": "La llegada, el cruce y el intercambio ocupan tres capas",
+   "desde": "Diagonal pública que una la llegada, el agua o el cruce y la zona de reunión",
+   "plan_b": "Historia del uso diario en dos zonas"
+  },
+  "country-club-lima-hotel": {
+   "entra": "Funciona cuando la arquitectura formal del hotel encauza de forma visible la hospitalidad y la exhibición cultural de hoy. La decoración de lujo, la simetría de la fachada o la historia de sus huéspedes famosos no bastan por sí solas.",
+   "refuta": "La historia que cuenta el operador describe antiguas relaciones con el golf y el polo que quizá ya no se lean en un cuadro actual.",
+   "descarta": "hace falta un pie de foto para explicar la adaptación de hotel a galería",
+   "escena": "Llegar, recibir y mirar quedan alineados",
+   "desde": "Línea oblicua aprobada que una la llegada exterior, la recepción y el recorrido de la galería",
+   "plan_b": "Relación en dos tiempos: la llegada y la recepción"
+  },
+  "saenz-pena-domeyer-pasajes": {
+   "entra": "Funciona cuando un umbral público, heredado o modificado, da forma visible al movimiento creativo de hoy. Un corredor pintoresco, el registro de una obra o calles unidas por el pie de foto no bastan.",
+   "refuta": "Las guías del distrito creativo documentan negocios y galerías, pero los operadores, los horarios y las condiciones para fotografiar adentro pueden cambiar.",
+   "descarta": "el pie de foto tiene que unir Sáenz Peña y Domeyer",
+   "escena": "Acercarse, girar y entrar ocupan tres zonas",
+   "desde": "Una diagonal pública que una la llegada por la alameda, el pasaje heredado y el uso o desvío actual",
+   "plan_b": "Historia en dos zonas: el pasaje y el uso"
+  },
+  "ministerio-de-cultura-museo-de-la-nacion": {
+   "entra": "Funciona cuando la circulación del antiguo museo nacional gobierna de forma visible la administración o el intercambio cultural de hoy. La fachada monumental, documentar la feria de artesanía o un pie de foto histórico no bastan.",
+   "refuta": "La seguridad administrativa y los flujos vecinos del Gran Teatro, la Biblioteca Nacional y el Centro de Convenciones pueden impedir fotografiar adentro o en el umbral.",
+   "descarta": "el espectáculo del evento tapa la arquitectura",
+   "escena": "La cola, el trabajo artesanal y el movimiento ocupan zonas distintas",
+   "desde": "Diagonal, con permiso, que una la entrada controlada, la circulación del antiguo museo y el intercambio actual",
+   "plan_b": "Relación exterior entre el control y la llegada del público"
+  },
+  "ovalo-de-miraflores": {
+   "entra": "Funciona cuando la infraestructura central renovada cambia de forma visible cómo se negocian hoy peatones y tráfico. El espectáculo de la pileta, las estelas de luz o un antes y después en el pie de foto no bastan.",
+   "refuta": "El origen en 1963 y quince años de abandono dan contexto temporal, pero no crean por sí mismos una historia actual en un solo cuadro.",
+   "descarta": "el abandono y la reapertura solo los cuenta el pie de foto",
+   "escena": "Esperar, cruzar y girar ocupan capas distintas",
+   "desde": "Diagonal legal que una la llegada radial, el cruce con semáforo, el centro renovado y el destino de enfrente",
+   "plan_b": "Historia en dos zonas: el cruce y el centro"
+  },
+  "iglesia-santisima-cruz": {
+   "entra": "Funciona cuando los umbrales de la iglesia convierten de forma visible el movimiento del espacio cívico en un rito actual. La fachada simétrica, un fiel como escala o la historia de La Ermita contada por el pie de foto no bastan.",
+   "refuta": "La identidad actual de la parroquia está confirmada, pero no encontramos un horario de misas oficial ni una política de fotos vigente: hay que preguntar directamente.",
+   "descarta": "hace falta un pie de foto para explicar la vida de la parroquia",
+   "escena": "Cruzar, detenerse y entrar quedan alineados",
+   "desde": "Oblicua pública o aprobada que reúna el cruce del parque, la devoción afuera y la entrada a la iglesia",
+   "plan_b": "Relación en dos tiempos: el oratorio y la entrada"
+  },
+  "bosque-el-olivar": {
+   "entra": "Funciona cuando los bordes diseñados y el cuidado actual hacen visible la vida cívica del antiguo olivar. Árboles bonitos, reflejos o retratos sin una infraestructura que los cause no bastan.",
+   "refuta": "El municipio habla de un mantenimiento permanente, pero no hay un horario repetible de los trabajadores que permita prometerlo en la ruta.",
+   "descarta": "hace falta un pie de foto para explicar el cuidado del bosque",
+   "escena": "Cuidar, caminar y detenerse quedan alineados",
+   "desde": "Oblicua pública que reúna un tronco centenario, el borde cívico cuidado y dos usuarios haciendo cosas distintas",
+   "plan_b": "Relación en dos tiempos: quien camina y la banca"
+  },
+  "coliseo-eduardo-dibos": {
+   "entra": "Funciona cuando la arquitectura del coliseo convierte de forma visible las llegadas en movimiento y atención colectivos. El atleta como héroe, el espectáculo del público o el retrato del edificio vacío no bastan.",
+   "refuta": "Varios eventos ya terminados en 2026 prueban que el coliseo está activo, pero no una ventana de eventos futura ni que se pueda entrar sin entrada o cita.",
+   "descarta": "el significado lo dan el pie de foto o el evento",
+   "escena": "La cola, el giro y la reunión ocupan capas distintas",
+   "desde": "Diagonal, con permiso, que una la entrada, el hall y la cancha o las tribunas llenas",
+   "plan_b": "Llegada exterior en dos zonas"
+  },
+  "huaca-julio-c-tello": {
+   "entra": "Funciona cuando la forma antigua protegida desvía de forma visible la vida del barrio de hoy. El retrato del montículo, un cartel o una historia que solo da el pie de foto no bastan.",
+   "refuta": "El corredor municipal marca el sitio como abierto, pero no da horarios oficiales, personal ni detalle del recorrido interior.",
+   "descarta": "la importancia del sitio solo la da el pie de foto",
+   "escena": "Acercarse, girar y seguir ocupan capas distintas",
+   "desde": "Diagonal pública que una la llegada por el corredor, el borde arqueológico y la calle residencial que sigue",
+   "plan_b": "Historia en dos zonas: el montículo y el sendero"
+  },
+  "la-ermita-de-barranco": {
+   "entra": "Funciona cuando la construcción original obliga de forma visible a conservarla o a desviarse hoy. La ruina pintoresca, un pie de foto que promete el futuro o documentar una obra genérica no bastan.",
+   "refuta": "La página municipal de atractivos no confirma el estado actual de la restauración ni del acceso.",
+   "descarta": "hace falta un pie de foto para explicar el alcance del proyecto",
+   "escena": "Restaurar o inspeccionar, pasar y observar quedan alineados",
+   "desde": "Oblicua legal que reúna la construcción histórica, una conservación activa y visible y el desvío del público",
+   "plan_b": "Relación en dos tiempos: el cierre y el desvío"
+  },
+  "museo-pedro-de-osma-y-av-pedro-de-osma": {
+   "entra": "Funciona cuando el umbral heredado de la residencia encauza de forma visible la llegada actual del público al museo desde la avenida. El retrato de la mansión, romper las reglas del interior o una ruta de barrio armada por el pie de foto no bastan.",
+   "refuta": "Los programas actuales prueban una vida institucional activa, pero no permiten fotografiar a los participantes de los eventos ni los interiores sin un permiso aparte.",
+   "descarta": "hacen falta un pie de foto o una imagen del interior",
+   "escena": "Pasar, detenerse y entrar ocupan zonas separadas",
+   "desde": "Diagonal pública que una el flujo de la avenida, la reja del museo, el jardín y la antigua residencia",
+   "plan_b": "Historia en dos zonas: la avenida y la reja"
+  },
+  "casa-museo-ricardo-palma": {
+   "entra": "Funciona cuando una pequeña casa literaria se enfrenta de forma visible al cierre actual o a la presión urbana. La fachada, la nostalgia del escritorio o un relato de daños sin respaldo no bastan.",
+   "refuta": "Los daños documentados por la obra vecina y su reparación son historia: no pueden describirse como algo que sigue ocurriendo en 2026.",
+   "descarta": "el autor o los daños solo los explica el pie de foto",
+   "escena": "Pasar, detenerse y quedarse fuera ocupan capas distintas",
+   "desde": "Diagonal pública que una el movimiento de la calle, el umbral doméstico cerrado y el borde urbano posterior",
+   "plan_b": "Historia en dos zonas: la casa y la calle"
+  },
+  "parque-maria-reiche": {
+   "entra": "Funciona cuando la geometría conmemorativa y la infraestructura ecológica y recreativa encauzan de forma visible los cuerpos de hoy. El atardecer, la postal de las figuras o documentar un evento no bastan.",
+   "refuta": "Se anunció una clase todos los lunes en 2026, pero antes de la ruta hay que confirmar que sigue y el lugar exacto.",
+   "descarta": "el pie de foto tiene que explicar Nazca o la planta de tratamiento",
+   "escena": "El ejercicio, el cruce y el mantenimiento o la observación ocupan capas distintas",
+   "desde": "Diagonal pública que una la línea simbólica en el suelo, el césped o el sendero en uso y el borde costero o de servicio",
+   "plan_b": "Historia en dos zonas: la línea y el cuerpo"
+  },
+  "huaca-huallamarca": {
+   "entra": "Funciona cuando el acceso reconstruido media de forma visible el encuentro actual con las plataformas antiguas. La postal de la pirámide, el contraste con el skyline o una ruina falsamente intemporal no bastan.",
+   "refuta": "La administración actual está verificada, pero los horarios y el acceso del público no.",
+   "descarta": "hace falta un pie de foto para explicar la rampa reconstruida",
+   "escena": "Acercarse, subir y examinar quedan alineados",
+   "desde": "Oblicua, con permiso, que reúna la llegada, la subida reconstruida y el museo o la plataforma de destino",
+   "plan_b": "Relación en dos tiempos: la subida y el descanso"
+  },
+  "huaca-pucllana": {
+   "entra": "Funciona cuando la construcción antigua gobierna de forma visible la investigación o el aprendizaje de hoy. La pirámide famosa, el contraste con el skyline, un espectáculo o el retrato de la arqueología sin una arquitectura que lo cause no bastan.",
+   "refuta": "Las descripciones publicadas de las visitas de día y de noche no confirman el permiso para fotografía profesional, el acceso a cada nivel de la pirámide ni el ritmo actual de visitantes.",
+   "descarta": "hace falta un pie de foto para explicar la continuidad de la investigación",
+   "escena": "Investigar, guiar y subir quedan alineados",
+   "desde": "Borde aprobado del recorrido que reúna la excavación o la interpretación, la subida de los visitantes y la construcción por capas",
+   "plan_b": "Relación en dos tiempos: el guía y la subida"
+  },
+  "palacio-municipal-virgen-milagrosa": {
+   "entra": "Funciona cuando un mismo gesto público elige o une de forma visible la autoridad cívica y la religiosa. Dos hitos, un montaje o una pareja armada por el pie de foto no bastan.",
+   "refuta": "Las fuentes oficiales confirman qué es cada edificio y su función, pero no un evento compartido ni una ventana de acceso común.",
+   "descarta": "hacen falta un pie de foto o un montaje",
+   "escena": "La llegada, la elección y la entrada ocupan capas distintas",
+   "desde": "Diagonal legal que una la llegada central, el portal cívico y el portal religioso",
+   "plan_b": "Descartar la pareja como un solo candidato"
+  },
+  "puente-de-los-suspiros-bajada-de-banos": {
+   "entra": "Funciona cuando la arquitectura y la topografía producen de forma visible un cruce por encima de una bajada. Un puente icónico, el rito romántico o una escena de vendedores sin el corte del terreno no bastan.",
+   "refuta": "El antiguo funicular es solo contexto documental: hay que descartarlo como mecanismo de la escena salvo que se vea algún resto físico sin pie de foto.",
+   "descarta": "hace falta un pie de foto para explicar el sistema topográfico",
+   "escena": "Cruzar, bajar y detenerse quedan alineados",
+   "desde": "Borde seguro, oblicuo y lejano que ponga en capas el cruce de arriba, la bajada de abajo y la apertura a la costa",
+   "plan_b": "Relación en dos niveles: el cruce y la bajada"
+  },
+  "parque-kennedy-gatos-civic-core": {
+   "entra": "Funciona solo cuando un elemento del parque provoca de forma visible la convergencia, la vigilancia o el paso cívico. Reconocer el lugar, la ternura de los gatos o la actividad sin causa arquitectónica no bastan.",
+   "refuta": "Un concierto en 2026 prueba la capacidad para eventos, no una ventana para fotografiar actual ni repetible: el uso diario tiene que sostener el cuadro salvo que se vuelva a verificar un evento con fecha.",
+   "descarta": "hace falta un pie de foto para explicar las relaciones",
+   "escena": "Alguien que llega, un adulto que espera y el límite de la zona de juegos forman tres estados cívicos",
+   "desde": "Diagonal del borde al centro que reúna la llegada, la espera y el juego vigilado",
+   "plan_b": "Relación en dos tiempos: la llegada y la espera"
+  },
+  "faro-la-marina-parque-antonio-raimondi": {
+   "entra": "Funciona cuando la geometría lineal del parque y la exposición a la costa cambian de forma visible el movimiento o la pausa de hoy. El faro, el atardecer o un parapente por casualidad, sin ese sistema que los cause, no bastan.",
+   "refuta": "La silueta del faro contra el atardecer o un parapente es una imagen muy repetida: falla salvo que la circulación en el suelo, el borde del acantilado o un uso que dependa del viento sigan siendo la causa.",
+   "descarta": "hace falta un pie de foto para explicar la continuidad entre el faro y el parque Raimondi",
+   "escena": "Alguien que camina llega, un corredor atraviesa y alguien que mira se detiene en tres zonas",
+   "desde": "Vista pública oblicua que una la llegada lineal, el campo abierto al viento y la orientación del faro",
+   "plan_b": "Relación en dos zonas: el paso y la pausa"
+  },
+  "larcomar-acantilado": {
+   "entra": "Funciona cuando la arquitectura ocupada negocia de forma visible con el parque público y el corte inestable del acantilado. Un atardecer, las compras o la vista al mar no bastan.",
+   "refuta": "La evidencia de un cierre temporal pasado no puede tratarse como un defecto actual, y la actividad del operador no prueba que cada mirador o terraza esté abierto.",
+   "descarta": "hace falta un pie de foto para explicar la excavación o el mantenimiento actual",
+   "escena": "Caminar, bajar y mirar desde arriba se alinean en tres niveles",
+   "desde": "Posición exterior oblicua y verificada que reúna a quien camina por el parque, el refuerzo o el borde del acantilado y la terraza ocupada",
+   "plan_b": "Relación en dos niveles: el parque y la terraza"
+  },
+  "parque-del-amor-el-beso": {
+   "entra": "Funciona cuando la geometría del muro produce de forma visible orientaciones o grados de intimidad distintos. Una escultura reconocible, una pareja o el atardecer sin causa espacial no bastan.",
+   "refuta": "Una actividad de ejercicio en grupo en 2024 prueba la capacidad del espacio, no un horario que se repita en 2026.",
+   "descarta": "el romance o reconocer el hito cargan con el sentido",
+   "escena": "Llegar, sentarse y mirar hacia afuera ocupan tres zonas que el muro controla",
+   "desde": "Vista pública oblicua que reúna la llegada desde la ciudad, la pausa que define el muro y la atención puesta en la costa",
+   "plan_b": "Relación en dos zonas: la llegada y la pausa"
+  }
+ }
+}
