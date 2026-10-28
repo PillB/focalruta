@@ -24,9 +24,11 @@ and drops quoted text from messages, which can be what the reader typed.
 The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 638 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 692 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
-  the sun panel's hour, shadow and wall light held to the Python ephemeris, by keyboard;
+  the sun panel's hour, shadow and wall light held to the Python ephemeris, by keyboard,
+  and its moonrise, moonset, phase and night sentence on five dates held to the moon twin;
+  a plan's «Mostrando:» block starting under the plan's name wherever it wraps;
   the session dialog's shot review, its fixes, its summary and what a reload keeps;
   on the home page and every plan page, no text under 12 px, no control under 44 px, no
   English in the interface, nothing cut off at the edges and numbers written with a
@@ -42,18 +44,21 @@ reports at the repository root still match the files they audited, byte for byte
   jump kept, and the page left where it was when a dialog opened from the top bar closes; on
   the home page, the top bar's tools whole on screen wherever there is no bottom bar, and keyboard focus in the
   top bar always on a control whole in view
-- `OPTICS_ACCESSIBILITY_QA.json` — 22 optical-lab matrix and accessibility checks
+- `OPTICS_ACCESSIBILITY_QA.json` — 94 checks: the optical-lab matrix and accessibility, and the
+  labs held to the camera at 320 and 1280 px (the 6D's own shutter dial, presets that expose
+  the scene they set, «espacio negativo» clear of the subject, toggles that say which is on)
 - `VISUAL_RESOURCE_QA.json` — 37 image, resource-path, font-floor and contrast checks
   (contrast on gradients is checked at every colour stop)
 - `AXE_ACCESSIBILITY_QA.json` — axe-core on all 39 published pages and the home page's
   offline notice, light phone and dark desktop passes, zero violations
-- `FIELD_CARD_QA.json` — 63 field card checks on a phone: each plan's settings per light,
+- `FIELD_CARD_QA.json` — 68 field card checks on a phone: each plan's settings per light,
   the Lima clock, no JavaScript, print, keyboard, the home page dialog (the page behind
   it, left undrawn while the card covers it and back where it was, and focus back on an
   opener on the page after a resize either way across 900 px, without moving the page),
   a damaged saved state, axe, offline after
   rehearsed deploys (an upgrade from the worker live at 9cd3044, the HTTP cache Pages
-  keeps for 10 minutes), and another camera and lenses
+  keeps for 10 minutes), another camera and lenses, and the calendar file for a chosen plan,
+  light and date, timed by the Python sun twin, with no button where no script can write it
 - `PERF_BUDGET_QA.json` — 138 speed checks: Lighthouse on a simulated phone and slow
   4G network, median of three runs, for the home page, the field card, all six plan
   pages and every challenge page type; Lighthouse's "good" marks for every timing,
@@ -64,7 +69,11 @@ reports at the repository root still match the files they audited, byte for byte
   mid-tier and a low-tier phone, the CPU calibrated as Chrome DevTools does,
   median of five, good within 200 ms on the first and never poor (over 500 ms) on the second,
   both for the first paint after the tap and for what the tap was for being on screen; the
-  check first proves it sees content a test page puts off by 300 ms
+  check first proves it sees content a test page puts off by 300 ms. Each Lighthouse run
+  keeps the host's BenchmarkIndex, and the report says when the median fell below the
+  1500 to 2000 that Lighthouse's 4x slowdown is set for: on a slower machine the same page
+  measures as a slower phone (the home page blocked 62 ms on GitHub's runner, index 2608,
+  and 355 ms on a machine scoring 920 to 1600)
 
 Set up with `python3 -m pip install -r requirements-dev.txt` (what CI installs, on
 Python 3.11). For browser QA add `requirements-qa.txt`, `npm ci` (axe-core and

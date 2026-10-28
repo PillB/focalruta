@@ -201,8 +201,11 @@ for report_name, minimum_checks in (
     # room kept following the bars' padding (red team notes), and on the home pages the top bar's tools
     # whole on screen and focus in it whole in view (N10) (520), plus on every page Tab and Shift+Tab onto
     # a control just under what stays leaving the page still (red team N14), and on the home pages a
-    # reader's own scroll during a jump kept (red team Q1) (530).
-    ("CURRENT_BROWSER_QA.json", 530),
+    # reader's own scroll during a jump kept (red team Q1) (530), plus the sun panel's hour, shadow and
+    # wall light (W04, 58) and the session dialog's shot review (W05-W07, 50) (638), plus the moon on five
+    # dates at 320 and 1280 px on both home pages (W09, 40) and a wrapped «Mostrando:» starting under the
+    # plan's name at every viewport on both (Y21, 14) (692).
+    ("CURRENT_BROWSER_QA.json", 692),
     # 22 for the optical matrix and accessibility, plus the labs held to the camera (Y01-Y04): presets that
     # expose the scene they set, the dial's own speeds, the label clear of the subject and toggles that say
     # which is on, 36 per viewport at 320 and 1280 px (72) (94).
@@ -216,8 +219,9 @@ for report_name, minimum_checks in (
     # state on the card and in the home page's dialog (V09), and the page behind that dialog:
     # undrawn while the card covers it, back where it was, printed, and drawn at 1280 px (X06),
     # and focus back on an opener on the page, the page unmoved, after a resize either way
-    # across 900 px hides the one used.
-    ("FIELD_CARD_QA.json", 63),
+    # across 900 px hides the one used (63), plus the calendar file for a chosen plan, light and
+    # date and no calendar button where no script can write it (W12) (68).
+    ("FIELD_CARD_QA.json", 68),
     # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin); X06: six taps
     # on two phone tiers, each timed to its answer and to what it was for, after the
     # instrument's own checks that it sees content put off and that every tap on the field
@@ -225,6 +229,11 @@ for report_name, minimum_checks in (
     ("PERF_BUDGET_QA.json", 138),
 ):
     check_evidence(report_name, minimum_checks)
+
+# Y24: the speed report says how fast its host was, so a slow machine is told apart from a slow page.
+perf = json.loads((ROOT / "PERF_BUDGET_QA.json").read_text(encoding="utf-8"))
+check(bool((perf.get("host") or {}).get("benchmark_index")),
+      "PERF_BUDGET_QA.json must keep the BenchmarkIndex Lighthouse measured for its host (Y24)")
 
 # Coverage, not an opaque total: the browser matrix must span every viewport N01
 # mandates. Two scripts previously tested three sizes, one of which N01 does not
