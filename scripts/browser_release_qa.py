@@ -328,7 +328,8 @@ def nothing_cut_with_long_gear(browser):
 
 def bars_at(browser, url: str, width: int, height: int, home: bool, text: int = 16) -> dict:
     """X07 at one size: what stays on screen, focus going forward and back, in-page links, the address of a
-    section and back and forward between two (P1), Tab and Shift+Tab across a bar and onto a control just
+    section and back and forward between two, an id inside a section from the other side of the Sujeto/Hora
+    bar where the bars stay (P1), Tab and Shift+Tab across a bar and onto a control just
     under it, and dialogs from a bar; on the home page also a reader's own scroll during a jump, and X08, the
     top bar's tools and focus in it.
 
@@ -347,6 +348,8 @@ def bars_at(browser, url: str, width: int, height: int, home: bool, text: int = 
             ("tab", lambda: fixed_bars.tab_in_bars_leaves_page_still(page, fixed_bars.MOTION if text == 16 else ("reduce",)))]
     if fixed_bars.has_room(width, height, text):
         runs.append(("free", lambda: fixed_bars.free_spots_leave_page_still(page)))
+        if text == 16:
+            runs.append(("inner", lambda: fixed_bars.inner_addresses(page)))
     if text == 16:
         runs.append(("room", lambda: fixed_bars.room_follows_bars(page)))
     if home and text == 16:
@@ -377,6 +380,7 @@ def bars_on_screen(browser):
              "back": "focus going back is never behind a bar", "jumps": "links in the bars land clear of them",
              "address": "opening the page at a section's address lands it clear of the bars",
              "hash": "changing only the section in the address, and going back and forward, lands it clear of the bars",
+             "inner": "changing the address to an id inside a section, from the other side of the Sujeto/Hora bar, lands it clear of the bars",
              "still": "a dialog opened from a bar that stays closes with the page still",
              "room": "the room kept for the bars follows their whole box",
              "tab": "Tab and Shift+Tab across a bar and back into it leave the page still",

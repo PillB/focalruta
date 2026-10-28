@@ -7057,15 +7057,22 @@ function observeScrollFade() {
 // holds, so only the reader moves the page then; the next frame runs this check before it lays
 // out what the reader moved to, so anchoring is back on for that. The clamp at the end of a page
 // that got shorter does not count as the reader.
+// The room kept at the top is set by where the page is: while the Sujeto/Hora bar is not stuck,
+// html.fr-bar-in-flow keeps room for the site's bar alone, and it is read again on the scroll
+// the jump makes. A section carries the difference in its margin, but an id inside one, typed
+// in the address, does not: it landed 60 px under the stuck bar, or 72 px too low under the site's
+// bar alone. So the jump is also repeated when the room changes after it lands, at most twice, so
+// a target at the bar's edge does not swing between the two.
 let jumping=0;
 function jumpTo(target, now){
   const reduced=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, id=++jumping, root=document.documentElement;
   root.style.overflowAnchor='';
   if(!now && !reduced && Math.abs(target.getBoundingClientRect().top)<=innerHeight*3){ target.scrollIntoView({behavior:'smooth',block:'start'}); return; }
-  const go=()=>{ const prev=root.style.scrollBehavior; root.style.scrollBehavior='auto'; target.scrollIntoView({behavior:'auto',block:'start'}); root.style.scrollBehavior=prev; at=scrollY; return target.getBoundingClientRect().top; };
+  const room=()=>parseFloat(getComputedStyle(root).scrollPaddingTop)+parseFloat(getComputedStyle(target).scrollMarginTop);
+  const go=()=>{ const prev=root.style.scrollBehavior; root.style.scrollBehavior='auto'; target.scrollIntoView({behavior:'auto',block:'start'}); root.style.scrollBehavior=prev; at=scrollY; kept=room(); return target.getBoundingClientRect().top; };
   const quit=()=>{ stop=true; }, inputs=['wheel','touchstart','pointerdown','keydown'], until=performance.now()+800;
   const clamped=()=>scrollY<at && Math.ceil(scrollY+innerHeight)>=root.scrollHeight-1;
-  let at=0, stop=false;
+  let at=0, stop=false, kept=0, redo=0;
   root.style.overflowAnchor='none';
   let want=go();
   inputs.forEach(type=>addEventListener(type,quit,{capture:true,passive:true}));
@@ -7076,7 +7083,7 @@ function jumpTo(target, now){
       if(id===jumping) root.style.overflowAnchor='';
       return;
     }
-    if(Math.abs(target.getBoundingClientRect().top-want)>1) want=go(); else at=scrollY;
+    if(Math.abs(target.getBoundingClientRect().top-want)>1 || (redo<2 && Math.abs(room()-kept)>1 && ++redo)) want=go(); else at=scrollY;
     requestAnimationFrame(check);
   };
   requestAnimationFrame(check);

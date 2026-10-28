@@ -201,8 +201,11 @@ for report_name, minimum_checks in (
     # room kept following the bars' padding (red team notes), and on the home pages the top bar's tools
     # whole on screen and focus in it whole in view (N10) (520), plus on every page Tab and Shift+Tab onto
     # a control just under what stays leaving the page still (red team N14), and on the home pages a
-    # reader's own scroll during a jump kept (red team Q1) (530).
-    ("CURRENT_BROWSER_QA.json", 530),
+    # reader's own scroll during a jump kept (red team Q1) (530), plus on every page the address changed to
+    # each section and back and forward between two, and on the home pages the ↑ button with motion reduced
+    # (P1, X08) (540), plus on every page an id inside a section reached from the other side of the
+    # Sujeto/Hora bar (P1, red team note) (548).
+    ("CURRENT_BROWSER_QA.json", 548),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
     # Every shipped page, light phone and dark desktop: 39 pages x 2 passes, plus the home

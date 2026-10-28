@@ -536,3 +536,56 @@ def address_changes(page) -> list[str]:
             wrong.append(problem)
     page.emulate_media(reduced_motion=MOTION[0])
     return wrong
+
+
+# P1, red team note at b6c5612: an id inside a section, typed in the address. The room kept at the
+# top follows where the page is (html.fr-bar-in-flow, N14) and is read again on the scroll the jump
+# makes. A section carries the difference in its margin, but an id inside one does not: from the
+# top, where the Sujeto/Hora bar is not yet stuck, an id below that bar landed 60 px under it once
+# it stuck, and from below, an id above it landed 72 px too low under the site's bar alone. It
+# shows once what is around the id has been drawn, as then nothing moves to start the jump again.
+# The ids are the last one above the bar and the first one below it in the page, each at least AWAY
+# from it once what is around the bar is drawn (an undrawn section's contents spill past its 1000 px
+# guess), outside the bars, dialogs and anything sticky; each is drawn first, then reached from the
+# other side of the bar.
+AWAY = 200  # px: how far from the Sujeto/Hora bar the ids sit, clear of where it sticks or lets go
+INNER = f"""() => {{
+  const bar = document.getElementById('toggle-human').closest('section'), b = bar.getBoundingClientRect();
+  const fixed = e => {{ for (let a = e; a && a !== document.body; a = a.parentElement)
+    if (['sticky', 'fixed'].includes(getComputedStyle(a).position)) return true; return false; }};
+  const ids = [...document.querySelectorAll('main section [id]')].filter(e => {{ const r = e.getBoundingClientRect();
+    return r.width > 0 && r.height > 0 && e.checkVisibility() && !bar.contains(e) && !e.closest('dialog, [aria-hidden="true"]') && !fixed(e); }});
+  const after = e => bar.compareDocumentPosition(e) & Node.DOCUMENT_POSITION_FOLLOWING;
+  const above = ids.filter(e => !after(e) && e.getBoundingClientRect().bottom < b.top - {AWAY}).pop();
+  const below = ids.find(e => after(e) && e.getBoundingClientRect().top > b.bottom + {AWAY});
+  return {{above: above ? '#' + above.id : null, below: below ? '#' + below.id : null}};
+}}"""
+DRAW = "href => document.getElementById(href.slice(1)).scrollIntoView({block: 'center', behavior: 'instant'})"
+
+
+def inner_addresses(page) -> list[str]:
+    """With motion on, draw the first id below the Sujeto/Hora bar, go to the top and change the address
+    to it; draw the last id above the bar, go to the first one below and change the address to it.
+    List each that does not land clear of the bars."""
+    page.emulate_media(reduced_motion="no-preference")
+    page.evaluate("document.getElementById('toggle-human').closest('section').scrollIntoView({block: 'center', behavior: 'instant'})")
+    page.evaluate(STILL)
+    page.wait_for_timeout(SETTLE)
+    ids, wrong = page.evaluate(INNER), []
+    for href, start in ((ids["below"], None), (ids["above"], ids["below"])):
+        if not href:
+            continue
+        page.evaluate(DRAW, href)
+        page.evaluate(STILL)
+        page.wait_for_timeout(SETTLE)
+        page.evaluate("history.replaceState(null, '', location.pathname + location.search)")
+        if start:
+            page.evaluate("href => document.getElementById(href.slice(1)).scrollIntoView({block: 'start', behavior: 'instant'})", start)
+        else:
+            page.evaluate("scrollTo({top: 0, behavior: 'instant'})")
+        page.evaluate(STILL)
+        problem = reach(page, href, f"from {start or 'the top'}, the address changed to")
+        if problem:
+            wrong.append(problem)
+    page.emulate_media(reduced_motion=MOTION[0])
+    return wrong
