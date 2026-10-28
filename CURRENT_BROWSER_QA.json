@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 530,
+  "checks": 540,
   "viewports": [
     [
       320,
@@ -2198,7 +2198,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1525
+          1524
         ]
       }
     },
@@ -2208,8 +2208,8 @@
       "detail": [
         "Sin conexión: el plan C no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:36125/plans/plan_c.html",
-          "http://127.0.0.1:36125/field_card.html"
+          "http://127.0.0.1:46753/plans/plan_c.html",
+          "http://127.0.0.1:46753/field_card.html"
         ]
       ]
     },
@@ -2230,7 +2230,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1525
+          1524
         ]
       }
     },
@@ -2240,8 +2240,8 @@
       "detail": [
         "Sin conexión: la página «wiki-tecnicas» no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:36125/challenges/arquitectura-en-foco/wiki-tecnicas.html",
-          "http://127.0.0.1:36125/field_card.html"
+          "http://127.0.0.1:46753/challenges/arquitectura-en-foco/wiki-tecnicas.html",
+          "http://127.0.0.1:46753/field_card.html"
         ]
       ]
     },
@@ -2260,24 +2260,24 @@
       "name": "error log: a thrown error and a rejected promise send no request",
       "pass": true,
       "detail": [
-        "GET http://127.0.0.1:37351/",
-        "GET http://127.0.0.1:37351/assets/hosted.css?v=e2f1d9aee0d0",
-        "GET http://127.0.0.1:37351/data/plans_embedded.js?v=760318475bf5",
-        "GET http://127.0.0.1:37351/assets/app-icon.svg"
+        "GET http://127.0.0.1:35301/",
+        "GET http://127.0.0.1:35301/assets/hosted.css?v=0b2ccfdbb5ce",
+        "GET http://127.0.0.1:35301/data/plans_embedded.js?v=760318475bf5",
+        "GET http://127.0.0.1:35301/assets/app-icon.svg"
       ]
     },
     {
       "name": "error log: the home page lists both, with the page they came from",
       "pass": true,
       "detail": [
-        "1 vez · 2026-10-21 09:18Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
-        "1 vez · 2026-10-21 09:18Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
+        "1 vez · 2026-10-28 00:59Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
+        "1 vez · 2026-10-28 00:59Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
       ]
     },
     {
       "name": "error log: no query string, fragment or browser identity is kept",
       "pass": true,
-      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-21T09:18Z\",\"last\":\"2026-10-21T09:18Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-21T09:18Z\",\"last\":\"2026-10-21T09:18Z\"}]"
+      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-28T00:59Z\",\"last\":\"2026-10-28T00:59Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-28T00:59Z\",\"last\":\"2026-10-28T00:59Z\"}]"
     },
     {
       "name": "error log: the report link carries the log to a new GitHub issue",
@@ -2297,7 +2297,7 @@
       "pass": true,
       "detail": [
         "Selecciona y copia el texto",
-        "1 vez · 2026-10-21 09:18Z · Promesa rechazada · promesa de prueba · en /plans/pl"
+        "1 vez · 2026-10-28 00:59Z · Promesa rechazada · promesa de prueba · en /plans/pl"
       ]
     },
     {
@@ -2489,6 +2489,11 @@
       "detail": {}
     },
     {
+      "name": "standalone changing only the section in the address, and going back and forward, lands it clear of the bars",
+      "pass": true,
+      "detail": {}
+    },
+    {
       "name": "standalone a dialog opened from a bar that stays closes with the page still",
       "pass": true,
       "detail": {}
@@ -2524,6 +2529,11 @@
       "detail": {}
     },
     {
+      "name": "standalone with motion reduced, the ↑ button goes to the top at once",
+      "pass": true,
+      "detail": {}
+    },
+    {
       "name": "standalone with larger text, only what has room stays, nothing is behind a bar or cut off in the top bar and Tab across a bar or onto a control just under it leaves the page still",
       "pass": true,
       "detail": {}
@@ -2550,6 +2560,11 @@
     },
     {
       "name": "hosted opening the page at a section's address lands it clear of the bars",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "hosted changing only the section in the address, and going back and forward, lands it clear of the bars",
       "pass": true,
       "detail": {}
     },
@@ -2589,6 +2604,11 @@
       "detail": {}
     },
     {
+      "name": "hosted with motion reduced, the ↑ button goes to the top at once",
+      "pass": true,
+      "detail": {}
+    },
+    {
       "name": "hosted with larger text, only what has room stays, nothing is behind a bar or cut off in the top bar and Tab across a bar or onto a control just under it leaves the page still",
       "pass": true,
       "detail": {}
@@ -2615,6 +2635,11 @@
     },
     {
       "name": "plan_a opening the page at a section's address lands it clear of the bars",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_a changing only the section in the address, and going back and forward, lands it clear of the bars",
       "pass": true,
       "detail": {}
     },
@@ -2664,6 +2689,11 @@
       "detail": {}
     },
     {
+      "name": "plan_b changing only the section in the address, and going back and forward, lands it clear of the bars",
+      "pass": true,
+      "detail": {}
+    },
+    {
       "name": "plan_b the room kept for the bars follows their whole box",
       "pass": true,
       "detail": {}
@@ -2705,6 +2735,11 @@
     },
     {
       "name": "plan_c opening the page at a section's address lands it clear of the bars",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_c changing only the section in the address, and going back and forward, lands it clear of the bars",
       "pass": true,
       "detail": {}
     },
@@ -2754,6 +2789,11 @@
       "detail": {}
     },
     {
+      "name": "plan_d changing only the section in the address, and going back and forward, lands it clear of the bars",
+      "pass": true,
+      "detail": {}
+    },
+    {
       "name": "plan_d the room kept for the bars follows their whole box",
       "pass": true,
       "detail": {}
@@ -2795,6 +2835,11 @@
     },
     {
       "name": "plan_e opening the page at a section's address lands it clear of the bars",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "plan_e changing only the section in the address, and going back and forward, lands it clear of the bars",
       "pass": true,
       "detail": {}
     },
@@ -2844,6 +2889,11 @@
       "detail": {}
     },
     {
+      "name": "plan_f changing only the section in the address, and going back and forward, lands it clear of the bars",
+      "pass": true,
+      "detail": {}
+    },
+    {
       "name": "plan_f the room kept for the bars follows their whole box",
       "pass": true,
       "detail": {}
@@ -2864,13 +2914,13 @@
       "detail": {}
     }
   ],
-  "audited_at": "2026-10-21T09:39:41.311402+00:00",
-  "audited_commit": "657ef3e0094fd1c6e79b0c0af16d813357a54cff",
+  "audited_at": "2026-10-28T01:23:49.264770+00:00",
+  "audited_commit": "214879a7bb611d4f3bedc3652fc09736a4404219",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
     "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
-    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "1d7cd9182c10f5c3c3f8e802335f1bf6f57845e2bd000f2bc1917bc1e3ebf8f0",
-    "dist/canon6d_sota_hosted/assets/hosted.css": "e2f1d9aee0d015bcb592791e8a1e783a66a6e62936a4f435de075de00b985f6e",
+    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "af9f16f627b16fc844b110de6c93c425600f4b01068443e7cfa9a1a0979e3eb1",
+    "dist/canon6d_sota_hosted/assets/hosted.css": "0b2ccfdbb5ce329ca7e580b36e1b0980a22204f1bafe9580570637f1425accca",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "986b21b3e98a22d42b353525da523348076a7613154a33b03c3cbcab2144de19",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "f8204b380b8d2bb3a1200aaae544a2d02c3290d195fff9421bfeb81d02959c3b",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/iphone-maps.html": "3af624a6bf9699d8a4c3be805a6848300201715881660b8bf220b917f5e7abf7",
@@ -2901,21 +2951,21 @@
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "ee1783c839181086e47e55a50586e167442c5685752e14af1f9b318599a36eea",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "3ebce15997a8348993d8d8a1080696939dc94d885e0199ebe1973c2ea9cce311",
     "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "c03820dc763bc310acd98e378730530c3b10792882cb06b17eecab20970402f3",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "3301fded9e4fcd23db9cca16c8dfc13628910224d6c48aa9cd72f9bcbfc1b6be",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "7e494ead9938b86f00ab584cd69d55940fcd1b73e217d0454e7e42669ed05696",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "bfd5c8ffba10c9888ffb26aac45d98fd22b0ec22c9f073da48dceab9b3368e50",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "52b50af80db53a6b3ad157bb440cf1b6b3a8a36035d9fda9bd2703690bfba8e8",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "624ee0c8ce6cae6482064c470fc0064e77de955724caf077e48c5a2dc56bcd41",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "d8378390580541ed2e38440b00363e0d64417d99cfc567f1d5ec6284e0e301fd",
-    "dist/canon6d_sota_hosted/sw.js": "7349dc165f3ccce23836151d21c124040d1ef26006d88fc42c97909e2e01fbcd",
+    "dist/canon6d_sota_hosted/index.html": "b763309c184f3becdf90217c00d19fa95f194052314d118a25c812b734026c1a",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "28cc45d5a52314c9801d57ed4ce2863a519c74b3358ace1a039f523b9cc73c79",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "f984cceb18e8e452a7d84afc435434d8f74ed743142fb57df2afd0c763a297bb",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "ea68ae33fbe5b742962cf5e4b43caebdb4a6621abc828947fe79dbce2d2ddbff",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "21b97e9731e22c9f91e301026412d29a49bd6aedcf8b7ea5cf629fbf7f2fbf81",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "35753e10463258aeb6487639cb4aa7d6aa9fa6af83cb2aea1232d83c454f97f0",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "91ffc1b7826f0f11813ebdc4aa14a5315de989ddcd056cb9863adba3cea16554",
+    "dist/canon6d_sota_hosted/sw.js": "0446287b04fdb4d16aeab8527b4a9825fa18c1348b6ac8a9ea6efa4cd2334d30",
     "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "index.html": "1d7cd9182c10f5c3c3f8e802335f1bf6f57845e2bd000f2bc1917bc1e3ebf8f0",
-    "plans/plan_a.html": "d4565b0bd237b65c609a9e893233ae33617fbb68a49c40032dccc9414d98d78f",
-    "plans/plan_b.html": "35d9b0a478e372a38f8794ff24eb00fe1719bb9e292d1274693774b074526629",
-    "plans/plan_c.html": "8a40eef49ae48c3c4797407922af215c5fc7577e59357fa7043b9fca83eb3f4b",
-    "plans/plan_d.html": "e8de104cea6a11fb87cbf5156bc82edd7eb9ea5313b33a9348224f2bf09298c8",
-    "plans/plan_e.html": "7078ee12ad95a3669c431c80b4a61e3d0eae94755ef6443a0ca5be4b339fa40d",
-    "plans/plan_f.html": "c9f84a40e2a71ff42e22a36cc478608c53a14c36f6220d228749bb9a2b11e13b"
+    "index.html": "af9f16f627b16fc844b110de6c93c425600f4b01068443e7cfa9a1a0979e3eb1",
+    "plans/plan_a.html": "20b9fc10e226b40e8b51705bc1a1cc4a7fa1372b96c935e36231f67adddd9c8d",
+    "plans/plan_b.html": "d3c26f0fb5c8842d5e97676db090d53072ebeb390c359fa35b3c1f3a53114fdc",
+    "plans/plan_c.html": "13306bc7da0361badaed76eb378aa82da8ce664d3aecb4bd8529f1fa17d28473",
+    "plans/plan_d.html": "2551855969f8fce5fd61ab632ed9a0cc79f2fd0c738c236ff963d45d4c4e6d34",
+    "plans/plan_e.html": "8d3a76d33cac37baf48532ff361e6559096ca6a3869b51b48e5b7b9025f54e2f",
+    "plans/plan_f.html": "28cc37b3a925d2e13df5957c55c6c927872054c87aff8d6c0f29576832342b22"
   }
 }

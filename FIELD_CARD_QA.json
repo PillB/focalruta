@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 63,
+  "checks": 64,
   "failures": [],
   "results": [
     {
@@ -256,6 +256,11 @@
       "detail": null
     },
     {
+      "name": "home page dialog: where the first shot starts on screen it is drawn with the plans, and where it starts below, a frame later",
+      "pass": true,
+      "detail": {}
+    },
+    {
       "name": "home page dialog: closed after a resize from 390 to 1280 px hides its opener, focus goes to an opener on the page and the page stays where it was",
       "pass": true,
       "detail": {
@@ -447,13 +452,13 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-21T09:41:12.919395+00:00",
-  "audited_commit": "657ef3e0094fd1c6e79b0c0af16d813357a54cff",
+  "audited_at": "2026-10-28T01:25:12.059583+00:00",
+  "audited_commit": "214879a7bb611d4f3bedc3652fc09736a4404219",
   "audited_artifacts": {
     "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
     "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "c03820dc763bc310acd98e378730530c3b10792882cb06b17eecab20970402f3",
-    "dist/canon6d_sota_hosted/sw.js": "7349dc165f3ccce23836151d21c124040d1ef26006d88fc42c97909e2e01fbcd",
+    "dist/canon6d_sota_hosted/index.html": "b763309c184f3becdf90217c00d19fa95f194052314d118a25c812b734026c1a",
+    "dist/canon6d_sota_hosted/sw.js": "0446287b04fdb4d16aeab8527b4a9825fa18c1348b6ac8a9ea6efa4cd2334d30",
     "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
