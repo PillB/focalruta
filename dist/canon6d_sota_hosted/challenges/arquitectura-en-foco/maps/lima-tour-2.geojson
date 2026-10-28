@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "damero-de-lima-interseccion-como-objeto",
-        "name": "El Damero",
+        "name": "Damero de Lima · intersección como objeto",
         "district": "Lima"
       },
       "geometry": {
@@ -35,7 +35,7 @@
       "type": "Feature",
       "properties": {
         "id": "estacion-desamparados",
-        "name": "Estación de Desamparados",
+        "name": "Estación Desamparados / Casa de la Literatura",
         "district": "Lima"
       },
       "geometry": {
@@ -50,7 +50,7 @@
       "type": "Feature",
       "properties": {
         "id": "casa-fernandini-1913",
-        "name": "Casa Fernandini",
+        "name": "Casa Fernandini (1913)",
         "district": "Lima"
       },
       "geometry": {

@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "lima-centro-de-convenciones",
-        "name": "Centro de Convenciones de Lima",
+        "name": "Lima Centro de Convenciones",
         "district": "San Borja"
       },
       "geometry": {
@@ -35,7 +35,7 @@
       "type": "Feature",
       "properties": {
         "id": "ministerio-de-cultura-museo-de-la-nacion",
-        "name": "Museo de la Nación",
+        "name": "Ministerio de Cultura / Museo de la Nación",
         "district": "San Borja"
       },
       "geometry": {
@@ -50,7 +50,7 @@
       "type": "Feature",
       "properties": {
         "id": "gran-teatro-nacional",
-        "name": "Teatro Nacional del Perú",
+        "name": "Gran Teatro Nacional",
         "district": "San Borja"
       },
       "geometry": {
@@ -65,7 +65,7 @@
       "type": "Feature",
       "properties": {
         "id": "centro-de-convenciones-estacion-la-cultura",
-        "name": "Estación \"La Cultura\"",
+        "name": "Centro de Convenciones / estación La Cultura",
         "district": "San Borja"
       },
       "geometry": {
@@ -80,7 +80,7 @@
       "type": "Feature",
       "properties": {
         "id": "biblioteca-nacional-del-peru",
-        "name": "Biblioteca Nacional",
+        "name": "Biblioteca Nacional del Perú",
         "district": "San Borja"
       },
       "geometry": {

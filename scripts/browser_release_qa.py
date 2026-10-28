@@ -16,6 +16,8 @@ import fixed_bars
 import top_bar_tools
 import qa_matrix
 import reading_floor
+import shot_review_qa
+import sun_panel_qa
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "CURRENT_BROWSER_QA.json"
@@ -36,6 +38,13 @@ AUDITED = list(dict.fromkeys([
     *STYLED,
 ]))
 results = []
+SLIDER_TENTHS = "e=>[0.1,0.9].map(f=>String(Math.round(+e.min+f*(e.max-e.min))))"
+# Y21: where a plan's «Mostrando:» block wraps under the plan's name, its text starts where the name starts.
+SHOWING_MISALIGNED = """(plans)=>plans.flatMap(p=>{selectPlan(p);
+const label=[...document.querySelectorAll('#plan-detail-content div')].find(d=>d.textContent.trim()==='Mostrando:');
+const box=label.parentElement,name=box.parentElement.querySelector('h3'),range=document.createRange();range.selectNodeContents(label);
+const text=range.getBoundingClientRect(),n=name.getBoundingClientRect();
+return box.getBoundingClientRect().top>=n.bottom-1&&Math.abs(text.left-n.left)>1?[[p,Math.round(text.left),Math.round(n.left)]]:[]})"""
 
 
 def record(name, passed, detail=""):
@@ -319,7 +328,7 @@ def nothing_cut_with_long_gear(browser):
             context, page = long_gear_page(browser, width, path)
             record_long_gear(path, width, reading_floor.audit_home(page))
             context.close()
-    for path in ("dist/canon6d_sota_hosted/field_card.html", *[f"dist/canon6d_sota_hosted/plans/plan_{x}.html" for x in "abcdef"]):
+    for path in ("dist/canon6d_sota_hosted/field_card.html", *[f"dist/canon6d_sota_hosted/plans/plan_{x}.html" for x in qa_matrix.PLAN_LETTERS]):
         context, page = long_gear_page(browser, LONG_GEAR_WIDTHS[0], path)
         floor = reading_floor.audit_plan_page(page) if "plans/" in path else field_card_floor(page)
         record_long_gear(path, LONG_GEAR_WIDTHS[0], floor)
@@ -369,7 +378,7 @@ LARGER_TEXT = ((20, 650, 800), (24, 700, 800), (20, 1024, 768), (24, 1280, 800))
 def bars_on_screen(browser):
     """X07 (N9) and X08 (N10): on the home page, standalone and hosted, and on every plan page, at every size."""
     pages = [("standalone", ROOT / "index.html", True), ("hosted", ROOT / "dist/canon6d_sota_hosted/index.html", True),
-             *[(f"plan_{x}", ROOT / f"dist/canon6d_sota_hosted/plans/plan_{x}.html", False) for x in "abcdef"]]
+             *[(f"plan_{x}", ROOT / f"dist/canon6d_sota_hosted/plans/plan_{x}.html", False) for x in qa_matrix.PLAN_LETTERS]]
     names = {"stays": "only what has room stays on screen", "forward": "focus going forward is never behind a bar",
              "back": "focus going back is never behind a bar", "jumps": "links in the bars land clear of them",
              "address": "opening the page at a section's address lands it clear of the bars",
@@ -411,6 +420,8 @@ with sync_playwright() as pw:
             page.goto(target.as_uri(), wait_until="domcontentloaded", timeout=60000)
             page.wait_for_timeout(150)
             record(f"{target_name} {width} no overflow", page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
+            misaligned = page.evaluate(SHOWING_MISALIGNED, [f"plan_{letter}" for letter in qa_matrix.PLAN_LETTERS])
+            record(f"{target_name} {width} Y21 a wrapped «Mostrando» starts under the plan's name", not misaligned, misaligned)
             record(f"{target_name} {width} no page errors", not errors, errors)
             page.close()
 
@@ -418,7 +429,7 @@ with sync_playwright() as pw:
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(target.as_uri(), wait_until="domcontentloaded", timeout=60000)
-        for plan in [f"plan_{letter}" for letter in "abcdef"]:
+        for plan in [f"plan_{letter}" for letter in qa_matrix.PLAN_LETTERS]:
             for subject in ("human", "dog"):
                 for slot in ("day", "afternoon", "night"):
                     count = page.evaluate("([p,s,t])=>{selectPlan(p);setVariant(s);setTime(t);return document.querySelectorAll('#plan-detail-content .shot-card').length}", [plan, subject, slot])
@@ -428,9 +439,11 @@ with sync_playwright() as pw:
         motion = []
         for mode in ("freeze", "pan", "ghost", "trails", "paint", "zoom"):
             page.locator(f'[data-motion="{mode}"]').click()
-            page.locator("#motion-shutter").fill("10")
+            # A tenth and nine tenths of the slider's travel, read from it: since Y02 its steps are the dial's.
+            low_at, high_at = page.locator("#motion-shutter").evaluate(SLIDER_TENTHS)
+            page.locator("#motion-shutter").fill(low_at)
             low = page.locator("#motion-span").inner_text()
-            page.locator("#motion-shutter").fill("90")
+            page.locator("#motion-shutter").fill(high_at)
             high = page.locator("#motion-span").inner_text()
             motion.append([mode, low, high])
             record(f"{target_name} motion {mode} differential", low != high, [low, high])
@@ -453,6 +466,9 @@ with sync_playwright() as pw:
         record(f"{target_name} interaction errors", not errors, errors)
         page.close()
 
+        sun_panel_qa.check(browser, target.as_uri(), record, f"{target_name} sun")
+        shot_review_qa.check(browser, target.as_uri(), record, f"{target_name} review")
+
         # V10-V12: the reading floor, at every size in the matrix, in every state a reader reaches.
         for width, height in qa_matrix.REQUIRED_VIEWPORTS:
             page = browser.new_page(viewport={"width": width, "height": height})
@@ -472,7 +488,7 @@ with sync_playwright() as pw:
     cut = narrow.evaluate(reading_floor.CUT_OFF, "")
     record("field_card 320 nothing cut off at the edges", not cut, cut[:12])
     narrow.close()
-    for letter in "abcdef":
+    for letter in qa_matrix.PLAN_LETTERS:
         narrow = browser.new_page(viewport={"width": 320, "height": 640})
         narrow.goto((ROOT / f"dist/canon6d_sota_hosted/plans/plan_{letter}.html").as_uri(), wait_until="domcontentloaded", timeout=60000)
         cut = reading_floor.audit_plan_page(narrow)["cut"]

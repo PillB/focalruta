@@ -1,5 +1,8 @@
 # Session handoff
 
+- Red team of PR #24, 2026-10-28 (Y01–Y24 and W09–W12; evidence in `/mnt/project-files/qa/pr24/evidence/redteam/`, write-up in the Claude Doc «FocalRuta red team of PR #24»). Two read-only reviews (research F1–F22, competitors C1–C13) and a walk of every interaction (F01–F12) became Y01–Y24, each with a test that failed first: the labs held to the 6D's dial; field advice that agrees with Lima, the camera and its own numbers; diagram labels apart and no sea behind indoor plans; each place card with its own Spanish research; a wrapped «Mostrando:» under the plan's name; the night and ND tips; and the speed report keeping the host's speed. W09–W12 add the moon (checked against USNO), ND and hyperfocal tables, where each setting is on the 6D, and a calendar file. The speed suite failed here only because this container is slower than Lighthouse's 4x assumes (BenchmarkIndex 920–1600 against 2608 on GitHub's runner; the old build fails the same way here), so the committed speed report is CI's. Details in Ronda 18.
+- Expansions after PR #24, 2026-10-27 (W01–W08, `/mnt/project-files/qa/pr24/evidence/`). W01–W04: the home page's sun panel now has an hour slider that prints where the sun is (bearing and apparent height, within 0.3° of NREL's SPA via pvlib 0.16.1; astral 3.2 agrees within 0.02°) and a 1.70 m person's shadow, draws the day's path on a sky map seen from above, and, for a wall facing any of 16 compass points, lists the minutes of direct, raking (≤20° to the surface; 5–20° in MNAC's glossary, 5–15° in conservation imaging) and head-on (≥60°) sun. Refraction is Saemundsson's (Meeus 16.4), as in SPA; NOAA's spreadsheet formula gave 0.40° at sunrise instead of the 0.57° the −0.833° convention implies, so it was not used. W05–W07: the session dialog reviews each shot with three checks (sharpness for its technique, exposure, the plan's criterion), gives the field card's own fix for a failed check, keeps the review on the device under the existing key (old ticks count as passed), and has a summary. W08: plan counts in the copy come from the data (`plan_counts.py`) and every check walks `qa_matrix.PLAN_LETTERS`; `tests/test_plan_counts.py` builds the site with a seventh plan. RED: 18 planner tests failed before `sun_position`; the W04 checks fail on main (no `#sun-time`) and on 4 of 4 arithmetic mutants; 19 review tests failed without `assets/shot_review.js` and 2 mutants were caught; the W05–W07 browser checks fail on main and on 5 of 5 mutants; the seventh-plan build fails with `plan_counts.py` left out of `regenerate_all.py`. Trade-offs: the sun is computed for San Isidro, and every plan is within about 8 km, which moves the times by well under a minute; a wall's facing is chosen from 16 points, not typed in degrees; the raking and head-on bounds are conventions from conservation imaging, not a measurement of texture; the review records what the reader judges on the camera's screen, it does not read the photo; the English version waits on Pablo's choice.
+- PR A after PR #23, 2026-10-27: the last two open notes from the PR #21 sign-off. X09: every outside action in the three workflows is pinned to a full commit SHA with its release in a comment (checkout v5.1.0, setup-python v6.3.0, setup-node v5.0.0, upload-artifact v6.0.0, configure-pages v6.0.0, upload-pages-artifact v5.0.0, deploy-pages v5.0.1), SHAs read with `git ls-remote` on 2026-10-27; the tags are lightweight, so the SHA is the commit. V20: a maker's name before a glued "mm" ("Sigma 105mm") names a lens, as a mount code does. RED: both new X09 tests and the V20 maker test failed on 128dc4a; GREEN: 928 passed, 1 skipped; verify_release and verify_architecture pass; C901 ≤ 10 passes; regenerate_all leaves the tree clean. Trade-off: SHAs do not follow new patch releases on their own, so a pin moves only when someone updates it; no Dependabot config is added here. The three items the sign-off listed as open and PR #22 closed (field card INP, leftover English, a stored value with `"`) were rechecked in FINDINGS_PR22 V09/V12 and X06, and are not reworked.
 - Whole-site integration gate, 2026-08-31: the FocalRuta homepage now contains a descriptive `Arquitectura en Foco 2026` Challenge landmark in addition to the compact nav shortcut. It explains the 87-scene, learning, ranking, district-route, offline-field and preflight scope; the Challenge retains a keyboard-operable return link to FocalRuta. Hosted and standalone artifacts were rebuilt.
 - Module inventory: `architectural_photography/ARCHITECTURE_MODULE_INVENTORY.json` maps 12 public modules to their verification surfaces: command/today, ranking, field priorities, routes, style radar, all scenes, learning, field run, AI firewall, preflight, iPhone maps and offline shell.
 - Mobile defect found and fixed: at 390×844 and 430×932 the fixed bottom navigation covered the homepage Challenge CTA after scroll. A behavioral occlusion test failed first, then mobile safe clearance was added. Six required viewports now complete homepage→Challenge→homepage navigation with zero overflow, page errors or CTA occlusion; screenshots and report are under `qa/final/whole_site_integration/`.
@@ -3167,3 +3170,122 @@ de antes del rebase. Equivalencias:
 - Con texto más grande, de 641 a 800 px (20 px) o a 961 px (24 px), no hay barra de abajo y las
   herramientas quedan al final de la fila que se desplaza. Si hace falta, la barra de abajo podría
   medirse en `em` como las de arriba.
+
+## Ronda 18 · Red team de PR #24 (2026-10-28)
+
+Pablo pidió un red team de la investigación, de la investigación de competidores y de cada
+función e interacción, con la causa de cada problema, y corregir, prevenir e implementar. Dos
+revisiones de solo lectura (`/mnt/project-files/qa/redteam/research_audit.md`, F1–F22, y
+`competitor_review.md`, C1–C13) y un recorrido propio de interacciones
+(`findings.md` del bloc de notas: F01–F12) dieron la lista. Cada hallazgo es un requisito con
+una prueba que falló antes del arreglo. Los ID de esta ronda se numeraron primero R01–R20, pero
+la sección R ya usa R01–R04 (selección final): son Y01–Y23 (sección Y del inventario). La
+evidencia se guardó con los números viejos y se renombró; su contenido no se tocó.
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| Y01–Y04 | Los laboratorios usan el dial de la 6D, cada intención expone la escena que fija, «espacio negativo» libre del sujeto, los botones dicen cuál está activo | `lab_qa.py` en el inicio publicado, a 320 y 1280 px: 30 de 36 fallan (preajustes a +1.1, +1.3, +1.1 y −3.0 EV; 1/2275 s) | 36/36 por ancho; óptica 94/94 en 17041ba |
+| Y05–Y18 | Lo que los planes dicen en el campo concuerda con Lima, la cámara y sus propios números | `tests/planner/test_field_advice.py` y cuatro de `test_shot_review.py`: 31 fallan, 21 pasan | todas pasan |
+| Y19 | Ninguna etiqueta de diagrama tapa otra; los planes de interior no se dibujan contra el mar | 2 fallan, 1 pasa (24 de 120 diagramas solapados, 38 con mar) | 3 pasan |
+| Y20 | Cada tarjeta de lugar con su investigación y su luz en español; «evidencia N/100», no una probabilidad; paradas con el nombre del lugar; mapas con el trazado | 6 fallan (81 de 87 tarjetas con «Mecanismo visual por investigar») | 6 pasan; 0 tarjetas con ese texto |
+| Y21 | Un «Mostrando:» que baja de línea empieza bajo el nombre del plan | la expresión de la suite sobre c7a1156 a 390 px: los seis planes, texto en x=116 frente a 16 | `[]`; release 692/692 |
+| Y22, Y23 | La tarjeta dice cómo salir de noche con el equipo, y que se enfoca y se pasa a MF antes del ND, con la tapa del ocular | sobre la tarjeta de main (6d22271) faltan las diez frases | pasan; 3 de 3 mutantes detectados (consejo marcado para un plan, dentro de un plan, filtro antes de enfocar) |
+| W09 | Salida, puesta, rumbo y fase de la luna, frente al Observatorio Naval de EE. UU. | la prueba del panel falla; las de precisión se escribieron con el modelo ya hecho, así que se probaron con 5 mutantes: sin perturbaciones (falla 15/16 días), sin paralaje (16/16), fracción invertida (16/16), creciente y menguante cambiados (12/16), gemelo JS con un coeficiente mal (paridad falla) | 35 pasan; luna en cinco fechas y dos anchos en release |
+| W10 | Tablas de ND e hiperfocal en la tarjeta, recalculadas desde cero | 3 fallan | pasan; caben a 320 px |
+| W11 | Dónde está cada ajuste en la 6D, del manual de Canon | 2 fallan | pasan |
+| Y24 | Cada corrida de Lighthouse guarda el índice de velocidad del equipo; el informe da la mediana y avisa bajo 1500, el piso del rango para el que Lighthouse fija su 4x | la prueba nueva de `summarize` sobre el script de 491bdd5^: KeyError; `verify_release.py` con el informe sin índice: falla | 15 de 15 en `test_perf_budget.py`; la puerta lo exige |
+| W12 | Archivo de calendario RFC 5545 para la sesión elegida | 5 fallan; en release, el botón con cifras proporcionales en el diálogo del inicio y tabulares en la tarjeta (V05) | pasan; tarjeta 68/68; las seis vistas iguales |
+
+### Causas
+
+- Texto escrito junto a los números sin nada que los ate: las pruebas comprobaban la
+  aritmética, no las frases sobre ella (F1–F22). Ahora cada frase se lee contra una fuente
+  que no dice ella misma.
+- Los laboratorios modelaban una cámara ideal, no el dial de tercios de la 6D.
+- Etiquetas de diagrama separadas en metros (a 60 m de escena, 0.4 m eran pocos píxeles) y el
+  mar detectado por subcadena («cámara», «enmarcado», «San Martín»).
+- Tarjetas de lugar llenadas con plantilla cuando faltaba la investigación; ahora la
+  construcción se detiene.
+- Comprobaciones atadas a la escala vieja de un control: la suite de release y la
+  comprobación en vivo escribían 10 y 90 en un deslizador que ahora va de 0 a 51. La
+  comprobación en vivo habría fallado en el siguiente despliegue.
+- La suite de velocidad falló 3 de 138 en este contenedor, cuyo índice de Lighthouse fue de 920 a
+  1600 en minutos (el runner de GitHub: 2608). El build viejo, que pasó en CI con 62 ms de bloqueo,
+  bloqueó aquí 355; el nuevo, 335, en corridas alternadas: no hay regresión. En una traza sin
+  freno, el layout del inicio baja de 162 a 79–88 ms si se quitan sus unos 30 emoji distintos;
+  diferir todo lo que corre en DOMContentLoaded no bajó el TBT. Evidencia en
+  `Y24_host_comparison.txt`.
+- El estilo de botón de Chrome fija el atajo `font`, que devuelve las cifras a proporcionales;
+  sólo el inicio lo deshacía.
+
+### Compromisos explícitos
+
+- Sol y luna suponen un horizonte libre (dicho en el panel); modelar obstáculos pediría datos
+  3D de otro sitio.
+- La fracción de la luna se da al terminar la hora azul; en la sesión de noche de dos horas
+  cambia como mucho 0.93 puntos (medido en 60 días).
+- f/4.5 del 35–80 mm a 50 mm es interpolado y se marca «estimada».
+- Los laboratorios de arquitectura usan 36 mm de sensor y el planificador 35.8 mm (menos de
+  0.3° de campo).
+- La variante de garúa está escrita para la 6D; con otro equipo se adapta la de sol.
+- No se dice cuánto tarda la reducción de ruido de larga exposición: la cifra del manual no se
+  confirmó.
+- El aviso es un archivo .ics que guarda el calendario del teléfono; el sitio no notifica.
+- Las paradas llevan el nombre completo del lugar, más largo que la etiqueta del geocodificador.
+- Las categorías de luz se repiten entre tarjetas porque esos lugares comparten esa luz.
+- La prueba de diagramas (Y19) necesita matplotlib; el trabajo de pruebas unitarias de CI la
+  omite.
+- El informe de velocidad confirmado es el que hizo CI en el runner de GitHub sobre el mismo build
+  (las huellas coinciden byte a byte), no el de este contenedor, que es más lento de lo que el 4x
+  de Lighthouse supone. El de aquí se guarda como evidencia.
+- Los emoji que hacen de iconos se quedan: cambiarlos por SVG bajaría el layout del inicio en Chrome
+  de Linux, pero es un cambio de diseño en todas las páginas, para otra ronda.
+- Huecos de competidores aplazados: C2, C7, C8, C10–C13, rumbos de fachada (C1) y una tarjeta
+  para leer el cielo (C4).
+
+### Referencia de experto por decisión
+
+- Luna: Schlyter (bajo coste, 2′ en longitud) y Meeus cap. 15 y 48; contrastado con las tablas
+  del USNO (`aa.usno.navy.mil/api/rstt/oneday` y `celnav`), guardadas en
+  `tests/fixtures/usno_moon_lima.json`.
+- Calendario: RFC 5545 (CRLF, plegado a 75 octetos, escapes, UTC, VALARM).
+- Mandos de la 6D: manual de instrucciones de la EOS 6D (Canon), págs. 24, 45–46, 92, 98, 106,
+  128, 148, 154 y 165; los mandos a distancia RS-80N3 y TC-80N3 son los del terminal N3.
+- Garúa: normales 1991–2020 del DWD para Jorge Chávez (28–60 h de sol al mes de junio a
+  octubre, 185 en enero).
+- Noche: consejo de viaje del Reino Unido para Perú (robo callejero y armado en distritos
+  turísticos; no caminar solo de noche).
+- ND: nota de Canon sobre el autodisparador de la 6D (tapa del ocular).
+- Velocidad: `docs/throttling.md` de Lighthouse (el 4x es para un índice de 1500 a 2000; un
+  equipo de 1000 a 1500 pide 2x para el mismo teléfono) y la calibración de DevTools que X06 ya usa.
+
+### Errores propios encontrados en esta ronda
+
+- Los ID R01–R20 chocaban con la sección R; renombrados a Y.
+- En el inventario, los números de hueco de W09–W12 no eran los de la revisión de
+  competidores (C1, C3–C4, C5, C6); corregidos a C3, C5, C6 y C9.
+- Dos regeneraciones a la vez (la prueba de idempotencia de la corrida completa y la de
+  arquitectura) dejaron el worker con 43 de 131 diagramas; regenerado solo, lleva los 131.
+- Escribí en el informe un total de defectos que no podía respaldar y que F05 y F06 se habían
+  arreglado; se comprobaron y están bien como están (la fila de EV ya dice «justo después del
+  ocaso»; las tarjetas del sol van por hora de inicio). Corregido antes de entregarlo.
+
+### Cierre (comandos, código de salida, resumen)
+
+Sobre el árbol limpio, con `FOCALRUTA_CHROME=/opt/pw-browsers/chromium`, sirviendo sólo `dist/`
+y, para las suites de arquitectura, la raíz en 8766 y `dist/` en 8777, como CI:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `browser_release_qa.py` en 17041ba | 0 | 692/692 (1710 s); reporte en f9e4c9c |
+| `field_card_qa.py`, `optics_accessibility_qa.py`, `axe_accessibility_qa.py`, `visual_resource_audit.py` en 17041ba | 0 | tarjeta 68/68, óptica 94/94, axe 80/80, visual 37/37 |
+| las cinco suites de `tests/architecture/browser_*.py` en 17041ba | 0 | todas en verde; capturas en f9e4c9c |
+| `perf_budget_qa.py` en 17041ba, en este contenedor | 1 | 135/138: TBT del inicio 256.5 ms y de plan_d 226 (tope 200), primera toma de la tarjeta a ancho de tableta en gama baja 678 ms (tope 500); índice del equipo 1239.5. Mismo fallo con el build viejo (Y24) |
+| `pytest -q` en 491bdd5 | 1 | 1060 pasan, 1 omitida; falla sólo la frescura de `PERF_BUDGET_QA.json` |
+| `pytest tests/architecture -q` | 1 | 349 pasan, 1 omitida; la misma |
+| `verify_architecture.py` | 0 | `checks_failed: []` |
+| `verify_release.py` | 1 | sólo el informe de velocidad: viejo y sin índice del equipo |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 1 | `CURRENT_STATE.json`: 638 → 692 comprobaciones de release; confirmado en 1b78a96 |

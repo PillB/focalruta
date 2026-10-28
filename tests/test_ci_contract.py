@@ -133,3 +133,37 @@ def test_x03_the_live_site_is_checked_after_every_deploy_and_daily():
     commands = "\n".join(run_lines(job) for job in live["jobs"].values())
     assert "scripts/live_pages_qa.py" in commands
     assert "scripts/perf_budget_qa.py --base-url" in commands
+
+
+def uses_lines() -> list[tuple[str, str]]:
+    """Every `uses:` of every workflow step, with the workflow it is in."""
+    found = []
+    for path in sorted(WORKFLOWS.glob("*.yml")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            m = re.match(r"\s*(?:-\s*)?uses:\s*(\S+)(.*)$", line)
+            if m:
+                found.append((path.name, line.strip()))
+    return found
+
+
+def test_x09_every_outside_action_is_pinned_to_a_commit_with_its_tag_named():
+    """Sign-off note on PR #21: the actions were pinned to tags, which their owner can move.
+    A full commit SHA cannot be moved (GitHub's security hardening guide for Actions), and the
+    comment after it names the release, so Dependabot and a reader can tell what it is."""
+    lines = uses_lines()
+    outside = [(name, line) for name, line in lines if "uses: ./" not in line]
+    assert len(outside) >= 10, f"read only {len(outside)} outside actions: the scan reads nothing"
+    loose = [f"{name}: {line}" for name, line in outside
+             if not re.search(r"@[0-9a-f]{40}\s+#\s*v\d+(?:\.\d+){0,2}\s*$", line)]
+    assert loose == [], "actions not pinned to a commit SHA with its tag:\n" + "\n".join(loose)
+
+
+def test_x09_one_action_is_pinned_to_one_commit_everywhere():
+    """The same action at two commits would run two versions in one pipeline."""
+    pins: dict[str, set[str]] = {}
+    for _name, line in uses_lines():
+        m = re.search(r"uses:\s*([\w./-]+)@(\S+)", line)
+        if m and not m.group(1).startswith("."):
+            pins.setdefault(m.group(1), set()).add(m.group(2))
+    assert pins, "no outside action found"
+    assert {action: refs for action, refs in pins.items() if len(refs) > 1} == {}

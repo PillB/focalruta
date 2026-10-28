@@ -1,13 +1,19 @@
+import re
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def pinned(workflow: str, action: str, major: int) -> bool:
+    """`action` is pinned to a commit of release `major` (X09 pins to a SHA, its tag in a comment)."""
+    return re.search(rf"{re.escape(action)}@[0-9a-f]{{40}} # v{major}(?:\.\d+)*\s*$", workflow, re.M) is not None
+
+
 def test_quality_workflow_enforces_cyclomatic_complexity_ceiling():
     workflow = (ROOT / ".github" / "workflows" / "quality.yml").read_text(encoding="utf-8")
-    assert "actions/checkout@v5" in workflow
-    assert "actions/setup-python@v6" in workflow
+    assert pinned(workflow, "actions/checkout", 5)
+    assert pinned(workflow, "actions/setup-python", 6)
     # One pin list for CI and contributors: a different local Pillow re-encodes
     # 132 images and dirties the tree (red team, PR #19).
     assert "pip install -r requirements-dev.txt" in workflow
@@ -22,12 +28,12 @@ def test_quality_workflow_enforces_cyclomatic_complexity_ceiling():
 
 def test_pages_workflow_uses_node24_action_generations():
     workflow = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
-    assert "actions/checkout@v5" in workflow
-    assert "actions/configure-pages@v6" in workflow
-    assert "actions/upload-pages-artifact@v5" in workflow
-    assert "actions/deploy-pages@v5" in workflow
-    assert "@v4" not in workflow
-    assert "upload-pages-artifact@v3" not in workflow
+    assert pinned(workflow, "actions/checkout", 5)
+    assert pinned(workflow, "actions/configure-pages", 6)
+    assert pinned(workflow, "actions/upload-pages-artifact", 5)
+    assert pinned(workflow, "actions/deploy-pages", 5)
+    assert "# v4" not in workflow and "@v4" not in workflow
+    assert not pinned(workflow, "actions/upload-pages-artifact", 3)
 
 
 def test_agent_contract_requires_expert_rejection_and_fail_fast_evidence():

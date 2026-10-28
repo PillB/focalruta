@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 63,
+  "checks": 68,
   "failures": [],
   "results": [
     {
@@ -119,6 +119,34 @@
       "name": "Lima 03:30Z read from Madrid opens on night",
       "pass": true,
       "detail": "Ahora en Lima es de noche. Mañana sale el sol a las 05:42. Puesta de sol: rumbo 260° (oeste)."
+    },
+    {
+      "name": "calendar file is named for its plan, light and date",
+      "pass": true,
+      "detail": "focalruta-plan-b-afternoon-2026-11-24.ics"
+    },
+    {
+      "name": "calendar event starts half an hour before the afternoon light",
+      "pass": true,
+      "detail": [
+        "DTSTART:20261124T221700Z",
+        "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//FocalRuta//Tarjeta de campo//ES\r\nCALSCALE:GREGORIAN\r\nBEGIN:VEVENT\r\nUID:plan_b-afternoon-2026-11-24@focalruta\r\nDTSTAMP:20261028T150000Z\r\nDTSTART:20261124T221700Z\r\nDTEND:20261124T234000Z\r\nSUMMARY:FocalRuta · Plan B · Malecón de Miraflores — Costa Verde\r\nLOCATION:Malecón Cisneros / Parque del Amor\\, Miraflores\r\nDESCRIPTION:Luz: tarde (17:47–18:40). Puesta de so"
+      ]
+    },
+    {
+      "name": "calendar event carries the place and an alert",
+      "pass": true,
+      "detail": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//FocalRuta//Tarjeta de campo//ES\r\nCALSCALE:GREGORIAN\r\nBEGIN:VEVENT\r\nUID:plan_b-afternoon-2026-11-24@focalruta\r\nDTSTAMP:20261028T150000Z\r\nDTSTART:20261124T221700Z"
+    },
+    {
+      "name": "the card says the calendar file is ready",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "no JavaScript: no calendar button that could not work",
+      "pass": true,
+      "detail": null
     },
     {
       "name": "no JavaScript: plan C at night shows C01's night settings",
@@ -263,9 +291,9 @@
           "openFieldCard()",
           true,
           true,
-          -1020
+          -610
         ],
-        "seen before": -1020
+        "seen before": -610
       }
     },
     {
@@ -276,9 +304,9 @@
           "openFieldCard()",
           true,
           true,
-          1808
+          1812
         ],
-        "seen before": 1808
+        "seen before": 1812
       }
     },
     {
@@ -447,14 +475,14 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-10-21T09:41:12.919395+00:00",
-  "audited_commit": "657ef3e0094fd1c6e79b0c0af16d813357a54cff",
+  "audited_at": "2026-10-28T06:30:05.579621+00:00",
+  "audited_commit": "17041ba65089313b2157ed695159e65a46f084ca",
   "audited_artifacts": {
-    "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
-    "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "c03820dc763bc310acd98e378730530c3b10792882cb06b17eecab20970402f3",
-    "dist/canon6d_sota_hosted/sw.js": "7349dc165f3ccce23836151d21c124040d1ef26006d88fc42c97909e2e01fbcd",
-    "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
+    "data/plans.json": "03029a8656b79b6bb57c69667d62bb0c989a5e4ece3a6825b5bdf6b8ee05678a",
+    "dist/canon6d_sota_hosted/field_card.html": "e055055c2c617aa37b6a44507a4b3227645d6af04cc1500bd133df48098ca78f",
+    "dist/canon6d_sota_hosted/index.html": "7dc6669ccdc9322dccbf2768e4e113cf825f654b301a07cce57265d153aefc27",
+    "dist/canon6d_sota_hosted/sw.js": "f3b6787aed4d1c2088d54c0a0471634d17851b3278d86b41266849296467476b",
+    "field_card.html": "e055055c2c617aa37b6a44507a4b3227645d6af04cc1500bd133df48098ca78f",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
 }

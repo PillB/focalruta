@@ -103,6 +103,85 @@ def day_plan(day: date) -> dict[str, float]:
     }
 
 
+def refraction(elevation: float) -> float:
+    """Degrees the air lifts the sun's image at a geometric `elevation`.
+
+    Saemundsson's formula (Meeus, Astronomical Algorithms, 2nd ed., eq. 16.4), the one NREL's
+    SPA uses, at 1010 hPa and 10 °C: 34' near the horizon, 1' at 45°. Below a degree under
+    the horizon nothing is drawn, so none is added.
+    """
+    if elevation < -1:
+        return 0.0
+    return 1.02 / math.tan(math.radians(elevation + 10.3 / (elevation + 5.11))) / 60
+
+
+def sun_position(day: date, minutes_local: float,
+                 lat: float = LIMA_LAT, lon: float = LIMA_LON, utc_offset_h: float = LIMA_UTC_OFFSET_H) -> dict[str, float]:
+    """Bearing (deg clockwise from north), geometric and apparent height of the sun's centre at a local minute."""
+    minutes_utc = minutes_local - utc_offset_h * 60
+    declination, eot = solar_declination_and_eot(julian_day(day) + minutes_utc / 1440)
+    hour_angle = math.radians(((minutes_utc + eot + 4 * lon) / 4 - 180 + 540) % 360 - 180)
+    phi, delta = math.radians(lat), math.radians(declination)
+    cos_zenith = math.sin(phi) * math.sin(delta) + math.cos(phi) * math.cos(delta) * math.cos(hour_angle)
+    zenith = math.acos(max(-1.0, min(1.0, cos_zenith)))
+    elevation = 90 - math.degrees(zenith)
+    # Bearing from the east and north components of the sun's direction: no division by sin(zenith).
+    east = -math.cos(delta) * math.sin(hour_angle)
+    north = math.cos(phi) * math.sin(delta) - math.sin(phi) * math.cos(delta) * math.cos(hour_angle)
+    azimuth = math.degrees(math.atan2(east, north)) % 360
+    return {"azimuth": azimuth, "elevation": elevation, "apparent": elevation + refraction(elevation)}
+
+
+def shadow(height: float, position: dict[str, float]) -> tuple[float, float] | None:
+    """Length and bearing of the shadow an upright `height` casts on level ground; None with the sun down."""
+    if position["apparent"] <= 0:
+        return None
+    return height / math.tan(math.radians(position["apparent"])), (position["azimuth"] + 180) % 360
+
+
+def wall_angle(position: dict[str, float], facing: float) -> float:
+    """Angle (deg) between the sun's rays and a vertical wall whose front faces bearing `facing`.
+
+    90 is the sun straight in front of the wall, 0 grazing it, and below 0 behind it.
+    """
+    e, gap = math.radians(position["apparent"]), math.radians(position["azimuth"] - facing)
+    return math.degrees(math.asin(max(-1.0, min(1.0, math.cos(e) * math.cos(gap)))))
+
+
+# Raking light grazes a surface at 5-20 deg (Museu Nacional d'Art de Catalunya's glossary;
+# 5-15 deg in conservation imaging), which is what draws a facade's texture; from 60 deg up
+# the light is nearly head-on and flattens it.
+RAKING_MAX = 20.0
+FRONTAL_MIN = 60.0
+
+
+def _runs(flags: list[bool], first: int) -> list[tuple[int, int]]:
+    runs, start = [], None
+    for i, flag in enumerate(flags + [False]):
+        if flag and start is None:
+            start = i
+        elif not flag and start is not None:
+            runs.append((first + start, first + i - 1))
+            start = None
+    return runs
+
+
+def wall_light(day: date, facing: float) -> dict[str, list[tuple[int, int]]]:
+    """Local minutes when a wall facing `facing` has direct sun, raking sun and head-on sun.
+
+    Each list holds (first minute, last minute) runs, minute by minute from sunrise to sunset.
+    """
+    plan = day_plan(day)
+    first, last = math.ceil(plan["sunrise"]), math.floor(plan["sunset"])
+    angles = [wall_angle(sun_position(day, m), facing) if sun_position(day, m)["apparent"] > 0 else -1.0
+              for m in range(first, last + 1)]
+    return {
+        "direct": _runs([a > 0 for a in angles], first),
+        "raking": _runs([0 < a <= RAKING_MAX for a in angles], first),
+        "frontal": _runs([a >= FRONTAL_MIN for a in angles], first),
+    }
+
+
 def clock(minutes: float) -> str:
     total = int(round(minutes))
     return f"{total // 60:02d}:{total % 60:02d}"

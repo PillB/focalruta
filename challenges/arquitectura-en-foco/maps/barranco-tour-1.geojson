@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "la-ermita-de-barranco",
-        "name": "Pasaje La Ermita",
+        "name": "La Ermita de Barranco",
         "district": "Barranco"
       },
       "geometry": {
@@ -35,7 +35,7 @@
       "type": "Feature",
       "properties": {
         "id": "puente-de-los-suspiros-bajada-de-banos",
-        "name": "Puente de Los Suspiros",
+        "name": "Puente de los Suspiros + Bajada de Baños",
         "district": "Barranco"
       },
       "geometry": {
@@ -65,7 +65,7 @@
       "type": "Feature",
       "properties": {
         "id": "parque-municipal-y-entorno-civico",
-        "name": "Parque Municipal de Barranco",
+        "name": "Parque Municipal y entorno cívico",
         "district": "Barranco"
       },
       "geometry": {
@@ -80,7 +80,7 @@
       "type": "Feature",
       "properties": {
         "id": "biblioteca-municipal-de-barranco",
-        "name": "Biblioteca Municipal",
+        "name": "Biblioteca Municipal de Barranco",
         "district": "Barranco"
       },
       "geometry": {
@@ -95,7 +95,7 @@
       "type": "Feature",
       "properties": {
         "id": "museo-de-la-electricidad-tranvia",
-        "name": "Museo de La Electricidad",
+        "name": "Museo de la Electricidad & Tranvía",
         "district": "Barranco"
       },
       "geometry": {
@@ -110,7 +110,7 @@
       "type": "Feature",
       "properties": {
         "id": "museo-pedro-de-osma-y-av-pedro-de-osma",
-        "name": "Museo Pedro de Osma",
+        "name": "Museo Pedro de Osma y Av. Pedro de Osma",
         "district": "Barranco"
       },
       "geometry": {

@@ -10,6 +10,8 @@
       "af_points": 11,
       "vf_coverage": "97%",
       "fps": 4.5,
+      "buffer": "≈14 RAW, ≈7 RAW+JPEG, ≈73 JPEG L",
+      "flash": "sin flash incorporado; sincroniza hasta 1/180 s (más rápido, sólo Speedlite en HSS)",
       "mount": "EF"
     },
     "lenses": [
@@ -296,7 +298,8 @@
       "name": "Parque El Olivar — Bosque Histórico",
       "location": "Parque El Olivar, San Isidro (Av. La Encalada / Calle La Colonia)",
       "distance_from_home": "Acceso local; verifica tu ruta antes de salir",
-      "best_window": "Mañana del amanecer a las 08:00 (luz dorada ≈45 min tras salir el sol) · Tarde 17:00–18:30",
+      "best_window": "Mañana del amanecer a las 08:00 (luz dorada ≈30 min tras salir el sol; de junio a octubre suele amanecer gris y la tarde es más fiable) · Tarde 17:00–18:30",
+      "access": "Parque público de San Isidro. La foto personal no pide permiso: sólo las producciones comerciales necesitan uno de la Municipalidad de San Isidro (lo aclaró su gerencia de fiscalización en 2015). Respeta los olivos y no cierres senderos. Revisado el 28 de octubre de 2026.",
       "why": "Olivares centenarios, senderos rectos, capas naturales de follaje, faroles coloniales. Permite mucha PDC con capas, poca PDC para aislar, barrido con perros o ciclistas y larga exposición con faroles al anochecer.",
       "palette": [
         "#3b5d3b",
@@ -322,10 +325,10 @@
           "camera_height_m": 1.55,
           "pose": "Retrato 3/4, cuerpo girado 45°, cabeza hacia la cámara",
           "scene_notes": "Sendero central de olivos, sujeto a 4 m, hileras de olivos que convergen al fondo. Sujeto en tercio izquierdo del encuadre.",
-          "reasoning": "El 35 mm en formato completo da un campo horizontal de 54°, suficiente para incluir 2–3 hileras de olivos como capas. A f/11 la hiperfocal es ≈3.7 m; enfocando al sujeto a 4 m (algo más allá de ella) queda nítido desde ≈1.9 m hasta el infinito, así que el fondo a 12 m también se lee. Eso es exactamente lo que pide 'mucha PDC'.",
+          "reasoning": "El 35 mm en formato completo da un campo horizontal de 54°, suficiente para incluir 2–3 hileras de olivos como capas. A f/11 la hiperfocal es ≈3.7 m; enfocando al sujeto a 4 m (algo más allá de ella) queda nítido desde ≈1.9 m hasta el infinito en una copia normal (círculo de confusión de 0.030 mm), así que el fondo a 12 m también se lee. Al 100 % en la pantalla, que es dos veces más exigente, el fondo lejano se verá apenas blando: es lo esperado. Eso es exactamente lo que pide 'mucha PDC'.",
           "dos": [
             "Dispara en modo Av con f/11, enfoque al sujeto, deja que la cámara elija velocidad",
-            "Usa un trípode para evitar trepidación si la velocidad baja de 1/100",
+            "A pulso aguanta hasta 1/60 s con una persona: el estabilizador del 35 mm sujeta la cámara, no al sujeto; más lento, apóyate o usa trípode",
             "Equilibra el horizonte con la regla de tercios vertical"
           ],
           "donts": [
@@ -347,7 +350,7 @@
               "shutter": "1/125",
               "iso": 400,
               "scene": "sombra_abierta",
-              "notes": "Tarde: sol bajo, sombras largas. Cuidado con sombras duras en el rostro."
+              "notes": "Tarde: a la sombra de los olivos; si un rayo de sol bajo cae en el rostro, mueve al sujeto a la sombra pareja."
             },
             "night": {
               "lens": "35mm",
@@ -480,10 +483,10 @@
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/125",
-              "iso": 1600,
+              "shutter": "1/160",
+              "iso": 2000,
               "scene": "iluminado_focos",
-              "notes": "Noche: retrato junto a un farol. Ajusta el balance de blancos a unos 3200 K para que la piel no salga naranja."
+              "notes": "Noche: retrato junto a un farol. Dispara en RAW y mide un balance personalizado con una tarjeta gris bajo ese farol: el sodio (naranja) ronda los 2100 K y nunca queda neutro del todo; el LED blanco, 3000–4000 K. A 1/160 s el 85 mm pasa la revisión al 100 %."
             }
           },
           "subjects": {
@@ -569,20 +572,20 @@
           "aperture": "f/2.8",
           "shutter": "1/2000",
           "iso": 100,
-          "subject_distance_m": 6.0,
-          "background_distance_m": 15.0,
+          "subject_distance_m": 9.0,
+          "background_distance_m": 20.0,
           "composition": "minimalismo",
           "composition_label": "Minimalismo",
           "angle": "contrapicado",
           "angle_label": "Contrapicado",
           "camera_height_m": 0.6,
           "pose": "Salto vertical, brazos arriba, sonrisa amplia",
-          "scene_notes": "Sujeto saltando contra cielo despejado. Cámara baja (0.6 m) mirando hacia arriba, solo cielo como fondo.",
-          "reasoning": "1/2000 s congela el salto. A 6 m el 85 mm cubre ≈2.5 × 1.7 m: en horizontal entra el cuerpo entero con poco aire, en vertical sobra para los brazos arriba. El contrapicado agranda al sujeto y lo aísla contra el cielo (minimalismo por eliminación del fondo). f/2.8 deja algo de margen de enfoque mientras el sujeto se mueve.",
+          "scene_notes": "Sujeto saltando contra el cielo, a 9 m. Cámara baja (0.6 m) mirando hacia arriba, solo cielo como fondo.",
+          "reasoning": "1/2000 s congela el salto. A 9 m el 85 mm cubre ≈3.8 × 2.5 m: en vertical (3.8 m de alto) entra el salto con los brazos arriba y algo de aire; en horizontal no entra. A 6 m ni en vertical cabe: el cuadro mediría 2.5 m de alto. El contrapicado agranda al sujeto y lo aísla contra el cielo (minimalismo por eliminación del fondo). f/2.8 deja algo de margen de enfoque mientras el sujeto se mueve.",
           "dos": [
             "Usa AF AI SERVO + selección de punto + ráfaga de 4.5 fps",
             "Cuenta regresiva 3-2-1 con el sujeto para sincronizar el salto",
-            "Dispara en JPG+RAW por si el AF falla en algunas tomas"
+            "Dispara sólo en RAW: la 6D guarda ≈14 en ráfaga frente a ≈7 en RAW+JPEG; el foco lo asegura AI SERVO, no el formato"
           ],
           "donts": [
             "No dispares a 1/500 — el salto saldrá borroso",
@@ -593,9 +596,15 @@
               "lens": "85mm",
               "aperture": "f/4",
               "shutter": "1/4000",
-              "iso": 400,
-              "scene": "antes_ocaso",
-              "notes": "Mañana: cielo azul, sombras duras — usa reflector o flash de relleno."
+              "iso": 200,
+              "scene": "sol_pleno",
+              "notes": "Mañana: cielo azul, sombras duras; rellénalas con un reflector. Un flash externo a 1/4000 s sólo funciona en HSS y con poco alcance: la 6D no trae flash y sincroniza hasta 1/180 s. Con garúa (cielo gris parejo, de junio a octubre) llega dos pasos menos de luz: abre a f/2.8 y baja la velocidad a 1/2000 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/2.8",
+                "shutter": "1/2000",
+                "iso": 200,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "85mm",
@@ -612,7 +621,7 @@
               "iso": 6400,
               "scene": "iluminado_focos",
               "viable": false,
-              "notes": "Noche: no viable sin flash. Con faroles a 1/1000 s haría falta ISO por encima de 25 600; pospón al día."
+              "notes": "Noche: no viable con faroles: a 1/1000 s haría falta ISO por encima de 25 600; pospón al día. Con un flash externo a 1/180 s, el destello es el que congela el salto."
             }
           },
           "subjects": {
@@ -651,7 +660,7 @@
           ],
           "donts": [
             "No dispares estático — el barrido requiere movimiento de cámara",
-            "No uses 1/250 — congela todo, pierde el efecto",
+            "No uses 1/250: el fondo apenas se barre y pierdes el efecto",
             "No dispares a f/1.8 — fallarás el enfoque en movimiento"
           ],
           "settings_by_time": {
@@ -783,7 +792,7 @@
           "donts": [
             "No muevas la cámara — cualquier movimiento arruina el trazo",
             "No dejes la linterna apuntando al lente — crearás flare",
-            "No uses ISO alto — se quemará la imagen"
+            "No subas el ISO: el trazo se quema y el fondo se aclara"
           ],
           "settings_by_time": {
             "day": {
@@ -859,7 +868,7 @@
               "iso": 100,
               "scene": "nublado_claro",
               "nd_stops": 10,
-              "notes": "Mañana: con el cielo nublado claro de Lima, 15 s exigen un ND de 10 pasos; si sale el sol, cierra a f/16. Algo de viento en las copas ayuda."
+              "notes": "Mañana: con el cielo nublado claro de Lima, 15 s exigen un ND de 10 pasos; si sale el sol llegan dos pasos más: suma un ND de 2 pasos al de 10 en lugar de cerrar a f/22. Algo de viento en las copas ayuda."
             },
             "afternoon": {
               "lens": "35-80mm @50",
@@ -915,7 +924,7 @@
           ],
           "donts": [
             "No muevas la cámara mientras haces zoom — arruinarás el centro fijo",
-            "No uses 1 s — no da tiempo al giro completo"
+            "No pares el giro antes de que se cierre el obturador: con 1 s gira rápido, con 4 s despacio"
           ],
           "settings_by_time": {
             "day": {
@@ -963,8 +972,9 @@
       "name": "Malecón de Miraflores — Costa Verde",
       "location": "Malecón Cisneros / Parque del Amor, Miraflores",
       "distance_from_home": "Acceso urbano; verifica tráfico y transporte",
+      "access": "Malecón público de Miraflores: no encontramos una norma que pida permiso para la foto personal. Desde 2023 la municipalidad pide autorización previa para reuniones de más de 15 personas o con mesas, inflables o música; para una sesión comercial, consúltale antes. El malecón corre sobre los acantilados de la Costa Verde: no pases la baranda. Revisado el 28 de octubre de 2026.",
       "best_window": "Tarde 16:30–18:30 (hora dorada + atardecer sobre el Pacífico) · Noche 19:00–21:00",
-      "why": "Horizonte abierto del Pacífico, sol ocultándose en el mar (azimut ≈246° en diciembre a ≈294° en junio, según NOAA), faroles del malecón, parapentes en movimiento. Ideal para larga exposición del mar, barrido de parapentes, contrapicados contra el cielo, minimalismo con horizonte.",
+      "why": "Horizonte abierto del Pacífico, faroles del malecón, parapentes en movimiento. El ocaso va de ≈246° en diciembre a ≈294° en junio (según NOAA): de mediados de septiembre a marzo el sol se hunde en el mar, pero de abril a comienzos de septiembre cae tras la isla San Lorenzo o La Punta, hasta unos 5 minutos antes de la hora oficial y sin tocar el agua. Ideal para larga exposición del mar, barrido de parapentes, contrapicados contra el cielo, minimalismo con horizonte.",
       "palette": [
         "#0e4f6b",
         "#3b8dbd",
@@ -989,14 +999,14 @@
           "camera_height_m": 1.65,
           "pose": "Recargado en muro, un pie apoyado, relajado",
           "scene_notes": "Sujeto recargado en baranda del malecón. Capas: 1) baranda (primer plano), 2) sujeto (plano medio), 3) paseantes y parapentes (plano lejano), 4) mar y horizonte (fondo), 5) cielo.",
-          "reasoning": "El 35 mm a 5 m cubre todos los planos. A f/11 la hiperfocal es ≈3.7 m; enfocando a 5 m queda nítido desde ≈2.1 m hasta el infinito. Las capas se construyen con profundidad real: la baranda ocupa el sexto inferior, el sujeto un tercio y el horizonte va en el tercio superior.",
+          "reasoning": "El 35 mm a 5 m cubre todos los planos. A f/11 la hiperfocal es ≈3.7 m; enfocando a 5 m queda nítido desde ≈2.1 m hasta el infinito en una copia normal; al 100 % el horizonte se verá apenas blando. Las capas se construyen con profundidad real: la baranda ocupa el sexto inferior, el sujeto un tercio y el horizonte va en el tercio superior.",
           "dos": [
             "Encuadra la baranda como diagonal en primer plano",
             "Pon el horizonte en el tercio superior (no al centro)",
             "Verifica que el sujeto no se solape con elementos lejanos"
           ],
           "donts": [
-            "No dispares con marea subiendo si te paras muy cerca del borde (spray salino)",
+            "No pases la baranda ni te subas a ella; con el ojo en el visor, no retrocedas sin mirar",
             "No rompas las capas con un fondo caótico"
           ],
           "settings_by_time": {
@@ -1006,7 +1016,13 @@
               "shutter": "1/125",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Mañana: cielo despejado, mar azul."
+              "notes": "Mañana: sol velado sobre el mar; el horizonte se lee nítido. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: sube a ISO 200; lo demás igual.",
+              "garua": {
+                "aperture": "f/11",
+                "shutter": "1/125",
+                "iso": 200,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "35mm",
@@ -1070,7 +1086,13 @@
               "shutter": "1/250",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Mañana: brisa marina refresca, cielo azul profundo."
+              "notes": "Mañana: sol velado; subexpón -0.7 EV para que el cielo conserve detalle. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: baja la velocidad a 1/125 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/8",
+                "shutter": "1/125",
+                "iso": 100,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "35-80mm @35",
@@ -1125,7 +1147,7 @@
           ],
           "donts": [
             "No uses 85mm a f/8 — matas el bokeh del mar",
-            "No dispares contraluz sin reflector o flash de relleno"
+            "No dispares a contraluz sin reflector: a estas velocidades un flash externo sólo sincroniza en HSS (la 6D llega a 1/180 s y no trae flash)"
           ],
           "settings_by_time": {
             "day": {
@@ -1134,7 +1156,13 @@
               "shutter": "1/4000",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Mañana: sol fuerte, usa sombra natural."
+              "notes": "Mañana: si el sol pega en el rostro, llévalo a la sombra o usa un reflector. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: baja la velocidad a 1/2000 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/2",
+                "shutter": "1/2000",
+                "iso": 100,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "85mm",
@@ -1147,10 +1175,10 @@
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/125",
-              "iso": 200,
+              "shutter": "1/160",
+              "iso": 250,
               "scene": "calle_noche",
-              "notes": "Noche: retrato junto a un farol. Ajusta el balance de blancos a unos 3200 K."
+              "notes": "Noche: retrato junto a un farol. Dispara en RAW y mide un balance personalizado con una tarjeta gris: el sodio (naranja) ronda los 2100 K, el LED blanco 3000–4000 K."
             }
           },
           "subjects": {
@@ -1198,7 +1226,13 @@
               "shutter": "1/4000",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Mañana: sol lateral ilumina el marco y el sujeto por igual."
+              "notes": "Mañana: sol lateral ilumina el marco y el sujeto por igual. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: baja la velocidad a 1/2000 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/2",
+                "shutter": "1/2000",
+                "iso": 100,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "50mm",
@@ -1249,7 +1283,7 @@
           "dos": [
             "AF AI SERVO + punto central + ráfaga",
             "Pre-enfoca en la zona por donde pasan los parapentes",
-            "Dispara en JPG+RAW, descarta los no nítidos"
+            "Dispara sólo en RAW (≈14 en ráfaga frente a ≈7 en RAW+JPEG) y descarta los no nítidos"
           ],
           "donts": [
             "No uses 1/500 — el parapente saldrá blando",
@@ -1262,7 +1296,13 @@
               "shutter": "1/4000",
               "iso": 400,
               "scene": "sol_velado",
-              "notes": "Mañana: sol velado; 1/4000 s a f/4 deja margen de enfoque para seguir la vela."
+              "notes": "Mañana: sol velado; 1/4000 s a f/4 deja margen de enfoque para seguir la vela. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/2.8; lo demás igual.",
+              "garua": {
+                "aperture": "f/2.8",
+                "shutter": "1/4000",
+                "iso": 400,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "85mm",
@@ -1318,7 +1358,7 @@
           ],
           "donts": [
             "No pares el giro al disparar",
-            "No uses 1/250 — congela todo"
+            "No uses 1/250: el fondo apenas se barre"
           ],
           "settings_by_time": {
             "day": {
@@ -1328,7 +1368,14 @@
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 2,
-              "notes": "Mañana: con sol velado, 1/30 s pide f/13 y un ND de 2 pasos; si no tienes el filtro, pasa a ISO 100, f/18 y 1/60 s y acepta menos arrastre."
+              "notes": "Mañana: con sol velado, 1/30 s pide f/13 y un ND de 2 pasos; si no tienes el filtro, pasa a ISO 100, f/18 y 1/60 s y acepta menos arrastre. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/9; lo demás igual.",
+              "garua": {
+                "aperture": "f/9",
+                "shutter": "1/30",
+                "iso": 125,
+                "scene": "nublado_claro",
+                "nd_stops": 2
+              }
             },
             "afternoon": {
               "lens": "50mm",
@@ -1393,7 +1440,14 @@
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Mañana: 3 s con sol velado exigen un ND de 10 pasos."
+              "notes": "Mañana: 3 s con sol velado exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/5.6; lo demás igual.",
+              "garua": {
+                "aperture": "f/5.6",
+                "shutter": "3\"2",
+                "iso": 125,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35mm",
@@ -1444,7 +1498,7 @@
           "scene_notes": "Sujeto en la arena de la playa (baja escaleras del malecón). Solo el sujeto + el trazo de luz. Mar y cielo como fondo negro.",
           "reasoning": "25\" en el dial, sin Bulb: la 6D cronometra hasta 30\". La playa de noche está casi a oscuras salvo el faro de La Marina. El sujeto se queda quieto mientras un asistente traza espirales alrededor. Minimalismo extremo: sujeto y luz, nada más.",
           "dos": [
-            "Baja a la playa con permiso (revisar mareas)",
+            "Baja a la playa acompañado y antes de que oscurezca del todo; revisa la tabla de mareas de la Dirección de Hidrografía y Navegación y no te quedes al pie del acantilado, donde caen piedras",
             "Lleva linterna LED pequeña + guante para no quemar",
             "Sujeto lleva ropa oscura"
           ],
@@ -1526,7 +1580,14 @@
               "iso": 100,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Mañana: 20 s con sol velado exigen un ND de 10 pasos."
+              "notes": "Mañana: 20 s con sol velado exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/13; lo demás igual.",
+              "garua": {
+                "aperture": "f/13",
+                "shutter": "20\"",
+                "iso": 100,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35-80mm @50",
@@ -1582,7 +1643,7 @@
           ],
           "donts": [
             "No muevas la cámara mientras haces zoom",
-            "No uses tiempos de más de 5 s — el efecto se diluye"
+            "No uses más de 4 s: el centro también se desdibuja"
           ],
           "settings_by_time": {
             "day": {
@@ -1592,7 +1653,14 @@
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Mañana: 3 s con sol velado exigen un ND de 10 pasos."
+              "notes": "Mañana: 3 s con sol velado exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/5.6; lo demás igual.",
+              "garua": {
+                "aperture": "f/5.6",
+                "shutter": "3\"2",
+                "iso": 125,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35-80mm",
@@ -1630,6 +1698,7 @@
       "name": "San Isidro Nocturno — Interior + Calle Urbana",
       "location": "Interior controlado + exteriores públicos seguros de San Isidro",
       "distance_from_home": "Sesión local; elige una ruta pública y segura",
+      "access": "Interior: tu casa o una con permiso de quien vive ahí. Calle: vereda pública de San Isidro, donde la foto personal no pide permiso: sólo la producción comercial, según dijo la municipalidad en 2015 a propósito de El Olivar; con trípode no cortes el paso ni pises la calzada. Revisado el 28 de octubre de 2026.",
       "best_window": "Noche 19:30–22:30 · Después de las 18:00 en invierno (La Garúa)",
       "why": "Un interior controlado ofrece dominio de luz y oscuridad para pintura con luz, fantasma y efecto zoom. Una calle pública segura con faroles y tránsito visible permite practicar barrido y trazas sin revelar una ubicación residencial.",
       "palette": [
@@ -1664,7 +1733,7 @@
           ],
           "donts": [
             "No uses flash directo — mata la atmósfera cálida",
-            "No dispares a 1/15 sin trípode — saldrá trepidado"
+            "No bajes de 1/60 s con una persona: el estabilizador del 35 mm sujeta la cámara, no al sujeto"
           ],
           "settings_by_time": {
             "day": {
@@ -1773,8 +1842,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 85,
           "aperture": "f/1.8",
-          "shutter": "1/125",
-          "iso": 400,
+          "shutter": "1/160",
+          "iso": 500,
           "subject_distance_m": 2.5,
           "background_distance_m": 6.0,
           "composition": "punto_interes",
@@ -1806,16 +1875,16 @@
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/2",
-              "shutter": "1/125",
-              "iso": 400,
+              "shutter": "1/160",
+              "iso": 500,
               "scene": "interior_casa",
               "notes": "Tarde: lámpara encendida como acento."
             },
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/125",
-              "iso": 400,
+              "shutter": "1/160",
+              "iso": 500,
               "scene": "interior_casa",
               "notes": "Noche: solo la lámpara del fondo + luz suave frontal."
             }
@@ -1912,7 +1981,7 @@
           "camera_height_m": 0.5,
           "pose": "Salto vertical, brazos arriba, sonrisa amplia",
           "scene_notes": "Sujeto saltando en el patio o jardín de la casa con luz de día o al atardecer. Cámara baja mirando hacia arriba contra el cielo.",
-          "reasoning": "1/2000 s congela el salto. Hazlo con luz de día o al atardecer: con un solo farol de noche haría falta flash. f/2.8 da margen de foco en movimiento. El contrapicado aísla al sujeto contra el cielo. Minimalismo: sólo sujeto y cielo.",
+          "reasoning": "1/2000 s congela el salto. Hazlo con luz de día o al atardecer: con un solo farol de noche haría falta un flash externo a 1/180 s. f/2.8 da margen de foco en movimiento. El contrapicado aísla al sujeto contra el cielo. Minimalismo: sólo sujeto y cielo.",
           "dos": [
             "Usa un farol potente o linterna direccional como luz principal",
             "Pre-enfoca donde saltará el sujeto (MF)",
@@ -1929,7 +1998,13 @@
               "shutter": "1/4000",
               "iso": 400,
               "scene": "sol_velado",
-              "notes": "Mañana: luz natural, 1/4000 s a f/4."
+              "notes": "Mañana: luz natural, 1/4000 s a f/4. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/2.8; lo demás igual.",
+              "garua": {
+                "aperture": "f/2.8",
+                "shutter": "1/4000",
+                "iso": 400,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "50mm",
@@ -1946,7 +2021,7 @@
               "iso": 3200,
               "scene": "interior_casa",
               "viable": false,
-              "notes": "Noche: no viable con un solo farol; necesitarías flash. Pospón al día."
+              "notes": "Noche: no viable con un solo farol. Pospón al día, o usa un flash externo a 1/180 s: el destello congela el salto."
             }
           },
           "subjects": {
@@ -1985,7 +2060,7 @@
           ],
           "donts": [
             "De noche no bajes de ISO 200 si eso te obliga a abrir más allá de f/4",
-            "No uses 1/250 — congela el auto"
+            "No uses 1/250: el fondo apenas se barre"
           ],
           "settings_by_time": {
             "day": {
@@ -1994,7 +2069,13 @@
               "shutter": "1/125",
               "iso": 200,
               "scene": "sol_velado",
-              "notes": "Mañana: autos rápidos; 1/125 s todavía deja algo de barrido."
+              "notes": "Mañana: autos rápidos; 1/125 s todavía deja algo de barrido. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/11; lo demás igual.",
+              "garua": {
+                "aperture": "f/11",
+                "shutter": "1/125",
+                "iso": 200,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "50mm",
@@ -2114,7 +2195,7 @@
           ],
           "donts": [
             "No apuntes la linterna al lente (flare)",
-            "No uses ISO alto — se quema"
+            "No subas el ISO: el trazo se quema y el fondo se aclara"
           ],
           "settings_by_time": {
             "day": {
@@ -2188,7 +2269,14 @@
               "iso": 160,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Mañana: 10 s con sol velado exigen un ND de 10 pasos."
+              "notes": "Mañana: 10 s con sol velado exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/11; lo demás igual.",
+              "garua": {
+                "aperture": "f/11",
+                "shutter": "10\"",
+                "iso": 160,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35-80mm @35",
@@ -2245,7 +2333,7 @@
           ],
           "donts": [
             "No muevas la cámara mientras haces zoom",
-            "No uses más de 5 s"
+            "No uses más de 4 s: el centro también se desdibuja"
           ],
           "settings_by_time": {
             "day": {
@@ -2292,7 +2380,8 @@
       "name": "Centro Histórico — Plaza San Martín & Jirón de la Unión",
       "location": "Plaza San Martín, Jirón de la Unión, Plaza Mayor (Centro de Lima)",
       "distance_from_home": "Salida urbana; planifica transporte y retorno nocturno",
-      "best_window": "Mañana 07:00–09:00 (menos gente, sol aún bajo) · Tarde 16:00–18:00",
+      "access": "Centro Histórico, Patrimonio Mundial: una sesión organizada o una filmación se solicita por escrito a la Municipalidad de Lima a través de PROLIMA (PROMPERÚ, Film in Peru); para la foto personal en la calle no encontramos un trámite. La Plaza Mayor ha estado enrejada a ratos desde 2021 (aún en febrero de 2025, con fotos sólo desde las esquinas): si la encuentras cerrada, haz D05 y D09 en la Plaza San Martín. Revisado el 28 de octubre de 2026.",
+      "best_window": "Mañana desde que sale el sol hasta las 09:00 (menos gente; la luz dorada dura ≈30 min) · Tarde 16:00–18:00",
       "why": "Arquitectura colonial-republicana simétrica, arcos de la Plaza San Martín, jirón peatonal con perspectiva forzada, palomas en Plaza Mayor. Perfecto para simetría arquitectónica, enmarcado con arcos, perspectiva con líneas convergentes, barridos de transeúntes.",
       "palette": [
         "#8b5a2b",
@@ -2318,7 +2407,7 @@
           "camera_height_m": 1.65,
           "pose": "Caminando hacia la cámara, paso natural, mirada al frente",
           "scene_notes": "Jirón de la Unión peatonal. Cámara en eje central de la calle. Balcones coloniales a ambos lados convergen al fondo (cúpula de la Catedral visible).",
-          "reasoning": "El 35 mm en formato completo abarca la calle. A f/11, enfocando al sujeto a 5 m, queda nítido desde ≈2.1 m hasta el infinito. La perspectiva de un punto (cámara en el eje) hace converger balcones, cornisas y banderas hacia el fondo. El sujeto caminando da escala.",
+          "reasoning": "El 35 mm en formato completo abarca la calle. A f/11, enfocando al sujeto a 5 m, queda nítido desde ≈2.1 m hasta el infinito en una copia normal; al 100 % las cornisas del fondo se verán apenas blandas. La perspectiva de un punto (cámara en el eje) hace converger balcones, cornisas y banderas hacia el fondo. El sujeto caminando da escala.",
           "dos": [
             "Encuadra PERFECTAMENTE en el eje central de la calle",
             "Espera un momento sin demasiada gente (temprano)",
@@ -2326,7 +2415,7 @@
           ],
           "donts": [
             "No dispares descentrado — las líneas no convergerán correctamente",
-            "No uses gran angular extremo (24 mm) — distorsiona demasiado los balcones"
+            "No inclines la cámara: con el sensor vertical los balcones no convergen; déjalos lejos de las esquinas del encuadre"
           ],
           "settings_by_time": {
             "day": {
@@ -2335,7 +2424,13 @@
               "shutter": "1/125",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Mañana: 7-8am luz lateral cálida, menos gente."
+              "notes": "Mañana: llega con el sol recién salido; la luz lateral cálida dura ≈30 min y hay menos gente. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: sube a ISO 200; lo demás igual.",
+              "garua": {
+                "aperture": "f/11",
+                "shutter": "1/125",
+                "iso": 200,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "35mm",
@@ -2381,7 +2476,7 @@
           "angle_label": "Central",
           "camera_height_m": 1.7,
           "pose": "De pie, brazos cruzados, hombros abiertos, mirada directa",
-          "scene_notes": "Plaza San Martín: sujeto al centro exacto de la plaza, cámara en eje del monumento. Edificios simétricos (Club Nacional y Hotel Bolívar) a ambos lados.",
+          "scene_notes": "Plaza San Martín: sujeto al centro exacto de la plaza, cámara en el eje norte-sur del monumento. A ambos lados, los portales casi idénticos de Zela (sur) y Pumacahua (norte); el Hotel Bolívar y el Club Nacional quedan juntos al oeste.",
           "reasoning": "El zoom a 35mm f/8 da PDC suficiente para el monumento lejano. La simetría exige posición exacta: sujeto al centro, cámara alineada con el monumento. Plaza amplia permite la distancia de 8 m.",
           "dos": [
             "Usa rejilla de pantalla y nivel electrónico del 6D",
@@ -2399,7 +2494,13 @@
               "shutter": "1/250",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Mañana: mejor momento, plaza vacía."
+              "notes": "Mañana: mejor momento, plaza vacía. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: baja la velocidad a 1/125 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/8",
+                "shutter": "1/125",
+                "iso": 100,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "35-80mm @35",
@@ -2463,7 +2564,13 @@
               "shutter": "1/4000",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Mañana: sombra de arco, luz suave."
+              "notes": "Mañana: sombra de arco, luz suave. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: baja la velocidad a 1/2000 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/2",
+                "shutter": "1/2000",
+                "iso": 100,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "85mm",
@@ -2476,10 +2583,10 @@
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/125",
-              "iso": 1600,
+              "shutter": "1/160",
+              "iso": 2000,
               "scene": "iluminado_focos",
-              "notes": "Noche: iluminación del monumento; ISO 1600 a f/1.8."
+              "notes": "Noche: iluminación del monumento; ISO 2000 a f/1.8 y 1/160 s, lo que el 85 mm necesita a pulso."
             }
           },
           "subjects": {
@@ -2527,7 +2634,13 @@
               "shutter": "1/4000",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Mañana: luz lateral del arco, ideal."
+              "notes": "Mañana: luz lateral del arco, ideal. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: baja la velocidad a 1/2000 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/2",
+                "shutter": "1/2000",
+                "iso": 100,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "50mm",
@@ -2573,11 +2686,11 @@
           "angle_label": "Contrapicado",
           "camera_height_m": 0.6,
           "pose": "Salto vertical, brazos arriba, sonrisa amplia",
-          "scene_notes": "Sujeto saltando en Plaza Mayor contra cielo despejado. Cámara baja mirando hacia arriba. Palomas en vuelo pueden sumarse.",
-          "reasoning": "1/2000 s congela el salto y las palomas en vuelo. A 10 m el 85 mm cubre ≈4.2 × 2.8 m: el cuerpo entero en el aire con margen. El contrapicado aísla al sujeto contra el cielo. Minimalismo por eliminación.",
+          "scene_notes": "Sujeto saltando en Plaza Mayor contra el cielo. Cámara baja mirando hacia arriba. Palomas en vuelo pueden sumarse.",
+          "reasoning": "1/2000 s congela el salto y las palomas en vuelo. A 10 m el 85 mm cubre ≈4.2 × 2.8 m: en vertical (4.2 m de alto) entra el salto con los brazos arriba con margen; en horizontal queda justo. El contrapicado aísla al sujeto contra el cielo. Minimalismo por eliminación.",
           "dos": [
             "AF AI SERVO + punto central + ráfaga",
-            "Coordina salto con movimiento de palomas (un asistente las asusta)",
+            "Si quieres palomas, espera a que levanten vuelo solas y salta entonces; no las espantes ni les des de comer",
             "Pre-enfoca en la altura esperada del salto"
           ],
           "donts": [
@@ -2591,7 +2704,13 @@
               "shutter": "1/4000",
               "iso": 400,
               "scene": "sol_velado",
-              "notes": "Mañana: cielo azul, sombras duras."
+              "notes": "Mañana: con sol velado las sombras son suaves y el cielo sale claro. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/2.8; lo demás igual.",
+              "garua": {
+                "aperture": "f/2.8",
+                "shutter": "1/4000",
+                "iso": 400,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "85mm",
@@ -2647,7 +2766,7 @@
           ],
           "donts": [
             "No pares el giro al disparar",
-            "No uses 1/250 — congela todo"
+            "No uses 1/250: el fondo apenas se barre"
           ],
           "settings_by_time": {
             "day": {
@@ -2657,7 +2776,14 @@
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 2,
-              "notes": "Mañana: con sol velado, 1/30 s pide f/13 y un ND de 2 pasos; si no tienes el filtro, pasa a ISO 100, f/18 y 1/60 s."
+              "notes": "Mañana: con sol velado, 1/30 s pide f/13 y un ND de 2 pasos; si no tienes el filtro, pasa a ISO 100, f/18 y 1/60 s. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/9; lo demás igual.",
+              "garua": {
+                "aperture": "f/9",
+                "shutter": "1/30",
+                "iso": 125,
+                "scene": "nublado_claro",
+                "nd_stops": 2
+              }
             },
             "afternoon": {
               "lens": "50mm",
@@ -2722,7 +2848,14 @@
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Mañana: 3 s con sol velado exigen un ND de 10 pasos."
+              "notes": "Mañana: 3 s con sol velado exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/5.6; lo demás igual.",
+              "garua": {
+                "aperture": "f/5.6",
+                "shutter": "3\"2",
+                "iso": 125,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35mm",
@@ -2778,7 +2911,7 @@
           ],
           "donts": [
             "No apuntes la linterna al lente",
-            "No uses ISO alto — se quema"
+            "No subas el ISO: el trazo se quema y el fondo se aclara"
           ],
           "settings_by_time": {
             "day": {
@@ -2854,7 +2987,14 @@
               "iso": 100,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Mañana: 15 s con sol velado exigen un ND de 10 pasos."
+              "notes": "Mañana: 15 s con sol velado exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/11; lo demás igual.",
+              "garua": {
+                "aperture": "f/11",
+                "shutter": "15\"",
+                "iso": 100,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35-80mm @50",
@@ -2910,7 +3050,7 @@
           ],
           "donts": [
             "No muevas la cámara durante el zoom",
-            "No uses más de 5 s"
+            "No uses más de 4 s: el centro también se desdibuja"
           ],
           "settings_by_time": {
             "day": {
@@ -2920,7 +3060,14 @@
               "iso": 125,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Mañana: 3 s con sol velado exigen un ND de 10 pasos."
+              "notes": "Mañana: 3 s con sol velado exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/5.6; lo demás igual.",
+              "garua": {
+                "aperture": "f/5.6",
+                "shutter": "3\"2",
+                "iso": 125,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35-80mm",
@@ -2958,6 +3105,7 @@
       "name": "Casa / Laboratorio — Control total",
       "location": "Interior controlado + ventana o retiro privado seguro",
       "distance_from_home": "Sin ubicación fija; usa un espacio con permiso",
+      "access": "Tu casa o un espacio con permiso de quien lo administra; en un edificio, pregunta antes por pasillos y escaleras comunes. Revisado el 28 de octubre de 2026.",
       "best_window": "Cualquier hora · ideal con garúa, poco tiempo o para repetir pruebas A/B",
       "why": "Plan a prueba de clima: pasillos, puertas, escaleras y ventanas permiten controlar geometría, seguridad y repetición. Es el mejor laboratorio para aprender qué cambia cuando mueves UNA sola variable.",
       "palette": [
@@ -3100,8 +3248,8 @@
           "technique_label": "Poca Profundidad de Campo",
           "lens_focal": 85,
           "aperture": "f/1.8",
-          "shutter": "1/125",
-          "iso": 400,
+          "shutter": "1/160",
+          "iso": 500,
           "subject_distance_m": 3.0,
           "background_distance_m": 11.0,
           "composition": "tercios",
@@ -3132,16 +3280,16 @@
             "afternoon": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/125",
-              "iso": 400,
+              "shutter": "1/160",
+              "iso": 500,
               "scene": "interior_casa",
-              "notes": "Tarde: mantén la velocidad y deja subir el ISO."
+              "notes": "Tarde: mantén 1/160 s, lo que el 85 mm necesita a pulso, y deja subir el ISO."
             },
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/125",
-              "iso": 400,
+              "shutter": "1/160",
+              "iso": 500,
               "scene": "interior_casa",
               "notes": "Noche: busca una fuente suave grande o reubica cerca de ventana/lámpara."
             }
@@ -3262,7 +3410,7 @@
               "shutter": "1/1600",
               "iso": 5000,
               "scene": "interior_casa",
-              "notes": "Tarde: abre a f/2 e ISO 5000; si aún falta luz, usa flash o pospón."
+              "notes": "Tarde: abre a f/2 e ISO 5000; si aún falta luz, pospón o usa un flash externo a 1/180 s, que congela con el destello."
             },
             "night": {
               "lens": "50mm",
@@ -3377,11 +3525,12 @@
           "settings_by_time": {
             "day": {
               "lens": "35mm",
-              "aperture": "f/22",
+              "aperture": "f/11",
               "shutter": "1\"",
               "iso": 100,
               "scene": "ventana",
-              "notes": "Día: luz de ventana; 1 s a f/22 sin filtro."
+              "nd_stops": 3,
+              "notes": "Día: luz de ventana; 1 s a f/11 con un ND de 3 pasos (ND8). Mejor que cerrar a f/22, donde la difracción ablanda el fondo."
             },
             "afternoon": {
               "lens": "35mm",
@@ -3510,7 +3659,14 @@
               "iso": 100,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Día: 5 s con sol velado exigen un ND de 10 pasos."
+              "notes": "Día: 5 s con sol velado exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/6.3; lo demás igual.",
+              "garua": {
+                "aperture": "f/6.3",
+                "shutter": "5\"",
+                "iso": 100,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35mm",
@@ -3613,6 +3769,7 @@
       "name": "Abtao / Distrito Financiero — Urbano Local",
       "location": "Parque Combate de Abtao + ejes peatonales/arquitectura del distrito financiero de San Isidro",
       "distance_from_home": "Ruta urbana pública; define el punto de partida de forma privada",
+      "access": "Parque Combate de Abtao y veredas públicas de San Isidro: la foto personal no pide permiso: sólo la producción comercial, según dijo la municipalidad en 2015 a propósito de El Olivar. Las plazas y lobbies de los edificios son privados: si seguridad te pide no usar trípode, dispara desde la vereda. Revisado el 28 de octubre de 2026.",
       "best_window": "16:15–19:30 · arquitectura con luz lateral → hora azul → trazas",
       "why": "Arquitectura corporativa, líneas geométricas, parque y tráfico en una sola ruta cercana, perfecta para simetría, contrapicado, barrido y larga exposición.",
       "palette": [
@@ -3655,7 +3812,13 @@
               "shutter": "1/125",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Día: luz lateral en fachada."
+              "notes": "Día: luz lateral en fachada. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: sube a ISO 200; lo demás igual.",
+              "garua": {
+                "aperture": "f/11",
+                "shutter": "1/125",
+                "iso": 200,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "35mm",
@@ -3717,7 +3880,13 @@
               "shutter": "1/250",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Día."
+              "notes": "Día. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: baja la velocidad a 1/125 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/8",
+                "shutter": "1/125",
+                "iso": 100,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "35mm",
@@ -3779,7 +3948,13 @@
               "shutter": "1/4000",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Día."
+              "notes": "Día. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: baja la velocidad a 1/2000 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/2",
+                "shutter": "1/2000",
+                "iso": 100,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "85mm",
@@ -3792,8 +3967,8 @@
             "night": {
               "lens": "85mm",
               "aperture": "f/1.8",
-              "shutter": "1/125",
-              "iso": 200,
+              "shutter": "1/160",
+              "iso": 250,
               "scene": "calle_noche",
               "notes": "Noche: busca fachada iluminada lejana."
             }
@@ -3841,7 +4016,13 @@
               "shutter": "1/4000",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Día."
+              "notes": "Día. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: baja la velocidad a 1/2000 s; lo demás igual.",
+              "garua": {
+                "aperture": "f/2",
+                "shutter": "1/2000",
+                "iso": 100,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "50mm",
@@ -3904,7 +4085,13 @@
               "shutter": "1/2000",
               "iso": 100,
               "scene": "sol_velado",
-              "notes": "Día: 1/2000 s a f/2.8 deja margen de enfoque."
+              "notes": "Día: 1/2000 s a f/2.8 deja margen de enfoque. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: sube a ISO 200; lo demás igual.",
+              "garua": {
+                "aperture": "f/2.8",
+                "shutter": "1/2000",
+                "iso": 200,
+                "scene": "nublado_claro"
+              }
             },
             "afternoon": {
               "lens": "85mm",
@@ -3969,7 +4156,14 @@
               "iso": 100,
               "scene": "sol_velado",
               "nd_stops": 2,
-              "notes": "Día: con sol velado, 1/40 s pide f/10 y un ND de 2 pasos; si no tienes el filtro, pasa a f/14 y 1/80 s."
+              "notes": "Día: con sol velado, 1/40 s pide f/10 y un ND de 2 pasos; si no tienes el filtro, pasa a f/14 y 1/80 s. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/7.1; lo demás igual.",
+              "garua": {
+                "aperture": "f/7.1",
+                "shutter": "1/40",
+                "iso": 100,
+                "scene": "nublado_claro",
+                "nd_stops": 2
+              }
             },
             "afternoon": {
               "lens": "50mm",
@@ -4032,7 +4226,14 @@
               "iso": 100,
               "scene": "sol_velado",
               "nd_stops": 6,
-              "notes": "Día: 1 s con sol velado exige un ND de 6 pasos."
+              "notes": "Día: 1 s con sol velado exige un ND de 6 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/11; lo demás igual.",
+              "garua": {
+                "aperture": "f/11",
+                "shutter": "1\"",
+                "iso": 100,
+                "scene": "nublado_claro",
+                "nd_stops": 6
+              }
             },
             "afternoon": {
               "lens": "35mm",
@@ -4162,7 +4363,14 @@
               "iso": 100,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Día: 5 s exigen un ND de 10 pasos."
+              "notes": "Día: 5 s exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/6.3; lo demás igual.",
+              "garua": {
+                "aperture": "f/6.3",
+                "shutter": "5\"",
+                "iso": 100,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35mm",
@@ -4228,7 +4436,14 @@
               "iso": 200,
               "scene": "sol_velado",
               "nd_stops": 10,
-              "notes": "Día: 2 s con sol velado exigen un ND de 10 pasos."
+              "notes": "Día: 2 s con sol velado exigen un ND de 10 pasos. Con garúa (cielo gris parejo, de junio a octubre) llega un paso menos de luz: abre a f/5.6; lo demás igual.",
+              "garua": {
+                "aperture": "f/5.6",
+                "shutter": "2\"",
+                "iso": 200,
+                "scene": "nublado_claro",
+                "nd_stops": 10
+              }
             },
             "afternoon": {
               "lens": "35-80mm",

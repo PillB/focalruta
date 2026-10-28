@@ -20,6 +20,11 @@ and at tablet width, a shot's detail, picking a plan or a light, ticking a shot)
 held to INP's marks on a mid-tier and a low-tier phone, for the first paint and for
 what each tap was for (X06, `interaction_budget.py`).
 
+Lighthouse's fixed 4x is meant for a host whose BenchmarkIndex is 1500 to 2000
+(docs/throttling.md); a slower host turns the same page into a slower phone. Every
+run keeps the index Lighthouse measured, and the report says when the host was
+slower than that, so a slow machine is told apart from a slow page (Y24).
+
 FocalRuta_STANDALONE.html is left out on purpose: it is the 15 MB offline copy
 a reader downloads once, with every diagram inside, not a page anyone browses.
 """
@@ -53,7 +58,7 @@ CHALLENGE = "challenges/arquitectura-en-foco/"
 PAGES = (
     ("index.html", "home", 180),
     ("field_card.html", "field card", 70),
-    *((f"plans/plan_{letter}.html", "plan page", 340) for letter in "abcdef"),
+    *((f"plans/plan_{letter}.html", "plan page", 340) for letter in qa_matrix.PLAN_LETTERS),
     (CHALLENGE + "index.html", "challenge", 100),
     (CHALLENGE + "wiki-tecnicas.html", "challenge guide", 40),
     (CHALLENGE + "field-card.html", "challenge guide", 40),
@@ -70,6 +75,8 @@ TIMING_BUDGETS = (
     ("speed-index", 3400, "ms"),
 )
 MIN_SCORE = 0.90
+# The BenchmarkIndex range Lighthouse's default 4x CPU slowdown is set for (docs/throttling.md).
+LIGHTHOUSE_HOST = (1500, 2000)
 
 
 def lighthouse_command() -> list[str]:
@@ -128,6 +135,7 @@ def summarize(report: dict, origin: str) -> dict:
         "requests": len(requests),
         "other_origins": foreign,
         "lcp_element": element[:160],
+        "benchmark_index": report.get("environment", {}).get("benchmarkIndex"),
     }
 
 
@@ -142,7 +150,21 @@ def median_of(runs: list[dict]) -> dict:
     merged["other_origins"] = sorted({url for run in runs for url in run["other_origins"]})
     merged["lcp_element"] = runs[0]["lcp_element"]
     merged["lighthouse"] = runs[0]["lighthouse"]
+    merged["benchmark_index"] = host_speed(runs)
     return merged
+
+
+def host_speed(runs: list[dict]) -> float | None:
+    """The median BenchmarkIndex of the runs that recorded one."""
+    indexes = [run["benchmark_index"] for run in runs if run.get("benchmark_index")]
+    return statistics.median(indexes) if indexes else None
+
+
+def host_report(pages: list[dict]) -> dict:
+    """How fast the host was across every run, against the range Lighthouse's 4x is set for."""
+    index = host_speed([run for page in pages for run in page["runs"]])
+    return {"benchmark_index": index, "lighthouse_default_for": list(LIGHTHOUSE_HOST),
+            "slower_than_lighthouse_default": index is not None and index < LIGHTHOUSE_HOST[0]}
 
 
 def judge(page: str, kind: str, kb_budget: float, measured: dict) -> list[dict]:
@@ -172,7 +194,7 @@ def measure(base: str, chrome: str, only: list[str]) -> tuple[list[dict], list[d
         pages.append({"page": page, "kind": kind, "median": measured, "runs": runs})
         checks += judge(page, kind, kb_budget, measured)
         print(f"{page}: score {measured['score']:.2f}, LCP {measured['largest-contentful-paint']:.0f} ms, "
-              f"TBT {measured['total-blocking-time']:.0f} ms, {measured['kb']} KB", flush=True)
+              f"TBT {measured['total-blocking-time']:.0f} ms, {measured['kb']} KB, host {measured['benchmark_index']}", flush=True)
     return pages, checks
 
 
@@ -208,10 +230,11 @@ def main() -> int:
             server.shutdown()
     failures = [check for check in checks if not check["pass"]]
     report = {"passed": not failures, "checks": len(checks), "failures": failures, "base_url": base,
-              "lighthouse": pages[0]["median"]["lighthouse"], "runs_per_page": RUNS, "pages": pages, "taps": taps, "results": checks}
+              "lighthouse": pages[0]["median"]["lighthouse"], "runs_per_page": RUNS, "host": host_report(pages),
+              "pages": pages, "taps": taps, "results": checks}
     # The files of the build that was served, so a report on another copy never vouches for dist/.
     evidence.write_report(arguments.report, report, [arguments.dist / page for page, _kind, _kb in PAGES])
-    print(json.dumps({"passed": report["passed"], "checks": report["checks"], "failures": failures},
+    print(json.dumps({"passed": report["passed"], "checks": report["checks"], "failures": failures, "host": report["host"]},
                      ensure_ascii=False, indent=2))
     return 0 if report["passed"] else 1
 

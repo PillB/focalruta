@@ -325,3 +325,22 @@ def test_x06_every_tap_is_on_a_page_the_budget_serves_and_is_there_to_tap():
         assert page in pages and screen in (interaction_budget.PHONE, interaction_budget.TABLET)
     for mark, page in marks.items():
         assert mark in (DIST / page).read_text(encoding="utf-8"), mark
+
+
+def test_y24_every_run_keeps_the_host_speed_lighthouse_measured():
+    """Y24: Lighthouse's 4x is set for a host scoring 1500-2000 (docs/throttling.md); on a slower one
+    the same page measures as a slower phone. Found 2026-10-28: the build that measured 62 ms of blocking
+    time on GitHub's runner (index 2608) measured 355 ms here (index 920-1600), and the report could not
+    say why. Each run now keeps the index, and the report says when the host was slower than Lighthouse's
+    default assumes."""
+    def run(index):
+        return perf_budget_qa.summarize({**lighthouse_report(), "environment": {"benchmarkIndex": index}}, "http://127.0.0.1:9")
+    runs = [run(2607.5), run(1239.5), run(1392)]
+    assert [each["benchmark_index"] for each in runs] == [2607.5, 1239.5, 1392]
+    assert perf_budget_qa.median_of(runs)["benchmark_index"] == 1392
+    slow = perf_budget_qa.host_report([{"runs": runs}, {"runs": [run(1300)]}])
+    assert slow == {"benchmark_index": 1346, "lighthouse_default_for": [1500, 2000], "slower_than_lighthouse_default": True}
+    assert perf_budget_qa.host_report([{"runs": [run(1500), run(2607.5)]}])["slower_than_lighthouse_default"] is False
+    # A report without the index (an older Lighthouse) is not called slow.
+    assert perf_budget_qa.host_report([{"runs": [perf_budget_qa.summarize(lighthouse_report(), "http://127.0.0.1:9")]}]) == \
+        {"benchmark_index": None, "lighthouse_default_for": [1500, 2000], "slower_than_lighthouse_default": False}
