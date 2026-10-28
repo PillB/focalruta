@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 638,
+  "checks": 692,
   "viewports": [
     [
       320,
@@ -39,6 +39,11 @@
       "detail": ""
     },
     {
+      "name": "standalone 320 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "standalone 320 no page errors",
       "pass": true,
       "detail": []
@@ -47,6 +52,11 @@
       "name": "standalone 390 no overflow",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "standalone 390 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
     },
     {
       "name": "standalone 390 no page errors",
@@ -59,6 +69,11 @@
       "detail": ""
     },
     {
+      "name": "standalone 430 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "standalone 430 no page errors",
       "pass": true,
       "detail": []
@@ -67,6 +82,11 @@
       "name": "standalone 844 no overflow",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "standalone 844 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
     },
     {
       "name": "standalone 844 no page errors",
@@ -79,6 +99,11 @@
       "detail": ""
     },
     {
+      "name": "standalone 932 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "standalone 932 no page errors",
       "pass": true,
       "detail": []
@@ -89,6 +114,11 @@
       "detail": ""
     },
     {
+      "name": "standalone 820 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "standalone 820 no page errors",
       "pass": true,
       "detail": []
@@ -97,6 +127,11 @@
       "name": "standalone 1440 no overflow",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "standalone 1440 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
     },
     {
       "name": "standalone 1440 no page errors",
@@ -467,48 +502,48 @@
       "name": "standalone motion freeze differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "standalone motion pan differential",
       "pass": true,
       "detail": [
-        "1%\nhuella relativa",
-        "100%\nhuella relativa"
+        "1%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "standalone motion ghost differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "standalone motion trails differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "standalone motion paint differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "standalone motion zoom differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
@@ -760,6 +795,106 @@
       "detail": ""
     },
     {
+      "name": "standalone sun 320 2026-11-24 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n18:38\npor el este-noreste, rumbo 63°",
+          "Se pone la luna\n05:15\npor el oeste-noroeste, rumbo 296°",
+          "Luna llena\n100 %\niluminada a las 18:40"
+        ],
+        "Hora azul · mañana\n05:10–05:19\nHora dorada · mañana\n05:19–06:03\nSale el sol\n05:33\nHora dorada · tarde\n17:47–18:31\nSe pone el sol\n18:17\npor el oeste-suroeste, rumbo 249°\nHora azul · tarde\n18:31–18:40\nSale la luna\n18:38\npor el este-noreste, rumbo 63°\nSe pone la luna\n05:15\npor el oeste-noroeste, rumbo 296°\nLuna llena\n100 %\niluminada a las 18:40"
+      ]
+    },
+    {
+      "name": "standalone sun 320 2026-11-24 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:40) la luna está a 1° sobre el horizonte, al este-noreste (rumbo 63°): suma luz a las tomas de noche y puede entrar en un encuadre hacia ese lado.",
+        "Al terminar la hora azul (18:40) la luna está a 1° sobre el horizonte, al este-noreste (rumbo 63°): suma luz a las tomas de noche y puede entrar en un encuadre hacia ese lado."
+      ]
+    },
+    {
+      "name": "standalone sun 320 2026-11-09 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n05:33\npor el este-sureste, rumbo 113°",
+          "Se pone la luna\n18:40\npor el oeste-suroeste, rumbo 245°",
+          "Luna nueva\n1 %\niluminada a las 18:33"
+        ],
+        "Hora azul · mañana\n05:11–05:20\nHora dorada · mañana\n05:20–06:03\nSale el sol\n05:33\nHora dorada · tarde\n17:41–18:24\nSe pone el sol\n18:11\npor el oeste-suroeste, rumbo 252°\nHora azul · tarde\n18:24–18:33\nSale la luna\n05:33\npor el este-sureste, rumbo 113°\nSe pone la luna\n18:40\npor el oeste-suroeste, rumbo 245°\nLuna nueva\n1 %\niluminada a las 18:33"
+      ]
+    },
+    {
+      "name": "standalone sun 320 2026-11-09 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Luna nueva: esta noche la luna no suma luz a las tomas de noche.",
+        "Luna nueva: esta noche la luna no suma luz a las tomas de noche."
+      ]
+    },
+    {
+      "name": "standalone sun 320 2026-11-01 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\nno sale\nen todo el día",
+          "Se pone la luna\n11:46\npor el oeste-noroeste, rumbo 291°",
+          "Cuarto menguante\n49 %\niluminada a las 18:30"
+        ],
+        "Hora azul · mañana\n05:13–05:22\nHora dorada · mañana\n05:22–06:04\nSale el sol\n05:35\nHora dorada · tarde\n17:39–18:22\nSe pone el sol\n18:08\npor el oeste-suroeste, rumbo 255°\nHora azul · tarde\n18:22–18:30\nSale la luna\nno sale\nen todo el día\nSe pone la luna\n11:46\npor el oeste-noroeste, rumbo 291°\nCuarto menguante\n49 %\niluminada a las 18:30"
+      ]
+    },
+    {
+      "name": "standalone sun 320 2026-11-01 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:30) la luna está bajo el horizonte y no sale antes de medianoche.",
+        "Al terminar la hora azul (18:30) la luna está bajo el horizonte y no sale antes de medianoche."
+      ]
+    },
+    {
+      "name": "standalone sun 320 2026-12-06 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n03:31\npor el este-sureste, rumbo 111°",
+          "Se pone la luna\n16:35\npor el oeste-suroeste, rumbo 247°",
+          "Luna menguante\n4 %\niluminada a las 18:47"
+        ],
+        "Hora azul · mañana\n05:12–05:21\nHora dorada · mañana\n05:21–06:05\nSale el sol\n05:35\nHora dorada · tarde\n17:53–18:38\nSe pone el sol\n18:24\npor el oeste-suroeste, rumbo 247°\nHora azul · tarde\n18:38–18:47\nSale la luna\n03:31\npor el este-sureste, rumbo 111°\nSe pone la luna\n16:35\npor el oeste-suroeste, rumbo 247°\nLuna menguante\n4 %\niluminada a las 18:47"
+      ]
+    },
+    {
+      "name": "standalone sun 320 2026-12-06 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:47) la luna está bajo el horizonte y no sale antes de medianoche.",
+        "Al terminar la hora azul (18:47) la luna está bajo el horizonte y no sale antes de medianoche."
+      ]
+    },
+    {
+      "name": "standalone sun 320 2026-10-28 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n20:58\npor el este-noreste, rumbo 62°",
+          "Se pone la luna\n07:32\npor el oeste-noroeste, rumbo 297°",
+          "Gibosa menguante\n89 %\niluminada a las 18:29"
+        ],
+        "Hora azul · mañana\n05:15–05:24\nHora dorada · mañana\n05:24–06:06\nSale el sol\n05:37\nHora dorada · tarde\n17:38–18:20\nSe pone el sol\n18:07\npor el oeste-suroeste, rumbo 256°\nHora azul · tarde\n18:20–18:29\nSale la luna\n20:58\npor el este-noreste, rumbo 62°\nSe pone la luna\n07:32\npor el oeste-noroeste, rumbo 297°\nGibosa menguante\n89 %\niluminada a las 18:29"
+      ]
+    },
+    {
+      "name": "standalone sun 320 2026-10-28 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:29) la luna está bajo el horizonte; sale a las 20:58, al este-noreste (rumbo 62°).",
+        "Al terminar la hora azul (18:29) la luna está bajo el horizonte; sale a las 20:58, al este-noreste (rumbo 62°)."
+      ]
+    },
+    {
       "name": "standalone sun 320 sun panel errors",
       "pass": true,
       "detail": []
@@ -897,6 +1032,106 @@
       "name": "standalone sun 1280 no wall chosen, none drawn",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "standalone sun 1280 2026-11-24 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n18:38\npor el este-noreste, rumbo 63°",
+          "Se pone la luna\n05:15\npor el oeste-noroeste, rumbo 296°",
+          "Luna llena\n100 %\niluminada a las 18:40"
+        ],
+        "Hora azul · mañana\n05:10–05:19\nHora dorada · mañana\n05:19–06:03\nSale el sol\n05:33\nHora dorada · tarde\n17:47–18:31\nSe pone el sol\n18:17\npor el oeste-suroeste, rumbo 249°\nHora azul · tarde\n18:31–18:40\nSale la luna\n18:38\npor el este-noreste, rumbo 63°\nSe pone la luna\n05:15\npor el oeste-noroeste, rumbo 296°\nLuna llena\n100 %\niluminada a las 18:40"
+      ]
+    },
+    {
+      "name": "standalone sun 1280 2026-11-24 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:40) la luna está a 1° sobre el horizonte, al este-noreste (rumbo 63°): suma luz a las tomas de noche y puede entrar en un encuadre hacia ese lado.",
+        "Al terminar la hora azul (18:40) la luna está a 1° sobre el horizonte, al este-noreste (rumbo 63°): suma luz a las tomas de noche y puede entrar en un encuadre hacia ese lado."
+      ]
+    },
+    {
+      "name": "standalone sun 1280 2026-11-09 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n05:33\npor el este-sureste, rumbo 113°",
+          "Se pone la luna\n18:40\npor el oeste-suroeste, rumbo 245°",
+          "Luna nueva\n1 %\niluminada a las 18:33"
+        ],
+        "Hora azul · mañana\n05:11–05:20\nHora dorada · mañana\n05:20–06:03\nSale el sol\n05:33\nHora dorada · tarde\n17:41–18:24\nSe pone el sol\n18:11\npor el oeste-suroeste, rumbo 252°\nHora azul · tarde\n18:24–18:33\nSale la luna\n05:33\npor el este-sureste, rumbo 113°\nSe pone la luna\n18:40\npor el oeste-suroeste, rumbo 245°\nLuna nueva\n1 %\niluminada a las 18:33"
+      ]
+    },
+    {
+      "name": "standalone sun 1280 2026-11-09 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Luna nueva: esta noche la luna no suma luz a las tomas de noche.",
+        "Luna nueva: esta noche la luna no suma luz a las tomas de noche."
+      ]
+    },
+    {
+      "name": "standalone sun 1280 2026-11-01 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\nno sale\nen todo el día",
+          "Se pone la luna\n11:46\npor el oeste-noroeste, rumbo 291°",
+          "Cuarto menguante\n49 %\niluminada a las 18:30"
+        ],
+        "Hora azul · mañana\n05:13–05:22\nHora dorada · mañana\n05:22–06:04\nSale el sol\n05:35\nHora dorada · tarde\n17:39–18:22\nSe pone el sol\n18:08\npor el oeste-suroeste, rumbo 255°\nHora azul · tarde\n18:22–18:30\nSale la luna\nno sale\nen todo el día\nSe pone la luna\n11:46\npor el oeste-noroeste, rumbo 291°\nCuarto menguante\n49 %\niluminada a las 18:30"
+      ]
+    },
+    {
+      "name": "standalone sun 1280 2026-11-01 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:30) la luna está bajo el horizonte y no sale antes de medianoche.",
+        "Al terminar la hora azul (18:30) la luna está bajo el horizonte y no sale antes de medianoche."
+      ]
+    },
+    {
+      "name": "standalone sun 1280 2026-12-06 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n03:31\npor el este-sureste, rumbo 111°",
+          "Se pone la luna\n16:35\npor el oeste-suroeste, rumbo 247°",
+          "Luna menguante\n4 %\niluminada a las 18:47"
+        ],
+        "Hora azul · mañana\n05:12–05:21\nHora dorada · mañana\n05:21–06:05\nSale el sol\n05:35\nHora dorada · tarde\n17:53–18:38\nSe pone el sol\n18:24\npor el oeste-suroeste, rumbo 247°\nHora azul · tarde\n18:38–18:47\nSale la luna\n03:31\npor el este-sureste, rumbo 111°\nSe pone la luna\n16:35\npor el oeste-suroeste, rumbo 247°\nLuna menguante\n4 %\niluminada a las 18:47"
+      ]
+    },
+    {
+      "name": "standalone sun 1280 2026-12-06 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:47) la luna está bajo el horizonte y no sale antes de medianoche.",
+        "Al terminar la hora azul (18:47) la luna está bajo el horizonte y no sale antes de medianoche."
+      ]
+    },
+    {
+      "name": "standalone sun 1280 2026-10-28 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n20:58\npor el este-noreste, rumbo 62°",
+          "Se pone la luna\n07:32\npor el oeste-noroeste, rumbo 297°",
+          "Gibosa menguante\n89 %\niluminada a las 18:29"
+        ],
+        "Hora azul · mañana\n05:15–05:24\nHora dorada · mañana\n05:24–06:06\nSale el sol\n05:37\nHora dorada · tarde\n17:38–18:20\nSe pone el sol\n18:07\npor el oeste-suroeste, rumbo 256°\nHora azul · tarde\n18:20–18:29\nSale la luna\n20:58\npor el este-noreste, rumbo 62°\nSe pone la luna\n07:32\npor el oeste-noroeste, rumbo 297°\nGibosa menguante\n89 %\niluminada a las 18:29"
+      ]
+    },
+    {
+      "name": "standalone sun 1280 2026-10-28 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:29) la luna está bajo el horizonte; sale a las 20:58, al este-noreste (rumbo 62°).",
+        "Al terminar la hora azul (18:29) la luna está bajo el horizonte; sale a las 20:58, al este-noreste (rumbo 62°)."
+      ]
     },
     {
       "name": "standalone sun 1280 sun panel errors",
@@ -1043,7 +1278,7 @@
     {
       "name": "standalone review 320 the summary counts the session",
       "pass": true,
-      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan, cierra a f/11"
+      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan y cierra a f/1"
     },
     {
       "name": "standalone review 320 a shot to repeat opens from the summary with focus on its title",
@@ -1167,7 +1402,7 @@
     {
       "name": "standalone review 1280 the summary counts the session",
       "pass": true,
-      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan, cierra a f/11"
+      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan y cierra a f/1"
     },
     {
       "name": "standalone review 1280 a shot to repeat opens from the summary with focus on its title",
@@ -1433,6 +1668,11 @@
       "detail": ""
     },
     {
+      "name": "hosted 320 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "hosted 320 no page errors",
       "pass": true,
       "detail": []
@@ -1441,6 +1681,11 @@
       "name": "hosted 390 no overflow",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "hosted 390 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
     },
     {
       "name": "hosted 390 no page errors",
@@ -1453,6 +1698,11 @@
       "detail": ""
     },
     {
+      "name": "hosted 430 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "hosted 430 no page errors",
       "pass": true,
       "detail": []
@@ -1461,6 +1711,11 @@
       "name": "hosted 844 no overflow",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "hosted 844 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
     },
     {
       "name": "hosted 844 no page errors",
@@ -1473,6 +1728,11 @@
       "detail": ""
     },
     {
+      "name": "hosted 932 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "hosted 932 no page errors",
       "pass": true,
       "detail": []
@@ -1483,6 +1743,11 @@
       "detail": ""
     },
     {
+      "name": "hosted 820 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
+    },
+    {
       "name": "hosted 820 no page errors",
       "pass": true,
       "detail": []
@@ -1491,6 +1756,11 @@
       "name": "hosted 1440 no overflow",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "hosted 1440 Y21 a wrapped «Mostrando» starts under the plan's name",
+      "pass": true,
+      "detail": []
     },
     {
       "name": "hosted 1440 no page errors",
@@ -1861,48 +2131,48 @@
       "name": "hosted motion freeze differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "hosted motion pan differential",
       "pass": true,
       "detail": [
-        "1%\nhuella relativa",
-        "100%\nhuella relativa"
+        "1%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "hosted motion ghost differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "hosted motion trails differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "hosted motion paint differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
       "name": "hosted motion zoom differential",
       "pass": true,
       "detail": [
-        "5%\nhuella relativa",
-        "100%\nhuella relativa"
+        "5%\nhuella del sujeto",
+        "100%\nhuella del sujeto"
       ]
     },
     {
@@ -2154,6 +2424,106 @@
       "detail": ""
     },
     {
+      "name": "hosted sun 320 2026-11-24 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n18:38\npor el este-noreste, rumbo 63°",
+          "Se pone la luna\n05:15\npor el oeste-noroeste, rumbo 296°",
+          "Luna llena\n100 %\niluminada a las 18:40"
+        ],
+        "Hora azul · mañana\n05:10–05:19\nHora dorada · mañana\n05:19–06:03\nSale el sol\n05:33\nHora dorada · tarde\n17:47–18:31\nSe pone el sol\n18:17\npor el oeste-suroeste, rumbo 249°\nHora azul · tarde\n18:31–18:40\nSale la luna\n18:38\npor el este-noreste, rumbo 63°\nSe pone la luna\n05:15\npor el oeste-noroeste, rumbo 296°\nLuna llena\n100 %\niluminada a las 18:40"
+      ]
+    },
+    {
+      "name": "hosted sun 320 2026-11-24 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:40) la luna está a 1° sobre el horizonte, al este-noreste (rumbo 63°): suma luz a las tomas de noche y puede entrar en un encuadre hacia ese lado.",
+        "Al terminar la hora azul (18:40) la luna está a 1° sobre el horizonte, al este-noreste (rumbo 63°): suma luz a las tomas de noche y puede entrar en un encuadre hacia ese lado."
+      ]
+    },
+    {
+      "name": "hosted sun 320 2026-11-09 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n05:33\npor el este-sureste, rumbo 113°",
+          "Se pone la luna\n18:40\npor el oeste-suroeste, rumbo 245°",
+          "Luna nueva\n1 %\niluminada a las 18:33"
+        ],
+        "Hora azul · mañana\n05:11–05:20\nHora dorada · mañana\n05:20–06:03\nSale el sol\n05:33\nHora dorada · tarde\n17:41–18:24\nSe pone el sol\n18:11\npor el oeste-suroeste, rumbo 252°\nHora azul · tarde\n18:24–18:33\nSale la luna\n05:33\npor el este-sureste, rumbo 113°\nSe pone la luna\n18:40\npor el oeste-suroeste, rumbo 245°\nLuna nueva\n1 %\niluminada a las 18:33"
+      ]
+    },
+    {
+      "name": "hosted sun 320 2026-11-09 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Luna nueva: esta noche la luna no suma luz a las tomas de noche.",
+        "Luna nueva: esta noche la luna no suma luz a las tomas de noche."
+      ]
+    },
+    {
+      "name": "hosted sun 320 2026-11-01 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\nno sale\nen todo el día",
+          "Se pone la luna\n11:46\npor el oeste-noroeste, rumbo 291°",
+          "Cuarto menguante\n49 %\niluminada a las 18:30"
+        ],
+        "Hora azul · mañana\n05:13–05:22\nHora dorada · mañana\n05:22–06:04\nSale el sol\n05:35\nHora dorada · tarde\n17:39–18:22\nSe pone el sol\n18:08\npor el oeste-suroeste, rumbo 255°\nHora azul · tarde\n18:22–18:30\nSale la luna\nno sale\nen todo el día\nSe pone la luna\n11:46\npor el oeste-noroeste, rumbo 291°\nCuarto menguante\n49 %\niluminada a las 18:30"
+      ]
+    },
+    {
+      "name": "hosted sun 320 2026-11-01 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:30) la luna está bajo el horizonte y no sale antes de medianoche.",
+        "Al terminar la hora azul (18:30) la luna está bajo el horizonte y no sale antes de medianoche."
+      ]
+    },
+    {
+      "name": "hosted sun 320 2026-12-06 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n03:31\npor el este-sureste, rumbo 111°",
+          "Se pone la luna\n16:35\npor el oeste-suroeste, rumbo 247°",
+          "Luna menguante\n4 %\niluminada a las 18:47"
+        ],
+        "Hora azul · mañana\n05:12–05:21\nHora dorada · mañana\n05:21–06:05\nSale el sol\n05:35\nHora dorada · tarde\n17:53–18:38\nSe pone el sol\n18:24\npor el oeste-suroeste, rumbo 247°\nHora azul · tarde\n18:38–18:47\nSale la luna\n03:31\npor el este-sureste, rumbo 111°\nSe pone la luna\n16:35\npor el oeste-suroeste, rumbo 247°\nLuna menguante\n4 %\niluminada a las 18:47"
+      ]
+    },
+    {
+      "name": "hosted sun 320 2026-12-06 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:47) la luna está bajo el horizonte y no sale antes de medianoche.",
+        "Al terminar la hora azul (18:47) la luna está bajo el horizonte y no sale antes de medianoche."
+      ]
+    },
+    {
+      "name": "hosted sun 320 2026-10-28 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n20:58\npor el este-noreste, rumbo 62°",
+          "Se pone la luna\n07:32\npor el oeste-noroeste, rumbo 297°",
+          "Gibosa menguante\n89 %\niluminada a las 18:29"
+        ],
+        "Hora azul · mañana\n05:15–05:24\nHora dorada · mañana\n05:24–06:06\nSale el sol\n05:37\nHora dorada · tarde\n17:38–18:20\nSe pone el sol\n18:07\npor el oeste-suroeste, rumbo 256°\nHora azul · tarde\n18:20–18:29\nSale la luna\n20:58\npor el este-noreste, rumbo 62°\nSe pone la luna\n07:32\npor el oeste-noroeste, rumbo 297°\nGibosa menguante\n89 %\niluminada a las 18:29"
+      ]
+    },
+    {
+      "name": "hosted sun 320 2026-10-28 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:29) la luna está bajo el horizonte; sale a las 20:58, al este-noreste (rumbo 62°).",
+        "Al terminar la hora azul (18:29) la luna está bajo el horizonte; sale a las 20:58, al este-noreste (rumbo 62°)."
+      ]
+    },
+    {
       "name": "hosted sun 320 sun panel errors",
       "pass": true,
       "detail": []
@@ -2291,6 +2661,106 @@
       "name": "hosted sun 1280 no wall chosen, none drawn",
       "pass": true,
       "detail": ""
+    },
+    {
+      "name": "hosted sun 1280 2026-11-24 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n18:38\npor el este-noreste, rumbo 63°",
+          "Se pone la luna\n05:15\npor el oeste-noroeste, rumbo 296°",
+          "Luna llena\n100 %\niluminada a las 18:40"
+        ],
+        "Hora azul · mañana\n05:10–05:19\nHora dorada · mañana\n05:19–06:03\nSale el sol\n05:33\nHora dorada · tarde\n17:47–18:31\nSe pone el sol\n18:17\npor el oeste-suroeste, rumbo 249°\nHora azul · tarde\n18:31–18:40\nSale la luna\n18:38\npor el este-noreste, rumbo 63°\nSe pone la luna\n05:15\npor el oeste-noroeste, rumbo 296°\nLuna llena\n100 %\niluminada a las 18:40"
+      ]
+    },
+    {
+      "name": "hosted sun 1280 2026-11-24 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:40) la luna está a 1° sobre el horizonte, al este-noreste (rumbo 63°): suma luz a las tomas de noche y puede entrar en un encuadre hacia ese lado.",
+        "Al terminar la hora azul (18:40) la luna está a 1° sobre el horizonte, al este-noreste (rumbo 63°): suma luz a las tomas de noche y puede entrar en un encuadre hacia ese lado."
+      ]
+    },
+    {
+      "name": "hosted sun 1280 2026-11-09 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n05:33\npor el este-sureste, rumbo 113°",
+          "Se pone la luna\n18:40\npor el oeste-suroeste, rumbo 245°",
+          "Luna nueva\n1 %\niluminada a las 18:33"
+        ],
+        "Hora azul · mañana\n05:11–05:20\nHora dorada · mañana\n05:20–06:03\nSale el sol\n05:33\nHora dorada · tarde\n17:41–18:24\nSe pone el sol\n18:11\npor el oeste-suroeste, rumbo 252°\nHora azul · tarde\n18:24–18:33\nSale la luna\n05:33\npor el este-sureste, rumbo 113°\nSe pone la luna\n18:40\npor el oeste-suroeste, rumbo 245°\nLuna nueva\n1 %\niluminada a las 18:33"
+      ]
+    },
+    {
+      "name": "hosted sun 1280 2026-11-09 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Luna nueva: esta noche la luna no suma luz a las tomas de noche.",
+        "Luna nueva: esta noche la luna no suma luz a las tomas de noche."
+      ]
+    },
+    {
+      "name": "hosted sun 1280 2026-11-01 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\nno sale\nen todo el día",
+          "Se pone la luna\n11:46\npor el oeste-noroeste, rumbo 291°",
+          "Cuarto menguante\n49 %\niluminada a las 18:30"
+        ],
+        "Hora azul · mañana\n05:13–05:22\nHora dorada · mañana\n05:22–06:04\nSale el sol\n05:35\nHora dorada · tarde\n17:39–18:22\nSe pone el sol\n18:08\npor el oeste-suroeste, rumbo 255°\nHora azul · tarde\n18:22–18:30\nSale la luna\nno sale\nen todo el día\nSe pone la luna\n11:46\npor el oeste-noroeste, rumbo 291°\nCuarto menguante\n49 %\niluminada a las 18:30"
+      ]
+    },
+    {
+      "name": "hosted sun 1280 2026-11-01 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:30) la luna está bajo el horizonte y no sale antes de medianoche.",
+        "Al terminar la hora azul (18:30) la luna está bajo el horizonte y no sale antes de medianoche."
+      ]
+    },
+    {
+      "name": "hosted sun 1280 2026-12-06 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n03:31\npor el este-sureste, rumbo 111°",
+          "Se pone la luna\n16:35\npor el oeste-suroeste, rumbo 247°",
+          "Luna menguante\n4 %\niluminada a las 18:47"
+        ],
+        "Hora azul · mañana\n05:12–05:21\nHora dorada · mañana\n05:21–06:05\nSale el sol\n05:35\nHora dorada · tarde\n17:53–18:38\nSe pone el sol\n18:24\npor el oeste-suroeste, rumbo 247°\nHora azul · tarde\n18:38–18:47\nSale la luna\n03:31\npor el este-sureste, rumbo 111°\nSe pone la luna\n16:35\npor el oeste-suroeste, rumbo 247°\nLuna menguante\n4 %\niluminada a las 18:47"
+      ]
+    },
+    {
+      "name": "hosted sun 1280 2026-12-06 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:47) la luna está bajo el horizonte y no sale antes de medianoche.",
+        "Al terminar la hora azul (18:47) la luna está bajo el horizonte y no sale antes de medianoche."
+      ]
+    },
+    {
+      "name": "hosted sun 1280 2026-10-28 moonrise, moonset and phase match the twin",
+      "pass": true,
+      "detail": [
+        [
+          "Sale la luna\n20:58\npor el este-noreste, rumbo 62°",
+          "Se pone la luna\n07:32\npor el oeste-noroeste, rumbo 297°",
+          "Gibosa menguante\n89 %\niluminada a las 18:29"
+        ],
+        "Hora azul · mañana\n05:15–05:24\nHora dorada · mañana\n05:24–06:06\nSale el sol\n05:37\nHora dorada · tarde\n17:38–18:20\nSe pone el sol\n18:07\npor el oeste-suroeste, rumbo 256°\nHora azul · tarde\n18:20–18:29\nSale la luna\n20:58\npor el este-noreste, rumbo 62°\nSe pone la luna\n07:32\npor el oeste-noroeste, rumbo 297°\nGibosa menguante\n89 %\niluminada a las 18:29"
+      ]
+    },
+    {
+      "name": "hosted sun 1280 2026-10-28 the night's moon is described",
+      "pass": true,
+      "detail": [
+        "Al terminar la hora azul (18:29) la luna está bajo el horizonte; sale a las 20:58, al este-noreste (rumbo 62°).",
+        "Al terminar la hora azul (18:29) la luna está bajo el horizonte; sale a las 20:58, al este-noreste (rumbo 62°)."
+      ]
     },
     {
       "name": "hosted sun 1280 sun panel errors",
@@ -2437,7 +2907,7 @@
     {
       "name": "hosted review 320 the summary counts the session",
       "pass": true,
-      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan, cierra a f/11"
+      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan y cierra a f/1"
     },
     {
       "name": "hosted review 320 a shot to repeat opens from the summary with focus on its title",
@@ -2561,7 +3031,7 @@
     {
       "name": "hosted review 1280 the summary counts the session",
       "pass": true,
-      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan, cierra a f/11"
+      "detail": "Resumen de la sesión\n\n1 de 10 aprobadas · 3 por repetir · 6 sin revisar.\n\nLo que más falló: nitidez. Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.\n\nPOR REPETIR\nToma 2 · Mucha Profundidad de Campo\nEnfoca al sujeto o a la hiperfocal del plan y cierra a f/1"
     },
     {
       "name": "hosted review 1280 a shot to repeat opens from the summary with focus on its title",
@@ -3382,7 +3852,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1562
+          1572
         ]
       }
     },
@@ -3392,8 +3862,8 @@
       "detail": [
         "Sin conexión: el plan C no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:35733/plans/plan_c.html",
-          "http://127.0.0.1:35733/field_card.html"
+          "http://127.0.0.1:38807/plans/plan_c.html",
+          "http://127.0.0.1:38807/field_card.html"
         ]
       ]
     },
@@ -3414,7 +3884,7 @@
       "detail": {
         "path": "/index.html",
         "rules": [
-          1562
+          1572
         ]
       }
     },
@@ -3424,8 +3894,8 @@
       "detail": [
         "Sin conexión: la página «wiki-tecnicas» no se guardó en este teléfono, así que se abrió la portada.\n\nCada página que abres con señal queda guardada aquí; «Guardar planes y diagramas», en la tarjeta de campo, guarda todos los planes de una vez.\n\nVolver a intentar\nAbrir la tarjeta de campo",
         [
-          "http://127.0.0.1:35733/challenges/arquitectura-en-foco/wiki-tecnicas.html",
-          "http://127.0.0.1:35733/field_card.html"
+          "http://127.0.0.1:38807/challenges/arquitectura-en-foco/wiki-tecnicas.html",
+          "http://127.0.0.1:38807/field_card.html"
         ]
       ]
     },
@@ -3444,24 +3914,24 @@
       "name": "error log: a thrown error and a rejected promise send no request",
       "pass": true,
       "detail": [
-        "GET http://127.0.0.1:34303/",
-        "GET http://127.0.0.1:34303/assets/hosted.css?v=571037a349dc",
-        "GET http://127.0.0.1:34303/data/plans_embedded.js?v=760318475bf5",
-        "GET http://127.0.0.1:34303/assets/app-icon.svg"
+        "GET http://127.0.0.1:40561/",
+        "GET http://127.0.0.1:40561/assets/hosted.css?v=d3aa62abf045",
+        "GET http://127.0.0.1:40561/data/plans_embedded.js?v=43a7d16094a3",
+        "GET http://127.0.0.1:40561/assets/app-icon.svg"
       ]
     },
     {
       "name": "error log: the home page lists both, with the page they came from",
       "pass": true,
       "detail": [
-        "1 vez · 2026-10-27 21:37Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
-        "1 vez · 2026-10-27 21:37Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
+        "1 vez · 2026-10-28 06:03Z · Promesa rechazada · promesa de prueba · en /plans/plan_b.html",
+        "1 vez · 2026-10-28 06:03Z · Error · Uncaught Error: prueba del registro https://example.org/a · :1:23 · en /plans/plan_b.html"
       ]
     },
     {
       "name": "error log: no query string, fragment or browser identity is kept",
       "pass": true,
-      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-27T21:37Z\",\"last\":\"2026-10-27T21:37Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-27T21:37Z\",\"last\":\"2026-10-27T21:37Z\"}]"
+      "detail": "[{\"kind\":\"promesa\",\"message\":\"promesa de prueba\",\"where\":\"\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-28T06:03Z\",\"last\":\"2026-10-28T06:03Z\"},{\"kind\":\"error\",\"message\":\"Uncaught Error: prueba del registro https://example.org/a\",\"where\":\":1:23\",\"page\":\"/plans/plan_b.html\",\"count\":1,\"first\":\"2026-10-28T06:03Z\",\"last\":\"2026-10-28T06:03Z\"}]"
     },
     {
       "name": "error log: the report link carries the log to a new GitHub issue",
@@ -3481,7 +3951,7 @@
       "pass": true,
       "detail": [
         "Selecciona y copia el texto",
-        "1 vez · 2026-10-27 21:37Z · Promesa rechazada · promesa de prueba · en /plans/pl"
+        "1 vez · 2026-10-28 06:03Z · Promesa rechazada · promesa de prueba · en /plans/pl"
       ]
     },
     {
@@ -4048,58 +4518,58 @@
       "detail": {}
     }
   ],
-  "audited_at": "2026-10-27T21:59:46.479477+00:00",
-  "audited_commit": "3bcabf94637c35b69f1b29eb9bc8185c084b199c",
+  "audited_at": "2026-10-28T06:29:07.327507+00:00",
+  "audited_commit": "17041ba65089313b2157ed695159e65a46f084ca",
   "audited_artifacts": {
-    "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
+    "data/plans.json": "03029a8656b79b6bb57c69667d62bb0c989a5e4ece3a6825b5bdf6b8ee05678a",
     "dist/canon6d_sota_hosted/404.html": "c9e6e0690f38ab19c39d3bd822e8effb5730372fb335bc728a22dcbe7745faae",
-    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "9df6b720230aa3bd57bf25644f4ff4cf828d301d47f44b10729170bbf0de8059",
-    "dist/canon6d_sota_hosted/assets/hosted.css": "571037a349dc15005d8663a2b3ef19cbaeef87b2f1c6b43b2b9720384c596412",
+    "dist/canon6d_sota_hosted/FocalRuta_STANDALONE.html": "e55f35fb08e9f3ed9f05be79ff4bc5c33431c26b26e31459afe2e2e12bb03b13",
+    "dist/canon6d_sota_hosted/assets/hosted.css": "d3aa62abf04552a53550217b436131612132cc0e228972ac6413986c67b429aa",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/field-card.html": "986b21b3e98a22d42b353525da523348076a7613154a33b03c3cbcab2144de19",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "f8204b380b8d2bb3a1200aaae544a2d02c3290d195fff9421bfeb81d02959c3b",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/index.html": "38d5949ae7e3d6dd413854b6b4e1870c831d1e4e370279d31da65042e2a41aaa",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/iphone-maps.html": "3af624a6bf9699d8a4c3be805a6848300201715881660b8bf220b917f5e7abf7",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-1.html": "7c75f80f02bfa8608fa55e6c0bcf3fdbe540500cc50eb468e77dc64677f2a80b",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-2.html": "088fa7b5e66cdd98b3ba04e667228103f58b040fd484f10ba4cf71eb672229e9",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-3.html": "df7cf71ac5c5d662f707e21f91e63546e8c4beec5ba4b68e2cb6bb690980ca65",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/jesus-maria.html": "145f27854a2c27ade8ceda820e5aae33b2bbb7c16a55ba0b143b7a55ac7b859c",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html": "30335aabaefb42da4c3340e3e7aed20df7a3d3d4ad6331f9f487a5fc8d28938f",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html": "8b8708a0f138ad42991b0cdb1cf8891d34261817caa2677dfd125e43df2cfc77",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-1.html": "a5010bcefe78deb7227f64ccc0a5a5f309b411830688fd47fbd8dd96bae8fdc1",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-2.html": "862b1dc9fcbf11bf19edcd68f58cb793d2649bb9c3f257a8265d883df690d06b",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-3.html": "c24e4034a29416dc05983e1d6080b49be802ce85abf1ca594492ed348f24887c",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-1.html": "63af330db45fba10a51ed891f96fc32207ccf6d985bc5c0f44585be73448b373",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-2.html": "c3d24cbe3838702b42a8a9fcb04275ddb95509369012367ea6918e131aeb57e3",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-3.html": "549587942b0b612bc778f51d0528e124db53324f1f8869fb10fba27eb2f85036",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-4.html": "3d5df49052b67e31dbe3b5345eb2efa0d05e9724cb9211e4f680249b77ee5d7d",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-5.html": "a32326bd10174e895a52d7ad16c29e3f1df3fc3ca95aa5e982d39d628d6d097d",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-6.html": "10e43c7ee50b05697d9f787955e6099df878c883f13b700903cfbaf4cd614649",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html": "13424bdfcb4b702848ba8136080108a928f647963dd9f223938ddcdc879fa7c2",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html": "b8e046431ae978ad9be22b3edf2aaf7a2c2bceccbaecdeb1db37e2939d81ff1a",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/rimac.html": "ec5aafac6afb97602674fcbfc4d8e3977e4e9d6538fa0ffc7139fb7ae9bf03f7",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-1.html": "67fcb388dd048d413494da94c74fd14b8710dc19de38fe3e824bea9aa51c85e8",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-2.html": "572401afffe6f2d518c02f8ed793d0e09e757c320e8574de1131b467404ff24c",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-3.html": "840efe16586583ae218516c145db27de8b89ae9da3ee842745216f57b8eeab31",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html": "d1bd893b7da2c16ef358e81d2de70cf57a3d2e6425541ce6926bd9067a878ed8",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html": "7e4e75be13f4f385b903f96f1b2384c167032952b48b311b457e6824c34156d8",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html": "fef1da0075298e0b98be8ad6320c7a12c3b4f33a7e6e38a0378f718fd9937384",
-    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "ee1783c839181086e47e55a50586e167442c5685752e14af1f9b318599a36eea",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-1.html": "0b184cbf11b040effb17383b0d4ea44bd6849d692975fdc887b52f0466d781db",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-2.html": "1f268cdc5a79028ec72ac7a1916cdc2a17250c9e1c2eb932d32a42a0d09c1172",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/barranco-tour-3.html": "8595da9b13bb71d123ae00ee6570192c51486087b448b896f3886853d3f16bc6",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/jesus-maria.html": "8e07988edbeac1ce14c462cc67a14129e61aff56106cc1d856c7a086ffbfbcd3",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/la-victoria-tour-1.html": "acbc2736cbd2ac3c1687321b86e6eba87776941c17aa8e9c42f767b608b3b352",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/la-victoria-tour-2.html": "bdd088de14e52ea32c6b46779d560b46befe704c37acd904f17968eea3b741df",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-1.html": "3b2aa99025f8ce18332b975ab108a50546cb8b602d714e4f67f7afc57321fedc",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-2.html": "6b7e6e04fd02fb3c8c553ec507be1db2e9428582710da12677be9d3d25544a18",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/lima-tour-3.html": "1d3c12de987721ef44b34f0114bc059af9e1bea99ba91afb65ecc2ee79dcf93f",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-1.html": "948b790e607fc17f5204479d2a7c882d6ceb075eb6e94dd63427e154d4509cec",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-2.html": "2045a9776d3aac45cb4c0ca72138e5064ae8f529633793b726afac38b9a06f5c",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-3.html": "188678bf2b91135051194b93ce88e76656c6d1bfd6e6f6d5857d8f68fda90f13",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-4.html": "79beb97ad18db737b308281be0e06d7017e27b690d58e1fdb92d21daca8974e0",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-5.html": "98cb4f8675a49bc51ab89c404ce8611a2f726994f063612d70a08b49b7a37ced",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/miraflores-tour-6.html": "c519a345978eca063a0a108fbf3cf83d3bb4eb3ee0b2be423df7556a68d7fef6",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/pueblo-libre-tour-1.html": "b06019bdf291f93e65a3ffe4509509c99e83a6952e25992bb47cc2baba5b9519",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/pueblo-libre-tour-2.html": "2bc8ad6180bdb34473a61c693a39725819b658093ea428b3af8434e9c7c9c2b0",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/rimac.html": "c35d7b80e32a1779bae906dcd82dc26c53a5113993fffa0190317ef8c85ef314",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-1.html": "b406b7cdf88a1e506c1717973bc45ce8c494d3771b5ee68feda4fac46e04d7e0",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-2.html": "c121574708a58323615a9b77e7e02f2e7fbb4b237c741a006354609e85674b39",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-borja-tour-3.html": "11c55fcff6d35fd7136aad15fdafa96338687e2fd596b3b476627e85532909ff",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-1.html": "f80411660301c454a448836b2a79c89e968e146c4288a723c4a86e2b155af06d",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-2.html": "333e269fd1a5bd0964487d30dde3e8209e353490f6977281a5d5be04bb800135",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/san-isidro-tour-3.html": "581cbe4cb01c74bb8af1bfb9ea5b8d27e1e927be9b88011d1e943eb26ad3e01c",
+    "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/maps/santiago-de-surco.html": "a7eddcf8e0a3cb99d803d72329bad2a16c5a64025e6664c209370c91545e868b",
     "dist/canon6d_sota_hosted/challenges/arquitectura-en-foco/wiki-tecnicas.html": "3ebce15997a8348993d8d8a1080696939dc94d885e0199ebe1973c2ea9cce311",
-    "dist/canon6d_sota_hosted/field_card.html": "934fac64b9dab0cb529c38bf31ba5601d404e2de3937fd904ebb961b3a0c9cee",
-    "dist/canon6d_sota_hosted/index.html": "99aee76bd175a9de43e93a079651812579973797d8d7d95be095bf2206cfd6e4",
-    "dist/canon6d_sota_hosted/plans/plan_a.html": "3301fded9e4fcd23db9cca16c8dfc13628910224d6c48aa9cd72f9bcbfc1b6be",
-    "dist/canon6d_sota_hosted/plans/plan_b.html": "7e494ead9938b86f00ab584cd69d55940fcd1b73e217d0454e7e42669ed05696",
-    "dist/canon6d_sota_hosted/plans/plan_c.html": "bfd5c8ffba10c9888ffb26aac45d98fd22b0ec22c9f073da48dceab9b3368e50",
-    "dist/canon6d_sota_hosted/plans/plan_d.html": "52b50af80db53a6b3ad157bb440cf1b6b3a8a36035d9fda9bd2703690bfba8e8",
-    "dist/canon6d_sota_hosted/plans/plan_e.html": "624ee0c8ce6cae6482064c470fc0064e77de955724caf077e48c5a2dc56bcd41",
-    "dist/canon6d_sota_hosted/plans/plan_f.html": "d8378390580541ed2e38440b00363e0d64417d99cfc567f1d5ec6284e0e301fd",
-    "dist/canon6d_sota_hosted/sw.js": "2697dac166ee90bc06f295f11c0f634eb1259e902c0ff44711b5072e98ca74af",
-    "field_card.html": "934fac64b9dab0cb529c38bf31ba5601d404e2de3937fd904ebb961b3a0c9cee",
-    "index.html": "9df6b720230aa3bd57bf25644f4ff4cf828d301d47f44b10729170bbf0de8059",
-    "plans/plan_a.html": "d4565b0bd237b65c609a9e893233ae33617fbb68a49c40032dccc9414d98d78f",
-    "plans/plan_b.html": "35d9b0a478e372a38f8794ff24eb00fe1719bb9e292d1274693774b074526629",
-    "plans/plan_c.html": "8a40eef49ae48c3c4797407922af215c5fc7577e59357fa7043b9fca83eb3f4b",
-    "plans/plan_d.html": "e8de104cea6a11fb87cbf5156bc82edd7eb9ea5313b33a9348224f2bf09298c8",
-    "plans/plan_e.html": "7078ee12ad95a3669c431c80b4a61e3d0eae94755ef6443a0ca5be4b339fa40d",
-    "plans/plan_f.html": "c9f84a40e2a71ff42e22a36cc478608c53a14c36f6220d228749bb9a2b11e13b"
+    "dist/canon6d_sota_hosted/field_card.html": "e055055c2c617aa37b6a44507a4b3227645d6af04cc1500bd133df48098ca78f",
+    "dist/canon6d_sota_hosted/index.html": "7dc6669ccdc9322dccbf2768e4e113cf825f654b301a07cce57265d153aefc27",
+    "dist/canon6d_sota_hosted/plans/plan_a.html": "e2f507a71f73d3c6fc7e06ee92b637125dfee33346974ef8e6cfcedb857c0294",
+    "dist/canon6d_sota_hosted/plans/plan_b.html": "9ff59fce742048fcdff1e17343a4220a5cc5ced1f52b7ec023ca3ca2a311d9a4",
+    "dist/canon6d_sota_hosted/plans/plan_c.html": "9ea86189d2fa3a24a3b9df209ce4bae071505d75ef825a296cf6eddf35590c76",
+    "dist/canon6d_sota_hosted/plans/plan_d.html": "b40a9a552f772ef7b5ea6f805118246d424e9b569d967cd22345c38f742db8bf",
+    "dist/canon6d_sota_hosted/plans/plan_e.html": "260b285a903666b7e12c14ff2612abeafdb3f4a95b5d220df628216e39e20ca9",
+    "dist/canon6d_sota_hosted/plans/plan_f.html": "1652b821fe02e46acdb5f83d25375fe0d80f58dccf1f396a84e05a62add7b2cd",
+    "dist/canon6d_sota_hosted/sw.js": "f3b6787aed4d1c2088d54c0a0471634d17851b3278d86b41266849296467476b",
+    "field_card.html": "e055055c2c617aa37b6a44507a4b3227645d6af04cc1500bd133df48098ca78f",
+    "index.html": "e55f35fb08e9f3ed9f05be79ff4bc5c33431c26b26e31459afe2e2e12bb03b13",
+    "plans/plan_a.html": "f07a66182eee10546c2d737268c6ea55778366d8b320c687ff3081c880811929",
+    "plans/plan_b.html": "183a374a0fa67e286ad6f004b89d86e5038964e905c541ee114d3aa3429be7be",
+    "plans/plan_c.html": "5b69b31b461b7917487744d7852ed2f91d89100e7011902519e009c40ceb8843",
+    "plans/plan_d.html": "9af83dec12f525bb4294b879eff3dfc7a24d148119966099cb42a4910124a60e",
+    "plans/plan_e.html": "354db7e791d19413c9483f18dff316f56094a8a51edbad613bdc9de8abc47c4e",
+    "plans/plan_f.html": "447d3ca0ecbf922ba60574ebd3b68196e6eb69dc51576bc7d5bb1c6807a8e38d"
   }
 }

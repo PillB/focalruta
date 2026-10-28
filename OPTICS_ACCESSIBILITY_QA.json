@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 22,
+  "checks": 94,
   "failures": [],
   "results": [
     {
@@ -50,8 +50,8 @@
       "name": "standalone every exposure combination",
       "pass": true,
       "detail": {
-        "states": 2093,
-        "visualStates": 840
+        "states": 10764,
+        "visualStates": 2886
       }
     },
     {
@@ -69,7 +69,7 @@
       "pass": true,
       "detail": {
         "optical": 13130,
-        "exposure": 2093,
+        "exposure": 10764,
         "failures": [],
         "floors": [
           [
@@ -97,7 +97,7 @@
             5.6
           ]
         ],
-        "exposureStates": 840,
+        "exposureStates": 2886,
         "balanced": true,
         "bgChanged": true,
         "dofFixed": true
@@ -107,10 +107,10 @@
       "name": "standalone four distinct presets",
       "pass": true,
       "detail": [
-        "35 milímetros a f 11, foco 4.00 m, profundidad de campo desde 1.94 m hasta ∞, desenfoque continuo más allá del umbral, fondo a 14.0 m, exposición sobreexpuesta ≈1.1 EV.",
-        "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición sobreexpuesta ≈1.3 EV.",
-        "85 milímetros a f 2.8, foco 7.00 m, profundidad de campo desde 6.48 m hasta 7.61 m, desenfoque continuo más allá del umbral, fondo a 19.0 m, exposición sobreexpuesta ≈1.1 EV.",
-        "80 milímetros a f 8, foco 6.00 m, profundidad de campo desde 4.91 m hasta 7.71 m, desenfoque continuo más allá del umbral, fondo a 18.0 m, exposición subexpuesta ≈3.0 EV."
+        "35 milímetros a f 11, foco 4.00 m, profundidad de campo desde 1.94 m hasta ∞, desenfoque continuo más allá del umbral, fondo a 14.0 m, exposición equilibrada.",
+        "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada.",
+        "85 milímetros a f 2.8, foco 7.00 m, profundidad de campo desde 6.48 m hasta 7.61 m, desenfoque continuo más allá del umbral, fondo a 19.0 m, exposición equilibrada.",
+        "80 milímetros a f 8, foco 6.00 m, profundidad de campo desde 4.91 m hasta 7.71 m, desenfoque continuo más allá del umbral, fondo a 18.0 m, exposición equilibrada."
       ]
     },
     {
@@ -125,6 +125,438 @@
     },
     {
       "name": "standalone runtime errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 320px Y01 the optics lab offers every speed of the camera's dial",
+      "pass": true,
+      "detail": [
+        "1/4000 s",
+        "1/3200 s",
+        "1/2500 s",
+        "1/2000 s",
+        "1/1600 s",
+        "1/1250 s",
+        "1/1000 s",
+        "1/800 s",
+        "1/640 s",
+        "1/500 s",
+        "1/400 s",
+        "1/320 s",
+        "1/250 s",
+        "1/200 s",
+        "1/160 s",
+        "1/125 s",
+        "1/100 s",
+        "1/80 s",
+        "1/60 s",
+        "1/50 s",
+        "1/40 s",
+        "1/30 s",
+        "1/25 s",
+        "1/20 s",
+        "1/15 s",
+        "1/13 s",
+        "1/10 s",
+        "1/8 s",
+        "1/6 s",
+        "1/5 s",
+        "1/4 s",
+        "0.3 s",
+        "0.4 s",
+        "0.5 s",
+        "0.6 s",
+        "0.8 s",
+        "1 s",
+        "1.3 s",
+        "1.6 s",
+        "2 s",
+        "2.5 s",
+        "3.2 s",
+        "4 s",
+        "5 s",
+        "6 s",
+        "8 s",
+        "10 s",
+        "13 s",
+        "15 s",
+        "20 s",
+        "25 s",
+        "30 s"
+      ]
+    },
+    {
+      "name": "standalone 320px Y01 one intent is pressed when the lab opens",
+      "pass": true,
+      "detail": [
+        "portrait"
+      ]
+    },
+    {
+      "name": "standalone 320px Y01 the lab opens on the settings of the intent it shows pressed",
+      "pass": true,
+      "detail": {
+        "opened": [
+          "1/1250 s",
+          "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada."
+        ],
+        "preset": [
+          "1/1250 s",
+          "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada."
+        ]
+      }
+    },
+    {
+      "name": "standalone 320px Y01 the «deep» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 11,
+        "t": "1/250 s",
+        "iso": 100,
+        "ev": 15,
+        "off": 0.12,
+        "says": "Exposición equilibrada. EV cámara 14.9 · EV escena 15. "
+      }
+    },
+    {
+      "name": "standalone 320px Y01 the «portrait» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 1.8,
+        "t": "1/1250 s",
+        "iso": 100,
+        "ev": 12,
+        "off": 0.02,
+        "says": "Exposición equilibrada. EV cámara 12.0 · EV escena 12. "
+      }
+    },
+    {
+      "name": "standalone 320px Y01 the «action» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 2.8,
+        "t": "1/2000 s",
+        "iso": 400,
+        "ev": 12,
+        "off": 0.06,
+        "says": "Exposición equilibrada. EV cámara 11.9 · EV escena 12. "
+      }
+    },
+    {
+      "name": "standalone 320px Y01 the «zoom» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 8,
+        "t": "2 s",
+        "iso": 100,
+        "ev": 5,
+        "off": 0.0,
+        "says": "Exposición equilibrada. EV cámara 5.0 · EV escena 5. Obturador lento: el movimie"
+      }
+    },
+    {
+      "name": "standalone 320px Y02 the motion lab shows only speeds the camera's dial has, each one of them",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 320px Y02 the shutter slider speaks the speed it shows",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 320px Y02 each effect opens on the speed the plans shoot it at",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "standalone 320px Y02 how fast the subject moves changes its trace, not the camera's shake",
+      "pass": true,
+      "detail": [
+        {
+          "shutter": "1/2000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "1%huella del sujeto"
+        },
+        {
+          "shutter": "1/2000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "5%huella del sujeto"
+        }
+      ]
+    },
+    {
+      "name": "standalone 320px Y02 a long exposure asks for a tripod and a short one does not",
+      "pass": true,
+      "detail": [
+        {
+          "shutter": "30 s",
+          "risk": "alta · usa trípodetrepidación a pulso con 50 mm",
+          "span": "100%huella del sujeto"
+        },
+        {
+          "shutter": "1/4000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "2%huella del sujeto"
+        }
+      ]
+    },
+    {
+      "name": "standalone 320px Y03 «espacio negativo» sits in the emptier side of the frame, clear of the subject",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 320px Y04 the motion buttons say which one is on",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 320px Y04 the pose buttons say which one is on",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 320px Y04 each composition guide says whether it is shown",
+      "pass": true,
+      "detail": [
+        "false",
+        "true",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "name": "standalone 320px Y04 what the composition, pose and motion labs change is read out",
+      "pass": true,
+      "detail": {
+        "comp": "polite",
+        "stage": [
+          "comp-reading"
+        ],
+        "pose": "polite",
+        "motion": "polite"
+      }
+    },
+    {
+      "name": "standalone 320px Y01-Y04 labs ran without script errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 1280px Y01 the optics lab offers every speed of the camera's dial",
+      "pass": true,
+      "detail": [
+        "1/4000 s",
+        "1/3200 s",
+        "1/2500 s",
+        "1/2000 s",
+        "1/1600 s",
+        "1/1250 s",
+        "1/1000 s",
+        "1/800 s",
+        "1/640 s",
+        "1/500 s",
+        "1/400 s",
+        "1/320 s",
+        "1/250 s",
+        "1/200 s",
+        "1/160 s",
+        "1/125 s",
+        "1/100 s",
+        "1/80 s",
+        "1/60 s",
+        "1/50 s",
+        "1/40 s",
+        "1/30 s",
+        "1/25 s",
+        "1/20 s",
+        "1/15 s",
+        "1/13 s",
+        "1/10 s",
+        "1/8 s",
+        "1/6 s",
+        "1/5 s",
+        "1/4 s",
+        "0.3 s",
+        "0.4 s",
+        "0.5 s",
+        "0.6 s",
+        "0.8 s",
+        "1 s",
+        "1.3 s",
+        "1.6 s",
+        "2 s",
+        "2.5 s",
+        "3.2 s",
+        "4 s",
+        "5 s",
+        "6 s",
+        "8 s",
+        "10 s",
+        "13 s",
+        "15 s",
+        "20 s",
+        "25 s",
+        "30 s"
+      ]
+    },
+    {
+      "name": "standalone 1280px Y01 one intent is pressed when the lab opens",
+      "pass": true,
+      "detail": [
+        "portrait"
+      ]
+    },
+    {
+      "name": "standalone 1280px Y01 the lab opens on the settings of the intent it shows pressed",
+      "pass": true,
+      "detail": {
+        "opened": [
+          "1/1250 s",
+          "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada."
+        ],
+        "preset": [
+          "1/1250 s",
+          "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada."
+        ]
+      }
+    },
+    {
+      "name": "standalone 1280px Y01 the «deep» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 11,
+        "t": "1/250 s",
+        "iso": 100,
+        "ev": 15,
+        "off": 0.12,
+        "says": "Exposición equilibrada. EV cámara 14.9 · EV escena 15. "
+      }
+    },
+    {
+      "name": "standalone 1280px Y01 the «portrait» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 1.8,
+        "t": "1/1250 s",
+        "iso": 100,
+        "ev": 12,
+        "off": 0.02,
+        "says": "Exposición equilibrada. EV cámara 12.0 · EV escena 12. "
+      }
+    },
+    {
+      "name": "standalone 1280px Y01 the «action» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 2.8,
+        "t": "1/2000 s",
+        "iso": 400,
+        "ev": 12,
+        "off": 0.06,
+        "says": "Exposición equilibrada. EV cámara 11.9 · EV escena 12. "
+      }
+    },
+    {
+      "name": "standalone 1280px Y01 the «zoom» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 8,
+        "t": "2 s",
+        "iso": 100,
+        "ev": 5,
+        "off": 0.0,
+        "says": "Exposición equilibrada. EV cámara 5.0 · EV escena 5. Obturador lento: el movimie"
+      }
+    },
+    {
+      "name": "standalone 1280px Y02 the motion lab shows only speeds the camera's dial has, each one of them",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 1280px Y02 the shutter slider speaks the speed it shows",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 1280px Y02 each effect opens on the speed the plans shoot it at",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "standalone 1280px Y02 how fast the subject moves changes its trace, not the camera's shake",
+      "pass": true,
+      "detail": [
+        {
+          "shutter": "1/2000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "1%huella del sujeto"
+        },
+        {
+          "shutter": "1/2000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "5%huella del sujeto"
+        }
+      ]
+    },
+    {
+      "name": "standalone 1280px Y02 a long exposure asks for a tripod and a short one does not",
+      "pass": true,
+      "detail": [
+        {
+          "shutter": "30 s",
+          "risk": "alta · usa trípodetrepidación a pulso con 50 mm",
+          "span": "100%huella del sujeto"
+        },
+        {
+          "shutter": "1/4000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "2%huella del sujeto"
+        }
+      ]
+    },
+    {
+      "name": "standalone 1280px Y03 «espacio negativo» sits in the emptier side of the frame, clear of the subject",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 1280px Y04 the motion buttons say which one is on",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 1280px Y04 the pose buttons say which one is on",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "standalone 1280px Y04 each composition guide says whether it is shown",
+      "pass": true,
+      "detail": [
+        "false",
+        "true",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "name": "standalone 1280px Y04 what the composition, pose and motion labs change is read out",
+      "pass": true,
+      "detail": {
+        "comp": "polite",
+        "stage": [
+          "comp-reading"
+        ],
+        "pose": "polite",
+        "motion": "polite"
+      }
+    },
+    {
+      "name": "standalone 1280px Y01-Y04 labs ran without script errors",
       "pass": true,
       "detail": []
     },
@@ -175,8 +607,8 @@
       "name": "hosted every exposure combination",
       "pass": true,
       "detail": {
-        "states": 2093,
-        "visualStates": 840
+        "states": 10764,
+        "visualStates": 2886
       }
     },
     {
@@ -194,7 +626,7 @@
       "pass": true,
       "detail": {
         "optical": 13130,
-        "exposure": 2093,
+        "exposure": 10764,
         "failures": [],
         "floors": [
           [
@@ -222,7 +654,7 @@
             5.6
           ]
         ],
-        "exposureStates": 840,
+        "exposureStates": 2886,
         "balanced": true,
         "bgChanged": true,
         "dofFixed": true
@@ -232,10 +664,10 @@
       "name": "hosted four distinct presets",
       "pass": true,
       "detail": [
-        "35 milímetros a f 11, foco 4.00 m, profundidad de campo desde 1.94 m hasta ∞, desenfoque continuo más allá del umbral, fondo a 14.0 m, exposición sobreexpuesta ≈1.1 EV.",
-        "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición sobreexpuesta ≈1.3 EV.",
-        "85 milímetros a f 2.8, foco 7.00 m, profundidad de campo desde 6.48 m hasta 7.61 m, desenfoque continuo más allá del umbral, fondo a 19.0 m, exposición sobreexpuesta ≈1.1 EV.",
-        "80 milímetros a f 8, foco 6.00 m, profundidad de campo desde 4.91 m hasta 7.71 m, desenfoque continuo más allá del umbral, fondo a 18.0 m, exposición subexpuesta ≈3.0 EV."
+        "35 milímetros a f 11, foco 4.00 m, profundidad de campo desde 1.94 m hasta ∞, desenfoque continuo más allá del umbral, fondo a 14.0 m, exposición equilibrada.",
+        "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada.",
+        "85 milímetros a f 2.8, foco 7.00 m, profundidad de campo desde 6.48 m hasta 7.61 m, desenfoque continuo más allá del umbral, fondo a 19.0 m, exposición equilibrada.",
+        "80 milímetros a f 8, foco 6.00 m, profundidad de campo desde 4.91 m hasta 7.71 m, desenfoque continuo más allá del umbral, fondo a 18.0 m, exposición equilibrada."
       ]
     },
     {
@@ -252,12 +684,444 @@
       "name": "hosted runtime errors",
       "pass": true,
       "detail": []
+    },
+    {
+      "name": "hosted 320px Y01 the optics lab offers every speed of the camera's dial",
+      "pass": true,
+      "detail": [
+        "1/4000 s",
+        "1/3200 s",
+        "1/2500 s",
+        "1/2000 s",
+        "1/1600 s",
+        "1/1250 s",
+        "1/1000 s",
+        "1/800 s",
+        "1/640 s",
+        "1/500 s",
+        "1/400 s",
+        "1/320 s",
+        "1/250 s",
+        "1/200 s",
+        "1/160 s",
+        "1/125 s",
+        "1/100 s",
+        "1/80 s",
+        "1/60 s",
+        "1/50 s",
+        "1/40 s",
+        "1/30 s",
+        "1/25 s",
+        "1/20 s",
+        "1/15 s",
+        "1/13 s",
+        "1/10 s",
+        "1/8 s",
+        "1/6 s",
+        "1/5 s",
+        "1/4 s",
+        "0.3 s",
+        "0.4 s",
+        "0.5 s",
+        "0.6 s",
+        "0.8 s",
+        "1 s",
+        "1.3 s",
+        "1.6 s",
+        "2 s",
+        "2.5 s",
+        "3.2 s",
+        "4 s",
+        "5 s",
+        "6 s",
+        "8 s",
+        "10 s",
+        "13 s",
+        "15 s",
+        "20 s",
+        "25 s",
+        "30 s"
+      ]
+    },
+    {
+      "name": "hosted 320px Y01 one intent is pressed when the lab opens",
+      "pass": true,
+      "detail": [
+        "portrait"
+      ]
+    },
+    {
+      "name": "hosted 320px Y01 the lab opens on the settings of the intent it shows pressed",
+      "pass": true,
+      "detail": {
+        "opened": [
+          "1/1250 s",
+          "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada."
+        ],
+        "preset": [
+          "1/1250 s",
+          "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada."
+        ]
+      }
+    },
+    {
+      "name": "hosted 320px Y01 the «deep» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 11,
+        "t": "1/250 s",
+        "iso": 100,
+        "ev": 15,
+        "off": 0.12,
+        "says": "Exposición equilibrada. EV cámara 14.9 · EV escena 15. "
+      }
+    },
+    {
+      "name": "hosted 320px Y01 the «portrait» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 1.8,
+        "t": "1/1250 s",
+        "iso": 100,
+        "ev": 12,
+        "off": 0.02,
+        "says": "Exposición equilibrada. EV cámara 12.0 · EV escena 12. "
+      }
+    },
+    {
+      "name": "hosted 320px Y01 the «action» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 2.8,
+        "t": "1/2000 s",
+        "iso": 400,
+        "ev": 12,
+        "off": 0.06,
+        "says": "Exposición equilibrada. EV cámara 11.9 · EV escena 12. "
+      }
+    },
+    {
+      "name": "hosted 320px Y01 the «zoom» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 8,
+        "t": "2 s",
+        "iso": 100,
+        "ev": 5,
+        "off": 0.0,
+        "says": "Exposición equilibrada. EV cámara 5.0 · EV escena 5. Obturador lento: el movimie"
+      }
+    },
+    {
+      "name": "hosted 320px Y02 the motion lab shows only speeds the camera's dial has, each one of them",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 320px Y02 the shutter slider speaks the speed it shows",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 320px Y02 each effect opens on the speed the plans shoot it at",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "hosted 320px Y02 how fast the subject moves changes its trace, not the camera's shake",
+      "pass": true,
+      "detail": [
+        {
+          "shutter": "1/2000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "1%huella del sujeto"
+        },
+        {
+          "shutter": "1/2000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "5%huella del sujeto"
+        }
+      ]
+    },
+    {
+      "name": "hosted 320px Y02 a long exposure asks for a tripod and a short one does not",
+      "pass": true,
+      "detail": [
+        {
+          "shutter": "30 s",
+          "risk": "alta · usa trípodetrepidación a pulso con 50 mm",
+          "span": "100%huella del sujeto"
+        },
+        {
+          "shutter": "1/4000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "2%huella del sujeto"
+        }
+      ]
+    },
+    {
+      "name": "hosted 320px Y03 «espacio negativo» sits in the emptier side of the frame, clear of the subject",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 320px Y04 the motion buttons say which one is on",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 320px Y04 the pose buttons say which one is on",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 320px Y04 each composition guide says whether it is shown",
+      "pass": true,
+      "detail": [
+        "false",
+        "true",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "name": "hosted 320px Y04 what the composition, pose and motion labs change is read out",
+      "pass": true,
+      "detail": {
+        "comp": "polite",
+        "stage": [
+          "comp-reading"
+        ],
+        "pose": "polite",
+        "motion": "polite"
+      }
+    },
+    {
+      "name": "hosted 320px Y01-Y04 labs ran without script errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 1280px Y01 the optics lab offers every speed of the camera's dial",
+      "pass": true,
+      "detail": [
+        "1/4000 s",
+        "1/3200 s",
+        "1/2500 s",
+        "1/2000 s",
+        "1/1600 s",
+        "1/1250 s",
+        "1/1000 s",
+        "1/800 s",
+        "1/640 s",
+        "1/500 s",
+        "1/400 s",
+        "1/320 s",
+        "1/250 s",
+        "1/200 s",
+        "1/160 s",
+        "1/125 s",
+        "1/100 s",
+        "1/80 s",
+        "1/60 s",
+        "1/50 s",
+        "1/40 s",
+        "1/30 s",
+        "1/25 s",
+        "1/20 s",
+        "1/15 s",
+        "1/13 s",
+        "1/10 s",
+        "1/8 s",
+        "1/6 s",
+        "1/5 s",
+        "1/4 s",
+        "0.3 s",
+        "0.4 s",
+        "0.5 s",
+        "0.6 s",
+        "0.8 s",
+        "1 s",
+        "1.3 s",
+        "1.6 s",
+        "2 s",
+        "2.5 s",
+        "3.2 s",
+        "4 s",
+        "5 s",
+        "6 s",
+        "8 s",
+        "10 s",
+        "13 s",
+        "15 s",
+        "20 s",
+        "25 s",
+        "30 s"
+      ]
+    },
+    {
+      "name": "hosted 1280px Y01 one intent is pressed when the lab opens",
+      "pass": true,
+      "detail": [
+        "portrait"
+      ]
+    },
+    {
+      "name": "hosted 1280px Y01 the lab opens on the settings of the intent it shows pressed",
+      "pass": true,
+      "detail": {
+        "opened": [
+          "1/1250 s",
+          "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada."
+        ],
+        "preset": [
+          "1/1250 s",
+          "85 milímetros a f 1.8, foco 3.00 m, profundidad de campo desde 2.94 m hasta 3.07 m, desenfoque continuo más allá del umbral, fondo a 11.0 m, exposición equilibrada."
+        ]
+      }
+    },
+    {
+      "name": "hosted 1280px Y01 the «deep» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 11,
+        "t": "1/250 s",
+        "iso": 100,
+        "ev": 15,
+        "off": 0.12,
+        "says": "Exposición equilibrada. EV cámara 14.9 · EV escena 15. "
+      }
+    },
+    {
+      "name": "hosted 1280px Y01 the «portrait» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 1.8,
+        "t": "1/1250 s",
+        "iso": 100,
+        "ev": 12,
+        "off": 0.02,
+        "says": "Exposición equilibrada. EV cámara 12.0 · EV escena 12. "
+      }
+    },
+    {
+      "name": "hosted 1280px Y01 the «action» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 2.8,
+        "t": "1/2000 s",
+        "iso": 400,
+        "ev": 12,
+        "off": 0.06,
+        "says": "Exposición equilibrada. EV cámara 11.9 · EV escena 12. "
+      }
+    },
+    {
+      "name": "hosted 1280px Y01 the «zoom» intent exposes the scene it sets",
+      "pass": true,
+      "detail": {
+        "f": 8,
+        "t": "2 s",
+        "iso": 100,
+        "ev": 5,
+        "off": 0.0,
+        "says": "Exposición equilibrada. EV cámara 5.0 · EV escena 5. Obturador lento: el movimie"
+      }
+    },
+    {
+      "name": "hosted 1280px Y02 the motion lab shows only speeds the camera's dial has, each one of them",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 1280px Y02 the shutter slider speaks the speed it shows",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 1280px Y02 each effect opens on the speed the plans shoot it at",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "hosted 1280px Y02 how fast the subject moves changes its trace, not the camera's shake",
+      "pass": true,
+      "detail": [
+        {
+          "shutter": "1/2000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "1%huella del sujeto"
+        },
+        {
+          "shutter": "1/2000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "5%huella del sujeto"
+        }
+      ]
+    },
+    {
+      "name": "hosted 1280px Y02 a long exposure asks for a tripod and a short one does not",
+      "pass": true,
+      "detail": [
+        {
+          "shutter": "30 s",
+          "risk": "alta · usa trípodetrepidación a pulso con 50 mm",
+          "span": "100%huella del sujeto"
+        },
+        {
+          "shutter": "1/4000 s",
+          "risk": "bajatrepidación a pulso con 50 mm",
+          "span": "2%huella del sujeto"
+        }
+      ]
+    },
+    {
+      "name": "hosted 1280px Y03 «espacio negativo» sits in the emptier side of the frame, clear of the subject",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 1280px Y04 the motion buttons say which one is on",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 1280px Y04 the pose buttons say which one is on",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hosted 1280px Y04 each composition guide says whether it is shown",
+      "pass": true,
+      "detail": [
+        "false",
+        "true",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "name": "hosted 1280px Y04 what the composition, pose and motion labs change is read out",
+      "pass": true,
+      "detail": {
+        "comp": "polite",
+        "stage": [
+          "comp-reading"
+        ],
+        "pose": "polite",
+        "motion": "polite"
+      }
+    },
+    {
+      "name": "hosted 1280px Y01-Y04 labs ran without script errors",
+      "pass": true,
+      "detail": []
     }
   ],
-  "audited_at": "2026-10-27T21:35:17.196423+00:00",
-  "audited_commit": "3bcabf94637c35b69f1b29eb9bc8185c084b199c",
+  "audited_at": "2026-10-28T06:32:04.823992+00:00",
+  "audited_commit": "17041ba65089313b2157ed695159e65a46f084ca",
   "audited_artifacts": {
-    "dist/canon6d_sota_hosted/index.html": "99aee76bd175a9de43e93a079651812579973797d8d7d95be095bf2206cfd6e4",
-    "index.html": "9df6b720230aa3bd57bf25644f4ff4cf828d301d47f44b10729170bbf0de8059"
+    "dist/canon6d_sota_hosted/index.html": "7dc6669ccdc9322dccbf2768e4e113cf825f654b301a07cce57265d153aefc27",
+    "index.html": "e55f35fb08e9f3ed9f05be79ff4bc5c33431c26b26e31459afe2e2e12bb03b13"
   }
 }
