@@ -24,7 +24,7 @@ and drops quoted text from messages, which can be what the reader typed.
 The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 540 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 548 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
   on the home page and every plan page, no text under 12 px, no control under 44 px, no
   English in the interface, nothing cut off at the edges and numbers written with a
@@ -35,7 +35,8 @@ reports at the repository root still match the files they audited, byte for byte
   night screen; and the site's bar and the Sujeto/Hora bar kept at the top only on screens with room for them
   (641 by 500 px at the default text size, more with larger text), with nothing that takes keyboard focus behind
   them, every in-page link in them, every section the page is opened at, and every section the address is
-  changed to on the open page, also going back and forward, landing clear of them once the page has drawn it,
+  changed to on the open page, also going back and forward, and an id inside a section reached from the other
+  side of the Sujeto/Hora bar, landing clear of them once the page has drawn it,
   also with the reader's text at 20 and 24 px, Tab and Shift+Tab across a bar, or onto a control
   just under what stays, leaving the page where it is in every frame, a scroll of the reader's own during a
   jump kept, and the page left where it was when a dialog opened from the top bar closes; on

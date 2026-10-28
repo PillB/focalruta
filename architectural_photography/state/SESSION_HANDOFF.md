@@ -3340,6 +3340,77 @@ En `PERF_BUDGET_QA.json` sobre 214879a (2.38× y 9.26×), el inicio pesa 134.1 K
 Abrir la tarjeta responde a 56 y 200 ms y muestra los planes a 77 y 292; a ancho de tableta
 responde a 64 y 216 y muestra la primera toma a 118 y 375.
 
+### Nota del red team sobre PR #25: un id dentro de una sección (3a35933)
+
+En su ronda de las 03:30 UTC sobre b6c5612 el red team pasó P1 y anotó, como observación y no
+como hallazgo, que en secuencias al azar algunos id que no son secciones aterrizaban con el
+espacio del otro estado de la barra Sujeto/Hora: `#opt-bg-v` y `#eli5-orientation-title` a 84 px
+bajo la barra del sitio sola, y dos veces `#motion-caption` y `#motion-risk` a 77 px bajo barras
+que acababan en 137. Con catorce pares dirigidos no lo reprodujo.
+
+Reproducción (`nonsection.py`, en el borrador de la sesión): dibujar primero lo que rodea al id,
+poner la página arriba o en una sección bajo la barra, y cambiar la dirección. En b6c5612, 6 de 6
+mal a 1280×800 y a 820×1000: un id bajo la barra Sujeto/Hora, alcanzado desde arriba, queda a 77
+px con barras hasta 137 (60 px tapados); uno encima de ella, alcanzado desde abajo, queda a 149 px
+bajo la barra del sitio sola, que acaba en 65. En main (128dc4a), a 1280×800, los mismos seis
+empiezan entre 11 268 px por encima y 14 111 px por debajo de lo alto de la pantalla (P1). Sin dibujar antes, las secciones se dibujan tras el salto, el destino
+se mueve y `jumpTo` vuelve a saltar, ya con el espacio de llegada: por eso los pares dirigidos
+aterrizaron bien.
+
+Causa: el espacio de arriba depende de `html.fr-bar-in-flow`, que se lee en cada scroll (N14). El
+salto usa el espacio del lugar de partida y el scroll que provoca cambia la clase para el de
+llegada. Una sección lleva la diferencia en su margen y aterriza igual en los dos estados; un id
+dentro de una no, y nada volvía a saltar si el destino ya estaba dibujado.
+
+Cambio: en el inicio, `jumpTo` guarda el espacio con que saltó (`scroll-padding-top` del documento
+más `scroll-margin-top` del destino) y, si cambia después, salta otra vez, como mucho dos veces,
+para que un id justo en el borde de la barra no alterne entre los dos estados. Las páginas de plan
+no tienen `jumpTo`: el cuadro siguiente a un `hashchange` lleva el destino otra vez a su inicio, y
+donde el espacio no cambió la página no se mueve. En Chromium el `hashchange` llega antes del primer
+cuadro y la corrección va en ese cuadro: no se pinta la posición equivocada (muestreo por cuadro,
+tres veces, 149 px desde el primero).
+
+Probé y no envié: dar a los id dentro de una sección el mismo margen que a su sección, sólo con
+CSS. Aterrizaría igual sin script, pero el desplazamiento por foco también usa `scroll-margin`, así
+que cambiaría adónde lleva el foco a un control con id, y N14 ajustó ese espacio para que Chrome no
+mueva la página hacia controles ya a la vista (csswg-drafts#7930). Con el script sólo cambian los
+saltos.
+
+Prueba nueva, `fixed_bars.inner_addresses` en `browser_release_qa.py` (540 → 548): donde las barras
+se quedan, dibuja lo que rodea a la barra Sujeto/Hora, toma el último id por encima y el primero por
+debajo en la página, a 200 px o más de ella, fuera de barras, diálogos y de lo que es `sticky`;
+dibuja cada uno y cambia la dirección a él desde el otro lado de la barra. El orden es el del
+documento: sin dibujar, el contenido de una sección se sale de los 1000 px que se le suponen y
+`#optics-svg`, encima de la barra, aparecía debajo.
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `nonsection.py` en b6c5612 y en 3a35933, 1280×800 y 820×1000 | 1 y 0 | 6 de 6 mal; 0 de 6 |
+| `inner_only.py` (la prueba nueva sola, ocho páginas, cuatro tamaños con barras) en b6c5612 | 0 (informe) | 32 de 32 fallan: las dos páginas de inicio en las dos direcciones, las seis de plan con `#shots-grid` |
+| lo mismo en 3a35933 | 0 | 0 de 32 fallan |
+| mutante: saltar otra vez sólo si el espacio crece, página alojada | 0 (informe) | 4 de 4 fallan, sólo la dirección de arriba (149 frente a 65) |
+| `sweep.py`: los 79 id visibles del inicio, desde arriba y desde `#composition-lab`, a 1280×800, 1024×768 y 820×1000 | 0 | b6c5612: 109 tapados y 121 lejos de 474; 3a35933: ninguno tapado y 8 lejos, los dos `span` de la tarjeta óptica, `sticky` a 84 px, que quedan a 110 en cualquier caso |
+| `regenerate_all.py && git diff --exit-code` en 3a35933 | 0 | sin diferencias |
+| las seis suites con reporte en 3a35933 | 0 | release 548/548 en 25 min 49 s, axe 80/80, tarjeta 64/64, visual 37/37, óptica 22/22, velocidad 138/138 (2.37× y 8.75×); reportes en 773f02d |
+| las cinco suites de `tests/architecture/browser_*.py` en 3a35933 | 0 | todas en verde |
+| `pytest -q` y `pytest tests/architecture -q` en 773f02d | 0 y 0 | 925 pasan y 344 pasan, 1 omitida en cada una |
+| `verify_release.py` (navegador 548), `verify_architecture.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10, `regenerate_all.py && git diff --exit-code` en 773f02d | 0 | limpio, sin diferencias |
+
+En `PERF_BUDGET_QA.json` sobre 3a35933, a ancho de tableta y en gama baja la tarjeta responde a 216
+ms y muestra la primera toma a 381; en el teléfono responde a 184 y muestra los planes a 264.
+
+Compromisos:
+
+- El tope de dos saltos más no lo ejerce ninguna prueba: ningún id del sitio está en el borde de la
+  barra. Si alternara, el salto acaba en el tercero, con el espacio de la barra pegada, que nunca
+  queda tapado.
+- Las páginas de plan no corrigen al abrirse en un id (`plan_a.html#shots-grid`): antes de la
+  clase, el espacio por defecto es el de la barra pegada, el correcto bajo ella, y lo de encima está
+  al principio de la página.
+- Un id dentro de algo `sticky` aterriza donde ese algo se queda, como antes.
+- `browser_release_qa.py` pasó de 25 min 14 s a 25 min 49 s en esta máquina.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
@@ -3362,7 +3433,8 @@ responde a 64 y 216 y muestra la primera toma a 118 y 375.
   el red team los pasó. Pablo tiene la pregunta de si deben quedarse fijas también en el
   teléfono; si dice que sí, se quita el límite de tamaño y X07 cambia con él.
 - P1 sólo se probó en Chromium. En Safari, atrás y adelante a una dirección con sección pueden
-  dejar de volver adonde el lector se había quedado dentro de ella (WebKit 325987).
+  dejar de volver adonde el lector se había quedado dentro de ella (WebKit 325987). Que el
+  `hashchange` llegue antes del primer cuadro en las páginas de plan también es de Chromium.
 - Velocidad: en la máquina anterior, la primera toma a ancho de tableta en gama baja quedaba en
   500 ms con 383290c y 442 con el cambio; CI midió main en 399. Si vuelve a acercarse al límite,
   lo siguiente es lo que paga la primera apertura (búsquedas de fuente, `warm.py`) y el degradado
