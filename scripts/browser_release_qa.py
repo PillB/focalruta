@@ -38,6 +38,13 @@ AUDITED = list(dict.fromkeys([
     *STYLED,
 ]))
 results = []
+SLIDER_TENTHS = "e=>[0.1,0.9].map(f=>String(Math.round(+e.min+f*(e.max-e.min))))"
+# Y21: where a plan's «Mostrando:» block wraps under the plan's name, its text starts where the name starts.
+SHOWING_MISALIGNED = """(plans)=>plans.flatMap(p=>{selectPlan(p);
+const label=[...document.querySelectorAll('#plan-detail-content div')].find(d=>d.textContent.trim()==='Mostrando:');
+const box=label.parentElement,name=box.parentElement.querySelector('h3'),range=document.createRange();range.selectNodeContents(label);
+const text=range.getBoundingClientRect(),n=name.getBoundingClientRect();
+return box.getBoundingClientRect().top>=n.bottom-1&&Math.abs(text.left-n.left)>1?[[p,Math.round(text.left),Math.round(n.left)]]:[]})"""
 
 
 def record(name, passed, detail=""):
@@ -413,6 +420,8 @@ with sync_playwright() as pw:
             page.goto(target.as_uri(), wait_until="domcontentloaded", timeout=60000)
             page.wait_for_timeout(150)
             record(f"{target_name} {width} no overflow", page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
+            misaligned = page.evaluate(SHOWING_MISALIGNED, [f"plan_{letter}" for letter in qa_matrix.PLAN_LETTERS])
+            record(f"{target_name} {width} Y21 a wrapped «Mostrando» starts under the plan's name", not misaligned, misaligned)
             record(f"{target_name} {width} no page errors", not errors, errors)
             page.close()
 
@@ -430,9 +439,11 @@ with sync_playwright() as pw:
         motion = []
         for mode in ("freeze", "pan", "ghost", "trails", "paint", "zoom"):
             page.locator(f'[data-motion="{mode}"]').click()
-            page.locator("#motion-shutter").fill("10")
+            # A tenth and nine tenths of the slider's travel, read from it: since Y02 its steps are the dial's.
+            low_at, high_at = page.locator("#motion-shutter").evaluate(SLIDER_TENTHS)
+            page.locator("#motion-shutter").fill(low_at)
             low = page.locator("#motion-span").inner_text()
-            page.locator("#motion-shutter").fill("90")
+            page.locator("#motion-shutter").fill(high_at)
             high = page.locator("#motion-span").inner_text()
             motion.append([mode, low, high])
             record(f"{target_name} motion {mode} differential", low != high, [low, high])

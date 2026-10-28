@@ -154,8 +154,10 @@ with sync_playwright() as pw:
     motion_states = []
     for mode in ("freeze", "pan", "ghost", "trails", "paint", "zoom"):
         page.locator(f'[data-motion="{mode}"]').click()
-        page.locator("#motion-shutter").fill("10"); low = page.locator("#motion-span").inner_text()
-        page.locator("#motion-shutter").fill("90"); high = page.locator("#motion-span").inner_text()
+        # A tenth and nine tenths of the slider's travel, read from it: since Y02 its steps are the dial's.
+        low_at, high_at = page.locator("#motion-shutter").evaluate("e=>[0.1,0.9].map(f=>String(Math.round(+e.min+f*(e.max-e.min))))")
+        page.locator("#motion-shutter").fill(low_at); low = page.locator("#motion-span").inner_text()
+        page.locator("#motion-shutter").fill(high_at); high = page.locator("#motion-span").inner_text()
         motion_states.append([mode, low, high, page.locator("#motion-caption").inner_text()])
     record("live Motion six modes differential", all(x[1] != x[2] for x in motion_states), motion_states)
     captions = {"freeze": "CONGELADO", "pan": "BARRIDO", "ghost": "FANTASMA", "trails": "TRAZAS", "paint": "PINTURA CON LUZ", "zoom": "EFECTO ZOOM"}
