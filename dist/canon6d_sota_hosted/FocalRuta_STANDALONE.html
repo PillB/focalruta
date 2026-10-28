@@ -5334,9 +5334,11 @@ img{max-width:100%;height:auto}
 
 #field-card-modal{position:fixed;inset:0;z-index:120;display:none;background:rgba(3,13,22,.72)}
 #field-card-modal.fc-modal-open{display:block}
-/* The first frame after the tap draws the bar and the card's header, the next one the plans,
-   and the one after that the shots, which on a phone start below the screen: a slow phone shows
-   the card at once and what is on screen next, instead of after laying out all of it. */
+/* The first frame after the tap draws the bar and the card's header, the next one the plans.
+   The shots start about 740 to 1060 px down the card, by its width and fonts. On a screen under
+   900 px tall they start below it and wait one more frame, so a slow phone shows the card at once
+   and what is on screen next, instead of after laying out all of it. From 900 px tall they start
+   on it, at least from 500 px wide, and come with the plans. */
 #field-card-modal.fc-modal-first .fc-panel,#field-card-modal.fc-modal-later .fc-shots{content-visibility:hidden}
 .fc-modal-card{display:flex;flex-direction:column;width:min(100%,900px);height:100dvh;margin:auto;background:#f4f1e9;box-shadow:0 0 60px rgba(0,0,0,.28)}
 .fc-modal-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:#061827;color:#fff}
@@ -7233,10 +7235,10 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
 // stays where the reader left it. An opener on screen takes focus without scrolling too: in a
 // bar that stays at the top, inside the room scroll-padding keeps for that bar, the browser
 // counts it as out of view and would scroll the page for nothing (csswg-drafts#7930). The panels wait for the frame after the
-// first paint (requestAnimationFrame, then a task) and the shots for the frame after that.
+// first paint (requestAnimationFrame, then a task) and, on a screen under 900 px tall, the shots for the frame after that.
 let fcOpener=null,fcInert=[];
 function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
-function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open','fc-modal-first','fc-modal-later');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();const next=f=>requestAnimationFrame(()=>setTimeout(f));next(()=>{m.classList.remove('fc-modal-first');next(()=>m.classList.remove('fc-modal-later'))});}
+function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);const tall=matchMedia('(min-height:900px)').matches;m.classList.add('fc-modal-open','fc-modal-first');if(!tall)m.classList.add('fc-modal-later');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();const next=f=>requestAnimationFrame(()=>setTimeout(f));next(()=>{m.classList.remove('fc-modal-first');if(!tall)next(()=>m.classList.remove('fc-modal-later'))});}
 function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];const shown=b=>b?.isConnected&&b.checkVisibility?.(),onScreen=b=>{const r=b.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight};if(shown(fcOpener)||!fcOpener?.checkVisibility){fcOpener?.focus?.({preventScroll:!!fcOpener?.getBoundingClientRect&&onScreen(fcOpener)});return}const all=[...document.querySelectorAll('[onclick="openFieldCard()"]')].filter(shown);(all.find(onScreen)||all[0])?.focus({preventScroll:true});}
 document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 /* Field card behaviour. The card itself is complete HTML: plan, light and tab

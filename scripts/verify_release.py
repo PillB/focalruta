@@ -213,8 +213,9 @@ for report_name, minimum_checks in (
     # state on the card and in the home page's dialog (V09), and the page behind that dialog:
     # undrawn while the card covers it, back where it was, printed, and drawn at 1280 px (X06),
     # and focus back on an opener on the page, the page unmoved, after a resize either way
-    # across 900 px hides the one used.
-    ("FIELD_CARD_QA.json", 63),
+    # across 900 px hides the one used (63), plus the shots drawn with the plans where they
+    # start on screen and a frame later where they start below (X06) (64).
+    ("FIELD_CARD_QA.json", 64),
     # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin); X06: six taps
     # on two phone tiers, each timed to its answer and to what it was for, after the
     # instrument's own checks that it sees content put off and that every tap on the field

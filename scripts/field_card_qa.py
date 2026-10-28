@@ -278,6 +278,38 @@ def page_behind_home_dialog(browser, base: str) -> None:
     context.close()
 
 
+# Opens the home page's dialog and notes, at the start of each of the next frames, whether the plans
+# and the chosen plan's first shot are drawn (checkVisibility is false under the content-visibility
+# that holds them back), then where that shot starts on the screen.
+REVEAL = """async () => { const m = document.getElementById('field-card-modal'), frames = [];
+  const shot = () => m.querySelector(`.fc-shot[data-plan="${m.querySelector('input[name=fc-plan]:checked').value}"]`);
+  const step = () => { frames.push([m.querySelector('.fc-plans .fc-option').checkVisibility(), shot().checkVisibility()]);
+    if (frames.length < 10) requestAnimationFrame(step); };
+  requestAnimationFrame(step); openFieldCard();
+  await new Promise(done => setTimeout(done, 600));
+  return {frames, top: Math.round(shot().getBoundingClientRect().top), height: innerHeight}; }"""
+
+
+def shots_with_plans(browser, base: str) -> None:
+    """The card draws its plans a frame after the tap. Where the first shot starts on the screen it is
+    drawn with them; where it starts below, as on a phone, a frame later, so a slow phone shows the
+    plans sooner. At every N01 size, and at tablet width both ways round."""
+    wrong = {}
+    for width, height in (*qa_matrix.REQUIRED_VIEWPORTS, (768, 1024), (1024, 768)):
+        context = browser.new_context(viewport={"width": width, "height": height}, is_mobile=width < 900, has_touch=True)
+        page = context.new_page()
+        page.goto(base + "index.html", wait_until="load")
+        seen = page.evaluate(REVEAL)
+        plans = next((i for i, (p, _) in enumerate(seen["frames"]) if p), None)
+        shots = next((i for i, (_, s) in enumerate(seen["frames"]) if s), None)
+        on_screen = seen["top"] < seen["height"]
+        if plans is None or shots is None or (shots == plans) != on_screen or shots < plans:
+            wrong[f"{width}x{height}"] = {"first shot at": seen["top"], "plans drawn in frame": plans, "shots drawn in frame": shots}
+        context.close()
+    check("home page dialog: where the first shot starts on screen it is drawn with the plans, and where it starts below, a frame later",
+          not wrong, wrong)
+
+
 # Where focus is (the opener's onclick, whether it is shown, and whether it is on screen) and
 # where the element marked by SEEN is on screen.
 FOCUS = """() => { const a = document.activeElement, r = a.getBoundingClientRect();
@@ -650,7 +682,8 @@ def main() -> int:
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
-        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog, home_dialog_focus_after_resize, damaged_memory, your_gear,
+        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog, shots_with_plans,
+                     home_dialog_focus_after_resize, damaged_memory, your_gear,
                      overflow, axe_states):
             guarded(step, browser, base)
         deploys(browser)

@@ -5141,9 +5141,11 @@ img{max-width:100%;height:auto}
 
 #field-card-modal{position:fixed;inset:0;z-index:120;display:none;background:rgba(3,13,22,.72)}
 #field-card-modal.fc-modal-open{display:block}
-/* The first frame after the tap draws the bar and the card's header, the next one the plans,
-   and the one after that the shots, which on a phone start below the screen: a slow phone shows
-   the card at once and what is on screen next, instead of after laying out all of it. */
+/* The first frame after the tap draws the bar and the card's header, the next one the plans.
+   The shots start about 740 to 1060 px down the card, by its width and fonts. On a screen under
+   900 px tall they start below it and wait one more frame, so a slow phone shows the card at once
+   and what is on screen next, instead of after laying out all of it. From 900 px tall they start
+   on it, at least from 500 px wide, and come with the plans. */
 #field-card-modal.fc-modal-first .fc-panel,#field-card-modal.fc-modal-later .fc-shots{content-visibility:hidden}
 .fc-modal-card{display:flex;flex-direction:column;width:min(100%,900px);height:100dvh;margin:auto;background:#f4f1e9;box-shadow:0 0 60px rgba(0,0,0,.28)}
 .fc-modal-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:#061827;color:#fff}
