@@ -4840,7 +4840,11 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 
 /* Canon 6D production theme */
 :root{--planner-ink:#0F172A;--planner-paper:#FBFAF5;--planner-blue:#2563EB;--planner-violet:#7C3AED;--planner-gold:#F59E0B}
-html{scroll-behavior:smooth} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#FBFAF5;color:#0F172A;text-rendering:optimizeLegibility}
+/* P1: no smooth scrolling for the whole page. With it, the browser animates a change of #section in the
+   address, and going back or forward, towards where the place was before the sections on the way were
+   drawn (content-visibility:auto; csswg-drafts#9833), and nothing corrects it: up to 12,000 px off.
+   A link on the page still glides to a nearby section unless the reader reduces motion (jumpTo). */
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#FBFAF5;color:#0F172A;text-rendering:optimizeLegibility}
 .bg-paper{background-color:#FBFAF5}.bg-paper\/95{background-color:rgba(251,250,245,.95)}.text-ink{color:#0F172A}.bg-ink{background-color:#0F172A}
 .animate-fade-in{animation:plannerFadeIn .5s ease-out both}.animate-slide-up{animation:plannerSlideUp .45s ease-out both}.animate-pulse-slow{animation:pulse 3s cubic-bezier(.4,0,.6,1) infinite}.animate-spin-slow{animation:spin 8s linear infinite}.animate-gradient{animation:plannerGradient 10s ease infinite}
 @keyframes plannerFadeIn{from{opacity:0}to{opacity:1}}@keyframes plannerSlideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}@keyframes plannerGradient{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
@@ -4940,7 +4944,7 @@ html,body{max-width:100%;overflow-x:clip}
 
 
 
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{min-width:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 a,button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:rgba(37,99,235,.14)}
 button,a{min-height:44px}
@@ -5137,9 +5141,11 @@ img{max-width:100%;height:auto}
 
 #field-card-modal{position:fixed;inset:0;z-index:120;display:none;background:rgba(3,13,22,.72)}
 #field-card-modal.fc-modal-open{display:block}
-/* The first frame after the tap draws the bar and the card's header, the next one the plans,
-   and the one after that the shots, which on a phone start below the screen: a slow phone shows
-   the card at once and what is on screen next, instead of after laying out all of it. */
+/* The first frame after the tap draws the bar and the card's header, the next one the plans.
+   The shots start about 740 to 1060 px down the card, by its width and fonts. On a screen under
+   900 px tall they start below it and wait one more frame, so a slow phone shows the card at once
+   and what is on screen next, instead of after laying out all of it. From 900 px tall they start
+   on it, at least from 500 px wide, and come with the plans. */
 #field-card-modal.fc-modal-first .fc-panel,#field-card-modal.fc-modal-later .fc-shots{content-visibility:hidden}
 .fc-modal-card{display:flex;flex-direction:column;width:min(100%,900px);height:100dvh;margin:auto;background:#f4f1e9;box-shadow:0 0 60px rgba(0,0,0,.28)}
 .fc-modal-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:#061827;color:#fff}

@@ -201,8 +201,11 @@ for report_name, minimum_checks in (
     # room kept following the bars' padding (red team notes), and on the home pages the top bar's tools
     # whole on screen and focus in it whole in view (N10) (520), plus on every page Tab and Shift+Tab onto
     # a control just under what stays leaving the page still (red team N14), and on the home pages a
-    # reader's own scroll during a jump kept (red team Q1) (530).
-    ("CURRENT_BROWSER_QA.json", 530),
+    # reader's own scroll during a jump kept (red team Q1) (530), plus on every page the address changed to
+    # each section and back and forward between two, and on the home pages the ↑ button with motion reduced
+    # (P1, X08) (540), plus on every page an id inside a section reached from the other side of the
+    # Sujeto/Hora bar (P1, red team note) (548).
+    ("CURRENT_BROWSER_QA.json", 548),
     ("OPTICS_ACCESSIBILITY_QA.json", 22),
     ("VISUAL_RESOURCE_QA.json", 37),
     # Every shipped page, light phone and dark desktop: 39 pages x 2 passes, plus the home
@@ -213,8 +216,9 @@ for report_name, minimum_checks in (
     # state on the card and in the home page's dialog (V09), and the page behind that dialog:
     # undrawn while the card covers it, back where it was, printed, and drawn at 1280 px (X06),
     # and focus back on an opener on the page, the page unmoved, after a resize either way
-    # across 900 px hides the one used.
-    ("FIELD_CARD_QA.json", 63),
+    # across 900 px hides the one used (63), plus the shots drawn with the plans where they
+    # start on screen and a frame later where they start below (X06) (64).
+    ("FIELD_CARD_QA.json", 64),
     # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin); X06: six taps
     # on two phone tiers, each timed to its answer and to what it was for, after the
     # instrument's own checks that it sees content put off and that every tap on the field

@@ -205,7 +205,7 @@
 
 
 
-<link rel="stylesheet" href="./assets/hosted.css?v=e2f1d9aee0d0">
+<link rel="stylesheet" href="./assets/hosted.css?v=0b2ccfdbb5ce">
 </head>
 <body class="bg-paper text-ink">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -230,7 +230,7 @@
       </div>
       <div class="top-actions flex items-center overflow-x-auto">
         <div class="top-links">
-        <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">↑</button>
+        <button onclick="window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})" aria-label="Volver arriba" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">↑</button>
         <a href="#quick-start" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition whitespace-nowrap">▶ Inicio</a>
         <a href="challenges/arquitectura-en-foco/" class="px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 rounded-lg transition whitespace-nowrap"><span class="hdr-short">Arquitectura</span><span class="hdr-label">Fotografía arquitectónica</span></a>
         <a href="#planes" class="hdr-wide px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 rounded-lg transition whitespace-nowrap">Planes</a>
@@ -1807,15 +1807,22 @@ function observeScrollFade() {
 // holds, so only the reader moves the page then; the next frame runs this check before it lays
 // out what the reader moved to, so anchoring is back on for that. The clamp at the end of a page
 // that got shorter does not count as the reader.
+// The room kept at the top is set by where the page is: while the Sujeto/Hora bar is not stuck,
+// html.fr-bar-in-flow keeps room for the site's bar alone, and it is read again on the scroll
+// the jump makes. A section carries the difference in its margin, but an id inside one, typed
+// in the address, does not: it landed 60 px under the stuck bar, or 72 px too low under the site's
+// bar alone. So the jump is also repeated when the room changes after it lands, at most twice, so
+// a target at the bar's edge does not swing between the two.
 let jumping=0;
 function jumpTo(target, now){
   const reduced=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, id=++jumping, root=document.documentElement;
   root.style.overflowAnchor='';
   if(!now && !reduced && Math.abs(target.getBoundingClientRect().top)<=innerHeight*3){ target.scrollIntoView({behavior:'smooth',block:'start'}); return; }
-  const go=()=>{ const prev=root.style.scrollBehavior; root.style.scrollBehavior='auto'; target.scrollIntoView({behavior:'auto',block:'start'}); root.style.scrollBehavior=prev; at=scrollY; return target.getBoundingClientRect().top; };
+  const room=()=>parseFloat(getComputedStyle(root).scrollPaddingTop)+parseFloat(getComputedStyle(target).scrollMarginTop);
+  const go=()=>{ const prev=root.style.scrollBehavior; root.style.scrollBehavior='auto'; target.scrollIntoView({behavior:'auto',block:'start'}); root.style.scrollBehavior=prev; at=scrollY; kept=room(); return target.getBoundingClientRect().top; };
   const quit=()=>{ stop=true; }, inputs=['wheel','touchstart','pointerdown','keydown'], until=performance.now()+800;
   const clamped=()=>scrollY<at && Math.ceil(scrollY+innerHeight)>=root.scrollHeight-1;
-  let at=0, stop=false;
+  let at=0, stop=false, kept=0, redo=0;
   root.style.overflowAnchor='none';
   let want=go();
   inputs.forEach(type=>addEventListener(type,quit,{capture:true,passive:true}));
@@ -1826,7 +1833,7 @@ function jumpTo(target, now){
       if(id===jumping) root.style.overflowAnchor='';
       return;
     }
-    if(Math.abs(target.getBoundingClientRect().top-want)>1) want=go(); else at=scrollY;
+    if(Math.abs(target.getBoundingClientRect().top-want)>1 || (redo<2 && Math.abs(room()-kept)>1 && ++redo)) want=go(); else at=scrollY;
     requestAnimationFrame(check);
   };
   requestAnimationFrame(check);
@@ -1860,6 +1867,16 @@ function initInternalNavigation(){
     try { target=location.hash.length>1 && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch(e) {}
     if(target && !moved && (!entry || entry.type==='navigate')) jumpTo(target,true);
   },{once:true});
+  // An address that changes only its #section on the open page (a typed #tecnicas,
+  // location.hash, back or forward to such an address) lands and is held as when the page opens
+  // at it, as the sections around it are drawn (P1). Back and forward to a section's address go
+  // to its start, as Chrome does on any page; back to the address with no section is left to the
+  // browser, which puts the page back at the scroll position the reader left.
+  addEventListener('hashchange',()=>{
+    let target=null;
+    try { target=location.hash.length>1 && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch(e) {}
+    if(target) jumpTo(target,true);
+  });
 }
 
 // ---- Init ----
@@ -1975,10 +1992,10 @@ document.addEventListener('DOMContentLoaded',()=>{initOpticsLab();initVisibility
 // stays where the reader left it. An opener on screen takes focus without scrolling too: in a
 // bar that stays at the top, inside the room scroll-padding keeps for that bar, the browser
 // counts it as out of view and would scroll the page for nothing (csswg-drafts#7930). The panels wait for the frame after the
-// first paint (requestAnimationFrame, then a task) and the shots for the frame after that.
+// first paint (requestAnimationFrame, then a task) and, on a screen under 900 px tall, the shots for the frame after that.
 let fcOpener=null,fcInert=[];
 function fcDialog(){const m=document.getElementById('field-card-modal');return m&&m.classList.contains('fc-modal-open')?m:null}
-function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);m.classList.add('fc-modal-open','fc-modal-first','fc-modal-later');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();const next=f=>requestAnimationFrame(()=>setTimeout(f));next(()=>{m.classList.remove('fc-modal-first');next(()=>m.classList.remove('fc-modal-later'))});}
+function openFieldCard(){const m=document.getElementById('field-card-modal');if(!m||fcDialog())return;fcOpener=document.activeElement;fcInert=[...document.body.children].filter(el=>el!==m&&!el.inert&&!['SCRIPT','STYLE'].includes(el.tagName));fcInert.forEach(el=>el.inert=true);const tall=matchMedia('(min-height:900px)').matches;m.classList.add('fc-modal-open','fc-modal-first');if(!tall)m.classList.add('fc-modal-later');m.setAttribute('aria-hidden','false');document.body.classList.add('fc-modal-lock');m.querySelector('.fc-modal-scroll')?.scrollTo({top:0,behavior:'auto'});m.querySelector('.fc-modal-bar button')?.focus();const next=f=>requestAnimationFrame(()=>setTimeout(f));next(()=>{m.classList.remove('fc-modal-first');if(!tall)next(()=>m.classList.remove('fc-modal-later'))});}
 function closeFieldCard(){const m=fcDialog();if(!m)return;m.classList.remove('fc-modal-open');m.setAttribute('aria-hidden','true');document.body.classList.remove('fc-modal-lock');fcInert.forEach(el=>el.inert=false);fcInert=[];const shown=b=>b?.isConnected&&b.checkVisibility?.(),onScreen=b=>{const r=b.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight};if(shown(fcOpener)||!fcOpener?.checkVisibility){fcOpener?.focus?.({preventScroll:!!fcOpener?.getBoundingClientRect&&onScreen(fcOpener)});return}const all=[...document.querySelectorAll('[onclick="openFieldCard()"]')].filter(shown);(all.find(onScreen)||all[0])?.focus({preventScroll:true});}
 document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key==='Escape'){e.preventDefault();closeFieldCard();return}if(e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 /* Field card behaviour. The card itself is complete HTML: plan, light and tab

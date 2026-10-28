@@ -5025,7 +5025,11 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 
 /* Canon 6D production theme */
 :root{--planner-ink:#0F172A;--planner-paper:#FBFAF5;--planner-blue:#2563EB;--planner-violet:#7C3AED;--planner-gold:#F59E0B}
-html{scroll-behavior:smooth} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#FBFAF5;color:#0F172A;text-rendering:optimizeLegibility}
+/* P1: no smooth scrolling for the whole page. With it, the browser animates a change of #section in the
+   address, and going back or forward, towards where the place was before the sections on the way were
+   drawn (content-visibility:auto; csswg-drafts#9833), and nothing corrects it: up to 12,000 px off.
+   A link on the page still glides to a nearby section unless the reader reduces motion (jumpTo). */
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#FBFAF5;color:#0F172A;text-rendering:optimizeLegibility}
 .bg-paper{background-color:#FBFAF5}.bg-paper\/95{background-color:rgba(251,250,245,.95)}.text-ink{color:#0F172A}.bg-ink{background-color:#0F172A}
 .animate-fade-in{animation:plannerFadeIn .5s ease-out both}.animate-slide-up{animation:plannerSlideUp .45s ease-out both}.animate-pulse-slow{animation:pulse 3s cubic-bezier(.4,0,.6,1) infinite}.animate-spin-slow{animation:spin 8s linear infinite}.animate-gradient{animation:plannerGradient 10s ease infinite}
 @keyframes plannerFadeIn{from{opacity:0}to{opacity:1}}@keyframes plannerSlideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}@keyframes plannerGradient{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
@@ -5180,6 +5184,12 @@ html { scroll-padding-top: .75rem; }
    page to it (csswg-drafts#7930). Read on every scroll, on any change of size, and before each key
    or press. */
 (()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const html=document.documentElement,root=html.style,set=(k,v)=>{if(root.getPropertyValue(k)!==v)root.setProperty(k,v)},place=()=>{const r=bar.getBoundingClientRect(),at=parseFloat(getComputedStyle(bar).top)+.5;html.classList.toggle('fr-bar-in-flow',!(r.top<=at&&r.bottom>at))},keep=()=>{set('--fr-nav',nav.getBoundingClientRect().height+'px');set('--fr-bar',bar.getBoundingClientRect().height+'px');place()},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'});watch.observe(html);addEventListener('scroll',place,{passive:true});['keydown','pointerdown'].forEach(t=>addEventListener(t,place,{capture:true,passive:true}))})();
+/* P1: an id inside a section, typed in the address or reached by back and forward. The browser
+   jumps with the room kept for where the page was, and the scroll it makes then sets
+   html.fr-bar-in-flow for where it lands. A section carries the difference in its margin, but an
+   id inside one does not: it landed 60 px under the stuck Sujeto/Hora bar. So the next frame lands
+   it again, with the room for where it is; where that room is the same, the page does not move. */
+addEventListener('hashchange',()=>{let t=null;try{t=location.hash.length>1&&document.getElementById(decodeURIComponent(location.hash.slice(1)))}catch(e){}if(t)requestAnimationFrame(()=>t.scrollIntoView({block:'start'}))});
 /* N13: Tab and Shift+Tab onto a control of a bar wholly in view, from inside the bar or from the
    control next to it, move focus without scrolling. Inside the room scroll-padding keeps at the
    top, the browser counts that control as out of view and scrolls the page by half a screen on

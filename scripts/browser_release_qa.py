@@ -327,9 +327,11 @@ def nothing_cut_with_long_gear(browser):
 
 
 def bars_at(browser, url: str, width: int, height: int, home: bool, text: int = 16) -> dict:
-    """X07 at one size: what stays on screen, focus going forward and back, in-page links, Tab and Shift+Tab
-    across a bar and onto a control just under it, and dialogs from a bar; on the home page also a reader's
-    own scroll during a jump, and X08, the top bar's tools and focus in it.
+    """X07 at one size: what stays on screen, focus going forward and back, in-page links, the address of a
+    section and back and forward between two, an id inside a section from the other side of the Sujeto/Hora
+    bar where the bars stay (P1), Tab and Shift+Tab across a bar and onto a control just
+    under it, and dialogs from a bar; on the home page also a reader's own scroll during a jump, and X08, the
+    top bar's tools and focus in it.
 
     `text` is the reader's default text size in px (Chrome's Large is 20, Very large 24)."""
     context = browser.new_context(viewport={"width": width, "height": height}, reduced_motion="reduce")
@@ -342,9 +344,12 @@ def bars_at(browser, url: str, width: int, height: int, home: bool, text: int = 
             ("back", lambda: fixed_bars.tab_through(page, "Shift+Tab")),
             ("jumps", lambda: fixed_bars.jumps(page)),
             ("address", lambda: fixed_bars.address(page, url)),
+            ("hash", lambda: fixed_bars.address_changes(page)),
             ("tab", lambda: fixed_bars.tab_in_bars_leaves_page_still(page, fixed_bars.MOTION if text == 16 else ("reduce",)))]
     if fixed_bars.has_room(width, height, text):
         runs.append(("free", lambda: fixed_bars.free_spots_leave_page_still(page)))
+        if text == 16:
+            runs.append(("inner", lambda: fixed_bars.inner_addresses(page)))
     if text == 16:
         runs.append(("room", lambda: fixed_bars.room_follows_bars(page)))
     if home and text == 16:
@@ -353,6 +358,7 @@ def bars_at(browser, url: str, width: int, height: int, home: bool, text: int = 
     if home:
         runs.append(("top focus", lambda: top_bar_tools.focus_in_top_bar(page)))
         runs.append(("kept", lambda: fixed_bars.reader_scroll_kept(page)))
+        runs.append(("up", lambda: top_bar_tools.up_button_respects_reduced_motion(page)))
     for kind, run in runs:
         page.goto(url, wait_until="load", timeout=60000)
         found[kind] = run()
@@ -373,15 +379,18 @@ def bars_on_screen(browser):
     names = {"stays": "only what has room stays on screen", "forward": "focus going forward is never behind a bar",
              "back": "focus going back is never behind a bar", "jumps": "links in the bars land clear of them",
              "address": "opening the page at a section's address lands it clear of the bars",
+             "hash": "changing only the section in the address, and going back and forward, lands it clear of the bars",
+             "inner": "changing the address to an id inside a section, from the other side of the Sujeto/Hora bar, lands it clear of the bars",
              "still": "a dialog opened from a bar that stays closes with the page still",
              "room": "the room kept for the bars follows their whole box",
              "tab": "Tab and Shift+Tab across a bar and back into it leave the page still",
              "free": "Tab and Shift+Tab onto a control just under what stays leave the page still",
              "kept": "a scroll of the reader's own during a jump is kept",
              "tools": "the top bar's tools are whole on screen where there is no bottom bar",
-             "top focus": "focus in the top bar lands on a control whole in view"}
+             "top focus": "focus in the top bar lands on a control whole in view",
+             "up": "with motion reduced, the ↑ button goes to the top at once"}
     for name, path, home in pages:
-        wrong = {kind: {} for kind in names if home or kind not in ("still", "tools", "top focus", "kept")}
+        wrong = {kind: {} for kind in names if home or kind not in ("still", "tools", "top focus", "kept", "up")}
         for width, height in qa_matrix.REQUIRED_VIEWPORTS:
             for kind, problems in bars_at(browser, path.as_uri(), width, height, home).items():
                 if problems:

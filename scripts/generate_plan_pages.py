@@ -168,6 +168,12 @@ html { scroll-padding-top: .75rem; }
    page to it (csswg-drafts#7930). Read on every scroll, on any change of size, and before each key
    or press. */
 (()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const html=document.documentElement,root=html.style,set=(k,v)=>{if(root.getPropertyValue(k)!==v)root.setProperty(k,v)},place=()=>{const r=bar.getBoundingClientRect(),at=parseFloat(getComputedStyle(bar).top)+.5;html.classList.toggle('fr-bar-in-flow',!(r.top<=at&&r.bottom>at))},keep=()=>{set('--fr-nav',nav.getBoundingClientRect().height+'px');set('--fr-bar',bar.getBoundingClientRect().height+'px');place()},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'});watch.observe(html);addEventListener('scroll',place,{passive:true});['keydown','pointerdown'].forEach(t=>addEventListener(t,place,{capture:true,passive:true}))})();
+/* P1: an id inside a section, typed in the address or reached by back and forward. The browser
+   jumps with the room kept for where the page was, and the scroll it makes then sets
+   html.fr-bar-in-flow for where it lands. A section carries the difference in its margin, but an
+   id inside one does not: it landed 60 px under the stuck Sujeto/Hora bar. So the next frame lands
+   it again, with the room for where it is; where that room is the same, the page does not move. */
+addEventListener('hashchange',()=>{let t=null;try{t=location.hash.length>1&&document.getElementById(decodeURIComponent(location.hash.slice(1)))}catch(e){}if(t)requestAnimationFrame(()=>t.scrollIntoView({block:'start'}))});
 /* N13: Tab and Shift+Tab onto a control of a bar wholly in view, from inside the bar or from the
    control next to it, move focus without scrolling. Inside the room scroll-padding keeps at the
    top, the browser counts that control as out of view and scrolls the page by half a screen on
