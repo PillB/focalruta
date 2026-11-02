@@ -79,6 +79,19 @@ def test_x01_browser_jobs_install_pinned_tools_and_fail_on_a_red_suite():
     assert '"node_modules/lighthouse"' in lock
 
 
+def test_x01_browser_jobs_run_on_a_fixed_ubuntu_release():
+    """The daily live check failed on 1 and 2 November 2026 before checking anything:
+    ubuntu-latest had moved to Ubuntu 26.04, and the pinned Playwright refuses to install
+    its browser there. A job that installs the browser names the Ubuntu release, so the
+    runner only changes together with the Playwright pin."""
+    moving = {}
+    for path in sorted(WORKFLOWS.glob("*.yml")):
+        for name, job in workflow(path.name)["jobs"].items():
+            if "playwright install" in run_lines(job) and not re.fullmatch(r"ubuntu-\d\d\.\d\d", str(job.get("runs-on"))):
+                moving[f"{path.name}:{name}"] = job.get("runs-on")
+    assert not moving, f"browser jobs on a runner label that moves: {moving}"
+
+
 def test_x01_suites_find_the_browser_without_a_mac_path():
     hard_coded = [path.relative_to(ROOT).as_posix()
                   for path in [*(ROOT / "scripts").glob("*.py"), *(ROOT / "tests/architecture").glob("browser_*.py")]
