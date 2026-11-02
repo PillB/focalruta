@@ -3411,6 +3411,55 @@ Compromisos:
 - Un id dentro de algo `sticky` aterriza donde ese algo se queda, como antes.
 - `browser_release_qa.py` pasó de 25 min 14 s a 25 min 49 s en esta máquina.
 
+### Tras fusionar PR #25 (33d2cbb): la comprobación diaria y la auditoría de contraste (X01, X03)
+
+PR #25 se fusionó como 33d2cbb y el despliegue (run 40713514267) acabó bien. La comprobación en
+vivo pasó el 29, 30 y 31 de octubre y falló el 1 y el 2 de noviembre (runs 41329893838 y
+41522524094) antes de comprobar nada, al instalar el navegador: «Playwright does not support
+chromium on ubuntu26.04-x64». El registro del run del 2 dice «Image: ubuntu-26.04, Version:
+20261025.179.1». GitHub mueve `ubuntu-latest` a Ubuntu 26.04 entre el 19 de octubre y el 19 de
+noviembre de 2026 y recomienda fijar `ubuntu-24.04` a quien no esté listo
+(github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration). Playwright
+1.55, el fijado aquí, no conoce 26.04; el soporte llega con microsoft/playwright#41025 (issue
+#40117), sin versión publicada confirmada desde aquí. Las suites de PR instalan el navegador con
+el mismo paso, así que habrían fallado igual en el siguiente PR (inferido, no visto: no hubo PR en
+esos días).
+
+Cambio: los tres trabajos que instalan el navegador (`live-check.yml:live`,
+`quality.yml:browser-qa` y `quality.yml:architecture-browser-qa`) corren en `ubuntu-24.04`, la
+imagen en que se midieron todos los informes. `requirements-qa.txt` dice que la imagen se mueve
+con la versión de Playwright. Prueba nueva, `test_x01_browser_jobs_run_on_a_fixed_ubuntu_release`
+en `tests/test_ci_contract.py`: falla si un trabajo que instala el navegador usa una etiqueta que
+se mueve.
+
+En el mismo PR, la carrera de `visual_resource_audit.py` que falló en CI sobre fd1f7bd: tras
+`openFieldCard()`, la página de detrás no se dibuja (`content-visibility`), y en ese contenido
+Chromium crea la transición de 150 ms de los botones Sujeto/Hora sólo cuando se vuelve a leer su
+estilo, después de que el script de contraste acabara las animaciones con `finish()`. El script
+leía entonces los colores de partida (1,05:1 y 1,82:1). Ahora lee el estilo de cada elemento antes
+de acabar las animaciones, y el flujo cambia el sujeto y abre la tarjeta en la misma tarea, el caso
+en que la transición aún no existe, para que la prueba ejerza la carrera siempre.
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| registros de los runs 41329893838 y 41522524094 de `live-check.yml` en 33d2cbb | fallo (1) | el paso «Install the pinned browser tools» falla en Ubuntu 26.04; los pasos de comprobación no corren |
+| la prueba nueva sobre los workflows de 33d2cbb | 1 | nombra los tres trabajos en `ubuntu-latest` |
+| `tests/test_ci_contract.py` con el cambio | 0 | 7 pasan |
+| `visual_resource_audit.py` con el flujo nuevo y el script de contraste de main, tres veces | 1, 1, 1 | «Perro» a 1,05:1 y «Humano» a 1,82:1 |
+| lo mismo con el script nuevo, tres veces | 0, 0, 0 | 37 de 37 |
+| `contrast_rate.py` (borrador: el flujo de main, doce visitas) con el script de main y con el nuevo | 0 y 0 (informe) | 4 de 12 y 0 de 12 lecturas con contraste bajo |
+| `visual_resource_audit.py` en 5e62e59 | 0 | 37 de 37; `VISUAL_RESOURCE_QA.json` |
+
+Compromisos:
+
+- Las suites de navegador se quedan en Ubuntu 24.04 hasta que se suba Playwright a una versión que
+  instale en 26.04. Subirlo cambia el Chromium de todos los informes, así que va en su propio PR.
+  GitHub no ha anunciado cuándo retira `ubuntu-24.04`.
+- El trabajo de pruebas sin navegador y el despliegue siguen en `ubuntu-latest` y pasan a 26.04 con
+  la migración: no instalan el navegador.
+- Leer el estilo de todos los elementos antes de cada medida de contraste alarga la auditoría; no
+  lo medí aparte.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
