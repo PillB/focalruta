@@ -4839,7 +4839,11 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 
 /* Canon 6D production theme */
 :root{--planner-ink:#0F172A;--planner-paper:#FBFAF5;--planner-blue:#2563EB;--planner-violet:#7C3AED;--planner-gold:#F59E0B}
-html{scroll-behavior:smooth} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#FBFAF5;color:#0F172A;text-rendering:optimizeLegibility}
+/* P1: no smooth scrolling for the whole page. With it, the browser animates a change of #section in the
+   address, and going back or forward, towards where the place was before the sections on the way were
+   drawn (content-visibility:auto; csswg-drafts#9833), and nothing corrects it: up to 12,000 px off.
+   A link on the page still glides to a nearby section unless the reader reduces motion (jumpTo). */
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#FBFAF5;color:#0F172A;text-rendering:optimizeLegibility}
 .bg-paper{background-color:#FBFAF5}.bg-paper\/95{background-color:rgba(251,250,245,.95)}.text-ink{color:#0F172A}.bg-ink{background-color:#0F172A}
 .animate-fade-in{animation:plannerFadeIn .5s ease-out both}.animate-slide-up{animation:plannerSlideUp .45s ease-out both}.animate-pulse-slow{animation:pulse 3s cubic-bezier(.4,0,.6,1) infinite}.animate-spin-slow{animation:spin 8s linear infinite}.animate-gradient{animation:plannerGradient 10s ease infinite}
 @keyframes plannerFadeIn{from{opacity:0}to{opacity:1}}@keyframes plannerSlideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}@keyframes plannerGradient{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}

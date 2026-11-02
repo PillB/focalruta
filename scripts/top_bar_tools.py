@@ -72,3 +72,28 @@ def focus_in_top_bar(page) -> list[str]:
             if problem:
                 wrong.append(problem)
     return wrong
+
+
+# The ↑ button in the top bar goes back to the top of the page. With the reader's motion reduced it
+# must get there in one go, not glide (WCAG 2.2 SC 2.3.3): it asked for a smooth scroll whatever the
+# reader's setting, while everything else on the page that moves it asks first.
+UP = 'nav.glass button[aria-label="Volver arriba"]'
+GLIDE = """async (selector) => {
+  const up = document.querySelector(selector), frame = () => new Promise(r => requestAnimationFrame(r));
+  if (!up || !up.checkVisibility()) return null;
+  scrollTo({top: Math.round(document.documentElement.scrollHeight / 2), behavior: 'instant'});
+  await frame(); await frame();
+  const from = Math.round(scrollY), seen = [];
+  up.click();
+  for (let i = 0; i < 6; i++) { await frame(); seen.push(Math.round(scrollY)); }
+  return {from, seen};
+}"""
+
+
+def up_button_respects_reduced_motion(page) -> list[str]:
+    """With motion reduced, press ↑ well into the page; list it if the page glides to the top instead of going at once."""
+    page.emulate_media(reduced_motion="reduce")
+    got = page.evaluate(GLIDE, UP)
+    if got and any(0 < y < got["from"] for y in got["seen"]):
+        return [f"with motion reduced, ↑ glided from {got['from']} px: {got['seen']}"]
+    return []

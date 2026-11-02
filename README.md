@@ -24,7 +24,7 @@ and drops quoted text from messages, which can be what the reader typed.
 The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 692 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 710 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
   the sun panel's hour, shadow and wall light held to the Python ephemeris, by keyboard,
   and its moonrise, moonset, phase and night sentence on five dates held to the moon twin;
@@ -38,12 +38,15 @@ reports at the repository root still match the files they audited, byte for byte
   home page's field card drawn like the card's own page, element by element, by day, in dark mode and with the
   night screen; and the site's bar and the Sujeto/Hora bar kept at the top only on screens with room for them
   (641 by 500 px at the default text size, more with larger text), with nothing that takes keyboard focus behind
-  them, every in-page link in them and every section the page is opened at landing clear of them once the page
-  has drawn it, also with the reader's text at 20 and 24 px, Tab and Shift+Tab across a bar, or onto a control
+  them, every in-page link in them, every section the page is opened at, and every section the address is
+  changed to on the open page, also going back and forward, and an id inside a section reached from the other
+  side of the Sujeto/Hora bar, landing clear of them once the page has drawn it,
+  also with the reader's text at 20 and 24 px, Tab and Shift+Tab across a bar, or onto a control
   just under what stays, leaving the page where it is in every frame, a scroll of the reader's own during a
   jump kept, and the page left where it was when a dialog opened from the top bar closes; on
   the home page, the top bar's tools whole on screen wherever there is no bottom bar, and keyboard focus in the
-  top bar always on a control whole in view
+  top bar always on a control whole in view, and the ↑ button going to the top at once when the reader reduces
+  motion
 - `OPTICS_ACCESSIBILITY_QA.json` — 94 checks: the optical-lab matrix and accessibility, and the
   labs held to the camera at 320 and 1280 px (the 6D's own shutter dial, presets that expose
   the scene they set, «espacio negativo» clear of the subject, toggles that say which is on)
@@ -51,10 +54,12 @@ reports at the repository root still match the files they audited, byte for byte
   (contrast on gradients is checked at every colour stop)
 - `AXE_ACCESSIBILITY_QA.json` — axe-core on all 39 published pages and the home page's
   offline notice, light phone and dark desktop passes, zero violations
-- `FIELD_CARD_QA.json` — 68 field card checks on a phone: each plan's settings per light,
+- `FIELD_CARD_QA.json` — 69 field card checks on a phone: each plan's settings per light,
   the Lima clock, no JavaScript, print, keyboard, the home page dialog (the page behind
-  it, left undrawn while the card covers it and back where it was, and focus back on an
-  opener on the page after a resize either way across 900 px, without moving the page),
+  it, left undrawn while the card covers it and back where it was, focus back on an
+  opener on the page after a resize either way across 900 px, without moving the page,
+  and the shots drawn with the plans where they start on screen, a frame later where
+  they start below),
   a damaged saved state, axe, offline after
   rehearsed deploys (an upgrade from the worker live at 9cd3044, the HTTP cache Pages
   keeps for 10 minutes), another camera and lenses, and the calendar file for a chosen plan,

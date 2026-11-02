@@ -204,8 +204,11 @@ for report_name, minimum_checks in (
     # reader's own scroll during a jump kept (red team Q1) (530), plus the sun panel's hour, shadow and
     # wall light (W04, 58) and the session dialog's shot review (W05-W07, 50) (638), plus the moon on five
     # dates at 320 and 1280 px on both home pages (W09, 40) and a wrapped «Mostrando:» starting under the
-    # plan's name at every viewport on both (Y21, 14) (692).
-    ("CURRENT_BROWSER_QA.json", 692),
+    # plan's name at every viewport on both (Y21, 14) (692), plus on every page the address changed to
+    # each section and back and forward between two, and on the home pages the ↑ button with motion
+    # reduced (P1, X08, 10), and on every page an id inside a section reached from the other side of the
+    # Sujeto/Hora bar (P1, red team note, 8) (710).
+    ("CURRENT_BROWSER_QA.json", 710),
     # 22 for the optical matrix and accessibility, plus the labs held to the camera (Y01-Y04): presets that
     # expose the scene they set, the dial's own speeds, the label clear of the subject and toggles that say
     # which is on, 36 per viewport at 320 and 1280 px (72) (94).
@@ -220,8 +223,9 @@ for report_name, minimum_checks in (
     # undrawn while the card covers it, back where it was, printed, and drawn at 1280 px (X06),
     # and focus back on an opener on the page, the page unmoved, after a resize either way
     # across 900 px hides the one used (63), plus the calendar file for a chosen plan, light and
-    # date and no calendar button where no script can write it (W12) (68).
-    ("FIELD_CARD_QA.json", 68),
+    # date and no calendar button where no script can write it (W12, 5), and the shots drawn with
+    # the plans where they start on screen and a frame later where they start below (X06, 1) (69).
+    ("FIELD_CARD_QA.json", 69),
     # X02: 14 pages x 8 budgets (score, five timings, bytes, no other origin); X06: six taps
     # on two phone tiers, each timed to its answer and to what it was for, after the
     # instrument's own checks that it sees content put off and that every tap on the field
