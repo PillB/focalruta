@@ -3460,6 +3460,87 @@ Compromisos:
 - Leer el estilo de todos los elementos antes de cada medida de contraste alarga la auditoría; no
   lo medí aparte.
 
+### M8 de la comprobación en vivo de PR #25: un id en una página de plan bajo la barra (X07)
+
+El hilo de comprobación en vivo pasó todo lo pedido sobre 33d2cbb (versión `focalruta-857b65af3349`,
+244/244 archivos iguales, secciones y `#sun-date` a 149 px a 1280×800) salvo M8: en
+`plans/plan_a.html` a 1280×800, con movimiento, desde arriba, `location.hash='shots-grid'` dejó la
+rejilla a 77 px, 60 px bajo la barra Sujeto/Hora pegada (65–137), en 17 de 24 intentos, y en el
+plan C en 3 de 6. Su informe está en `/mnt/project-files/qa/LIVE_CHECK_PR25.md`.
+
+Reproducción (`m8/probe.py` en el borrador): contexto nuevo por intento, esperar de 200 a 3000 ms
+tras la carga, cambiar la dirección y medir a los 100 ms, 0,6, 2 y 3,5 s. En 33d2cbb, 6 de 12 bajo la
+barra, y la posición no cambia con el tiempo.
+
+Primera hipótesis (la del hilo en vivo): el `scrollIntoView` del cuadro siguiente hereda un
+desplazamiento suave. Falsa: las páginas de plan no tienen `scroll-behavior:smooth`. Segunda
+hipótesis, mía: el estilo o el diseño quedan pendientes al cambiar la dirección. Forzar el diseño
+antes del cambio no ayudó (8 de 12 mal), y con movimiento reducido también falla aquí (6 de 12, el
+hilo en vivo vio 149).
+
+Investigación (tras la primera hipótesis fallida, según AGENTS):
+- Chromium 396316b0 («update the fragment anchor position during the next safe lifecycle update»)
+  y 45236fd5 (el ancla aplica el foco al crearse o en BeginFrame, «before rAF callbacks»; el scroll
+  va aparte). El commit de WHATWG e62a7be6 ya describía el scroll al fragmento como un paso que
+  puede venir después de la navegación.
+- Parecido: mismo motor, misma página, salto a un fragmento de la misma página. Diferencia: los
+  commits hablan del ancla en la carga; aquí es un cambio de dirección con la página cargada.
+- Hipótesis nueva: Chromium hace su propio salto en el siguiente diseño. Si nada lee la página
+  antes, ese diseño es el del cuadro siguiente, que va después de los `requestAnimationFrame`. La
+  corrección de P1 corría entonces con la página aún arriba, con el espacio de 77 px, y el cambio a
+  149 llegaba después, sin nadie que volviera a saltar.
+- Predicción falsable: leer `scrollY` justo después de cambiar la dirección fuerza ese diseño y
+  quita el fallo. Resultado: 0 de 12, contra 6 de 12 sin leer. Mis trazas con escuchas que leían
+  `scrollY` tampoco fallaban (0 de 26): el instrumento escondía el fallo.
+
+Por eso la prueba de PR #25 (`fixed_bars.reach`) no lo vio: leía la página en la tarea siguiente al
+cambio, antes del cuadro, y forzaba el salto del navegador. Ahora deja la página sola 100 ms
+(`UNREAD`).
+
+Cambio: el `hashchange` de las páginas de plan aterriza el destino en el cuadro siguiente, como
+antes. Durante 0,8 s, en cada scroll, si el espacio de arriba (`scroll-padding-top` del documento más
+`scroll-margin-top` del destino) ya no es el del aterrizaje, vuelve a aterrizar, como mucho dos
+veces. Deja de hacerlo cuando el lector usa la rueda, toca, pulsa una tecla o hace clic. Es lo
+mismo que hace `jumpTo` en el inicio.
+
+Probé y no envié: forzar el diseño dentro del `hashchange` para que el salto del navegador llegue
+antes. En Chromium funciona (es la predicción de arriba), pero depende de cuándo hace el motor su
+salto, y en otro navegador podría no servir. Volver a aterrizar cuando cambia el espacio no depende
+de eso.
+
+### La comprobación del orden de la tarjeta, roja en main desde PR #25 (X06)
+
+CI de main tras fusionar PR #25 (run 40713514008, 33d2cbb) falló en `field_card_qa.py`, 63/64:
+«{'430x932': {'first shot at': 934, 'plans drawn in frame': 1, 'shots drawn in frame': 1}}». Es el
+mismo árbol que fd1f7bd, cuyo CI pasó esa madrugada. PR #26 falló igual. A 430×932 la primera toma
+empieza a una línea del borde de abajo, según las fuentes del sistema: en PR #25 anoté 914–934 px de
+412 a 430 px de ancho con las fuentes de CI. La regla de 900 px la dibuja con los planes, y la
+prueba exigía «exactamente donde empieza en pantalla». Eso contradecía el compromiso que declaró PR
+#25: de 900 a 934 px de alto llega con los planes aunque empiece justo debajo.
+
+Cambio: la prueba pide lo que la regla promete. Una primera toma que empieza en pantalla se dibuja
+con los planes (nunca aparece un cuadro después), y en una pantalla de menos de 900 px de alto las
+tomas llegan un cuadro después. No cambia el sitio.
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `probe.py` (plan A, 12 intentos) en 33d2cbb: sin leer, forzando el diseño antes, con movimiento reducido, leyendo `scrollY` después | 1, 1, 1, 0 | 6, 8, 6 y 0 de 12 bajo la barra |
+| `inner_only.py` (la prueba de id con `UNREAD`) en 49a83ee y en b16d3d7 | 0 (informe) | 24 de 32 fallan (las seis páginas de plan a los cuatro tamaños, #shots-grid a 77 px); 0 de 32 |
+| `probe.py` en b16d3d7: plan A 24 intentos, plan C 12 | 0 y 0 | 0 de 24 y 0 de 12 bajo la barra |
+| `run_reveal.py` (la prueba nueva del orden) en b16d3d7, en 383290c, siempre con los planes, umbral de 700 px de ancho | 0, 1, 1, 1 | pasa; falla a 430×932, 820×1000…; a 320×640, 390×844…; a 844×390, 932×430… |
+| `ruff … C901` a 10 | 0 | limpio |
+
+Compromisos:
+
+- Durante 0,8 s tras cambiar la dirección en una página de plan, un cambio del espacio de arriba
+  que no venga del salto también hace volver al destino, salvo que el lector haya usado la rueda,
+  tocado, pulsado una tecla o hecho clic. Un desplazamiento sin evento de entrada, como el de un
+  lector de pantalla, en esos 0,8 s y cruzando el punto donde la barra se pega, volvería al destino
+  una o dos veces.
+- La prueba de orden de la tarjeta ya no exige que una toma que empieza justo debajo espere un
+  cuadro en pantallas de 900 px o más. Es el margen que PR #25 declaró, no uno nuevo.
+- Sólo se probó en Chromium.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
