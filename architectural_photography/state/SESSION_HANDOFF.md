@@ -3566,3 +3566,160 @@ y, para las suites de arquitectura, la raíz en 8766 y `dist/` en 8777, como CI:
 | `verify_release.py` | 1 | sólo el informe de velocidad: viejo y sin índice del equipo |
 | `ruff … C901` a 10 | 0 | limpio |
 | `regenerate_all.py && git diff --exit-code` | 1 | `CURRENT_STATE.json`: 638 → 692 comprobaciones de release; confirmado en 1b78a96 |
+
+### Fusión con main (PR #25) y dos comprobaciones que fallaron después (2026-11-02 y 03)
+
+main avanzó con PR #25 (P1: una dirección aterriza donde empieza su sección o su id, y las tomas
+de la tarjeta llegan con sus planes en pantallas altas). La fusión (1966804) resolvió conflictos en
+`field_card_qa.py`, `verify_release.py`, README e inventario, regeneró sin diferencias y pasó 1034
+pruebas, pero dos suites fallaron sobre el build fusionado.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X06 (enmienda) | Las tomas de la tarjeta se dibujan con los planes exactamente donde la primera empieza en pantalla, y un cuadro después donde empieza debajo | `shots_with_plans` en 1966804: a 430×932 la primera toma empieza a 1007 px (1027 de día), bajo la pantalla de 932, y se dibuja con los planes (`X06_shots_measured_red_green.txt`) | la misma prueba en el árbol: las nueve medidas aciertan |
+| X07 (enmienda) | Un id dentro de una sección, alcanzado desde el otro lado de la barra Sujeto/Hora, aterriza libre de las barras también si el navegador manda el evento `scroll` del salto dos cuadros tarde | `inner_addresses` con el caso nuevo, sobre 1966804: 12 de 12 tamaños de página de plan fallan (`#shots-grid` a 77 px, barras hasta 137), y plan_c a 820×1000 falló además sin retrasar nada (`X07_late_scroll_red.txt`) | 0 de 16 (`X07_late_scroll_green.txt`) |
+
+Causas:
+
+- **X06.** La regla de main, `matchMedia('(min-height:900px)')`, adivinaba por la altura de la
+  pantalla si las tomas empiezan en ella. Lo que esta rama añade encima de ellas (las tablas de ND e
+  hiperfocal, dónde está cada ajuste, el consejo de noche, el recordatorio) bajó la primera toma de
+  873 a 1007-1027 px a 430×932, y 154 px a 820×1000. Además cambia de un día a otro: 20 px entre el 2
+  y el 3 de noviembre, por las líneas del día. Ahora `openFieldCard` mide: cuando se dibujan los
+  planes lee dónde empieza `.fc-shots` (su borde superior es el de la primera toma visible, medido a
+  cada tamaño) y sólo si empieza bajo la pantalla las deja un cuadro más.
+- **X07.** En las páginas de plan, el segundo aterrizaje que P1 añadió (el cuadro siguiente al
+  `hashchange`) leía el espacio de arriba de `html.fr-bar-in-flow`, y esa clase la pone al día el
+  evento `scroll` del salto. Si ese evento llega después de ese cuadro, el id aterriza con el espacio
+  que tenía arriba del todo: 60 px tapado. Falló en dos de tres corridas completas de la suite de
+  release (820×1000, y 820×1000 y 1440×1100), nunca en treinta corridas sueltas; con el evento
+  retenido dos cuadros falla siempre, y el inicio, cuyo `jumpTo` vuelve a mirar el espacio cada cuadro
+  durante 0.8 s, no. Ahora el aterrizaje llama a `place()` antes y después de `scrollIntoView`, como
+  mucho tres veces, sin esperar a ningún evento.
+
+Investigación (regla de AGENTS.md tras la primera hipótesis fallida): mi primera hipótesis fue que
+Chrome aplaza el salto a un id cuando el layout está sucio; no se reprodujo (`race_dirty.py`). El
+código de Chromium (`element_fragment_anchor.cc`) muestra que el salto sólo se aplaza mientras
+faltan recursos que bloquean el render, que el ancla se vuelve a invocar mientras el foco del destino
+está pendiente (`needs_focus_`, una tarea del cuadro siguiente) y que un scroll explícito la anula.
+No pude capturar el orden real de eventos en una corrida que fallara: con un registro instalado
+justo antes del salto, la suite completa pasó (710/710). Por eso el arreglo no depende de ningún
+orden, y la prueba nueva fija el peor orden posible en lugar de esperar a que salga.
+
+Compromisos:
+
+- La tarjeta fuerza un layout al quitar `fc-modal-first` para medir. Es el mismo trabajo que el
+  cuadro siguiente haría, adelantado a esa tarea; donde las tomas entran en pantalla, el cuadro
+  siguiente sólo dibuja las tomas.
+- Sin `ResizeObserver` las páginas de plan ya no corrigen el aterrizaje: allí la clase nunca se pone
+  y el espacio no cambia, así que no hay nada que corregir.
+- El caso nuevo retiene los eventos `scroll` con un oyente en captura sobre `window`; el evento que
+  manda después es sintético. Prueba que la página no depende de cuándo llega, no el orden exacto
+  que usó Chrome en las corridas que fallaron.
+
+### El runner de CI, el primer pintado de la tarjeta y los saltos con el procesador lento (2026-11-03)
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X01 (enmienda) | Los trabajos que instalan Playwright corren en un Ubuntu que el Playwright fijado admite | la prueba nueva de `tests/test_ci_contract.py` sobre los workflows de fdd8eaf: los tres trabajos siguen `ubuntu-latest`; la corrida 41571659786 falló en su primer minuto («Playwright does not support chromium on ubuntu26.04-x64») (`X01_runner_red.txt`) | pasa; CI vuelve a correr en `ubuntu-24.04` (`X01_runner_green.txt`) |
+| Y25 | En la página de la tarjeta, lo que está en pantalla antes de que corran sus scripts ya está donde lo dejan, de día y de noche, a 320, 390 y 412 px | la comprobación nueva sobre el build de 1966804: en los seis casos se mueven la línea de la luz de ahora, las horas de luz, las herramientas y las primeras tomas (118–156 px); Lighthouse midió un desplazamiento de 0.084 (aquí, 3 de 3) y 0.111 (CI 41572407497, 2 de 3), sobre el tope de 0.1 (`FC_first_paint_red.txt`) | pasa; CLS 0 en 3 de 3 corridas de Lighthouse (`FC_first_paint_green.txt`) |
+| Y25 (enmienda) | La línea de la luz de ahora guarda el alto de su texto más largo también en DejaVu Sans, la letra del runner de GitHub, y la prueba lo mira además justo después del amanecer de pleno verano y a 359, 360 y 480 px | CI 41604874960 sobre 5c6a038: a 320 px de día la línea ocupó cuatro renglones donde se guardaban tres y las tomas bajaron 19 px; reproducido aquí sacando Inter de fontconfig, con las mismas cifras (282/59 → 282/78) (`Y25_runner_fonts_red.txt`) | pasa con las dos letras; `field_card_qa.py` 70/70 con la letra del runner (`Y25_runner_fonts_green.txt`) |
+| Y26 | En el inicio, servido e independiente, cada enlace de las barras deja su sección libre de ellas también con el procesador doce veces más lento, una vez quieta | `fixed_bars.jumps_on_a_slow_processor` (CPU 12x, y el cuadro en que se dibuja por primera vez una sección sobre el destino hecho de 900 ms) sobre el build de 3a6d881: 9 de 9 corridas fallan a 1280×800 con 24 px, 1440×900 y 390×844 (`#planes` a 1863 px, `#tecnicas` a 11413) (`Y26_slow_jumps_red.txt`); sin forzar ese cuadro, falló en un tercio a la mitad de las corridas | 0 de 9 en el árbol (`Y26_slow_jumps_green.txt`); en release, dos comprobaciones nuevas (712) |
+
+Causas:
+
+- **X01.** GitHub movió `ubuntu-latest` a Ubuntu 26.04, y Playwright 1.55.0 no trae las bibliotecas
+  de Chromium para él (llegaron después, en microsoft/playwright#41025). main tiene el mismo fallo
+  hasta que esto se fusione.
+- **Y25.** El script de la tarjeta mostraba tres controles ocultos (la fecha, la pantalla encendida y
+  el botón del calendario) y escribía la línea de la luz de ahora después del primer pintado, así
+  que todo lo de debajo bajaba. Ahora un script en el `<head>` marca en `<html>` lo que el script de
+  la tarjeta va a mostrar (`fc-js`, `fc-can-wake`, `fc-can-ics`), el CSS oculta por esas marcas en
+  vez de por `hidden`, y la línea de ahora y las horas de luz guardan el alto que su texto ocupa.
+- **Y25 en CI.** El alto guardado se había medido sólo con Inter, la letra de este contenedor. En el
+  runner `system-ui` es DejaVu Sans, más ancha, y la brújula se escribe entera («oeste-suroeste»).
+  Ahora el alto sale de todos los textos que la línea puede mostrar (12 h hasta la hora dorada, un
+  rumbo de 14 letras), medidos con las dos letras: cuatro renglones bajo 360 px, tres hasta 479 y
+  dos desde 480.
+- **Y26.** El salto del inicio repetía el salto cada cuadro en que la sección se movía, durante 0.8 s
+  de reloj. Dibujar las secciones cerca del aterrizaje es lo lento: con el procesador doce veces más
+  lento un cuadro duró más que los 0.8 s enteros, y la primera mirada después, ya pasado el tiempo,
+  terminaba sin mover la sección, que quedaba 1852–1863 px bajo las barras. Pasó una vez en una
+  corrida completa de release en este contenedor lento (`#planes`, 1863 px, a 24 px y 1280×800).
+  Ahora el salto dura al menos 0.8 s y luego hasta que la sección se queda quieta dos cuadros
+  seguidos (como mucho 60 saltos), y nunca termina en un cuadro en que la sección se movió.
+  Con el registro del salto se vio por qué hacer largo el primer cuadro no bastaba para fallar: si
+  el salto termina antes de que se dibujen las secciones de encima, el anclaje del scroll, ya
+  encendido, deja el destino en su sitio. Sólo falla si el cuadro largo es el que dibuja una sección
+  de encima mientras el salto tiene el anclaje apagado; la prueba fuerza ese cuadro.
+
+Compromisos:
+
+- La línea de la luz de ahora guarda alto para cuatro renglones bajo 360 px, tres hasta 479 y dos
+  desde 480; con un texto más corto (de noche) o una letra más estrecha queda un renglón en blanco.
+- Con una letra más ancha que DejaVu Sans, o con el texto del sistema más grande, la línea de ahora
+  puede necesitar un renglón más que el guardado y bajar las tomas ese renglón.
+- El script de las marcas va dos veces: en el `<head>` de la página de la tarjeta y al principio del
+  script de la tarjeta, para el diálogo del inicio, que no tiene ese `<head>`.
+- Un salto del inicio puede durar más de 0.8 s en un equipo lento; mientras dura, el anclaje del
+  scroll está apagado, pero cualquier rueda, toque, clic o tecla del lector lo termina, como antes.
+- La comprobación con el procesador lento juzga el aterrizaje cuando la sección lleva 600 ms quieta,
+  no a los 300 ms: con el procesador doce veces más lento, el salto tarda más en quedar en su sitio.
+  La comprobación sin freno sigue juzgando a los 300 ms.
+
+Investigación (regla de AGENTS.md):
+
+- **Y25 en CI** fue la primera hipótesis de arreglo que falló (tres renglones a 320 px). La siguiente
+  se apoyó en reproducir el fallo aquí con la letra del runner, no en una búsqueda previa; la
+  búsqueda se hizo después y confirmó la causa. Fuentes: el cambio de Chromium que fija `system-ui`
+  en Linux (https://chromium.googlesource.com/chromium/src.git/+/85fa241e3aa27a6c0c5ecb9c9ca4daa56ea4ac14:
+  en Ubuntu se resuelve a «sans», que Skia lleva a DejaVu Sans), el informe de fontconfig sobre
+  `system-ui` (https://gitlab.freedesktop.org/fontconfig/fontconfig/-/issues/293) y la guía de CLS de
+  web.dev (https://web.dev/articles/optimize-cls: reservar el espacio con `min-height`, y que el
+  contenido que entra arriba de la pantalla es el que más desplaza). Semejanza: el mismo Chromium
+  140 de Playwright 1.55.0. Diferencia: aquí la letra por defecto es Inter por
+  `56-prefer-inter.conf`; sin ella, las cifras de CI salen idénticas (282/59 → 282/78).
+- **Y26** no tuvo un arreglo fallido. Sí fallaron dos formas de forzar el peor caso en la prueba
+  (hacer largo el primer cuadro, o el primero en que cambia una sección): el registro del salto
+  mostró que el anclaje del scroll deja el destino en su sitio si el salto termina antes de que se
+  dibujen las secciones de encima, y eso cambió la prueba, no el arreglo.
+
+Errores propios:
+
+- Medí el alto de la línea de ahora sólo con la letra de este contenedor y con la brújula abreviada
+  («OSO»), cuando la tarjeta la escribe entera («oeste-suroeste»). CI lo encontró.
+- Hice la búsqueda de Y25 después del segundo arreglo, no antes, como pide AGENTS.md; queda dicho
+  arriba.
+- La primera corrida completa de suites sobre 5c6a038 se paró a medias al fallar la tarjeta en CI:
+  sus informes no se guardaron.
+- En CI 41604874960, Lighthouse se colgó 240 s en `plan_d.html` (página idéntica byte a byte a la
+  que pasó en 3a6d881 y no tocada desde entonces); la corrida siguiente, 41606630880, pasó 138/138.
+  No se tocó nada por ello; si vuelve a pasar, merece un reintento acotado en `perf_budget_qa.py`.
+
+### Cierre tras la fusión (comandos, código de salida, resumen)
+
+Sobre el árbol limpio de 929c49c (informes en dfa88ae), con `FOCALRUTA_CHROME=/opt/pw-browsers/chromium`
+y, para las suites de arquitectura, la raíz en 8766 y `dist/` en 8777, como CI:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `browser_release_qa.py` | 0 | 712/712 (1914 s), con las dos nuevas de Y26 |
+| `field_card_qa.py` | 0 | 70/70; también 70/70 con la letra del runner (DejaVu Sans) |
+| `optics_accessibility_qa.py`, `axe_accessibility_qa.py`, `visual_resource_audit.py` | 0 | 94/94, 80/80, 37/37 |
+| las cinco suites de `tests/architecture/browser_*.py` | 0 | todas en verde |
+| CI 41606630880 sobre 929c49c, runner `ubuntu-24.04` | 0 en las siete suites de navegador | `perf_budget_qa.py` 138/138, índice del equipo 2973.5, CLS 0 en las 14 páginas (la tarjeta, 0.111 antes); sus 14 huellas coinciden con este árbol y es el informe confirmado; `lint-and-test` falló sólo por los informes viejos, ya renovados |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+| `pytest -q` | 0 | 1062 pasan, 1 omitida |
+| `pytest tests/architecture -q` | 0 | 350 pasan, 1 omitida |
+| `verify_architecture.py` | 0 | `checks_failed: []` |
+| `verify_release.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+
+Evidencia en `/mnt/project-files/qa/pr24/evidence/redteam/`: `X06_shots_measured_red_green.txt`,
+`X07_late_scroll_red.txt`, `X07_late_scroll_green.txt`, `X01_runner_red.txt`, `X01_runner_green.txt`,
+`FC_first_paint_red.txt`, `FC_first_paint_green.txt`, `Y25_runner_fonts_red.txt`,
+`Y25_runner_fonts_green.txt`, `Y26_slow_jumps_red.txt`, `Y26_slow_jumps_green.txt`.
+
+Sigue abierto para Pablo: Safari en un iPhone de verdad, las reglas de permisos de foto de los
+planes B y F, el acceso con trípode a la Plaza Mayor, la prueba de diagramas (Y19) que el trabajo
+unitario de CI omite, los huecos de competidores aplazados y la versión en inglés.
