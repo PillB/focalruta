@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   live:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # Pinned with Playwright 1.55.0, which has no Chromium libraries for ubuntu-latest's 26.04 (X01).
     timeout-minutes: 45
     env:
       FOCALRUTA_LIVE_URL: https://pillb.github.io/focalruta/

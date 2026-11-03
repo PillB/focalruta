@@ -35,7 +35,7 @@ jobs:
   # Playwright pins, so a change cannot pass on a report from an older run.
   browser-qa:
     name: browser ${{ matrix.suite }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # Pinned with Playwright 1.55.0, which has no Chromium libraries for ubuntu-latest's 26.04 (X01).
     timeout-minutes: 45
     strategy:
       fail-fast: false
@@ -73,7 +73,7 @@ jobs:
 
   architecture-browser-qa:
     name: browser architecture suites
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # Pinned with Playwright 1.55.0, which has no Chromium libraries for ubuntu-latest's 26.04 (X01).
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0

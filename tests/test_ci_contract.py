@@ -79,6 +79,26 @@ def test_x01_browser_jobs_install_pinned_tools_and_fail_on_a_red_suite():
     assert '"node_modules/lighthouse"' in lock
 
 
+# Ubuntu releases GitHub runs that playwright==1.55.0 installs Chromium's libraries for. 26.04 came
+# in a later Playwright (microsoft/playwright#41025, merged 2026-05-27); check this set when the pin moves.
+PLAYWRIGHT_PIN = "playwright==1.55.0"
+PLAYWRIGHT_UBUNTU = {"ubuntu-22.04", "ubuntu-24.04"}
+
+
+def test_x01_browser_jobs_run_on_an_ubuntu_the_pinned_playwright_supports():
+    """Found 2026-11-03 (run 41571659786): ubuntu-latest moved to Ubuntu 26.04, and every browser job
+    failed in its first minute at `playwright install --with-deps chromium` ("Playwright does not
+    support chromium on ubuntu26.04-x64"). The pinned Playwright and its Chromium are what the reports
+    are measured with, so the runner is pinned with them instead of following ubuntu-latest."""
+    assert PLAYWRIGHT_PIN in (ROOT / "requirements-qa.txt").read_text(encoding="utf-8").splitlines()
+    images = {f"{name}:{job_name}": job.get("runs-on")
+              for name in ("quality.yml", "live-check.yml") for job_name, job in workflow(name)["jobs"].items()
+              if "playwright install" in run_lines(job)}
+    assert len(images) >= 3, f"read only {images}: the scan reads nothing"
+    wrong = {job: image for job, image in images.items() if image not in PLAYWRIGHT_UBUNTU}
+    assert not wrong, f"browser jobs on a runner {PLAYWRIGHT_PIN} may not support: {wrong}"
+
+
 def test_x01_suites_find_the_browser_without_a_mac_path():
     hard_coded = [path.relative_to(ROOT).as_posix()
                   for path in [*(ROOT / "scripts").glob("*.py"), *(ROOT / "tests/architecture").glob("browser_*.py")]
