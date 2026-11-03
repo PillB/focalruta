@@ -486,9 +486,10 @@ LOWEST = f"""() => [...new Set(({JUMPS})())].sort((a, b) => document.getElementB
 TOP_OF = "(href) => Math.round(document.getElementById(href.slice(1)).getBoundingClientRect().top)"
 
 
-def reach(page, href: str, how: str) -> str | None:
-    """Change the address to `href`; once the page has stopped moving, what is wrong with where it starts, or None."""
-    page.evaluate("href => { location.hash = href }", href)
+def reach(page, href: str, how: str, change: str | None = None) -> str | None:
+    """Change the address to `href` (with the script `change`, if given); once the page has stopped moving,
+    what is wrong with where it starts, or None."""
+    page.evaluate(change or "href => { location.hash = href }", href)
     page.evaluate(STILL)
     problem = landing(page, href)
     return f"{how} {problem}" if problem else None
@@ -561,18 +562,29 @@ INNER = f"""() => {{
   return {{above: above ? '#' + above.id : null, below: below ? '#' + below.id : null}};
 }}"""
 DRAW = "href => document.getElementById(href.slice(1)).scrollIntoView({block: 'center', behavior: 'instant'})"
+# The address changed with the scroll events the jump makes held back until two frames later, then
+# one sent: the browser may send that event after the next frame (found 2026-11-02: in two full
+# release runs out of three on the merged build, a plan page's #shots-grid, reached from the top,
+# landed 60 px under the stuck Sujeto/Hora bar at 820x1000 and 1440x1100; held back like this, every
+# time). A page that waits for the event to know the room at the top lands with the room it had.
+LATE = """href => { let hold = true; const swallow = e => { if (hold) e.stopImmediatePropagation(); };
+  addEventListener('scroll', swallow, {capture: true});
+  location.hash = href;
+  requestAnimationFrame(() => requestAnimationFrame(() => { hold = false; removeEventListener('scroll', swallow, {capture: true});
+    document.dispatchEvent(new Event('scroll', {bubbles: true})); })); }"""
 
 
 def inner_addresses(page) -> list[str]:
     """With motion on, draw the first id below the Sujeto/Hora bar, go to the top and change the address
-    to it; draw the last id above the bar, go to the first one below and change the address to it.
-    List each that does not land clear of the bars."""
+    to it, also with the jump's scroll events coming two frames late; draw the last id above the bar,
+    go to the first one below and change the address to it. List each that does not land clear of the
+    bars."""
     page.emulate_media(reduced_motion="no-preference")
     page.evaluate("document.getElementById('toggle-human').closest('section').scrollIntoView({block: 'center', behavior: 'instant'})")
     page.evaluate(STILL)
     page.wait_for_timeout(SETTLE)
     ids, wrong = page.evaluate(INNER), []
-    for href, start in ((ids["below"], None), (ids["above"], ids["below"])):
+    for href, start, late in ((ids["below"], None, False), (ids["below"], None, True), (ids["above"], ids["below"], False)):
         if not href:
             continue
         page.evaluate(DRAW, href)
@@ -584,7 +596,8 @@ def inner_addresses(page) -> list[str]:
         else:
             page.evaluate("scrollTo({top: 0, behavior: 'instant'})")
         page.evaluate(STILL)
-        problem = reach(page, href, f"from {start or 'the top'}, the address changed to")
+        how = f"from {start or 'the top'}{', its scroll event two frames late' if late else ''}, the address changed to"
+        problem = reach(page, href, how, LATE if late else None)
         if problem:
             wrong.append(problem)
     page.emulate_media(reduced_motion=MOTION[0])

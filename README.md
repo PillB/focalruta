@@ -40,7 +40,8 @@ reports at the repository root still match the files they audited, byte for byte
   (641 by 500 px at the default text size, more with larger text), with nothing that takes keyboard focus behind
   them, every in-page link in them, every section the page is opened at, and every section the address is
   changed to on the open page, also going back and forward, and an id inside a section reached from the other
-  side of the Sujeto/Hora bar, landing clear of them once the page has drawn it,
+  side of the Sujeto/Hora bar, landing clear of them once the page has drawn it, also when the browser sends
+  the scroll event of the jump two frames late,
   also with the reader's text at 20 and 24 px, Tab and Shift+Tab across a bar, or onto a control
   just under what stays, leaving the page where it is in every frame, a scroll of the reader's own during a
   jump kept, and the page left where it was when a dialog opened from the top bar closes; on
