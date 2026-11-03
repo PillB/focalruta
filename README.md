@@ -58,7 +58,7 @@ reports at the repository root still match the files they audited, byte for byte
   offline notice, light phone and dark desktop passes, zero violations
 - `FIELD_CARD_QA.json` — 70 field card checks on a phone: each plan's settings per light,
   the Lima clock, what is on screen before the card's scripts run already where they leave it
-  (by day and by night, from 320 to 412 px), no JavaScript, print, keyboard, the home page dialog (the page behind
+  (by day, by night and at its longest, from 320 to 480 px), no JavaScript, print, keyboard, the home page dialog (the page behind
   it, left undrawn while the card covers it and back where it was, focus back on an
   opener on the page after a resize either way across 900 px, without moving the page,
   and the shots drawn with the plans where they start on screen, a frame later where

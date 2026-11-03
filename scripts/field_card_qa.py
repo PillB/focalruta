@@ -236,8 +236,12 @@ def calendar_file(browser, base: str) -> None:
 # The card's page as the browser can paint it before the scripts at the end of its body have run:
 # those scripts taken out, the ones in its head kept. Where they move what is on screen, the page
 # shifts after its first paint (found 2026-11-03: CI's speed run on 3a6d881 measured a layout
-# shift of 0.111 on field_card.html, over the 0.1 budget, in two Lighthouse runs of three).
-FIRST_PAINT_HOURS = {"day": "2026-11-02T10:00:00-05:00", "night": "2026-11-02T22:37:00-05:00"}
+# shift of 0.111 on field_card.html, over the 0.1 budget, in two Lighthouse runs of three). Tried by
+# day, by night, and just after sunrise at midsummer, when the line on the light now is longest:
+# 12 h to the golden hour and a sunset to the «oeste-suroeste», as long as a bearing gets.
+FIRST_PAINT_HOURS = {"day": "2026-11-02T10:00:00-05:00", "night": "2026-11-02T22:37:00-05:00",
+                     "midsummer sunrise": "2026-12-21T05:50:00-05:00"}
+FIRST_PAINT_WIDTHS = (320, 359, 360, 390, 412, 480)  # px: the room for that line changes at 360 and 480
 # The header's parts, each part of the shots' panel and its first shot shown: where each starts and
 # how tall it is, and the screen's height.
 LAYOUT = """() => { const parts = [...['#fc-now', '.fc-sun-slots', '.fc-tools', '.fc-panel-shots'].map(s => [s, document.querySelector(s)]),
@@ -270,10 +274,11 @@ def moved_on_screen(before: dict, after: dict) -> dict:
 
 
 def first_paint_is_the_final_layout(browser, base: str) -> None:
-    """At phone widths, by day and by night, the header of the card's page is laid out before its
-    scripts run as they leave it: nothing on screen moves when they run."""
+    """At phone widths, on each side of where the room kept for the line on the light now changes, by
+    day, by night and at its longest, the header of the card's page is laid out before its scripts
+    run as they leave it: nothing on screen moves when they run."""
     moved = {}
-    for width in (320, 390, 412):
+    for width in FIRST_PAINT_WIDTHS:
         for name, when in FIRST_PAINT_HOURS.items():
             seen = []
             for strip in (True, False):
@@ -288,7 +293,8 @@ def first_paint_is_the_final_layout(browser, base: str) -> None:
             off = moved_on_screen(*seen)
             if off:
                 moved[f"{width} {name}"] = off
-    check("card page: what is on screen before its scripts run is where they leave it, by day and by night", not moved, moved)
+    check("card page: what is on screen before its scripts run is where they leave it, by day, by night and at its longest",
+          not moved, moved)
 
 
 def without_javascript(browser, base: str) -> None:
