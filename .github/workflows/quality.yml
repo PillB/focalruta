@@ -35,7 +35,10 @@ jobs:
   # Playwright pins, so a change cannot pass on a report from an older run.
   browser-qa:
     name: browser ${{ matrix.suite }}
-    runs-on: ubuntu-latest
+    # A fixed Ubuntu release, not ubuntu-latest: Playwright installs its browser only on the
+    # releases it knows, and the pinned 1.55 refuses Ubuntu 26.04, where ubuntu-latest moved
+    # in October and November 2026. Move this when requirements-qa.txt moves Playwright.
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     strategy:
       fail-fast: false
@@ -73,7 +76,10 @@ jobs:
 
   architecture-browser-qa:
     name: browser architecture suites
-    runs-on: ubuntu-latest
+    # A fixed Ubuntu release, not ubuntu-latest: Playwright installs its browser only on the
+    # releases it knows, and the pinned 1.55 refuses Ubuntu 26.04, where ubuntu-latest moved
+    # in October and November 2026. Move this when requirements-qa.txt moves Playwright.
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5

@@ -36,7 +36,8 @@ reports at the repository root still match the files they audited, byte for byte
   (641 by 500 px at the default text size, more with larger text), with nothing that takes keyboard focus behind
   them, every in-page link in them, every section the page is opened at, and every section the address is
   changed to on the open page, also going back and forward, and an id inside a section reached from the other
-  side of the Sujeto/Hora bar, landing clear of them once the page has drawn it,
+  side of the Sujeto/Hora bar, landing clear of them once the page has drawn it, with nothing reading the page
+  in the frames after the change,
   also with the reader's text at 20 and 24 px, Tab and Shift+Tab across a bar, or onto a control
   just under what stays, leaving the page where it is in every frame, a scroll of the reader's own during a
   jump kept, and the page left where it was when a dialog opened from the top bar closes; on
@@ -52,8 +53,8 @@ reports at the repository root still match the files they audited, byte for byte
   the Lima clock, no JavaScript, print, keyboard, the home page dialog (the page behind
   it, left undrawn while the card covers it and back where it was, focus back on an
   opener on the page after a resize either way across 900 px, without moving the page,
-  and the shots drawn with the plans where they start on screen, a frame later where
-  they start below),
+  a first shot that starts on screen drawn with the plans, and the shots a frame later
+  on a screen under 900 px tall),
   a damaged saved state, axe, offline after
   rehearsed deploys (an upgrade from the worker live at 9cd3044, the HTTP cache Pages
   keeps for 10 minutes), and another camera and lenses

@@ -3411,6 +3411,176 @@ Compromisos:
 - Un id dentro de algo `sticky` aterriza donde ese algo se queda, como antes.
 - `browser_release_qa.py` pasó de 25 min 14 s a 25 min 49 s en esta máquina.
 
+### Tras fusionar PR #25 (33d2cbb): la comprobación diaria y la auditoría de contraste (X01, X03)
+
+PR #25 se fusionó como 33d2cbb y el despliegue (run 40713514267) acabó bien. La comprobación en
+vivo pasó el 29, 30 y 31 de octubre y falló el 1 y el 2 de noviembre (runs 41329893838 y
+41522524094) antes de comprobar nada, al instalar el navegador: «Playwright does not support
+chromium on ubuntu26.04-x64». El registro del run del 2 dice «Image: ubuntu-26.04, Version:
+20261025.179.1». GitHub mueve `ubuntu-latest` a Ubuntu 26.04 entre el 19 de octubre y el 19 de
+noviembre de 2026 y recomienda fijar `ubuntu-24.04` a quien no esté listo
+(github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration). Playwright
+1.55, el fijado aquí, no conoce 26.04; el soporte llega con microsoft/playwright#41025 (issue
+#40117), sin versión publicada confirmada desde aquí. Las suites de PR instalan el navegador con
+el mismo paso, así que habrían fallado igual en el siguiente PR (inferido, no visto: no hubo PR en
+esos días).
+
+Cambio: los tres trabajos que instalan el navegador (`live-check.yml:live`,
+`quality.yml:browser-qa` y `quality.yml:architecture-browser-qa`) corren en `ubuntu-24.04`, la
+imagen en que se midieron todos los informes. `requirements-qa.txt` dice que la imagen se mueve
+con la versión de Playwright. Prueba nueva, `test_x01_browser_jobs_run_on_a_fixed_ubuntu_release`
+en `tests/test_ci_contract.py`: falla si un trabajo que instala el navegador usa una etiqueta que
+se mueve.
+
+En el mismo PR, la carrera de `visual_resource_audit.py` que falló en CI sobre fd1f7bd: tras
+`openFieldCard()`, la página de detrás no se dibuja (`content-visibility`), y en ese contenido
+Chromium crea la transición de 150 ms de los botones Sujeto/Hora sólo cuando se vuelve a leer su
+estilo, después de que el script de contraste acabara las animaciones con `finish()`. El script
+leía entonces los colores de partida (1,05:1 y 1,82:1). Ahora lee el estilo de cada elemento antes
+de acabar las animaciones, y el flujo cambia el sujeto y abre la tarjeta en la misma tarea, el caso
+en que la transición aún no existe, para que la prueba ejerza la carrera siempre.
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| registros de los runs 41329893838 y 41522524094 de `live-check.yml` en 33d2cbb | fallo (1) | el paso «Install the pinned browser tools» falla en Ubuntu 26.04; los pasos de comprobación no corren |
+| la prueba nueva sobre los workflows de 33d2cbb | 1 | nombra los tres trabajos en `ubuntu-latest` |
+| `tests/test_ci_contract.py` con el cambio | 0 | 7 pasan |
+| `visual_resource_audit.py` con el flujo nuevo y el script de contraste de main, tres veces | 1, 1, 1 | «Perro» a 1,05:1 y «Humano» a 1,82:1 |
+| lo mismo con el script nuevo, tres veces | 0, 0, 0 | 37 de 37 |
+| `contrast_rate.py` (borrador: el flujo de main, doce visitas) con el script de main y con el nuevo | 0 y 0 (informe) | 4 de 12 y 0 de 12 lecturas con contraste bajo |
+| `visual_resource_audit.py` en 5e62e59 | 0 | 37 de 37; `VISUAL_RESOURCE_QA.json` |
+
+Compromisos:
+
+- Las suites de navegador se quedan en Ubuntu 24.04 hasta que se suba Playwright a una versión que
+  instale en 26.04. Subirlo cambia el Chromium de todos los informes, así que va en su propio PR.
+  GitHub no ha anunciado cuándo retira `ubuntu-24.04`.
+- El trabajo de pruebas sin navegador y el despliegue siguen en `ubuntu-latest` y pasan a 26.04 con
+  la migración: no instalan el navegador.
+- Leer el estilo de todos los elementos antes de cada medida de contraste alarga la auditoría; no
+  lo medí aparte.
+
+### M8 de la comprobación en vivo de PR #25: un id en una página de plan bajo la barra (X07)
+
+El hilo de comprobación en vivo pasó todo lo pedido sobre 33d2cbb (versión `focalruta-857b65af3349`,
+244/244 archivos iguales, secciones y `#sun-date` a 149 px a 1280×800) salvo M8: en
+`plans/plan_a.html` a 1280×800, con movimiento, desde arriba, `location.hash='shots-grid'` dejó la
+rejilla a 77 px, 60 px bajo la barra Sujeto/Hora pegada (65–137), en 17 de 24 intentos, y en el
+plan C en 3 de 6. Su informe está en `/mnt/project-files/qa/LIVE_CHECK_PR25.md`.
+
+Reproducción (`m8/probe.py` en el borrador): contexto nuevo por intento, esperar de 200 a 3000 ms
+tras la carga, cambiar la dirección y medir a los 100 ms, 0,6, 2 y 3,5 s. En 33d2cbb, 6 de 12 bajo la
+barra, y la posición no cambia con el tiempo.
+
+Primera hipótesis (la del hilo en vivo): el `scrollIntoView` del cuadro siguiente hereda un
+desplazamiento suave. Falsa: las páginas de plan no tienen `scroll-behavior:smooth`. Segunda
+hipótesis, mía: el estilo o el diseño quedan pendientes al cambiar la dirección. Forzar el diseño
+antes del cambio no ayudó (8 de 12 mal), y con movimiento reducido también falla aquí (6 de 12, el
+hilo en vivo vio 149).
+
+Investigación (tras la primera hipótesis fallida, según AGENTS):
+- Chromium 396316b0 («update the fragment anchor position during the next safe lifecycle update»)
+  y 45236fd5 (el ancla aplica el foco al crearse o en BeginFrame, «before rAF callbacks»; el scroll
+  va aparte). El commit de WHATWG e62a7be6 ya describía el scroll al fragmento como un paso que
+  puede venir después de la navegación.
+- Parecido: mismo motor, misma página, salto a un fragmento de la misma página. Diferencia: los
+  commits hablan del ancla en la carga; aquí es un cambio de dirección con la página cargada.
+- Hipótesis nueva: Chromium hace su propio salto en el siguiente diseño. Si nada lee la página
+  antes, ese diseño es el del cuadro siguiente, que va después de los `requestAnimationFrame`. La
+  corrección de P1 corría entonces con la página aún arriba, con el espacio de 77 px, y el cambio a
+  149 llegaba después, sin nadie que volviera a saltar.
+- Predicción falsable: leer `scrollY` justo después de cambiar la dirección fuerza ese diseño y
+  quita el fallo. Resultado: 0 de 12, contra 6 de 12 sin leer. Mis trazas con escuchas que leían
+  `scrollY` tampoco fallaban (0 de 26): el instrumento escondía el fallo.
+
+Por eso la prueba de PR #25 (`fixed_bars.reach`) no lo vio: leía la página en la tarea siguiente al
+cambio, antes del cuadro, y forzaba el salto del navegador. Ahora deja la página sola 100 ms
+(`UNREAD`).
+
+Cambio: el `hashchange` de las páginas de plan aterriza el destino en el cuadro siguiente, como
+antes. Durante 0,8 s, en cada scroll, si el espacio de arriba (`scroll-padding-top` del documento más
+`scroll-margin-top` del destino) ya no es el del aterrizaje, vuelve a aterrizar, como mucho dos
+veces. Deja de hacerlo cuando el lector usa la rueda, toca, pulsa una tecla o hace clic. Es lo
+mismo que hace `jumpTo` en el inicio.
+
+Probé y no envié: forzar el diseño dentro del `hashchange` para que el salto del navegador llegue
+antes. En Chromium funciona (es la predicción de arriba), pero depende de cuándo hace el motor su
+salto, y en otro navegador podría no servir. Volver a aterrizar cuando cambia el espacio no depende
+de eso.
+
+### La comprobación del orden de la tarjeta, roja en main desde PR #25 (X06)
+
+CI de main tras fusionar PR #25 (run 40713514008, 33d2cbb) falló en `field_card_qa.py`, 63/64:
+«{'430x932': {'first shot at': 934, 'plans drawn in frame': 1, 'shots drawn in frame': 1}}». Es el
+mismo árbol que fd1f7bd, cuyo CI pasó esa madrugada. PR #26 falló igual. A 430×932 la primera toma
+empieza a una línea del borde de abajo, según las fuentes del sistema: en PR #25 anoté 914–934 px de
+412 a 430 px de ancho con las fuentes de CI. La regla de 900 px la dibuja con los planes, y la
+prueba exigía «exactamente donde empieza en pantalla». Eso contradecía el compromiso que declaró PR
+#25: de 900 a 934 px de alto llega con los planes aunque empiece justo debajo.
+
+Cambio: la prueba pide lo que la regla promete. Una primera toma que empieza en pantalla se dibuja
+con los planes (nunca aparece un cuadro después), y en una pantalla de menos de 900 px de alto las
+tomas llegan un cuadro después. No cambia el sitio.
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `probe.py` (plan A, 12 intentos) en 33d2cbb: sin leer, forzando el diseño antes, con movimiento reducido, leyendo `scrollY` después | 1, 1, 1, 0 | 6, 8, 6 y 0 de 12 bajo la barra |
+| `inner_only.py` (la prueba de id con `UNREAD`) en 49a83ee y en b16d3d7 | 0 (informe) | 24 de 32 fallan (las seis páginas de plan a los cuatro tamaños, #shots-grid a 77 px); 0 de 32 |
+| `probe.py` en b16d3d7: plan A 24 intentos, plan C 12 | 0 y 0 | 0 de 24 y 0 de 12 bajo la barra |
+| `run_reveal.py` (la prueba nueva del orden) en b16d3d7, en 383290c, siempre con los planes, umbral de 700 px de ancho | 0, 1, 1, 1 | pasa; falla a 430×932, 820×1000…; a 320×640, 390×844…; a 844×390, 932×430… |
+| `ruff … C901` a 10 | 0 | limpio |
+
+Compromisos:
+
+- Durante 0,8 s tras cambiar la dirección en una página de plan, un cambio del espacio de arriba
+  que no venga del salto también hace volver al destino, salvo que el lector haya usado la rueda,
+  tocado, pulsado una tecla o hecho clic. Un desplazamiento sin evento de entrada, como el de un
+  lector de pantalla, en esos 0,8 s y cruzando el punto donde la barra se pega, volvería al destino
+  una o dos veces.
+- La prueba de orden de la tarjeta ya no exige que una toma que empieza justo debajo espere un
+  cuadro en pantallas de 900 px o más. Es el margen que PR #25 declaró, no uno nuevo.
+- Sólo se probó en Chromium.
+
+### Cierre de PR #26 (6743372, ff70d5a): el informe de velocidad
+
+Las suites corrieron sobre 6743372 con el árbol limpio, las fuentes de CI y sólo `dist/` servido, y
+sus informes van en ff70d5a. La de velocidad no pasa en esta máquina, y tampoco con el inicio de
+main: el TBT del inicio (presupuesto 200 ms) queda en 222–301 ms con el mismo `index.html`, que este
+PR no cambia (sólo las seis páginas de plan y `sw.js`). En CI, la misma suite pasó 138/138 sobre
+ff70d5a. Su informe es un artefacto del run, guardado en el almacenamiento de GitHub
+(productionresultssa5.blob.core.windows.net), y la red de esta sesión no lo permite: el proxy
+contesta 403 y su README pide no reintentar. Por eso, en dfc17ef, `PERF_BUDGET_QA.json` seguía
+siendo el de 3a35933, y lint-and-test fallaba sólo en su frescura (las seis páginas de plan cambiaron).
+
+Después, el hilo de PR #24, cuya red sí llega a ese almacenamiento, bajó el informe de la suite de
+velocidad del run 41609505188 (CI de dfc17ef) a `/mnt/project-files/qa/pr26/ci_perf_dfc17ef/`. Lo
+adopté sin cambiarlo tras comprobar cuatro cosas: las huellas de los 14 archivos que audita son las
+del árbol; `audited_commit` es 839f18e, la fusión de dfc17ef sobre 33d2cbb que CI prueba;
+`audited_at` (09:27:56) es la hora a la que el registro del trabajo imprime el resumen; y los 32
+valores que imprime ese registro (TBT de las ocho páginas del sitio y la mediana de cada toque)
+coinciden con el informe.
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `run_all.sh` (seis suites de informe y cinco de arquitectura) en 6743372 | 0 salvo velocidad (1) | 548, 64, 37, 22 y 80 comprobaciones pasan; las cinco de arquitectura pasan; velocidad 137/138: TBT del inicio 222,5 ms |
+| `perf_budget_qa.py --only index.html`, main (49a83ee, el inicio de 33d2cbb) y 6743372 alternados, dos veces | 1, 1, 1, 1 | TBT 301 y 293 ms en main, 279 y 242 ms con el cambio |
+| `perf_budget_qa.py` en ff70d5a, contenedor recién arrancado | 1 | 137/138: TBT del inicio 283,84 ms; informe guardado aparte, no se sube |
+| CI de PR #26 en ff70d5a (run 41604953743): los siete trabajos de navegador | 0 | `perf_budget_qa.py` 138/138; `browser_release_qa.py` pasa en 27,5 min; el resto verde |
+| CI, lint-and-test | 1 | sólo `test_report_still_matches_the_files_it_audited[PERF_BUDGET_QA.json]` |
+| descarga del artefacto 13216233643 | 403 del proxy | `connect_rejected` hacia el almacenamiento de artefactos |
+| informe de velocidad de CI en dfc17ef (run 41609505188, traído por el hilo de PR #24), sha256 cf9f74c6…837cb | — | aprobado, 138/138; 14 de 14 huellas iguales al árbol; 32 de 32 valores iguales al registro del trabajo |
+| pytest en 6743372 sin la frescura de velocidad | 0 | 925 pasan, 1 omitida, 1 quitada |
+| `ruff … C901` a 10, `verify_architecture.py`, `regenerate_all.py` | 0, 0, 0 | limpio; sin fallos; 11 pasos, árbol igual |
+| con el informe de CI: pytest completo, `ruff … C901` a 10, `verify_architecture.py` | 0, 0, 0 | 926 pasan, 1 omitida; limpio; sin fallos |
+
+Compromisos:
+
+- Un informe de velocidad hecho en esta máquina no sirve de prueba: falla el inicio de main, que no
+  cambia aquí. El que vale es el de CI; esta sesión no puede bajarlo y lo trajo otro hilo, así que
+  lo que lo respalda son las cuatro comprobaciones de arriba, no la descarga.
+- A ancho de tableta, la primera toma en gama baja quedó aquí en 490 ms (límite 500); CI midió
+  main en 399. Es la misma máquina lenta, no un cambio de este PR, pero es el margen más corto.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno

@@ -172,8 +172,11 @@ html { scroll-padding-top: .75rem; }
    jumps with the room kept for where the page was, and the scroll it makes then sets
    html.fr-bar-in-flow for where it lands. A section carries the difference in its margin, but an
    id inside one does not: it landed 60 px under the stuck Sujeto/Hora bar. So the next frame lands
-   it again, with the room for where it is; where that room is the same, the page does not move. */
-addEventListener('hashchange',()=>{let t=null;try{t=location.hash.length>1&&document.getElementById(decodeURIComponent(location.hash.slice(1)))}catch(e){}if(t)requestAnimationFrame(()=>t.scrollIntoView({block:'start'}))});
+   it again, and lands it once more each time the room changes in the next 0.8 s, at most twice,
+   until the reader scrolls, presses or types (M8): Chromium makes its own jump at the next layout,
+   after that frame's callbacks, so the room can change only after the first landing. Where the
+   room is the same, the page does not move. */
+addEventListener('hashchange',()=>{let t=null;try{t=location.hash.length>1&&document.getElementById(decodeURIComponent(location.hash.slice(1)))}catch(e){}if(!t)return;const h=document.documentElement,room=()=>parseFloat(getComputedStyle(h).scrollPaddingTop)+parseFloat(getComputedStyle(t).scrollMarginTop),reader=['wheel','touchstart','keydown','pointerdown'];let kept=0,redo=0;const land=()=>{t.scrollIntoView({block:'start'});kept=room()},check=()=>{if(redo<2&&Math.abs(room()-kept)>1){redo++;land()}},stop=()=>{removeEventListener('scroll',check);reader.forEach(e=>removeEventListener(e,stop,true))};requestAnimationFrame(()=>{land();addEventListener('scroll',check,{passive:true});reader.forEach(e=>addEventListener(e,stop,{capture:true,passive:true}));setTimeout(stop,800)})});
 /* N13: Tab and Shift+Tab onto a control of a bar wholly in view, from inside the bar or from the
    control next to it, move focus without scrolling. Inside the room scroll-padding keeps at the
    top, the browser counts that control as out of view and scrolls the page by half a screen on

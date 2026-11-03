@@ -15,7 +15,10 @@ permissions:
 
 jobs:
   live:
-    runs-on: ubuntu-latest
+    # A fixed Ubuntu release, not ubuntu-latest: Playwright installs its browser only on the
+    # releases it knows, and the pinned 1.55 refuses Ubuntu 26.04, where ubuntu-latest moved
+    # in October and November 2026. Move this when requirements-qa.txt moves Playwright.
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
       FOCALRUTA_LIVE_URL: https://pillb.github.io/focalruta/

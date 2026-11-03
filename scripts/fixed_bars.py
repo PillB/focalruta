@@ -26,6 +26,7 @@ BOTTOM_BAR = 640  # px: the widest screen with the home page's bottom bar
 LANDING = 24  # px: a section a link jumps to starts at most this far below what stays
 TAB_LIMIT = 400
 SETTLE = 300  # ms: after a jump in one go, sections drawn only near the screen take their real size
+UNREAD = 100  # ms left alone after the address changes, about six frames
 
 # The bars by what they are, so the same probe reads a build from before N9.
 BARS = """() => {
@@ -487,8 +488,12 @@ TOP_OF = "(href) => Math.round(document.getElementById(href.slice(1)).getBoundin
 
 
 def reach(page, href: str, how: str) -> str | None:
-    """Change the address to `href`; once the page has stopped moving, what is wrong with where it starts, or None."""
+    """Change the address to `href`; once the page has stopped moving, what is wrong with where it starts, or None.
+    Nothing reads the page for a few frames after the change: reading its layout at once makes Chromium jump to
+    the target then, before the next frame, and hid a plan page landing under the Sujeto/Hora bar about one try
+    in two when nothing did (M8, from the live check of PR #25)."""
     page.evaluate("href => { location.hash = href }", href)
+    page.wait_for_timeout(UNREAD)
     page.evaluate(STILL)
     problem = landing(page, href)
     return f"{how} {problem}" if problem else None
