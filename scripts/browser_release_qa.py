@@ -415,6 +415,29 @@ def bars_on_screen(browser):
                "and Tab across a bar or onto a control just under it leaves the page still", not larger, larger)
 
 
+# Y26: on the home pages, the links in the bars followed with the processor slowed twelve times, at the
+# sizes where the old hold left sections off on it: very large text on a laptop, default text on a desktop and a phone
+# (9 of 9 runs failed before the fix, `Y26_slow_jumps_red.txt`). Plan pages have no sections drawn late.
+SLOW_SIZES = ((24, 1280, 800), (16, 1440, 900), (16, 390, 844))
+
+
+def jumps_on_a_slow_processor(browser):
+    for name, path in (("standalone", ROOT / "index.html"), ("hosted", ROOT / "dist/canon6d_sota_hosted/index.html")):
+        wrong = {}
+        for text, width, height in SLOW_SIZES:
+            context = browser.new_context(viewport={"width": width, "height": height}, reduced_motion="reduce")
+            page = context.new_page()
+            if text != 16:
+                context.new_cdp_session(page).send("Page.setFontSizes", {"fontSizes": {"standard": text}})
+            page.goto(path.as_uri(), wait_until="load", timeout=60000)
+            found = fixed_bars.jumps_on_a_slow_processor(page)
+            if found:
+                wrong[f"{text}px {width}x{height}"] = found[:6]
+            context.close()
+        record(f"{name} on a processor slowed {fixed_bars.SLOW_CPU} times, links in the bars land clear of them once still",
+               not wrong, wrong)
+
+
 with sync_playwright() as pw:
     browser = pw.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
     targets = {
@@ -527,6 +550,7 @@ with sync_playwright() as pw:
     stylesheets_kept(browser)
     home_card_looks_like_the_card(browser)
     bars_on_screen(browser)
+    jumps_on_a_slow_processor(browser)
     browser.close()
 
 report = {"passed": all(item["pass"] for item in results), "checks": len(results),

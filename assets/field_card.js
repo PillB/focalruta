@@ -193,7 +193,6 @@
 
   var ics = $('#fc-ics');
   if (ics && root.Blob && root.URL && URL.createObjectURL) {
-    ics.hidden = false;
     ics.addEventListener('click', function () {
       var plan = checked('fc-plan'), slot = checked('fc-slot'), day = chosenDate(), p = S.dayPlan(day), w = sessionWindow(slot, p);
       var info = app.querySelector('.fc-plan-name[data-plan="' + plan + '"]'), pack = app.querySelector('.fc-pack[data-plan="' + plan + '"]');
@@ -246,7 +245,6 @@
 
   var awake = $('#fc-awake'), lock = null;
   if (awake && 'wakeLock' in navigator) {
-    awake.closest('[hidden]') && (awake.closest('[hidden]').hidden = false);
     var request = function () { navigator.wakeLock.request('screen').then(function (l) { lock = l; }).catch(function () { awake.checked = false; }); };
     awake.addEventListener('change', function () { if (awake.checked) request(); else if (lock) { lock.release(); lock = null; } });
     document.addEventListener('visibilitychange', function () { if (awake.checked && document.visibilityState === 'visible') request(); });
@@ -301,7 +299,7 @@
   document.addEventListener('focalruta:equipo', paintGear);
   root.addEventListener('storage', function (event) { if (event.key === 'focalruta-equipo-v1') paintGear(); });
 
-  if (dateInput) { dateInput.value = today; dateInput.closest('[hidden]') && (dateInput.closest('[hidden]').hidden = false); }
+  if (dateInput) dateInput.value = today;
   restore(); paintWindows(); paintProgress(); paintGear();
   setInterval(paintWindows, 60000);
 })(typeof window !== 'undefined' ? window : this);

@@ -24,7 +24,7 @@ and drops quoted text from messages, which can be what the reader typed.
 The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 710 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 712 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
   the sun panel's hour, shadow and wall light held to the Python ephemeris, by keyboard,
   and its moonrise, moonset, phase and night sentence on five dates held to the moon twin;
@@ -41,7 +41,8 @@ reports at the repository root still match the files they audited, byte for byte
   them, every in-page link in them, every section the page is opened at, and every section the address is
   changed to on the open page, also going back and forward, and an id inside a section reached from the other
   side of the Sujeto/Hora bar, landing clear of them once the page has drawn it, also when the browser sends
-  the scroll event of the jump two frames late,
+  the scroll event of the jump two frames late, and on the home pages also with the processor slowed twelve
+  times (where a slow frame used to end the jump's hold before the section was back in place),
   also with the reader's text at 20 and 24 px, Tab and Shift+Tab across a bar, or onto a control
   just under what stays, leaving the page where it is in every frame, a scroll of the reader's own during a
   jump kept, and the page left where it was when a dialog opened from the top bar closes; on
@@ -55,8 +56,9 @@ reports at the repository root still match the files they audited, byte for byte
   (contrast on gradients is checked at every colour stop)
 - `AXE_ACCESSIBILITY_QA.json` — axe-core on all 39 published pages and the home page's
   offline notice, light phone and dark desktop passes, zero violations
-- `FIELD_CARD_QA.json` — 69 field card checks on a phone: each plan's settings per light,
-  the Lima clock, no JavaScript, print, keyboard, the home page dialog (the page behind
+- `FIELD_CARD_QA.json` — 70 field card checks on a phone: each plan's settings per light,
+  the Lima clock, what is on screen before the card's scripts run already where they leave it
+  (by day and by night, from 320 to 412 px), no JavaScript, print, keyboard, the home page dialog (the page behind
   it, left undrawn while the card covers it and back where it was, focus back on an
   opener on the page after a resize either way across 900 px, without moving the page,
   and the shots drawn with the plans where they start on screen, a frame later where

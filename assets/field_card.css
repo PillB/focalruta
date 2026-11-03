@@ -29,6 +29,13 @@
 .fc-sun-slots{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .fc-sun-slots li{font-size:13px;line-height:1.3;color:var(--fc-hero-muted)}.fc-sun-slots b{display:block;font-size:14px;color:var(--fc-hero-ink)}
 .fc-now{margin-top:8px;font-size:14px;line-height:1.4;color:var(--fc-hero-ink)}
+/* Laid out before the script runs as it will leave it (CAPS_JS in generate_field_card.py): the line on the
+   light now keeps room for its longest text, three lines on a phone and two from 600 px, the times
+   under each light keep two lines where they wrap, and the controls that need a script show from the
+   start where it will run them. Without a script the card says what it would show instead. */
+html.fc-js .fc-nojs{display:none}html.fc-js .fc-now{min-height:4.2em}@media(min-width:600px){html.fc-js .fc-now{min-height:2.8em}}
+@media(max-width:419px){html.fc-js .fc-sun-slots b{min-height:2.6em}}
+html:not(.fc-js) .fc-date,html:not(.fc-can-wake) .fc-wake,html:not(.fc-can-ics) .fc-ics{display:none}
 .fc-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.fc-tools .fc-date{flex:1 1 100%;justify-content:space-between}
 .fc-toggle,.fc-date{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:1.5px solid #ffffff59;border-radius:22px;font-size:14px;font-weight:700;color:var(--fc-hero-ink);cursor:pointer}
 .fc-toggle input{width:20px;height:20px;margin:0;accent-color:var(--fc-accent)}

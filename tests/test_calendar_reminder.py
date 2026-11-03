@@ -81,7 +81,14 @@ def test_w12_the_event_covers_the_light_chosen_with_time_to_set_up(slot):
 
 
 def test_w12_the_card_offers_the_calendar_only_where_a_script_can_write_it():
+    """The button is laid out from the first paint where a script will write the file (red team,
+    2026-11-03: revealed by the card's script, it moved the shots down after the first paint), and
+    nowhere else: only the script in the page's head marks that, and only with Blob and object URLs."""
     button = re.search(r'<button type="button" id="fc-ics"[^>]*>', CARD)
-    assert button and " hidden" in button.group(0)
+    assert button and 'class="fc-toggle fc-ics"' in button.group(0)
+    assert "html:not(.fc-can-ics) .fc-ics{display:none}" in CARD
+    head = CARD[:CARD.index("</head>")]
+    assert "if(window.Blob&&window.URL&&URL.createObjectURL)c.add('fc-can-ics')" in head
+    assert CARD.count("c.add('fc-can-ics')") == 2, "the head and the card's own script, for the home page's dialog"
     script = JS_CARD.read_text(encoding="utf-8")
-    assert "text/calendar" in script and "ics.hidden = false" in script
+    assert "text/calendar" in script and "if (ics && root.Blob && root.URL && URL.createObjectURL)" in script

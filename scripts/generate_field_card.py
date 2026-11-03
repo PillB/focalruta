@@ -356,12 +356,12 @@ def sun_strip() -> str:
     return (
         '<section class="fc-sun" aria-labelledby="fc-sun-title"><h2 id="fc-sun-title">Luz en Lima</h2>'
         f'<ul class="fc-sun-slots">{chips_html}</ul>'
-        '<p id="fc-now" class="fc-now" aria-live="polite">Con JavaScript verás la hora de cada luz para hoy. '
-        'Día: del amanecer a una hora antes de la puesta. Tarde: la última hora de sol y la hora azul. Noche: desde que termina la hora azul.</p>'
-        '<div class="fc-tools"><label class="fc-date" hidden>Otro día <input id="fc-date" type="date"></label>'
+        '<p id="fc-now" class="fc-now" aria-live="polite"><span class="fc-nojs">Con JavaScript verás la hora de cada luz para hoy. '
+        'Día: del amanecer a una hora antes de la puesta. Tarde: la última hora de sol y la hora azul. Noche: desde que termina la hora azul.</span></p>'
+        '<div class="fc-tools"><label class="fc-date">Otro día <input id="fc-date" type="date"></label>'
         '<label class="fc-toggle"><input id="fc-night" type="checkbox"> Pantalla de noche</label>'
-        '<label class="fc-toggle" hidden><input id="fc-awake" type="checkbox"> No apagar la pantalla</label>'
-        '<button type="button" id="fc-ics" class="fc-toggle fc-ics" hidden><span aria-hidden="true">📅</span> Añadir al calendario</button></div></section>'
+        '<label class="fc-toggle fc-wake"><input id="fc-awake" type="checkbox"> No apagar la pantalla</label>'
+        '<button type="button" id="fc-ics" class="fc-toggle fc-ics"><span aria-hidden="true">📅</span> Añadir al calendario</button></div></section>'
     )
 
 
@@ -456,12 +456,22 @@ PAGE_CSS = """html{-webkit-text-size-adjust:100%}body{margin:0;background:#f4f1e
 @media(prefers-color-scheme:dark){body{background:#0b1220}.fc-page-top a{color:#f1f5f9}}"""
 
 
+# What the card's script will show, said before the body is painted: the browser paints the card
+# before the scripts at the end of its body run, and controls they revealed then, or text they wrote
+# over a longer default, moved the shots down by 118 to 156 px on a phone (found 2026-11-03: CI's
+# speed run measured a layout shift of 0.111 on this page, over the 0.1 budget). The page sets these
+# classes in its head; the home page, whose dialog opens only after its scripts have run, from the
+# card's own script. The date, the screen lock and the calendar file show only where they work.
+CAPS_JS = ("(function(c){c.add('fc-js');if('wakeLock' in navigator)c.add('fc-can-wake');"
+           "if(window.Blob&&window.URL&&URL.createObjectURL)c.add('fc-can-ics')})(document.documentElement.classList);")
+
+
 def page(app_html: str, css: str, js: str, sun_js: str, gear_js: str, diagnostics_js: str) -> str:
     return f"""<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#061827"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/app-icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icon-192.png">
 <meta name="description" content="Tarjeta de campo de FocalRuta: los ajustes exactos de cada toma de los seis planes para la luz de día, tarde o noche, la hora de cada luz en Lima y qué llevar. Funciona sin conexión.">
-<meta name="apple-mobile-web-app-capable" content="yes"><script id="diagnostics-js">\n{diagnostics_js}</script><title>Tarjeta de campo · FocalRuta</title>
+<meta name="apple-mobile-web-app-capable" content="yes"><script id="diagnostics-js">\n{diagnostics_js}</script><script>{CAPS_JS}</script><title>Tarjeta de campo · FocalRuta</title>
 <style>{PAGE_CSS}
 {css}</style></head>
 <body><nav class="fc-page-top" aria-label="Sitio"><a href="index.html">← Volver a FocalRuta</a></nav>
@@ -474,7 +484,7 @@ def page(app_html: str, css: str, js: str, sun_js: str, gear_js: str, diagnostic
 
 def main() -> None:
     css = card_css()
-    js = (ROOT / "assets" / "field_card.js").read_text(encoding="utf-8")
+    js = CAPS_JS + "\n" + (ROOT / "assets" / "field_card.js").read_text(encoding="utf-8")
     sun_js = (ROOT / "assets" / "sun_times.js").read_text(encoding="utf-8")
     gear_js = (ROOT / "assets" / "gear.js").read_text(encoding="utf-8")
     diagnostics_js = (ROOT / "assets" / "diagnostics.js").read_text(encoding="utf-8")
