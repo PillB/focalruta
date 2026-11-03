@@ -3541,6 +3541,35 @@ Compromisos:
   cuadro en pantallas de 900 px o más. Es el margen que PR #25 declaró, no uno nuevo.
 - Sólo se probó en Chromium.
 
+### Cierre de PR #26 (6743372, ff70d5a): el informe de velocidad
+
+Las suites corrieron sobre 6743372 con el árbol limpio, las fuentes de CI y sólo `dist/` servido, y
+sus informes van en ff70d5a. La de velocidad no pasa en esta máquina, y tampoco con el inicio de
+main: el TBT del inicio (presupuesto 200 ms) queda en 222–301 ms con el mismo `index.html`, que este
+PR no cambia (sólo las seis páginas de plan y `sw.js`). En CI, la misma suite pasó 138/138 sobre
+ff70d5a. Su informe es un artefacto del run, guardado en el almacenamiento de GitHub
+(productionresultssa5.blob.core.windows.net), y la red de esta sesión no lo permite: el proxy
+contesta 403 y su README pide no reintentar. Por eso `PERF_BUDGET_QA.json` sigue siendo el de
+3a35933, y lint-and-test falla sólo en su frescura (las seis páginas de plan cambiaron).
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `run_all.sh` (seis suites de informe y cinco de arquitectura) en 6743372 | 0 salvo velocidad (1) | 548, 64, 37, 22 y 80 comprobaciones pasan; las cinco de arquitectura pasan; velocidad 137/138: TBT del inicio 222,5 ms |
+| `perf_budget_qa.py --only index.html`, main (49a83ee, el inicio de 33d2cbb) y 6743372 alternados, dos veces | 1, 1, 1, 1 | TBT 301 y 293 ms en main, 279 y 242 ms con el cambio |
+| `perf_budget_qa.py` en ff70d5a, contenedor recién arrancado | 1 | 137/138: TBT del inicio 283,84 ms; informe guardado aparte, no se sube |
+| CI de PR #26 en ff70d5a (run 41604953743): los siete trabajos de navegador | 0 | `perf_budget_qa.py` 138/138; `browser_release_qa.py` pasa en 27,5 min; el resto verde |
+| CI, lint-and-test | 1 | sólo `test_report_still_matches_the_files_it_audited[PERF_BUDGET_QA.json]` |
+| descarga del artefacto 13216233643 | 403 del proxy | `connect_rejected` hacia el almacenamiento de artefactos |
+| pytest en 6743372 sin la frescura de velocidad | 0 | 925 pasan, 1 omitida, 1 quitada |
+| `ruff … C901` a 10, `verify_architecture.py`, `regenerate_all.py` | 0, 0, 0 | limpio; sin fallos; 11 pasos, árbol igual |
+
+Compromisos:
+
+- Un informe de velocidad hecho en esta máquina no sirve de prueba: falla el inicio de main, que no
+  cambia aquí. El que vale es el de CI, que hay que traer de fuera de esta sesión.
+- A ancho de tableta, la primera toma en gama baja quedó aquí en 490 ms (límite 500); CI midió
+  main en 399. Es la misma máquina lenta, no un cambio de este PR, pero es el margen más corto.
+
 ### Pendiente
 
 - Safari en iOS y Lighthouse en un teléfono real siguen sin comprobarse: no hay ninguno
