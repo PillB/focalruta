@@ -3549,8 +3549,16 @@ main: el TBT del inicio (presupuesto 200 ms) queda en 222–301 ms con el mismo 
 PR no cambia (sólo las seis páginas de plan y `sw.js`). En CI, la misma suite pasó 138/138 sobre
 ff70d5a. Su informe es un artefacto del run, guardado en el almacenamiento de GitHub
 (productionresultssa5.blob.core.windows.net), y la red de esta sesión no lo permite: el proxy
-contesta 403 y su README pide no reintentar. Por eso `PERF_BUDGET_QA.json` sigue siendo el de
-3a35933, y lint-and-test falla sólo en su frescura (las seis páginas de plan cambiaron).
+contesta 403 y su README pide no reintentar. Por eso, en dfc17ef, `PERF_BUDGET_QA.json` seguía
+siendo el de 3a35933, y lint-and-test fallaba sólo en su frescura (las seis páginas de plan cambiaron).
+
+Después, el hilo de PR #24, cuya red sí llega a ese almacenamiento, bajó el informe de la suite de
+velocidad del run 41609505188 (CI de dfc17ef) a `/mnt/project-files/qa/pr26/ci_perf_dfc17ef/`. Lo
+adopté sin cambiarlo tras comprobar cuatro cosas: las huellas de los 14 archivos que audita son las
+del árbol; `audited_commit` es 839f18e, la fusión de dfc17ef sobre 33d2cbb que CI prueba;
+`audited_at` (09:27:56) es la hora a la que el registro del trabajo imprime el resumen; y los 32
+valores que imprime ese registro (TBT de las ocho páginas del sitio y la mediana de cada toque)
+coinciden con el informe.
 
 | Comando | Salida | Resumen |
 |---|---|---|
@@ -3560,13 +3568,16 @@ contesta 403 y su README pide no reintentar. Por eso `PERF_BUDGET_QA.json` sigue
 | CI de PR #26 en ff70d5a (run 41604953743): los siete trabajos de navegador | 0 | `perf_budget_qa.py` 138/138; `browser_release_qa.py` pasa en 27,5 min; el resto verde |
 | CI, lint-and-test | 1 | sólo `test_report_still_matches_the_files_it_audited[PERF_BUDGET_QA.json]` |
 | descarga del artefacto 13216233643 | 403 del proxy | `connect_rejected` hacia el almacenamiento de artefactos |
+| informe de velocidad de CI en dfc17ef (run 41609505188, traído por el hilo de PR #24), sha256 cf9f74c6…837cb | — | aprobado, 138/138; 14 de 14 huellas iguales al árbol; 32 de 32 valores iguales al registro del trabajo |
 | pytest en 6743372 sin la frescura de velocidad | 0 | 925 pasan, 1 omitida, 1 quitada |
 | `ruff … C901` a 10, `verify_architecture.py`, `regenerate_all.py` | 0, 0, 0 | limpio; sin fallos; 11 pasos, árbol igual |
+| con el informe de CI: pytest completo, `ruff … C901` a 10, `verify_architecture.py` | 0, 0, 0 | 926 pasan, 1 omitida; limpio; sin fallos |
 
 Compromisos:
 
 - Un informe de velocidad hecho en esta máquina no sirve de prueba: falla el inicio de main, que no
-  cambia aquí. El que vale es el de CI, que hay que traer de fuera de esta sesión.
+  cambia aquí. El que vale es el de CI; esta sesión no puede bajarlo y lo trajo otro hilo, así que
+  lo que lo respalda son las cuatro comprobaciones de arriba, no la descarga.
 - A ancho de tableta, la primera toma en gama baja quedó aquí en 490 ms (límite 500); CI midió
   main en 399. Es la misma máquina lenta, no un cambio de este PR, pero es el margen más corto.
 
