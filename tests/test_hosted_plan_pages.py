@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist" / "canon6d_sota_hosted"
 BUNDLE = ROOT / "downloads" / "canon6d_photo_planner_assets.zip"
 DIAGRAMS = re.compile(r"const DIAGRAMS = (\{.*?\});\n", re.S)
-PLANS = [f"plan_{letter}" for letter in "abcdef"]
+PLANS = [plan["id"] for plan in json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))["plans"]]
 # Template, data and styles stay inline; only the diagrams move out.
 HOSTED_PAGE_BUDGET_BYTES = 400_000
 

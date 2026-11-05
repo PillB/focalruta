@@ -59,7 +59,7 @@ with sync_playwright() as pw:
         if name in ('standalone','hosted'):
             # Exercise every image-producing state and force lazy images to decode.
             broken=[]
-            for plan in [f'plan_{x}' for x in 'abcdef']:
+            for plan in [f'plan_{x}' for x in qa_matrix.PLAN_LETTERS]:
                 for subject in ('human','dog'):
                     page.evaluate('([p,s])=>{selectPlan(p);setVariant(s)}',[plan,subject])
                     state=page.evaluate('''async()=>{const xs=[...document.querySelectorAll('#plan-detail-content img')];xs.forEach(x=>x.loading='eager');await Promise.all(xs.map(x=>x.decode().catch(()=>null)));return xs.filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src)}''')

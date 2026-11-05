@@ -137,7 +137,7 @@ def test_published_scene_table_is_the_one_the_tests_check():
         assert published[key] == {"ev_low": low, "ev_high": high, "label": label, "source": source}, key
 
 
-@pytest.mark.parametrize("page", ["index.html", *(f"plans/plan_{x}.html" for x in "abcdef")])
+@pytest.mark.parametrize("page", ["index.html", *(f"plans/{plan['id']}.html" for plan in load_plans()["plans"])])
 def test_every_page_embeds_the_canonical_plan_data(page):
     html = (ROOT / page).read_text(encoding="utf-8")
     match = re.search(r"const (?:PLANS_DATA|DATA) = (\{.*?\});\n", html, re.S)

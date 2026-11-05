@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "id": "utec-campus-barranco",
-        "name": "Universidad de Ingenieria y Tecnologia",
+        "name": "Campus UTEC",
         "district": "Barranco"
       },
       "geometry": {
@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "mac-lima-parque-espejo-de-agua",
-        "name": "Museo de Arte Contemporaneo de Lima",
+        "name": "MAC Lima + parque / espejo de agua",
         "district": "Barranco"
       },
       "geometry": {

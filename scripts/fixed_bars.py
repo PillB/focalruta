@@ -26,6 +26,24 @@ BOTTOM_BAR = 640  # px: the widest screen with the home page's bottom bar
 LANDING = 24  # px: a section a link jumps to starts at most this far below what stays
 TAB_LIMIT = 400
 SETTLE = 300  # ms: after a jump in one go, sections drawn only near the screen take their real size
+# A jump on a slow processor (Y26). Drawing the sections near the landing is the slow part, and
+# with the processor slowed twelve times one frame lasted longer than the jump's whole 0.8 s
+# hold; the hold then ended without moving the target, which stayed 1863 px under the bars. The
+# same 1863 px came up once in a full release run on this session's slow container. It needs the
+# long frame to be the one where a section above the target is drawn at its real size, which
+# moves the target while the hold keeps scroll anchoring off: a third to a half of the runs. So
+# the check also makes that frame long, the worst case: the first time a section above the target
+# changes size after the jump, a ResizeObserver keeps the processor busy for longer than the hold.
+# A slow page may take longer to land, so there the landing is judged once the section has stayed put.
+SLOW_CPU = 12  # times slower than the machine running the check
+SLOW_FRAME = 900  # ms the frame a section above the target is drawn in takes, longer than the 0.8 s hold
+LONG_FRAME = f"""() => {{ window.__frLong = null;
+  const busy = new ResizeObserver(seen => {{ const target = window.__frLong && document.getElementById(window.__frLong);
+    if (!target || !seen.some(e => e.target.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
+    window.__frLong = null; const end = performance.now() + {SLOW_FRAME}; while (performance.now() < end); }});
+  document.querySelectorAll('main > section').forEach(s => busy.observe(s)); }}"""
+PUT = 600  # ms the section must stay put before its landing is judged
+PUT_LIMIT = 10000  # ms: a section still moving after this long has not landed
 
 # The bars by what they are, so the same probe reads a build from before N9.
 BARS = """() => {
@@ -246,12 +264,17 @@ def room_follows_bars(page) -> list[str]:
 
 
 def landing(page, href: str) -> str | None:
-    """Once the page has settled, what is wrong with where the section `href` names starts, or None.
+    """Once the page has settled, what is wrong with where the section `href` names starts, or None."""
+    page.wait_for_timeout(SETTLE)
+    return judged(page, href)
+
+
+def judged(page, href: str) -> str | None:
+    """What is wrong with where the section `href` names starts now, or None.
 
     A jump that ends at the top or the bottom of the page cannot place its section, so only
     "behind" counts there: at the very top nothing is stuck yet.
     """
-    page.wait_for_timeout(SETTLE)
     landed = page.evaluate(LANDED, href)
     if landed["edge"] and page.evaluate("scrollY") <= 0:
         return None
@@ -269,6 +292,43 @@ def jumps(page) -> list[str]:
         problem = landing(page, href)
         if problem:
             wrong.append(problem)
+    return wrong
+
+
+def settled_landing(page, href: str) -> str | None:
+    """Once the section `href` names has stayed put for PUT ms, what is wrong with where it starts, or None."""
+    last, since, waited = None, 0, 0
+    while since < PUT:
+        if waited >= PUT_LIMIT:
+            return f"{href} still moving {PUT_LIMIT} ms after the jump"
+        page.wait_for_timeout(100)
+        waited += 100
+        top = page.evaluate("(href) => Math.round(document.getElementById(href.slice(1)).getBoundingClientRect().top)", href)
+        since = since + 100 if top == last else 0
+        last = top
+    return judged(page, href)
+
+
+def jumps_on_a_slow_processor(page) -> list[str]:
+    """Y26: follow every in-page link in the bars with the processor slowed SLOW_CPU times and the frame
+    a section above the target is first redrawn in after each jump lasting SLOW_FRAME ms; list the
+    sections that, once still, start behind a bar or far below it."""
+    page.evaluate(LONG_FRAME)
+    cdp = page.context.new_cdp_session(page)
+    cdp.send("Emulation.setCPUThrottlingRate", {"rate": SLOW_CPU})
+    wrong = []
+    try:
+        for href in page.evaluate(JUMPS):
+            page.evaluate("scrollTo({top: 0, behavior: 'instant'})")
+            page.wait_for_timeout(PUT)
+            page.evaluate("(href) => { window.__frLong = href.slice(1) }", href)
+            page.evaluate(CLICK, href)
+            problem = settled_landing(page, href)
+            if problem:
+                wrong.append(problem)
+    finally:
+        cdp.send("Emulation.setCPUThrottlingRate", {"rate": 1})
+        cdp.detach()
     return wrong
 
 
@@ -486,9 +546,10 @@ LOWEST = f"""() => [...new Set(({JUMPS})())].sort((a, b) => document.getElementB
 TOP_OF = "(href) => Math.round(document.getElementById(href.slice(1)).getBoundingClientRect().top)"
 
 
-def reach(page, href: str, how: str) -> str | None:
-    """Change the address to `href`; once the page has stopped moving, what is wrong with where it starts, or None."""
-    page.evaluate("href => { location.hash = href }", href)
+def reach(page, href: str, how: str, change: str | None = None) -> str | None:
+    """Change the address to `href` (with the script `change`, if given); once the page has stopped moving,
+    what is wrong with where it starts, or None."""
+    page.evaluate(change or "href => { location.hash = href }", href)
     page.evaluate(STILL)
     problem = landing(page, href)
     return f"{how} {problem}" if problem else None
@@ -561,18 +622,29 @@ INNER = f"""() => {{
   return {{above: above ? '#' + above.id : null, below: below ? '#' + below.id : null}};
 }}"""
 DRAW = "href => document.getElementById(href.slice(1)).scrollIntoView({block: 'center', behavior: 'instant'})"
+# The address changed with the scroll events the jump makes held back until two frames later, then
+# one sent: the browser may send that event after the next frame (found 2026-11-02: in two full
+# release runs out of three on the merged build, a plan page's #shots-grid, reached from the top,
+# landed 60 px under the stuck Sujeto/Hora bar at 820x1000 and 1440x1100; held back like this, every
+# time). A page that waits for the event to know the room at the top lands with the room it had.
+LATE = """href => { let hold = true; const swallow = e => { if (hold) e.stopImmediatePropagation(); };
+  addEventListener('scroll', swallow, {capture: true});
+  location.hash = href;
+  requestAnimationFrame(() => requestAnimationFrame(() => { hold = false; removeEventListener('scroll', swallow, {capture: true});
+    document.dispatchEvent(new Event('scroll', {bubbles: true})); })); }"""
 
 
 def inner_addresses(page) -> list[str]:
     """With motion on, draw the first id below the Sujeto/Hora bar, go to the top and change the address
-    to it; draw the last id above the bar, go to the first one below and change the address to it.
-    List each that does not land clear of the bars."""
+    to it, also with the jump's scroll events coming two frames late; draw the last id above the bar,
+    go to the first one below and change the address to it. List each that does not land clear of the
+    bars."""
     page.emulate_media(reduced_motion="no-preference")
     page.evaluate("document.getElementById('toggle-human').closest('section').scrollIntoView({block: 'center', behavior: 'instant'})")
     page.evaluate(STILL)
     page.wait_for_timeout(SETTLE)
     ids, wrong = page.evaluate(INNER), []
-    for href, start in ((ids["below"], None), (ids["above"], ids["below"])):
+    for href, start, late in ((ids["below"], None, False), (ids["below"], None, True), (ids["above"], ids["below"], False)):
         if not href:
             continue
         page.evaluate(DRAW, href)
@@ -584,7 +656,8 @@ def inner_addresses(page) -> list[str]:
         else:
             page.evaluate("scrollTo({top: 0, behavior: 'instant'})")
         page.evaluate(STILL)
-        problem = reach(page, href, f"from {start or 'the top'}, the address changed to")
+        how = f"from {start or 'the top'}{', its scroll event two frames late' if late else ''}, the address changed to"
+        problem = reach(page, href, how, LATE if late else None)
         if problem:
             wrong.append(problem)
     page.emulate_media(reduced_motion=MOTION[0])

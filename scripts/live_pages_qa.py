@@ -154,8 +154,10 @@ with sync_playwright() as pw:
     motion_states = []
     for mode in ("freeze", "pan", "ghost", "trails", "paint", "zoom"):
         page.locator(f'[data-motion="{mode}"]').click()
-        page.locator("#motion-shutter").fill("10"); low = page.locator("#motion-span").inner_text()
-        page.locator("#motion-shutter").fill("90"); high = page.locator("#motion-span").inner_text()
+        # A tenth and nine tenths of the slider's travel, read from it: since Y02 its steps are the dial's.
+        low_at, high_at = page.locator("#motion-shutter").evaluate("e=>[0.1,0.9].map(f=>String(Math.round(+e.min+f*(e.max-e.min))))")
+        page.locator("#motion-shutter").fill(low_at); low = page.locator("#motion-span").inner_text()
+        page.locator("#motion-shutter").fill(high_at); high = page.locator("#motion-span").inner_text()
         motion_states.append([mode, low, high, page.locator("#motion-caption").inner_text()])
     record("live Motion six modes differential", all(x[1] != x[2] for x in motion_states), motion_states)
     captions = {"freeze": "CONGELADO", "pan": "BARRIDO", "ghost": "FANTASMA", "trails": "TRAZAS", "paint": "PINTURA CON LUZ", "zoom": "EFECTO ZOOM"}
@@ -186,7 +188,7 @@ with sync_playwright() as pw:
     # Operational dialogs, state, focus containment, and persistence.
     page.evaluate("openSessionRun()")
     first_title = page.locator("#run-title").inner_text(); page.locator("#run-done").click(); done = page.locator("#run-done").inner_text(); page.locator("#run-next").click(); second_title = page.locator("#run-title").inner_text()
-    record("live Session Run mark and advance", "Hecha" in done and first_title != second_title, [first_title, done, second_title])
+    record("live Session Run mark and advance", "Aprobada" in done and first_title != second_title, [first_title, done, second_title])
     page.keyboard.press("Escape")
     page.evaluate("openFieldCard()"); page.wait_for_timeout(50)
     inert = page.evaluate("[...document.body.children].filter(e=>e.id!=='field-card-modal'&&!['SCRIPT','STYLE'].includes(e.tagName)).every(e=>e.inert)")
@@ -223,7 +225,7 @@ with sync_playwright() as pw:
     print('live QA: resources complete', flush=True)
 
     # Six self-contained route pages: state permutations, images, and corrections.
-    for letter in "abcdef":
+    for letter in qa_matrix.PLAN_LETTERS:
         route = context.new_page(); route_errors = []; route.on("pageerror", lambda error: route_errors.append(str(error)))
         watch_origins(route)
         response = route.goto(f"{URL}plans/plan_{letter}.html", wait_until="domcontentloaded", timeout=90000)

@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "id": "larcomar-acantilado",
-        "name": "Larcomar",
+        "name": "Larcomar + acantilado",
         "district": "Miraflores"
       },
       "geometry": {
@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "reducto-2-casa-museo-caceres",
-        "name": "Reducto",
+        "name": "Reducto Nº 2 / Casa Museo Cáceres",
         "district": "Miraflores"
       },
       "geometry": {
@@ -35,7 +35,7 @@
       "type": "Feature",
       "properties": {
         "id": "calle-porta-y-casonas-frente-a-verticalizacion",
-        "name": "Calle Porta",
+        "name": "Calle Porta y casonas frente a verticalización",
         "district": "Miraflores"
       },
       "geometry": {
@@ -50,7 +50,7 @@
       "type": "Feature",
       "properties": {
         "id": "parque-kennedy-gatos-civic-core",
-        "name": "Parque John F. Kennedy",
+        "name": "Parque Kennedy / gatos / civic core",
         "district": "Miraflores"
       },
       "geometry": {
@@ -65,7 +65,7 @@
       "type": "Feature",
       "properties": {
         "id": "palacio-municipal-virgen-milagrosa",
-        "name": "Municipalidad de Miraflores",
+        "name": "Palacio Municipal + Virgen Milagrosa",
         "district": "Miraflores"
       },
       "geometry": {

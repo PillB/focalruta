@@ -16,6 +16,7 @@ live inside the evaluated JavaScript, where a race can actually reject.
 """
 from __future__ import annotations
 
+import json
 import os
 import sys
 from pathlib import Path
@@ -23,6 +24,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAC_CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 AXE_VERSION = "4.10.3"
+# W08: the plans every check walks, read from the data the pages are built from, so a new
+# plan is checked without editing a list of letters in each script.
+PLAN_LETTERS: tuple[str, ...] = tuple(plan["id"].removeprefix("plan_") for plan in json.loads(
+    (ROOT / "data" / "plans.json").read_text(encoding="utf-8"))["plans"])
 
 # N01: the responsive matrix every browser-facing round must cover.
 REQUIRED_VIEWPORTS: tuple[tuple[int, int], ...] = (

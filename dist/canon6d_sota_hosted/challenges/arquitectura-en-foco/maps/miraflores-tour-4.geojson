@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "id": "lugar-de-la-memoria-lum",
-        "name": "Lugar de la Memoria",
+        "name": "Lugar de la Memoria (LUM)",
         "district": "Miraflores"
       },
       "geometry": {

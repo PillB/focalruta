@@ -1,5 +1,8 @@
 # Session handoff
 
+- Red team of PR #24, 2026-10-28 (Y01–Y24 and W09–W12; evidence in `/mnt/project-files/qa/pr24/evidence/redteam/`, write-up in the Claude Doc «FocalRuta red team of PR #24»). Two read-only reviews (research F1–F22, competitors C1–C13) and a walk of every interaction (F01–F12) became Y01–Y24, each with a test that failed first: the labs held to the 6D's dial; field advice that agrees with Lima, the camera and its own numbers; diagram labels apart and no sea behind indoor plans; each place card with its own Spanish research; a wrapped «Mostrando:» under the plan's name; the night and ND tips; and the speed report keeping the host's speed. W09–W12 add the moon (checked against USNO), ND and hyperfocal tables, where each setting is on the 6D, and a calendar file. The speed suite failed here only because this container is slower than Lighthouse's 4x assumes (BenchmarkIndex 920–1600 against 2608 on GitHub's runner; the old build fails the same way here), so the committed speed report is CI's. Details in Ronda 18.
+- Expansions after PR #24, 2026-10-27 (W01–W08, `/mnt/project-files/qa/pr24/evidence/`). W01–W04: the home page's sun panel now has an hour slider that prints where the sun is (bearing and apparent height, within 0.3° of NREL's SPA via pvlib 0.16.1; astral 3.2 agrees within 0.02°) and a 1.70 m person's shadow, draws the day's path on a sky map seen from above, and, for a wall facing any of 16 compass points, lists the minutes of direct, raking (≤20° to the surface; 5–20° in MNAC's glossary, 5–15° in conservation imaging) and head-on (≥60°) sun. Refraction is Saemundsson's (Meeus 16.4), as in SPA; NOAA's spreadsheet formula gave 0.40° at sunrise instead of the 0.57° the −0.833° convention implies, so it was not used. W05–W07: the session dialog reviews each shot with three checks (sharpness for its technique, exposure, the plan's criterion), gives the field card's own fix for a failed check, keeps the review on the device under the existing key (old ticks count as passed), and has a summary. W08: plan counts in the copy come from the data (`plan_counts.py`) and every check walks `qa_matrix.PLAN_LETTERS`; `tests/test_plan_counts.py` builds the site with a seventh plan. RED: 18 planner tests failed before `sun_position`; the W04 checks fail on main (no `#sun-time`) and on 4 of 4 arithmetic mutants; 19 review tests failed without `assets/shot_review.js` and 2 mutants were caught; the W05–W07 browser checks fail on main and on 5 of 5 mutants; the seventh-plan build fails with `plan_counts.py` left out of `regenerate_all.py`. Trade-offs: the sun is computed for San Isidro, and every plan is within about 8 km, which moves the times by well under a minute; a wall's facing is chosen from 16 points, not typed in degrees; the raking and head-on bounds are conventions from conservation imaging, not a measurement of texture; the review records what the reader judges on the camera's screen, it does not read the photo; the English version waits on Pablo's choice.
+- PR A after PR #23, 2026-10-27: the last two open notes from the PR #21 sign-off. X09: every outside action in the three workflows is pinned to a full commit SHA with its release in a comment (checkout v5.1.0, setup-python v6.3.0, setup-node v5.0.0, upload-artifact v6.0.0, configure-pages v6.0.0, upload-pages-artifact v5.0.0, deploy-pages v5.0.1), SHAs read with `git ls-remote` on 2026-10-27; the tags are lightweight, so the SHA is the commit. V20: a maker's name before a glued "mm" ("Sigma 105mm") names a lens, as a mount code does. RED: both new X09 tests and the V20 maker test failed on 128dc4a; GREEN: 928 passed, 1 skipped; verify_release and verify_architecture pass; C901 ≤ 10 passes; regenerate_all leaves the tree clean. Trade-off: SHAs do not follow new patch releases on their own, so a pin moves only when someone updates it; no Dependabot config is added here. The three items the sign-off listed as open and PR #22 closed (field card INP, leftover English, a stored value with `"`) were rechecked in FINDINGS_PR22 V09/V12 and X06, and are not reworked.
 - Whole-site integration gate, 2026-08-31: the FocalRuta homepage now contains a descriptive `Arquitectura en Foco 2026` Challenge landmark in addition to the compact nav shortcut. It explains the 87-scene, learning, ranking, district-route, offline-field and preflight scope; the Challenge retains a keyboard-operable return link to FocalRuta. Hosted and standalone artifacts were rebuilt.
 - Module inventory: `architectural_photography/ARCHITECTURE_MODULE_INVENTORY.json` maps 12 public modules to their verification surfaces: command/today, ranking, field priorities, routes, style radar, all scenes, learning, field run, AI firewall, preflight, iPhone maps and offline shell.
 - Mobile defect found and fixed: at 390×844 and 430×932 the fixed bottom navigation covered the homepage Challenge CTA after scroll. A behavioral occlusion test failed first, then mobile safe clearance was added. Six required viewports now complete homepage→Challenge→homepage navigation with zero overflow, page errors or CTA occlusion; screenshots and report are under `qa/final/whole_site_integration/`.
@@ -3444,3 +3447,279 @@ Compromisos:
 - Con texto más grande, de 641 a 800 px (20 px) o a 961 px (24 px), no hay barra de abajo y las
   herramientas quedan al final de la fila que se desplaza. Si hace falta, la barra de abajo podría
   medirse en `em` como las de arriba.
+
+## Ronda 18 · Red team de PR #24 (2026-10-28)
+
+Pablo pidió un red team de la investigación, de la investigación de competidores y de cada
+función e interacción, con la causa de cada problema, y corregir, prevenir e implementar. Dos
+revisiones de solo lectura (`/mnt/project-files/qa/redteam/research_audit.md`, F1–F22, y
+`competitor_review.md`, C1–C13) y un recorrido propio de interacciones
+(`findings.md` del bloc de notas: F01–F12) dieron la lista. Cada hallazgo es un requisito con
+una prueba que falló antes del arreglo. Los ID de esta ronda se numeraron primero R01–R20, pero
+la sección R ya usa R01–R04 (selección final): son Y01–Y23 (sección Y del inventario). La
+evidencia se guardó con los números viejos y se renombró; su contenido no se tocó.
+
+### Requisitos y evidencia RED → GREEN
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| Y01–Y04 | Los laboratorios usan el dial de la 6D, cada intención expone la escena que fija, «espacio negativo» libre del sujeto, los botones dicen cuál está activo | `lab_qa.py` en el inicio publicado, a 320 y 1280 px: 30 de 36 fallan (preajustes a +1.1, +1.3, +1.1 y −3.0 EV; 1/2275 s) | 36/36 por ancho; óptica 94/94 en 17041ba |
+| Y05–Y18 | Lo que los planes dicen en el campo concuerda con Lima, la cámara y sus propios números | `tests/planner/test_field_advice.py` y cuatro de `test_shot_review.py`: 31 fallan, 21 pasan | todas pasan |
+| Y19 | Ninguna etiqueta de diagrama tapa otra; los planes de interior no se dibujan contra el mar | 2 fallan, 1 pasa (24 de 120 diagramas solapados, 38 con mar) | 3 pasan |
+| Y20 | Cada tarjeta de lugar con su investigación y su luz en español; «evidencia N/100», no una probabilidad; paradas con el nombre del lugar; mapas con el trazado | 6 fallan (81 de 87 tarjetas con «Mecanismo visual por investigar») | 6 pasan; 0 tarjetas con ese texto |
+| Y21 | Un «Mostrando:» que baja de línea empieza bajo el nombre del plan | la expresión de la suite sobre c7a1156 a 390 px: los seis planes, texto en x=116 frente a 16 | `[]`; release 692/692 |
+| Y22, Y23 | La tarjeta dice cómo salir de noche con el equipo, y que se enfoca y se pasa a MF antes del ND, con la tapa del ocular | sobre la tarjeta de main (6d22271) faltan las diez frases | pasan; 3 de 3 mutantes detectados (consejo marcado para un plan, dentro de un plan, filtro antes de enfocar) |
+| W09 | Salida, puesta, rumbo y fase de la luna, frente al Observatorio Naval de EE. UU. | la prueba del panel falla; las de precisión se escribieron con el modelo ya hecho, así que se probaron con 5 mutantes: sin perturbaciones (falla 15/16 días), sin paralaje (16/16), fracción invertida (16/16), creciente y menguante cambiados (12/16), gemelo JS con un coeficiente mal (paridad falla) | 35 pasan; luna en cinco fechas y dos anchos en release |
+| W10 | Tablas de ND e hiperfocal en la tarjeta, recalculadas desde cero | 3 fallan | pasan; caben a 320 px |
+| W11 | Dónde está cada ajuste en la 6D, del manual de Canon | 2 fallan | pasan |
+| Y24 | Cada corrida de Lighthouse guarda el índice de velocidad del equipo; el informe da la mediana y avisa bajo 1500, el piso del rango para el que Lighthouse fija su 4x | la prueba nueva de `summarize` sobre el script de 491bdd5^: KeyError; `verify_release.py` con el informe sin índice: falla | 15 de 15 en `test_perf_budget.py`; la puerta lo exige |
+| W12 | Archivo de calendario RFC 5545 para la sesión elegida | 5 fallan; en release, el botón con cifras proporcionales en el diálogo del inicio y tabulares en la tarjeta (V05) | pasan; tarjeta 68/68; las seis vistas iguales |
+
+### Causas
+
+- Texto escrito junto a los números sin nada que los ate: las pruebas comprobaban la
+  aritmética, no las frases sobre ella (F1–F22). Ahora cada frase se lee contra una fuente
+  que no dice ella misma.
+- Los laboratorios modelaban una cámara ideal, no el dial de tercios de la 6D.
+- Etiquetas de diagrama separadas en metros (a 60 m de escena, 0.4 m eran pocos píxeles) y el
+  mar detectado por subcadena («cámara», «enmarcado», «San Martín»).
+- Tarjetas de lugar llenadas con plantilla cuando faltaba la investigación; ahora la
+  construcción se detiene.
+- Comprobaciones atadas a la escala vieja de un control: la suite de release y la
+  comprobación en vivo escribían 10 y 90 en un deslizador que ahora va de 0 a 51. La
+  comprobación en vivo habría fallado en el siguiente despliegue.
+- La suite de velocidad falló 3 de 138 en este contenedor, cuyo índice de Lighthouse fue de 920 a
+  1600 en minutos (el runner de GitHub: 2608). El build viejo, que pasó en CI con 62 ms de bloqueo,
+  bloqueó aquí 355; el nuevo, 335, en corridas alternadas: no hay regresión. En una traza sin
+  freno, el layout del inicio baja de 162 a 79–88 ms si se quitan sus unos 30 emoji distintos;
+  diferir todo lo que corre en DOMContentLoaded no bajó el TBT. Evidencia en
+  `Y24_host_comparison.txt`.
+- El estilo de botón de Chrome fija el atajo `font`, que devuelve las cifras a proporcionales;
+  sólo el inicio lo deshacía.
+
+### Compromisos explícitos
+
+- Sol y luna suponen un horizonte libre (dicho en el panel); modelar obstáculos pediría datos
+  3D de otro sitio.
+- La fracción de la luna se da al terminar la hora azul; en la sesión de noche de dos horas
+  cambia como mucho 0.93 puntos (medido en 60 días).
+- f/4.5 del 35–80 mm a 50 mm es interpolado y se marca «estimada».
+- Los laboratorios de arquitectura usan 36 mm de sensor y el planificador 35.8 mm (menos de
+  0.3° de campo).
+- La variante de garúa está escrita para la 6D; con otro equipo se adapta la de sol.
+- No se dice cuánto tarda la reducción de ruido de larga exposición: la cifra del manual no se
+  confirmó.
+- El aviso es un archivo .ics que guarda el calendario del teléfono; el sitio no notifica.
+- Las paradas llevan el nombre completo del lugar, más largo que la etiqueta del geocodificador.
+- Las categorías de luz se repiten entre tarjetas porque esos lugares comparten esa luz.
+- La prueba de diagramas (Y19) necesita matplotlib; el trabajo de pruebas unitarias de CI la
+  omite.
+- El informe de velocidad confirmado es el que hizo CI en el runner de GitHub sobre el mismo build
+  (las huellas coinciden byte a byte), no el de este contenedor, que es más lento de lo que el 4x
+  de Lighthouse supone. El de aquí se guarda como evidencia.
+- Los emoji que hacen de iconos se quedan: cambiarlos por SVG bajaría el layout del inicio en Chrome
+  de Linux, pero es un cambio de diseño en todas las páginas, para otra ronda.
+- Huecos de competidores aplazados: C2, C7, C8, C10–C13, rumbos de fachada (C1) y una tarjeta
+  para leer el cielo (C4).
+
+### Referencia de experto por decisión
+
+- Luna: Schlyter (bajo coste, 2′ en longitud) y Meeus cap. 15 y 48; contrastado con las tablas
+  del USNO (`aa.usno.navy.mil/api/rstt/oneday` y `celnav`), guardadas en
+  `tests/fixtures/usno_moon_lima.json`.
+- Calendario: RFC 5545 (CRLF, plegado a 75 octetos, escapes, UTC, VALARM).
+- Mandos de la 6D: manual de instrucciones de la EOS 6D (Canon), págs. 24, 45–46, 92, 98, 106,
+  128, 148, 154 y 165; los mandos a distancia RS-80N3 y TC-80N3 son los del terminal N3.
+- Garúa: normales 1991–2020 del DWD para Jorge Chávez (28–60 h de sol al mes de junio a
+  octubre, 185 en enero).
+- Noche: consejo de viaje del Reino Unido para Perú (robo callejero y armado en distritos
+  turísticos; no caminar solo de noche).
+- ND: nota de Canon sobre el autodisparador de la 6D (tapa del ocular).
+- Velocidad: `docs/throttling.md` de Lighthouse (el 4x es para un índice de 1500 a 2000; un
+  equipo de 1000 a 1500 pide 2x para el mismo teléfono) y la calibración de DevTools que X06 ya usa.
+
+### Errores propios encontrados en esta ronda
+
+- Los ID R01–R20 chocaban con la sección R; renombrados a Y.
+- En el inventario, los números de hueco de W09–W12 no eran los de la revisión de
+  competidores (C1, C3–C4, C5, C6); corregidos a C3, C5, C6 y C9.
+- Dos regeneraciones a la vez (la prueba de idempotencia de la corrida completa y la de
+  arquitectura) dejaron el worker con 43 de 131 diagramas; regenerado solo, lleva los 131.
+- Escribí en el informe un total de defectos que no podía respaldar y que F05 y F06 se habían
+  arreglado; se comprobaron y están bien como están (la fila de EV ya dice «justo después del
+  ocaso»; las tarjetas del sol van por hora de inicio). Corregido antes de entregarlo.
+
+### Cierre (comandos, código de salida, resumen)
+
+Sobre el árbol limpio, con `FOCALRUTA_CHROME=/opt/pw-browsers/chromium`, sirviendo sólo `dist/`
+y, para las suites de arquitectura, la raíz en 8766 y `dist/` en 8777, como CI:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `browser_release_qa.py` en 17041ba | 0 | 692/692 (1710 s); reporte en f9e4c9c |
+| `field_card_qa.py`, `optics_accessibility_qa.py`, `axe_accessibility_qa.py`, `visual_resource_audit.py` en 17041ba | 0 | tarjeta 68/68, óptica 94/94, axe 80/80, visual 37/37 |
+| las cinco suites de `tests/architecture/browser_*.py` en 17041ba | 0 | todas en verde; capturas en f9e4c9c |
+| `perf_budget_qa.py` en 17041ba, en este contenedor | 1 | 135/138: TBT del inicio 256.5 ms y de plan_d 226 (tope 200), primera toma de la tarjeta a ancho de tableta en gama baja 678 ms (tope 500); índice del equipo 1239.5. Mismo fallo con el build viejo (Y24) |
+| `pytest -q` en 491bdd5 | 1 | 1060 pasan, 1 omitida; falla sólo la frescura de `PERF_BUDGET_QA.json` |
+| `pytest tests/architecture -q` | 1 | 349 pasan, 1 omitida; la misma |
+| `verify_architecture.py` | 0 | `checks_failed: []` |
+| `verify_release.py` | 1 | sólo el informe de velocidad: viejo y sin índice del equipo |
+| `ruff … C901` a 10 | 0 | limpio |
+| `regenerate_all.py && git diff --exit-code` | 1 | `CURRENT_STATE.json`: 638 → 692 comprobaciones de release; confirmado en 1b78a96 |
+
+### Fusión con main (PR #25) y dos comprobaciones que fallaron después (2026-11-02 y 03)
+
+main avanzó con PR #25 (P1: una dirección aterriza donde empieza su sección o su id, y las tomas
+de la tarjeta llegan con sus planes en pantallas altas). La fusión (1966804) resolvió conflictos en
+`field_card_qa.py`, `verify_release.py`, README e inventario, regeneró sin diferencias y pasó 1034
+pruebas, pero dos suites fallaron sobre el build fusionado.
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X06 (enmienda) | Las tomas de la tarjeta se dibujan con los planes exactamente donde la primera empieza en pantalla, y un cuadro después donde empieza debajo | `shots_with_plans` en 1966804: a 430×932 la primera toma empieza a 1007 px (1027 de día), bajo la pantalla de 932, y se dibuja con los planes (`X06_shots_measured_red_green.txt`) | la misma prueba en el árbol: las nueve medidas aciertan |
+| X07 (enmienda) | Un id dentro de una sección, alcanzado desde el otro lado de la barra Sujeto/Hora, aterriza libre de las barras también si el navegador manda el evento `scroll` del salto dos cuadros tarde | `inner_addresses` con el caso nuevo, sobre 1966804: 12 de 12 tamaños de página de plan fallan (`#shots-grid` a 77 px, barras hasta 137), y plan_c a 820×1000 falló además sin retrasar nada (`X07_late_scroll_red.txt`) | 0 de 16 (`X07_late_scroll_green.txt`) |
+
+Causas:
+
+- **X06.** La regla de main, `matchMedia('(min-height:900px)')`, adivinaba por la altura de la
+  pantalla si las tomas empiezan en ella. Lo que esta rama añade encima de ellas (las tablas de ND e
+  hiperfocal, dónde está cada ajuste, el consejo de noche, el recordatorio) bajó la primera toma de
+  873 a 1007-1027 px a 430×932, y 154 px a 820×1000. Además cambia de un día a otro: 20 px entre el 2
+  y el 3 de noviembre, por las líneas del día. Ahora `openFieldCard` mide: cuando se dibujan los
+  planes lee dónde empieza `.fc-shots` (su borde superior es el de la primera toma visible, medido a
+  cada tamaño) y sólo si empieza bajo la pantalla las deja un cuadro más.
+- **X07.** En las páginas de plan, el segundo aterrizaje que P1 añadió (el cuadro siguiente al
+  `hashchange`) leía el espacio de arriba de `html.fr-bar-in-flow`, y esa clase la pone al día el
+  evento `scroll` del salto. Si ese evento llega después de ese cuadro, el id aterriza con el espacio
+  que tenía arriba del todo: 60 px tapado. Falló en dos de tres corridas completas de la suite de
+  release (820×1000, y 820×1000 y 1440×1100), nunca en treinta corridas sueltas; con el evento
+  retenido dos cuadros falla siempre, y el inicio, cuyo `jumpTo` vuelve a mirar el espacio cada cuadro
+  durante 0.8 s, no. Ahora el aterrizaje llama a `place()` antes y después de `scrollIntoView`, como
+  mucho tres veces, sin esperar a ningún evento.
+
+Investigación (regla de AGENTS.md tras la primera hipótesis fallida): mi primera hipótesis fue que
+Chrome aplaza el salto a un id cuando el layout está sucio; no se reprodujo (`race_dirty.py`). El
+código de Chromium (`element_fragment_anchor.cc`) muestra que el salto sólo se aplaza mientras
+faltan recursos que bloquean el render, que el ancla se vuelve a invocar mientras el foco del destino
+está pendiente (`needs_focus_`, una tarea del cuadro siguiente) y que un scroll explícito la anula.
+No pude capturar el orden real de eventos en una corrida que fallara: con un registro instalado
+justo antes del salto, la suite completa pasó (710/710). Por eso el arreglo no depende de ningún
+orden, y la prueba nueva fija el peor orden posible en lugar de esperar a que salga.
+
+Compromisos:
+
+- La tarjeta fuerza un layout al quitar `fc-modal-first` para medir. Es el mismo trabajo que el
+  cuadro siguiente haría, adelantado a esa tarea; donde las tomas entran en pantalla, el cuadro
+  siguiente sólo dibuja las tomas.
+- Sin `ResizeObserver` las páginas de plan ya no corrigen el aterrizaje: allí la clase nunca se pone
+  y el espacio no cambia, así que no hay nada que corregir.
+- El caso nuevo retiene los eventos `scroll` con un oyente en captura sobre `window`; el evento que
+  manda después es sintético. Prueba que la página no depende de cuándo llega, no el orden exacto
+  que usó Chrome en las corridas que fallaron.
+
+### El runner de CI, el primer pintado de la tarjeta y los saltos con el procesador lento (2026-11-03)
+
+| ID | Qué exige | RED (antes) | GREEN (después) |
+|---|---|---|---|
+| X01 (enmienda) | Los trabajos que instalan Playwright corren en un Ubuntu que el Playwright fijado admite | la prueba nueva de `tests/test_ci_contract.py` sobre los workflows de fdd8eaf: los tres trabajos siguen `ubuntu-latest`; la corrida 41571659786 falló en su primer minuto («Playwright does not support chromium on ubuntu26.04-x64») (`X01_runner_red.txt`) | pasa; CI vuelve a correr en `ubuntu-24.04` (`X01_runner_green.txt`) |
+| Y25 | En la página de la tarjeta, lo que está en pantalla antes de que corran sus scripts ya está donde lo dejan, de día y de noche, a 320, 390 y 412 px | la comprobación nueva sobre el build de 1966804: en los seis casos se mueven la línea de la luz de ahora, las horas de luz, las herramientas y las primeras tomas (118–156 px); Lighthouse midió un desplazamiento de 0.084 (aquí, 3 de 3) y 0.111 (CI 41572407497, 2 de 3), sobre el tope de 0.1 (`FC_first_paint_red.txt`) | pasa; CLS 0 en 3 de 3 corridas de Lighthouse (`FC_first_paint_green.txt`) |
+| Y25 (enmienda) | La línea de la luz de ahora guarda el alto de su texto más largo también en DejaVu Sans, la letra del runner de GitHub, y la prueba lo mira además justo después del amanecer de pleno verano y a 359, 360 y 480 px | CI 41604874960 sobre 5c6a038: a 320 px de día la línea ocupó cuatro renglones donde se guardaban tres y las tomas bajaron 19 px; reproducido aquí sacando Inter de fontconfig, con las mismas cifras (282/59 → 282/78) (`Y25_runner_fonts_red.txt`) | pasa con las dos letras; `field_card_qa.py` 70/70 con la letra del runner (`Y25_runner_fonts_green.txt`) |
+| Y26 | En el inicio, servido e independiente, cada enlace de las barras deja su sección libre de ellas también con el procesador doce veces más lento, una vez quieta | `fixed_bars.jumps_on_a_slow_processor` (CPU 12x, y el cuadro en que se dibuja por primera vez una sección sobre el destino hecho de 900 ms) sobre el build de 3a6d881: 9 de 9 corridas fallan a 1280×800 con 24 px, 1440×900 y 390×844 (`#planes` a 1863 px, `#tecnicas` a 11413) (`Y26_slow_jumps_red.txt`); sin forzar ese cuadro, falló en un tercio a la mitad de las corridas | 0 de 9 en el árbol (`Y26_slow_jumps_green.txt`); en release, dos comprobaciones nuevas (712) |
+
+Causas:
+
+- **X01.** GitHub movió `ubuntu-latest` a Ubuntu 26.04, y Playwright 1.55.0 no trae las bibliotecas
+  de Chromium para él (llegaron después, en microsoft/playwright#41025). main tiene el mismo fallo
+  hasta que esto se fusione.
+- **Y25.** El script de la tarjeta mostraba tres controles ocultos (la fecha, la pantalla encendida y
+  el botón del calendario) y escribía la línea de la luz de ahora después del primer pintado, así
+  que todo lo de debajo bajaba. Ahora un script en el `<head>` marca en `<html>` lo que el script de
+  la tarjeta va a mostrar (`fc-js`, `fc-can-wake`, `fc-can-ics`), el CSS oculta por esas marcas en
+  vez de por `hidden`, y la línea de ahora y las horas de luz guardan el alto que su texto ocupa.
+- **Y25 en CI.** El alto guardado se había medido sólo con Inter, la letra de este contenedor. En el
+  runner `system-ui` es DejaVu Sans, más ancha, y la brújula se escribe entera («oeste-suroeste»).
+  Ahora el alto sale de todos los textos que la línea puede mostrar (12 h hasta la hora dorada, un
+  rumbo de 14 letras), medidos con las dos letras: cuatro renglones bajo 360 px, tres hasta 479 y
+  dos desde 480.
+- **Y26.** El salto del inicio repetía el salto cada cuadro en que la sección se movía, durante 0.8 s
+  de reloj. Dibujar las secciones cerca del aterrizaje es lo lento: con el procesador doce veces más
+  lento un cuadro duró más que los 0.8 s enteros, y la primera mirada después, ya pasado el tiempo,
+  terminaba sin mover la sección, que quedaba 1852–1863 px bajo las barras. Pasó una vez en una
+  corrida completa de release en este contenedor lento (`#planes`, 1863 px, a 24 px y 1280×800).
+  Ahora el salto dura al menos 0.8 s y luego hasta que la sección se queda quieta dos cuadros
+  seguidos (como mucho 60 saltos), y nunca termina en un cuadro en que la sección se movió.
+  Con el registro del salto se vio por qué hacer largo el primer cuadro no bastaba para fallar: si
+  el salto termina antes de que se dibujen las secciones de encima, el anclaje del scroll, ya
+  encendido, deja el destino en su sitio. Sólo falla si el cuadro largo es el que dibuja una sección
+  de encima mientras el salto tiene el anclaje apagado; la prueba fuerza ese cuadro.
+
+Compromisos:
+
+- La línea de la luz de ahora guarda alto para cuatro renglones bajo 360 px, tres hasta 479 y dos
+  desde 480; con un texto más corto (de noche) o una letra más estrecha queda un renglón en blanco.
+- Con una letra más ancha que DejaVu Sans, o con el texto del sistema más grande, la línea de ahora
+  puede necesitar un renglón más que el guardado y bajar las tomas ese renglón.
+- El script de las marcas va dos veces: en el `<head>` de la página de la tarjeta y al principio del
+  script de la tarjeta, para el diálogo del inicio, que no tiene ese `<head>`.
+- Un salto del inicio puede durar más de 0.8 s en un equipo lento; mientras dura, el anclaje del
+  scroll está apagado, pero cualquier rueda, toque, clic o tecla del lector lo termina, como antes.
+- La comprobación con el procesador lento juzga el aterrizaje cuando la sección lleva 600 ms quieta,
+  no a los 300 ms: con el procesador doce veces más lento, el salto tarda más en quedar en su sitio.
+  La comprobación sin freno sigue juzgando a los 300 ms.
+
+Investigación (regla de AGENTS.md):
+
+- **Y25 en CI** fue la primera hipótesis de arreglo que falló (tres renglones a 320 px). La siguiente
+  se apoyó en reproducir el fallo aquí con la letra del runner, no en una búsqueda previa; la
+  búsqueda se hizo después y confirmó la causa. Fuentes: el cambio de Chromium que fija `system-ui`
+  en Linux (https://chromium.googlesource.com/chromium/src.git/+/85fa241e3aa27a6c0c5ecb9c9ca4daa56ea4ac14:
+  en Ubuntu se resuelve a «sans», que Skia lleva a DejaVu Sans), el informe de fontconfig sobre
+  `system-ui` (https://gitlab.freedesktop.org/fontconfig/fontconfig/-/issues/293) y la guía de CLS de
+  web.dev (https://web.dev/articles/optimize-cls: reservar el espacio con `min-height`, y que el
+  contenido que entra arriba de la pantalla es el que más desplaza). Semejanza: el mismo Chromium
+  140 de Playwright 1.55.0. Diferencia: aquí la letra por defecto es Inter por
+  `56-prefer-inter.conf`; sin ella, las cifras de CI salen idénticas (282/59 → 282/78).
+- **Y26** no tuvo un arreglo fallido. Sí fallaron dos formas de forzar el peor caso en la prueba
+  (hacer largo el primer cuadro, o el primero en que cambia una sección): el registro del salto
+  mostró que el anclaje del scroll deja el destino en su sitio si el salto termina antes de que se
+  dibujen las secciones de encima, y eso cambió la prueba, no el arreglo.
+
+Errores propios:
+
+- Medí el alto de la línea de ahora sólo con la letra de este contenedor y con la brújula abreviada
+  («OSO»), cuando la tarjeta la escribe entera («oeste-suroeste»). CI lo encontró.
+- Hice la búsqueda de Y25 después del segundo arreglo, no antes, como pide AGENTS.md; queda dicho
+  arriba.
+- La primera corrida completa de suites sobre 5c6a038 se paró a medias al fallar la tarjeta en CI:
+  sus informes no se guardaron.
+- En CI 41604874960, Lighthouse se colgó 240 s en `plan_d.html` (página idéntica byte a byte a la
+  que pasó en 3a6d881 y no tocada desde entonces); la corrida siguiente, 41606630880, pasó 138/138.
+  No se tocó nada por ello; si vuelve a pasar, merece un reintento acotado en `perf_budget_qa.py`.
+
+### Cierre tras la fusión (comandos, código de salida, resumen)
+
+Sobre el árbol limpio de 929c49c (informes en dfa88ae), con `FOCALRUTA_CHROME=/opt/pw-browsers/chromium`
+y, para las suites de arquitectura, la raíz en 8766 y `dist/` en 8777, como CI:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `browser_release_qa.py` | 0 | 712/712 (1914 s), con las dos nuevas de Y26 |
+| `field_card_qa.py` | 0 | 70/70; también 70/70 con la letra del runner (DejaVu Sans) |
+| `optics_accessibility_qa.py`, `axe_accessibility_qa.py`, `visual_resource_audit.py` | 0 | 94/94, 80/80, 37/37 |
+| las cinco suites de `tests/architecture/browser_*.py` | 0 | todas en verde |
+| CI 41606630880 sobre 929c49c, runner `ubuntu-24.04` | 0 en las siete suites de navegador | `perf_budget_qa.py` 138/138, índice del equipo 2973.5, CLS 0 en las 14 páginas (la tarjeta, 0.111 antes); sus 14 huellas coinciden con este árbol y es el informe confirmado; `lint-and-test` falló sólo por los informes viejos, ya renovados |
+| `regenerate_all.py && git diff --exit-code` | 0 | sin diferencias |
+| `pytest -q` | 0 | 1062 pasan, 1 omitida |
+| `pytest tests/architecture -q` | 0 | 350 pasan, 1 omitida |
+| `verify_architecture.py` | 0 | `checks_failed: []` |
+| `verify_release.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+
+Evidencia en `/mnt/project-files/qa/pr24/evidence/redteam/`: `X06_shots_measured_red_green.txt`,
+`X07_late_scroll_red.txt`, `X07_late_scroll_green.txt`, `X01_runner_red.txt`, `X01_runner_green.txt`,
+`FC_first_paint_red.txt`, `FC_first_paint_green.txt`, `Y25_runner_fonts_red.txt`,
+`Y25_runner_fonts_green.txt`, `Y26_slow_jumps_red.txt`, `Y26_slow_jumps_green.txt`.
+
+Sigue abierto para Pablo: Safari en un iPhone de verdad, las reglas de permisos de foto de los
+planes B y F, el acceso con trípode a la Plaza Mayor, la prueba de diagramas (Y19) que el trabajo
+unitario de CI omite, los huecos de competidores aplazados y la versión en inglés.

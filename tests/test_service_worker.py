@@ -41,8 +41,9 @@ WORLD = ROOT / "tests" / "sw_world.js"
 LIVE_WORKER = ROOT / "tests" / "fixtures" / "sw_live_9cd3044.js"
 DIST = ROOT / "dist" / "canon6d_sota_hosted"
 CORE = list(service_worker.CORE)
-PLANS = [f"plans/plan_{x}.html" for x in "abcdef"]
-DIAGRAMS = [f"diagrams-webp/plan_{x}_{n}.webp" for x in "abcdef" for n in (1, 2)]
+PLAN_IDS = [plan["id"] for plan in json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))["plans"]]
+PLANS = [f"plans/{plan}.html" for plan in PLAN_IDS]
+DIAGRAMS = [f"diagrams-webp/{plan}_{n}.webp" for plan in PLAN_IDS for n in (1, 2)]
 
 
 def site(build: str, changed: tuple[str, ...] = ()) -> dict[str, str]:

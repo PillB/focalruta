@@ -16,6 +16,7 @@ from __future__ import annotations
 import functools
 import json
 import math
+import re
 import shutil
 import tempfile
 import threading
@@ -208,10 +209,99 @@ def clock_cases(browser, base: str) -> None:
         context.close()
 
 
+def calendar_file(browser, base: str) -> None:
+    """W12: the calendar button writes the chosen plan, light and date, timed by the Python twin."""
+    context = browser.new_context(accept_downloads=True, **PHONE)
+    page = context.new_page()
+    page.clock.set_fixed_time("2026-10-28T15:00:00Z")
+    page.goto(base + "field_card.html", wait_until="load")
+    pick(page, "fc-plan", "plan_b")
+    pick(page, "fc-slot", "afternoon")
+    page.fill("#fc-date", "2026-11-24")
+    page.dispatch_event("#fc-date", "change")
+    with page.expect_download() as caught:
+        page.click("#fc-ics")
+    download = caught.value
+    text = Path(download.path()).read_bytes().decode("utf-8")
+    plan = sun_times.day_plan(date(2026, 11, 24))
+    start = round(plan["golden_pm_start"]) - 30 + 300
+    want = f"DTSTART:20261124T{start // 60:02d}{start % 60:02d}00Z"
+    check("calendar file is named for its plan, light and date", download.suggested_filename == "focalruta-plan-b-afternoon-2026-11-24.ics", download.suggested_filename)
+    check("calendar event starts half an hour before the afternoon light", want in text.replace("\r\n ", ""), [want, text[:400]])
+    check("calendar event carries the place and an alert", "LOCATION:" in text and "TRIGGER:-PT2H" in text and "\r\n" in text, text[:200])
+    check("the card says the calendar file is ready", "ábrelo para añadir" in page.locator("#fc-status").inner_text())
+    context.close()
+
+
+# The card's page as the browser can paint it before the scripts at the end of its body have run:
+# those scripts taken out, the ones in its head kept. Where they move what is on screen, the page
+# shifts after its first paint (found 2026-11-03: CI's speed run on 3a6d881 measured a layout
+# shift of 0.111 on field_card.html, over the 0.1 budget, in two Lighthouse runs of three). Tried by
+# day, by night, and just after sunrise at midsummer, when the line on the light now is longest:
+# 12 h to the golden hour and a sunset to the «oeste-suroeste», as long as a bearing gets.
+FIRST_PAINT_HOURS = {"day": "2026-11-02T10:00:00-05:00", "night": "2026-11-02T22:37:00-05:00",
+                     "midsummer sunrise": "2026-12-21T05:50:00-05:00"}
+FIRST_PAINT_WIDTHS = (320, 359, 360, 390, 412, 480)  # px: the room for that line changes at 360 and 480
+# The header's parts, each part of the shots' panel and its first shot shown: where each starts and
+# how tall it is, and the screen's height.
+LAYOUT = """() => { const parts = [...['#fc-now', '.fc-sun-slots', '.fc-tools', '.fc-panel-shots'].map(s => [s, document.querySelector(s)]),
+    ...[...document.querySelectorAll('.fc-panel-shots > *')].map((e, i) => [`.fc-panel-shots > :nth-child(${i + 1})`, e]),
+    ['first shot shown', [...document.querySelectorAll('.fc-shot')].find(e => e.checkVisibility())]];
+  return {height: innerHeight, parts: Object.fromEntries(parts.filter(([, e]) => e && e.checkVisibility()).map(([s, e]) => {
+    const r = e.getBoundingClientRect(); return [s, [Math.round(r.top), Math.round(r.height)]]; }))}; }"""
+
+
+def without_body_scripts(route) -> None:
+    html = route.fetch().text()
+    cut = html.index("</main>")
+    rest = re.sub(r"<script\b[^>]*>.*?</script>", "", html[cut:], flags=re.S)
+    route.fulfill(status=200, content_type="text/html; charset=utf-8", body=html[:cut] + rest)
+
+
+def moved_on_screen(before: dict, after: dict) -> dict:
+    """Parts on screen once the scripts have run that start elsewhere before, or, drawn whole on screen
+    both times, change height: [top, height] before and after."""
+    screen = after["height"]
+    off = {}
+    for part, (top, height) in after["parts"].items():
+        was = before["parts"].get(part)
+        if top >= screen:
+            continue
+        whole = was and top + height <= screen and was[0] + was[1] <= screen
+        if not was or abs(was[0] - top) > 1 or (whole and abs(was[1] - height) > 1):
+            off[part] = [was, [top, height]]
+    return off
+
+
+def first_paint_is_the_final_layout(browser, base: str) -> None:
+    """At phone widths, on each side of where the room kept for the line on the light now changes, by
+    day, by night and at its longest, the header of the card's page is laid out before its scripts
+    run as they leave it: nothing on screen moves when they run."""
+    moved = {}
+    for width in FIRST_PAINT_WIDTHS:
+        for name, when in FIRST_PAINT_HOURS.items():
+            seen = []
+            for strip in (True, False):
+                context = browser.new_context(viewport={"width": width, "height": 823}, is_mobile=True, has_touch=True)
+                page = context.new_page()
+                page.clock.set_fixed_time(when)
+                if strip:
+                    page.route("**/field_card.html", without_body_scripts)
+                page.goto(base + "field_card.html", wait_until="load")
+                seen.append(page.evaluate(LAYOUT))
+                context.close()
+            off = moved_on_screen(*seen)
+            if off:
+                moved[f"{width} {name}"] = off
+    check("card page: what is on screen before its scripts run is where they leave it, by day, by night and at its longest",
+          not moved, moved)
+
+
 def without_javascript(browser, base: str) -> None:
     context = browser.new_context(java_script_enabled=False, **PHONE)
     page = context.new_page()
     page.goto(base + "field_card.html", wait_until="load")
+    check("no JavaScript: no calendar button that could not work", not page.locator("#fc-ics").is_visible())
     switching(page, "no JavaScript")
     readability(page, "no JavaScript")
     context.close()
@@ -682,8 +772,8 @@ def main() -> int:
     base = f"http://127.0.0.1:{server.server_address[1]}/"
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True, args=["--no-sandbox"], **qa_matrix.browser_options())
-        for step in (phone, clock_cases, without_javascript, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog, shots_with_plans,
-                     home_dialog_focus_after_resize, damaged_memory, your_gear,
+        for step in (phone, clock_cases, calendar_file, without_javascript, first_paint_is_the_final_layout, reduced_motion_and_print, in_home_dialog, page_behind_home_dialog,
+                     shots_with_plans, home_dialog_focus_after_resize, damaged_memory, your_gear,
                      overflow, axe_states):
             guarded(step, browser, base)
         deploys(browser)

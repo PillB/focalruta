@@ -167,13 +167,17 @@ html { scroll-padding-top: .75rem; }
    both, the browser counted a control just under the site's bar as out of view and scrolled the
    page to it (csswg-drafts#7930). Read on every scroll, on any change of size, and before each key
    or press. */
-(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const html=document.documentElement,root=html.style,set=(k,v)=>{if(root.getPropertyValue(k)!==v)root.setProperty(k,v)},place=()=>{const r=bar.getBoundingClientRect(),at=parseFloat(getComputedStyle(bar).top)+.5;html.classList.toggle('fr-bar-in-flow',!(r.top<=at&&r.bottom>at))},keep=()=>{set('--fr-nav',nav.getBoundingClientRect().height+'px');set('--fr-bar',bar.getBoundingClientRect().height+'px');place()},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'});watch.observe(html);addEventListener('scroll',place,{passive:true});['keydown','pointerdown'].forEach(t=>addEventListener(t,place,{capture:true,passive:true}))})();
+(()=>{const nav=document.querySelector('nav.glass'),bar=document.getElementById('toggle-human')?.closest('section');if(!nav||!bar||!window.ResizeObserver)return;const html=document.documentElement,root=html.style,set=(k,v)=>{if(root.getPropertyValue(k)!==v)root.setProperty(k,v)},place=()=>{const r=bar.getBoundingClientRect(),at=parseFloat(getComputedStyle(bar).top)+.5;html.classList.toggle('fr-bar-in-flow',!(r.top<=at&&r.bottom>at))},keep=()=>{set('--fr-nav',nav.getBoundingClientRect().height+'px');set('--fr-bar',bar.getBoundingClientRect().height+'px');place()},watch=new ResizeObserver(keep);watch.observe(nav,{box:'border-box'});watch.observe(bar,{box:'border-box'});watch.observe(html);addEventListener('scroll',place,{passive:true});['keydown','pointerdown'].forEach(t=>addEventListener(t,place,{capture:true,passive:true}));
 /* P1: an id inside a section, typed in the address or reached by back and forward. The browser
-   jumps with the room kept for where the page was, and the scroll it makes then sets
-   html.fr-bar-in-flow for where it lands. A section carries the difference in its margin, but an
-   id inside one does not: it landed 60 px under the stuck Sujeto/Hora bar. So the next frame lands
-   it again, with the room for where it is; where that room is the same, the page does not move. */
-addEventListener('hashchange',()=>{let t=null;try{t=location.hash.length>1&&document.getElementById(decodeURIComponent(location.hash.slice(1)))}catch(e){}if(t)requestAnimationFrame(()=>t.scrollIntoView({block:'start'}))});
+   jumps with the room kept for where the page was. A section carries the difference in its margin,
+   but an id inside one does not: it landed 60 px under the stuck Sujeto/Hora bar. So the next frame
+   lands it again, with the room for where it is; where that room is the same, the page does not
+   move. The room is read here, before and after that landing, and not left to the scroll event the
+   jump sends: that event can come after this frame, and then the id landed with the room it had
+   at the top (found 2026-11-02 in two full release runs out of three). At most three landings, so
+   an id at the bar's edge does not swing between the two rooms. */
+const inflow=()=>html.classList.contains('fr-bar-in-flow'),land=t=>{place();for(let i=0;i<3;i++){const was=inflow();t.scrollIntoView({block:'start'});place();if(inflow()===was)break}};
+addEventListener('hashchange',()=>{let t=null;try{t=location.hash.length>1&&document.getElementById(decodeURIComponent(location.hash.slice(1)))}catch(e){}if(t)requestAnimationFrame(()=>land(t))})})();
 /* N13: Tab and Shift+Tab onto a control of a bar wholly in view, from inside the bar or from the
    control next to it, move focus without scrolling. Inside the room scroll-padding keeps at the
    top, the browser counts that control as out of view and scrolls the page by half a screen on
@@ -219,6 +223,10 @@ addEventListener('hashchange',()=>{let t=null;try{t=location.hash.length>1&&docu
     <div class="mt-4 p-4 bg-amber-50 border-l-4 border-amber-400 rounded">
       <div class="text-xs font-bold text-amber-700 mb-1">¿POR QUÉ ESTA LOCACIÓN?</div>
       <p class="text-sm text-amber-900">__PLAN_WHY__</p>
+    </div>
+    <div class="mt-3 p-4 bg-slate-50 border-l-4 border-slate-400 rounded">
+      <div class="text-xs font-bold text-slate-700 mb-1">ACCESO Y PERMISOS</div>
+      <p class="text-sm text-slate-800">__PLAN_ACCESS__</p>
     </div>
   </div>
   <div id="shots-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
@@ -423,6 +431,7 @@ def generate_plan_html(plan):
     html = html.replace("__PALETTE_2__", palette[2])
     html = html.replace("__PALETTE_SWATCHES__", palette_swatches)
     html = html.replace("__PLAN_WHY__", plan["why"])
+    html = html.replace("__PLAN_ACCESS__", plan["access"])
     html = html.replace("__PLAN_JSON__", json.dumps(plan_data, ensure_ascii=False))
     html = html.replace("__DIAGRAMS_JSON__", json.dumps(diagrams_b64, ensure_ascii=False))
     html = html.replace("__GEAR_JS__", (Path(__file__).resolve().parents[1] / "assets" / "gear.js").read_text(encoding="utf-8"), 1)

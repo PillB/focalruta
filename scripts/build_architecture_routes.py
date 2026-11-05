@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / "architectural_photography/research/route_inputs/nominatim_candidates.json"
 MANUAL_INPUT = ROOT / "architectural_photography/research/route_inputs/manual_anchors.json"
+PLACES = ROOT / "data/architecture/candidates.json"
 OUTPUT = ROOT / "data/architecture/routes.json"
 RUNS = ROOT / "architectural_photography/routes/route_runs"
 DOWNLOADS = ROOT / "challenges/arquitectura-en-foco/maps"
@@ -77,8 +78,14 @@ def slug(text: str) -> str:
     return "-".join("".join(char if char.isalnum() else " " for char in text.translate(table)).lower().split())
 
 
+def place_names() -> dict[str, str]:
+    """The name each place has on its card. A geocoder hit's first token can be a house
+    number or a tenant ("150", "Viettel Perú"), so a stop is never named after it (Y20)."""
+    return {place["canonical_id"]: place["name"] for place in json.loads(PLACES.read_text(encoding="utf-8"))}
+
+
 def reviewed_points(payload: dict, manual_payload: dict) -> list[dict]:
-    points = []
+    points, names = [], place_names()
     for record in payload["records"]:
         if record["canonical_id"] in EXCLUDED or not record["results"]:
             continue
@@ -88,7 +95,7 @@ def reviewed_points(payload: dict, manual_payload: dict) -> list[dict]:
             continue
         points.append({
             "canonical_id": record["canonical_id"],
-            "name": result["display_name"].split(",")[0],
+            "name": names[record["canonical_id"]],
             "district": expected,
             "latitude": result["latitude"],
             "longitude": result["longitude"],
@@ -100,7 +107,7 @@ def reviewed_points(payload: dict, manual_payload: dict) -> list[dict]:
         points = [point for point in points if point["canonical_id"] != anchor["canonical_id"]]
         points.append({
             "canonical_id": anchor["canonical_id"],
-            "name": anchor["name"],
+            "name": names[anchor["canonical_id"]],
             "district": anchor["district"],
             "latitude": anchor["latitude"],
             "longitude": anchor["longitude"],
@@ -259,8 +266,9 @@ def write_geojson(layer: dict, district_slug: str, output_dir: Path) -> str:
 def write_kml(layer: dict, district_slug: str, output_dir: Path) -> str:
     path = output_dir / f"{district_slug}.kml"
     places = "".join(f'<Placemark><name>{escape(stop["name"])}</name><Point><coordinates>{stop["longitude"]},{stop["latitude"]},0</coordinates></Point></Placemark>' for stop in layer["stops"])
+    named = {stop["canonical_id"]: stop["name"] for stop in layer["stops"]}
     lines = "".join(
-        f'<Placemark><name>{escape(leg["from"])} → {escape(leg["to"])}</name><styleUrl>#walking-route</styleUrl>'
+        f'<Placemark><name>{escape(named[leg["from"]])} → {escape(named[leg["to"]])}</name><styleUrl>#walking-route</styleUrl>'
         f'<ExtendedData><Data name="road_distance_m"><value>{leg["road_distance_m"]}</value></Data></ExtendedData>'
         f'<LineString><tessellate>1</tessellate><altitudeMode>clampToGround</altitudeMode><coordinates>'
         + " ".join(f"{longitude},{latitude},0" for longitude, latitude in leg["geometry"]["coordinates"])

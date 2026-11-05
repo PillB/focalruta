@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "calle-choquehuanca-basadre-residencial",
-        "name": "Calle José Choquehuanca",
+        "name": "Calle Choquehuanca / Basadre residencial",
         "district": "San Isidro"
       },
       "geometry": {
@@ -35,7 +35,7 @@
       "type": "Feature",
       "properties": {
         "id": "country-club-lima-hotel",
-        "name": "Hotel Country Club",
+        "name": "Country Club Lima Hotel",
         "district": "San Isidro"
       },
       "geometry": {

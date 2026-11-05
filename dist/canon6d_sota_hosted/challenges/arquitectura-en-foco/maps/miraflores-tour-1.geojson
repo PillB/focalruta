@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "id": "faro-la-marina-parque-antonio-raimondi",
-        "name": "Faro La Marina",
+        "name": "Faro La Marina + Parque Antonio Raimondi",
         "district": "Miraflores"
       },
       "geometry": {
@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "parque-del-amor-el-beso",
-        "name": "Parque Alberto Andrade Carmona",
+        "name": "Parque del Amor & El Beso",
         "district": "Miraflores"
       },
       "geometry": {
@@ -35,7 +35,7 @@
       "type": "Feature",
       "properties": {
         "id": "puente-villena-bajada-balta-costa-verde",
-        "name": "Ciclovía Puente Villena Rey",
+        "name": "Puente Villena / Bajada Balta / Costa Verde",
         "district": "Miraflores"
       },
       "geometry": {
