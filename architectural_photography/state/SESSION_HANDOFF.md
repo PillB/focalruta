@@ -3763,6 +3763,12 @@ leyendo `scrollY`, en 33d2cbb). El `land()` de main llama a `place()`, que lee e
 | `contrast_rate.py` (borrador: el flujo de main, doce visitas a 390×844) con el script de main y con el nuevo | 0 y 0 (informe) | 6 de 12 y 0 de 12 lecturas con contraste bajo |
 | `probe.py` (M8, contexto nuevo por intento) en el plan A de 33d2cbb, 12 intentos | 1 (tras imprimir) | 9 de 12 bajo la barra: la sonda aún ve el fallo |
 | lo mismo en main 2eff0ab: plan A 24 intentos, plan C 12 | 0, 0 | 0 de 24 y 0 de 12 |
+| `regenerate_all.py` sobre el árbol fusionado | 0 | 12 pasos, sin diferencias |
+| `visual_resource_audit.py` en 91fc3f4 (la fusión, árbol limpio) | 0 | 37 de 37; `VISUAL_RESOURCE_QA.json` |
+| `pytest -q`, `pytest tests/architecture -q` en 91fc3f4 | 0, 0 | 1062 pasan y 1 omitida; 350 pasan y 1 omitida |
+| `verify_architecture.py`, `verify_release.py`, `ruff … C901` a 10 | 0, 0, 0 | `checks_failed: []`, `checks_failed: []`, limpio |
+
+Los otros cinco informes son los de main: las páginas que auditan son las mismas byte a byte.
 
 Compromisos:
 
