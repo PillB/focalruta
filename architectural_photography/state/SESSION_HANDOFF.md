@@ -3802,3 +3802,15 @@ Los informes de navegador comprometidos no cambian: la comprobación en vivo no 
 
 Evidencia en `/mnt/project-files/qa/followup_y27/`: `Y27_live_abort_red_green.txt`,
 `Y27_live_site_full.json` y `Y27_live_site_full.log`.
+
+### La auditoría de contraste falló en CI de PR #27 (2026-11-09)
+
+En la corrida 42635280864, `visual_resource_audit.py` leyó los botones Sujeto (Humano/Perro) del
+build servido a 1.05:1 y 1.82:1, detrás de la tarjeta de campo abierta. No es de este cambio: es la
+carrera que PR #26 ya describió y arregló (5e62e59). Una transición de 150 ms no existe aún cuando el
+guion termina las animaciones, porque en contenido que la página no dibuja solo se crea al leer el
+estilo del elemento. Lo reproduje aquí con el Chromium de CI: el guion de main con el flujo de PR #26
+(cambiar el sujeto y abrir la tarjeta en la misma tarea) falla 3 de 3 con las mismas razones, 1.05 y
+1.82; el guion de PR #26 pasa 3 de 3 (37/37). Porté su cambio sin tocarlo, byte a byte, para que
+PR #27 no quede en rojo esperando a PR #26; al fusionar el segundo, el archivo es idéntico en ambos
+lados. Evidencia: `/mnt/project-files/qa/followup_y27/contrast_race_red_green.txt`.
