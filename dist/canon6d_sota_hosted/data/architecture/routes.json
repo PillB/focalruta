@@ -32,7 +32,7 @@
         },
         {
           "canonical_id": "la-ermita-de-barranco",
-          "name": "Pasaje La Ermita",
+          "name": "La Ermita de Barranco",
           "district": "Barranco",
           "latitude": -12.1491933,
           "longitude": -77.0229075,
@@ -44,7 +44,7 @@
         },
         {
           "canonical_id": "puente-de-los-suspiros-bajada-de-banos",
-          "name": "Puente de Los Suspiros",
+          "name": "Puente de los Suspiros + Bajada de Baños",
           "district": "Barranco",
           "latitude": -12.1491664,
           "longitude": -77.022591,
@@ -68,7 +68,7 @@
         },
         {
           "canonical_id": "parque-municipal-y-entorno-civico",
-          "name": "Parque Municipal de Barranco",
+          "name": "Parque Municipal y entorno cívico",
           "district": "Barranco",
           "latitude": -12.1494807,
           "longitude": -77.0211974,
@@ -80,7 +80,7 @@
         },
         {
           "canonical_id": "biblioteca-municipal-de-barranco",
-          "name": "Biblioteca Municipal",
+          "name": "Biblioteca Municipal de Barranco",
           "district": "Barranco",
           "latitude": -12.1501191,
           "longitude": -77.0214626,
@@ -92,7 +92,7 @@
         },
         {
           "canonical_id": "museo-de-la-electricidad-tranvia",
-          "name": "Museo de La Electricidad",
+          "name": "Museo de la Electricidad & Tranvía",
           "district": "Barranco",
           "latitude": -12.1504015,
           "longitude": -77.0217254,
@@ -104,7 +104,7 @@
         },
         {
           "canonical_id": "museo-pedro-de-osma-y-av-pedro-de-osma",
-          "name": "Museo Pedro de Osma",
+          "name": "Museo Pedro de Osma y Av. Pedro de Osma",
           "district": "Barranco",
           "latitude": -12.1546379,
           "longitude": -77.0226424,
@@ -604,7 +604,7 @@
       "stops": [
         {
           "canonical_id": "saenz-pena-domeyer-pasajes",
-          "name": "Sáenz Peña",
+          "name": "Sáenz Peña / Domeyer / pasajes",
           "district": "Barranco",
           "latitude": -12.1434417,
           "longitude": -77.0247981,
@@ -638,7 +638,7 @@
       "stops": [
         {
           "canonical_id": "utec-campus-barranco",
-          "name": "Universidad de Ingenieria y Tecnologia",
+          "name": "Campus UTEC",
           "district": "Barranco",
           "latitude": -12.1351351,
           "longitude": -77.0221296,
@@ -650,7 +650,7 @@
         },
         {
           "canonical_id": "mac-lima-parque-espejo-de-agua",
-          "name": "Museo de Arte Contemporaneo de Lima",
+          "name": "MAC Lima + parque / espejo de agua",
           "district": "Barranco",
           "latitude": -12.1367297,
           "longitude": -77.0232736,
@@ -901,7 +901,7 @@
       "stops": [
         {
           "canonical_id": "unidad-vecinal-matute-complejo-deportivo",
-          "name": "Unidad Vecinal Matute",
+          "name": "Unidad Vecinal Matute + complejo deportivo",
           "district": "La Victoria",
           "latitude": -12.0731313,
           "longitude": -77.0231999,
@@ -969,7 +969,7 @@
       "stops": [
         {
           "canonical_id": "quinta-heeren-restauracion-2026",
-          "name": "Quinta Heeren",
+          "name": "Quinta Heeren · restauración 2026",
           "district": "Lima",
           "latitude": -12.0499013,
           "longitude": -77.0179163,
@@ -1015,7 +1015,7 @@
         },
         {
           "canonical_id": "damero-de-lima-interseccion-como-objeto",
-          "name": "El Damero",
+          "name": "Damero de Lima · intersección como objeto",
           "district": "Lima",
           "latitude": -12.0487645,
           "longitude": -77.0317356,
@@ -1027,7 +1027,7 @@
         },
         {
           "canonical_id": "estacion-desamparados",
-          "name": "Estación de Desamparados",
+          "name": "Estación Desamparados / Casa de la Literatura",
           "district": "Lima",
           "latitude": -12.0443045,
           "longitude": -77.0286907,
@@ -1039,7 +1039,7 @@
         },
         {
           "canonical_id": "casa-fernandini-1913",
-          "name": "Casa Fernandini",
+          "name": "Casa Fernandini (1913)",
           "district": "Lima",
           "latitude": -12.0450471,
           "longitude": -77.0351457,
@@ -1452,7 +1452,7 @@
       "stops": [
         {
           "canonical_id": "faro-la-marina-parque-antonio-raimondi",
-          "name": "Faro La Marina",
+          "name": "Faro La Marina + Parque Antonio Raimondi",
           "district": "Miraflores",
           "latitude": -12.1236743,
           "longitude": -77.040152,
@@ -1464,7 +1464,7 @@
         },
         {
           "canonical_id": "parque-del-amor-el-beso",
-          "name": "Parque Alberto Andrade Carmona",
+          "name": "Parque del Amor & El Beso",
           "district": "Miraflores",
           "latitude": -12.1267365,
           "longitude": -77.0365127,
@@ -1476,7 +1476,7 @@
         },
         {
           "canonical_id": "puente-villena-bajada-balta-costa-verde",
-          "name": "Ciclovía Puente Villena Rey",
+          "name": "Puente Villena / Bajada Balta / Costa Verde",
           "district": "Miraflores",
           "latitude": -12.1274808,
           "longitude": -77.0357271,
@@ -1918,7 +1918,7 @@
       "stops": [
         {
           "canonical_id": "larcomar-acantilado",
-          "name": "Larcomar",
+          "name": "Larcomar + acantilado",
           "district": "Miraflores",
           "latitude": -12.1322184,
           "longitude": -77.0302263,
@@ -1930,7 +1930,7 @@
         },
         {
           "canonical_id": "reducto-2-casa-museo-caceres",
-          "name": "Reducto",
+          "name": "Reducto Nº 2 / Casa Museo Cáceres",
           "district": "Miraflores",
           "latitude": -12.1300445,
           "longitude": -77.0319172,
@@ -1942,7 +1942,7 @@
         },
         {
           "canonical_id": "calle-porta-y-casonas-frente-a-verticalizacion",
-          "name": "Calle Porta",
+          "name": "Calle Porta y casonas frente a verticalización",
           "district": "Miraflores",
           "latitude": -12.1270431,
           "longitude": -77.0328783,
@@ -1954,7 +1954,7 @@
         },
         {
           "canonical_id": "parque-kennedy-gatos-civic-core",
-          "name": "Parque John F. Kennedy",
+          "name": "Parque Kennedy / gatos / civic core",
           "district": "Miraflores",
           "latitude": -12.1217806,
           "longitude": -77.0304221,
@@ -1966,7 +1966,7 @@
         },
         {
           "canonical_id": "palacio-municipal-virgen-milagrosa",
-          "name": "Municipalidad de Miraflores",
+          "name": "Palacio Municipal + Virgen Milagrosa",
           "district": "Miraflores",
           "latitude": -12.1217599,
           "longitude": -77.0292108,
@@ -2448,7 +2448,7 @@
       "stops": [
         {
           "canonical_id": "centro-cultural-ccori-wasi",
-          "name": "Centro Cultural CCORI WASI",
+          "name": "Centro Cultural Ccori Wasi",
           "district": "Miraflores",
           "latitude": -12.1175413,
           "longitude": -77.0295256,
@@ -2484,7 +2484,7 @@
         },
         {
           "canonical_id": "casa-raul-porras-barrenechea",
-          "name": "Instituto Raúl Porras Barrenechea",
+          "name": "Casa Raúl Porras Barrenechea",
           "district": "Miraflores",
           "latitude": -12.118414,
           "longitude": -77.026981,
@@ -2679,7 +2679,7 @@
       "stops": [
         {
           "canonical_id": "lugar-de-la-memoria-lum",
-          "name": "Lugar de la Memoria",
+          "name": "Lugar de la Memoria (LUM)",
           "district": "Miraflores",
           "latitude": -12.1100511,
           "longitude": -77.0536918,
@@ -3050,7 +3050,7 @@
       "stops": [
         {
           "canonical_id": "parque-tradiciones-ricardo-palma",
-          "name": "Parque Las Tradiciones",
+          "name": "Parque Tradiciones / Ricardo Palma",
           "district": "Miraflores",
           "latitude": -12.1217046,
           "longitude": -77.0213252,
@@ -3084,7 +3084,7 @@
       "stops": [
         {
           "canonical_id": "parque-3-de-octubre-skatepark-muros-libres",
-          "name": "Parque 3 de octubre",
+          "name": "Parque 3 de Octubre + Skatepark Muros Libres",
           "district": "Pueblo Libre",
           "latitude": -12.0785729,
           "longitude": -77.0600562,
@@ -3096,7 +3096,7 @@
         },
         {
           "canonical_id": "quinta-de-los-libertadores-mnaahp",
-          "name": "Museo Nacional de Arqueología",
+          "name": "Quinta de los Libertadores + MNAAHP",
           "district": "Pueblo Libre",
           "latitude": -12.0773665,
           "longitude": -77.0622797,
@@ -3120,7 +3120,7 @@
         },
         {
           "canonical_id": "parque-virginia-candamo",
-          "name": "Parque Candamo",
+          "name": "Parque Virginia Candamo",
           "district": "Pueblo Libre",
           "latitude": -12.0740945,
           "longitude": -77.0634772,
@@ -3132,7 +3132,7 @@
         },
         {
           "canonical_id": "plaza-a-la-bandera",
-          "name": "Plaza de la Bandera",
+          "name": "Plaza a la Bandera",
           "district": "Pueblo Libre",
           "latitude": -12.0680591,
           "longitude": -77.0607729,
@@ -3663,7 +3663,7 @@
         },
         {
           "canonical_id": "museo-larco-jardines",
-          "name": "Museo Larco",
+          "name": "Museo Larco + jardines",
           "district": "Pueblo Libre",
           "latitude": -12.0727847,
           "longitude": -77.0709002,
@@ -4106,7 +4106,7 @@
       "stops": [
         {
           "canonical_id": "torres-de-limatambo-supermanzana",
-          "name": "Conjunto Residencial Las Torres de Limatambo",
+          "name": "Torres de Limatambo / supermanzana",
           "district": "San Borja",
           "latitude": -12.109026,
           "longitude": -77.0045741,
@@ -4379,7 +4379,7 @@
         },
         {
           "canonical_id": "lima-centro-de-convenciones",
-          "name": "Centro de Convenciones de Lima",
+          "name": "Lima Centro de Convenciones",
           "district": "San Borja",
           "latitude": -12.0863298,
           "longitude": -77.000684,
@@ -4391,7 +4391,7 @@
         },
         {
           "canonical_id": "ministerio-de-cultura-museo-de-la-nacion",
-          "name": "Museo de la Nación",
+          "name": "Ministerio de Cultura / Museo de la Nación",
           "district": "San Borja",
           "latitude": -12.086744,
           "longitude": -77.0018865,
@@ -4403,7 +4403,7 @@
         },
         {
           "canonical_id": "gran-teatro-nacional",
-          "name": "Teatro Nacional del Perú",
+          "name": "Gran Teatro Nacional",
           "district": "San Borja",
           "latitude": -12.0866273,
           "longitude": -77.0031643,
@@ -4415,7 +4415,7 @@
         },
         {
           "canonical_id": "centro-de-convenciones-estacion-la-cultura",
-          "name": "Estación \"La Cultura\"",
+          "name": "Centro de Convenciones / estación La Cultura",
           "district": "San Borja",
           "latitude": -12.0865598,
           "longitude": -77.0037399,
@@ -4427,7 +4427,7 @@
         },
         {
           "canonical_id": "biblioteca-nacional-del-peru",
-          "name": "Biblioteca Nacional",
+          "name": "Biblioteca Nacional del Perú",
           "district": "San Borja",
           "latitude": -12.0877743,
           "longitude": -77.005129,
@@ -5063,7 +5063,7 @@
         },
         {
           "canonical_id": "palacio-municipal-y-de-la-cultura-san-isidro",
-          "name": "Municipalidad de San Isidro",
+          "name": "Palacio Municipal y de la Cultura · San Isidro",
           "district": "San Isidro",
           "latitude": -12.0977364,
           "longitude": -77.0273922,
@@ -5075,7 +5075,7 @@
         },
         {
           "canonical_id": "torre-begonias",
-          "name": "Torre Begonias",
+          "name": "Torre Begonias + Paseo Begonias",
           "district": "San Isidro",
           "latitude": -12.092104,
           "longitude": -77.0239594,
@@ -5087,7 +5087,7 @@
         },
         {
           "canonical_id": "edificio-petroperu",
-          "name": "150",
+          "name": "Edificio Petroperú",
           "district": "San Isidro",
           "latitude": -12.0973204,
           "longitude": -77.0245028,
@@ -5099,14 +5099,14 @@
         },
         {
           "canonical_id": "centro-financiero-canaval-y-moreyra-rivera-navarrete",
-          "name": "Viettel Perú",
+          "name": "Centro Financiero (Canaval y Moreyra / Rivera Navarrete)",
           "district": "San Isidro",
           "latitude": -12.0978883,
           "longitude": -77.0193865,
           "osm_id": 4083554862,
           "point_in_district": true,
           "anchor_method": "OSM_NOMINATIM_REVIEWED",
-          "address": "Viettel Perú, 559, Avenida Enrique Canaval y Moreyra, El Palomar, San Isidro, Lima, Lima Metropolitana, Lima, 15000, Perú",
+          "address": "559, Avenida Enrique Canaval y Moreyra, El Palomar, San Isidro, Lima, Lima Metropolitana, Lima, 15000, Perú",
           "address_source": "NOMINATIM_OR_MANUAL_ANCHOR"
         }
       ],
@@ -5862,7 +5862,7 @@
         },
         {
           "canonical_id": "calle-choquehuanca-basadre-residencial",
-          "name": "Calle José Choquehuanca",
+          "name": "Calle Choquehuanca / Basadre residencial",
           "district": "San Isidro",
           "latitude": -12.097723,
           "longitude": -77.0446337,
@@ -5874,7 +5874,7 @@
         },
         {
           "canonical_id": "country-club-lima-hotel",
-          "name": "Hotel Country Club",
+          "name": "Country Club Lima Hotel",
           "district": "San Isidro",
           "latitude": -12.0979669,
           "longitude": -77.0490204,
@@ -6149,7 +6149,7 @@
       "stops": [
         {
           "canonical_id": "aulario-104-universidad-ricardo-palma",
-          "name": "Universidad Ricardo Palma",
+          "name": "Aulario 104 · Universidad Ricardo Palma",
           "district": "Santiago de Surco",
           "latitude": -12.1322779,
           "longitude": -76.9800955,
@@ -6195,7 +6195,7 @@
         },
         {
           "canonical_id": "unidad-vecinal-3",
-          "name": "Unidad Vecinal 3",
+          "name": "Unidad Vecinal Nº3",
           "district": "Lima",
           "latitude": -12.0532861,
           "longitude": -77.0820644,
@@ -6253,7 +6253,7 @@
       "stops": [
         {
           "canonical_id": "jiron-trujillo-puente-de-piedra",
-          "name": "Jirón Trujillo",
+          "name": "Jirón Trujillo + Puente de Piedra",
           "district": "Rímac",
           "latitude": -12.0361568,
           "longitude": -77.0284544,
@@ -6265,7 +6265,7 @@
         },
         {
           "canonical_id": "cantagallo-comunidad-shipibo-konibo",
-          "name": "Cantagallo",
+          "name": "Cantagallo · comunidad Shipibo-Konibo",
           "district": "Rímac",
           "latitude": -12.0422548,
           "longitude": -77.017188,

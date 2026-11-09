@@ -21,6 +21,7 @@ Iteration log (6 passes):
 """
 
 import os
+import re
 import sys
 import math
 
@@ -226,8 +227,25 @@ def draw_camera_icon(ax, x, y, color=None, label="CÁMARA", angle_deg=0):
     shoe = Rectangle((x - 0.05, y - 0.14), 0.10, 0.03,
                      facecolor=color, edgecolor=color, linewidth=0.5, zorder=12)
     ax.add_patch(shoe)
-    ax.text(x, y - 0.30, label, ha="center", va="top",
-            fontsize=8.5, fontweight="bold", color=color, zorder=11)
+    ax.annotate(label, xy=(x, y), xytext=(0, -9), textcoords="offset points", ha="center", va="top",
+                fontsize=8.5, fontweight="bold", color=color, zorder=11)
+
+
+def _subject_labels(ax, x, y, pose_label, pose_desc, color):
+    """Pose name and action stacked to the right of the subject, offset in points.
+
+    Offsets in metres collided once a scene was 60 m deep and 0.4 m was a few pixels;
+    points keep the gap the same at every scale, and the sharp-zone label sits on the left.
+    """
+    ax.annotate(pose_label, xy=(x, y), xytext=(16, 3), textcoords="offset points", ha="left", va="bottom",
+                fontsize=7.5, fontweight="bold", color=color, zorder=11,
+                bbox=dict(boxstyle="round,pad=0.28", facecolor="white", edgecolor=color, linewidth=0.9, alpha=0.96))
+    if pose_desc:
+        short_desc = pose_desc[:50] + ("…" if len(pose_desc) > 50 else "")
+        ax.annotate(short_desc, xy=(x, y), xytext=(16, -5), textcoords="offset points", ha="left", va="top",
+                    fontsize=6.8, color=PALETTE["muted"], style="italic", zorder=11,
+                    bbox=dict(boxstyle="round,pad=0.22", facecolor="white", edgecolor=PALETTE["soft"],
+                              linewidth=0.4, alpha=0.92))
 
 
 def draw_subject_icon(ax, x, y, variant="human", pose_key="", pose_desc="", color=None):
@@ -242,18 +260,7 @@ def draw_subject_icon(ax, x, y, variant="human", pose_key="", pose_desc="", colo
         ax.add_patch(head)
         # Pose indicator (label placed OFFSET to the RIGHT of subject to avoid overlap)
         pose_label = POSE_NAMES["human"].get(pose_key, pose_key.replace("_", " ")) if pose_key else "SUJETO"
-        ax.text(x + 0.55, y + 0.05, pose_label, ha="left", va="center",
-                fontsize=7.5, fontweight="bold", color=color, zorder=11,
-                bbox=dict(boxstyle="round,pad=0.28", facecolor="white",
-                          edgecolor=color, linewidth=0.9, alpha=0.96))
-        if pose_desc:
-            # Truncate to 50 chars and place BELOW subject
-            short_desc = pose_desc[:50] + ("…" if len(pose_desc) > 50 else "")
-            ax.text(x, y - 0.40, short_desc,
-                    ha="center", va="top", fontsize=6.8, color=PALETTE["muted"],
-                    style="italic", zorder=11,
-                    bbox=dict(boxstyle="round,pad=0.22", facecolor="white",
-                              edgecolor=PALETTE["soft"], linewidth=0.4, alpha=0.92))
+        _subject_labels(ax, x, y, pose_label, pose_desc, color)
     else:  # dog
         # Body ellipse + head circle (smaller, in front)
         body = mpatches.Ellipse((x, y), width=0.45, height=0.22,
@@ -269,17 +276,7 @@ def draw_subject_icon(ax, x, y, variant="human", pose_key="", pose_desc="", colo
         for lx in [-0.15, -0.05, 0.05, 0.15]:
             ax.plot([x + lx, x + lx], [y - 0.05, y - 0.15], color=color, linewidth=1.2, zorder=7)
         pose_label = POSE_NAMES["dog"].get(pose_key, pose_key.replace("_", " ")) if pose_key else "PERRO"
-        ax.text(x + 0.60, y + 0.05, pose_label, ha="left", va="center",
-                fontsize=7.5, fontweight="bold", color=color, zorder=11,
-                bbox=dict(boxstyle="round,pad=0.28", facecolor="white",
-                          edgecolor=color, linewidth=0.9, alpha=0.96))
-        if pose_desc:
-            short_desc = pose_desc[:50] + ("…" if len(pose_desc) > 50 else "")
-            ax.text(x, y - 0.40, short_desc,
-                    ha="center", va="top", fontsize=6.8, color=PALETTE["muted"],
-                    style="italic", zorder=11,
-                    bbox=dict(boxstyle="round,pad=0.22", facecolor="white",
-                              edgecolor=PALETTE["soft"], linewidth=0.4, alpha=0.92))
+        _subject_labels(ax, x, y, pose_label, pose_desc, color)
 
 
 def draw_background_layer(ax, x_center, y, width_m, label="FONDO", kind="trees"):
@@ -370,8 +367,9 @@ def _overlay_enmarcado(ax, x, y, width, height):
                            linewidth=1.5, linestyle="-", alpha=0.6, zorder=3))
 
 
-def _overlay_espacio_neg(ax, x, y, width, _height):
-    ax.text(x + width/3, y, "ESPACIO\nNEGATIVO", ha="center", va="center",
+def _overlay_espacio_neg(ax, x, y, width, height):
+    # Beyond the subject, so it never sits on the subject's own labels at its side.
+    ax.text(x + width/3, y + max(1.2, height * 0.12), "ESPACIO\nNEGATIVO", ha="center", va="center",
             fontsize=8, color=PALETTE["compose"], fontweight="bold", alpha=0.7, zorder=4,
             bbox=dict(boxstyle="round,pad=0.3", facecolor="white",
                       edgecolor=PALETTE["compose"], linewidth=0.6, alpha=0.5))
@@ -387,8 +385,9 @@ def _overlay_minimalismo(ax, x, y, _width, _height):
                         linewidth=1.0, linestyle=":", alpha=0.6, zorder=3))
 
 
-def _overlay_capas(ax, x, y, width, _height):
-    for offset, label in [(0.5, "1.er plano"), (0, "medio"), (-0.5, "fondo")]:
+def _overlay_capas(ax, x, y, width, height):
+    step = max(0.5, height * 0.05)  # 0.5 m stacks the three labels on one line in a 60 m scene
+    for offset, label in [(step, "1.er plano"), (0, "medio"), (-step, "fondo")]:
         ax.plot([x - width/3, x + width/3], [y + offset, y + offset],
                 color=PALETTE["compose"], linewidth=0.7, linestyle="--", alpha=0.5, zorder=3)
         ax.text(x - width/3 - 0.1, y + offset, label, fontsize=6.5,
@@ -510,8 +509,10 @@ def render_topdown_panel(fig, rect, shot, variant, focal_mm, h_fov, v_fov, near_
     # Scene extent
     scene_w = max(8, sd * 2, bd_draw * 0.5)
     scene_h = max(8, bd_draw * 1.2 + 2)
+    # Room under the camera for its label and the settings chips, whatever the scene's depth.
+    bottom = max(1.5, 0.09 * scene_h)
     ax.set_xlim(-scene_w/2 - 1, scene_w/2 + 1)
-    ax.set_ylim(-1.5, scene_h + 1)
+    ax.set_ylim(-bottom, scene_h + 1)
 
     # Title
     ax.text(0.02, 0.97, f"PLANTA 2D · {shot['composition_label']} · campo visual H ≈ {h_fov:.1f}°",
@@ -521,7 +522,7 @@ def render_topdown_panel(fig, rect, shot, variant, focal_mm, h_fov, v_fov, near_
             transform=ax.transAxes, fontsize=8.5, color=PALETTE["muted"], va="top")
 
     # Ground / surface
-    ground = Rectangle((-scene_w/2 - 1, -1.5), scene_w + 2, scene_h + 2.5,
+    ground = Rectangle((-scene_w/2 - 1, -bottom), scene_w + 2, scene_h + 1 + bottom,
                        facecolor=PALETTE["bg"], edgecolor="none", zorder=0)
     ax.add_patch(ground)
 
@@ -541,7 +542,7 @@ def render_topdown_panel(fig, rect, shot, variant, focal_mm, h_fov, v_fov, near_
 
     # Background layer
     bg_kind = "trees"
-    if "Malecón" in shot.get("scene_notes", "") or "horizonte" in shot.get("scene_notes", "").lower() or "mar" in shot.get("scene_notes", "").lower():
+    if is_seafront(shot.get("scene_notes", "")):
         bg_kind = "horizon"
     elif "Centro" in shot.get("scene_notes", "") or "Plaza" in shot.get("scene_notes", "") or "arquitect" in shot.get("scene_notes", "").lower():
         bg_kind = "buildings"
@@ -573,7 +574,7 @@ def render_topdown_panel(fig, rect, shot, variant, focal_mm, h_fov, v_fov, near_
     draw_camera_icon(ax, cam_x, cam_y)
 
     # Settings chips at bottom
-    chip_y = -1.0
+    chip_y = -bottom * 0.72
     chips = [
         (f"  {headline_time_label(shot)}  ", PALETTE["ink"]),
         (f"  {LENS_LABELS.get(shot['lens_focal'], shot['lens_focal'])}  ", PALETTE["lens_chip"]),
@@ -748,7 +749,8 @@ def draw_camera_side(ax, x, y, angle_tilt_deg, color=None, height_label=""):
             ax.plot([x, x + sign*0.25], [y - 0.10, max(0, y - 0.40)],
                     color=PALETTE["tripod"], linewidth=1.5, zorder=8)
     if height_label:
-        ax.text(x - 0.30, y, height_label, fontsize=7.5, color=color, fontweight="bold",
+        ax.annotate(height_label, xy=(x, y), xytext=(-14, 0), textcoords="offset points", fontsize=7.5,
+                    color=color, fontweight="bold",
                 ha="right", va="center", zorder=11,
                 bbox=dict(boxstyle="round,pad=0.2", facecolor="white", edgecolor=color, linewidth=0.6))
 
@@ -757,9 +759,18 @@ def _side_angle_tilt(angle):
     return {"picado": -20, "contrapicado": 20, "nadir": 90, "cenital": -90}.get(angle, 0)
 
 
+# Whole words only: "cámara", "enmarcado", "marco" and "San Martín" all contain "mar", and
+# matching the substring drew a sea horizon behind half the park and plaza shots.
+SEA = re.compile(r"\b(mar|horizonte|playa|malecón|orilla)\b", re.I)
+
+
+def is_seafront(notes: str) -> bool:
+    return bool(SEA.search(notes))
+
+
 def _draw_side_background(ax, shot, bg_x):
     notes = shot.get("scene_notes", "")
-    if "horizonte" in notes.lower() or "mar" in notes.lower():
+    if is_seafront(notes):
         ax.plot([bg_x - 2, bg_x + 2], [1.5, 1.5], color=PALETTE["fov_line"], linewidth=2.5, alpha=0.7, zorder=2)
         for x in np.arange(bg_x - 2, bg_x + 2, 0.3):
             ax.plot([x, x + 0.15], [1.3, 1.4], color=PALETTE["fov_line"], linewidth=0.6, alpha=0.5, zorder=2)
@@ -809,14 +820,14 @@ def _draw_side_angle_indicator(ax, cam_x, cam_y, angle_tilt, angle_label):
                                  theta1=limits[0], theta2=limits[1],
                                  color=PALETTE["warning"], linewidth=2, zorder=12))
         label_angle = math.radians(angle_tilt/2)
-        lx = cam_x + 0.6 * math.cos(label_angle)
-        ly = cam_y + 0.6 * math.sin(label_angle)
-        text, color, align = f"{angle_label}\n{abs(angle_tilt)}°", PALETTE["warning"], "center"
+        offset = (30 * math.cos(label_angle), 30 * math.sin(label_angle))
+        text, color = f"{angle_label}\n{abs(angle_tilt)}°", PALETTE["warning"]
     else:
-        lx, ly = cam_x + 0.5, cam_y
-        text, color, align = f"{angle_label}\n0° (altura de ojos)", PALETTE["ok"], "left"
-    ax.text(lx, ly, text, fontsize=7, color=color, fontweight="bold",
-            ha=align, va="center", zorder=12,
+        offset = (24, 0)
+        text, color = f"{angle_label}\n0° (altura de ojos)", PALETTE["ok"]
+    # Right of the camera, in points: the camera's height label is on its left.
+    ax.annotate(text, xy=(cam_x, cam_y), xytext=offset, textcoords="offset points", fontsize=7, color=color,
+                fontweight="bold", ha="left", va="center", zorder=12,
             bbox=dict(boxstyle="round,pad=0.2", facecolor="white", edgecolor=color, linewidth=0.6))
 
 
@@ -901,7 +912,8 @@ def render_side_panel(fig, rect, shot, variant, focal_mm, v_fov):
 
     # Pose name chip
     pose_chip_x = sd
-    pose_chip_y = 2.7
+    # Clear of the angle label beside a high camera (picado at 1.8 m met it at 2.7 m).
+    pose_chip_y = min(3.7, max(2.7, cam_h + 1.2))
     _eff = effective_subject_variant(shot, variant)
     pose_label = (POSE_NAMES[_eff].get(shot["subjects"][_eff]["pose"], shot["subjects"][_eff]["pose"]) if _eff else "Sin sujeto · perro fuera")
     ax.text(pose_chip_x, pose_chip_y, f"POSE: {pose_label}",

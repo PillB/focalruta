@@ -68,6 +68,15 @@ def test_v20_a_mount_code_makes_a_lens_name_with_or_without_its_f_number():
     assert numbers_in("DISTANCIA 24mm · a 80mm · REF 50.5mm") == ["24mm", "80mm", "50.5mm"]
 
 
+def test_v20_a_maker_before_the_number_makes_a_lens_name_too():
+    """Sign-off note on PR #21: a reader's own lens typed with the maker and no mount code or
+    f-number ("Sigma 105mm", "Samyang 14mm") was flagged as a measurement. The maker names a
+    lens as a mount code does; any other word before the number still does not."""
+    assert numbers_in("Sigma 105mm · Samyang 14mm · Tamron 70-200mm · Viltrox 85mm Pro · "
+                      "Canon 100mm Macro · TTArtisans 50mm · Laowa 15mm · Voigtländer 40mm") == []
+    assert numbers_in("a 105mm del sujeto · ruta 14mm · Sigmas 105mm") == ["105mm", "14mm"]
+
+
 def test_v20_every_plan_text_writes_numbers_the_peruvian_way():
     """The plans' notes reach the reader through JavaScript, which the page scan above does
     not read; the browser QA does, in a minute. This reads every text in the data the pages

@@ -1,0 +1,275 @@
+{
+ "source": "US Naval Observatory Astronomical Applications API v4.0.1",
+ "retrieved": "2026-10-28",
+ "rise_set_url": "https://aa.usno.navy.mil/api/rstt/oneday?date={date}&coords=-12.097,-77.036&tz=-5",
+ "position_url": "https://aa.usno.navy.mil/api/celnav?date={utc_date}&time={utc_time}&coords=-12.097,-77.036",
+ "notes": "Times are Lima clock (UTC-5). fracillum is the lit fraction at 12:00 local on the date (it fits that hour to within 1 point over all 16 dates). zn and hc are the Moon's bearing and uncorrected geocentric height at the listed rise or set minute.",
+ "days": [
+  {
+   "date": "2026-11-01",
+   "fracillum_percent": 52,
+   "curphase": "Waning Gibbous",
+   "set": {
+    "time": "11:46",
+    "zn": 290.6158,
+    "hc": 0.1769,
+    "dec": 20.0983
+   }
+  },
+  {
+   "date": "2026-11-09",
+   "fracillum_percent": 0,
+   "curphase": "New Moon",
+   "rise": {
+    "time": "05:33",
+    "zn": 112.6632,
+    "hc": 0.0508,
+    "dec": -22.1445
+   },
+   "set": {
+    "time": "18:40",
+    "zn": 245.4848,
+    "hc": 0.1325,
+    "dec": -23.9666
+   }
+  },
+  {
+   "date": "2026-11-17",
+   "fracillum_percent": 52,
+   "curphase": "Waxing Gibbous",
+   "set": {
+    "time": "00:12",
+    "zn": 255.1883,
+    "hc": 0.1942,
+    "dec": -14.5175
+   },
+   "rise": {
+    "time": "12:11",
+    "zn": 102.2323,
+    "hc": 0.1141,
+    "dec": -11.981
+   }
+  },
+  {
+   "date": "2026-11-24",
+   "fracillum_percent": 100,
+   "curphase": "Full Moon",
+   "set": {
+    "time": "05:15",
+    "zn": 295.5479,
+    "hc": 0.2069,
+    "dec": 24.8933
+   },
+   "rise": {
+    "time": "18:38",
+    "zn": 62.9103,
+    "hc": 0.1066,
+    "dec": 26.4158
+   }
+  },
+  {
+   "date": "2026-12-06",
+   "fracillum_percent": 5,
+   "curphase": "Waning Crescent",
+   "rise": {
+    "time": "03:31",
+    "zn": 111.3697,
+    "hc": 0.1446,
+    "dec": -20.9051
+   },
+   "set": {
+    "time": "16:35",
+    "zn": 246.5829,
+    "hc": 0.0339,
+    "dec": -22.8749
+   }
+  },
+  {
+   "date": "2026-12-24",
+   "fracillum_percent": 99,
+   "curphase": "Waning Gibbous",
+   "set": {
+    "time": "06:08",
+    "zn": 297.3832,
+    "hc": 0.2193,
+    "dec": 26.6744
+   },
+   "rise": {
+    "time": "19:33",
+    "zn": 64.0918,
+    "hc": 0.1578,
+    "dec": 25.2551
+   }
+  },
+  {
+   "date": "2027-01-15",
+   "fracillum_percent": 49,
+   "curphase": "Waxing Crescent",
+   "rise": {
+    "time": "12:01",
+    "zn": 76.1824,
+    "hc": 0.2067,
+    "dec": 13.4602
+   },
+   "set": {
+    "time": "23:57",
+    "zn": 286.4992,
+    "hc": 0.0562,
+    "dec": 16.1104
+   }
+  },
+  {
+   "date": "2027-02-20",
+   "fracillum_percent": 100,
+   "curphase": "Full Moon",
+   "set": {
+    "time": "05:41",
+    "zn": 283.46,
+    "hc": 0.2278,
+    "dec": 13.1065
+   },
+   "rise": {
+    "time": "18:30",
+    "zn": 80.0094,
+    "hc": 0.2647,
+    "dec": 9.7102
+   }
+  },
+  {
+   "date": "2027-03-08",
+   "fracillum_percent": 0,
+   "curphase": "New Moon",
+   "rise": {
+    "time": "06:17",
+    "zn": 92.2894,
+    "hc": 0.1591,
+    "dec": -2.2719
+   },
+   "set": {
+    "time": "18:38",
+    "zn": 270.7987,
+    "hc": 0.1689,
+    "dec": 0.7456
+   }
+  },
+  {
+   "date": "2027-04-21",
+   "fracillum_percent": 99,
+   "curphase": "Waning Gibbous",
+   "set": {
+    "time": "06:43",
+    "zn": 250.7272,
+    "hc": 0.0392,
+    "dec": -18.8372
+   },
+   "rise": {
+    "time": "18:32",
+    "zn": 111.4163,
+    "hc": 0.1143,
+    "dec": -20.9437
+   }
+  },
+  {
+   "date": "2027-05-30",
+   "fracillum_percent": 30,
+   "curphase": "Waning Crescent",
+   "rise": {
+    "time": "01:27",
+    "zn": 87.5436,
+    "hc": 0.1846,
+    "dec": 2.3631
+   },
+   "set": {
+    "time": "13:40",
+    "zn": 275.4416,
+    "hc": 0.1746,
+    "dec": 5.2836
+   }
+  },
+  {
+   "date": "2027-06-21",
+   "fracillum_percent": 94,
+   "curphase": "Waning Gibbous",
+   "set": {
+    "time": "08:30",
+    "zn": 247.6418,
+    "hc": 0.0715,
+    "dec": -21.852
+   },
+   "rise": {
+    "time": "20:15",
+    "zn": 110.5399,
+    "hc": 0.1466,
+    "dec": -20.0966
+   }
+  },
+  {
+   "date": "2027-07-04",
+   "fracillum_percent": 1,
+   "curphase": "Waxing Crescent",
+   "rise": {
+    "time": "07:00",
+    "zn": 64.9533,
+    "hc": 0.2474,
+    "dec": 24.3964
+   },
+   "set": {
+    "time": "18:45",
+    "zn": 293.1797,
+    "hc": 0.1393,
+    "dec": 22.6044
+   }
+  },
+  {
+   "date": "2027-08-12",
+   "fracillum_percent": 82,
+   "curphase": "Waxing Gibbous",
+   "set": {
+    "time": "02:49",
+    "zn": 242.166,
+    "hc": 0.0756,
+    "dec": -27.1821
+   },
+   "rise": {
+    "time": "14:24",
+    "zn": 117.5032,
+    "hc": 0.1764,
+    "dec": -26.884
+   }
+  },
+  {
+   "date": "2027-09-19",
+   "fracillum_percent": 86,
+   "curphase": "Waning Gibbous",
+   "set": {
+    "time": "08:14",
+    "zn": 289.5417,
+    "hc": 0.0855,
+    "dec": 19.0717
+   },
+   "rise": {
+    "time": "21:18",
+    "zn": 68.1451,
+    "hc": 0.229,
+    "dec": 21.2938
+   }
+  },
+  {
+   "date": "2027-10-05",
+   "fracillum_percent": 33,
+   "curphase": "Waxing Crescent",
+   "rise": {
+    "time": "10:09",
+    "zn": 117.546,
+    "hc": 0.1927,
+    "dec": -26.9295
+   },
+   "set": {
+    "time": "23:26",
+    "zn": 242.588,
+    "hc": 0.0871,
+    "dec": -26.7745
+   }
+  }
+ ]
+}

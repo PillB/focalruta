@@ -1,4 +1,5 @@
 import json
+from html import escape
 from pathlib import Path
 
 
@@ -76,5 +77,9 @@ def test_style_dossiers_enter_canonical_ranking_and_verified_routes():
 def test_generated_site_reports_completed_promoted_dossiers():
     page = (ROOT / "challenges/arquitectura-en-foco/index.html").read_text(encoding="utf-8")
     assert "6/6 dossiers incorporados al ranking" in page
-    assert "¿Puedes mostrar en una sola imagen cómo se usa hoy este espacio?" in page
+    # Y20: each card shows its own style and scene, not one field question shared by all six.
+    spanish = json.loads((ROOT / "data/architecture/ranking_es.json").read_text(encoding="utf-8"))
+    for discovery_id in EXPECTED_IDS:
+        style, place = spanish["discoveries"][discovery_id], spanish["places"][discovery_id]
+        assert escape(style["aporte"]) in page and escape(place["escena"]) in page, discovery_id
     assert "incorporados al ranking" in page

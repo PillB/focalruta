@@ -21,11 +21,11 @@ Seis planes fotográficos por Lima para Canon EOS 6D, listos para usar sin conex
 
 ## Qué hay aquí
 
-- `plans/plan_a.html` … `plan_f.html`: cada plan con sus 10 tomas, diagramas y
+- `plans/plan_a.html` … `{last}.html`: cada plan con sus 10 tomas, diagramas y
   ajustes para día, tarde y noche. Se abren en cualquier navegador, también en el
   iPhone desde la app Archivos.
 - `field_card.html`: la tarjeta de campo para imprimir o llevar en el teléfono.
-- `diagrams/`: los 120 diagramas de las tomas (persona y perro) y 11 diagramas de
+- `diagrams/`: los 120 diagramas de las tomas (persona y perro) y {extra} diagramas de
   composición y comparación de lentes, en PNG para imprimir.
 - `data/plans.json`: todos los datos de los planes, por si quieres usarlos en otra
   herramienta.
@@ -41,6 +41,16 @@ haz una foto de prueba y revisa el histograma.
 La profundidad de campo usa un círculo de confusión de 0.03 mm, la convención
 habitual para full frame; tómala como guía de planificación, no como un borde exacto.
 """
+
+
+def readme() -> str:
+    """The README with this build's plans and diagrams counted (W08)."""
+    import json
+    import plan_counts
+    data = json.loads((ROOT / "data" / "plans.json").read_text(encoding="utf-8"))
+    c = plan_counts.counts(data, ROOT)
+    text = README.replace("{last}", data["plans"][-1]["id"]).replace("{extra}", str(c["all_diagrams"] - c["diagrams"]))
+    return plan_counts.fill(text, c)
 
 
 def members() -> list[tuple[str, Path]]:
@@ -61,7 +71,7 @@ def write_member(archive: zipfile.ZipFile, name: str, data: bytes) -> None:
 def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(OUT, "w") as archive:
-        write_member(archive, "LEEME.md", README.encode("utf-8"))
+        write_member(archive, "LEEME.md", readme().encode("utf-8"))
         for name, path in members():
             write_member(archive, name, path.read_bytes())
     print(f"{OUT.relative_to(ROOT)}: {len(members()) + 1} files, {OUT.stat().st_size / 1e6:.1f} MB")

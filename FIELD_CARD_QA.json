@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 64,
+  "checks": 70,
   "failures": [],
   "results": [
     {
@@ -121,6 +121,34 @@
       "detail": "Ahora en Lima es de noche. Mañana sale el sol a las 05:42. Puesta de sol: rumbo 260° (oeste)."
     },
     {
+      "name": "calendar file is named for its plan, light and date",
+      "pass": true,
+      "detail": "focalruta-plan-b-afternoon-2026-11-24.ics"
+    },
+    {
+      "name": "calendar event starts half an hour before the afternoon light",
+      "pass": true,
+      "detail": [
+        "DTSTART:20261124T221700Z",
+        "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//FocalRuta//Tarjeta de campo//ES\r\nCALSCALE:GREGORIAN\r\nBEGIN:VEVENT\r\nUID:plan_b-afternoon-2026-11-24@focalruta\r\nDTSTAMP:20261028T150000Z\r\nDTSTART:20261124T221700Z\r\nDTEND:20261124T234000Z\r\nSUMMARY:FocalRuta · Plan B · Malecón de Miraflores — Costa Verde\r\nLOCATION:Malecón Cisneros / Parque del Amor\\, Miraflores\r\nDESCRIPTION:Luz: tarde (17:47–18:40). Puesta de so"
+      ]
+    },
+    {
+      "name": "calendar event carries the place and an alert",
+      "pass": true,
+      "detail": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//FocalRuta//Tarjeta de campo//ES\r\nCALSCALE:GREGORIAN\r\nBEGIN:VEVENT\r\nUID:plan_b-afternoon-2026-11-24@focalruta\r\nDTSTAMP:20261028T150000Z\r\nDTSTART:20261124T221700Z"
+    },
+    {
+      "name": "the card says the calendar file is ready",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "no JavaScript: no calendar button that could not work",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "no JavaScript: plan C at night shows C01's night settings",
       "pass": true,
       "detail": {
@@ -161,6 +189,11 @@
       "name": "no JavaScript: every control at least 44 × 44 px",
       "pass": true,
       "detail": []
+    },
+    {
+      "name": "card page: what is on screen before its scripts run is where they leave it, by day, by night and at its longest",
+      "pass": true,
+      "detail": {}
     },
     {
       "name": "reduced motion: nothing animates",
@@ -256,7 +289,7 @@
       "detail": null
     },
     {
-      "name": "home page dialog: a first shot that starts on screen is drawn with the plans, and under 900 px of height the shots come a frame later",
+      "name": "home page dialog: where the first shot starts on screen it is drawn with the plans, and where it starts below, a frame later",
       "pass": true,
       "detail": {}
     },
@@ -268,9 +301,9 @@
           "openFieldCard()",
           true,
           true,
-          -1020
+          -610
         ],
-        "seen before": -1020
+        "seen before": -610
       }
     },
     {
@@ -281,9 +314,9 @@
           "openFieldCard()",
           true,
           true,
-          1808
+          1812
         ],
-        "seen before": 1808
+        "seen before": 1812
       }
     },
     {
@@ -452,14 +485,14 @@
       "detail": null
     }
   ],
-  "audited_at": "2026-11-03T03:42:27.247173+00:00",
-  "audited_commit": "674337272ddad329df3cbf3dee8b30ebcda56ce0",
+  "audited_at": "2026-11-03T09:27:26.610939+00:00",
+  "audited_commit": "929c49cfac87341b853e70af6e2e8d2ca844999d",
   "audited_artifacts": {
-    "data/plans.json": "d0dc658617145f93eb77f89eebb82752bcc0ab471df5179a727fccd45488073e",
-    "dist/canon6d_sota_hosted/field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
-    "dist/canon6d_sota_hosted/index.html": "9371439d1279cc82e39ea072897f384e9bbfcb9140ddbfd9441b0d93c8284923",
-    "dist/canon6d_sota_hosted/sw.js": "7ed4d0afd637b016998f02ccb4d83a43ea5e07b8aca95ca5e6c2642a8008f0d6",
-    "field_card.html": "58b40dce6639cc4e1786fe709bd7cfb29f3a320a7b8f412d9d109d620c6acaf5",
+    "data/plans.json": "03029a8656b79b6bb57c69667d62bb0c989a5e4ece3a6825b5bdf6b8ee05678a",
+    "dist/canon6d_sota_hosted/field_card.html": "493a2b134ff0cf9b46ea0f6da49af82d6f26e4c7473a39da768eaf9c6d7a09f7",
+    "dist/canon6d_sota_hosted/index.html": "171a8e5ad8848e15bfb5cd2e1c6f21e35da91e341016eae650aa1d5a8e37b18c",
+    "dist/canon6d_sota_hosted/sw.js": "5b982eebe132a72a148b26501eb911a4e4197dcd1fd0e705badc08420bc29c96",
+    "field_card.html": "493a2b134ff0cf9b46ea0f6da49af82d6f26e4c7473a39da768eaf9c6d7a09f7",
     "tests/fixtures/sw_live_9cd3044.js": "ead02b784dc27f1715c557f157e7761fe35b1aeeee5fab94ab7f5d256ffc5467"
   }
 }

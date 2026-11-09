@@ -1,6 +1,6 @@
 # FocalRuta
 
-An offline-capable, Spanish-language photography field and teaching planner. The plans are solved for a Canon EOS 6D and four lenses; readers with another camera or other lenses set their gear once and every shot also shows the equivalent setting for it. It includes six ten-shot location plans, 120 subject diagrams, a dynamic Optical Decision Lab, motion and composition teaching tools, a pose coach, and a field card in Spanish that works one-handed and offline.
+An offline-capable, Spanish-language photography field and teaching planner. The plans are solved for a Canon EOS 6D and four lenses; readers with another camera or other lenses set their gear once and every shot also shows the equivalent setting for it. It includes six ten-shot location plans, 120 subject diagrams, a dynamic Optical Decision Lab, motion and composition teaching tools, a pose coach, a light panel with the sun's and the moon's times and bearings for any date in Lima, and a field card in Spanish that works one-handed and offline, with ND and hyperfocal tables, where each setting lives on the 6D, and a calendar reminder for the session chosen on it.
 
 ## Live site
 
@@ -24,8 +24,12 @@ and drops quoted text from messages, which can be what the reader typed.
 The release gate (`python3 scripts/verify_release.py`) fails unless six browser QA
 reports at the repository root still match the files they audited, byte for byte:
 
-- `CURRENT_BROWSER_QA.json` — 548 browser regression checks across seven viewports
+- `CURRENT_BROWSER_QA.json` — 712 browser regression checks across seven viewports
   from 320 px wide, including a hosted plan page that must work offline after one visit;
+  the sun panel's hour, shadow and wall light held to the Python ephemeris, by keyboard,
+  and its moonrise, moonset, phase and night sentence on five dates held to the moon twin;
+  a plan's «Mostrando:» block starting under the plan's name wherever it wraps;
+  the session dialog's shot review, its fixes, its summary and what a reload keeps;
   on the home page and every plan page, no text under 12 px, no control under 44 px, no
   English in the interface, nothing cut off at the edges and numbers written with a
   decimal point, also with a reader's own lenses; dialogs that take focus as they
@@ -36,28 +40,33 @@ reports at the repository root still match the files they audited, byte for byte
   (641 by 500 px at the default text size, more with larger text), with nothing that takes keyboard focus behind
   them, every in-page link in them, every section the page is opened at, and every section the address is
   changed to on the open page, also going back and forward, and an id inside a section reached from the other
-  side of the Sujeto/Hora bar, landing clear of them once the page has drawn it, with nothing reading the page
-  in the frames after the change,
+  side of the Sujeto/Hora bar, landing clear of them once the page has drawn it, also when the browser sends
+  the scroll event of the jump two frames late, and on the home pages also with the processor slowed twelve
+  times (where a slow frame used to end the jump's hold before the section was back in place),
   also with the reader's text at 20 and 24 px, Tab and Shift+Tab across a bar, or onto a control
   just under what stays, leaving the page where it is in every frame, a scroll of the reader's own during a
   jump kept, and the page left where it was when a dialog opened from the top bar closes; on
   the home page, the top bar's tools whole on screen wherever there is no bottom bar, and keyboard focus in the
   top bar always on a control whole in view, and the ↑ button going to the top at once when the reader reduces
   motion
-- `OPTICS_ACCESSIBILITY_QA.json` — 22 optical-lab matrix and accessibility checks
+- `OPTICS_ACCESSIBILITY_QA.json` — 94 checks: the optical-lab matrix and accessibility, and the
+  labs held to the camera at 320 and 1280 px (the 6D's own shutter dial, presets that expose
+  the scene they set, «espacio negativo» clear of the subject, toggles that say which is on)
 - `VISUAL_RESOURCE_QA.json` — 37 image, resource-path, font-floor and contrast checks
   (contrast on gradients is checked at every colour stop)
 - `AXE_ACCESSIBILITY_QA.json` — axe-core on all 39 published pages and the home page's
   offline notice, light phone and dark desktop passes, zero violations
-- `FIELD_CARD_QA.json` — 64 field card checks on a phone: each plan's settings per light,
-  the Lima clock, no JavaScript, print, keyboard, the home page dialog (the page behind
+- `FIELD_CARD_QA.json` — 70 field card checks on a phone: each plan's settings per light,
+  the Lima clock, what is on screen before the card's scripts run already where they leave it
+  (by day, by night and at its longest, from 320 to 480 px), no JavaScript, print, keyboard, the home page dialog (the page behind
   it, left undrawn while the card covers it and back where it was, focus back on an
   opener on the page after a resize either way across 900 px, without moving the page,
-  a first shot that starts on screen drawn with the plans, and the shots a frame later
-  on a screen under 900 px tall),
+  and the shots drawn with the plans where they start on screen, a frame later where
+  they start below),
   a damaged saved state, axe, offline after
   rehearsed deploys (an upgrade from the worker live at 9cd3044, the HTTP cache Pages
-  keeps for 10 minutes), and another camera and lenses
+  keeps for 10 minutes), another camera and lenses, and the calendar file for a chosen plan,
+  light and date, timed by the Python sun twin, with no button where no script can write it
 - `PERF_BUDGET_QA.json` — 138 speed checks: Lighthouse on a simulated phone and slow
   4G network, median of three runs, for the home page, the field card, all six plan
   pages and every challenge page type; Lighthouse's "good" marks for every timing,
@@ -68,11 +77,36 @@ reports at the repository root still match the files they audited, byte for byte
   mid-tier and a low-tier phone, the CPU calibrated as Chrome DevTools does,
   median of five, good within 200 ms on the first and never poor (over 500 ms) on the second,
   both for the first paint after the tap and for what the tap was for being on screen; the
-  check first proves it sees content a test page puts off by 300 ms
+  check first proves it sees content a test page puts off by 300 ms. Each Lighthouse run
+  keeps the host's BenchmarkIndex, and the report says when the median fell below the
+  1500 to 2000 that Lighthouse's 4x slowdown is set for: on a slower machine the same page
+  measures as a slower phone (the home page blocked 62 ms on GitHub's runner, index 2608,
+  and 355 ms on a machine scoring 920 to 1600)
 
 Set up with `python3 -m pip install -r requirements-dev.txt` (what CI installs, on
 Python 3.11). For browser QA add `requirements-qa.txt`, `npm ci` (axe-core and
 Lighthouse, pinned in `package-lock.json`) and `python3 -m playwright install chromium`.
+
+## Adding a plan
+
+A plan is data, not pages (W08). To add a seventh:
+
+1. In `scripts/plans_data.py`, write `PLAN_G` the way `PLAN_A` is written: an `id` of
+   `plan_g`, its name, place and best window, and ten `shot(...)` entries with their
+   settings for day, afternoon and night. Add it to `PLANS`.
+2. Draw its diagrams: `python3 scripts/generate_diagrams.py` (needs matplotlib, from
+   `requirements-qa.txt`) writes `diagrams/plan_g_G01_human.png` and the rest.
+3. Run `python3 scripts/regenerate_all.py`. It builds `plans/plan_g.html`, adds the plan to
+   the field card, its offline pack, the home page, the sitemap and the download bundle,
+   and rewrites every count in the copy ("Siete rutas", "70 tomas", "140 diagramas").
+4. Run `python3 -m pytest -q`. The physics tests in `tests/planner/` check every new shot:
+   its exposure against the scene's light, the lens and camera limits, the dials' stops, the
+   handheld speed and the optical claims in its explanation. Then run the browser suites
+   (`python3 scripts/regenerate_all.py --with-browser-qa`); they walk every plan in
+   `data/plans.json`, so the new one is checked without editing them.
+
+`tests/test_plan_counts.py` builds the site once with a test plan G and fails if any of
+this stops reaching the new plan.
 
 ## Regenerating the architecture photography guide
 

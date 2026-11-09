@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "id": "jiron-trujillo-puente-de-piedra",
-        "name": "Jirón Trujillo",
+        "name": "Jirón Trujillo + Puente de Piedra",
         "district": "Rímac"
       },
       "geometry": {
@@ -20,7 +20,7 @@
       "type": "Feature",
       "properties": {
         "id": "cantagallo-comunidad-shipibo-konibo",
-        "name": "Cantagallo",
+        "name": "Cantagallo · comunidad Shipibo-Konibo",
         "district": "Rímac"
       },
       "geometry": {

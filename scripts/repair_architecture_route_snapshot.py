@@ -7,7 +7,7 @@ import os
 from collections import defaultdict
 from pathlib import Path
 
-from build_architecture_routes import DOWNLOADS, OUTPUT, atomic_json, search_url, stages, write_geojson, write_kml
+from build_architecture_routes import DOWNLOADS, OUTPUT, atomic_json, place_names, search_url, stages, write_geojson, write_kml
 
 
 TARGET_ID = "parque-tradiciones-ricardo-palma"
@@ -169,6 +169,14 @@ def split_long_transfers(layer: dict) -> tuple[list[dict], list[dict]]:
     return parts, gaps
 
 
+def name_stops_after_places(layers: list[dict]) -> None:
+    """Snapshots built before Y20 named a stop after its geocoder hit; use the card's name."""
+    names = place_names()
+    for layer in layers:
+        for stop in layer["stops"]:
+            stop["name"] = names[stop["canonical_id"]]
+
+
 def assign_paths_and_downloads(layers: list[dict]) -> None:
     counts: dict[str, int] = {}
     totals: dict[str, int] = {}
@@ -210,6 +218,7 @@ def main() -> None:
         parts, gaps = split_long_transfers(layer)
         layers.extend(parts)
         removed_transfers.extend(gaps)
+    name_stops_after_places(layers)
     assign_paths_and_downloads(layers)
     routes["district_layers"] = layers
     routes["omitted_intertour_transfers"] = removed_transfers or routes.get("omitted_intertour_transfers", [])

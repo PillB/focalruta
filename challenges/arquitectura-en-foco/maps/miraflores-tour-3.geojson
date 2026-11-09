@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "id": "centro-cultural-ccori-wasi",
-        "name": "Centro Cultural CCORI WASI",
+        "name": "Centro Cultural Ccori Wasi",
         "district": "Miraflores"
       },
       "geometry": {
@@ -50,7 +50,7 @@
       "type": "Feature",
       "properties": {
         "id": "casa-raul-porras-barrenechea",
-        "name": "Instituto Raúl Porras Barrenechea",
+        "name": "Casa Raúl Porras Barrenechea",
         "district": "Miraflores"
       },
       "geometry": {
