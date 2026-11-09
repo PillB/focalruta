@@ -8,7 +8,9 @@ GitHub Pages deploys the optimized runtime from `dist/canon6d_sota_hosted`
 (`.github/workflows/pages.yml`). After every deploy, and every morning at 06:17 in
 Lima, `.github/workflows/live-check.yml` waits until the live site serves that
 commit's build, then runs `scripts/live_pages_qa.py` and the speed budgets against
-it; a failed run emails the repository owner.
+it; a failed run emails the repository owner. To rehearse it, serve the build as Pages
+does with `scripts/pages_rehearsal.py` (which can hold a file back or leave it out) and
+point `FOCALRUTA_LIVE_URL` at it.
 
 ## Privacy
 
