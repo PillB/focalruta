@@ -43,6 +43,39 @@ def watch_origins(page) -> None:
             and foreign.add(request.url))
 
 
+def lost(request) -> str:
+    """A failed request as the report gives it: its URL and Chromium's reason."""
+    return f"{request.url} ({request.failure})"
+
+
+# How long the check waits for a page's own requests before it leaves the page (Y27).
+SETTLE_LIMIT_MS = 20000
+
+
+def in_flight(page) -> set:
+    """The project requests the page has started and that have neither arrived nor failed."""
+    pending: set = set()
+    page.on("request", lambda request: request.url.startswith(URL) and pending.add(request))
+    page.on("requestfinished", lambda request: pending.discard(request))
+    page.on("requestfailed", lambda request: pending.discard(request))
+    return pending
+
+
+def settle(page, pending: set, failed: list) -> None:
+    """Wait until no project request the page started is still on its way (Y27).
+
+    Leaving a page, by reloading or closing it, aborts what it is still loading,
+    and Chromium reports each one as failed (net::ERR_ABORTED). On 8 November 2026
+    the check reloaded 0.1 s after opening a shot's dialog, before the CDN had sent
+    the dialog's diagram, and reported a site that worked as broken. A request
+    still on its way after SETTLE_LIMIT_MS is reported as failed, slowly.
+    """
+    deadline = time.monotonic() + SETTLE_LIMIT_MS / 1000
+    while pending and time.monotonic() < deadline:
+        page.wait_for_timeout(50)
+    failed.extend(f"{request.url} (still loading after {SETTLE_LIMIT_MS} ms)" for request in list(pending))
+
+
 def wait_for_build(seconds: int) -> dict:
     """Poll the live home page until it is this commit's build, or give up."""
     want = hashlib.sha256(BUILD.read_bytes()).hexdigest()
@@ -92,7 +125,7 @@ with sync_playwright() as pw:
         watch_origins(page)
         errors, failed = [], []
         page.on("pageerror", lambda error: errors.append(str(error)))
-        page.on("requestfailed", lambda request: failed.append(request.url))
+        page.on("requestfailed", lambda request: failed.append(lost(request)))
         response = page.goto(URL, wait_until="networkidle", timeout=90000)
         record(f"live {width} home 200", response and response.status == 200, response.status if response else "no response")
         record(f"live {width} no horizontal overflow", page.evaluate("document.documentElement.scrollWidth<=document.documentElement.clientWidth"))
@@ -106,8 +139,9 @@ with sync_playwright() as pw:
     watch_origins(page)
     errors, failed, console_errors = [], [], []
     page.on("pageerror", lambda error: errors.append(str(error)))
-    page.on("requestfailed", lambda request: failed.append(request.url))
+    page.on("requestfailed", lambda request: failed.append(lost(request)))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
+    pending = in_flight(page)
     response = page.goto(URL, wait_until="networkidle", timeout=90000)
     record("live branded title", page.title().startswith("FocalRuta"), page.title())
     record("live six plan cards", page.locator("#plan-cards .plan-card").count() == 6)
@@ -125,13 +159,15 @@ with sync_playwright() as pw:
     record("live all 120 unique dynamic images decode", not plan_matrix["broken"], plan_matrix["broken"][:10])
     print('live QA: plan/image matrix complete', flush=True)
 
+    settle(page, pending, failed)
     page.close(); context.close()
     context = browser.new_context(viewport={"width": 390, "height": 844})
     page = context.new_page()
     watch_origins(page)
     page.on("pageerror", lambda error: errors.append(str(error)))
-    page.on("requestfailed", lambda request: failed.append(request.url))
+    page.on("requestfailed", lambda request: failed.append(lost(request)))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
+    pending = in_flight(page)
     page.goto(URL, wait_until="networkidle", timeout=90000)
 
     # Exhaustive Optical Decision Lab physical/permutation checks.
@@ -176,13 +212,15 @@ with sync_playwright() as pw:
     print('live QA: visualizations complete', flush=True)
 
     # Release decoded image/visualization state before the dialog/PWA phase.
+    settle(page, pending, failed)
     page.close(); context.close()
     context = browser.new_context(viewport={"width": 390, "height": 844})
     page = context.new_page()
     watch_origins(page)
     page.on("pageerror", lambda error: errors.append(str(error)))
-    page.on("requestfailed", lambda request: failed.append(request.url))
+    page.on("requestfailed", lambda request: failed.append(lost(request)))
     page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
+    pending = in_flight(page)
     page.goto(URL, wait_until="networkidle", timeout=90000)
 
     # Operational dialogs, state, focus containment, and persistence.
@@ -202,10 +240,16 @@ with sync_playwright() as pw:
     record("live Field Card progress", progress == "1/10", progress)
     page.locator("#field-card-modal .fc-slot:visible .fc-check-wrap").first.click()
     page.keyboard.press("Escape")
-    page.evaluate("openModal('plan_f','F10')"); record("live shot detail dialog", page.locator("#shot-modal").evaluate("e=>e.open")); page.keyboard.press("Escape")
+    page.evaluate("openModal('plan_f','F10')"); record("live shot detail dialog", page.locator("#shot-modal").evaluate("e=>e.open"))
+    diagram = page.evaluate(qa_matrix.bounded_async(
+        "(async()=>{const img=document.querySelector('#shot-modal[open] #modal-body img');if(!img)return null;"
+        "await img.decode().catch(()=>null);return {src:img.currentSrc,width:img.naturalWidth}})()", SETTLE_LIMIT_MS))
+    record("live shot detail dialog shows its diagram", bool(diagram and diagram["width"]), diagram)
+    page.keyboard.press("Escape")
 
     # Sunlight state and service-worker/PWA behavior require a real HTTP origin.
-    initial = page.locator("#visibility-toggle").get_attribute("aria-pressed"); page.locator("#visibility-toggle").click(); toggled = page.locator("#visibility-toggle").get_attribute("aria-pressed"); page.reload(wait_until="networkidle"); persisted = page.locator("body").evaluate("b=>b.classList.contains('sun-mode')")
+    initial = page.locator("#visibility-toggle").get_attribute("aria-pressed"); page.locator("#visibility-toggle").click(); toggled = page.locator("#visibility-toggle").get_attribute("aria-pressed")
+    settle(page, pending, failed); page.reload(wait_until="networkidle"); persisted = page.locator("body").evaluate("b=>b.classList.contains('sun-mode')")
     record("live sunlight mode changes and persists", initial != toggled and persisted, [initial, toggled, persisted])
     page.reload(wait_until="networkidle")
     sw = page.evaluate(qa_matrix.bounded_async(

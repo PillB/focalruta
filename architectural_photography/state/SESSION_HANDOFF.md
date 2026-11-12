@@ -3724,7 +3724,98 @@ Sigue abierto para Pablo: Safari en un iPhone de verdad, las reglas de permisos 
 planes B y F, el acceso con trípode a la Plaza Mayor, la prueba de diagramas (Y19) que el trabajo
 unitario de CI omite, los huecos de competidores aplazados y la versión en inglés.
 
-### PR #26 tras fusionar PR #24 (2eff0ab): sólo la carrera de la auditoría de contraste (X01)
+## Ronda 19 · La comprobación diaria del sitio en vivo falló una vez tras fusionar PR #24 (2026-11-09)
+
+PR #24 se fusionó el 5 de noviembre (2eff0ab). En main pasaron Quality (41953863662), el despliegue
+de Pages (41953863653) y la comprobación diaria del sitio en vivo del 5, 6 y 7 de noviembre. La del
+8 de noviembre (42503171642) falló una de 88: «live no failed project requests», con
+`diagrams-webp/plan_f_F10_human.webp`. El sitio sirve ese archivo (200, 88 014 bytes, image/webp,
+tres veces el 9 de noviembre) y el mismo build pasó los tres días anteriores.
+
+### Requisito y evidencia RED → GREEN
+
+| ID | RED (antes) | GREEN (después) |
+|---|---|---|
+| Y27 | Con el ensayo de Pages (`scripts/pages_rehearsal.py`) reteniendo 3 s el diagrama del diálogo de la toma F10, la comprobación de 2eff0ab falla 3 de 3 con el mismo fallo que CI el 8 de noviembre; reteniendo la segunda toma del modo sesión (`plan_a_A02_human.webp`) también falla (1 de 1). Sin retener nada pasa (60/60). | La comprobación nueva pasa 3 de 3 (61/61) y 1 de 1, y sin retener nada (61/61). Con el diagrama del diálogo ausente (404), la nueva comprobación «live shot detail dialog shows its diagram» falla con ancho 0 y nombra el archivo; la de 2eff0ab solo lo notaba por un error de consola sin URL. Contra el sitio real, con el Chromium de CI: 89/89. |
+
+### Causa
+
+La comprobación abre el diálogo de la toma F10 y recarga la página unos 0.1 s después (106–139 ms
+medidos), para ver si el modo sol persiste. Si el CDN aún no ha enviado el diagrama del diálogo, la
+recarga aborta su descarga y el Chromium de CI (140.0.7339.16, build 1187 de Playwright 1.55.0) lo
+informa como petición fallida (`net::ERR_ABORTED`). El sitio no falló: la comprobación abortó su
+propia petición. El trabajador de servicio no lo evita: el diagrama no está en la caché de instalación
+y, controle o no la página, se pide a la red con `no-cache`.
+
+### Primera hipótesis fallida e investigación
+
+La primera reproducción no falló: con el Chromium de este contenedor (Chrome for Testing 153.0.8010.12),
+reteniendo el diagrama 3 s, la recarga lo aborta (el servidor ve la conexión cortada) pero Playwright
+no emite ni `requestfailed` ni `requestfinished`. Busqué el comportamiento de Playwright ante
+peticiones pendientes al navegar (microsoft/playwright#23781, microsoft/playwright-python#1575); no lo
+documentan. Lo que cambió la hipótesis fue repetir con el mismo binario que CI: descargué Chromium
+140 (build 1187) a la carpeta temporal y ahí la misma secuencia da `requestfailed` con
+`net::ERR_ABORTED` 3 de 3, controle o no la página el trabajador de servicio. Predicción falsable:
+retener el diagrama más de lo que tarda la comprobación en recargar hace fallar siempre la de
+2eff0ab, y la corregida pasa. Se cumplió.
+
+### Arreglo
+
+`scripts/live_pages_qa.py`:
+- antes de recargar o cerrar una página cuyas peticiones fallidas cuenta, espera hasta 20 s a que
+  cada petición del sitio que la página empezó llegue o falle; si alguna sigue en camino, la informa
+  como fallida por lenta;
+- cada petición fallida se informa con el motivo de Chromium (`net::ERR_ABORTED`, etc.);
+- «live shot detail dialog shows its diagram»: el diagrama del diálogo se decodifica (ancho > 0).
+
+`scripts/pages_rehearsal.py` sirve `dist/canon6d_sota_hosted` bajo `/focalruta/` como Pages y puede
+retener (`--slow`) o quitar (`--missing`) un archivo, para ensayar la comprobación en vivo.
+
+### Compromisos explícitos
+
+- La comprobación tarda un poco más cuando el CDN va lento: hasta 20 s por página antes de dejarla.
+- Una petición del sitio que tarda más de 20 s se informa como fallida aunque acabara llegando.
+- Solo se ensayó con Chromium 140 (el de CI) y 153 (el de este contenedor).
+- La comprobación del diálogo mira solo la toma F10 con persona, la que ya abría.
+
+### Cierre (comandos, código de salida, resumen)
+
+Sobre 2eff0ab más este cambio, con el Chromium de CI (140, build 1187) para la comprobación en vivo:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `live_pages_qa.py` de 2eff0ab contra el ensayo, diagrama de F10 retenido 3 s | 1 | 3 de 3 fallan: «live no failed project requests» con `plan_f_F10_human.webp` (RED) |
+| igual, `plan_a_A02_human.webp` retenido 3 s | 1 | falla con ese archivo (RED) |
+| igual, sin retener nada | 0 | 60/60 (control) |
+| `live_pages_qa.py` nuevo, los mismos tres casos | 0 | 61/61 en los cinco (GREEN) |
+| `live_pages_qa.py` nuevo, diagrama de F10 ausente (404) | 1 | falla «live shot detail dialog shows its diagram» (ancho 0) |
+| `live_pages_qa.py` nuevo contra https://pillb.github.io/focalruta/ (fase completa) | 0 | 89/89 |
+| `pytest -q` | 0 | 1062 pasan, 1 omitida |
+| `pytest tests/architecture -q` | 0 | 350 pasan, 1 omitida |
+| `verify_architecture.py` | 0 | `checks_failed: []` |
+| `verify_release.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+| `scripts/regenerate_all.py` y `git status` | 0 | solo quedan los cambios de esta ronda |
+
+Los informes de navegador comprometidos no cambian: la comprobación en vivo no escribe ninguno que
+`verify_release.py` cuente, y no se tocó ninguna página.
+
+Evidencia en `/mnt/project-files/qa/followup_y27/`: `Y27_live_abort_red_green.txt`,
+`Y27_live_site_full.json` y `Y27_live_site_full.log`.
+
+### La auditoría de contraste falló en CI de PR #27 (2026-11-09)
+
+En la corrida 42635280864, `visual_resource_audit.py` leyó los botones Sujeto (Humano/Perro) del
+build servido a 1.05:1 y 1.82:1, detrás de la tarjeta de campo abierta. No es de este cambio: es la
+carrera que PR #26 ya describió y arregló (5e62e59). Una transición de 150 ms no existe aún cuando el
+guion termina las animaciones, porque en contenido que la página no dibuja solo se crea al leer el
+estilo del elemento. Lo reproduje aquí con el Chromium de CI: el guion de main con el flujo de PR #26
+(cambiar el sujeto y abrir la tarjeta en la misma tarea) falla 3 de 3 con las mismas razones, 1.05 y
+1.82; el guion de PR #26 pasa 3 de 3 (37/37). Porté su cambio sin tocarlo, byte a byte, para que
+PR #27 no quede en rojo esperando a PR #26; al fusionar el segundo, el archivo es idéntico en ambos
+lados. Evidencia: `/mnt/project-files/qa/followup_y27/contrast_race_red_green.txt`.
+
+## PR #26 tras fusionar PR #24 (2eff0ab): sólo la carrera de la auditoría de contraste (X01)
 
 PR #26 y PR #24 arreglaban lo mismo de dos maneras: el runner fijo `ubuntu-24.04` con su prueba de
 contrato, el aterrizaje de un id en las páginas de plan (M8 de la comprobación en vivo de PR #25) y
@@ -3735,6 +3826,11 @@ tres: `scripts/visual_resource_audit.py`, `requirements-qa.txt` y este archivo. 
 (re-aterrizar durante 0,8 s si cambia el espacio de arriba, `UNREAD` en `fixed_bars.reach`, la
 comprobación de la tarjeta por la regla de 900 px, la prueba del runner duplicada) queda en la
 historia de la rama: b16d3d7, 260eb65 y a955e4a. Sus notas anteriores, en 58f1814.
+
+PR #27 (fusionado en main como 0717b83 el 12 de noviembre) portó el arreglo de la auditoría byte a
+byte, así que `scripts/visual_resource_audit.py` ya es igual en main y aquí. Lo que este PR añade
+a main queda en la nota de `requirements-qa.txt`, el informe `VISUAL_RESOURCE_QA.json` de 91fc3f4
+y esta sección.
 
 Lo que queda:
 
