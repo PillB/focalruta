@@ -79,7 +79,10 @@ reports at the repository root still match the files they audited, byte for byte
   mid-tier and a low-tier phone, the CPU calibrated as Chrome DevTools does,
   median of five, good within 200 ms on the first and never poor (over 500 ms) on the second,
   both for the first paint after the tap and for what the tap was for being on screen; the
-  check first proves it sees content a test page puts off by 300 ms. Each Lighthouse run
+  check first proves it sees content a test page puts off by 300 ms. The phone's speed is
+  read again before and after each tap's runs, and found again, with the runs made once
+  more, when the machine drifted over 15% from it (a shared runner ran every tap 1.4 times
+  slower than the speed found at the start, 11 November 2026). Each Lighthouse run
   keeps the host's BenchmarkIndex, and the report says when the median fell below the
   1500 to 2000 that Lighthouse's 4x slowdown is set for: on a slower machine the same page
   measures as a slower phone (the home page blocked 62 ms on GitHub's runner, index 2608,

@@ -242,8 +242,9 @@ def test_x06_a_tap_that_answers_at_once_but_shows_its_content_late_fails(monkeyp
     passes and what the tap was for fails; content that never shows fails by name."""
     monkeypatch.setattr(interaction_budget, "sees_deferred_work", lambda browser: {"name": "instrument", "pass": True, "detail": {}})
     monkeypatch.setattr(interaction_budget, "finds_every_target", lambda browser, base: {"name": "targets", "pass": True, "detail": []})
-    monkeypatch.setattr(interaction_budget, "calibrate", lambda browser: {"host_benchmark_index": 2000,
-                                                                          "rates": {"mid-tier phone": 2.0, "low-tier phone": 7.5}})
+    monkeypatch.setattr(interaction_budget, "instrument", lambda browser: Machine(2000))
+    monkeypatch.setattr(interaction_budget, "calibrate", lambda meter: {"host_benchmark_index": 2000,
+                                                                        "rates": {"mid-tier phone": 2.0, "low-tier phone": 7.5}})
     taps = {"open the field card": (40, 840), "open the field card at tablet width": (40, 900), "pick another plan": (40, None)}
 
     def tap_once(browser, url, selector, shows, rate, screen):
@@ -262,6 +263,127 @@ def test_x06_a_tap_that_answers_at_once_but_shows_its_content_late_fails(monkeyp
                      for tier, _target, budget in interaction_budget.TIERS}
     assert len(checks) == 2 + 2 * len(interaction_budget.TIERS) * len(interaction_budget.INTERACTIONS)
     assert [check["name"] for check in checks[:2]] == ["instrument", "targets"] and len(report["results"]) == len(checks) - 2
+
+
+class Machine:
+    """A machine whose benchmark score falls as 1/slowdown and that can slow down by `drag`, as a
+    shared CI runner did on 11 November 2026 (Y28)."""
+
+    def __init__(self, host: float):
+        self.host, self.drag, self.reads = host, 1.0, 0
+
+    def score(self, rate: float) -> float:
+        self.reads += 1
+        return self.host / (rate * self.drag)
+
+    def close(self):
+        pass
+
+
+# The work a tap does, in BenchmarkIndex-milliseconds: 400 ms to show what it was for and 150 ms to
+# answer on a phone that scores as DevTools' low-tier one (264), 106 and 40 ms on the mid-tier one.
+SHOWS_WORK, ANSWERS_WORK = 400 * 264, 150 * 264
+
+
+def taps_on(machine: Machine, slow_after: int | None = None, drag: float = 1.4):
+    """A fake tap_once whose times follow the machine's speed, slowing it after `slow_after` taps."""
+    count = {"taps": 0}
+
+    def tap_once(browser, url, selector, shows, rate, screen):
+        count["taps"] += 1
+        if slow_after is not None and count["taps"] > slow_after:
+            machine.drag = drag
+        speed = machine.host / (rate * machine.drag)
+        return ANSWERS_WORK / speed, SHOWS_WORK / speed
+
+    return tap_once
+
+
+def measure_on(monkeypatch, machine: Machine, tap_once, slow_after_calibrating: bool):
+    def calibrate(_browser_or_meter):
+        rates = {tier: interaction_budget.bisect(machine.score, target, machine.host)
+                 for tier, target, _budget in interaction_budget.TIERS}
+        if slow_after_calibrating:
+            machine.drag = 1.4
+        return {"host_benchmark_index": machine.host, "rates": rates}
+
+    monkeypatch.setattr(interaction_budget, "sees_deferred_work", lambda browser: {"name": "instrument", "pass": True, "detail": {}})
+    monkeypatch.setattr(interaction_budget, "finds_every_target", lambda browser, base: {"name": "targets", "pass": True, "detail": []})
+    monkeypatch.setattr(interaction_budget, "instrument", lambda browser: machine, raising=False)
+    monkeypatch.setattr(interaction_budget, "calibrate", calibrate)
+    monkeypatch.setattr(interaction_budget, "tap_once", tap_once)
+    return interaction_budget.measure(None, "http://x/", {"index.html"})
+
+
+def test_y28_a_machine_that_slows_after_calibrating_is_measured_at_the_tiers_speed(monkeypatch):
+    """11 November 2026: the runner ran 1.4 times slower than the slowdown found at the start said,
+    and taps that take 400 ms on a low-tier phone took 560 ms and failed. The instrument read before
+    the runs sees the drift, and the slowdown is searched again."""
+    machine = Machine(4000)
+    report, checks = measure_on(monkeypatch, machine, taps_on(machine), slow_after_calibrating=True)
+    assert [check["name"] for check in checks if not check["pass"]] == []
+    low = [r for r in report["results"] if r["tier"] == "low-tier phone" and r["claim"].startswith("shows")]
+    assert low and all(380 <= r["median_ms"] <= 420 for r in low), [r["median_ms"] for r in low]
+    first = low[0]["speed"]
+    assert first["steady"] and abs(first["attempts"][0]["score_before"] - 264) <= 0.15 * 264
+    assert first["rate"] < report["rates"]["low-tier phone"] / 1.3  # found again on the slower machine
+
+
+def test_y28_a_machine_that_slows_during_the_runs_is_measured_again(monkeypatch):
+    machine = Machine(4000)
+    report, checks = measure_on(monkeypatch, machine, taps_on(machine, slow_after=2), slow_after_calibrating=False)
+    assert [check["name"] for check in checks if not check["pass"]] == []
+    first = report["results"][0]["speed"]
+    assert len(first["attempts"]) == 2 and first["steady"]
+    drifted = first["attempts"][0]
+    assert drifted["score_after"] < 0.85 * drifted["score_before"]
+
+
+def test_y28_a_machine_that_never_holds_a_phones_speed_is_judged_as_measured_and_said_so(monkeypatch):
+    """A neighbour that slows the machine 1.4 times whenever a page is tapped and stops once the
+    instrument has read it: two tries, no steady reading, and the runs count as they were measured,
+    slower than the phone, with the report saying the speed was not held."""
+
+    class Noisy(Machine):
+        def score(self, rate):
+            read = super().score(rate)
+            self.drag = 1.0
+            return read
+
+    machine = Noisy(4000)
+    timed = taps_on(machine, slow_after=0)
+    report, checks = measure_on(monkeypatch, machine, timed, slow_after_calibrating=False)
+    speeds = [r["speed"] for r in report["results"]]
+    assert speeds and all(len(speed["attempts"]) == 2 and not speed["steady"] for speed in speeds)
+    assert all(attempt["score_after"] < 0.85 * attempt["score_before"] for speed in speeds for attempt in speed["attempts"])
+    low = [r["median_ms"] for r in report["results"] if r["tier"] == "low-tier phone" and r["claim"].startswith("shows")]
+    assert all(540 <= ms <= 580 for ms in low), low  # 400 ms of work, 1.4 times slower
+    assert [check["detail"] for check in checks if not check["pass"]] == low
+
+
+def test_y28_a_machine_slower_than_a_tier_is_measured_once_as_it_is(monkeypatch):
+    """A machine scoring 200, under the low-tier phone's 264, cannot be sped up: it is measured once,
+    unthrottled, the report says it is slower than that tier, and its taps are not run twice."""
+    machine = Machine(200)
+    taps = {"count": 0}
+    timed = taps_on(machine)
+
+    def tap_once(*args):
+        taps["count"] += 1
+        return timed(*args)
+
+    report, _checks = measure_on(monkeypatch, machine, tap_once, slow_after_calibrating=False)
+    low = [r["speed"] for r in report["results"] if r["tier"] == "low-tier phone"]
+    assert low and all(len(speed["attempts"]) == 1 and speed["rate"] == 1.0 and not speed["steady"] for speed in low)
+    assert taps["count"] == interaction_budget.RUNS * len(interaction_budget.TIERS) * len(
+        [i for i in interaction_budget.INTERACTIONS if i[0] == "index.html"])
+
+
+def test_y28_the_tolerance_is_a_fraction_of_the_tiers_score_either_side():
+    for _tier, target, _budget in interaction_budget.TIERS:
+        edge = interaction_budget.SPEED_TOLERANCE * target
+        assert interaction_budget.near(target - edge + 0.5, target) and interaction_budget.near(target + edge - 0.5, target)
+        assert not interaction_budget.near(target - edge - 0.5, target) and not interaction_budget.near(target + edge + 0.5, target)
 
 
 class Lit:

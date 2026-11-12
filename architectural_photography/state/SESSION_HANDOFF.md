@@ -3814,3 +3814,95 @@ estilo del elemento. Lo reproduje aquí con el Chromium de CI: el guion de main 
 1.82; el guion de PR #26 pasa 3 de 3 (37/37). Porté su cambio sin tocarlo, byte a byte, para que
 PR #27 no quede en rojo esperando a PR #26; al fusionar el segundo, el archivo es idéntico en ambos
 lados. Evidencia: `/mnt/project-files/qa/followup_y27/contrast_race_red_green.txt`.
+
+## Ronda 20 · La comprobación de velocidad del sitio en vivo falló una vez en un runner que se volvió lento (2026-11-12)
+
+PR #27 (Y27) se fusionó el 12 de noviembre (0717b83). La comprobación diaria del sitio en vivo del
+11 de noviembre (43080389908, sobre 2eff0ab) falló 1 de 138 en la fase de velocidad: «index.html:
+open the field card at tablet width shows the first shot within 500 ms on a low-tier phone», 628 ms.
+Con el mismo build, ese toque tardó 438 ms el 10 de noviembre y 361 ms el 12.
+
+### Requisito y evidencia RED → GREEN
+
+| ID | RED (antes) | GREEN (después) |
+|---|---|---|
+| Y28 | Con cada ralentización de CPU que se pide a Chromium multiplicada por 1.4 en cuanto se ha encontrado la velocidad del teléfono (lo que hace a cada página ralentizada una máquina 1.4 veces más lenta), la comprobación de 0717b83, con el Chromium de CI (140), falla el toque de la tarjeta a ancho de tableta en gama baja 3 de 3 (543, 536 y 582 ms). Sin ralentizar la máquina pasa (437 ms). En pruebas unitarias, con una máquina simulada que se vuelve 1.4 veces más lenta tras calibrar, los toques de 400 ms en gama baja miden 560 ms y fallan; con una que se vuelve lenta a mitad de las corridas, también. | La comprobación nueva, con la misma máquina 1.4 veces más lenta, vuelve a leer la velocidad antes de las corridas, ve la deriva, busca la ralentización otra vez y pasa 4 de 4 (355, 403, 364 y 378 ms, leyendo 245–300 en la gama baja); en uno de ellos la máquina además se desvió sola durante las corridas (256 antes, 210 después) y las repitió (245 y 252). Sin ralentizar la máquina pasa (354 y 353 ms). Las cinco pruebas Y28 pasan, incluidas la máquina que nunca mantiene la velocidad (dos intentos, `steady: false`, medida tal cual) y la máquina más lenta que el teléfono (una sola corrida, sin ralentizar). |
+
+### Causa
+
+Comparé los informes `LIVE_PERF_QA.json` de las comprobaciones del 5 al 12 de noviembre. El 11 de
+noviembre todos los toques corrieron 1.32 veces (gama media) y 1.42 veces (gama baja) más lentos que la
+mediana de los demás días, desde el primero hasta el último, y el de la tarjeta a ancho de tableta pasó
+de 500. La calibración de ese día sí encontró las ralentizaciones (4.07 y 15.4) para que la máquina
+puntuara 1000 y 264 en el BenchmarkIndex de Lighthouse, pero se mide una sola vez, al empezar: la
+comprobación no volvía a mirar la velocidad durante los diez minutos de toques. El runner de ese día
+puntuó 3862 sin ralentizar al calibrar, frente a 4329–4724 en los runners de la misma clase de los
+otros días: era una máquina más cargada. La documentación de Lighthouse sobre variabilidad
+(github.com/GoogleChrome/lighthouse/blob/main/docs/variability.md) clasifica el hardware del cliente y
+la contención de recursos como fuentes de impacto alto y dice que los entornos de CI gratuitos y las
+instancias «burstable» suelen ser muy volátiles; recomienda servidores dedicados, que este proyecto no
+tiene.
+
+### Reproducción
+
+No hubo hipótesis de arreglo fallida; sí falló la primera forma de reproducirlo. Arranqué procesos que
+ocupaban todos los núcleos después de calibrar: la puntuación a la misma ralentización apenas bajó (de
+233 a 228), así que no imitaba lo que pasó en CI. Lo que sí
+reproduce una máquina más lenta es lo que esta le hace a cada página ralentizada: multiplicar por 1.4
+cada `Emulation.setCPUThrottlingRate` que se pide a Chromium una vez calibrado
+(`/mnt/project-files/qa/followup_y28/drifted_runner.py`, que envuelve `CDPSession.send`).
+
+### Arreglo
+
+`scripts/interaction_budget.py`:
+- el BenchmarkIndex vive en una página propia (`Instrument`) que se lee a cualquier ralentización;
+- antes y después de las cinco corridas de cada toque y gama se vuelve a leer la velocidad; si antes
+  está a más de un 15 % (`SPEED_TOLERANCE`) de la puntuación de la gama (1000 o 264), se busca la
+  ralentización otra vez; si se desvió durante las corridas, se repiten una vez a una ralentización
+  buscada de nuevo;
+- una máquina más lenta que la gama se mide una sola vez, sin ralentizar, como antes;
+- el informe guarda, por toque y gama, la ralentización y las lecturas de cada intento, y `steady`
+  dice si la velocidad se mantuvo; si tras dos intentos no se mantuvo, las corridas se juzgan como se
+  midieron.
+
+### Compromisos explícitos
+
+- La comprobación tarda más: dos lecturas más (unos 1.5 s) por toque y gama, más una búsqueda (hasta
+  8 lecturas) cuando la máquina se desvió y otras cinco corridas cuando se desvió durante ellas.
+- La tolerancia del 15 % deja medir un toque en un teléfono hasta un 15 % más rápido o más lento que el
+  de referencia (en el ensayo, 300 frente a 264). Más estrecha volvería a buscar por el ruido del propio
+  benchmark, que varía alrededor de un 10 % entre lecturas en una máquina tranquila.
+- Un runner que no mantiene la velocidad tras dos intentos puede seguir fallando; el informe lo dice
+  (`steady: false`) en vez de esconderlo o de reintentar sin fin.
+- El arreglo ve la deriva que el BenchmarkIndex ve. Si el 11 de noviembre la lentitud fue de otra clase
+  (por ejemplo en hilos que la ralentización de CPU no toca), no la habría corregido; ahora el informe
+  guarda las lecturas alrededor de cada toque, así que el próximo fallo distingue los dos casos.
+- El margen del toque de la tarjeta a ancho de tableta en gama baja es corto en los runners rápidos
+  (345–438 ms frente a 500; 298–311 ms en los de puntuación 2450). Es trabajo de producto aparte.
+- `PERF_BUDGET_QA.json` comprometido no se regeneró: no cambió ninguna página y su recuento de
+  comprobaciones no cambia; sus resultados de toques no traen el campo `speed` hasta la próxima corrida
+  completa.
+- Solo se ensayó con el Chromium de CI (140) en este contenedor.
+
+### Cierre (comandos, código de salida, resumen)
+
+Sobre 0717b83 más este cambio. Ensayos de deriva con el Chromium de CI (140, build 1187), solo el toque
+de la tarjeta a ancho de tableta:
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `drifted_runner.py` con `interaction_budget.py` de 0717b83, máquina 1.4 veces más lenta tras calibrar | 1 | 3 de 3 fallan la gama baja: 543, 536 y 582 ms (RED) |
+| igual, sin ralentizar | 0 | 437 ms (control) |
+| `drifted_runner.py` con el nuevo, máquina 1.4 veces más lenta tras calibrar | 0 | 4 de 4 pasan: 355, 403, 364 y 378 ms (GREEN) |
+| igual, sin ralentizar | 0 | 354 y 353 ms (control) |
+| `pytest tests/test_perf_budget.py -q -k y28` con `interaction_budget.py` de 0717b83 | 1 | las 5 fallan; las dos de deriva, con los toques de gama baja por encima de 500 ms (RED) |
+| `pytest tests/test_perf_budget.py -q` | 0 | 20 pasan (GREEN) |
+| `pytest -q` | 0 | 1067 pasan, 1 omitida |
+| `pytest tests/architecture -q` | 0 | 350 pasan, 1 omitida |
+| `verify_architecture.py` | 0 | `checks_failed: []` |
+| `verify_release.py` | 0 | `checks_failed: []` |
+| `ruff … C901` a 10 | 0 | limpio |
+| `scripts/regenerate_all.py` y `git status` | 0 | solo quedan los cambios de esta ronda |
+
+Evidencia en `/mnt/project-files/qa/followup_y28/`: `Y28_drift_red_green.txt`, `drifted_runner.py`,
+`unit_red.txt`, `unit_green.txt` y los registros de cada ensayo en `runs/`.

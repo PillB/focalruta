@@ -15,6 +15,14 @@ phones do, 1000 for a mid-tier phone (a Pixel 5) and 264 for a low-tier one (a M
 G Power 2022). A machine slower than a tier is measured as it is, and the report
 says so: its numbers are worse than that phone's, never better.
 
+A shared CI machine does not keep its speed: on 11 November 2026 every tap ran 1.3 to 1.4
+times slower on both tiers than the slowdown found at the start said, and the field card at
+tablet width took 628 ms on a low-tier phone (438 the day before, 361 the day after, same
+build). So the instrument is read again before and after each interaction's runs: more than
+SPEED_TOLERANCE off the tier's score before them, the slowdown is searched again; off after
+them, the runs are made once more at a slowdown searched again (Y28). The report keeps those
+readings, and says when the speed was not held after a second try.
+
 INP ends at the first frame painted after the tap, so a page can answer sooner by
 painting part of the change and doing the rest a frame later, which is what yielding
 is for (web.dev/articles/optimize-inp). That later frame is still part of the wait:
@@ -34,6 +42,10 @@ import qa_matrix
 # never poor on a low-tier one. The budget holds for the first paint and for what was tapped for.
 TIERS = (("mid-tier phone", 1000, 200), ("low-tier phone", 264, 500))
 RUNS = 5
+# How far from a tier's BenchmarkIndex the instrument may read, before or after an interaction's
+# runs, for the runs to count as that phone's (Y28). The benchmark itself varies by about a tenth
+# between reads at one slowdown on a quiet machine.
+SPEED_TOLERANCE = 0.15
 # How long to keep waiting for what a tap was for, after the tap has answered.
 SHOWN_WAIT_MS = 3000
 # The screens taps are made on: a phone, and a tablet held upright, the narrowest common screen on
@@ -128,25 +140,76 @@ def finds_every_target(browser, base: str) -> dict:
             "pass": not missing, "detail": missing}
 
 
-def calibrate(browser) -> dict:
-    """The CPU slowdown that makes this machine score as each tier's phone."""
-    page = browser.new_page()
-    session = page.context.new_cdp_session(page)
+class Instrument:
+    """Lighthouse's BenchmarkIndex in a page of its own, read at whatever CPU slowdown is asked."""
+
+    def __init__(self, browser):
+        self.page = browser.new_page()
+        self.session = self.page.context.new_cdp_session(self.page)
+        self.page.evaluate(BENCHMARK, 250)  # the first run warms V8 up, as DevTools does
+
+    def score(self, rate: float) -> float:
+        self.session.send("Emulation.setCPUThrottlingRate", {"rate": rate})
+        # DevTools takes one run per rate; a shared CI machine is noisier, so the median of three.
+        return statistics.median(self.page.evaluate(BENCHMARK, 250) for _ in range(3))
+
+    def close(self) -> None:
+        self.page.close()
+
+
+def instrument(browser) -> Instrument:
+    return Instrument(browser)
+
+
+def find_rate(meter, target: float) -> tuple[float, float]:
+    """The machine's score unthrottled, and the slowdown at which it scores as `target`."""
     scores: dict[float, float] = {}
 
     def score(rate: float) -> float:
         if rate not in scores:
-            session.send("Emulation.setCPUThrottlingRate", {"rate": rate})
-            # DevTools takes one run per rate; a shared CI machine is noisier, so the median of three.
-            scores[rate] = statistics.median(page.evaluate(BENCHMARK, 250) for _ in range(3))
+            scores[rate] = meter.score(rate)
         return scores[rate]
 
-    score(1)
-    scores.clear()  # the first run warms V8 up, as DevTools does
     host = score(1)
-    rates = {name: bisect(score, target, host) for name, target, _budget in TIERS}
-    page.close()
+    return host, bisect(score, target, host)
+
+
+def calibrate(meter) -> dict:
+    """The CPU slowdown that makes this machine score as each tier's phone."""
+    host = meter.score(1)
+    rates = {name: find_rate(meter, target)[1] for name, target, _budget in TIERS}
     return {"host_benchmark_index": host, "rates": rates}
+
+
+def near(score: float, target: float) -> bool:
+    return abs(score - target) <= SPEED_TOLERANCE * target
+
+
+def held(score: float, target: float, rate: float) -> bool:
+    """As near the tier's speed as this machine comes: a machine slower than the tier cannot be
+    sped up, so unthrottled it is measured as it is (the report says so) and not searched again."""
+    return near(score, target) or (rate <= 1 and score < target)
+
+
+def steady_runs(meter, rate: float, target: float, run) -> tuple[list, dict]:
+    """An interaction's runs at a tier's speed, read on the instrument before and after them.
+
+    When the machine is off the tier's speed before the runs, the slowdown is searched again;
+    when it drifted during them, the runs are made once more at a slowdown searched again.
+    """
+    attempts = []
+    for _ in range(2):
+        before = meter.score(rate)
+        if not held(before, target, rate):
+            rate = find_rate(meter, target)[1]
+            before = meter.score(rate)
+        runs = run(rate)
+        after = meter.score(rate)
+        attempts.append({"rate": rate, "score_before": round(before), "score_after": round(after)})
+        if held(after, target, rate):
+            break
+    return runs, {"rate": rate, "attempts": attempts, "steady": near(attempts[-1]["score_before"], target)
+                  and near(attempts[-1]["score_after"], target)}
 
 
 def bisect(score, target: float, host: float) -> float:
@@ -217,21 +280,28 @@ def measure(browser, base: str, pages: set[str]) -> tuple[dict, list[dict]]:
         checks.append(finds_every_target(browser, base))
     for check in checks:
         print(f"{check['name']}: {check['detail']}", flush=True)
-    calibration = calibrate(browser)
-    results = []
-    for page, action, selector, shows, what, screen in INTERACTIONS:
-        if page not in pages:
-            continue
-        url = base + ("" if page == "index.html" else page)
-        for tier, _target, budget in TIERS:
-            runs = [tap_once(browser, url, selector, shows, calibration["rates"][tier], screen) for _ in range(RUNS)]
-            answered = [None if run is None else round(run[0]) for run in runs]
-            shown = [None if run is None or run[1] is None else round(run[1]) for run in runs]
-            for result, check in (judge(page, action, tier, budget, answered),
-                                  judge(page, action, tier, budget, shown, f"shows {what}", "not on screen in time")):
-                results.append(result)
-                checks.append(check)
-                print(f"{check['name']}: {check['detail']} {result['runs_ms']}", flush=True)
+    meter = instrument(browser)
+    try:
+        calibration = calibrate(meter)
+        rates = dict(calibration["rates"])
+        results = []
+        for page, action, selector, shows, what, screen in INTERACTIONS:
+            if page not in pages:
+                continue
+            url = base + ("" if page == "index.html" else page)
+            for tier, target, budget in TIERS:
+                runs, speed = steady_runs(meter, rates[tier], target, lambda rate: [
+                    tap_once(browser, url, selector, shows, rate, screen) for _ in range(RUNS)])
+                rates[tier] = speed["rate"]
+                answered = [None if run is None else round(run[0]) for run in runs]
+                shown = [None if run is None or run[1] is None else round(run[1]) for run in runs]
+                for result, check in (judge(page, action, tier, budget, answered),
+                                      judge(page, action, tier, budget, shown, f"shows {what}", "not on screen in time")):
+                    results.append({**result, "speed": speed})
+                    checks.append(check)
+                    print(f"{check['name']}: {check['detail']} {result['runs_ms']} at {speed['attempts']}", flush=True)
+    finally:
+        meter.close()
     calibration["host_slower_than"] = [tier for tier, target, _budget in TIERS
                                        if calibration["host_benchmark_index"] <= target]
     return {**calibration, "runs_per_interaction": RUNS, "results": results}, checks
