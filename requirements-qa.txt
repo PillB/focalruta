@@ -4,6 +4,8 @@
 # (`python -m playwright install chromium`), which every suite uses unless
 # FOCALRUTA_CHROME names another binary. axe-core and Lighthouse are pinned in
 # package-lock.json: `npm ci`.
+# Playwright installs its browser only on the Ubuntu releases it knows, so the CI
+# browser jobs name one (`runs-on: ubuntu-24.04`); move it together with this pin.
 -r requirements-dev.txt
 playwright==1.55.0
 beautifulsoup4==4.15.0

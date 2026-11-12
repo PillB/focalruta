@@ -3814,3 +3814,60 @@ estilo del elemento. Lo reproduje aquí con el Chromium de CI: el guion de main 
 1.82; el guion de PR #26 pasa 3 de 3 (37/37). Porté su cambio sin tocarlo, byte a byte, para que
 PR #27 no quede en rojo esperando a PR #26; al fusionar el segundo, el archivo es idéntico en ambos
 lados. Evidencia: `/mnt/project-files/qa/followup_y27/contrast_race_red_green.txt`.
+
+## PR #26 tras fusionar PR #24 (2eff0ab): sólo la carrera de la auditoría de contraste (X01)
+
+PR #26 y PR #24 arreglaban lo mismo de dos maneras: el runner fijo `ubuntu-24.04` con su prueba de
+contrato, el aterrizaje de un id en las páginas de plan (M8 de la comprobación en vivo de PR #25) y
+la comprobación del orden de la tarjeta. Los dos hilos acordaron que el PR que se fusionara segundo
+tomaría las versiones del primero en vez de apilar dos arreglos. PR #24 se fusionó el 5 de noviembre
+(2eff0ab). Esta rama fusionó main y tomó la versión de main en todos los archivos que tocaba salvo
+tres: `scripts/visual_resource_audit.py`, `requirements-qa.txt` y este archivo. Lo que se quita
+(re-aterrizar durante 0,8 s si cambia el espacio de arriba, `UNREAD` en `fixed_bars.reach`, la
+comprobación de la tarjeta por la regla de 900 px, la prueba del runner duplicada) queda en la
+historia de la rama: b16d3d7, 260eb65 y a955e4a. Sus notas anteriores, en 58f1814.
+
+PR #27 (fusionado en main como 0717b83 el 12 de noviembre) portó el arreglo de la auditoría byte a
+byte, así que `scripts/visual_resource_audit.py` ya es igual en main y aquí. Lo que este PR añade
+a main queda en la nota de `requirements-qa.txt`, el informe `VISUAL_RESOURCE_QA.json` de 91fc3f4
+y esta sección.
+
+Lo que queda:
+
+- **La carrera de la auditoría de contraste.** Tras `openFieldCard()`, la página de detrás no se
+  dibuja (`content-visibility`), y ahí Chromium crea la transición de 150 ms de los botones
+  Sujeto/Hora sólo cuando se vuelve a leer su estilo, después de que el script de contraste acabara
+  las animaciones con `finish()`. El script leía entonces los colores de partida («Humano» a 1,82:1,
+  «Perro» a 1,05:1). Falló así en CI sobre fd1f7bd. Ahora lee el estilo de cada elemento antes de
+  acabar las animaciones, y el flujo cambia el sujeto y abre la tarjeta en la misma tarea, el caso
+  en que la transición aún no existe, para que la auditoría ejerza la carrera en cada corrida.
+- **`requirements-qa.txt`** dice que los trabajos de navegador nombran su Ubuntu y que se mueve con
+  la versión de Playwright.
+
+Sobre M8, una observación que complementa la causa que anotó PR #24 (el evento `scroll` del salto
+llega tarde): Chromium hace su propio salto al id en el siguiente diseño, que en un cuadro va después
+de los `requestAnimationFrame` (commits de Chromium 396316b0 y 45236fd5), y leer el diseño justo
+después de cambiar la dirección lo adelanta (6 de 12 intentos bajo la barra sin leer, 0 de 12
+leyendo `scrollY`, en 33d2cbb). El `land()` de main llama a `place()`, que lee el diseño, antes de
+`scrollIntoView`, así que cubre también esta causa: la sonda de M8 lo confirma abajo.
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `git merge origin/main` y la versión de main en los 30 archivos compartidos | — | 29 conflictos; quedan 3 archivos distintos de main |
+| `visual_resource_audit.py` sobre el árbol fusionado, con el flujo nuevo y el script de contraste de main, tres veces | 1, 1, 1 | «Humano» a 1,82:1 sobre el degradado |
+| lo mismo con el script nuevo, tres veces | 0, 0, 0 | 37 de 37 |
+| `contrast_rate.py` (borrador: el flujo de main, doce visitas a 390×844) con el script de main y con el nuevo | 0 y 0 (informe) | 6 de 12 y 0 de 12 lecturas con contraste bajo |
+| `probe.py` (M8, contexto nuevo por intento) en el plan A de 33d2cbb, 12 intentos | 1 (tras imprimir) | 9 de 12 bajo la barra: la sonda aún ve el fallo |
+| lo mismo en main 2eff0ab: plan A 24 intentos, plan C 12 | 0, 0 | 0 de 24 y 0 de 12 |
+| `regenerate_all.py` sobre el árbol fusionado | 0 | 12 pasos, sin diferencias |
+| `visual_resource_audit.py` en 91fc3f4 (la fusión, árbol limpio) | 0 | 37 de 37; `VISUAL_RESOURCE_QA.json` |
+| `pytest -q`, `pytest tests/architecture -q` en 91fc3f4 | 0, 0 | 1062 pasan y 1 omitida; 350 pasan y 1 omitida |
+| `verify_architecture.py`, `verify_release.py`, `ruff … C901` a 10 | 0, 0, 0 | `checks_failed: []`, `checks_failed: []`, limpio |
+
+Los otros cinco informes son los de main: las páginas que auditan son las mismas byte a byte.
+
+Compromisos:
+
+- Leer el estilo de todos los elementos antes de cada medida de contraste alarga la auditoría; no lo
+  medí aparte.
+- La sonda de M8 sólo corrió a 1280×800 con movimiento, en Chromium.
