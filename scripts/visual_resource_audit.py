@@ -37,7 +37,11 @@ for page in pages:
 # were skipped, which hid a 3.72:1 label on every shot card. Colours go through
 # a canvas so oklch() and color() resolve exactly as the screen shows them.
 # Emoji-only glyphs are skipped: they render in their own colours.
-contrast_js=r'''()=>{document.getAnimations().forEach(a=>{try{a.finish()}catch(e){}});
+# Running animations are finished first, so no colour is read mid-transition. In content the page
+# is not drawing, such as the page behind the open field card, a transition is only created when
+# its element's style is next read, so every element's style is read before the animations are
+# finished; otherwise the check read the Sujeto/Hora toggles at their old colours (1.05:1).
+contrast_js=r'''()=>{document.querySelectorAll('body *').forEach(e=>getComputedStyle(e).color);document.getAnimations().forEach(a=>{try{a.finish()}catch(e){}});
 const cv=document.createElement('canvas').getContext('2d',{willReadFrequently:true});
 function rgb(s){cv.clearRect(0,0,1,1);cv.fillStyle='#000';cv.fillStyle=s;cv.fillRect(0,0,1,1);const d=cv.getImageData(0,0,1,1).data;return[d[0],d[1],d[2],d[3]/255]}
 function over(top,base){return[0,1,2].map(i=>top[i]*top[3]+base[i]*(1-top[3])).concat(1)}
@@ -65,7 +69,10 @@ with sync_playwright() as pw:
                     state=page.evaluate('''async()=>{const xs=[...document.querySelectorAll('#plan-detail-content img')];xs.forEach(x=>x.loading='eager');await Promise.all(xs.map(x=>x.decode().catch(()=>null)));return xs.filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src)}''')
                     broken.extend(state)
             add(f'{name} all 120 state images decode',not broken,broken[:10])
-            page.evaluate('openFieldCard()')
+            # The Sujeto/Hora toggles change colour in a 150 ms transition, and the open card leaves the page
+            # behind it undrawn. Switching the subject and opening the card in one task is the case where
+            # that transition does not exist yet when the contrast script finishes the page's animations.
+            page.evaluate("()=>{setVariant('human');openFieldCard()}")
         else:
             state=page.evaluate('''async()=>{const xs=[...document.images];xs.forEach(x=>x.loading='eager');await Promise.all(xs.map(x=>x.decode().catch(()=>null)));return xs.filter(x=>!x.complete||!x.naturalWidth).map(x=>x.src)}''')
             add(f'{name} images decode',not state,state[:10])
