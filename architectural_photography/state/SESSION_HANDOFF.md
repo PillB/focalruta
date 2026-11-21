@@ -3871,3 +3871,145 @@ Compromisos:
 - Leer el estilo de todos los elementos antes de cada medida de contraste alarga la auditoría; no lo
   medí aparte.
 - La sonda de M8 sólo corrió a 1280×800 con movimiento, en Chromium.
+
+## Ronda 20 · El despliegue de 8a8bb3c falló en GitHub (2026-11-21)
+
+Pablo fusionó PR #26 (8a8bb3c) y pidió, antes de desplegar, analizar las comparaciones a ciegas por
+pares y someter a red team cada decisión. El despliegue de esa fusión falló tres veces, sin tocar el
+sitio en vivo: el último despliegue correcto sigue siendo el de 0717b83, cuyo `dist/` es idéntico byte
+a byte al de 8a8bb3c (PR #26 sólo cambió notas). Esta sección cubre Z01; el resto de la ronda va en
+su propia sección.
+
+1. **Run 44933904499, intento 1 (push).** `upload-pages-artifact` subió `github-pages` (artefacto
+   14718224818) y, 0,7 s después, `deploy-pages` listó «0 artifact(s)»: «Fetching artifact metadata
+   failed … Please re-run the deployment at a later time».
+2. **Hipótesis 1, fallida: volver a ejecutar el trabajo fallido.** El intento 2 subió otro
+   `github-pages` en el mismo run y `deploy-pages` encontró dos: «Multiple artifacts named
+   "github-pages" were unexpectedly found for this workflow run. Artifact count is 2».
+3. **Investigación (regla tras la primera hipótesis fallida).** Fuentes:
+   [actions/deploy-pages#338](https://github.com/actions/deploy-pages/issues/338) (el mismo error
+   al re-ejecutar; el artefacto del intento anterior queda en el run; sin respuesta de los
+   mantenedores), [discusión 111260](https://github.com/orgs/community/discussions/111260)
+   (lanzar un run nuevo en vez de re-ejecutar), el
+   [README de deploy-pages](https://github.com/actions/deploy-pages) («We recommend this action to
+   be used in a dedicated job»; su ejemplo sube en `build` y despliega en `deploy` con
+   `needs: build`) y la plantilla de Pages de GitHub (copia en
+   [huggingface.co/spaces/Zeel/bhuvan](https://huggingface.co/spaces/Zeel/bhuvan/raw/main/.github/workflows/static.yml):
+   «do NOT cancel in-progress runs as we want to allow these production deployments to
+   complete»). Semejanza: la misma acción, el mismo camino de re-ejecución. Diferencia: nuestro
+   primer fallo fue la lista vacía, no la duplicada. Hipótesis nueva: el run nuevo (workflow_dispatch,
+   run 44934791185) tendría un solo artefacto.
+4. **Hipótesis 2: también falló como el intento 1** («Found 0 artifact(s)», 0,7 s tras subir). Dos
+   fallos de disponibilidad confirmados: paré, sin más reintentos (regla de servicios externos).
+
+Cambio (Z01): `pages.yml` sube en un trabajo `build` (sólo `contents: read`) y despliega en
+`deploy` (`needs: build`), como recomienda el README. Así (a) un despliegue fallido se puede volver a
+ejecutar solo, porque el trabajo que se repite no sube otro artefacto, y (b) entre la subida y la
+lista media el arranque de otro runner. La concurrencia ya no cancela un despliegue en curso.
+
+Predicción falsable: en la próxima fusión a main, `deploy-pages` encuentra exactamente un artefacto
+y el despliegue pasa; si vuelve a listar cero, «Re-run failed jobs» del trabajo `deploy` lo resuelve
+sin un segundo artefacto. Si la lista falla también tras el arranque de otro runner, el problema es
+de GitHub y hay que esperar o abrirles un ticket.
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `pytest tests/test_ci_contract.py -k z01` antes del cambio | 1 | 2 fallan: «re-running the failed deploy job leaves 2 github-pages artifacts», `cancel-in-progress` True |
+| lo mismo después | 0 | 11 de 11 en el archivo |
+| `pytest -q` (sin la prueba de regeneración en sitio) | 0 | 1059 pasan, 3 omitidas |
+| `pytest tests/architecture -q` (ídem) | 0 | 349 pasan, 1 omitida |
+| `verify_architecture.py`, `verify_release.py`, `ruff … C901` a 10 (ruff 0.16.9) | 0, 0, 0 | `checks_failed: []` dos veces, limpio |
+
+La prueba de regeneración en sitio no puede pasar en este contenedor: no tiene matplotlib y su Pillow
+es 12.3.0 frente al 11.3.0 fijado, así que reescribe los WebP. Restauré los 141 archivos que tocó; CI
+la corre con las versiones fijadas.
+
+Compromisos:
+
+- Con la concurrencia sin cancelar, un push espera a que termine el despliegue anterior y su
+  comprobación en vivo (unos 13 minutos el 12 de noviembre) antes de desplegar.
+- El trabajo `deploy` conserva `contents: read`, que ya no usa, para no cambiar el contrato de
+  permisos de X03.
+- La predicción no se puede comprobar sin desplegar: se verá en la primera fusión.
+
+## Ronda 21 · Comparaciones a ciegas y red team antes de desplegar (2026-11-21)
+
+Pablo pidió analizar las comparaciones a ciegas por pares («Ambas»: el sitio actual frente al
+prototipo, y pares de lugares frente al orden del ranking) y someter cada análisis y cada decisión a
+red team: cinco maneras en que podría estar mal, limitada o mejorable, con alternativas y una prueba.
+El informe completo, con la evidencia RED y GREEN de cada arreglo, está en
+`/mnt/project-files/qa/predeploy_redteam/RED_TEAM.md` (carpeta compartida del proyecto, fuera del repo).
+
+**A/B del sitio.** Cuatro evaluadores a ciegas, siete pares, orden A/B contrabalanceado, escala CCR
+de ITU-T P.800 (−3 a +3). El sitio actual gana 6 de 7 pares y no pierde ninguno (prueba de signos
+sobre pares, p = 0,031); preferencia media +1,29 (IC 95 % bootstrap 0,93 a 1,61). El par más débil es
+la tarjeta de campo en el teléfono (media 0): tres de cuatro evaluadores dicen que la primera pantalla
+gasta el alto en ajustes y la nota de acceso antes de la primera toma. Es una decisión de diseño de
+Pablo.
+
+**Pares de lugares.** Cuatro evaluadores, 18 pares de expedientes anonimizados, 72 juicios. Coinciden
+con el ranking en 21 de 72 (29 %, Wilson 20 % a 41 %), y menos cuanto mayor es la distancia de rango
+(33 %, 29 %, 25 %). Coinciden entre sí en un 82 %. Ningún orden propio del ranking (R0 a R3, robusto,
+de campo) pasa del 40 %. Descarté la longitud del expediente, la densidad de advertencias y el
+sobremuestreo de Larcomar (33 % sin él). Defecto concreto: `architecture_causality` vale 78,0 (un
+suelo) en 68 de 87 lugares, así que un criterio con peso del 10 % al 16 % no distingue esos 68, y las
+razones de los evaluadores hablan sobre todo de causalidad. El ranking no queda validado como
+consenso experto; sólo las elecciones a ciegas de Pablo dirán si lo codifica a él.
+
+**Arreglos (Z02 a Z09), cada uno con RED antes y GREEN después:**
+
+- Z02: espacio de no separación antes de cada «%», también los calculados por scripts (panel de la
+  luna, 151 leyendas de laboratorio). La primera versión de la prueba no veía `n + ' %'`; la amplié.
+- Z03: los títulos ya no se dividen con guion. Primera versión (sin guiones desde 48em) refutada por
+  el red team: «fotogra-fía» seguía partido de 320 a 767 px aunque la palabra cabía. Ahora sin guiones
+  en ningún ancho y techo de 6rem a 5rem, para que el título más largo siga en dos líneas a 1440 px.
+- Z04: margen superior de los grupos de la tarjeta (el reset `:is()` lo anulaba por especificidad).
+- Z05: «toggle» y nueve palabras de interfaz más en el suelo de lectura.
+- Z06 (WCAG 2.2, 2.4.11): el foco no cae bajo la barra inferior de la tarjeta. Lo encontró la suite
+  completa tras Z04; el defecto era anterior. Segunda versión tras el red team: el relleno de
+  desplazamiento es la altura medida de la barra más 12 px (80 px sin JavaScript).
+- Z07: la barra fija de las páginas del reto es opaca (al 96 % se veía texto fantasma).
+- Z08: en el teléfono las instrucciones de la lista ocupan la columna y el botón baja.
+- Z09: la línea de visión del diagrama de punto de vista se detiene en el suelo y usa el ángulo de
+  24 mm (vista lateral), en vez de salirse del marco.
+
+Compromisos:
+
+- Títulos de escritorio a 80 px en vez de 96 px.
+- Sin JavaScript y con texto ampliado, un control enfocado puede quedar en parte bajo la barra.
+- El texto copiado lleva el espacio de no separación.
+- En el teléfono el botón «Reiniciar esta lista» queda debajo de las instrucciones.
+- Decisiones pendientes de Pablo: el ranking (que lo valide él con los 18 pares a ciegas, recalcular
+  la causalidad o etiquetarlo como sus prioridades) y la primera pantalla de la tarjeta de campo.
+
+Investigación tras las dos hipótesis de arreglo que fallaron (regla de escalada):
+
+- Z03, primera hipótesis («sin guiones desde 48em basta»): refutada por medición, la palabra seguía
+  partida de 320 a 767 px aunque cabía. Fuentes: [MDN, `hyphens`](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens)
+  (con `auto` el navegador decide dónde cortar según sus reglas de idioma; no exige que la palabra
+  no quepa) y [MDN, `hyphenate-limit-chars`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/hyphenate-limit-chars)
+  («Limited availability», no Baseline). Semejanza: mismo Chromium, mismo `lang="es"`. Diferencia: el
+  límite de caracteres resolvería palabras largas, pero no es Baseline. Hipótesis nueva y predicción:
+  sin guiones y con techo de 5rem ningún título parte una palabra ni desborda en los once anchos
+  probados; se cumplió (0 de 55) y la suite lo repite en los siete de la matriz.
+- Z06, primera hipótesis («80 px fijos bastan»): refutada con el texto de la barra a 30 px (barra de
+  93 px), fallaba en cuatro de siete tamaños. Fuente: [WCAG 2.2, técnica C43](https://www.w3.org/WAI/WCAG22/Techniques/css/C43)
+  («Using CSS scroll-padding to un-obscure content», suficiente para 2.4.11): `scroll-padding-bottom`
+  en `html` frente a una barra fija, como aquí. Diferencia: su ejemplo es una barra de alto fijo; la
+  nuestra crece con el texto. Hipótesis nueva y predicción: medir la barra y usar su alto más 12 px
+  pasa los 14 casos con JavaScript; se cumplió, y los cuatro sin JavaScript siguen fallando
+  (compromiso aceptado, `Z06_edges.txt`).
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `pytest -q` (sin frescura de informes, antes de las suites) | 0 | 1103 pasan, 1 omitida |
+| `pytest tests/test_typography.py tests/test_diagram_frames.py` antes de cada arreglo | 1 | RED en `Z02_Z05_RED.txt`, `Z02b_computed_percent_RED.txt`, `Z09_RED.txt` |
+| sondas de navegador antes y después (Z03, Z04, Z06, Z07, Z08) | 1 y 0 | RED en `Z03_RED.txt` (dos rondas), `Z04_RED.txt`, `Z06_RED.txt`, `Z07_RED.txt`, `Z08_RED.txt`; GREEN en `GREEN_probes.txt` |
+| `field_card_qa.py` | 0 | todas pasan, 55 s |
+| `visual_resource_audit.py`, `optics_accessibility_qa.py`, `axe_accessibility_qa.py` | 0, 0, 0 | 8 s, 59 s, 49 s |
+| `browser_release_qa.py` | 0 | 796 comprobaciones (35 de títulos, 49 de barras), 1830 s |
+| `perf_budget_qa.py` | 0 | 138 comprobaciones, host no más lento que el de referencia de Lighthouse |
+| `pytest tests/architecture -q` | 0 | 350 pasan, 1 omitida (tras regenerar el estado medido) |
+| `verify_architecture.py`, `verify_release.py`, `ruff … C901` a 10 | 0, 0, 0 | `checks_failed: []` dos veces, limpio |
+
+Los seis informes de navegador se generaron sobre e4562e6 sin cambios locales (no «+dirty»).

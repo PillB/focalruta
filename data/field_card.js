@@ -180,6 +180,18 @@
     if (scroller) scroller.scrollTo({ top: 0, behavior: 'auto' }); else window.scrollTo({ top: 0, behavior: 'auto' });
   }
 
+  // Z06: the section bar covers a strip of the screen (the bottom below 900 px, the top from
+  // there). Its measured height plus a little air is the scroll padding that keeps a control
+  // the keyboard focuses clear of it, also when larger text makes the bar taller. Without
+  // JavaScript the stylesheet's 80 px stands in.
+  var bar = $('.fc-tabs');
+  if (bar && root.ResizeObserver) {
+    var scrollBox = app.closest('.fc-modal-scroll') || document.documentElement;
+    new ResizeObserver(function () {
+      scrollBox.style.setProperty('--fc-pad', Math.ceil(bar.getBoundingClientRect().height + 12) + 'px');
+    }).observe(bar);
+  }
+
   app.addEventListener('change', function (event) {
     var t = event.target;
     if (t.name === 'fc-plan') state.plan = t.value;

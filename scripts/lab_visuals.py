@@ -99,7 +99,7 @@ def _perspective_state(focal: int, position: int) -> dict:
     ]
     readout = (
         f"{position} m · {focal} mm. Semiángulo de visión {_fmt(half)}°: alargar la focal cierra el campo. "
-        f"La puerta cercana ocupa el {_fmt(near / PERSPECTIVE_FRAME_PX * 100, 0)} % del alto del encuadre y se proyecta "
+        f"La puerta cercana ocupa el {_fmt(near / PERSPECTIVE_FRAME_PX * 100, 0)}\u00a0% del alto del encuadre y se proyecta "
         f"{_fmt(near / far, 2)}× más alta que la de atrás. Esa relación sólo cambia si mueves los pies."
     )
     if near > PERSPECTIVE_FRAME_PX:
@@ -178,7 +178,7 @@ def _vertical_state(tilt: int) -> dict:
     else:
         frames = vanishing / VERTICAL_FRAME_PX
         readout = (
-            f"Inclinación {tilt}°: las verticales convergen un {_fmt(convergence)} % y su punto de fuga cae a "
+            f"Inclinación {tilt}°: las verticales convergen un {_fmt(convergence)}\u00a0% y su punto de fuga cae a "
             f"{_fmt(frames)} alturas de encuadre por encima del centro. Cuanto más inclinas, más cerca lo traes."
         )
         guide_opacity = 0.85
@@ -470,7 +470,7 @@ def _depth_state(haze: int) -> dict:
         attrs.append([f"depth-plane-{index}", "opacity", _round(0.35 + 0.65 * contrast)])
     separation = contrasts[0] - contrasts[-1]
     readout = (
-        f"Bruma {haze} %. El contraste que sobrevive cae de {_fmt(contrasts[0], 2)} a 8 m hasta "
+        f"Bruma {haze}\u00a0%. El contraste que sobrevive cae de {_fmt(contrasts[0], 2)} a 8 m hasta "
         f"{_fmt(contrasts[-1], 2)} a 400 m: exp(−bruma·d/200 m). "
     )
     readout += (
@@ -606,7 +606,7 @@ def _exposure_state(shutter: int, aperture: float) -> dict:
     readout = (
         f"1/{shutter} s · f/{_fmt(aperture)} · ISO {int(round(iso))}. Un peatón a 6 m deja una estela de "
         f"{_fmt(blur)} px; la zona nítida va de {_fmt(zone['near'])} m a {far_text}. "
-        f"El ruido crece con la raíz del ISO (σ≈{_fmt(noise * 100, 2)} %)."
+        f"El ruido crece con la raíz del ISO (σ≈{_fmt(noise * 100, 2)}\u00a0%)."
     )
     if stops_over > 0.15:
         readout += f" A ISO 100 esta pareja aún sobreexpone {_fmt(stops_over)} pasos: cierra o acorta el tiempo."
@@ -668,9 +668,9 @@ def _reflection_state(angle: int, exposure_ev: int) -> dict:
     halo = op.halo_radius(1.0, float(exposure_ev), 26.0)
     core = min(1.0, 0.3 * (2.0 ** exposure_ev))
     readout = (
-        f"A {angle}° de la perpendicular el vidrio devuelve el {_fmt(reflectance * 100)} % de la luz "
+        f"A {angle}° de la perpendicular el vidrio devuelve el {_fmt(reflectance * 100)}\u00a0% de la luz "
         f"(Schlick, n≈1.5). Pero lo que ves depende del contraste: con un cielo 40 veces más brillante que el "
-        f"interior, el reflejo aporta el {_fmt(visible * 100, 0)} % de lo que registra el sensor. "
+        f"interior, el reflejo aporta el {_fmt(visible * 100, 0)}\u00a0% de lo que registra el sensor. "
     )
     if visible > 0.85:
         readout += "El vidrio se lee como espejo: sólo lo abre un interior más iluminado, un cielo más apagado o un polarizador."
@@ -900,13 +900,17 @@ def _diagram(technique_id: str, title: str, body: str, view_box: str = "0 0 360 
 def _viewpoint_diagram() -> str:
     near = _round(op.projected_height(1.8, 4.0, 35.0, op.FULL_FRAME_HEIGHT_MM, 90.0))
     far = _round(op.projected_height(1.8, 8.0, 35.0, op.FULL_FRAME_HEIGHT_MM, 90.0))
-    half = op.half_angle_of_view_deg(35.0, op.FULL_FRAME_WIDTH_MM)
+    # A side view: the cone spans the frame's height (24 mm), as the two heights beside it do.
+    half = op.half_angle_of_view_deg(35.0, op.FULL_FRAME_HEIGHT_MM)
     reach = 128.0
     dy = _round(reach * math.tan(math.radians(half)))
+    # Z09: the lower sight line meets the ground 34 units under the camera and stops there,
+    # instead of running on underground and out of the frame.
+    ground_x = _round(34 + min(reach, 34 * reach / dy))
     body = (
         f'<line x1="12" y1="130" x2="348" y2="130" stroke="{INK}"/>'
         f'<circle cx="34" cy="96" r="6" fill="{ACCENT}"/><text x="12" y="146">posición A</text>'
-        f'<path d="M34 96L162 {_round(96 - dy)}M34 96L162 {_round(96 + dy)}" fill="none" stroke="{GREEN}" stroke-width="2"/>'
+        f'<path d="M34 96L162 {_round(96 - dy)}M34 96L{ground_x} {_round(min(130, 96 + dy))}" fill="none" stroke="{GREEN}" stroke-width="2"/>'
         f'<circle cx="34" cy="40" r="6" fill="{GREEN}"/><text x="12" y="26">posición B</text>'
         f'<rect x="186" y="{_round(130 - near)}" width="34" height="{near}" fill="{ACCENT}"/>'
         f'<rect x="252" y="{_round(130 - far)}" width="26" height="{far}" fill="{STONE}"/>'

@@ -128,7 +128,7 @@ def test_w07_the_summary_counts_lists_and_names_the_weakest_check():
     assert got["approved"] == 2
     assert [item["n"] for item in got["retry"]] == [2, 3, 4]
     assert got["pending"] == [5, 6, 7, 8, 9]
-    assert got["weakest"] == "s" and got["label"] == "nitidez" and "100 %" in got["advice"]
+    assert got["weakest"] == "s" and got["label"] == "nitidez" and "100\u00a0%" in got["advice"]
     # a review saved again keeps the old tick's flag
     assert node('R.readState(JSON.stringify([{legacy:true}]),1)[0]') == {"legacy": True}
     assert [len(item["fixes"]) for item in got["retry"]] == [1, 2, 1]

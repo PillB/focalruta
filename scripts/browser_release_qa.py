@@ -85,6 +85,49 @@ def wait_until(page, predicate: str, timeout_s: float = 30.0) -> None:
         page.wait_for_timeout(250)
 
 
+# Z03: a heading never splits a word across lines, at any width of the matrix. The blind
+# comparison of 21 Nov 2026 saw the techniques page's title break «fotogra-fía» at 1440 px: the
+# challenge pages hyphenated their 6rem titles, and the browser did so wherever it filled a line.
+SPLIT_WORDS = r"""()=>{const out=[];for(const h of document.querySelectorAll('h1,h2')){
+const walk=document.createTreeWalker(h,NodeFilter.SHOW_TEXT);let n;while((n=walk.nextNode())){const re=/[\p{L}\p{N}]{4,}/gu;let m;
+while((m=re.exec(n.data))){const r=document.createRange();r.setStart(n,m.index);r.setEnd(n,m.index+m[0].length);
+const tops=new Set([...r.getClientRects()].filter(x=>x.width>0).map(x=>Math.round(x.top)));if(tops.size>1)out.push(h.tagName+' '+m[0])}}}return out}"""
+HEADING_PAGES = ("index.html", "challenges/arquitectura-en-foco/index.html", "challenges/arquitectura-en-foco/wiki-tecnicas.html",
+                 "challenges/arquitectura-en-foco/field-card.html", "challenges/arquitectura-en-foco/iphone-maps.html")
+
+
+def headings_kept_whole(browser):
+    for path in HEADING_PAGES:
+        for width, height in qa_matrix.REQUIRED_VIEWPORTS:
+            page = browser.new_page(viewport={"width": width, "height": height})
+            page.goto((ROOT / "dist/canon6d_sota_hosted" / path).as_uri(), wait_until="load", timeout=60000)
+            split = page.evaluate(SPLIT_WORDS)
+            record(f"{path} {width} headings keep their words whole", not split, split[:8])
+            page.close()
+
+
+# Z07: a bar that stays on screen while the page scrolls (sticky or fixed, at least 60 % of the
+# screen wide, with text) is opaque or blurs what passes under it. Three of four blind raters of
+# 21 Nov 2026 read the challenge pages' 96 % opaque section bar as ghosted card text.
+SEE_THROUGH_BARS = r"""()=>[...document.querySelectorAll('body *')].filter(e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();
+return (s.position==='sticky'||s.position==='fixed')&&e.checkVisibility()&&r.height>0&&r.width>=0.6*innerWidth&&e.textContent.trim()})
+.map(e=>{const s=getComputedStyle(e),m=s.backgroundColor.match(/rgba?\(([^)]+)\)/),a=m?(m[1].split(/[ ,\/]+/).filter(Boolean)[3]??'1'):'1';
+return {bar:e.tagName+(e.id?'#'+e.id:''),background:s.backgroundColor,alpha:parseFloat(a),blur:s.backdropFilter}})
+.filter(x=>x.alpha<1&&(!x.blur||x.blur==='none'))"""
+BAR_PAGES = HEADING_PAGES + ("field_card.html", "plans/plan_a.html")
+
+
+def bars_hide_what_scrolls_under_them(browser):
+    for path in BAR_PAGES:
+        for width, height in qa_matrix.REQUIRED_VIEWPORTS:
+            page = browser.new_page(viewport={"width": width, "height": height})
+            page.goto((ROOT / "dist/canon6d_sota_hosted" / path).as_uri(), wait_until="load", timeout=60000)
+            page.evaluate("scrollTo(0, 1500)")
+            see_through = page.evaluate(SEE_THROUGH_BARS)
+            record(f"{path} {width} bars hide what scrolls under them", not see_through, see_through[:4])
+            page.close()
+
+
 def hosted_plan_offline(browser):
     """U05: a hosted plan page visited once works offline, both subjects, all ten diagrams."""
     server = ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(ROOT / "dist/canon6d_sota_hosted")))
@@ -544,6 +587,8 @@ with sync_playwright() as pw:
         record(f"plan_{letter} no errors", not errors, errors)
         page.close()
     nothing_cut_with_long_gear(browser)
+    headings_kept_whole(browser)
+    bars_hide_what_scrolls_under_them(browser)
     hosted_plan_offline(browser)
     unsaved_page_offline(browser)
     error_log(browser)

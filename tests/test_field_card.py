@@ -167,7 +167,10 @@ def test_v02_slots_that_cannot_be_shot_say_so(card):
                 setting = shot["settings_by_time"][slot]
                 block = blocks[(plan["id"], shot["id"], slot)]
                 assert ("fc-off" in block["classes"].split()) == (setting.get("viable") is False), (shot["id"], slot)
-                assert " ".join(block["parts"].get("fc-v-note", "").split()) == setting["notes"], (shot["id"], slot)
+                # Collapse only the source's line breaks: str.split() would also eat the no-break space
+                # that keeps «100 %» on one line (Z02), and the card must carry it.
+                note = re.sub(r"[ \t\r\n]+", " ", block["parts"].get("fc-v-note", "")).strip()
+                assert note == setting["notes"], (shot["id"], slot)
 
 
 def font_sizes_px(css: str) -> list[tuple[float, str]]:

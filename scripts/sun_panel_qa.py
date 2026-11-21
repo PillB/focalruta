@@ -133,7 +133,7 @@ def moon_expected(day: date) -> tuple[list[str], str]:
              f"{where(md['rise_azimuth']) if md['rise'] is not None else 'en todo el día'}",
              f"Se pone la luna\n{clock(md['set']) if md['set'] is not None else 'no se pone'}\n"
              f"{where(md['set_azimuth']) if md['set'] is not None else 'en todo el día'}",
-             f"{moon['phase'][0].upper() + moon['phase'][1:]}\n{lit} %\niluminada a las {clock(at)}"]
+             f"{moon['phase'][0].upper() + moon['phase'][1:]}\n{lit}\u00a0%\niluminada a las {clock(at)}"]
     when = f"Al terminar la hora azul ({clock(at)}) la luna "
     if lit < 3:
         sentence = "Luna nueva: esta noche la luna no suma luz a las tomas de noche."

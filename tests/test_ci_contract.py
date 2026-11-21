@@ -187,3 +187,66 @@ def test_x09_one_action_is_pinned_to_one_commit_everywhere():
             pins.setdefault(m.group(1), set()).add(m.group(2))
     assert pins, "no outside action found"
     assert {action: refs for action, refs in pins.items() if len(refs) > 1} == {}
+
+
+PAGES_ARTIFACT = "github-pages"
+
+
+def step_action(step: dict) -> str:
+    return step.get("uses", "").split("@")[0]
+
+
+def pages_artifacts_uploaded(job: dict, until_deploy: bool) -> int:
+    """github-pages artifacts a job uploads; with until_deploy, only those before its deploy step."""
+    count = 0
+    for step in job.get("steps", []):
+        if until_deploy and step_action(step) == "actions/deploy-pages":
+            break
+        if step_action(step) == "actions/upload-pages-artifact" and (step.get("with") or {}).get("name", PAGES_ARTIFACT) == PAGES_ARTIFACT:
+            count += 1
+    return count
+
+
+def needs_of(job: dict) -> set[str]:
+    needs = job.get("needs", [])
+    return {needs} if isinstance(needs, str) else set(needs)
+
+
+def upstream(jobs: dict, name: str) -> set[str]:
+    found, todo = set(), set(needs_of(jobs[name]))
+    while todo:
+        job = todo.pop()
+        if job not in found:
+            found.add(job)
+            todo |= needs_of(jobs[job])
+    return found
+
+
+def test_z01_a_failed_deploy_can_be_rerun():
+    """21 Nov 2026: the deploy of 8a8bb3c failed when deploy-pages found no artifact a second
+    after the upload, and "Re-run failed jobs" then failed because the run held two
+    github-pages artifacts: deploy-pages refuses anything but one (actions/deploy-pages#338).
+    Simulate GitHub's re-run: attempt 1 runs every job and the deploy step fails; attempt 2
+    re-runs the failed job, while jobs that passed keep their artifacts. The deploy step must
+    then find exactly one artifact, and in the first attempt it must not share a job with the
+    upload, so a runner start separates the upload from the listing (the action's README
+    recommends a dedicated deploy job)."""
+    jobs = workflow("pages.yml")["jobs"]
+    deployers = [name for name, job in jobs.items() if any(step_action(s) == "actions/deploy-pages" for s in job.get("steps", []))]
+    assert len(deployers) == 1, deployers
+    deploy = deployers[0]
+    before = upstream(jobs, deploy)
+    first = sum(pages_artifacts_uploaded(jobs[name], False) for name in before) + pages_artifacts_uploaded(jobs[deploy], True)
+    assert first == 1, f"the first attempt's deploy step sees {first} github-pages artifacts"
+    rerun = first + pages_artifacts_uploaded(jobs[deploy], True)
+    assert rerun == 1, f"re-running the failed deploy job leaves {rerun} github-pages artifacts in the run"
+    assert pages_artifacts_uploaded(jobs[deploy], False) == 0, "the deploy job uploads the artifact itself"
+
+
+def test_z01_a_newer_push_never_cancels_a_deploy_in_progress():
+    """GitHub's Pages starter workflows queue a newer run and let the running deploy finish
+    ("do NOT cancel in-progress runs as we want to allow these production deployments to
+    complete"). Cancelling mid-deploy can leave the run red with no deploy at all."""
+    concurrency = workflow("pages.yml").get("concurrency") or {}
+    assert concurrency.get("group") == "pages"
+    assert concurrency.get("cancel-in-progress") is False, concurrency
