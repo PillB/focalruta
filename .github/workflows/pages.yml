@@ -9,12 +9,30 @@ on:
 permissions:
   contents: read
 
+# One deploy at a time. A newer push waits for the running deploy instead of cancelling
+# it (GitHub's Pages starter workflows do the same), so every merge reaches the site.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
+  # The upload and the deploy run in separate jobs, as deploy-pages' README recommends.
+  # A failed deploy can then be re-run on its own: re-running a job that also uploads
+  # leaves two github-pages artifacts in the run, which deploy-pages refuses
+  # (actions/deploy-pages#338), and the runner start between the jobs gives GitHub time
+  # to list the new artifact (on 21 Nov 2026 it found none a second after the upload).
+  build:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: dist/canon6d_sota_hosted
+
   deploy:
+    needs: build
     permissions:
       contents: read
       pages: write
@@ -24,11 +42,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
-      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
-        with:
-          path: dist/canon6d_sota_hosted
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

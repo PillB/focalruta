@@ -3871,3 +3871,63 @@ Compromisos:
 - Leer el estilo de todos los elementos antes de cada medida de contraste alarga la auditoría; no lo
   medí aparte.
 - La sonda de M8 sólo corrió a 1280×800 con movimiento, en Chromium.
+
+## Ronda 20 · El despliegue de 8a8bb3c falló en GitHub (2026-11-21)
+
+Pablo fusionó PR #26 (8a8bb3c) y pidió, antes de desplegar, analizar las comparaciones a ciegas por
+pares y someter a red team cada decisión. El despliegue de esa fusión falló tres veces, sin tocar el
+sitio en vivo: el último despliegue correcto sigue siendo el de 0717b83, cuyo `dist/` es idéntico byte
+a byte al de 8a8bb3c (PR #26 sólo cambió notas). Esta sección cubre Z01; el resto de la ronda va en
+su propia sección.
+
+1. **Run 44933904499, intento 1 (push).** `upload-pages-artifact` subió `github-pages` (artefacto
+   14718224818) y, 0,7 s después, `deploy-pages` listó «0 artifact(s)»: «Fetching artifact metadata
+   failed … Please re-run the deployment at a later time».
+2. **Hipótesis 1, fallida: volver a ejecutar el trabajo fallido.** El intento 2 subió otro
+   `github-pages` en el mismo run y `deploy-pages` encontró dos: «Multiple artifacts named
+   "github-pages" were unexpectedly found for this workflow run. Artifact count is 2».
+3. **Investigación (regla tras la primera hipótesis fallida).** Fuentes:
+   [actions/deploy-pages#338](https://github.com/actions/deploy-pages/issues/338) (el mismo error
+   al re-ejecutar; el artefacto del intento anterior queda en el run; sin respuesta de los
+   mantenedores), [discusión 111260](https://github.com/orgs/community/discussions/111260)
+   (lanzar un run nuevo en vez de re-ejecutar), el
+   [README de deploy-pages](https://github.com/actions/deploy-pages) («We recommend this action to
+   be used in a dedicated job»; su ejemplo sube en `build` y despliega en `deploy` con
+   `needs: build`) y la plantilla de Pages de GitHub (copia en
+   [huggingface.co/spaces/Zeel/bhuvan](https://huggingface.co/spaces/Zeel/bhuvan/raw/main/.github/workflows/static.yml):
+   «do NOT cancel in-progress runs as we want to allow these production deployments to
+   complete»). Semejanza: la misma acción, el mismo camino de re-ejecución. Diferencia: nuestro
+   primer fallo fue la lista vacía, no la duplicada. Hipótesis nueva: el run nuevo (workflow_dispatch,
+   run 44934791185) tendría un solo artefacto.
+4. **Hipótesis 2: también falló como el intento 1** («Found 0 artifact(s)», 0,7 s tras subir). Dos
+   fallos de disponibilidad confirmados: paré, sin más reintentos (regla de servicios externos).
+
+Cambio (Z01): `pages.yml` sube en un trabajo `build` (sólo `contents: read`) y despliega en
+`deploy` (`needs: build`), como recomienda el README. Así (a) un despliegue fallido se puede volver a
+ejecutar solo, porque el trabajo que se repite no sube otro artefacto, y (b) entre la subida y la
+lista media el arranque de otro runner. La concurrencia ya no cancela un despliegue en curso.
+
+Predicción falsable: en la próxima fusión a main, `deploy-pages` encuentra exactamente un artefacto
+y el despliegue pasa; si vuelve a listar cero, «Re-run failed jobs» del trabajo `deploy` lo resuelve
+sin un segundo artefacto. Si la lista falla también tras el arranque de otro runner, el problema es
+de GitHub y hay que esperar o abrirles un ticket.
+
+| Comando | Salida | Resumen |
+|---|---|---|
+| `pytest tests/test_ci_contract.py -k z01` antes del cambio | 1 | 2 fallan: «re-running the failed deploy job leaves 2 github-pages artifacts», `cancel-in-progress` True |
+| lo mismo después | 0 | 11 de 11 en el archivo |
+| `pytest -q` (sin la prueba de regeneración en sitio) | 0 | 1059 pasan, 3 omitidas |
+| `pytest tests/architecture -q` (ídem) | 0 | 349 pasan, 1 omitida |
+| `verify_architecture.py`, `verify_release.py`, `ruff … C901` a 10 (ruff 0.16.9) | 0, 0, 0 | `checks_failed: []` dos veces, limpio |
+
+La prueba de regeneración en sitio no puede pasar en este contenedor: no tiene matplotlib y su Pillow
+es 12.3.0 frente al 11.3.0 fijado, así que reescribe los WebP. Restauré los 141 archivos que tocó; CI
+la corre con las versiones fijadas.
+
+Compromisos:
+
+- Con la concurrencia sin cancelar, un push espera a que termine el despliegue anterior y su
+  comprobación en vivo (unos 13 minutos el 12 de noviembre) antes de desplegar.
+- El trabajo `deploy` conserva `contents: read`, que ya no usa, para no cambiar el contrato de
+  permisos de X03.
+- La predicción no se puede comprobar sin desplegar: se verá en la primera fusión.
