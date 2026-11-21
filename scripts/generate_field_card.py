@@ -451,7 +451,9 @@ def card_css() -> str:
     return CSS_FILE.read_text(encoding="utf-8").replace("/* VISIBILITY_RULES */", visibility_rules())
 
 
-PAGE_CSS = """html{-webkit-text-size-adjust:100%}body{margin:0;background:#f4f1e9}body:has(#fc-night:checked){background:#000}body:has(#fc-night:checked) .fc-page-top a{color:#ff6b5e}
+# Z06: the section bar sits fixed at the bottom below 900 px and sticky at the top from there,
+# so the page keeps that strip clear when it scrolls a focused control into view (WCAG 2.4.11).
+PAGE_CSS = """html{-webkit-text-size-adjust:100%;scroll-padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}@media(min-width:900px){html{scroll-padding-bottom:0;scroll-padding-top:80px}}body{margin:0;background:#f4f1e9}body:has(#fc-night:checked){background:#000}body:has(#fc-night:checked) .fc-page-top a{color:#ff6b5e}
 .fc-page-top{max-width:760px;margin:0 auto;padding:12px 12px 0}.fc-page-top a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font:600 15px/1.2 system-ui,sans-serif;color:#0b1724}
 @media(prefers-color-scheme:dark){body{background:#0b1220}.fc-page-top a{color:#f1f5f9}}"""
 

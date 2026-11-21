@@ -5173,7 +5173,7 @@ html:not(.fc-js) .fc-date,html:not(.fc-can-wake) .fc-wake,html:not(.fc-can-ics) 
 .fc-modal-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:#061827;color:#fff}
 .fc-modal-bar strong{display:block;font-size:16px}.fc-modal-bar small{display:block;font-size:13px;line-height:1.35;color:#dbeafe}
 .fc-modal-bar button,.fc-modal-bar a{display:inline-grid;place-items:center;min-width:44px;min-height:44px;padding:0 10px;border:1px solid #ffffff59;border-radius:10px;background:#ffffff14;color:#fff;font-size:14px;font-weight:800;text-decoration:none}
-.fc-modal-scroll{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:#f4f1e9}
+.fc-modal-scroll{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:#f4f1e9;scroll-padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}@media(min-width:900px){.fc-modal-scroll{scroll-padding-bottom:0;scroll-padding-top:80px}}
 @media(prefers-color-scheme:dark){.fc-modal-scroll{background:#0b1220}}
 .fc-modal-card:has(#fc-night:checked) :is(.fc-modal-scroll,.fc-modal-bar){background:#000}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar{color:#ff6b5e}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar :is(small,button,a){color:#ff6b5e;border-color:#4a1410}
 body.fc-modal-lock{overflow:hidden}

@@ -126,6 +126,23 @@ def labels_sit_with_their_groups(page, label: str, root: str = "#field-card-app"
     check(f"{label}: each group's label sits with its choices, not with the text above", len(gaps) == 3 and not apart, gaps)
 
 
+# Z06: WCAG 2.2 SC 2.4.11 Focus Not Obscured. On a phone the section bar is fixed to the
+# bottom of the screen, so a control the keyboard focuses must land clear of it. A full run
+# on 21 Nov 2026 found the no-JavaScript card's «Noche» under the bar after picking a plan:
+# the page reserved no scroll padding for the bar, so focus did not scroll at all.
+UNDER_BAR = """(root)=>{const app=document.querySelector(root),bar=app.querySelector('.fc-tabs').getBoundingClientRect(),out=[];
+for(const el of app.querySelectorAll('input,button,a[href],select,textarea')){if(el.closest('.fc-tabs'))continue;
+const box=el.closest('label')||el;if(!box.checkVisibility())continue;el.focus();const r=box.getBoundingClientRect();
+if(r.height&&r.bottom>bar.top+1&&r.top<bar.bottom-1)out.push((el.name||el.id||el.tagName)+'='+(el.value||'')+' '+Math.round(r.top)+'-'+Math.round(r.bottom)+' bar '+Math.round(bar.top))}
+document.activeElement.blur();return out}"""
+
+
+def focus_clears_the_bar(page, label: str, root: str = "#field-card-app") -> None:
+    pick(page, "fc-plan", "plan_c", root)
+    hidden = page.evaluate(UNDER_BAR, root)
+    check(f"{label}: no focused control hides under the section bar", not hidden, hidden[:6])
+
+
 def switching(page, label: str, root: str = "#field-card-app") -> None:
     """V02/V05: plan and light switch to that plan's exact settings."""
     pick(page, "fc-plan", "plan_c", root)
@@ -319,6 +336,7 @@ def without_javascript(browser, base: str) -> None:
     page = context.new_page()
     page.goto(base + "field_card.html", wait_until="load")
     check("no JavaScript: no calendar button that could not work", not page.locator("#fc-ics").is_visible())
+    focus_clears_the_bar(page, "no JavaScript")
     switching(page, "no JavaScript")
     readability(page, "no JavaScript")
     context.close()
@@ -345,6 +363,7 @@ def in_home_dialog(browser, base: str) -> None:
     root = "#field-card-modal #field-card-app"
     check("home page dialog opens the card", page.locator("#field-card-modal").is_visible())
     readability(page, "home page dialog", root)
+    focus_clears_the_bar(page, "home page dialog", root)
     switching(page, "home page dialog", root)
     page.keyboard.press("Escape")
     check("home page dialog closes with Escape, without errors", not page.locator("#field-card-modal").is_visible() and not errors, errors)
@@ -757,6 +776,7 @@ def phone(browser, base: str) -> None:
     page = open_card(context, base, errors)
     readability(page, "phone")
     labels_sit_with_their_groups(page, "phone")
+    focus_clears_the_bar(page, "phone")
     switching(page, "phone")
     thumb_zone(page, "phone")
     memory(page, "phone")
