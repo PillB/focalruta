@@ -81,4 +81,4 @@ def test_w10_the_tables_say_when_the_numbers_stop_holding():
     notes = re.findall(r'<p class="fc-table-note">(.*?)</p>', CARD, re.S)
     text = " ".join(unescape(re.sub(r"<[^>]+>", "", n)) for n in notes)
     assert "Bulb" in text and "30 s" in text and "histograma" in text
-    assert "0.03 mm" in text and "100 %" in text and "difracción" in text
+    assert "0.03 mm" in text and "100\u00a0%" in text and "difracción" in text

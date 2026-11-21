@@ -109,6 +109,23 @@ def readability(page, label: str, root: str = "#field-card-app") -> None:
     check(f"{label}: every control at least 44 × 44 px", not tiny, tiny[:8])
 
 
+# Z04: a group's label (Plan, Luz, Con quién) belongs to the choices under it, so it sits
+# at least twice as far from what is above it as from its own choices (proximity). The blind
+# comparison of 21 Nov 2026 saw «LUZ» and «CON QUIÉN» touching the text above them: the
+# card's reset `.fc-app :is(…,fieldset){margin:0}` outranked `.fc-group{margin-top:14px}`.
+GROUP_GAPS = """(root)=>[...document.querySelectorAll(root+' .fc-group')].filter(g=>g.offsetParent).map(g=>{
+const lg=g.querySelector('legend'),op=g.querySelector('.fc-options');let prev=g.previousElementSibling;
+while(prev&&!prev.offsetParent)prev=prev.previousElementSibling;
+const L=lg.getBoundingClientRect(),O=op.getBoundingClientRect(),P=prev?prev.getBoundingClientRect():{bottom:-Infinity};
+return {legend:lg.textContent.trim(),above:Math.round(L.top-P.bottom),below:Math.round(O.top-L.bottom)}})"""
+
+
+def labels_sit_with_their_groups(page, label: str, root: str = "#field-card-app") -> None:
+    gaps = page.evaluate(GROUP_GAPS, root)
+    apart = [g for g in gaps if g["above"] < 2 * g["below"]]
+    check(f"{label}: each group's label sits with its choices, not with the text above", len(gaps) == 3 and not apart, gaps)
+
+
 def switching(page, label: str, root: str = "#field-card-app") -> None:
     """V02/V05: plan and light switch to that plan's exact settings."""
     pick(page, "fc-plan", "plan_c", root)
@@ -739,6 +756,7 @@ def phone(browser, base: str) -> None:
     errors: list[str] = []
     page = open_card(context, base, errors)
     readability(page, "phone")
+    labels_sit_with_their_groups(page, "phone")
     switching(page, "phone")
     thumb_zone(page, "phone")
     memory(page, "phone")

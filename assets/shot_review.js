@@ -18,7 +18,7 @@
 
   // What to change when a check fails: one variable, and never the one that makes the effect.
   var FIX_SHARP = {
-    mucha_pdc: 'Enfoca al sujeto o a la hiperfocal del plan y cierra a f/11. A pulso, para pasar al 100 %: 1 entre el doble de la focal (1/100 s con el 50 mm, 1/160 s con el 85 mm); el estabilizador del 35 mm permite ≈3 pasos más lento si nada se mueve. Más lento, trípode.',
+    mucha_pdc: 'Enfoca al sujeto o a la hiperfocal del plan y cierra a f/11. A pulso, para pasar al 100\u00a0%: 1 entre el doble de la focal (1/100 s con el 50 mm, 1/160 s con el 85 mm); el estabilizador del 35 mm permite ≈3 pasos más lento si nada se mueve. Más lento, trípode.',
     poca_pdc: 'Punto AF central sobre el ojo más cercano. Con el sujeto quieto, cierra de f/1.8 a f/2.2–2.8.',
     congelado: 'Tv a 1/1000–1/2000 s con AF AI SERVO; sube el ISO antes que bajar la velocidad.',
     barrido: 'Sube a 1/60, gira desde la cintura y apunta a un detalle estable del sujeto.',
@@ -56,14 +56,14 @@
   var LABELS = { s: 'nitidez', e: 'exposición', i: 'intención' };
   // What to do before the next shot about the check that failed most.
   var ADVICE = {
-    s: 'Antes de la próxima toma, amplía al 100 % en la pantalla y revisa el foco y la estabilidad.',
+    s: 'Antes de la próxima toma, amplía al 100\u00a0% en la pantalla y revisa el foco y la estabilidad.',
     e: 'Activa el aviso de altas luces y mira el histograma RGB en la primera foto de cada luz nueva y después de cada serie.',
     i: 'Relee el criterio «Aprueba si» antes de disparar, no después.'
   };
 
   function checks(technique, criterion) {
     return [
-      { key: 's', question: 'Al 100 %: ' + (SHARP[technique] || 'lo importante está nítido'),
+      { key: 's', question: 'Al 100\u00a0%: ' + (SHARP[technique] || 'lo importante está nítido'),
         options: [['ok', 'Sí'], ['no', 'No']] },
       { key: 'e', question: 'Histograma RGB y aviso de altas luces (las zonas que parpadean)',
         options: [['ok', 'Bien'], ['over', 'Quemada'], ['under', 'Oscura']] },

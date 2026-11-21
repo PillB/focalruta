@@ -35,7 +35,7 @@ MIN_TARGET_PX = 44
 ENGLISH_UI = re.compile(
     r"\b(?:field card|eye-level|pre-?flight|shutter|dof|fov|mfd|burst|streak|blue hour|light ?painting"
     r"|zooming|freeze|background|foreground|panning|reset|human|building lab|session run|tips?"
-    r"|settings|back|download|close|next|previous|print|share|save)\b",
+    r"|settings|back|download|close|next|previous|print|share|save|toggle)\b",
     re.I,
 )
 

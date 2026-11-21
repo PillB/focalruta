@@ -46,7 +46,7 @@ RESCUE = [
     ("👻", "El fantasma queda muy tenue", "Pide a la persona que cruce más despacio o que se detenga un instante. Si sale sólida, que se mueva más."),
     ("🌟", "Las luces se queman", "Baja a ISO 100 primero. Después cambia lo que no hace el efecto: con poca profundidad, acorta hasta 1/4000 s y luego pon un ND de 2–3 pasos o busca sombra; para congelar, cierra el diafragma; en tomas de segundos, cierra hasta f/11 y pon un ND más fuerte, porque más allá la difracción ablanda."),
     ("🔭", "El efecto zoom no traza rayos", "Busca luces o patrones con contraste, expón de 1\" a 4\" y gira el anillo de 35 a 80 mm durante toda la exposición, sin mover el trípode."),
-    ("▰", "De noche la foto vibra", "Trípode firme, retardo de 2 s o disparador remoto, y no toques la cámara. Revisa la nitidez al 100 % antes de seguir."),
+    ("▰", "De noche la foto vibra", "Trípode firme, retardo de 2 s o disparador remoto, y no toques la cámara. Revisa la nitidez al 100\u00a0% antes de seguir."),
     ("⬛", "Con el ND la foto falla", "Compón, enfoca y pasa a MF antes de enroscar el filtro: con un ND de 10 pasos el visor queda negro y el AF no ve. Pon la tapa del ocular que va en la correa: la luz que entra por el visor altera la exposición."),
 ]
 COMPOSITION = [
@@ -71,7 +71,7 @@ BEFORE_LEAVING = [
     ("RAW", "Archivo", "RAW, tarjeta con espacio, batería cargada y objetivo limpio."),
     ("AF", "Enfoque", "Sujeto quieto: AF ONE SHOT. Acción: AF AI SERVO y punto central."),
     ("▰", "Soporte", "A pulso: 1 entre el doble de la focal (1/100 s con el 50 mm, 1/160 s con el 85 mm); el estabilizador del 35 mm permite ≈3 pasos más lento si nada se mueve. Desde 0\"5: trípode y retardo de 2 s o remoto."),
-    ("100 %", "Revisión", "Acción: ojos y patas. Profundidad: primer plano y fondo. Noche: altas luces."),
+    ("100\u00a0%", "Revisión", "Acción: ojos y patas. Profundidad: primer plano y fondo. Noche: altas luces."),
     ("🐶", "Perro", "Correa y trayectoria segura; nunca junto a una calzada con tráfico."),
     ("▟", "Exposición", "Histograma RGB y altas luces en la primera foto de cada luz nueva y después de cada serie. Salen de la vista previa JPEG: con estilo Neutro se acercan al RAW, que guarda ≈⅓–⅔ de paso más."),
     ("🌙", "De noche", "Ve acompañado, con una bolsa pequeña y el teléfono aparte; elige puntos iluminados con gente y no dejes el trípode solo."),
@@ -276,7 +276,7 @@ def hyperfocal_table() -> str:
         rows += f'<tr><th scope="row">f/{n:g}</th>{"".join(cells)}</tr>'
     return ('<div class="fc-tablewrap"><table class="fc-table"><caption>Hiperfocal: enfoca a esta distancia y queda nítido desde la mitad hasta el infinito</caption>'
             f'<thead><tr><th scope="col">Diafragma</th>{head}</tr></thead><tbody>{rows}</tbody></table></div>'
-            '<p class="fc-table-note">Para una copia normal (círculo de confusión de 0.03 mm). Si vas a revisar al 100 % o a recortar, '
+            '<p class="fc-table-note">Para una copia normal (círculo de confusión de 0.03 mm). Si vas a revisar al 100\u00a0% o a recortar, '
             'enfoca al doble de la distancia de la tabla. f/16 ya ablanda por difracción en la 6D: úsalo sólo si necesitas esa profundidad. '
             'El zoom 35–80 mm a 35 o 50 mm usa la columna de esa focal.</p>')
 
@@ -385,7 +385,7 @@ def panel(tab: str, title: str, intro: str, body: str) -> str:
 
 def shots_panel() -> str:
     cards = "".join(shot_card(plan, shot) for plan in DATA["plans"] for shot in plan["shots"])
-    head = ('<div class="fc-listhead"><p class="fc-intro">Marca cada toma sólo después de revisarla al 100 %. '
+    head = ('<div class="fc-listhead"><p class="fc-intro">Marca cada toma sólo después de revisarla al 100\u00a0%. '
             'Los valores son los del plan para esa luz.</p><button type="button" id="fc-reset" class="fc-reset">Reiniciar esta lista</button></div>'
             '<p id="fc-status" class="fc-sr" role="status"></p>')
     return (f'<section class="fc-panel fc-panel-shots" aria-labelledby="fc-h-shots"><h2 id="fc-h-shots">Tomas</h2>'

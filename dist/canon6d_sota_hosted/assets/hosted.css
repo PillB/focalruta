@@ -5067,7 +5067,7 @@ html:not(.fc-js) .fc-date,html:not(.fc-can-wake) .fc-wake,html:not(.fc-can-ics) 
 
 .fc-panel{display:none;margin-top:16px}.fc-panel>h2{font-size:21px;line-height:1.2;font-weight:800}
 .fc-intro{margin-top:4px;font-size:15px;color:var(--fc-muted)}
-.fc-group{border:0;padding:0;margin-top:14px;min-width:0}.fc-group legend{padding:0;margin-bottom:6px;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--fc-muted)}
+.fc-app .fc-group{border:0;padding:0;margin-top:14px;min-width:0}.fc-group legend{padding:0;margin-bottom:6px;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--fc-muted)}
 .fc-options{display:grid;gap:6px}.fc-plans .fc-options{grid-template-columns:repeat(6,minmax(0,1fr))}.fc-slots .fc-options{grid-template-columns:repeat(3,minmax(0,1fr))}.fc-subjects .fc-options{grid-template-columns:repeat(2,minmax(0,1fr))}
 .fc-option{position:relative;display:block;min-width:44px}
 .fc-option input,.fc-tab input,.fc-check-wrap input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
