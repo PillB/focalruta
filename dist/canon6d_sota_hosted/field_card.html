@@ -176,7 +176,7 @@
   root.FocalRutaDiagnostico = api;
 })(typeof window !== 'undefined' ? window : this);
 </script><script>(function(c){c.add('fc-js');if('wakeLock' in navigator)c.add('fc-can-wake');if(window.Blob&&window.URL&&URL.createObjectURL)c.add('fc-can-ics')})(document.documentElement.classList);</script><title>Tarjeta de campo · FocalRuta</title>
-<style>html{-webkit-text-size-adjust:100%;scroll-padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}@media(min-width:900px){html{scroll-padding-bottom:0;scroll-padding-top:80px}}body{margin:0;background:#f4f1e9}body:has(#fc-night:checked){background:#000}body:has(#fc-night:checked) .fc-page-top a{color:#ff6b5e}
+<style>html{-webkit-text-size-adjust:100%;scroll-padding-bottom:var(--fc-pad,calc(80px + env(safe-area-inset-bottom,0px)))}@media(min-width:900px){html{scroll-padding-bottom:0;scroll-padding-top:var(--fc-pad,80px)}}body{margin:0;background:#f4f1e9}body:has(#fc-night:checked){background:#000}body:has(#fc-night:checked) .fc-page-top a{color:#ff6b5e}
 .fc-page-top{max-width:760px;margin:0 auto;padding:12px 12px 0}.fc-page-top a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font:600 15px/1.2 system-ui,sans-serif;color:#0b1724}
 @media(prefers-color-scheme:dark){body{background:#0b1220}.fc-page-top a{color:#f1f5f9}}
 /* Field card. Scoped to .fc-app so the home page can embed it in a dialog.
@@ -237,7 +237,7 @@ html:not(.fc-js) .fc-date,html:not(.fc-can-wake) .fc-wake,html:not(.fc-can-ics) 
 .fc-option input:focus-visible+span,.fc-tab input:focus-visible~span,.fc-check-wrap input:focus-visible+.fc-box{outline:3px solid var(--fc-focus);outline-offset:2px}
 .fc-plan-name{display:none;margin-top:8px;font-size:15px;line-height:1.35}.fc-plan-name small{font-size:13px;color:var(--fc-muted)}
 
-.fc-listhead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:16px}
+.fc-listhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:16px}.fc-listhead .fc-intro{flex:1 1 22rem}
 .fc-reset{flex:0 0 auto;min-height:44px;padding:0 12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);color:var(--fc-ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;font-variant-numeric:inherit;cursor:pointer}
 .fc-shots{list-style:none;padding:0;margin-top:10px}
 .fc-shot{display:none;position:relative;margin:0 0 10px;padding:12px;border:1.5px solid var(--fc-line);border-radius:14px;background:var(--fc-card)}
@@ -1113,6 +1113,18 @@ html:not(.fc-js) .fc-date,html:not(.fc-can-wake) .fc-wake,html:not(.fc-can-ics) 
   function toTop() {
     var scroller = app.closest('.fc-modal-scroll');
     if (scroller) scroller.scrollTo({ top: 0, behavior: 'auto' }); else window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  // Z06: the section bar covers a strip of the screen (the bottom below 900 px, the top from
+  // there). Its measured height plus a little air is the scroll padding that keeps a control
+  // the keyboard focuses clear of it, also when larger text makes the bar taller. Without
+  // JavaScript the stylesheet's 80 px stands in.
+  var bar = $('.fc-tabs');
+  if (bar && root.ResizeObserver) {
+    var scrollBox = app.closest('.fc-modal-scroll') || document.documentElement;
+    new ResizeObserver(function () {
+      scrollBox.style.setProperty('--fc-pad', Math.ceil(bar.getBoundingClientRect().height + 12) + 'px');
+    }).observe(bar);
   }
 
   app.addEventListener('change', function (event) {

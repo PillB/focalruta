@@ -143,6 +143,18 @@ def focus_clears_the_bar(page, label: str, root: str = "#field-card-app") -> Non
     check(f"{label}: no focused control hides under the section bar", not hidden, hidden[:6])
 
 
+# Z08: on a phone the shot list's instructions use the column, not the strip beside the reset
+# button. Two of four blind raters of 21 Nov 2026 saw «Marca cada toma…» squeezed into four
+# narrow lines next to «Reiniciar esta lista».
+INTRO_SHARE = """(root)=>{const h=document.querySelector(root+' .fc-listhead'),i=h.querySelector('.fc-intro');
+return Math.round(100*i.getBoundingClientRect().width/h.getBoundingClientRect().width)}"""
+
+
+def instructions_use_the_column(page, label: str, root: str = "#field-card-app") -> None:
+    share = page.evaluate(INTRO_SHARE, root)
+    check(f"{label}: the shot list's instructions use the column's width", share >= 90, f"{share} % of the column")
+
+
 def switching(page, label: str, root: str = "#field-card-app") -> None:
     """V02/V05: plan and light switch to that plan's exact settings."""
     pick(page, "fc-plan", "plan_c", root)
@@ -364,6 +376,8 @@ def in_home_dialog(browser, base: str) -> None:
     check("home page dialog opens the card", page.locator("#field-card-modal").is_visible())
     readability(page, "home page dialog", root)
     focus_clears_the_bar(page, "home page dialog", root)
+    labels_sit_with_their_groups(page, "home page dialog", root)
+    instructions_use_the_column(page, "home page dialog", root)
     switching(page, "home page dialog", root)
     page.keyboard.press("Escape")
     check("home page dialog closes with Escape, without errors", not page.locator("#field-card-modal").is_visible() and not errors, errors)
@@ -777,6 +791,7 @@ def phone(browser, base: str) -> None:
     readability(page, "phone")
     labels_sit_with_their_groups(page, "phone")
     focus_clears_the_bar(page, "phone")
+    instructions_use_the_column(page, "phone")
     switching(page, "phone")
     thumb_zone(page, "phone")
     memory(page, "phone")

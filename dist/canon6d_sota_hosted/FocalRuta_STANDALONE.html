@@ -5270,7 +5270,7 @@ html:not(.fc-js) .fc-date,html:not(.fc-can-wake) .fc-wake,html:not(.fc-can-ics) 
 .fc-option input:focus-visible+span,.fc-tab input:focus-visible~span,.fc-check-wrap input:focus-visible+.fc-box{outline:3px solid var(--fc-focus);outline-offset:2px}
 .fc-plan-name{display:none;margin-top:8px;font-size:15px;line-height:1.35}.fc-plan-name small{font-size:13px;color:var(--fc-muted)}
 
-.fc-listhead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:16px}
+.fc-listhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:16px}.fc-listhead .fc-intro{flex:1 1 22rem}
 .fc-reset{flex:0 0 auto;min-height:44px;padding:0 12px;border:1.5px solid var(--fc-line);border-radius:12px;background:var(--fc-card);color:var(--fc-ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;font-variant-numeric:inherit;cursor:pointer}
 .fc-shots{list-style:none;padding:0;margin-top:10px}
 .fc-shot{display:none;position:relative;margin:0 0 10px;padding:12px;border:1.5px solid var(--fc-line);border-radius:14px;background:var(--fc-card)}
@@ -5366,7 +5366,7 @@ html:not(.fc-js) .fc-date,html:not(.fc-can-wake) .fc-wake,html:not(.fc-can-ics) 
 .fc-modal-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:#061827;color:#fff}
 .fc-modal-bar strong{display:block;font-size:16px}.fc-modal-bar small{display:block;font-size:13px;line-height:1.35;color:#dbeafe}
 .fc-modal-bar button,.fc-modal-bar a{display:inline-grid;place-items:center;min-width:44px;min-height:44px;padding:0 10px;border:1px solid #ffffff59;border-radius:10px;background:#ffffff14;color:#fff;font-size:14px;font-weight:800;text-decoration:none}
-.fc-modal-scroll{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:#f4f1e9;scroll-padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}@media(min-width:900px){.fc-modal-scroll{scroll-padding-bottom:0;scroll-padding-top:80px}}
+.fc-modal-scroll{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:#f4f1e9;scroll-padding-bottom:var(--fc-pad,calc(80px + env(safe-area-inset-bottom,0px)))}@media(min-width:900px){.fc-modal-scroll{scroll-padding-bottom:0;scroll-padding-top:var(--fc-pad,80px)}}
 @media(prefers-color-scheme:dark){.fc-modal-scroll{background:#0b1220}}
 .fc-modal-card:has(#fc-night:checked) :is(.fc-modal-scroll,.fc-modal-bar){background:#000}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar{color:#ff6b5e}.fc-modal-card:has(#fc-night:checked) .fc-modal-bar :is(small,button,a){color:#ff6b5e;border-color:#4a1410}
 body.fc-modal-lock{overflow:hidden}
@@ -7927,6 +7927,18 @@ document.addEventListener('keydown',e=>{const m=fcDialog();if(!m)return;if(e.key
   function toTop() {
     var scroller = app.closest('.fc-modal-scroll');
     if (scroller) scroller.scrollTo({ top: 0, behavior: 'auto' }); else window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  // Z06: the section bar covers a strip of the screen (the bottom below 900 px, the top from
+  // there). Its measured height plus a little air is the scroll padding that keeps a control
+  // the keyboard focuses clear of it, also when larger text makes the bar taller. Without
+  // JavaScript the stylesheet's 80 px stands in.
+  var bar = $('.fc-tabs');
+  if (bar && root.ResizeObserver) {
+    var scrollBox = app.closest('.fc-modal-scroll') || document.documentElement;
+    new ResizeObserver(function () {
+      scrollBox.style.setProperty('--fc-pad', Math.ceil(bar.getBoundingClientRect().height + 12) + 'px');
+    }).observe(bar);
   }
 
   app.addEventListener('change', function (event) {
